@@ -76,6 +76,7 @@ export function Header() {
             aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
+            aria-controls="mobile-menu"
             className="md:hidden flex flex-col gap-[5px] p-2 cursor-pointer"
           >
             <span
@@ -99,7 +100,7 @@ export function Header() {
 
       {/* Mobile menu overlay */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-bg/95 backdrop-blur-[20px] pt-14 md:hidden">
+        <div id="mobile-menu" className="fixed inset-0 z-40 bg-bg/95 backdrop-blur-[20px] pt-14 md:hidden">
           <nav className="flex flex-col px-6 py-8 gap-2" aria-label="Navigation mobile">
             {ALL_LINKS.map(({ label, href }) => (
               <Link

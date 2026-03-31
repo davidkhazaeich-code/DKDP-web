@@ -65,7 +65,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <p className="text-violet-light font-semibold text-xs uppercase tracking-[0.12em] mb-4">Services</p>
+            <p className="text-violet-light font-semibold text-xs uppercase tracking-[0.12em] mb-4">Liens utiles</p>
             <ul className="space-y-2">
               {SERVICE_LINKS.map(({ label, href }) => (
                 <li key={href}>

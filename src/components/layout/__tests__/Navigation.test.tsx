@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 
+const mockUsePathname = vi.fn(() => '/')
 vi.mock('next/navigation', () => ({
-  usePathname: () => '/',
+  usePathname: () => mockUsePathname(),
 }))
 
 import { Navigation } from '../Navigation'
@@ -27,10 +28,25 @@ describe('Navigation', () => {
   })
 
   it('no active link at root path', () => {
+    mockUsePathname.mockReturnValue('/')
     render(<Navigation />)
     const activeLinks = screen.queryAllByRole('link').filter(
       (l) => l.getAttribute('aria-current') === 'page'
     )
     expect(activeLinks).toHaveLength(0)
+  })
+
+  it('active pillar link gets aria-current="page"', () => {
+    mockUsePathname.mockReturnValue('/agence-digitale')
+    render(<Navigation />)
+    const activeLink = screen.getByRole('link', { name: /agence digitale/i })
+    expect(activeLink).toHaveAttribute('aria-current', 'page')
+  })
+
+  it('child route activates parent pillar link', () => {
+    mockUsePathname.mockReturnValue('/agence-digitale/creation-site-web')
+    render(<Navigation />)
+    const activeLink = screen.getByRole('link', { name: /agence digitale/i })
+    expect(activeLink).toHaveAttribute('aria-current', 'page')
   })
 })

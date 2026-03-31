@@ -79,8 +79,6 @@ export function DottedSurface({
       const totalPoints = AMOUNTX * AMOUNTY
       const pointType = new Uint8Array(totalPoints)
       const pointTransition = new Float32Array(totalPoints)
-      const TRANSITION_SPD = TRANSITION_SPEED
-
       // violet vivid
       const VR = 0.55, VG = 0.28, VB = 1.0, VGR = 0.6, VGG = 0.25, VGB = 1.0
       // orange vivid
@@ -111,13 +109,13 @@ export function DottedSurface({
           const type = pointType[idx]
 
           if (type === 1) {
-            if (t < 1) pointTransition[idx] = Math.min(t + TRANSITION_SPD, 1)
+            if (t < 1) pointTransition[idx] = Math.min(t + TRANSITION_SPEED, 1)
             const p = pointTransition[idx]
             col[j] = WR + (VR - WR) * p; col[j+1] = WG + (VG - WG) * p; col[j+2] = WB + (VB - WB) * p
             gcol[j] = VGR * p; gcol[j+1] = VGG * p; gcol[j+2] = VGB * p
             gpos[j] = pos[j]; gpos[j+1] = pos[j+1]; gpos[j+2] = pos[j+2]
           } else if (type === 2) {
-            if (t < 1) pointTransition[idx] = Math.min(t + TRANSITION_SPD, 1)
+            if (t < 1) pointTransition[idx] = Math.min(t + TRANSITION_SPEED, 1)
             const p = pointTransition[idx]
             col[j] = WR + (OR - WR) * p; col[j+1] = WG + (OG - WG) * p; col[j+2] = WB + (OB - WB) * p
             gcol[j] = OGR * p; gcol[j+1] = OGG * p; gcol[j+2] = OGB * p

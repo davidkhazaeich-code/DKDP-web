@@ -23,7 +23,7 @@ export function DottedSurface({
     let cleanupFn: (() => void) | undefined
     let cancelled = false
 
-    async function init() {
+    async function init(container: HTMLDivElement) {
       const THREE = await import('three')
       if (cancelled) return
 
@@ -196,7 +196,7 @@ export function DottedSurface({
       }
     }
 
-    init()
+    init(container)
 
     return () => {
       cancelled = true

@@ -3,6 +3,15 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect, vi } from 'vitest'
 
+vi.mock('@paper-design/shaders', () => ({
+  liquidMetalFragmentShader: 'mock-shader',
+  ShaderMount: class {
+    constructor() {}
+    setSpeed() {}
+    destroy() {}
+  },
+}))
+
 import { LiquidMetalButton } from '../LiquidMetalButton'
 
 describe('LiquidMetalButton', () => {
@@ -29,8 +38,8 @@ describe('LiquidMetalButton', () => {
     expect(onClick).toHaveBeenCalledOnce()
   })
 
-  it('has isolate group classes for glow effect', () => {
+  it('renders shader container', () => {
     render(<LiquidMetalButton>Test</LiquidMetalButton>)
-    expect(screen.getByRole('button')).toHaveClass('isolate', 'group')
+    expect(screen.getByTestId('shader-mount')).toBeInTheDocument()
   })
 })

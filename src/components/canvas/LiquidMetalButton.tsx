@@ -1,6 +1,6 @@
 'use client'
 
-import { useId } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 
 interface LiquidMetalButtonProps {
@@ -11,9 +11,9 @@ interface LiquidMetalButtonProps {
   className?: string
 }
 
-const sizeClasses = {
-  md: 'px-[22px] py-[11px] text-[13px]',
-  lg: 'px-7 py-3.5 text-sm',
+const sizeMap = {
+  md: { px: 22, py: 11, fontSize: '13px' },
+  lg: { px: 28, py: 14, fontSize: '14px' },
 }
 
 export function LiquidMetalButton({
@@ -23,91 +23,205 @@ export function LiquidMetalButton({
   size = 'lg',
   className = '',
 }: LiquidMetalButtonProps) {
-  // Unique IDs per instance — prevents filter collision when multiple buttons are on the page
-  const uid = useId().replace(/:/g, '')
-  const f1 = `gb1-${uid}` // strong alpha boost × 9 → hard outer glow
-  const f2 = `gb2-${uid}` // medium alpha boost × 3 → mid glow ring
-  const f3 = `gb3-${uid}` // soft boost × 2 + RGB tint → inner rim
+  const [isHovered, setIsHovered] = useState(false)
+  const [isPressed, setIsPressed] = useState(false)
+  const [ripples, setRipples] = useState<Array<{ x: number; y: number; id: number }>>([])
+  const shaderRef = useRef<HTMLDivElement>(null)
+  const shaderMount = useRef<{ setSpeed?: (s: number) => void; destroy?: () => void } | null>(null)
+  const isHoveredRef = useRef(false)
+  const rippleId = useRef(0)
 
-  const glowContent = (
+  useEffect(() => {
+    async function initShader() {
+      try {
+        const { liquidMetalFragmentShader, ShaderMount } = await import('@paper-design/shaders')
+        if (!shaderRef.current) return
+        shaderMount.current?.destroy?.()
+        shaderMount.current = new ShaderMount(
+          shaderRef.current,
+          liquidMetalFragmentShader,
+          {
+            u_repetition: 4,
+            u_softness: 0.5,
+            u_shiftRed: 0.45,   // warm orange tint in the metal reflections
+            u_shiftBlue: 0.12,  // reduce blue for warmer chrome
+            u_distortion: 0,
+            u_contour: 0,
+            u_angle: 45,
+            u_scale: 8,
+            u_shape: 1,
+            u_offsetX: 0.1,
+            u_offsetY: -0.1,
+          },
+          undefined,
+          0.6
+        ) as { setSpeed?: (s: number) => void; destroy?: () => void }
+      } catch (e) {
+        console.warn('LiquidMetalButton shader init failed', e)
+      }
+    }
+    initShader()
+    return () => { shaderMount.current?.destroy?.(); shaderMount.current = null }
+  }, [])
+
+  const handleMouseEnter = () => {
+    isHoveredRef.current = true
+    setIsHovered(true)
+    shaderMount.current?.setSpeed?.(1)
+  }
+  const handleMouseLeave = () => {
+    isHoveredRef.current = false
+    setIsHovered(false)
+    setIsPressed(false)
+    shaderMount.current?.setSpeed?.(0.6)
+  }
+  const handleMouseDown = () => setIsPressed(true)
+  const handleMouseUp = () => setIsPressed(false)
+
+  function handleClick(e: React.MouseEvent) {
+    shaderMount.current?.setSpeed?.(2.4)
+    setTimeout(() => shaderMount.current?.setSpeed?.(isHoveredRef.current ? 1 : 0.6), 300)
+
+    const rect = e.currentTarget.getBoundingClientRect()
+    const id = rippleId.current++
+    setRipples(prev => [...prev, { x: e.clientX - rect.left, y: e.clientY - rect.top, id }])
+    setTimeout(() => setRipples(prev => prev.filter(r => r.id !== id)), 600)
+    onClick?.()
+  }
+
+  const s = sizeMap[size]
+  const radius = '100px'
+
+  const shadow = isPressed
+    ? '0 0 0 1px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.4)'
+    : isHovered
+      ? '0 0 0 1px rgba(0,0,0,0.4), 0 8px 20px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.15)'
+      : '0 0 0 1px rgba(0,0,0,0.35), 0 20px 12px rgba(0,0,0,0.08), 0 9px 9px rgba(0,0,0,0.12), 0 2px 5px rgba(0,0,0,0.15)'
+
+  const transform = isPressed
+    ? 'translateY(1px) scale(0.98)'
+    : isHovered
+      ? 'translateY(-1px)'
+      : 'none'
+
+  const interactionHandlers = {
+    onMouseEnter: handleMouseEnter,
+    onMouseLeave: handleMouseLeave,
+    onMouseDown: handleMouseDown,
+    onMouseUp: handleMouseUp,
+    onClick: handleClick,
+  }
+
+  // Inner visual layers rendered inside the interactive element
+  const visualContent = (
     <>
-      {/* SVG filter definitions */}
-      <svg aria-hidden="true" className="absolute w-0 h-0 overflow-hidden">
-        <defs>
-          <filter id={f1} width="300%" x="-100%" height="300%" y="-100%">
-            <feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 9 0" />
-          </filter>
-          <filter id={f2} width="300%" x="-100%" height="300%" y="-100%">
-            <feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 3 0" />
-          </filter>
-          <filter id={f3} width="300%" x="-100%" height="300%" y="-100%">
-            <feColorMatrix values="1 0 0 0.2 0  0 1 0 0.2 0  0 0 1 0.2 0  0 0 0 2 0" />
-          </filter>
-        </defs>
-      </svg>
-
-      {/* Outer diffuse glow — large blur + alpha filter */}
+      {/* Shader chrome background */}
       <div
+        ref={shaderRef}
+        data-testid="shader-mount"
+        className="lmb-shader"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          borderRadius: radius,
+          overflow: 'hidden',
+          pointerEvents: 'none',
+        }}
         aria-hidden="true"
-        className="absolute inset-0 -z-20 opacity-50 overflow-hidden rounded-[12px] transition-opacity duration-300 group-hover:opacity-80 group-active:opacity-100"
-        style={{ filter: `blur(2em) url(#${f1})` }}
-      >
-        <div
-          className="glow-spin"
-          style={{ background: 'linear-gradient(90deg, #FF6B00 30%, transparent 50%, #7C3AED 70%)' }}
-        />
-      </div>
+      />
 
-      {/* Mid focused ring — tight blur just outside the border */}
+      {/* Dark pill surface — sits 2px inset from chrome edge, creating a visible metal ring */}
       <div
+        style={{
+          position: 'absolute',
+          inset: 2,
+          borderRadius: radius,
+          background: isPressed
+            ? 'linear-gradient(180deg, #0e0e0e 0%, #080808 100%)'
+            : 'linear-gradient(180deg, #1c1c1e 0%, #0A0A0A 100%)',
+          boxShadow: isPressed ? 'inset 0 2px 4px rgba(0,0,0,0.5)' : 'none',
+          transition: 'background 0.15s, box-shadow 0.15s',
+          pointerEvents: 'none',
+        }}
         aria-hidden="true"
-        className="absolute inset-[-2px] -z-20 opacity-55 overflow-hidden rounded-[14px] transition-opacity duration-300 group-hover:opacity-85 group-active:opacity-100"
-        style={{ filter: `blur(4px) url(#${f2})` }}
-      >
-        <div
-          className="glow-spin"
-          style={{ background: 'linear-gradient(90deg, #FF8C40 20%, transparent 45% 55%, #9F7AEA 80%)' }}
-        />
-      </div>
+      />
 
-      {/* Dark button surface */}
-      <div className="relative overflow-hidden rounded-[12px] bg-[#111215] border border-white/5">
-        {/* Inner rim glow — very tight blur on the border edge */}
-        <div
+      {/* Label — sits above the dark pill */}
+      <span
+        style={{
+          position: 'relative',
+          zIndex: 10,
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 8,
+          padding: `${s.py}px ${s.px}px`,
+          fontSize: s.fontSize,
+          fontWeight: 600,
+          color: 'rgba(210, 210, 210, 0.92)',
+          textShadow: '0 1px 2px rgba(0,0,0,0.7)',
+          whiteSpace: 'nowrap',
+          pointerEvents: 'none',
+          transition: 'color 0.15s',
+        }}
+      >
+        {children}
+      </span>
+
+      {/* Click ripples */}
+      {ripples.map(r => (
+        <span
+          key={r.id}
           aria-hidden="true"
-          className="absolute inset-[-2px] -z-10 opacity-40 overflow-hidden rounded-[inherit] transition-opacity duration-300 group-hover:opacity-70 group-active:opacity-100"
-          style={{ filter: `blur(2px) url(#${f3})` }}
-        >
-          <div
-            className="glow-spin"
-            style={{ background: 'linear-gradient(90deg, #FFD4A0 30%, transparent 45% 55%, #C4B5FD 70%)' }}
-          />
-        </div>
-
-        <span className={`relative z-10 flex items-center justify-center gap-2 font-semibold text-white ${sizeClasses[size]}`}>
-          {children}
-        </span>
-      </div>
+          style={{
+            position: 'absolute',
+            left: r.x,
+            top: r.y,
+            width: 20,
+            height: 20,
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%)',
+            pointerEvents: 'none',
+            animation: 'lmb-ripple 0.6s ease-out',
+          }}
+        />
+      ))}
     </>
   )
 
-  const wrapperClass = [
-    'relative inline-block isolate group',
-    'transition-transform duration-150 hover:-translate-y-px active:scale-[0.98]',
-    className,
-  ].join(' ')
+  const wrapperStyle: React.CSSProperties = {
+    position: 'relative',
+    display: 'inline-flex',
+    alignItems: 'center',
+    borderRadius: radius,
+    overflow: 'hidden',
+    boxShadow: shadow,
+    transform,
+    transition: 'box-shadow 0.15s cubic-bezier(0.4,0,0.2,1), transform 0.15s cubic-bezier(0.4,0,0.2,1)',
+    cursor: 'pointer',
+    userSelect: 'none',
+  }
 
   if (href) {
     return (
-      <Link href={href} className={wrapperClass}>
-        {glowContent}
+      <Link
+        href={href}
+        className={className}
+        style={{ ...wrapperStyle, textDecoration: 'none' }}
+        {...interactionHandlers}
+      >
+        {visualContent}
       </Link>
     )
   }
 
   return (
-    <button type="button" onClick={onClick} className={wrapperClass}>
-      {glowContent}
+    <button
+      type="button"
+      className={className}
+      style={{ ...wrapperStyle, border: 'none', padding: 0, background: 'transparent' }}
+      {...interactionHandlers}
+    >
+      {visualContent}
     </button>
   )
 }

@@ -30,9 +30,9 @@ export function DottedSurface({
       const SEPARATION = 150
       const AMOUNTX = 60
       const AMOUNTY = 90
-      const SHUFFLE_INTERVAL = 4000
-      const TRANSITION_SPEED = 0.018
-      const BREATH_SPEED = 1.0 // radians per second — controls breathing cadence
+      const SHUFFLE_INTERVAL = 4500
+      const FADE_SPEED = 0.016      // frames to cross 0→1 ≈ 1.0s at 60fps
+      const BREATH_SPEED = 1.0
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
       // Circular dot texture via canvas radial gradient
@@ -45,7 +45,7 @@ export function DottedSurface({
         const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2)
         gradient.addColorStop(0, 'rgba(255,255,255,1)')
         gradient.addColorStop(0.4, 'rgba(255,255,255,0.95)')
-        gradient.addColorStop(0.7, 'rgba(255,255,255,0.4)')
+        gradient.addColorStop(0.7, 'rgba(255,255,255,0.35)')
         gradient.addColorStop(1, 'rgba(255,255,255,0)')
         ctx.fillStyle = gradient
         ctx.fillRect(0, 0, size, size)
@@ -116,18 +116,16 @@ export function DottedSurface({
       scene.add(glowPoints)
 
       // Per-point state
-      const pointType = new Uint8Array(totalPoints)       // 0=neutral, 1=violet, 2=orange
-      const pointTransition = new Float32Array(totalPoints) // 0→1 fade-in when activating
-      const pointPhase = new Float32Array(totalPoints)     // random phase offset for breathing
+      const pointType     = new Uint8Array(totalPoints)   // 0=gray, 1=violet, 2=orange
+      const pointT        = new Float32Array(totalPoints) // 0→1: opacity/intensity multiplier
+      const pointPhase    = new Float32Array(totalPoints) // random breathing phase offset
+      const pointExiting  = new Uint8Array(totalPoints)   // 1 = currently fading out toward gray
 
-      // Violet brand color — boosted to near-full saturation
-      const VR = 0.55, VG = 0.22, VB = 1.0
-      // Orange brand color — full saturation
-      const OR = 1.0, OG = 0.48, OB = 0.0
-      // Neutral gray — kept very dim so colored dots stand out sharply
-      const GRAY = 0.32
+      // Vivid brand colors
+      const VR = 0.55, VG = 0.22, VB = 1.0   // violet
+      const OR = 1.0,  OG = 0.48, OB = 0.0   // orange
+      const GRAY = 0.32                        // neutral dot
 
-      // Random breathing phases so each dot is out of sync
       for (let i = 0; i < totalPoints; i++) {
         pointPhase[i] = Math.random() * Math.PI * 2
       }
@@ -135,59 +133,95 @@ export function DottedSurface({
       function assignNewColors() {
         for (let idx = 0; idx < totalPoints; idx++) {
           const rand = Math.random()
-          const prev = pointType[idx]
-          const next = rand < violetRatio ? 1 : rand < violetRatio + orangeRatio ? 2 : 0
-          pointType[idx] = next
-          if (next !== prev && next !== 0) pointTransition[idx] = 0
+          const next: number = rand < violetRatio ? 1 : rand < violetRatio + orangeRatio ? 2 : 0
+          const curr = pointType[idx]
+
+          if (next === 0) {
+            // Should deactivate — trigger smooth fade-out instead of instant change
+            if (curr !== 0 && !pointExiting[idx]) {
+              pointExiting[idx] = 1
+            }
+          } else {
+            if (pointExiting[idx]) {
+              // Was fading out — redirect to new color, fade continues from current t
+              pointType[idx] = next
+              pointExiting[idx] = 0
+            } else if (curr === 0) {
+              // Was gray — start fresh fade-in
+              pointType[idx] = next
+              pointT[idx] = 0
+            } else {
+              // Was a different color — swap color, keep current intensity
+              pointType[idx] = next
+            }
+          }
         }
       }
 
       function updateColors(time: number) {
-        const col = geometry.attributes.color.array as Float32Array
+        const col  = geometry.attributes.color.array as Float32Array
         const gcol = glowGeometry.attributes.color.array as Float32Array
         const gpos = glowGeometry.attributes.position.array as Float32Array
-        const pos = geometry.attributes.position.array as Float32Array
+        const pos  = geometry.attributes.position.array as Float32Array
 
         for (let idx = 0; idx < totalPoints; idx++) {
-          const j = idx * 3
+          const j    = idx * 3
           const type = pointType[idx]
 
-          if (type === 0) {
-            // Neutral gray dot
-            col[j] = col[j + 1] = col[j + 2] = GRAY
-            gcol[j] = gcol[j + 1] = gcol[j + 2] = 0
-            gpos[j] = 0; gpos[j + 1] = -99999; gpos[j + 2] = 0
-          } else {
-            // Entry fade-in
-            if (pointTransition[idx] < 1) pointTransition[idx] = Math.min(pointTransition[idx] + TRANSITION_SPEED, 1)
-            const t = pointTransition[idx]
-
-            // Breathing: oscillate between target color and near-white
-            // breath=0 → full target color, breath=1 → near-white
-            const breath = 0.5 + 0.5 * Math.sin(time * BREATH_SPEED + pointPhase[idx])
-
-            const cr = type === 1 ? VR : OR
-            const cg = type === 1 ? VG : OG
-            const cb = type === 1 ? VB : OB
-
-            // Breathing: pulse between full color and a slightly brightened version
-            // Max 45% toward white so the color stays vivid throughout
-            const finalR = cr + (1.0 - cr) * breath * 0.45
-            const finalG = cg + (1.0 - cg) * breath * 0.45
-            const finalB = cb + (1.0 - cb) * breath * 0.45
-
-            // Apply entry fade from gray to animated color
-            col[j] = GRAY + (finalR - GRAY) * t
-            col[j + 1] = GRAY + (finalG - GRAY) * t
-            col[j + 2] = GRAY + (finalB - GRAY) * t
-
-            // Glow is very strong — full intensity at color peak, still 55% at white peak
-            const glowStrength = (1.0 - breath * 0.35) * t
-            gcol[j] = cr * glowStrength
-            gcol[j + 1] = cg * glowStrength
-            gcol[j + 2] = cb * glowStrength
-            gpos[j] = pos[j]; gpos[j + 1] = pos[j + 1]; gpos[j + 2] = pos[j + 2]
+          if (type === 0 && !pointExiting[idx]) {
+            // Pure gray dot — target intensity 0, fade toward it if needed
+            if (pointT[idx] > 0) {
+              pointT[idx] = Math.max(pointT[idx] - FADE_SPEED, 0)
+            }
+            if (pointT[idx] === 0) {
+              col[j] = col[j + 1] = col[j + 2] = GRAY
+              gcol[j] = gcol[j + 1] = gcol[j + 2] = 0
+              gpos[j] = 0; gpos[j + 1] = -99999; gpos[j + 2] = 0
+              continue
+            }
+            // Still finishing fade-out from a previous color (t > 0)
           }
+
+          if (pointExiting[idx]) {
+            // Smooth fade-out
+            pointT[idx] = Math.max(pointT[idx] - FADE_SPEED, 0)
+            if (pointT[idx] <= 0) {
+              pointExiting[idx] = 0
+              pointType[idx] = 0
+              col[j] = col[j + 1] = col[j + 2] = GRAY
+              gcol[j] = gcol[j + 1] = gcol[j + 2] = 0
+              gpos[j] = 0; gpos[j + 1] = -99999; gpos[j + 2] = 0
+              continue
+            }
+          } else {
+            // Smooth fade-in
+            if (pointT[idx] < 1) pointT[idx] = Math.min(pointT[idx] + FADE_SPEED, 1)
+          }
+
+          const t = pointT[idx]
+
+          // Breathing: dot oscillates color ↔ brighter-white, never fully white (max 45%)
+          const breath = 0.5 + 0.5 * Math.sin(time * BREATH_SPEED + pointPhase[idx])
+
+          const cr = type === 1 ? VR : OR
+          const cg = type === 1 ? VG : OG
+          const cb = type === 1 ? VB : OB
+
+          const finalR = cr + (1.0 - cr) * breath * 0.45
+          const finalG = cg + (1.0 - cg) * breath * 0.45
+          const finalB = cb + (1.0 - cb) * breath * 0.45
+
+          col[j]     = GRAY + (finalR - GRAY) * t
+          col[j + 1] = GRAY + (finalG - GRAY) * t
+          col[j + 2] = GRAY + (finalB - GRAY) * t
+
+          const glowStrength = (1.0 - breath * 0.35) * t
+          gcol[j]     = cr * glowStrength
+          gcol[j + 1] = cg * glowStrength
+          gcol[j + 2] = cb * glowStrength
+          gpos[j]     = pos[j]
+          gpos[j + 1] = pos[j + 1]
+          gpos[j + 2] = pos[j + 2]
         }
         geometry.attributes.color.needsUpdate = true
         glowGeometry.attributes.color.needsUpdate = true
@@ -196,7 +230,7 @@ export function DottedSurface({
 
       assignNewColors()
       for (let i = 0; i < totalPoints; i++) {
-        if (pointType[i] !== 0) pointTransition[i] = 1
+        if (pointType[i] !== 0) pointT[i] = 1
       }
       updateColors(0)
 
@@ -209,7 +243,7 @@ export function DottedSurface({
         if (now - lastShuffle > SHUFFLE_INTERVAL) { assignNewColors(); lastShuffle = now }
         updateColors(now / 1000)
 
-        const posArr = geometry.attributes.position.array as Float32Array
+        const posArr  = geometry.attributes.position.array as Float32Array
         const gposArr = glowGeometry.attributes.position.array as Float32Array
         let i = 0
         for (let ix = 0; ix < AMOUNTX; ix++) {

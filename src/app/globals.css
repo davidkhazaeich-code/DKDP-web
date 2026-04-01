@@ -204,28 +204,18 @@ html {
   animation: fadeUp 500ms var(--ease-entry) both;
 }
 
-/* ═══ Glow button ═══ */
-@keyframes btn-spin {
-  0%   { transform: rotate(10deg); }
-  50%  { transform: rotate(190deg); }
-  100% { transform: rotate(370deg); }
+/* ═══ Liquid metal shader button ═══ */
+.lmb-shader canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: inherit !important;
 }
-@keyframes btn-pulse {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(0.75); }
-}
-
-/* Rotating gradient layer shared by all glow instances */
-.glow-spin {
-  position: absolute;
-  inset: -150%;
-  animation:
-    btn-spin  12s cubic-bezier(0.56, 0.15, 0.28, 0.86) infinite,
-    btn-pulse  6s ease-in-out infinite;
-}
-.group:hover .glow-spin,
-.group:focus-visible .glow-spin {
-  animation-duration: 7s, 3.5s;
+@keyframes lmb-ripple {
+  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
 }
 
 /* Logo scroll animation */

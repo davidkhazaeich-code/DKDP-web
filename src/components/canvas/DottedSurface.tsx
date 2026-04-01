@@ -10,8 +10,8 @@ interface DottedSurfaceProps {
 
 export function DottedSurface({
   className = '',
-  violetRatio = 0.04,
-  orangeRatio = 0.015,
+  violetRatio = 0.02,
+  orangeRatio = 0.008,
 }: DottedSurfaceProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -124,7 +124,7 @@ export function DottedSurface({
       // Vivid brand colors
       const VR = 0.55, VG = 0.22, VB = 1.0   // violet
       const OR = 1.0,  OG = 0.48, OB = 0.0   // orange
-      const GRAY = 0.32                        // neutral dot
+      const GRAY = 0.48                        // neutral dot (light white-ish)
 
       for (let i = 0; i < totalPoints; i++) {
         pointPhase[i] = Math.random() * Math.PI * 2

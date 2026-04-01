@@ -16,9 +16,10 @@ vi.mock('@/components/canvas/LiquidMetalButton', () => ({
 import { HomeHero } from '../HomeHero'
 
 describe('HomeHero', () => {
-  it('renders H1 with key phrase', () => {
+  it('renders H1 SEO keyword and H2 visual headline', () => {
     render(<HomeHero />)
-    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/agence digitale à genève/i)
+    expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument()
     expect(screen.getByText(/votre entreprise mérite/i)).toBeInTheDocument()
   })
 
@@ -34,7 +35,7 @@ describe('HomeHero', () => {
 
   it('renders 4 stat labels', () => {
     render(<HomeHero />)
-    expect(screen.getByText(/ans d'expérience/i)).toBeInTheDocument()
+    expect(screen.getByText(/^ans d'expérience$/i)).toBeInTheDocument()
     expect(screen.getByText(/entreprises accompagnées/i)).toBeInTheDocument()
     expect(screen.getByText(/note google/i)).toBeInTheDocument()
     expect(screen.getByText(/élèves formés/i)).toBeInTheDocument()

@@ -250,6 +250,7 @@ html {
   background-size: 0% 1.5px;
   animation: pillar-underline 2.8s ease-in-out infinite;
   text-decoration: none;
+  padding-bottom: 4px;
 }
 
 /* ═══ Liquid metal shader button ═══ */
@@ -270,7 +271,7 @@ html {
 /* Logo scroll animation — seamless infinite marquee */
 @keyframes logo-scroll {
   from { transform: translateX(0) }
-  to   { transform: translateX(-50%) }
+  to   { transform: translateX(-33.333%) }
 }
 
 .logo-scroll {

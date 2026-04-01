@@ -34,10 +34,10 @@ export default function HomePage() {
       <LogoBanner />
       <ProblemBlock />
       <PillarCards />
+      <ProcessSteps />
       <BeforeAfter />
       <ProofStack />
       <FeaturedProject />
-      <ProcessSteps />
       <Testimonials />
       <DavidCard />
       <CTAFinal />

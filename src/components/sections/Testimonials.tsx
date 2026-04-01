@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
@@ -42,15 +43,22 @@ const TESTIMONIALS = [
 
 export function Testimonials() {
   const [current, setCurrent] = useState(0)
+  const [expanded, setExpanded] = useState(false)
 
-  const next = useCallback(
-    () => setCurrent((c) => (c + 1) % TESTIMONIALS.length),
-    []
-  )
-  const prev = useCallback(
-    () => setCurrent((c) => (c - 1 + TESTIMONIALS.length) % TESTIMONIALS.length),
-    []
-  )
+  const next = useCallback(() => {
+    setCurrent((c) => (c + 1) % TESTIMONIALS.length)
+    setExpanded(false)
+  }, [])
+
+  const prev = useCallback(() => {
+    setCurrent((c) => (c - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)
+    setExpanded(false)
+  }, [])
+
+  const goTo = (i: number) => {
+    setCurrent(i)
+    setExpanded(false)
+  }
 
   useEffect(() => {
     const interval = setInterval(next, 6000)
@@ -91,9 +99,28 @@ export function Testimonials() {
               </svg>
 
               <blockquote>
-                <p className="text-white text-lg leading-relaxed mb-8 italic">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
+                <div className="mb-8">
+                  <motion.div
+                    animate={{ height: expanded ? 'auto' : '5.5rem' }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ overflow: 'hidden' }}
+                  >
+                    <p className="text-white text-lg leading-relaxed italic">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </p>
+                  </motion.div>
+                  <button
+                    type="button"
+                    onClick={() => setExpanded((v) => !v)}
+                    className="mt-3 inline-flex items-center gap-1 text-[13px] font-medium text-violet-light hover:opacity-80 transition-opacity"
+                  >
+                    {expanded ? (
+                      <><ChevronUp size={13} />Réduire</>
+                    ) : (
+                      <><ChevronDown size={13} />Lire la suite</>
+                    )}
+                  </button>
+                </div>
                 <footer className="flex items-center gap-4">
                   <div className="w-11 h-11 rounded-full bg-violet/20 border border-border flex items-center justify-center flex-shrink-0">
                     <span className="text-sm font-bold text-violet-light">{testimonial.initials}</span>
@@ -129,7 +156,7 @@ export function Testimonials() {
                   role="tab"
                   aria-selected={i === current}
                   aria-label={`Témoignage ${i + 1}`}
-                  onClick={() => setCurrent(i)}
+                  onClick={() => goTo(i)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     i === current
                       ? 'bg-violet w-6'

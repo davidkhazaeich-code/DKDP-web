@@ -13,7 +13,7 @@ const STEP_COLORS = [
 
 function IconChat({ color }: { color: string }) {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+    <svg width="32" height="32" viewBox="0 0 28 28" fill="none" aria-hidden="true">
       <path
         d="M4 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8l-5 4V6Z"
         stroke={color} strokeWidth="1.6" strokeLinejoin="round" fill="none"
@@ -26,7 +26,7 @@ function IconChat({ color }: { color: string }) {
 
 function IconSearch({ color }: { color: string }) {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+    <svg width="32" height="32" viewBox="0 0 28 28" fill="none" aria-hidden="true">
       <circle cx="12" cy="12" r="7" stroke={color} strokeWidth="1.6" fill="none" />
       <line x1="17.5" y1="17.5" x2="24" y2="24" stroke={color} strokeWidth="1.8" strokeLinecap="round" />
       <line x1="9" y1="12" x2="15" y2="12" stroke={color} strokeWidth="1.3" strokeLinecap="round" />
@@ -37,7 +37,7 @@ function IconSearch({ color }: { color: string }) {
 
 function IconClipboard({ color }: { color: string }) {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+    <svg width="32" height="32" viewBox="0 0 28 28" fill="none" aria-hidden="true">
       <rect x="5" y="5" width="18" height="22" rx="2" stroke={color} strokeWidth="1.6" fill="none" />
       <path d="M10 5a2 2 0 0 1 4 0" stroke={color} strokeWidth="1.4" strokeLinecap="round" fill="none" />
       <line x1="9" y1="13" x2="19" y2="13" stroke={color} strokeWidth="1.3" strokeLinecap="round" />
@@ -49,7 +49,7 @@ function IconClipboard({ color }: { color: string }) {
 
 function IconLightning({ color }: { color: string }) {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+    <svg width="32" height="32" viewBox="0 0 28 28" fill="none" aria-hidden="true">
       <path
         d="M16 3 L8 16 h6 L12 25 L22 12 h-6 Z"
         stroke={color} strokeWidth="1.6" strokeLinejoin="round"
@@ -61,7 +61,7 @@ function IconLightning({ color }: { color: string }) {
 
 function IconTrendUp({ color }: { color: string }) {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+    <svg width="32" height="32" viewBox="0 0 28 28" fill="none" aria-hidden="true">
       <polyline
         points="3,22 9,14 15,18 24,7"
         stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"
@@ -110,15 +110,15 @@ const STEPS = [
 
 export function ProcessSteps() {
   return (
-    <section aria-labelledby="process-heading" className="py-24">
+    <section aria-labelledby="process-heading" className="py-32">
       <div className="max-w-[1200px] mx-auto px-6">
         <SectionReveal>
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <GradTag className="mb-6">Notre méthode</GradTag>
-            <h2 id="process-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-4">
+            <h2 id="process-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-5">
               Comment ça marche
             </h2>
-            <p className="text-text-secondary text-lg max-w-xl mx-auto">
+            <p className="text-text-secondary text-xl max-w-xl mx-auto">
               5 étapes claires, un processus éprouvé sur 150+ projets.
             </p>
           </div>
@@ -127,33 +127,33 @@ export function ProcessSteps() {
         <div className="relative">
           {/* Connecting line - desktop only, violet→orange gradient */}
           <div
-            className="hidden md:block absolute top-10 left-0 right-0 h-px"
+            className="hidden md:block absolute top-12 left-0 right-0 h-px"
             style={{ background: 'linear-gradient(to right, transparent, #7C3AED 10%, #BE5377 50%, #FF6B00 90%, transparent)' }}
             aria-hidden="true"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 md:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-12 md:gap-6">
             {STEPS.map((step, i) => {
               const color = STEP_COLORS[i]
               return (
                 <SectionReveal key={step.number} delay={i * 0.1}>
                   <div className="flex flex-col items-center text-center">
-                    <div className="relative mb-6">
+                    <div className="relative mb-7">
                       <div
-                        className="w-20 h-20 rounded-full bg-bg-card flex items-center justify-center relative z-10"
-                        style={{ border: `1px solid ${color}40`, boxShadow: `0 0 16px ${color}20` }}
+                        className="w-24 h-24 rounded-full bg-bg-card flex items-center justify-center relative z-10"
+                        style={{ border: `1px solid ${color}40`, boxShadow: `0 0 24px ${color}25` }}
                       >
                         <step.Icon color={color} />
                       </div>
                       <span
-                        className="absolute -top-1.5 -right-1.5 z-20 text-[10px] font-bold bg-bg border rounded-full w-6 h-6 flex items-center justify-center"
+                        className="absolute -top-1.5 -right-1.5 z-20 text-[11px] font-bold bg-bg border rounded-full w-7 h-7 flex items-center justify-center"
                         style={{ color, borderColor: `${color}60` }}
                       >
                         {step.number}
                       </span>
                     </div>
-                    <h3 className="text-white font-semibold text-sm mb-2">{step.title}</h3>
-                    <p className="text-text-muted text-xs leading-relaxed">{step.description}</p>
+                    <h3 className="text-white font-semibold text-base mb-3">{step.title}</h3>
+                    <p className="text-text-muted text-sm leading-relaxed">{step.description}</p>
                   </div>
                 </SectionReveal>
               )

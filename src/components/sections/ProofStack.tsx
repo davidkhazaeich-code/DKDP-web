@@ -14,14 +14,14 @@ const STATS = [
 ]
 
 const LOGO_GRID = [
-  { name: 'SwissLife', file: 'swisslife.webp' },
-  { name: 'Fondation Hans Wilsdorf', file: 'fondation-hans-wilsdorf.webp' },
-  { name: 'Howden', file: 'howden.avif' },
-  { name: 'OCAS', file: 'ocas.avif' },
-  { name: 'Swiss Mutual Trust', file: 'swiss-mutual-trust.avif' },
-  { name: 'WellWays', file: 'wellways.avif' },
-  { name: 'Strike', file: 'strike.avif' },
-  { name: 'Intown', file: 'intown.avif' },
+  { name: 'SwissLife', file: 'swisslife.webp', width: 120, small: true },
+  { name: 'Fondation Hans Wilsdorf', file: 'fondation-hans-wilsdorf.webp', width: 130 },
+  { name: 'Howden', file: 'howden.avif', width: 100 },
+  { name: 'OCAS', file: 'ocas.avif', width: 80 },
+  { name: 'Swiss Mutual Trust', file: 'swiss-mutual-trust.avif', width: 130 },
+  { name: 'WellWays', file: 'wellways.avif', width: 100 },
+  { name: 'Strike', file: 'strike.avif', width: 80 },
+  { name: 'Intown', file: 'intown.avif', width: 90 },
 ]
 
 function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {
@@ -48,7 +48,7 @@ function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {
   }, [isInView, end, isDecimal])
 
   return (
-    <span ref={ref} className="text-4xl md:text-5xl font-bold text-orange" aria-label={`${end}${suffix}`}>
+    <span ref={ref} className="text-4xl md:text-5xl font-bold text-white" aria-label={`${end}${suffix}`}>
       {isDecimal ? count.toFixed(1) : count}{suffix}
     </span>
   )
@@ -89,9 +89,9 @@ export function ProofStack() {
                 <Image
                   src={`/images/clients/${logo.file}`}
                   alt={logo.name}
-                  width={110}
-                  height={36}
-                  className="object-contain h-7"
+                  width={Math.round(logo.width * 2.7)}
+                  height={108}
+                  className={`object-contain w-auto ${logo.small ? 'h-[42px]' : 'h-[84px]'}`}
                 />
               </div>
             ))}

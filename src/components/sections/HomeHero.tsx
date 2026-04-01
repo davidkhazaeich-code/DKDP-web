@@ -1,21 +1,17 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import Link from 'next/link'
+import { ChevronDown } from 'lucide-react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { DottedSurface } from '@/components/canvas/DottedSurface'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { GradText } from '@/components/ui/GradText'
-import { GradTag } from '@/components/ui/GradTag'
+import { TrustBadge } from '@/components/ui/TrustBadge'
 import { staggerContainer, fadeUp } from '@/lib/animations'
 
-const STATS = [
-  { value: '10+', label: "ans d'expérience" },
-  { value: '150+', label: 'entreprises accompagnées' },
-  { value: '4.9/5', label: 'note Google' },
-  { value: '463+', label: 'élèves formés' },
-]
-
 export function HomeHero() {
+  const { scrollY } = useScroll()
+  const y = useTransform(scrollY, [0, 600], [0, -80])
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
       {/* Three.js background */}
@@ -30,10 +26,11 @@ export function HomeHero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
+        style={{ y }}
         className="relative z-10 max-w-[1200px] mx-auto px-6 text-center"
       >
-        <motion.div variants={fadeUp} className="mb-6">
-          <GradTag>Agence Digitale à Genève</GradTag>
+        <motion.div variants={fadeUp} className="mb-8 flex flex-col items-center gap-4">
+          <TrustBadge variant="light" />
         </motion.div>
 
         <motion.h1
@@ -54,41 +51,41 @@ export function HomeHero() {
 
         <motion.div
           variants={fadeUp}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+          className="flex justify-center"
         >
           <LiquidMetalButton href="#nos-expertises" size="lg">
             Découvrez nos services →
           </LiquidMetalButton>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full border border-[rgba(124,58,237,0.3)] text-white hover:border-violet transition-all duration-[150ms] hover:-translate-y-px"
-          >
-            Réserver un appel
-          </Link>
         </motion.div>
 
-        {/* Stats row */}
-        <motion.div
-          variants={fadeUp}
-          className="flex flex-wrap justify-center gap-6 md:gap-12"
-        >
-          {STATS.map(({ value, label }) => (
-            <div key={label} className="text-center">
-              <p className="text-2xl font-bold text-orange">{value}</p>
-              <p className="text-text-muted text-xs mt-1">{label}</p>
-            </div>
-          ))}
-        </motion.div>
+
       </motion.div>
 
       {/* Scroll indicator */}
       <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8, duration: 1 }}
         aria-hidden="true"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 w-5 h-8 rounded-full border-2 border-border flex items-start justify-center pt-1.5"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <div className="w-1 h-2 bg-text-muted rounded-full" />
+        <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-text-muted">
+          Défiler
+        </span>
+        <div className="flex flex-col items-center -space-y-3">
+          <motion.div
+            animate={{ opacity: [0.2, 1, 0.2], y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut', delay: 0 }}
+          >
+            <ChevronDown size={20} className="text-text-secondary" />
+          </motion.div>
+          <motion.div
+            animate={{ opacity: [0.1, 0.5, 0.1], y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut', delay: 0.18 }}
+          >
+            <ChevronDown size={20} className="text-text-muted" />
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   )

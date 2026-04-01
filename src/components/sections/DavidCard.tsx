@@ -1,6 +1,6 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { SectionReveal } from '@/components/ui/SectionReveal'
-import { ImagePlaceholder } from '@/components/ui/ImagePlaceholder'
 
 export function DavidCard() {
   return (
@@ -10,10 +10,12 @@ export function DavidCard() {
           <div className="bg-bg-card border border-border rounded-[16px] p-8 md:p-12 flex flex-col sm:flex-row gap-8 md:gap-12 items-center">
             <div className="flex-shrink-0">
               <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden">
-                <ImagePlaceholder
-                  title="Portrait David Khazaei"
-                  aspectRatio="1/1"
-                  className="w-full h-full"
+                <Image
+                  src="/images/team/david-khazaei.png"
+                  alt="David Khazaei"
+                  width={144}
+                  height={144}
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>

@@ -9,6 +9,7 @@ interface LiquidMetalButtonProps {
   onClick?: () => void
   size?: 'md' | 'lg'
   className?: string
+  shaderDelay?: number
 }
 
 const sizeMap = {
@@ -22,6 +23,7 @@ export function LiquidMetalButton({
   onClick,
   size = 'lg',
   className = '',
+  shaderDelay = 0,
 }: LiquidMetalButtonProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
@@ -46,13 +48,20 @@ export function LiquidMetalButton({
     return () => ro.disconnect()
   }, [])
 
-  // Lazy-load the React shader component
+  // Lazy-load the React shader component (with optional delay for phase offset)
   useEffect(() => {
-    import('@paper-design/shaders-react').then((mod) => {
-      LiquidMetalRef.current = mod.LiquidMetal as React.ComponentType<Record<string, unknown>>
-      setShaderLoaded(true)
-    }).catch(() => {})
-  }, [])
+    const load = () => {
+      import('@paper-design/shaders-react').then((mod) => {
+        LiquidMetalRef.current = mod.LiquidMetal as React.ComponentType<Record<string, unknown>>
+        setShaderLoaded(true)
+      }).catch(() => {})
+    }
+    if (shaderDelay > 0) {
+      const t = setTimeout(load, shaderDelay)
+      return () => clearTimeout(t)
+    }
+    load()
+  }, [shaderDelay])
 
   const handleMouseEnter = () => setIsHovered(true)
   const handleMouseLeave = () => { setIsHovered(false); setIsPressed(false) }

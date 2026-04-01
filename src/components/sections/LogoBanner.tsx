@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 const LOGOS = [
-  { name: 'SwissLife', file: 'swisslife.webp', width: 120, height: 40 },
+  { name: 'SwissLife', file: 'swisslife.webp', width: 120, height: 40, small: true },
   { name: 'Fondation Hans Wilsdorf', file: 'fondation-hans-wilsdorf.webp', width: 130, height: 40 },
   { name: 'Howden', file: 'howden.avif', width: 100, height: 40 },
   { name: 'OCAS', file: 'ocas.avif', width: 80, height: 40 },
@@ -14,7 +14,7 @@ const LOGOS = [
   { name: 'Concorde', file: 'concorde.avif', width: 110, height: 40 },
   { name: 'Sketchiz', file: 'sketchiz.avif', width: 100, height: 40 },
   { name: 'Swiss Medishop', file: 'swiss-medishop.avif', width: 120, height: 40 },
-  { name: 'Polomarco', file: 'polomarco.png', width: 100, height: 40 },
+  { name: 'Polomarco', file: 'polomarco.png', width: 100, height: 40, small: true },
 ]
 
 export function LogoBanner() {
@@ -31,9 +31,9 @@ export function LogoBanner() {
         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling strip - duplicated for infinite loop */}
+        {/* Scrolling strip — tripled so the loop restart is never in view */}
         <div className="logo-scroll items-center gap-16">
-          {[...LOGOS, ...LOGOS].map((logo, i) => (
+          {[...LOGOS, ...LOGOS, ...LOGOS].map((logo, i) => (
             <div
               key={i}
               className="flex-shrink-0 grayscale opacity-40 hover:opacity-80 hover:grayscale-0 transition-all duration-300"
@@ -41,9 +41,9 @@ export function LogoBanner() {
               <Image
                 src={`/images/clients/${logo.file}`}
                 alt={logo.name}
-                width={Math.round(logo.width * 1.8)}
-                height={72}
-                className="object-contain h-14 w-auto"
+                width={Math.round(logo.width * 2.7)}
+                height={108}
+                className={`object-contain w-auto ${logo.small ? 'h-[42px]' : 'h-[84px]'}`}
               />
             </div>
           ))}

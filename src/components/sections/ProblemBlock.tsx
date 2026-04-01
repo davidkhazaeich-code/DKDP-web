@@ -1,6 +1,7 @@
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradText } from '@/components/ui/GradText'
 import { GradTag } from '@/components/ui/GradTag'
+import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 
 function IconDeclining() {
   return (
@@ -30,17 +31,13 @@ function IconAI() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
       <rect width="32" height="32" rx="8" fill="rgba(124,58,237,0.10)" />
-      {/* Circuit brain outline */}
       <circle cx="16" cy="14" r="7" stroke="#A78BFA" strokeWidth="1.5" fill="none" />
-      {/* Nodes */}
       <circle cx="16" cy="7" r="1.5" fill="#A78BFA" />
       <circle cx="23" cy="14" r="1.5" fill="#A78BFA" />
       <circle cx="9" cy="14" r="1.5" fill="#A78BFA" />
       <circle cx="16" cy="21" r="1.5" fill="#A78BFA" />
-      {/* Inner cross */}
       <line x1="16" y1="10" x2="16" y2="18" stroke="#A78BFA" strokeWidth="1.2" strokeLinecap="round" />
       <line x1="12" y1="14" x2="20" y2="14" stroke="#A78BFA" strokeWidth="1.2" strokeLinecap="round" />
-      {/* Stem */}
       <line x1="16" y1="21" x2="16" y2="27" stroke="#A78BFA" strokeWidth="1.5" strokeLinecap="round" />
       <line x1="12" y1="27" x2="20" y2="27" stroke="#A78BFA" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
@@ -51,7 +48,6 @@ function IconHourglass() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
       <rect width="32" height="32" rx="8" fill="rgba(255,107,0,0.08)" />
-      {/* Hourglass shape */}
       <path
         d="M9 5h14M9 27h14M10 5 L16 15 L22 5M10 27 L16 17 L22 27"
         stroke="#FF8C40"
@@ -60,9 +56,7 @@ function IconHourglass() {
         strokeLinejoin="round"
         fill="none"
       />
-      {/* Sand trickle */}
       <line x1="16" y1="15" x2="16" y2="17" stroke="#FF8C40" strokeWidth="1.5" strokeLinecap="round" />
-      {/* Bottom sand */}
       <path d="M11.5 24 Q16 22 20.5 24" stroke="#FF8C40" strokeWidth="1.2" strokeLinecap="round" fill="none" />
     </svg>
   )
@@ -91,45 +85,47 @@ const PROBLEMS = [
 
 export function ProblemBlock() {
   return (
-    <section className="py-24">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <SectionReveal>
-          <div className="text-center mb-16">
-            <GradTag className="mb-6">Le problème</GradTag>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-6">
-              Ça vous ressemble ?
-            </h2>
-            <p className="text-text-secondary text-lg max-w-xl mx-auto">
-              Si vous vous reconnaissez dans au moins un de ces trois scénarios, vous êtes au bon endroit.
-            </p>
-          </div>
-        </SectionReveal>
+    <InfiniteGrid>
+      <section id="problem-section" className="py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-16">
+              <GradTag className="mb-6">Le problème</GradTag>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-6">
+                Ça vous ressemble ?
+              </h2>
+              <p className="text-text-secondary text-lg max-w-xl mx-auto">
+                Si vous vous reconnaissez dans au moins un de ces trois scénarios, vous êtes au bon endroit.
+              </p>
+            </div>
+          </SectionReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {PROBLEMS.map((problem, i) => (
-            <SectionReveal key={problem.title} delay={i * 0.15}>
-              <div className="bg-bg-card border border-border rounded-[12px] p-8 hover-grad h-full flex flex-col">
-                <div className="mb-5">
-                  <problem.Icon />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {PROBLEMS.map((problem, i) => (
+              <SectionReveal key={problem.title} delay={i * 0.15}>
+                <div className="bg-bg-card/80 backdrop-blur-sm border border-border rounded-[12px] p-8 hover-grad h-full flex flex-col">
+                  <div className="mb-5">
+                    <problem.Icon />
+                  </div>
+                  <h3 className="text-white font-semibold text-lg mb-3 leading-snug">
+                    {problem.title}
+                  </h3>
+                  <p className="text-text-secondary text-sm leading-relaxed flex-1">
+                    {problem.description}
+                  </p>
                 </div>
-                <h3 className="text-white font-semibold text-lg mb-3 leading-snug">
-                  {problem.title}
-                </h3>
-                <p className="text-text-secondary text-sm leading-relaxed flex-1">
-                  {problem.description}
-                </p>
-              </div>
-            </SectionReveal>
-          ))}
-        </div>
+              </SectionReveal>
+            ))}
+          </div>
 
-        <SectionReveal>
-          <p className="text-center text-xl md:text-2xl font-semibold">
-            On résout ces trois problèmes.{' '}
-            <GradText as="span">C&apos;est notre travail depuis 10 ans.</GradText>
-          </p>
-        </SectionReveal>
-      </div>
-    </section>
+          <SectionReveal>
+            <p className="text-center text-xl md:text-2xl font-semibold">
+              On résout ces trois problèmes.{' '}
+              <GradText as="span">C&apos;est notre travail depuis 10 ans.</GradText>
+            </p>
+          </SectionReveal>
+        </div>
+      </section>
+    </InfiniteGrid>
   )
 }

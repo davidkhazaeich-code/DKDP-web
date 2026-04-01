@@ -1,15 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Monitor, GraduationCap, Sparkles } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 import { Badge } from '@/components/ui/Badge'
 
 const PILLARS = [
   {
+    icon: Monitor,
     badge: 'Agence',
     badgeVariant: 'violet' as const,
     href: '/agence-digitale',
-    title: 'Agence Digitale',
+    title: 'Service Digital',
     description: 'Un site qui convertit, un SEO qui ramène des clients, une stratégie qui tient la route.',
     services: ['Site web sur mesure', 'Référencement SEO', 'Google Ads', 'Réseaux sociaux'],
     cta: "Découvrir l'agence",
@@ -19,9 +21,11 @@ const PILLARS = [
     accentColor: '#A78BFA',
     ctaColor: 'text-violet-light',
     bulletColor: 'bg-violet-light',
+    ctaDelay: '0s',
     cardStyle: { borderColor: 'rgba(124,58,237,0.15)', borderHoverColor: 'rgba(124,58,237,0.35)' },
   },
   {
+    icon: GraduationCap,
     badge: 'Formation',
     badgeVariant: 'orange' as const,
     href: '/formation-entreprise',
@@ -35,9 +39,11 @@ const PILLARS = [
     accentColor: '#FF6B00',
     ctaColor: 'text-orange-light',
     bulletColor: 'bg-orange',
+    ctaDelay: '0.3s',
     cardStyle: { borderColor: 'rgba(255,107,0,0.15)', borderHoverColor: 'rgba(255,107,0,0.35)' },
   },
   {
+    icon: Sparkles,
     badge: 'IA',
     badgeVariant: 'chrome' as const,
     href: '/intelligence-artificielle',
@@ -51,6 +57,7 @@ const PILLARS = [
     accentColor: '#D4D4D8',
     ctaColor: 'text-[#D4D4D8]',
     bulletColor: 'bg-[#D4D4D8]',
+    ctaDelay: '0.6s',
     cardStyle: { borderColor: '#1C1C22', borderHoverColor: 'rgba(212,212,216,0.2)' },
   },
 ] as const
@@ -95,8 +102,8 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
       {/* Top accent line */}
       <div className={`h-[3px] w-full ${pillar.accentBar} opacity-80`} />
 
-      {/* Pillar image */}
-      <div className="relative w-full aspect-[16/9] overflow-hidden">
+      {/* Pillar image — clickable */}
+      <Link href={pillar.href} className="relative w-full aspect-[16/9] overflow-hidden block" tabIndex={-1} aria-hidden="true">
         <Image
           src={pillar.image}
           alt={pillar.imageAlt}
@@ -105,10 +112,18 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
           sizes="(max-width: 768px) 100vw, 33vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg opacity-90" />
-      </div>
+      </Link>
 
       <div className="p-8 flex flex-col flex-1">
-        <Badge variant={pillar.badgeVariant} className="mb-4 w-fit">{pillar.badge}</Badge>
+        <div className="flex items-center gap-3 mb-4">
+          <div
+            className="flex h-9 w-9 items-center justify-center rounded-[8px] flex-shrink-0"
+            style={{ background: `${pillar.accentColor}18`, border: `1px solid ${pillar.accentColor}35` }}
+          >
+            <pillar.icon size={16} style={{ color: pillar.accentColor }} />
+          </div>
+          <Badge variant={pillar.badgeVariant} className="w-fit">{pillar.badge}</Badge>
+        </div>
         <h3 className="text-white text-xl font-bold mb-3">{pillar.title}</h3>
         <p className="text-text-secondary mb-6 leading-relaxed flex-1">{pillar.description}</p>
         <ul className="space-y-2 mb-8">
@@ -121,8 +136,8 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
         </ul>
         <Link
           href={pillar.href}
-          className={`pillar-cta ${pillar.ctaColor} text-sm font-semibold inline-flex items-center gap-1`}
-          style={{ '--cta-color': pillar.accentColor } as React.CSSProperties}
+          className={`pillar-cta ${pillar.ctaColor} text-sm font-semibold inline-flex items-center gap-1 w-fit`}
+          style={{ '--cta-color': pillar.accentColor, animationDelay: pillar.ctaDelay } as React.CSSProperties}
         >
           {pillar.cta}<span aria-hidden="true"> →</span>
         </Link>

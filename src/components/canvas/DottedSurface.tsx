@@ -10,8 +10,8 @@ interface DottedSurfaceProps {
 
 export function DottedSurface({
   className = '',
-  violetRatio = 0.08,
-  orangeRatio = 0.03,
+  violetRatio = 0.04,
+  orangeRatio = 0.015,
 }: DottedSurfaceProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -86,10 +86,10 @@ export function DottedSurface({
       geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3))
 
       const material = new THREE.PointsMaterial({
-        size: 12,
+        size: 14,
         vertexColors: true,
         transparent: true,
-        opacity: 0.95,
+        opacity: 1.0,
         sizeAttenuation: true,
         map: dotTexture,
         alphaTest: 0.02,
@@ -103,10 +103,10 @@ export function DottedSurface({
       glowGeometry.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(colors.length), 3))
 
       const glowMaterial = new THREE.PointsMaterial({
-        size: 40,
+        size: 52,
         vertexColors: true,
         transparent: true,
-        opacity: 0.22,
+        opacity: 0.40,
         sizeAttenuation: true,
         depthWrite: false,
         map: dotTexture,
@@ -120,12 +120,12 @@ export function DottedSurface({
       const pointTransition = new Float32Array(totalPoints) // 0→1 fade-in when activating
       const pointPhase = new Float32Array(totalPoints)     // random phase offset for breathing
 
-      // Violet brand color
-      const VR = 0.48, VG = 0.23, VB = 0.93
-      // Orange brand color
-      const OR = 1.0, OG = 0.42, OB = 0.0
-      // Neutral gray (subtle, so colored dots pop)
-      const GRAY = 0.45
+      // Violet brand color — boosted to near-full saturation
+      const VR = 0.55, VG = 0.22, VB = 1.0
+      // Orange brand color — full saturation
+      const OR = 1.0, OG = 0.48, OB = 0.0
+      // Neutral gray — kept very dim so colored dots stand out sharply
+      const GRAY = 0.32
 
       // Random breathing phases so each dot is out of sync
       for (let i = 0; i < totalPoints; i++) {
@@ -170,21 +170,22 @@ export function DottedSurface({
             const cg = type === 1 ? VG : OG
             const cb = type === 1 ? VB : OB
 
-            // Lerp color toward white based on breath (max 70% toward white)
-            const finalR = cr + (1.0 - cr) * breath * 0.70
-            const finalG = cg + (1.0 - cg) * breath * 0.70
-            const finalB = cb + (1.0 - cb) * breath * 0.70
+            // Breathing: pulse between full color and a slightly brightened version
+            // Max 45% toward white so the color stays vivid throughout
+            const finalR = cr + (1.0 - cr) * breath * 0.45
+            const finalG = cg + (1.0 - cg) * breath * 0.45
+            const finalB = cb + (1.0 - cb) * breath * 0.45
 
             // Apply entry fade from gray to animated color
             col[j] = GRAY + (finalR - GRAY) * t
             col[j + 1] = GRAY + (finalG - GRAY) * t
             col[j + 2] = GRAY + (finalB - GRAY) * t
 
-            // Glow is strongest when dot is most colored, fades when white
-            const glowStrength = (1.0 - breath * 0.55) * t
-            gcol[j] = cr * glowStrength * 0.65
-            gcol[j + 1] = cg * glowStrength * 0.65
-            gcol[j + 2] = cb * glowStrength * 0.65
+            // Glow is very strong — full intensity at color peak, still 55% at white peak
+            const glowStrength = (1.0 - breath * 0.35) * t
+            gcol[j] = cr * glowStrength
+            gcol[j + 1] = cg * glowStrength
+            gcol[j + 2] = cb * glowStrength
             gpos[j] = pos[j]; gpos[j + 1] = pos[j + 1]; gpos[j + 2] = pos[j + 2]
           }
         }

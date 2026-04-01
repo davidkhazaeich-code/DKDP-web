@@ -29,8 +29,8 @@ describe('LiquidMetalButton', () => {
     expect(onClick).toHaveBeenCalledOnce()
   })
 
-  it('applies liquid-metal-btn class', () => {
+  it('has isolate group classes for glow effect', () => {
     render(<LiquidMetalButton>Test</LiquidMetalButton>)
-    expect(screen.getByRole('button')).toHaveClass('liquid-metal-btn')
+    expect(screen.getByRole('button')).toHaveClass('isolate', 'group')
   })
 })

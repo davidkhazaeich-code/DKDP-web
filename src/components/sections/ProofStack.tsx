@@ -25,7 +25,7 @@ const LOGO_GRID = [
 ]
 
 function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {
-  const ref = useRef(null)
+  const ref = useRef<HTMLSpanElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
   const [count, setCount] = useState(0)
   const isDecimal = !Number.isInteger(end)
@@ -35,13 +35,14 @@ function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {
     const duration = 1500
     const fps = 60
     const totalFrames = (duration / 1000) * fps
-    const increment = end / totalFrames
     let frame = 0
     const timer = setInterval(() => {
       frame++
-      const value = Math.min(increment * frame, end)
+      const progress = frame / totalFrames
+      const eased = 1 - Math.pow(1 - progress, 3) // ease-out cubic
+      const value = Math.min(end * eased, end)
       setCount(isDecimal ? parseFloat(value.toFixed(1)) : Math.floor(value))
-      if (value >= end) clearInterval(timer)
+      if (frame >= totalFrames) clearInterval(timer)
     }, 1000 / fps)
     return () => clearInterval(timer)
   }, [isInView, end, isDecimal])
@@ -90,7 +91,7 @@ export function ProofStack() {
                   alt={logo.name}
                   width={110}
                   height={36}
-                  className="object-contain h-7 w-auto"
+                  className="object-contain h-7"
                 />
               </div>
             ))}

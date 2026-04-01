@@ -26,4 +26,9 @@ describe('ProofStack', () => {
     render(<ProofStack />)
     expect(screen.getByAltText('SwissLife')).toBeInTheDocument()
   })
+
+  it('renders all 8 logos', () => {
+    render(<ProofStack />)
+    expect(screen.getAllByRole('img')).toHaveLength(8)
+  })
 })

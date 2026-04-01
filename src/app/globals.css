@@ -250,17 +250,15 @@ html {
   100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
 }
 
-/* Logo scroll animation */
+/* Logo scroll animation — seamless infinite marquee */
 @keyframes logo-scroll {
   from { transform: translateX(0) }
-  to { transform: translateX(-50%) }
+  to   { transform: translateX(-50%) }
 }
 
 .logo-scroll {
-  animation: logo-scroll 35s linear infinite;
+  display: flex;
   width: max-content;
-}
-
-.logo-scroll:hover {
-  animation-play-state: paused;
+  will-change: transform;
+  animation: logo-scroll 28s linear infinite;
 }

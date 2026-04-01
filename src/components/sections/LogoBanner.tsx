@@ -32,7 +32,7 @@ export function LogoBanner() {
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
 
         {/* Scrolling strip — duplicated for infinite loop */}
-        <div className="flex items-center gap-10 logo-scroll">
+        <div className="logo-scroll items-center gap-16">
           {[...LOGOS, ...LOGOS].map((logo, i) => (
             <div
               key={i}
@@ -41,9 +41,9 @@ export function LogoBanner() {
               <Image
                 src={`/images/clients/${logo.file}`}
                 alt={logo.name}
-                width={logo.width}
-                height={logo.height}
-                className="object-contain h-8 w-auto"
+                width={Math.round(logo.width * 1.8)}
+                height={72}
+                className="object-contain h-14 w-auto"
               />
             </div>
           ))}

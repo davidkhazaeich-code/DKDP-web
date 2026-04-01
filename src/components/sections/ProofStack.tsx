@@ -48,7 +48,7 @@ function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {
   }, [isInView, end, isDecimal])
 
   return (
-    <span ref={ref} className="text-4xl md:text-5xl font-bold grad-text" aria-label={`${end}${suffix}`}>
+    <span ref={ref} className="text-4xl md:text-5xl font-bold text-orange" aria-label={`${end}${suffix}`}>
       {isDecimal ? count.toFixed(1) : count}{suffix}
     </span>
   )

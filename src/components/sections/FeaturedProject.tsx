@@ -40,7 +40,7 @@ export function FeaturedProject() {
               <div className="grid grid-cols-3 gap-6 mb-8">
                 {METRICS.map(({ value, label }) => (
                   <div key={label}>
-                    <p className="text-2xl font-bold grad-text">{value}</p>
+                    <p className="text-2xl font-bold text-orange">{value}</p>
                     <p className="text-text-muted text-xs mt-1">{label}</p>
                   </div>
                 ))}

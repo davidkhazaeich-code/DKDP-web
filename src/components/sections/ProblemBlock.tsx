@@ -2,21 +2,87 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradText } from '@/components/ui/GradText'
 import { GradTag } from '@/components/ui/GradTag'
 
+function IconDeclining() {
+  return (
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="8" fill="rgba(255,107,0,0.10)" />
+      <polyline
+        points="5,10 11,16 17,12 27,22"
+        stroke="#FF6B00"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <polyline
+        points="22,22 27,22 27,17"
+        stroke="#FF6B00"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  )
+}
+
+function IconAI() {
+  return (
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="8" fill="rgba(124,58,237,0.10)" />
+      {/* Circuit brain outline */}
+      <circle cx="16" cy="14" r="7" stroke="#A78BFA" strokeWidth="1.5" fill="none" />
+      {/* Nodes */}
+      <circle cx="16" cy="7" r="1.5" fill="#A78BFA" />
+      <circle cx="23" cy="14" r="1.5" fill="#A78BFA" />
+      <circle cx="9" cy="14" r="1.5" fill="#A78BFA" />
+      <circle cx="16" cy="21" r="1.5" fill="#A78BFA" />
+      {/* Inner cross */}
+      <line x1="16" y1="10" x2="16" y2="18" stroke="#A78BFA" strokeWidth="1.2" strokeLinecap="round" />
+      <line x1="12" y1="14" x2="20" y2="14" stroke="#A78BFA" strokeWidth="1.2" strokeLinecap="round" />
+      {/* Stem */}
+      <line x1="16" y1="21" x2="16" y2="27" stroke="#A78BFA" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="12" y1="27" x2="20" y2="27" stroke="#A78BFA" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function IconHourglass() {
+  return (
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="8" fill="rgba(255,107,0,0.08)" />
+      {/* Hourglass shape */}
+      <path
+        d="M9 5h14M9 27h14M10 5 L16 15 L22 5M10 27 L16 17 L22 27"
+        stroke="#FF8C40"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      {/* Sand trickle */}
+      <line x1="16" y1="15" x2="16" y2="17" stroke="#FF8C40" strokeWidth="1.5" strokeLinecap="round" />
+      {/* Bottom sand */}
+      <path d="M11.5 24 Q16 22 20.5 24" stroke="#FF8C40" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+    </svg>
+  )
+}
+
 const PROBLEMS = [
   {
-    icon: '📉',
+    Icon: IconDeclining,
     title: 'Votre site existe mais ne génère aucun client',
     description:
       "Il est là, il tourne, mais il ne convertit pas. Pas de leads entrants, pas d'appels spontanés, un formulaire de contact qui dort.",
   },
   {
-    icon: '🤖',
+    Icon: IconAI,
     title: "Vos concurrents utilisent l'IA et vous pas encore",
     description:
       "Pendant que vos équipes font les choses manuellement, d'autres automatisent, accélèrent et réduisent leurs coûts. L'écart se creuse.",
   },
   {
-    icon: '⏳',
+    Icon: IconHourglass,
     title: 'Vos équipes perdent du temps sur des tâches répétitives',
     description:
       "Emails, rapports, saisies, tableaux. Des heures par semaine qui partent en fumée sur des tâches que la technologie fait en 5 minutes.",
@@ -43,7 +109,9 @@ export function ProblemBlock() {
           {PROBLEMS.map((problem, i) => (
             <SectionReveal key={problem.title} delay={i * 0.15}>
               <div className="bg-bg-card border border-border rounded-[12px] p-8 hover-grad h-full flex flex-col">
-                <div className="text-3xl mb-5" aria-hidden="true">{problem.icon}</div>
+                <div className="mb-5">
+                  <problem.Icon />
+                </div>
                 <h3 className="text-white font-semibold text-lg mb-3 leading-snug">
                   {problem.title}
                 </h3>

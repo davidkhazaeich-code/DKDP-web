@@ -3,14 +3,6 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect, vi } from 'vitest'
 
-vi.mock('@paper-design/shaders', () => ({
-  liquidMetalFragmentShader: 'mock-shader',
-  ShaderMount: class {
-    constructor() {}
-    setSpeed() {}
-  },
-}))
-
 import { LiquidMetalButton } from '../LiquidMetalButton'
 
 describe('LiquidMetalButton', () => {
@@ -37,8 +29,8 @@ describe('LiquidMetalButton', () => {
     expect(onClick).toHaveBeenCalledOnce()
   })
 
-  it('renders shader container', () => {
+  it('applies liquid-metal-btn class', () => {
     render(<LiquidMetalButton>Test</LiquidMetalButton>)
-    expect(screen.getByTestId('shader-mount')).toBeInTheDocument()
+    expect(screen.getByRole('button')).toHaveClass('liquid-metal-btn')
   })
 })

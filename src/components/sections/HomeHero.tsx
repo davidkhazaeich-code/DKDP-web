@@ -74,7 +74,7 @@ export function HomeHero() {
         >
           {STATS.map(({ value, label }) => (
             <div key={label} className="text-center">
-              <p className="text-2xl font-bold grad-text">{value}</p>
+              <p className="text-2xl font-bold text-orange">{value}</p>
               <p className="text-text-muted text-xs mt-1">{label}</p>
             </div>
           ))}

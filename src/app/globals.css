@@ -219,6 +219,13 @@ html {
   user-select: none;
 }
 
+/* ═══ Pillar card hover border ═══ */
+.pillar-card {
+  border-color: var(--border-idle);
+  transition: border-color 300ms ease-out, transform 300ms ease-out;
+}
+.pillar-card:hover { border-color: var(--border-hover); }
+
 /* ═══ Section spacing ═══ */
 .section-gap { padding-top: 80px; padding-bottom: 80px; }
 @media (min-width: 1024px) { .section-gap { padding-top: 120px; padding-bottom: 120px; } }

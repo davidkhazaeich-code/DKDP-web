@@ -89,14 +89,12 @@ type Pillar = (typeof PILLARS)[number]
 function PillarCard({ pillar }: { pillar: Pillar }) {
   return (
     <div
-      className="relative bg-bg rounded-[12px] overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-[2px] group"
-      style={{ border: `1px solid ${pillar.cardStyle.borderColor}` }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLDivElement).style.borderColor = pillar.cardStyle.borderHoverColor
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLDivElement).style.borderColor = pillar.cardStyle.borderColor
-      }}
+      className="pillar-card relative bg-bg rounded-[12px] overflow-hidden flex flex-col h-full hover:-translate-y-[2px] group"
+      style={{
+        border: '1px solid',
+        '--border-idle': pillar.cardStyle.borderColor,
+        '--border-hover': pillar.cardStyle.borderHoverColor,
+      } as React.CSSProperties}
     >
       {/* Top accent line */}
       <div className={`h-[3px] w-full ${pillar.accentBar} opacity-80`} />

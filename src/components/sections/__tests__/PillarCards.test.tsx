@@ -28,4 +28,11 @@ describe('PillarCards', () => {
     expect(screen.getByRole('link', { name: /explorer l'ia/i })).toHaveAttribute('href', '/intelligence-artificielle')
     expect(screen.getByRole('link', { name: /voir les formations/i })).toHaveAttribute('href', '/formation-entreprise')
   })
+
+  it('renders service list items', () => {
+    render(<PillarCards />)
+    expect(screen.getByText('Site web sur mesure')).toBeInTheDocument()
+    expect(screen.getByText('Agents IA sur mesure')).toBeInTheDocument()
+    expect(screen.getByText('Formation IA')).toBeInTheDocument()
+  })
 })

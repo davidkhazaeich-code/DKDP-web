@@ -11,7 +11,7 @@ const PILLARS = [
     description:
       'Un site qui convertit, un SEO qui ramène des clients, une stratégie qui tient la route.',
     services: ['Site web sur mesure', 'Référencement SEO', 'Google Ads', 'Réseaux sociaux'],
-    cta: "Découvrir l'agence →",
+    cta: "Découvrir l'agence",
   },
   {
     badge: 'IA',
@@ -19,7 +19,7 @@ const PILLARS = [
     title: 'Intelligence Artificielle',
     description: "Automatisez ce qui vous ralentit. Déployez l'IA là où ça compte.",
     services: ['Agents IA sur mesure', 'Automatisation', 'ChatGPT / Claude', 'Audit IA gratuit'],
-    cta: "Explorer l'IA →",
+    cta: "Explorer l'IA",
   },
   {
     badge: 'Formation',
@@ -27,18 +27,18 @@ const PILLARS = [
     title: 'Formation Entreprise',
     description: "Des équipes formées = une entreprise qui avance 2x plus vite.",
     services: ['Formation IA', 'Excel & bureautique', 'Cybersécurité', 'Sur mesure'],
-    cta: 'Voir les formations →',
+    cta: 'Voir les formations',
   },
-]
+] as const
 
 export function PillarCards() {
   return (
-    <section className="py-24 bg-bg-card border-y border-border">
+    <section aria-labelledby="pillars-heading" className="py-24 bg-bg-card border-y border-border">
       <div className="max-w-[1200px] mx-auto px-6">
         <SectionReveal>
           <div className="text-center mb-16">
             <GradTag className="mb-6">Nos 3 piliers</GradTag>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em]">
+            <h2 id="pillars-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em]">
               Trois expertises, un seul interlocuteur.
             </h2>
           </div>
@@ -61,9 +61,9 @@ export function PillarCards() {
                 </ul>
                 <Link
                   href={pillar.href}
-                  className="text-violet-light text-sm font-semibold hover-grad-text transition-all group-hover:translate-x-1 duration-[150ms] inline-block"
+                  className="text-violet-light text-sm font-semibold hover-grad-text transition-transform group-hover:translate-x-1 duration-[150ms] inline-flex items-center gap-1"
                 >
-                  {pillar.cta}
+                  {pillar.cta}<span aria-hidden="true"> →</span>
                 </Link>
               </div>
             </SectionReveal>

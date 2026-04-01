@@ -30,7 +30,7 @@ export function CTAFinal() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <LiquidMetalButton href="/contact" size="lg">
-              Réservez votre appel gratuit →
+              Réservez votre appel gratuit<span aria-hidden="true"> →</span>
             </LiquidMetalButton>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 text-sm text-text-muted items-center">
               <a href="tel:+41799407969" className="hover:text-white transition-colors">

@@ -8,6 +8,7 @@
   /* --- Borders --- */
   --color-border: #1E1E1E;
   --color-border-violet: #2D2640;
+  --color-border-orange: #3D2010;
 
   /* --- Brand accents --- */
   --color-orange: #FF6B00;
@@ -86,6 +87,29 @@ html {
   background-clip: text;
   font-weight: 700;
   animation: gradFlow 4s ease-in-out infinite;
+}
+
+/* ═══ Grad text variants (pilier-specific) ═══ */
+/* Formation — orange monochrome (rare, 1-2× per page) */
+.grad-text--formation {
+  background: linear-gradient(135deg, #FF6B00, #FF8C00, #FF6B00);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  animation: gradFlow 4s ease-in-out infinite;
+}
+
+/* IA — chrome → violet → chrome */
+.grad-text--ia {
+  background: linear-gradient(135deg, #D4D4D8, #A78BFA, #D4D4D8);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  animation: gradFlow 6s ease-in-out infinite;
 }
 
 /* ═══ Grad tag — label with violet border ═══ */

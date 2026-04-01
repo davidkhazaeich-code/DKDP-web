@@ -203,3 +203,18 @@ html {
 .reveal {
   animation: fadeUp 500ms var(--ease-entry) both;
 }
+
+/* Logo scroll animation */
+@keyframes logo-scroll {
+  from { transform: translateX(0) }
+  to { transform: translateX(-50%) }
+}
+
+.logo-scroll {
+  animation: logo-scroll 35s linear infinite;
+  width: max-content;
+}
+
+.logo-scroll:hover {
+  animation-play-state: paused;
+}

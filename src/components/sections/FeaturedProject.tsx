@@ -7,7 +7,7 @@ import { ImagePlaceholder } from '@/components/ui/ImagePlaceholder'
 const METRICS = [
   { value: '3', label: 'mois de délai' },
   { value: '+340%', label: 'trafic organique' },
-  { value: '100', label: 'score Lighthouse' },
+  { value: '100/100', label: 'score Lighthouse' },
 ] as const
 
 export function FeaturedProject() {

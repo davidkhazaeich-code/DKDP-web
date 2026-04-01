@@ -20,6 +20,12 @@ describe('BeforeAfter', () => {
     expect(screen.getByText('WellWays')).toBeInTheDocument()
   })
 
+  it('renders WellWays descriptions', () => {
+    render(<BeforeAfter />)
+    expect(screen.getByText(/présence digitale inexistante/i)).toBeInTheDocument()
+    expect(screen.getByText(/site vitrine moderne/i)).toBeInTheDocument()
+  })
+
   it('renders transformation descriptions', () => {
     render(<BeforeAfter />)
     expect(screen.getByText(/340% de trafic organique/i)).toBeInTheDocument()

@@ -1,6 +1,6 @@
 interface BadgeProps {
   children: React.ReactNode
-  variant?: 'violet' | 'orange' | 'muted'
+  variant?: 'violet' | 'orange' | 'chrome' | 'muted'
   className?: string
   'data-testid'?: string
 }
@@ -8,6 +8,7 @@ interface BadgeProps {
 const variantClasses = {
   violet: 'text-violet-light',
   orange: 'text-orange',
+  chrome: 'text-[#D4D4D8]',
   muted: 'text-text-muted',
 }
 

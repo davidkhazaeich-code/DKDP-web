@@ -235,6 +235,23 @@ html {
   animation: fadeUp 500ms var(--ease-entry) both;
 }
 
+/* ═══ Pillar CTA animated underline ═══ */
+@keyframes pillar-underline {
+  0%   { background-size: 0% 1.5px;   background-position: 0% 100%; }
+  45%  { background-size: 100% 1.5px; background-position: 0% 100%; }
+  55%  { background-size: 100% 1.5px; background-position: 0% 100%; }
+  100% { background-size: 0% 1.5px;   background-position: 100% 100%; }
+}
+
+.pillar-cta {
+  background-image: linear-gradient(var(--cta-color, currentColor), var(--cta-color, currentColor));
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+  background-size: 0% 1.5px;
+  animation: pillar-underline 2.8s ease-in-out infinite;
+  text-decoration: none;
+}
+
 /* ═══ Liquid metal shader button ═══ */
 /* Canvas must fill the absolute-positioned shader div entirely */
 .lmb-shader canvas {

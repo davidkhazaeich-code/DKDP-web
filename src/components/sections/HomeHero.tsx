@@ -46,7 +46,7 @@ export function HomeHero() {
 
         <motion.p
           variants={fadeUp}
-          className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto"
+          className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-[860px] mx-auto"
         >
           Agence digitale à Genève. On crée votre site, on déploie l&apos;IA dans vos équipes,
           on forme vos collaborateurs. Résultats mesurables, pas de blabla.

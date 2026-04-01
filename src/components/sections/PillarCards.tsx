@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/Badge'
 const PILLARS = [
   {
     badge: 'Agence',
+    badgeVariant: 'violet' as const,
     href: '/agence-digitale',
     title: 'Agence Digitale',
     description: 'Un site qui convertit, un SEO qui ramène des clients, une stratégie qui tient la route.',
@@ -15,12 +16,14 @@ const PILLARS = [
     image: '/images/pillars/agence-digitale.webp',
     imageAlt: 'Bureau moderne avec moniteur affichant une interface web performante',
     accentBar: 'bg-violet',
+    accentColor: '#A78BFA',
     ctaColor: 'text-violet-light',
     bulletColor: 'bg-violet-light',
     cardStyle: { borderColor: 'rgba(124,58,237,0.15)', borderHoverColor: 'rgba(124,58,237,0.35)' },
   },
   {
     badge: 'Formation',
+    badgeVariant: 'orange' as const,
     href: '/formation-entreprise',
     title: 'Formation Entreprise',
     description: "Des équipes formées = une entreprise qui avance 2x plus vite.",
@@ -29,12 +32,14 @@ const PILLARS = [
     image: '/images/pillars/formation-entreprise.webp',
     imageAlt: 'Salle de formation professionnelle avec formateur et audience',
     accentBar: 'bg-orange',
+    accentColor: '#FF6B00',
     ctaColor: 'text-orange-light',
     bulletColor: 'bg-orange',
     cardStyle: { borderColor: 'rgba(255,107,0,0.15)', borderHoverColor: 'rgba(255,107,0,0.35)' },
   },
   {
     badge: 'IA',
+    badgeVariant: 'chrome' as const,
     href: '/intelligence-artificielle',
     title: 'Intelligence Artificielle',
     description: "Automatisez ce qui vous ralentit. Déployez l'IA là où ça compte.",
@@ -43,6 +48,7 @@ const PILLARS = [
     image: '/images/pillars/intelligence-artificielle.webp',
     imageAlt: "Réseau neuronal violet dans un espace sombre futuriste",
     accentBar: 'bg-[#D4D4D8]',
+    accentColor: '#D4D4D8',
     ctaColor: 'text-[#D4D4D8]',
     bulletColor: 'bg-[#D4D4D8]',
     cardStyle: { borderColor: '#1C1C22', borderHoverColor: 'rgba(212,212,216,0.2)' },
@@ -102,7 +108,7 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
       </div>
 
       <div className="p-8 flex flex-col flex-1">
-        <Badge className="mb-4 w-fit">{pillar.badge}</Badge>
+        <Badge variant={pillar.badgeVariant} className="mb-4 w-fit">{pillar.badge}</Badge>
         <h3 className="text-white text-xl font-bold mb-3">{pillar.title}</h3>
         <p className="text-text-secondary mb-6 leading-relaxed flex-1">{pillar.description}</p>
         <ul className="space-y-2 mb-8">
@@ -115,7 +121,8 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
         </ul>
         <Link
           href={pillar.href}
-          className={`${pillar.ctaColor} text-sm font-semibold hover-grad-text transition-transform duration-[150ms] inline-flex items-center gap-1`}
+          className={`pillar-cta ${pillar.ctaColor} text-sm font-semibold inline-flex items-center gap-1`}
+          style={{ '--cta-color': pillar.accentColor } as React.CSSProperties}
         >
           {pillar.cta}<span aria-hidden="true"> →</span>
         </Link>

@@ -49,7 +49,7 @@ export function BeforeAfter() {
                       Avant
                     </span>
                     <ImagePlaceholder
-                      title={`${t.client} — avant`}
+                      title={`${t.client} - avant`}
                       className="mb-4"
                       aspectRatio="4/3"
                     />
@@ -62,7 +62,7 @@ export function BeforeAfter() {
                       Après
                     </span>
                     <ImagePlaceholder
-                      title={`${t.client} — après`}
+                      title={`${t.client} - après`}
                       className="mb-4"
                       aspectRatio="4/3"
                     />

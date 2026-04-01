@@ -23,12 +23,12 @@ describe('Header', () => {
     expect(screen.getByTestId('nav')).toBeInTheDocument()
   })
 
-  it('not scrolled — no backdrop-blur', () => {
+  it('not scrolled - no backdrop-blur', () => {
     render(<Header />)
     expect(screen.getByRole('banner').className).not.toMatch(/backdrop-blur/)
   })
 
-  it('scrolled past 20px — applies backdrop-blur', () => {
+  it('scrolled past 20px - applies backdrop-blur', () => {
     render(<Header />)
     act(() => {
       Object.defineProperty(window, 'scrollY', { value: 30 })

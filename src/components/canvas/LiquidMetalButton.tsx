@@ -89,7 +89,7 @@ export function LiquidMetalButton({
 
   const visualContent = (
     <>
-      {/* Shader chrome — fixed pixel dimensions so canvas fills completely */}
+      {/* Shader chrome - fixed pixel dimensions so canvas fills completely */}
       <div
         data-testid="shader-mount"
         aria-hidden="true"
@@ -120,7 +120,7 @@ export function LiquidMetalButton({
         )}
       </div>
 
-      {/* Dark pill — 2px inset creates visible metal ring */}
+      {/* Dark pill - 2px inset creates visible metal ring */}
       <div
         aria-hidden="true"
         style={{

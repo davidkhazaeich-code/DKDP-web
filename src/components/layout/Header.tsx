@@ -55,7 +55,7 @@ export function Header() {
       >
         <div className="max-w-[1200px] mx-auto px-6 h-14 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center" aria-label="DKDP — Accueil">
+          <Link href="/" className="flex items-center" aria-label="DKDP - Accueil">
             <Image
               src="/images/logo/dkdp_blanc-croped.png"
               alt="DKDP"
@@ -65,7 +65,7 @@ export function Header() {
             />
           </Link>
 
-          {/* Desktop nav — hidden on mobile */}
+          {/* Desktop nav - hidden on mobile */}
           <div className="hidden md:block">
             <Navigation />
           </div>

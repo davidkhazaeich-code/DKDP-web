@@ -35,7 +35,7 @@ export function DottedSurface({
       const BREATH_SPEED = 2.2
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-      // Circular dot — solid center, smooth falloff
+      // Circular dot - solid center, smooth falloff
       function createDotTexture() {
         const size = 64
         const c = size / 2
@@ -53,7 +53,7 @@ export function DottedSurface({
         return new THREE.CanvasTexture(canvas)
       }
 
-      // 4-pointed diffraction cross — gradient in LOCAL space after rotate (fix for all 4 directions)
+      // 4-pointed diffraction cross - gradient in LOCAL space after rotate (fix for all 4 directions)
       function createSpikesTexture() {
         const size = 128
         const c = size / 2
@@ -146,7 +146,7 @@ export function DottedSurface({
       const points = new THREE.Points(geometry, material)
       scene.add(points)
 
-      // Small spikes layer — always on for colored dots (base cross, size 75)
+      // Small spikes layer - always on for colored dots (base cross, size 75)
       const spikeGeometry = new THREE.BufferGeometry()
       spikeGeometry.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(positions.length), 3))
       spikeGeometry.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(colors.length), 3))
@@ -164,7 +164,7 @@ export function DottedSurface({
       const spikePoints = new THREE.Points(spikeGeometry, spikeMaterial)
       scene.add(spikePoints)
 
-      // Pulse spikes layer — only fires at peak breath, larger size (size 160)
+      // Pulse spikes layer - only fires at peak breath, larger size (size 160)
       const pulseGeometry = new THREE.BufferGeometry()
       pulseGeometry.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(positions.length), 3))
       pulseGeometry.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(colors.length), 3))
@@ -266,7 +266,7 @@ export function DottedSurface({
           col[j + 1] = GRAY + (finalG - GRAY) * t
           col[j + 2] = GRAY + (finalB - GRAY) * t
 
-          // Small spikes — always present, slightly dimmer at low breath
+          // Small spikes - always present, slightly dimmer at low breath
           const spikeStr = (0.5 + breath * 0.5) * t
           scol[j]     = cr * spikeStr
           scol[j + 1] = cg * spikeStr
@@ -275,7 +275,7 @@ export function DottedSurface({
           spos[j + 1] = pos[j + 1]
           spos[j + 2] = pos[j + 2]
 
-          // Pulse spikes — only appear in the top 40% of breath cycle (grow → peak → shrink)
+          // Pulse spikes - only appear in the top 40% of breath cycle (grow → peak → shrink)
           const pulse = Math.max(0, (breath - 0.6) / 0.4) * t
           if (pulse > 0.02) {
             pcol[j]     = cr * pulse * 0.9

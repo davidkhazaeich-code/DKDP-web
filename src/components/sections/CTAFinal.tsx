@@ -25,22 +25,35 @@ export function CTAFinal() {
           </h2>
 
           <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            15 minutes, c&apos;est gratuit, et on vous dit honnêtement si on peut vous aider — et comment.
+            15 minutes, c&apos;est gratuit, et on vous dit honnêtement si on peut vous aider - et comment.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex justify-center mb-10">
             <LiquidMetalButton href="/contact" size="lg">
               Réservez votre appel gratuit<span aria-hidden="true"> →</span>
             </LiquidMetalButton>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 text-sm text-text-muted items-center">
-              <a href="tel:+41799407969" className="hover:text-white transition-colors">
-                +41 79 940 79 69
-              </a>
-              <span className="hidden sm:block" aria-hidden="true">·</span>
-              <a href="mailto:dk@dkdp.ch" className="hover:text-white transition-colors">
-                dk@dkdp.ch
-              </a>
-            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-px max-w-sm mx-auto mb-12 border border-border rounded-full overflow-hidden">
+            <a
+              href="tel:+41799407969"
+              className="flex items-center justify-center gap-2 px-6 py-3 text-sm text-text-muted hover:text-white hover:bg-bg-card transition-all duration-150"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 2.5C2 2.5 3 1 4.5 1c.5 0 1 .5 1.5 1.5S7 4 7 4s-.5.5-1 1c.5 1 1.5 2 2.5 2.5.5-.5 1-1 1-1s1 .5 2 1 1.5 1 1.5 1.5C13 10.5 12 12 12 12c-4 1-9.5-4.5-10-9.5z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              </svg>
+              +41 79 940 79 69
+            </a>
+            <a
+              href="mailto:dk@dkdp.ch"
+              className="flex items-center justify-center gap-2 px-6 py-3 text-sm text-text-muted hover:text-white hover:bg-bg-card transition-all duration-150"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="2.5" width="12" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>
+                <path d="M1 4l6 4 6-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+              </svg>
+              dk@dkdp.ch
+            </a>
           </div>
 
           <p className="text-text-muted text-sm">

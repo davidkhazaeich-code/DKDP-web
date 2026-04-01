@@ -29,7 +29,7 @@ export function SectionReveal({
         visible: {
           ...variant.visible,
           transition: {
-            // @ts-expect-error — spread transition with delay override
+            // @ts-expect-error - spread transition with delay override
             ...variant.visible?.transition,
             delay,
           },

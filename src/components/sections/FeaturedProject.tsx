@@ -18,7 +18,7 @@ export function FeaturedProject() {
           <div className="text-center mb-16">
             <GradTag className="mb-6">Étude de cas</GradTag>
             <h2 id="featured-heading" className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-              Solid SA — Refonte web complète
+              Solid SA - Refonte web complète
             </h2>
           </div>
         </SectionReveal>
@@ -53,7 +53,7 @@ export function FeaturedProject() {
               </Link>
             </div>
             <div>
-              <ImagePlaceholder title="Screenshot — site refait" />
+              <ImagePlaceholder title="Screenshot - site refait" />
             </div>
           </div>
         </SectionReveal>

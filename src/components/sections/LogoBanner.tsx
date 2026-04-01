@@ -31,7 +31,7 @@ export function LogoBanner() {
         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling strip — duplicated for infinite loop */}
+        {/* Scrolling strip - duplicated for infinite loop */}
         <div className="logo-scroll items-center gap-16">
           {[...LOGOS, ...LOGOS].map((logo, i) => (
             <div

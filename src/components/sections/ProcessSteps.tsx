@@ -4,11 +4,11 @@ import { GradTag } from '@/components/ui/GradTag'
 // Interpolated colors: violet #7C3AED → orange #FF6B00 across 5 steps
 // Step 0→4, t = i/4
 const STEP_COLORS = [
-  '#7C3AED', // 01 — pure violet
-  '#9D46B2', // 02 — violet-purple
-  '#BE5377', // 03 — magenta mid
-  '#DE5F3B', // 04 — warm red-orange
-  '#FF6B00', // 05 — pure orange
+  '#7C3AED', // 01 - pure violet
+  '#9D46B2', // 02 - violet-purple
+  '#BE5377', // 03 - magenta mid
+  '#DE5F3B', // 04 - warm red-orange
+  '#FF6B00', // 05 - pure orange
 ]
 
 function IconChat({ color }: { color: string }) {
@@ -125,7 +125,7 @@ export function ProcessSteps() {
         </SectionReveal>
 
         <div className="relative">
-          {/* Connecting line — desktop only, violet→orange gradient */}
+          {/* Connecting line - desktop only, violet→orange gradient */}
           <div
             className="hidden md:block absolute top-10 left-0 right-0 h-px"
             style={{ background: 'linear-gradient(to right, transparent, #7C3AED 10%, #BE5377 50%, #FF6B00 90%, transparent)' }}

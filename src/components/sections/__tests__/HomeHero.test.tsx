@@ -22,14 +22,14 @@ describe('HomeHero', () => {
     expect(screen.getByText(/votre entreprise mérite/i)).toBeInTheDocument()
   })
 
-  it('renders primary CTA linking to /contact', () => {
+  it('renders primary CTA linking to pillar section', () => {
     render(<HomeHero />)
-    expect(screen.getByRole('link', { name: /réservez un appel/i })).toHaveAttribute('href', '/contact')
+    expect(screen.getByRole('link', { name: /découvrez nos services/i })).toHaveAttribute('href', '#nos-expertises')
   })
 
-  it('renders secondary CTA linking to pillar section', () => {
+  it('renders secondary CTA linking to /contact', () => {
     render(<HomeHero />)
-    expect(screen.getByRole('link', { name: /nos 3 expertises/i })).toHaveAttribute('href', '#nos-expertises')
+    expect(screen.getByRole('link', { name: /réserver un appel/i })).toHaveAttribute('href', '/contact')
   })
 
   it('renders 4 stat labels', () => {

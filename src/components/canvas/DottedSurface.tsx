@@ -35,24 +35,75 @@ export function DottedSurface({
       const BREATH_SPEED = 1.0
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-      // Circular dot texture via canvas radial gradient
+      // Tight circular dot — hard center, sharp falloff
       function createDotTexture() {
         const size = 64
+        const c = size / 2
         const canvas = document.createElement('canvas')
         canvas.width = size
         canvas.height = size
         const ctx = canvas.getContext('2d')!
-        const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2)
-        gradient.addColorStop(0, 'rgba(255,255,255,1)')
-        gradient.addColorStop(0.4, 'rgba(255,255,255,0.95)')
-        gradient.addColorStop(0.7, 'rgba(255,255,255,0.35)')
-        gradient.addColorStop(1, 'rgba(255,255,255,0)')
-        ctx.fillStyle = gradient
+        const g = ctx.createRadialGradient(c, c, 0, c, c, c * 0.45)
+        g.addColorStop(0,   'rgba(255,255,255,1)')
+        g.addColorStop(0.6, 'rgba(255,255,255,0.9)')
+        g.addColorStop(1,   'rgba(255,255,255,0)')
+        ctx.fillStyle = g
         ctx.fillRect(0, 0, size, size)
         return new THREE.CanvasTexture(canvas)
       }
 
-      const dotTexture = createDotTexture()
+      // 4-pointed star / diffraction spike texture — sharp, angular, tech
+      function createSpikesTexture() {
+        const size = 128
+        const c = size / 2
+        const canvas = document.createElement('canvas')
+        canvas.width = size
+        canvas.height = size
+        const ctx = canvas.getContext('2d')!
+
+        // Soft center glow (small)
+        const cg = ctx.createRadialGradient(c, c, 0, c, c, c * 0.18)
+        cg.addColorStop(0, 'rgba(255,255,255,0.9)')
+        cg.addColorStop(1, 'rgba(255,255,255,0)')
+        ctx.fillStyle = cg
+        ctx.fillRect(0, 0, size, size)
+
+        // Draw 4 elongated spikes (horizontal + vertical)
+        const spikes = [
+          { ax: -1, ay: 0 }, { ax: 1, ay: 0 },
+          { ax: 0, ay: -1 }, { ax: 0, ay: 1 },
+        ]
+        for (const { ax, ay } of spikes) {
+          const len = c * 0.95
+          const width = c * 0.06
+          const gx1 = c + ax * 0, gy1 = c + ay * 0
+          const gx2 = c + ax * len, gy2 = c + ay * len
+          const sg = ctx.createLinearGradient(gx1, gy1, gx2, gy2)
+          sg.addColorStop(0,    'rgba(255,255,255,0.85)')
+          sg.addColorStop(0.35, 'rgba(255,255,255,0.45)')
+          sg.addColorStop(0.7,  'rgba(255,255,255,0.12)')
+          sg.addColorStop(1,    'rgba(255,255,255,0)')
+          ctx.save()
+          ctx.translate(c, c)
+          ctx.rotate(Math.atan2(ay, ax))
+          ctx.scale(1, 1)
+          const bx = 0, by = -width
+          const ex = len, ey = 0
+          ctx.beginPath()
+          ctx.moveTo(bx, by)
+          ctx.quadraticCurveTo(len * 0.6, 0, ex, ey)
+          ctx.quadraticCurveTo(len * 0.6, 0, bx, width)
+          ctx.closePath()
+          ctx.fillStyle = sg
+          ctx.fill()
+          ctx.restore()
+        }
+
+        return new THREE.CanvasTexture(canvas)
+      }
+
+      const dotTexture   = createDotTexture()
+      const spikesTexture = createSpikesTexture()
 
       const scene = new THREE.Scene()
       scene.fog = new THREE.Fog(0xffffff, 2000, 10000)
@@ -103,14 +154,14 @@ export function DottedSurface({
       glowGeometry.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(colors.length), 3))
 
       const glowMaterial = new THREE.PointsMaterial({
-        size: 80,
+        size: 100,
         vertexColors: true,
         transparent: true,
-        opacity: 0.65,
+        opacity: 0.55,
         sizeAttenuation: true,
         depthWrite: false,
-        map: dotTexture,
-        alphaTest: 0.005,
+        map: spikesTexture,
+        alphaTest: 0.003,
       })
       const glowPoints = new THREE.Points(glowGeometry, glowMaterial)
       scene.add(glowPoints)
@@ -290,6 +341,7 @@ export function DottedSurface({
         cancelAnimationFrame(animationId)
         renderer.domElement.remove()
         dotTexture.dispose()
+        spikesTexture.dispose()
       }
     }
 

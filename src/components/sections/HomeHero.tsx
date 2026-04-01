@@ -19,7 +19,7 @@ export function HomeHero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
       {/* Three.js background */}
-      <DottedSurface className="absolute inset-0 z-0 opacity-60" />
+      <DottedSurface className="absolute inset-0 z-0 opacity-40" />
 
       {/* Radial blobs */}
       <div className="blob-orange absolute -top-32 -left-32 w-[600px] h-[600px] opacity-25 pointer-events-none" />
@@ -56,15 +56,15 @@ export function HomeHero() {
           variants={fadeUp}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
         >
-          <LiquidMetalButton href="/contact" size="lg">
-            Réservez un appel de 15 min →
+          <LiquidMetalButton href="#nos-expertises" size="lg">
+            Découvrez nos services →
           </LiquidMetalButton>
-          <a
-            href="#nos-expertises"
+          <Link
+            href="/contact"
             className="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full border border-[rgba(124,58,237,0.3)] text-white hover:border-violet transition-all duration-[150ms] hover:-translate-y-px"
           >
-            Nos 3 expertises
-          </a>
+            Réserver un appel
+          </Link>
         </motion.div>
 
         {/* Stats row */}

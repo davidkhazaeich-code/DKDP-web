@@ -70,7 +70,7 @@ export function ProcessSteps() {
                     <div className="w-20 h-20 rounded-full bg-bg-card border border-border flex items-center justify-center text-2xl relative z-10">
                       <span aria-hidden="true">{step.icon}</span>
                     </div>
-                    <span className="absolute -top-1.5 -right-1.5 text-[10px] font-bold text-violet-light bg-bg border border-border rounded-full w-6 h-6 flex items-center justify-center">
+                    <span className="absolute -top-1.5 -right-1.5 z-20 text-[10px] font-bold text-violet-light bg-bg border border-border rounded-full w-6 h-6 flex items-center justify-center">
                       {step.number}
                     </span>
                   </div>

@@ -17,9 +17,12 @@ describe('ProcessSteps', () => {
     expect(screen.getByText('Résultats & Suivi')).toBeInTheDocument()
   })
 
-  it('renders 5 step numbers', () => {
+  it('renders all 5 step numbers', () => {
     render(<ProcessSteps />)
     expect(screen.getByText('01')).toBeInTheDocument()
+    expect(screen.getByText('02')).toBeInTheDocument()
+    expect(screen.getByText('03')).toBeInTheDocument()
+    expect(screen.getByText('04')).toBeInTheDocument()
     expect(screen.getByText('05')).toBeInTheDocument()
   })
 

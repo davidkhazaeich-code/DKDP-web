@@ -125,6 +125,7 @@ export function Testimonials() {
               {TESTIMONIALS.map((_, i) => (
                 <button
                   key={i}
+                  type="button"
                   role="tab"
                   aria-selected={i === current}
                   aria-label={`Témoignage ${i + 1}`}

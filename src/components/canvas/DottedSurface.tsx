@@ -10,8 +10,8 @@ interface DottedSurfaceProps {
 
 export function DottedSurface({
   className = '',
-  violetRatio = 0.02,
-  orangeRatio = 0.008,
+  violetRatio = 0.025,
+  orangeRatio = 0.004,
 }: DottedSurfaceProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -103,10 +103,10 @@ export function DottedSurface({
       glowGeometry.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(colors.length), 3))
 
       const glowMaterial = new THREE.PointsMaterial({
-        size: 52,
+        size: 80,
         vertexColors: true,
         transparent: true,
-        opacity: 0.40,
+        opacity: 0.65,
         sizeAttenuation: true,
         depthWrite: false,
         map: dotTexture,
@@ -200,22 +200,22 @@ export function DottedSurface({
 
           const t = pointT[idx]
 
-          // Breathing: dot oscillates color ↔ brighter-white, never fully white (max 45%)
+          // Breathing: dot pulses toward white (max 65%) for a luminescent effect
           const breath = 0.5 + 0.5 * Math.sin(time * BREATH_SPEED + pointPhase[idx])
 
           const cr = type === 1 ? VR : OR
           const cg = type === 1 ? VG : OG
           const cb = type === 1 ? VB : OB
 
-          const finalR = cr + (1.0 - cr) * breath * 0.45
-          const finalG = cg + (1.0 - cg) * breath * 0.45
-          const finalB = cb + (1.0 - cb) * breath * 0.45
+          const finalR = cr + (1.0 - cr) * breath * 0.65
+          const finalG = cg + (1.0 - cg) * breath * 0.65
+          const finalB = cb + (1.0 - cb) * breath * 0.65
 
           col[j]     = GRAY + (finalR - GRAY) * t
           col[j + 1] = GRAY + (finalG - GRAY) * t
           col[j + 2] = GRAY + (finalB - GRAY) * t
 
-          const glowStrength = (1.0 - breath * 0.35) * t
+          const glowStrength = (0.7 + breath * 0.3) * t
           gcol[j]     = cr * glowStrength
           gcol[j + 1] = cg * glowStrength
           gcol[j + 2] = cb * glowStrength

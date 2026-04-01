@@ -2,6 +2,16 @@ import '@testing-library/jest-dom'
 import { vi } from 'vitest'
 import { configure } from '@testing-library/react'
 
+// jsdom does not implement ResizeObserver; mock it globally
+class MockResizeObserver {
+  observe = vi.fn()
+  unobserve = vi.fn()
+  disconnect = vi.fn()
+  constructor(_callback: ResizeObserverCallback) {}
+}
+Object.defineProperty(window, 'ResizeObserver', { writable: true, configurable: true, value: MockResizeObserver })
+Object.defineProperty(global, 'ResizeObserver', { writable: true, configurable: true, value: MockResizeObserver })
+
 // jsdom does not implement IntersectionObserver; mock it so framer-motion
 // whileInView animations don't throw in tests.
 class MockIntersectionObserver {

@@ -3,13 +3,8 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect, vi } from 'vitest'
 
-vi.mock('@paper-design/shaders', () => ({
-  liquidMetalFragmentShader: 'mock-shader',
-  ShaderMount: class {
-    constructor() {}
-    setSpeed() {}
-    destroy() {}
-  },
+vi.mock('@paper-design/shaders-react', () => ({
+  LiquidMetal: () => null,
 }))
 
 import { LiquidMetalButton } from '../LiquidMetalButton'

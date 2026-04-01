@@ -27,9 +27,9 @@ describe('HomeHero', () => {
     expect(screen.getByRole('link', { name: /réservez un appel/i })).toHaveAttribute('href', '/contact')
   })
 
-  it('renders secondary CTA linking to /realisations', () => {
+  it('renders secondary CTA linking to pillar section', () => {
     render(<HomeHero />)
-    expect(screen.getByRole('link', { name: /voir nos réalisations/i })).toHaveAttribute('href', '/realisations')
+    expect(screen.getByRole('link', { name: /nos 3 expertises/i })).toHaveAttribute('href', '#nos-expertises')
   })
 
   it('renders 4 stat labels', () => {

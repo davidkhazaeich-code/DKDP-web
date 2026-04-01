@@ -26,71 +26,46 @@ export function LiquidMetalButton({
   const [isHovered, setIsHovered] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
   const [ripples, setRipples] = useState<Array<{ x: number; y: number; id: number }>>([])
-  const shaderRef = useRef<HTMLDivElement>(null)
-  const shaderMount = useRef<{ setSpeed?: (s: number) => void; destroy?: () => void } | null>(null)
-  const isHoveredRef = useRef(false)
+  const [dims, setDims] = useState({ w: 0, h: 0 })
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const LiquidMetalRef = useRef<React.ComponentType<Record<string, unknown>> | null>(null)
+  const [shaderLoaded, setShaderLoaded] = useState(false)
   const rippleId = useRef(0)
+  const s = sizeMap[size]
+  const radius = '100px'
 
+  // Measure actual button dimensions
   useEffect(() => {
-    async function initShader() {
-      try {
-        const { liquidMetalFragmentShader, ShaderMount } = await import('@paper-design/shaders')
-        if (!shaderRef.current) return
-        shaderMount.current?.destroy?.()
-        shaderMount.current = new ShaderMount(
-          shaderRef.current,
-          liquidMetalFragmentShader,
-          {
-            u_repetition: 4,
-            u_softness: 0.5,
-            u_shiftRed: 0.45,   // warm orange tint in the metal reflections
-            u_shiftBlue: 0.12,  // reduce blue for warmer chrome
-            u_distortion: 0,
-            u_contour: 0,
-            u_angle: 45,
-            u_scale: 8,
-            u_shape: 1,
-            u_offsetX: 0.1,
-            u_offsetY: -0.1,
-          },
-          undefined,
-          0.6
-        ) as { setSpeed?: (s: number) => void; destroy?: () => void }
-      } catch (e) {
-        console.warn('LiquidMetalButton shader init failed', e)
-      }
-    }
-    initShader()
-    return () => { shaderMount.current?.destroy?.(); shaderMount.current = null }
+    const el = wrapperRef.current
+    if (!el) return
+    const ro = new ResizeObserver(() => {
+      setDims({ w: el.offsetWidth, h: el.offsetHeight })
+    })
+    ro.observe(el)
+    setDims({ w: el.offsetWidth, h: el.offsetHeight })
+    return () => ro.disconnect()
   }, [])
 
-  const handleMouseEnter = () => {
-    isHoveredRef.current = true
-    setIsHovered(true)
-    shaderMount.current?.setSpeed?.(1)
-  }
-  const handleMouseLeave = () => {
-    isHoveredRef.current = false
-    setIsHovered(false)
-    setIsPressed(false)
-    shaderMount.current?.setSpeed?.(0.6)
-  }
+  // Lazy-load the React shader component
+  useEffect(() => {
+    import('@paper-design/shaders-react').then((mod) => {
+      LiquidMetalRef.current = mod.LiquidMetal as React.ComponentType<Record<string, unknown>>
+      setShaderLoaded(true)
+    }).catch(() => {})
+  }, [])
+
+  const handleMouseEnter = () => setIsHovered(true)
+  const handleMouseLeave = () => { setIsHovered(false); setIsPressed(false) }
   const handleMouseDown = () => setIsPressed(true)
   const handleMouseUp = () => setIsPressed(false)
 
   function handleClick(e: React.MouseEvent) {
-    shaderMount.current?.setSpeed?.(2.4)
-    setTimeout(() => shaderMount.current?.setSpeed?.(isHoveredRef.current ? 1 : 0.6), 300)
-
     const rect = e.currentTarget.getBoundingClientRect()
     const id = rippleId.current++
     setRipples(prev => [...prev, { x: e.clientX - rect.left, y: e.clientY - rect.top, id }])
     setTimeout(() => setRipples(prev => prev.filter(r => r.id !== id)), 600)
     onClick?.()
   }
-
-  const s = sizeMap[size]
-  const radius = '100px'
 
   const shadow = isPressed
     ? '0 0 0 1px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.4)'
@@ -100,9 +75,7 @@ export function LiquidMetalButton({
 
   const transform = isPressed
     ? 'translateY(1px) scale(0.98)'
-    : isHovered
-      ? 'translateY(-1px)'
-      : 'none'
+    : isHovered ? 'translateY(-1px)' : 'none'
 
   const interactionHandlers = {
     onMouseEnter: handleMouseEnter,
@@ -112,14 +85,14 @@ export function LiquidMetalButton({
     onClick: handleClick,
   }
 
-  // Inner visual layers rendered inside the interactive element
+  const LM = LiquidMetalRef.current
+
   const visualContent = (
     <>
-      {/* Shader chrome background */}
+      {/* Shader chrome — fixed pixel dimensions so canvas fills completely */}
       <div
-        ref={shaderRef}
         data-testid="shader-mount"
-        className="lmb-shader"
+        aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
@@ -127,11 +100,29 @@ export function LiquidMetalButton({
           overflow: 'hidden',
           pointerEvents: 'none',
         }}
-        aria-hidden="true"
-      />
+      >
+        {shaderLoaded && LM && dims.w > 0 && (
+          <LM
+            style={{ width: `${dims.w}px`, height: `${dims.h}px`, display: 'block' }}
+            speed={isPressed ? 2.4 : isHovered ? 1 : 0.6}
+            shape="circle"
+            repetition={4}
+            softness={0.5}
+            shiftRed={0.45}
+            shiftBlue={0.12}
+            distortion={0}
+            contour={0}
+            angle={45}
+            scale={8}
+            offsetX={0.1}
+            offsetY={-0.1}
+          />
+        )}
+      </div>
 
-      {/* Dark pill surface — sits 2px inset from chrome edge, creating a visible metal ring */}
+      {/* Dark pill — 2px inset creates visible metal ring */}
       <div
+        aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 2,
@@ -143,10 +134,9 @@ export function LiquidMetalButton({
           transition: 'background 0.15s, box-shadow 0.15s',
           pointerEvents: 'none',
         }}
-        aria-hidden="true"
       />
 
-      {/* Label — sits above the dark pill */}
+      {/* Label */}
       <span
         style={{
           position: 'relative',
@@ -167,7 +157,7 @@ export function LiquidMetalButton({
         {children}
       </span>
 
-      {/* Click ripples */}
+      {/* Ripples */}
       {ripples.map(r => (
         <span
           key={r.id}
@@ -203,25 +193,29 @@ export function LiquidMetalButton({
 
   if (href) {
     return (
-      <Link
-        href={href}
-        className={className}
-        style={{ ...wrapperStyle, textDecoration: 'none' }}
-        {...interactionHandlers}
-      >
-        {visualContent}
-      </Link>
+      <div ref={wrapperRef} style={{ display: 'inline-flex' }}>
+        <Link
+          href={href}
+          className={className}
+          style={{ ...wrapperStyle, textDecoration: 'none' }}
+          {...interactionHandlers}
+        >
+          {visualContent}
+        </Link>
+      </div>
     )
   }
 
   return (
-    <button
-      type="button"
-      className={className}
-      style={{ ...wrapperStyle, border: 'none', padding: 0, background: 'transparent' }}
-      {...interactionHandlers}
-    >
-      {visualContent}
-    </button>
+    <div ref={wrapperRef} style={{ display: 'inline-flex' }}>
+      <button
+        type="button"
+        className={className}
+        style={{ ...wrapperStyle, border: 'none', padding: 0, background: 'transparent' }}
+        {...interactionHandlers}
+      >
+        {visualContent}
+      </button>
+    </div>
   )
 }

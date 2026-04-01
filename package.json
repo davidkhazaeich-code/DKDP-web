@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@paper-design/shaders": "^0.0.72",
+    "@paper-design/shaders-react": "^0.0.72",
     "@react-email/components": "^1.0.10",
     "@types/three": "^0.183.1",
     "framer-motion": "^12.38.0",

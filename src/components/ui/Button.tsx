@@ -37,7 +37,7 @@ export function Button({
   type = 'button',
 }: ButtonProps) {
   const classes = [
-    'inline-flex items-center justify-center gap-2 rounded-[8px] font-semibold cursor-pointer select-none',
+    'inline-flex items-center justify-center gap-2 rounded-full font-semibold cursor-pointer select-none',
     'transition-all duration-[150ms] ease-out',
     'hover:-translate-y-px active:translate-y-0 active:scale-[0.98]',
     variantClasses[variant],

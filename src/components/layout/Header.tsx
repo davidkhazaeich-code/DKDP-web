@@ -114,7 +114,7 @@ export function Header() {
             ))}
             <Link
               href="/contact"
-              className="mt-6 flex items-center justify-center px-[22px] py-3 bg-white text-black font-semibold rounded-[8px] text-[15px] hover:bg-gray-100 transition-all"
+              className="mt-6 flex items-center justify-center px-[22px] py-3 bg-white text-black font-semibold rounded-full text-[15px] hover:bg-gray-100 transition-all"
               onClick={() => setMobileOpen(false)}
             >
               Réservez un appel →

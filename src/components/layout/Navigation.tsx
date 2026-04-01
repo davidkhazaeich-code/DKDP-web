@@ -51,7 +51,7 @@ export function Navigation() {
 
       <Link
         href="/contact"
-        className="ml-3 px-[22px] py-[11px] text-[13px] font-semibold bg-white text-black rounded-[8px] hover:bg-gray-100 transition-all duration-[150ms] hover:-translate-y-px active:translate-y-0"
+        className="ml-3 px-[22px] py-[11px] text-[13px] font-semibold bg-white text-black rounded-full hover:bg-gray-100 transition-all duration-[150ms] hover:-translate-y-px active:translate-y-0"
       >
         Contact
       </Link>

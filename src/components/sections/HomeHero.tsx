@@ -38,7 +38,7 @@ export function HomeHero() {
 
         <motion.h1
           variants={fadeUp}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-[-0.03em] mb-6 max-w-4xl mx-auto"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-[-0.03em] mb-6 max-w-[1100px] mx-auto"
         >
           Votre entreprise mérite un digital{' '}
           <GradText as="span">qui travaille pour vous.</GradText>
@@ -59,12 +59,12 @@ export function HomeHero() {
           <LiquidMetalButton href="/contact" size="lg">
             Réservez un appel de 15 min →
           </LiquidMetalButton>
-          <Link
-            href="/realisations"
-            className="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-[8px] border border-[rgba(124,58,237,0.3)] text-white hover:border-violet transition-all duration-[150ms] hover:-translate-y-px"
+          <a
+            href="#nos-expertises"
+            className="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full border border-[rgba(124,58,237,0.3)] text-white hover:border-violet transition-all duration-[150ms] hover:-translate-y-px"
           >
-            Voir nos réalisations
-          </Link>
+            Nos 3 expertises
+          </a>
         </motion.div>
 
         {/* Stats row */}

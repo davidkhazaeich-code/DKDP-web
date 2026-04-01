@@ -61,7 +61,7 @@ const PILLARS = [
 
 export function PillarCards() {
   return (
-    <section aria-labelledby="pillars-heading" className="py-24 bg-bg-card border-y border-border">
+    <section id="nos-expertises" aria-labelledby="pillars-heading" className="py-24 bg-bg-card border-y border-border">
       <div className="max-w-[1200px] mx-auto px-6">
         <SectionReveal>
           <div className="text-center mb-16">

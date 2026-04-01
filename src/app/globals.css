@@ -25,7 +25,7 @@
 
   /* --- Border radius --- */
   --radius-badge: 4px;
-  --radius-btn: 8px;
+  --radius-btn: 100px;
   --radius-card: 12px;
   --radius-hero: 16px;
 
@@ -236,12 +236,11 @@ html {
 }
 
 /* ═══ Liquid metal shader button ═══ */
+/* Let ShaderMount manage canvas positioning — only override display & size */
 .lmb-shader canvas {
+  display: block !important;
   width: 100% !important;
   height: 100% !important;
-  display: block !important;
-  position: absolute !important;
-  inset: 0 !important;
   border-radius: inherit !important;
 }
 @keyframes lmb-ripple {

@@ -31,11 +31,11 @@ export function DottedSurface({
       const AMOUNTX = 60
       const AMOUNTY = 90
       const SHUFFLE_INTERVAL = 4500
-      const FADE_SPEED = 0.016      // frames to cross 0→1 ≈ 1.0s at 60fps
-      const BREATH_SPEED = 1.0
+      const FADE_SPEED = 0.028      // frames to cross 0→1 ≈ 0.6s at 60fps
+      const BREATH_SPEED = 2.2
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-      // Tight circular dot — hard center, sharp falloff
+      // Circular dot — solid center, smooth falloff
       function createDotTexture() {
         const size = 64
         const c = size / 2
@@ -43,9 +43,10 @@ export function DottedSurface({
         canvas.width = size
         canvas.height = size
         const ctx = canvas.getContext('2d')!
-        const g = ctx.createRadialGradient(c, c, 0, c, c, c * 0.45)
+        const g = ctx.createRadialGradient(c, c, 0, c, c, c)
         g.addColorStop(0,   'rgba(255,255,255,1)')
-        g.addColorStop(0.6, 'rgba(255,255,255,0.9)')
+        g.addColorStop(0.4, 'rgba(255,255,255,0.95)')
+        g.addColorStop(0.7, 'rgba(255,255,255,0.35)')
         g.addColorStop(1,   'rgba(255,255,255,0)')
         ctx.fillStyle = g
         ctx.fillRect(0, 0, size, size)

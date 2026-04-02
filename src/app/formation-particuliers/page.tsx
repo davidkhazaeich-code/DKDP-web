@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
-  Monitor, FileSpreadsheet, Bot, Share2,
+  Monitor, Smartphone, FileSpreadsheet, Bot, Share2,
+  Palette, Shield, Code,
   User, Briefcase, UserSearch, GraduationCap,
   CalendarCheck, MessageSquare,
   ChevronRight, Star, ExternalLink, MapPin, Phone,
-  Shield, Code,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
@@ -23,49 +23,71 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://dkdp.ch/formation-particuliers' },
 }
 
-const color  = '#FF8C00'
-const bg     = 'rgba(255,107,0,0.08)'
-const border = 'rgba(255,107,0,0.18)'
+const accent          = '#FF8C00'
+const cardBg          = 'rgba(18,18,24,0.85)'
+const cardBorder      = 'rgba(212,212,216,0.10)'
+const highlightBg     = 'rgba(255,107,0,0.07)'
+const highlightBorder = 'rgba(255,107,0,0.22)'
 
 // ── Thématiques ───────────────────────────────────────────────────────────────
 
 const TOPICS = [
   {
     Icon: Monitor,
-    title: 'Informatique & Smartphone',
-    desc: "Prise en main Mac ou PC, iPhone ou Android. Navigation internet, gestion des fichiers, emails, sécurité de base.",
-    tags: ['Mac & PC', 'iPhone & Android', 'Internet'],
+    title: 'Informatique de base',
+    desc: "Prise en main Mac ou PC, navigation internet, gestion des fichiers et emails. Idéal pour débutants et seniors.",
+    tags: ['Mac & PC', 'Internet', 'Emails'],
+    href: 'https://cours-informatique.ch/cours-informatique/ordinateur/',
+  },
+  {
+    Icon: Smartphone,
+    title: 'Smartphone',
+    desc: "iPhone et Android : applications, photos, WhatsApp, paramètres, synchronisation et sécurité mobile.",
+    tags: ['iPhone', 'Android', 'Applications'],
+    href: 'https://cours-informatique.ch/cours-informatique/smartphone-iphone-android/',
   },
   {
     Icon: FileSpreadsheet,
     title: 'Bureautique',
     desc: "Word, Excel, PowerPoint, Outlook, Notion. Des formules simples aux tableaux croisés dynamiques.",
     tags: ['Excel', 'Word', 'PowerPoint', 'Outlook'],
+    href: 'https://cours-informatique.ch/cours-informatique/bureautique-word-excel/',
   },
   {
     Icon: Bot,
     title: 'Intelligence Artificielle',
-    desc: "ChatGPT, Claude, Copilot, Midjourney. Prompting efficace, génération d'images, automatisation du quotidien.",
+    desc: "ChatGPT, Claude, Copilot, Midjourney. Prompting efficace, génération d'images et automatisation du quotidien.",
     tags: ['ChatGPT', 'Claude', 'Prompting'],
+    href: 'https://cours-informatique.ch/formation-intelligence-artificielle-ai/',
     highlight: true,
   },
   {
     Icon: Share2,
-    title: 'Réseaux sociaux & Canva',
-    desc: "LinkedIn, Instagram, TikTok, Facebook. Créer visuels, présentations, CV et flyers avec Canva.",
-    tags: ['LinkedIn', 'Instagram', 'Canva', 'CapCut'],
+    title: 'Réseaux sociaux',
+    desc: "LinkedIn, Instagram, TikTok, Facebook. Créer du contenu, développer sa présence et planifier ses publications.",
+    tags: ['LinkedIn', 'Instagram', 'TikTok'],
+    href: 'https://cours-informatique.ch/cours-informatique/formation-reseaux-sociaux-linkedin-instagram-tiktok/',
+  },
+  {
+    Icon: Palette,
+    title: 'Canva & Montage vidéo',
+    desc: "Créer visuels, CV, flyers et présentations avec Canva. Montage vidéo avec CapCut, iMovie et Premiere.",
+    tags: ['Canva', 'CapCut', 'iMovie'],
+    href: 'https://cours-informatique.ch/canva/',
   },
   {
     Icon: Shield,
     title: 'Cybersécurité',
-    desc: "Reconnaître les arnaques en ligne, gérer ses mots de passe, protéger ses données personnelles.",
+    desc: "Reconnaître les arnaques en ligne, gérer ses mots de passe et protéger ses données personnelles.",
     tags: ['Phishing', 'Mots de passe', 'Données'],
+    href: 'https://cours-informatique.ch/formation-cybersecurite/',
   },
   {
     Icon: Code,
     title: 'Web & Développement',
-    desc: "WordPress, Figma, Elementor. Python, HTML/CSS, JavaScript pour aller plus loin.",
+    desc: "WordPress, Figma, Elementor. Python, HTML/CSS, JavaScript pour aller plus loin dans le numérique.",
     tags: ['WordPress', 'Python', 'HTML/CSS'],
+    href: 'https://cours-informatique.ch/cours-informatique/formation-developpement-web/',
   },
 ]
 
@@ -99,7 +121,7 @@ const MODALITES = [
   {
     Icon: MessageSquare,
     title: 'Financement possible',
-    desc: "Chômage, aide sociale, assurance invalidité — des solutions existent. L'équipe vous guide lors du premier contact.",
+    desc: "Chômage, aide sociale, assurance invalidité. L'équipe vous guide sur les démarches.",
   },
 ]
 
@@ -114,7 +136,7 @@ const FAQ_ITEMS = [
   {
     question: "Les cours se déroulent où ?",
     answer:
-      "Le formateur se déplace directement chez vous à Genève. Le déplacement est gratuit pour les résidents des Eaux-Vives (36 Rue du 31 Décembre), et de 20 à 100 CHF pour le reste du canton selon la distance. Les cours sont également disponibles en visio.",
+      "Le formateur se déplace directement chez vous à Genève. Le déplacement est gratuit pour les résidents des Eaux-Vives, et de 20 à 100 CHF pour le reste du canton selon la distance. Les cours sont également disponibles en visio.",
   },
   {
     question: "Quel est le tarif exact ?",
@@ -124,7 +146,7 @@ const FAQ_ITEMS = [
   {
     question: "Y a-t-il un engagement sur le nombre de cours ?",
     answer:
-      "Non. Aucun abonnement ni forfait minimum. Vous réservez séance par séance selon vos disponibilités. Un bloc de plusieurs séances à tarif légèrement préférentiel est possible — à discuter lors du premier contact.",
+      "Non. Aucun abonnement ni forfait minimum. Vous réservez séance par séance selon vos disponibilités. Un bloc de plusieurs séances à tarif préférentiel est possible, à discuter lors du premier contact.",
   },
   {
     question: "La formation peut-elle être financée ?",
@@ -134,7 +156,7 @@ const FAQ_ITEMS = [
   {
     question: "Proposez-vous des cours en ligne ?",
     answer:
-      "Oui, tous les cours sont disponibles en visio via Zoom ou Teams. Partage d'écran, travail sur vos fichiers en temps réel — même qualité qu'en présentiel, sans déplacement.",
+      "Oui, tous les cours sont disponibles en visio via Zoom ou Teams. Partage d'écran, travail sur vos fichiers en temps réel, même qualité qu'en présentiel, sans déplacement.",
   },
 ]
 
@@ -155,8 +177,8 @@ export default function FormationParticuliersPage() {
       {/* ── Hero ── */}
       <InfiniteGrid
         accentRgb="255,140,0"
-        blob1="rgba(255,107,0,0.09)"
-        blob2="rgba(212,212,216,0.06)"
+        blob1="rgba(255,107,0,0.07)"
+        blob2="rgba(212,212,216,0.05)"
       >
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
@@ -176,7 +198,7 @@ export default function FormationParticuliersPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-semibold underline underline-offset-2 transition-opacity hover:opacity-75"
-                    style={{ color }}
+                    style={{ color: accent }}
                   >
                     cours-informatique.ch
                   </a>
@@ -187,7 +209,7 @@ export default function FormationParticuliersPage() {
                 <div className="flex items-center gap-3 mb-10">
                   <div className="flex gap-0.5" aria-label="4.6 étoiles sur 5">
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} size={13} style={{ color, fill: color }} aria-hidden="true" />
+                      <Star key={i} size={13} style={{ color: accent, fill: accent }} aria-hidden="true" />
                     ))}
                   </div>
                   <span className="text-white font-semibold text-sm">4.6/5</span>
@@ -200,49 +222,43 @@ export default function FormationParticuliersPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-[12px] font-semibold text-sm text-white transition-opacity hover:opacity-85"
-                    style={{ background: color }}
+                    style={{ background: accent }}
                   >
                     Visiter cours-informatique.ch <ExternalLink size={14} aria-hidden="true" />
                   </a>
                   <a
                     href="tel:+41799407969"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-text-muted hover:text-white transition-colors"
+                    className="flex items-center gap-1.5 text-sm text-text-muted hover:text-white transition-colors"
                   >
-                    <Phone size={14} style={{ color }} aria-hidden="true" />
+                    <Phone size={13} aria-hidden="true" />
                     +41 79 940 79 69
                   </a>
                 </div>
               </div>
 
-              {/* Right: site card */}
+              {/* Right: info card */}
               <SectionReveal delay={0.15}>
                 <div
                   className="hidden lg:flex flex-col gap-5 rounded-2xl p-7 border"
-                  style={{
-                    background: 'rgba(255,107,0,0.05)',
-                    borderColor: border,
-                    boxShadow: '0 0 60px rgba(255,107,0,0.10)',
-                  }}
+                  style={{ background: cardBg, borderColor: cardBorder }}
                 >
-                  {/* Card header */}
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color }}>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-1">
                         Notre plateforme dédiée
                       </p>
                       <p className="text-white font-bold text-xl">cours-informatique.ch</p>
                     </div>
                     <div
                       className="flex h-10 w-10 items-center justify-center rounded-[10px]"
-                      style={{ background: 'rgba(255,107,0,0.12)', border: `1px solid ${border}` }}
+                      style={{ background: 'rgba(255,107,0,0.10)', border: `1px solid rgba(255,107,0,0.20)` }}
                     >
-                      <Monitor size={18} style={{ color }} aria-hidden="true" />
+                      <Monitor size={18} style={{ color: accent }} aria-hidden="true" />
                     </div>
                   </div>
 
-                  <div className="h-px" style={{ background: border }} />
+                  <div className="h-px bg-border" />
 
-                  {/* Stats grid */}
                   <div className="grid grid-cols-2 gap-4">
                     {[
                       { val: '463+',    lbl: 'clients satisfaits' },
@@ -251,36 +267,24 @@ export default function FormationParticuliersPage() {
                       { val: 'Lun–Sam', lbl: '8h00 – 19h00' },
                     ].map(({ val, lbl }) => (
                       <div key={lbl}>
-                        <p className="font-bold text-lg leading-tight" style={{ color }}>{val}</p>
+                        <p className="font-bold text-lg text-white leading-tight">{val}</p>
                         <p className="text-text-muted text-xs">{lbl}</p>
                       </div>
                     ))}
                   </div>
 
-                  <div className="h-px" style={{ background: border }} />
+                  <div className="h-px bg-border" />
 
-                  {/* Contact */}
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-2 text-text-muted text-xs">
-                      <MapPin size={12} style={{ color }} aria-hidden="true" />
+                      <MapPin size={12} style={{ color: accent }} aria-hidden="true" />
                       36 Rue du 31 Décembre, 1207 Genève (Eaux-Vives)
                     </div>
                     <div className="flex items-center gap-2 text-text-muted text-xs">
-                      <Phone size={12} style={{ color }} aria-hidden="true" />
-                      +41 79 940 79 69
+                      <Phone size={12} style={{ color: accent }} aria-hidden="true" />
+                      +41 79 940 79 69 · Lun–Sam 8h–19h
                     </div>
                   </div>
-
-                  {/* CTA */}
-                  <a
-                    href="https://cours-informatique.ch"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 py-3 rounded-[10px] font-semibold text-sm transition-opacity hover:opacity-75"
-                    style={{ background: 'rgba(255,107,0,0.15)', color, border: `1px solid rgba(255,107,0,0.28)` }}
-                  >
-                    Visiter le site <ExternalLink size={13} aria-hidden="true" />
-                  </a>
                 </div>
               </SectionReveal>
 
@@ -301,7 +305,7 @@ export default function FormationParticuliersPage() {
             ].map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.value}</p>
+                  <p className="text-3xl md:text-4xl font-bold text-white mb-1">{s.value}</p>
                   <p className="text-white text-sm font-medium">{s.label}</p>
                   <p className="text-text-muted text-xs mt-1">{s.sub}</p>
                 </div>
@@ -325,9 +329,12 @@ export default function FormationParticuliersPage() {
                 quel que soit son niveau. Pas de prérequis, pas de jugement.
                 Le programme est entièrement adapté à chaque profil.
               </p>
-              <p className="text-sm italic text-text-muted" style={{ borderLeft: `2px solid ${border}`, paddingLeft: '1rem' }}>
+              <p
+                className="text-sm italic text-text-muted"
+                style={{ borderLeft: '2px solid rgba(255,107,0,0.30)', paddingLeft: '1rem' }}
+              >
                 &ldquo;Apprendre, s&apos;entraîner, progresser, s&apos;amuser.&rdquo;
-                <span className="block mt-1 not-italic font-semibold" style={{ color }}>
+                <span className="block mt-1 not-italic font-semibold text-text-secondary">
                   Philosophie cours-informatique.ch
                 </span>
               </p>
@@ -338,13 +345,13 @@ export default function FormationParticuliersPage() {
                 <SectionReveal key={p.title}>
                   <div
                     className="flex flex-col gap-2.5 p-4 rounded-[14px] border h-full"
-                    style={{ background: bg, borderColor: border }}
+                    style={{ background: cardBg, borderColor: cardBorder }}
                   >
                     <div
                       className="flex h-9 w-9 items-center justify-center rounded-[8px]"
-                      style={{ background: 'rgba(255,107,0,0.12)', border: `1px solid ${border}` }}
+                      style={{ background: 'rgba(255,107,0,0.10)', border: `1px solid rgba(255,107,0,0.18)` }}
                     >
-                      <p.Icon size={16} style={{ color }} aria-hidden="true" />
+                      <p.Icon size={16} style={{ color: accent }} aria-hidden="true" />
                     </div>
                     <p className="text-white font-semibold text-sm leading-tight">{p.title}</p>
                     <p className="text-text-muted text-xs leading-relaxed">{p.desc}</p>
@@ -363,52 +370,62 @@ export default function FormationParticuliersPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Thématiques</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                6 domaines, des dizaines de sujets.
+                8 sujets, chacun disponible à Genève.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto">
-                Peu importe votre objectif, il y a un cours fait pour vous.
+                Cliquez sur une thématique pour découvrir le détail du cours sur cours-informatique.ch.
               </p>
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {TOPICS.map((t, i) => (
-              <SectionReveal key={t.title} delay={i * 0.07}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-6 transition-all duration-200"
+              <SectionReveal key={t.title} delay={i * 0.05}>
+                <a
+                  href={t.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col h-full rounded-[16px] border p-5 transition-all duration-200 hover:-translate-y-0.5"
                   style={{
-                    background: t.highlight
-                      ? 'linear-gradient(135deg, rgba(255,107,0,0.12) 0%, rgba(255,107,0,0.04) 100%)'
-                      : bg,
-                    borderColor: t.highlight ? 'rgba(255,107,0,0.35)' : border,
-                    boxShadow: t.highlight ? '0 0 40px rgba(255,107,0,0.08)' : 'none',
+                    background: t.highlight ? highlightBg : cardBg,
+                    borderColor: t.highlight ? highlightBorder : cardBorder,
                   }}
                 >
                   {t.highlight && (
-                    <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color }}>
+                    <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: accent }}>
                       Tendance 2026
                     </p>
                   )}
                   <div
-                    className="flex h-11 w-11 items-center justify-center rounded-[10px] mb-4"
-                    style={{ background: 'rgba(255,107,0,0.12)', border: `1px solid ${border}` }}
+                    className="flex h-10 w-10 items-center justify-center rounded-[10px] mb-3"
+                    style={{ background: 'rgba(255,107,0,0.10)', border: `1px solid rgba(255,107,0,0.15)` }}
                   >
-                    <t.Icon size={20} style={{ color }} aria-hidden="true" />
+                    <t.Icon size={18} style={{ color: accent }} aria-hidden="true" />
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">{t.title}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed flex-1">{t.desc}</p>
-                  <div className="flex flex-wrap gap-1.5 mt-4">
+                  <h3 className="text-white font-bold text-base mb-2">{t.title}</h3>
+                  <p className="text-text-muted text-xs leading-relaxed flex-1">{t.desc}</p>
+                  <div className="flex flex-wrap gap-1 mt-3 mb-3">
                     {t.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
-                        style={{ background: 'rgba(255,107,0,0.12)', color, border: `1px solid rgba(255,107,0,0.22)` }}
+                        className="text-[10px] font-medium px-2 py-0.5 rounded-full"
+                        style={{
+                          background: 'rgba(212,212,216,0.07)',
+                          color: '#A1A1AA',
+                          border: '1px solid rgba(212,212,216,0.12)',
+                        }}
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                </div>
+                  <span
+                    className="flex items-center gap-1 text-xs font-semibold mt-auto transition-gap"
+                    style={{ color: accent }}
+                  >
+                    Voir ce cours <ExternalLink size={11} aria-hidden="true" />
+                  </span>
+                </a>
               </SectionReveal>
             ))}
           </div>
@@ -420,15 +437,14 @@ export default function FormationParticuliersPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-            {/* Left: tarif */}
             <SectionReveal>
               <GradTag className="mb-4">Tarif</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 CHF 140 de l&apos;heure,<br />sans surprise.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-8">
-                Un tarif unique, clair, sans frais cachés. Le déplacement est gratuit
-                aux Eaux-Vives — de 20 à 100 CHF pour le reste du canton de Genève.
+                Un tarif unique et transparent. Le déplacement est gratuit aux Eaux-Vives,
+                de 20 à 100 CHF pour le reste du canton de Genève.
               </p>
               <div className="flex flex-col gap-3">
                 {[
@@ -442,7 +458,7 @@ export default function FormationParticuliersPage() {
                   <div key={item} className="flex items-start gap-2.5">
                     <div
                       className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full text-[9px] font-bold"
-                      style={{ background: bg, border: `1px solid ${border}`, color }}
+                      style={{ background: 'rgba(255,107,0,0.10)', border: `1px solid rgba(255,107,0,0.18)`, color: accent }}
                     >
                       ✓
                     </div>
@@ -452,23 +468,22 @@ export default function FormationParticuliersPage() {
               </div>
             </SectionReveal>
 
-            {/* Right: modalités cards */}
             <SectionReveal delay={0.1}>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3">
                 {MODALITES.map((m) => (
                   <div
                     key={m.title}
                     className="flex gap-4 p-5 rounded-[14px] border"
-                    style={{ background: bg, borderColor: border }}
+                    style={{ background: cardBg, borderColor: cardBorder }}
                   >
                     <div
-                      className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-[10px]"
-                      style={{ background: 'rgba(255,107,0,0.12)', border: `1px solid ${border}` }}
+                      className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px]"
+                      style={{ background: 'rgba(255,107,0,0.10)', border: `1px solid rgba(255,107,0,0.15)` }}
                     >
-                      <m.Icon size={18} style={{ color }} aria-hidden="true" />
+                      <m.Icon size={16} style={{ color: accent }} aria-hidden="true" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold text-sm mb-1">{m.title}</p>
+                      <p className="text-white font-semibold text-sm mb-0.5">{m.title}</p>
                       <p className="text-text-muted text-xs leading-relaxed">{m.desc}</p>
                     </div>
                   </div>
@@ -477,48 +492,6 @@ export default function FormationParticuliersPage() {
             </SectionReveal>
 
           </div>
-        </div>
-      </section>
-
-      {/* ── CTA intermédiaire ── */}
-      <section className="py-20 border-b border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div
-              className="rounded-[20px] p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center gap-8 justify-between"
-              style={{ background: 'rgba(255,107,0,0.07)', border: `1px solid ${border}` }}
-            >
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color }}>
-                  Prêt à commencer ?
-                </p>
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                  Tous les détails sur cours-informatique.ch
-                </h2>
-                <p className="text-text-secondary text-sm max-w-md">
-                  Témoignages, sujets détaillés et prise de contact directe — tout se passe sur notre site dédié aux particuliers.
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-                <a
-                  href="https://cours-informatique.ch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-[12px] font-semibold text-sm text-white transition-opacity hover:opacity-85"
-                  style={{ background: color }}
-                >
-                  Visiter le site <ExternalLink size={14} aria-hidden="true" />
-                </a>
-                <a
-                  href="tel:+41799407969"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-[12px] font-semibold text-sm transition-opacity hover:opacity-85"
-                  style={{ background: 'rgba(255,107,0,0.15)', color, border: `1px solid rgba(255,107,0,0.28)` }}
-                >
-                  <Phone size={14} aria-hidden="true" /> +41 79 940 79 69
-                </a>
-              </div>
-            </div>
-          </SectionReveal>
         </div>
       </section>
 
@@ -534,7 +507,7 @@ export default function FormationParticuliersPage() {
           <SectionReveal>
             <div
               className="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-[16px] border p-7"
-              style={{ background: bg, borderColor: border }}
+              style={{ background: cardBg, borderColor: cardBorder }}
             >
               <p className="text-text-secondary text-sm leading-relaxed max-w-xl">
                 Vous êtes une entreprise ? Découvrez nos formations corporate pour équipes.
@@ -543,7 +516,7 @@ export default function FormationParticuliersPage() {
               <Link
                 href="/formation-entreprise"
                 className="flex-shrink-0 inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-[10px] transition-opacity hover:opacity-80"
-                style={{ background: 'rgba(255,107,0,0.15)', color, border: `1px solid rgba(255,107,0,0.28)` }}
+                style={{ background: 'rgba(255,107,0,0.12)', color: accent, border: `1px solid rgba(255,107,0,0.22)` }}
               >
                 Formations entreprise <ChevronRight size={14} aria-hidden="true" />
               </Link>

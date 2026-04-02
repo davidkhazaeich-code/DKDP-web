@@ -1,0 +1,588 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import Image from 'next/image'
+import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Star, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, XCircle } from 'lucide-react'
+import { GradTag } from '@/components/ui/GradTag'
+import { GradText } from '@/components/ui/GradText'
+import { SectionReveal } from '@/components/ui/SectionReveal'
+import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { CTAFinal } from '@/components/sections/CTAFinal'
+import { FAQSection } from '@/components/sections/FAQSection'
+import { SchemaOrg } from '@/components/seo/SchemaOrg'
+import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+
+export const metadata: Metadata = {
+  title: 'Formation Cybersécurité en Entreprise à Genève · Phishing, Ransomware · DKDP',
+  description:
+    'Formation cybersécurité pour PME à Genève. Phishing, ransomware, social engineering. Simulations réelles, bonnes pratiques et plan d\'urgence. Équipes non-techniques.',
+  alternates: { canonical: 'https://dkdp.ch/formation-entreprise/cybersecurite' },
+}
+
+const FAQ = [
+  {
+    question: 'Pourquoi former ses employés à la cybersécurité ?',
+    answer:
+      '95% des incidents de cybersécurité impliquent une erreur humaine. Un clic sur un lien de phishing, un mot de passe partagé, un fichier téléchargé depuis une source inconnue : ce sont les vraies portes d\'entrée des attaques. Former vos équipes est la mesure la plus rentable contre les cyberattaques.',
+  },
+  {
+    question: 'Que couvre la formation cybersécurité de DKDP ?',
+    answer:
+      'La formation couvre : la reconnaissance des tentatives de phishing et d\'hameçonnage, la création et gestion de mots de passe sécurisés, l\'utilisation sécurisée des emails et des outils cloud, les obligations RGPD des employés, les bonnes pratiques sur les appareils mobiles, et la procédure à suivre en cas d\'incident.',
+  },
+  {
+    question: 'Combien de temps dure la formation cybersécurité ?',
+    answer:
+      'Un atelier de sensibilisation dure 3h30 (demi-journée). Une formation complète couvre une journée entière (7 heures). Pour les équipes qui souhaitent un audit complet de leurs pratiques et systèmes, un format sur 2 jours est disponible.',
+  },
+  {
+    question: 'La formation inclut-elle des simulations d\'attaque (phishing simulé) ?',
+    answer:
+      'Sur demande, DKDP peut organiser un exercice de phishing simulé avant la formation pour évaluer le niveau de vigilance de vos équipes. Cet exercice anonyme sert de base concrète pour la formation et rend les risques immédiatement tangibles.',
+  },
+  {
+    question: 'La formation est-elle adaptée aux non-techniciens ?',
+    answer:
+      'Absolument. La formation cybersécurité DKDP est conçue pour les employés sans background technique. On utilise des exemples concrets et des mises en situation réelles pour rendre les risques compréhensibles par tous.',
+  },
+  {
+    question: 'La cybersécurité concerne-t-elle les PME ou seulement les grandes entreprises ?',
+    answer:
+      'Les PME sont en réalité plus ciblées que les grandes entreprises, car elles ont moins de protections. En Suisse, plus de 60% des cyberattaques visent des entreprises de moins de 250 employés. Une formation de quelques heures peut éviter des pertes de dizaines de milliers de francs.',
+  },
+]
+
+const MODULES = [
+  'Comprendre les cybermenaces actuelles (phishing, ransomware, social engineering)',
+  'Reconnaître un email frauduleux et un lien suspect',
+  'Créer et gérer des mots de passe solides (gestionnaire de mots de passe)',
+  'Authentification à deux facteurs (2FA) : mise en place pratique',
+  'Navigation sécurisée et Wi-Fi public',
+  'Sauvegardes et récupération des données',
+  'Bonnes pratiques sur appareils mobiles professionnels',
+  'Procédure d\'urgence en cas d\'incident de sécurité',
+]
+
+const color = '#FF8C00'
+const bg = 'rgba(255,107,0,0.08)'
+const border = 'rgba(255,107,0,0.18)'
+
+const steps = [
+  { Icon: Eye, title: 'Prise de conscience', desc: 'Cas réels d\'attaques sur des PME suisses présentés avec impact chiffré. On rend concret ce qui semble abstrait.' },
+  { Icon: AlertTriangle, title: 'Simulations d\'attaques', desc: 'Exercices de détection de phishing et de social engineering. Chaque participant identifie les pièges en temps réel.' },
+  { Icon: Lock, title: 'Bonnes pratiques', desc: 'Mise en place pratique : 2FA sur les outils critiques, gestionnaire de mots de passe, procédure de sauvegarde.' },
+  { Icon: ShieldCheck, title: 'Plan d\'urgence', desc: 'Procédures à suivre en cas d\'incident. Chaque participant repart avec une fiche réflexe personnalisée.' },
+]
+
+function ThreatLevelChart() {
+  const threats = [
+    { name: 'Phishing / hameçonnage', pct: 92, level: 'CRITIQUE' },
+    { name: 'Ingénierie sociale', pct: 88, level: 'CRITIQUE' },
+    { name: 'Mots de passe faibles', pct: 82, level: 'ÉLEVÉ' },
+    { name: 'Ransomware', pct: 78, level: 'ÉLEVÉ' },
+    { name: 'Logiciels non à jour', pct: 55, level: 'MOYEN' },
+  ]
+  return (
+    <div className="space-y-4 w-full">
+      <p className="text-[11px] font-bold uppercase tracking-widest mb-5 text-center" style={{ color }}>
+        Menaces actuelles : PME suisses
+      </p>
+      {threats.map((t) => (
+        <div key={t.name} className="space-y-1.5">
+          <div className="flex justify-between items-center">
+            <span className="text-white text-sm font-medium">{t.name}</span>
+            <span
+              className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+              style={{
+                background: t.pct >= 85 ? 'rgba(239,68,68,0.15)' : t.pct >= 70 ? 'rgba(251,146,60,0.15)' : 'rgba(234,179,8,0.15)',
+                color: t.pct >= 85 ? '#f87171' : t.pct >= 70 ? '#fb923c' : '#fbbf24',
+              }}
+            >
+              {t.level}
+            </span>
+          </div>
+          <div className="h-2 rounded-full" style={{ background: 'rgba(255,107,0,0.10)' }}>
+            <div
+              className="h-full rounded-full"
+              style={{
+                width: `${t.pct}%`,
+                background: t.pct >= 85
+                  ? 'linear-gradient(90deg, rgba(239,68,68,0.60), #ef4444)'
+                  : t.pct >= 70
+                  ? 'linear-gradient(90deg, rgba(251,146,60,0.60), #fb923c)'
+                  : 'linear-gradient(90deg, rgba(234,179,8,0.60), #fbbf24)',
+              }}
+            />
+          </div>
+          <p className="text-text-muted text-[10px]">{t.pct}% des PME concernées</p>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default function FormationCybersecuritePage() {
+  return (
+    <main className="pt-14">
+      <SchemaOrg schema={buildCourse({ name: 'Formation Cybersécurité en entreprise Genève', url: '/formation-entreprise/cybersecurite', description: 'Formation cybersécurité pour PME à Genève. Phishing, ransomware, social engineering et bonnes pratiques pour équipes non-techniques.' })} />
+      <SchemaOrg schema={buildFAQPage(FAQ)} />
+      <SchemaOrg schema={buildBreadcrumbList([
+        { name: 'Accueil', url: 'https://dkdp.ch' },
+        { name: 'Formation Entreprise', url: 'https://dkdp.ch/formation-entreprise' },
+        { name: 'Cybersécurité', url: 'https://dkdp.ch/formation-entreprise/cybersecurite' },
+      ])} />
+
+      {/* ── Hero ── */}
+      <InfiniteGrid accentRgb="255,140,0" blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
+        <section className="pt-28 pb-24">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="flex items-center gap-2 mb-6">
+              <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-white transition-colors">
+                Formation Entreprise
+              </Link>
+              <ChevronRight size={14} className="text-text-muted" />
+              <span className="text-sm" style={{ color }}>Cybersécurité</span>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div>
+                <GradTag className="mb-6">Cybersécurité · Simulations réelles · Genève</GradTag>
+                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
+                  Protégez votre entreprise contre{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>les cyberattaques.</GradText>
+                </h1>
+                <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
+                  DKDP forme vos équipes à reconnaître et éviter les cybermenaces : phishing, ransomware, social engineering. Formation pratique avec simulations réelles.
+                </p>
+                <div className="flex flex-wrap gap-4 items-center mt-8">
+                  <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
+                  <Link href="#programme" className="text-sm text-text-muted hover:text-white transition-colors">
+                    Voir le programme ↓
+                  </Link>
+                </div>
+              </div>
+              <div className="relative hidden lg:block">
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
+                  <Image
+                    src="/images/services/dkdp-formation-cybersecurite.webp"
+                    alt="Formation cybersécurité en entreprise à Genève"
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </InfiniteGrid>
+
+      {/* ── Stats ── */}
+      <section className="py-12 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { v: '90%', l: 'Failles humaines', sub: 'Phishing et social engineering' },
+              { v: '1/2', l: 'PME attaquées/an', sub: 'En Suisse (Rapport NCSC 2024)' },
+              { v: 'CHF 200k', l: 'Coût moyen incident', sub: 'Pour une PME suisse' },
+              { v: '0%', l: 'Clics phishing', sub: 'Nos participants après formation' },
+            ].map((s) => (
+              <SectionReveal key={s.l}>
+                <div className="text-center">
+                  <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.v}</p>
+                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Subnav ── */}
+      <div className="sticky top-14 z-30 border-b border-zinc-800 bg-[rgba(9,9,11,0.92)] backdrop-blur-md">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="flex items-center justify-between gap-2">
+            <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
+              {[
+                { label: 'Pourquoi maintenant', href: '#pourquoi' },
+                { label: 'Programme', href: '#programme' },
+                { label: 'Profils', href: '#profils' },
+                { label: 'Déroulement', href: '#deroulement' },
+                { label: 'Tarifs', href: '#tarifs' },
+                { label: 'FAQ', href: '#faq' },
+              ].map(({ label, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold text-text-muted hover:text-white transition-colors duration-150 whitespace-nowrap"
+                >
+                  {label}
+                </a>
+              ))}
+            </nav>
+            <Link
+              href="/contact"
+              className="flex-shrink-0 hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-bold transition-opacity hover:opacity-80"
+              style={{ background: 'rgba(255,107,0,0.12)', color: '#FF8C00', border: '1px solid rgba(255,107,0,0.25)' }}
+            >
+              Prendre contact
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Pourquoi maintenant ── */}
+      <section id="pourquoi" className="scroll-mt-[112px] py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <SectionReveal>
+              <GradTag className="mb-4">Pourquoi maintenant</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
+                Les PME suisses sont les cibles préférées des hackers.
+              </h2>
+              <p className="text-text-secondary leading-relaxed mb-6">
+                Contrairement aux grandes entreprises, les PME disposent de peu de protections et sont perçues comme des cibles faciles. Une seule erreur humaine suffit : un clic sur un lien de phishing, un mot de passe réutilisé, un email usurpant l&apos;identité d&apos;un dirigeant.
+              </p>
+              <p className="text-text-secondary leading-relaxed mb-8">
+                DKDP ne fait pas de théorie abstraite. On présente des cas réels survenus en Suisse, on simule les attaques, et on donne à chaque participant les réflexes concrets pour y faire face. En une demi-journée, vos équipes deviennent votre première ligne de défense.
+              </p>
+              <div className="space-y-3">
+                {[
+                  '90% des cyberattaques commencent par une erreur humaine, pas une faille technique',
+                  'Une PME suisse sur deux est victime d\'une cyberattaque chaque année (NCSC 2024)',
+                  'Le coût moyen d\'un incident de sécurité pour une PME est de CHF 200\'000',
+                ].map((fact, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
+                    <span className="text-text-secondary text-sm">{fact}</span>
+                  </div>
+                ))}
+              </div>
+            </SectionReveal>
+            <SectionReveal delay={0.15}>
+              <div
+                className="rounded-[20px] p-5 md:p-7 border"
+                style={{ background: bg, borderColor: border, boxShadow: '0 0 50px rgba(255,107,0,0.07)' }}
+              >
+                <ThreatLevelChart />
+              </div>
+            </SectionReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Programme ── */}
+      <section id="programme" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <SectionReveal>
+              <GradTag className="mb-4">Programme</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
+                Des gestes simples qui protègent toute l&apos;entreprise.
+              </h2>
+              <p className="text-text-secondary leading-relaxed mb-6">
+                La cybersécurité n&apos;est pas réservée aux techniciens. DKDP explique les risques concrets auxquels vos employés font face chaque jour : emails frauduleux, mots de passe faibles, connexions non sécurisées. On rend les menaces tangibles avec des exemples réels d&apos;incidents survenus en Suisse.
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                Chaque module se conclut par des règles simples à appliquer immédiatement. Pas de jargon technique : de la prévention concrète, mémorable et actionnable.
+              </p>
+            </SectionReveal>
+            <SectionReveal delay={0.1}>
+              <div className="space-y-3">
+                {MODULES.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0" style={{ color }} />
+                    <span className="text-text-secondary text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </SectionReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Pour qui ── */}
+      <section id="profils" className="scroll-mt-[112px] py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-14">
+              <GradTag className="mb-4">Profils</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                Pour qui est cette formation ?
+              </h2>
+            </div>
+          </SectionReveal>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4">
+            {[
+              'Tout collaborateur de l\'entreprise',
+              'Équipes administratives',
+              'Personnel travaillant à distance',
+              'RH et services sensibles',
+              'Direction et dirigeants',
+              'PME sans politique de sécurité',
+              'Secteurs réglementés (santé, finance, droit)',
+              'Nouveaux arrivants en entreprise',
+            ].map((role, i) => (
+              <SectionReveal key={role} delay={i * 0.07}>
+                <div
+                  className="flex items-center justify-center text-center p-4 rounded-[12px] border h-full"
+                  style={{ background: bg, borderColor: border }}
+                >
+                  <p className="text-white font-medium text-sm">{role}</p>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Déroulement ── */}
+      <section id="deroulement" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-14">
+              <GradTag className="mb-4">Déroulement</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                Comment se passe la formation ?
+              </h2>
+            </div>
+          </SectionReveal>
+          <div className="relative">
+            <div aria-hidden="true" className="hidden lg:block absolute left-0 right-0 h-px top-[52px] pointer-events-none"
+              style={{ background: 'linear-gradient(to right, transparent, rgba(255,140,0,0.20) 5%, rgba(255,140,0,0.70) 25%, #FF8C00 50%, rgba(255,140,0,0.70) 75%, rgba(255,140,0,0.20) 95%, transparent)' }} />
+            <div className="relative z-[1] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {steps.map((s, i) => (
+                <SectionReveal key={s.title} delay={i * 0.08}>
+                  <div className="flex flex-col gap-3 p-7 bg-bg-card border border-border rounded-[16px] h-full">
+                    <div className="relative z-[1] flex h-12 w-12 items-center justify-center rounded-full flex-shrink-0"
+                      style={{ background: bg, border: `1px solid ${border}` }}>
+                      <s.Icon size={20} style={{ color }} />
+                    </div>
+                    <h3 className="text-white font-semibold text-sm">{s.title}</h3>
+                    <p className="text-text-muted text-xs leading-relaxed">{s.desc}</p>
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Témoignages ── */}
+      <section className="py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-14">
+              <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                La parole à nos participants.
+              </h2>
+            </div>
+          </SectionReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {[
+              {
+                quote: 'On a été victimes d\'un ransomware. Depuis la formation DKDP, notre équipe reconnaît les signaux d\'alerte. On a déjoué 2 tentatives de phishing depuis.',
+                name: 'Directeur',
+                company: 'PME logistique, Genève',
+                stars: 5,
+              },
+              {
+                quote: 'La simulation de phishing a été révélatrice : 6 personnes sur 10 avaient cliqué sur le lien. Après la formation : 0 sur 10. La différence est nette.',
+                name: 'Responsable IT',
+                company: 'Entreprise 80 personnes, Vaud',
+                stars: 5,
+              },
+              {
+                quote: 'On pensait que ça n\'arrivait qu\'aux grandes entreprises. La formation nous a montré que les PME sont les cibles préférées des hackers.',
+                name: 'Fondatrice',
+                company: 'Cabinet de conseil, Genève',
+                stars: 5,
+              },
+            ].map((t, i) => (
+              <SectionReveal key={i} delay={i * 0.1}>
+                <div
+                  className="flex flex-col h-full rounded-[16px] border p-7"
+                  style={{ background: bg, borderColor: border }}
+                >
+                  <div className="flex gap-1 mb-4">
+                    {Array.from({ length: t.stars }).map((_, j) => (
+                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
+                    ))}
+                  </div>
+                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
+                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
+                    <p className="text-white font-semibold text-sm">{t.name}</p>
+                    <p className="text-text-muted text-xs">{t.company}</p>
+                  </div>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Tarifs ── */}
+      <InfiniteGrid accentRgb="255,140,0" blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
+        <section id="tarifs" className="scroll-mt-[112px] py-24 border-y border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-14">
+              <GradTag className="mb-4">Tarifs</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                Un tarif forfaitaire par groupe, transparent.
+              </h2>
+              <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
+                Pas de tarif par personne. Un prix fixe par groupe, quel que soit le nombre de participants (dans la limite indiquée).
+              </p>
+            </div>
+          </SectionReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                label: 'Sensibilisation (½ j.)',
+                price: 'CHF 800',
+                duration: '3h · jusqu\'à 10 personnes',
+                highlight: false,
+                features: [
+                  'Introduction aux cybermenaces',
+                  'Détection de phishing (exercices)',
+                  'Bonnes pratiques essentielles',
+                  'Fiche réflexe incluse',
+                  'Attestation individuelle',
+                ],
+                cta: 'Demander un devis',
+              },
+              {
+                label: 'Formation Complète',
+                price: "CHF 1'500",
+                duration: '6h · jusqu\'à 10 personnes',
+                highlight: true,
+                features: [
+                  'Programme complet sensibilisation',
+                  'Simulations d\'attaque réelles',
+                  'Mise en place 2FA et mots de passe',
+                  'Procédure d\'incident + fiche réflexe',
+                  'Q&R 30 jours après',
+                  'Attestation individuelle',
+                ],
+                cta: 'Demander un devis',
+                badge: 'Recommandé',
+              },
+              {
+                label: 'Audit + Formation',
+                price: "CHF 3'500",
+                duration: '12h · jusqu\'à 10 personnes',
+                highlight: false,
+                features: [
+                  'Audit de vos systèmes et pratiques',
+                  'Formation complète incluse',
+                  'Tests de phishing simulés',
+                  'Politique de sécurité rédigée',
+                  'Support 90 jours',
+                  'Certificat de conformité',
+                ],
+                cta: 'Demander un devis',
+              },
+            ].map((offer, i) => (
+              <SectionReveal key={offer.label} delay={i * 0.1}>
+                <div
+                  className="relative flex flex-col h-full rounded-[16px] border overflow-hidden"
+                  style={{
+                    borderColor: offer.highlight ? color : border,
+                    boxShadow: offer.highlight ? '0 0 40px rgba(255,107,0,0.14)' : 'none',
+                  }}
+                >
+                  {offer.highlight && (
+                    <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: color }} />
+                  )}
+                  <div className="p-7 flex flex-col flex-1" style={{ background: offer.highlight ? bg : 'transparent' }}>
+                    {'badge' in offer && offer.badge && (
+                      <span
+                        className="inline-flex w-fit text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mb-4"
+                        style={{ background: bg, color, border: `1px solid ${border}` }}
+                      >
+                        {offer.badge}
+                      </span>
+                    )}
+                    <p className="text-white font-bold text-xl mb-1">{offer.label}</p>
+                    <p className="text-2xl font-bold mb-0.5" style={{ color }}>{offer.price}</p>
+                    <p className="text-text-muted text-xs mb-6">{offer.duration}</p>
+                    <div className="space-y-2.5 flex-1">
+                      {offer.features.map((f) => (
+                        <div key={f} className="flex items-start gap-2.5">
+                          <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
+                          <span className="text-text-secondary text-sm">{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <Link
+                      href="/contact?service=formation"
+                      className="mt-8 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-semibold transition-all hover:opacity-80"
+                      style={{
+                        background: offer.highlight ? color : bg,
+                        color: offer.highlight ? '#000' : color,
+                        border: `1px solid ${border}`,
+                      }}
+                    >
+                      {offer.cta} <ChevronRight size={14} />
+                    </Link>
+                  </div>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+      </InfiniteGrid>
+
+      {/* ── FAQ ── */}
+      <div id="faq" className="scroll-mt-[112px]">
+        <FAQSection items={FAQ} title="Vos questions sur la formation cybersécurité" />
+      </div>
+
+      {/* ── Bridge ── */}
+      <section className="py-16 border-t border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <Link
+              href="/formation-entreprise/informatique"
+              className="group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 rounded-[14px] p-6 md:p-8 border transition-all hover:-translate-y-0.5 duration-200"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,107,0,0.07) 0%, rgba(255,107,0,0.02) 100%)',
+                borderColor: border,
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <div
+                  className="flex h-12 w-12 items-center justify-center rounded-[10px] flex-shrink-0"
+                  style={{ background: bg, border: `1px solid ${border}` }}
+                >
+                  <Monitor size={20} style={{ color }} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Formation complémentaire</p>
+                  <p className="text-white font-bold text-lg leading-tight">Formation Informatique Entreprise</p>
+                  <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
+                    Vos équipes gèrent les menaces. Pour qu&apos;elles soient aussi autonomes sur leur environnement informatique quotidien, découvrez notre formation informatique.
+                  </p>
+                </div>
+              </div>
+              <span
+                className="flex-shrink-0 inline-flex items-center gap-1.5 text-[12px] font-semibold px-4 py-2 rounded-[8px] transition-opacity group-hover:opacity-80"
+                style={{ background: bg, color, border: `1px solid ${border}` }}
+              >
+                Voir la formation <ChevronRight size={12} />
+              </span>
+            </Link>
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <CTAFinal />
+    </main>
+  )
+}

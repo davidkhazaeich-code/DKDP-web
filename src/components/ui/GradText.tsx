@@ -4,8 +4,9 @@ interface GradTextProps {
   children: React.ReactNode
   as?: GradTextTag
   className?: string
+  style?: React.CSSProperties
 }
 
-export function GradText({ children, as: Tag = 'span', className = '' }: GradTextProps) {
-  return <Tag className={`grad-text ${className}`}>{children}</Tag>
+export function GradText({ children, as: Tag = 'span', className = '', style }: GradTextProps) {
+  return <Tag className={`grad-text ${className}`} style={style}>{children}</Tag>
 }

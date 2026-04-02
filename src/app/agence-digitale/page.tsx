@@ -14,6 +14,7 @@ import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { FAQSection } from '@/components/sections/FAQSection'
+import { SiteAuditBlock } from '@/components/sections/SiteAuditBlock'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService } from '@/lib/schema'
 import { FAQ_AGENCE } from '@/data/faq-agence'
@@ -28,36 +29,43 @@ const SERVICES = [
   {
     Icon: Globe, title: 'Création de site web', href: '/agence-digitale/creation-site-web',
     description: 'Sites sur mesure, rapides et optimisés pour la conversion. De la landing page au site e-commerce complexe.',
+    badge: 'Best seller',
     image: '/images/services/dkdp-agence-creation-web.webp',
   },
   {
     Icon: Search, title: 'Référencement SEO', href: '/agence-digitale/seo',
     description: 'Stratégie de contenu et optimisation technique pour dominer Google sur vos mots-clés cibles.',
+    badge: 'Populaire',
     image: '/images/services/dkdp-agence-seo.webp',
   },
   {
     Icon: Megaphone, title: 'Publicité Google Ads', href: '/agence-digitale/publicite-sea',
     description: 'Campagnes search et display rentables, avec un suivi précis du ROI et des conversions.',
+    badge: null,
     image: '/images/services/dkdp-agence-sea.webp',
   },
   {
     Icon: Share2, title: 'Réseaux sociaux', href: '/agence-digitale/reseaux-sociaux',
     description: 'Présence cohérente sur Instagram, LinkedIn, Facebook. Contenu, Community management, Ads.',
+    badge: null,
     image: '/images/services/dkdp-agence-reseaux-sociaux.webp',
   },
   {
     Icon: Film, title: 'Création vidéo', href: '/agence-digitale/creation-video',
     description: 'Vidéos institutionnelles, témoignages clients, reels et contenus courts pour vos réseaux.',
+    badge: null,
     image: '/images/services/dkdp-agence-creation-video.webp',
   },
   {
     Icon: Presentation, title: 'Consulting marketing', href: '/agence-digitale/consulting-marketing',
     description: 'Audit de votre présence digitale, définition de stratégie et accompagnement à long terme.',
+    badge: null,
     image: '/images/services/dkdp-agence-consulting.webp',
   },
   {
     Icon: Shield, title: 'RGPD & Cookies', href: '/agence-digitale/rgpd-cookies',
     description: 'Mise en conformité légale, politique de confidentialité, bandeau cookies et registre des traitements.',
+    badge: null,
     image: '/images/services/dkdp-agence-rgpd.webp',
   },
 ]
@@ -114,6 +122,11 @@ const color = '#A78BFA'
 const bg    = 'rgba(124,58,237,0.10)'
 const border = 'rgba(124,58,237,0.20)'
 
+const badgeColors: Record<string, { background: string; color: string; border: string }> = {
+  'Best seller': { background: 'rgba(10,10,10,0.84)', color: '#D8B4FE', border: '1px solid rgba(167,139,250,0.70)' },
+  'Populaire':   { background: 'rgba(10,10,10,0.84)', color: '#C4B5FD', border: '1px solid rgba(124,58,237,0.65)' },
+}
+
 export default function AgenceDigitalePage() {
   return (
     <main className="pt-14">
@@ -129,7 +142,7 @@ export default function AgenceDigitalePage() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">Agence Digitale</GradTag>
+                <GradTag className="mb-6">Service Digital</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
                   Votre présence digitale,{' '}
                   <GradText as="span">optimisée de A à Z.</GradText>
@@ -138,7 +151,7 @@ export default function AgenceDigitalePage() {
                   De la création de site au référencement, en passant par les campagnes payantes : on construit une stratégie cohérente qui génère de vrais résultats.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
-                  <LiquidMetalButton href="/contact" size="lg">Devis gratuit →</LiquidMetalButton>
+                  <LiquidMetalButton href="/contact?service=service-digital" size="lg">Devis gratuit →</LiquidMetalButton>
                   <Link href="#services" className="text-sm text-text-muted hover:text-white transition-colors">
                     Voir nos services ↓
                   </Link>
@@ -169,7 +182,7 @@ export default function AgenceDigitalePage() {
             {STATS.map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.value}</p>
+                  <p className="text-3xl md:text-4xl font-bold mb-1 text-white">{s.value}</p>
                   <p className="text-text-muted text-sm">{s.label}</p>
                 </div>
               </SectionReveal>
@@ -243,52 +256,16 @@ export default function AgenceDigitalePage() {
             </div>
           </SectionReveal>
 
-          {/* ── Service phare ── */}
-          <SectionReveal>
-            <Link
-              href="/agence-digitale/creation-site-web"
-              className="group mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 rounded-[14px] p-6 md:p-7 border transition-all hover:-translate-y-0.5 duration-200"
-              style={{
-                background: 'linear-gradient(135deg, rgba(124,58,237,0.13) 0%, rgba(124,58,237,0.04) 100%)',
-                borderColor: 'rgba(124,58,237,0.32)',
-                boxShadow: '0 0 40px rgba(124,58,237,0.08)',
-              }}
-            >
-              <div className="flex items-center gap-4">
-                <div
-                  className="flex h-12 w-12 items-center justify-center rounded-[10px] flex-shrink-0"
-                  style={{ background: 'rgba(124,58,237,0.12)', border: '1px solid rgba(124,58,237,0.28)' }}
-                >
-                  <Globe size={20} style={{ color }} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>
-                    Service phare
-                  </p>
-                  <p className="text-white font-bold text-lg leading-tight">
-                    Création de site internet
-                  </p>
-                  <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
-                    Un site sur mesure, rapide et optimisé pour convertir. De la landing page au site e-commerce.
-                  </p>
-                </div>
-              </div>
-              <span
-                className="flex-shrink-0 inline-flex items-center gap-1.5 text-[12px] font-semibold px-4 py-2 rounded-[8px] transition-opacity group-hover:opacity-80"
-                style={{ background: 'rgba(124,58,237,0.15)', color, border: '1px solid rgba(124,58,237,0.25)' }}
-              >
-                Voir les réalisations <ChevronRight size={12} />
-              </span>
-            </Link>
-          </SectionReveal>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((s, i) => (
               <SectionReveal key={s.href} delay={i * 0.07}>
                 <Link
                   href={s.href}
                   className="group flex flex-col h-full bg-bg rounded-[14px] border overflow-hidden hover:-translate-y-0.5 transition-transform duration-200"
-                  style={{ borderColor: border }}
+                  style={{
+                    borderColor: s.badge ? 'rgba(167,139,250,0.38)' : border,
+                    boxShadow: s.badge ? '0 0 28px rgba(124,58,237,0.08)' : undefined,
+                  }}
                 >
                   {/* Image */}
                   <div className="relative h-40 overflow-hidden">
@@ -300,6 +277,14 @@ export default function AgenceDigitalePage() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg/80" />
+                    {s.badge && (
+                      <span
+                        className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
+                        style={badgeColors[s.badge]}
+                      >
+                        {s.badge}
+                      </span>
+                    )}
                   </div>
                   {/* Content */}
                   <div className="p-5 flex flex-col flex-1">
@@ -322,6 +307,69 @@ export default function AgenceDigitalePage() {
         </div>
       </section>
 
+      {/* ── Audits gratuits ── */}
+      <section className="py-[90px] border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-14">
+              <GradTag className="mb-5">Gratuit &amp; sans engagement</GradTag>
+              <h2 className="text-4xl md:text-[3.15rem] font-bold tracking-[-0.02em] leading-[1.1]">
+                Commencez par un audit gratuit.
+              </h2>
+              <p className="text-text-secondary mt-5 max-w-2xl mx-auto text-base leading-relaxed">
+                Avant d&apos;investir, comprenez où vous en êtes. Nos experts analysent votre site et votre SEO, vous recevez un rapport détaillé sous 48h.
+              </p>
+            </div>
+          </SectionReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+            <SectionReveal delay={0.05}>
+              <Link
+                href="/agence-digitale/creation-site-web/audit-site"
+                className="group flex flex-col h-full rounded-[22px] p-11 border transition-all hover:-translate-y-0.5 duration-200 relative overflow-hidden"
+                style={{ background: bg, borderColor: border }}
+              >
+                <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: color }} />
+                <span
+                  className="inline-flex items-center text-[13px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-7 w-fit"
+                  style={{ background: 'rgba(124,58,237,0.12)', color, border: `1px solid ${border}` }}
+                >
+                  Audit site internet
+                </span>
+                <h3 className="text-white text-[1.75rem] font-bold mb-4 leading-[1.15]">Audit de site gratuit</h3>
+                <p className="text-text-secondary text-base leading-relaxed flex-1">
+                  Performance, SEO on-page, UX, compatibilité mobile, sécurité HTTPS. Rapport PDF avec recommandations prioritaires envoyé sous 48h.
+                </p>
+                <span className="mt-8 inline-flex items-center gap-2 text-base font-semibold transition-opacity group-hover:opacity-70" style={{ color }}>
+                  Analyser mon site <ChevronRight size={16} />
+                </span>
+              </Link>
+            </SectionReveal>
+            <SectionReveal delay={0.1}>
+              <Link
+                href="/agence-digitale/seo/audit-seo"
+                className="group flex flex-col h-full rounded-[22px] p-11 border transition-all hover:-translate-y-0.5 duration-200 relative overflow-hidden"
+                style={{ background: bg, borderColor: border }}
+              >
+                <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: color }} />
+                <span
+                  className="inline-flex items-center text-[13px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-7 w-fit"
+                  style={{ background: 'rgba(124,58,237,0.12)', color, border: `1px solid ${border}` }}
+                >
+                  Audit SEO
+                </span>
+                <h3 className="text-white text-[1.75rem] font-bold mb-4 leading-[1.15]">Audit SEO gratuit</h3>
+                <p className="text-text-secondary text-base leading-relaxed flex-1">
+                  Mots-clés, backlinks, SEO technique, contenu, visibilité locale Genève et Suisse romande. Identifiez vos opportunités SEO concrètes.
+                </p>
+                <span className="mt-8 inline-flex items-center gap-2 text-base font-semibold transition-opacity group-hover:opacity-70" style={{ color }}>
+                  Analyser mon SEO <ChevronRight size={16} />
+                </span>
+              </Link>
+            </SectionReveal>
+          </div>
+        </div>
+      </section>
+
       {/* ── Why us ── */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -330,7 +378,7 @@ export default function AgenceDigitalePage() {
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(124,58,237,0.12)' }}>
                 <Image
                   src="/images/services/dkdp-agence-consulting.webp"
-                  alt="Équipe DKDP, agence digitale à Genève"
+                  alt="Équipe DKDP, service digital à Genève"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -382,7 +430,16 @@ export default function AgenceDigitalePage() {
               <p className="text-text-secondary leading-relaxed mb-8">
                 On ne vend pas des sites web ou du SEO. On construit des systèmes digitaux cohérents qui attirent, convainquent et convertissent. Chaque décision est justifiée par des données réelles.
               </p>
-              <div className="space-y-4">
+              <div className="relative space-y-4">
+                {/* Ligne directrice verticale - violet */}
+                <div
+                  aria-hidden="true"
+                  className="hidden md:block absolute w-px top-4 bottom-4 pointer-events-none"
+                  style={{
+                    left: 'calc(1rem - 0.5px)',
+                    background: 'linear-gradient(to bottom, #A78BFA 0%, #A78BFA 70%, rgba(167,139,250,0) 100%)',
+                  }}
+                />
                 {[
                   { n: '01', title: 'Audit complet', desc: 'Site, SEO, concurrents, mots-clés. On part de votre réalité actuelle, pas d\'une théorie.' },
                   { n: '02', title: 'Stratégie sur mesure', desc: 'Plan d\'action priorisé avec objectifs mesurables. Vous approuvez avant qu\'on démarre.' },
@@ -393,7 +450,7 @@ export default function AgenceDigitalePage() {
                   <SectionReveal key={step.n} delay={i * 0.07}>
                     <div className="flex gap-4 items-start">
                       <span
-                        className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-bold"
+                        className="relative z-[1] flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-bold"
                         style={{ background: bg, border: `1px solid ${border}`, color }}
                       >
                         {step.n}
@@ -437,7 +494,9 @@ export default function AgenceDigitalePage() {
       </section>
 
       {/* ── Testimonials ── */}
-      <Testimonials />
+      <InfiniteGrid accentRgb="124,58,237" blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
+        <Testimonials className="py-24 border-y border-border" />
+      </InfiniteGrid>
 
       {/* ── Résultats ── */}
       <section className="py-24">
@@ -537,8 +596,11 @@ export default function AgenceDigitalePage() {
         </div>
       </section>
 
+      {/* ── Audit gratuit ── */}
+      <SiteAuditBlock />
+
       {/* ── FAQ ── */}
-      <FAQSection items={FAQ_AGENCE} title="Vos questions sur l'agence digitale" />
+      <FAQSection items={FAQ_AGENCE} title="Vos questions sur l'service digital" />
 
       {/* ── Ponts ── */}
       <section className="py-16 border-t border-border">

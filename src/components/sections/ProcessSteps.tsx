@@ -86,13 +86,13 @@ const STEPS = [
     number: '02',
     Icon: IconSearch,
     title: 'Diagnostic',
-    description: 'Analyse de votre présence digitale, de vos concurrents, de vos objectifs. Un diagnostic complet, sans bullshit.',
+    description: 'Analyse de votre présence digitale, de vos concurrents, de vos objectifs. Un diagnostic complet, sans langue de bois.',
   },
   {
     number: '03',
     Icon: IconClipboard,
     title: 'Proposition',
-    description: "Un plan d'action concret avec les livrables, les délais et les prix. Pas de surprise, pas de mauvaise surprise.",
+    description: "Un plan d'action concret avec les livrables, les délais et les prix. Tout est fixé à l'avance, par écrit.",
   },
   {
     number: '04',

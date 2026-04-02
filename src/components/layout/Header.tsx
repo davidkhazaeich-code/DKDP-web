@@ -3,9 +3,9 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { createPortal } from 'react-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import {
   Globe, Cpu, GraduationCap, Search, Megaphone, BarChart2,
   Bot, Workflow, BrainCircuit, BookOpen, Users2, Presentation,
@@ -33,6 +33,8 @@ const AGENCE_MAIN = [
 ]
 
 const AGENCE_SECONDARY = [
+  { title: 'Audit site gratuit', href: '/agence-digitale/creation-site-web/audit-site', icon: Search },
+  { title: 'Audit SEO gratuit', href: '/agence-digitale/seo/audit-seo', icon: BarChart2 },
   { title: 'Nos réalisations', href: '/realisations', icon: Star },
   { title: 'Tarifs agence', href: '/tarifs', icon: FileText },
   { title: 'Contacter l\'agence', href: '/contact', icon: Phone },
@@ -68,19 +70,33 @@ const FORMATION_SECONDARY = [
   { title: 'Réserver une session', href: '/contact', icon: Phone },
 ]
 
+const APROPOS_MAIN = [
+  { title: 'À propos de l\'agence', href: '/a-propos', icon: Users2, description: 'Notre équipe, nos valeurs et notre histoire.' },
+  { title: 'Réalisations', href: '/realisations', icon: Star, description: 'Nos projets et succès clients.' },
+  { title: 'Tarifs', href: '/tarifs', icon: FileText, description: 'Formules et prix clairs et transparents.' },
+  { title: 'Blog', href: '/blog', icon: BookOpen, description: 'Ressources et conseils digitaux.' },
+  { title: 'Glossaire', href: '/glossaire', icon: Search, description: 'Lexique du digital et de l\'IA.' },
+]
+
+const APROPOS_SECONDARY = [
+  { title: 'Formation particuliers', href: '/formation-particuliers', icon: GraduationCap },
+  { title: 'Contacter l\'agence', href: '/contact', icon: Phone },
+]
+
 // ─── Pillar accent colours ────────────────────────────────────────────────────
 
 const PILLAR_ACCENT = {
   agence:    { color: '#A78BFA', bg: 'rgba(124,58,237,0.12)',  border: 'rgba(124,58,237,0.25)' },
   ia:        { color: '#D4D4D8', bg: 'rgba(212,212,216,0.08)', border: 'rgba(212,212,216,0.18)' },
   formation: { color: '#FF8C00', bg: 'rgba(255,107,0,0.10)',   border: 'rgba(255,107,0,0.22)'  },
+  apropos:   { color: '#9CA3AF', bg: 'rgba(156,163,175,0.08)', border: 'rgba(156,163,175,0.18)' },
 }
 
 // ─── MegaMenu panel ───────────────────────────────────────────────────────────
 
 type MegaItem = { title: string; href: string; icon: React.ElementType; description?: string }
 type MegaSecondary = { title: string; href: string; icon: React.ElementType }
-type PillarKey = 'agence' | 'ia' | 'formation'
+type PillarKey = 'agence' | 'ia' | 'formation' | 'apropos'
 
 function MegaPanel({
   pillar, label, tagline, main, secondary, hubHref, hubLabel,
@@ -96,7 +112,7 @@ function MegaPanel({
   const { color, bg, border } = PILLAR_ACCENT[pillar]
   return (
     <div className="w-[700px] p-5 grid grid-cols-[1fr_190px] gap-5">
-      {/* Left — main links */}
+      {/* Left - main links */}
       <div>
         {/* Pillar header */}
         <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
@@ -137,7 +153,7 @@ function MegaPanel({
             </li>
           ))}
         </ul>
-        {/* Hub — see all */}
+        {/* Hub - see all */}
         <div className="mt-3 pt-2.5 border-t border-border">
           <NavigationMenuLink asChild>
             <Link
@@ -151,7 +167,7 @@ function MegaPanel({
         </div>
       </div>
 
-      {/* Right — secondary links */}
+      {/* Right - secondary links */}
       <div className="border-l border-border pl-4">
         <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-3">Accès rapide</p>
         <ul className="space-y-0.5">
@@ -190,18 +206,7 @@ function MegaPanel({
 
 // ─── Mobile Nav (rich tabbed UI) ─────────────────────────────────────────────
 
-type TabKey = PillarKey | 'pages'
-
-const TAB_PAGES: MegaItem[] = [
-  { title: 'À propos', href: '/a-propos', icon: Users2, description: 'Notre équipe et notre histoire.' },
-  { title: 'Comment ça marche', href: '/comment-ca-marche', icon: Workflow, description: 'Notre méthode de travail.' },
-  { title: 'Réalisations', href: '/realisations', icon: Star, description: 'Nos projets et succès clients.' },
-  { title: 'Tarifs', href: '/tarifs', icon: FileText, description: 'Nos formules et prix clairs.' },
-  { title: 'Blog', href: '/blog', icon: BookOpen, description: 'Ressources et conseils digitaux.' },
-  { title: 'Formation particuliers', href: '/formation-particuliers', icon: GraduationCap, description: 'Programmes pour particuliers.' },
-  { title: 'Glossaire', href: '/glossaire', icon: Search, description: 'Lexique du digital et de l\'IA.' },
-  { title: 'Contact', href: '/contact', icon: Phone, description: 'Parlons de votre projet.' },
-]
+type TabKey = PillarKey
 
 const MOBILE_TABS: {
   key: TabKey
@@ -215,13 +220,13 @@ const MOBILE_TABS: {
   hubHref?: string
   hubLabel?: string
 }[] = [
-  { key: 'agence', label: 'Services', tabIcon: Globe, ...PILLAR_ACCENT.agence, items: AGENCE_MAIN, secondary: AGENCE_SECONDARY, hubHref: '/agence-digitale', hubLabel: 'Voir tous les services' },
-  { key: 'formation', label: 'Formation', tabIcon: GraduationCap, ...PILLAR_ACCENT.formation, items: FORMATION_MAIN, secondary: FORMATION_SECONDARY, hubHref: '/formation-entreprise', hubLabel: 'Voir toutes les formations' },
-  { key: 'ia', label: 'IA', tabIcon: Bot, ...PILLAR_ACCENT.ia, items: IA_MAIN, secondary: IA_SECONDARY, hubHref: '/intelligence-artificielle', hubLabel: 'Voir toutes nos solutions IA' },
-  { key: 'pages', label: 'Autres', tabIcon: LayoutGrid, color: '#9CA3AF', bg: 'rgba(255,255,255,0.04)', border: 'rgba(255,255,255,0.08)', items: TAB_PAGES, secondary: [] },
+  { key: 'agence',    label: 'Services',  tabIcon: Globe,       ...PILLAR_ACCENT.agence,    items: AGENCE_MAIN,    secondary: AGENCE_SECONDARY,    hubHref: '/agence-digitale',         hubLabel: 'Voir tous les services' },
+  { key: 'formation', label: 'Formation', tabIcon: GraduationCap, ...PILLAR_ACCENT.formation, items: FORMATION_MAIN, secondary: FORMATION_SECONDARY, hubHref: '/formation-entreprise',    hubLabel: 'Voir toutes les formations' },
+  { key: 'ia',        label: 'IA',        tabIcon: Bot,         ...PILLAR_ACCENT.ia,        items: IA_MAIN,        secondary: IA_SECONDARY,        hubHref: '/intelligence-artificielle', hubLabel: 'Voir toutes nos solutions IA' },
+  { key: 'apropos',   label: 'Agence',    tabIcon: LayoutGrid,  ...PILLAR_ACCENT.apropos,   items: APROPOS_MAIN,   secondary: APROPOS_SECONDARY,   hubHref: '/a-propos',                hubLabel: 'À propos de DKDP' },
 ]
 
-const TAB_ORDER: TabKey[] = ['agence', 'formation', 'ia', 'pages']
+const TAB_ORDER: TabKey[] = ['agence', 'formation', 'ia', 'apropos']
 
 const slideVariants = {
   enter: (dir: number) => ({ x: dir * 28, opacity: 0 }),
@@ -382,13 +387,16 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
               borderTop: '1px solid rgba(255,255,255,0.06)',
             }}
           >
-            <Link
-              href="/contact"
+            <button
+              type="button"
               onClick={onClose}
+              data-cal-link="david-khazaei/planifier-un-appel"
+              data-cal-namespace="planifier-un-appel"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
               className="flex items-center justify-center w-full px-5 py-3.5 bg-white text-black font-bold rounded-full text-[15px] active:scale-[0.98] transition-all hover:bg-gray-100"
             >
               Réservez un appel →
-            </Link>
+            </button>
           </div>
         </motion.div>
       )}
@@ -397,19 +405,26 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
   )
 }
 
-// ─── Main Header ─────────────────────────────────────────────────────────────
+// ─── Scroll progress gradient per pillar ─────────────────────────────────────
 
-const SIMPLE_LINKS = [
-  { label: 'Réalisations', href: '/realisations' },
-  { label: 'Tarifs', href: '/tarifs' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'À propos', href: '/a-propos' },
-]
+function getPillarGradient(pathname: string): string {
+  if (pathname.startsWith('/intelligence-artificielle'))
+    return 'linear-gradient(to right, rgba(255,255,255,0.70), #D4D4D8)'
+  if (pathname.startsWith('/formation-entreprise') || pathname.startsWith('/formation-particuliers'))
+    return 'linear-gradient(to right, rgba(255,255,255,0.70), #FF8C00)'
+  return 'linear-gradient(to right, rgba(255,255,255,0.70), #A78BFA)'
+}
+
+// ─── Main Header ─────────────────────────────────────────────────────────────
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
   const pathname = usePathname()
+  const router = useRouter()
+  const { scrollYProgress } = useScroll()
+  const progressGradient = getPillarGradient(pathname)
+  const progressOpacity = useTransform(scrollYProgress, [0, 0.03, 1], [0, 1, 1])
 
   React.useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20)
@@ -431,18 +446,18 @@ export function Header() {
         role="banner"
         initial={{ opacity: 0, y: -24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+          'fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,backdrop-filter,border-color] duration-300',
           scrolled || mobileOpen
-            ? 'bg-[#0A0A0A]/90 backdrop-blur-[20px] border-b border-border'
-            : 'bg-transparent'
+            ? 'bg-[#0A0A0A]/90 backdrop-blur-[20px] border-border'
+            : 'bg-transparent border-transparent'
         )}
       >
         <div className="max-w-[1200px] mx-auto px-6 h-14 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0" aria-label="DKDP — Accueil">
-            <Image src="/images/logo/dkdp_blanc-croped.png" alt="DKDP" width={90} height={30} priority />
+          <Link href="/" className="flex items-center flex-shrink-0" aria-label="DKDP - Accueil">
+            <Image src="/images/logo/dkdp_blanc-croped.png" alt="DKDP" width={108} height={36} priority />
           </Link>
 
           {/* Desktop nav (xl+) */}
@@ -451,7 +466,7 @@ export function Header() {
               <NavigationMenuList>
                 {/* ── Service Digital ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="agence"
@@ -467,7 +482,7 @@ export function Header() {
 
                 {/* ── Formation ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="formation"
@@ -483,7 +498,7 @@ export function Header() {
 
                 {/* ── Intelligence Artificielle ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger><Sparkles size={13} style={{ color: '#D4D4D8' }} className="mr-1" />Intelligence Artificielle</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')}><Sparkles size={13} style={{ color: '#D4D4D8' }} className="mr-1" />Intelligence Artificielle</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="ia"
@@ -497,39 +512,49 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* ── Simple links ── */}
-                <div className="w-px h-4 bg-border mx-1" aria-hidden="true" />
-                {SIMPLE_LINKS.map(({ label, href }) => (
-                  <NavigationMenuItem key={href}>
-                    <NavigationMenuLink asChild>
-                      <Link
-                        href={href}
-                        aria-current={pathname === href ? 'page' : undefined}
-                        className={cn(
-                          'px-3 py-2 text-[13px] rounded-lg transition-colors duration-150 block',
-                          pathname === href ? 'text-violet-light' : 'text-text-muted hover:text-white'
-                        )}
-                      >
-                        {label}
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                ))}
+                {/* ── À propos ── */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')}><LayoutGrid size={13} style={{ color: '#9CA3AF' }} className="mr-1" />À propos</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <MegaPanel
+                      pillar="apropos"
+                      label="Agence"
+                      tagline="Réalisations · Tarifs · Blog · Ressources"
+                      main={APROPOS_MAIN}
+                      secondary={APROPOS_SECONDARY}
+                      hubHref="/a-propos"
+                      hubLabel="À propos de DKDP"
+                    />
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                {/* ── Contact ── */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium text-text-secondary hover:text-white transition-colors duration-150"
+                    >
+                      <Phone size={13} />
+                      Contact
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
 
           {/* Desktop CTA (xl+) */}
           <div className="hidden xl:block">
-            <LiquidMetalButton href="/contact" size="md" shaderDelay={1500}><CalendarCheck size={14} />Réservez un appel</LiquidMetalButton>
+            <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="md" shaderDelay={1000}><CalendarCheck size={14} />Réservez un appel</LiquidMetalButton>
           </div>
 
-          {/* Tablet / small laptop — abbreviated mega menus + Contact button (md–xl) */}
+          {/* Tablet / small laptop - abbreviated mega menus + Contact button (md–xl) */}
           <div className="hidden md:flex xl:hidden items-center gap-1">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="agence"
@@ -543,7 +568,7 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="formation"
@@ -557,7 +582,7 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger><Sparkles size={13} style={{ color: '#D4D4D8' }} className="mr-1" />IA</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')}><Sparkles size={13} style={{ color: '#D4D4D8' }} className="mr-1" />IA</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="ia"
@@ -570,14 +595,35 @@ export function Header() {
                     />
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')}><LayoutGrid size={13} style={{ color: '#9CA3AF' }} className="mr-1" />Agence</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <MegaPanel
+                      pillar="apropos"
+                      label="Agence"
+                      tagline="Réalisations · Tarifs · Blog · Ressources"
+                      main={APROPOS_MAIN}
+                      secondary={APROPOS_SECONDARY}
+                      hubHref="/a-propos"
+                      hubLabel="À propos de DKDP"
+                    />
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                {/* ── Contact ── */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium text-text-secondary hover:text-white transition-colors duration-150"
+                    >
+                      <Phone size={13} />
+                      Contact
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <Link
-              href="/contact"
-              className="ml-2 px-3.5 py-1.5 text-[13px] font-semibold rounded-full border border-border text-text-secondary hover:text-white hover:border-white/30 transition-colors"
-            >
-              Contact
-            </Link>
           </div>
 
           {/* Hamburger (mobile + tablet, below xl) */}
@@ -595,6 +641,13 @@ export function Header() {
             }
           </button>
         </div>
+
+        {/* Scroll progress bar */}
+        <motion.div
+          aria-hidden="true"
+          className="absolute top-0 left-0 right-0 h-[2px] origin-left"
+          style={{ scaleX: scrollYProgress, opacity: progressOpacity, background: progressGradient }}
+        />
       </motion.header>
 
       {/* Mobile nav */}

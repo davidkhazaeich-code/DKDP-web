@@ -78,7 +78,7 @@ html {
   }
 }
 
-/* ═══ Grad text — animated orange→violet (bold 700 only) ═══ */
+/* ═══ Grad text - animated orange→violet (bold 700 only) ═══ */
 .grad-text {
   background: linear-gradient(135deg, #FF6B00, #7C3AED, #FF6B00);
   background-size: 200% 200%;
@@ -90,7 +90,7 @@ html {
 }
 
 /* ═══ Grad text variants (pilier-specific) ═══ */
-/* Formation — orange monochrome (rare, 1-2× per page) */
+/* Formation - orange monochrome (rare, 1-2× per page) */
 .grad-text--formation {
   background: linear-gradient(135deg, #FF6B00, #FF8C00, #FF6B00);
   background-size: 200% 200%;
@@ -101,7 +101,7 @@ html {
   animation: gradFlow 4s ease-in-out infinite;
 }
 
-/* IA — chrome → violet → chrome */
+/* IA - chrome → violet → chrome */
 .grad-text--ia {
   background: linear-gradient(135deg, #D4D4D8, #A78BFA, #D4D4D8);
   background-size: 200% 200%;
@@ -112,7 +112,7 @@ html {
   animation: gradFlow 6s ease-in-out infinite;
 }
 
-/* ═══ Grad tag — label with violet border ═══ */
+/* ═══ Grad tag - label with violet border ═══ */
 .grad-tag {
   display: inline-block;
   background: linear-gradient(135deg, #FF6B00, #7C3AED, #FF6B00);
@@ -127,7 +127,7 @@ html {
   animation: gradFlow 4s ease-in-out infinite;
 }
 
-/* ═══ Grad border — permanent gradient border on card ═══ */
+/* ═══ Grad border - permanent gradient border on card ═══ */
 .grad-border {
   position: relative;
   border-radius: 14px;
@@ -147,7 +147,7 @@ html {
 }
 .grad-border-2::before { padding: 2px; }
 
-/* ═══ Hover grad — gradient border appears on hover ═══ */
+/* ═══ Hover grad - gradient border appears on hover ═══ */
 .hover-grad {
   position: relative;
   border-radius: 12px;
@@ -175,7 +175,7 @@ html {
 }
 .hover-grad:hover::after { opacity: 1; }
 
-/* ═══ Hover grad text — text becomes gradient on hover ═══ */
+/* ═══ Hover grad text - text becomes gradient on hover ═══ */
 .hover-grad-text {
   transition: all 300ms ease-out;
   cursor: pointer;
@@ -268,7 +268,7 @@ html {
   100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
 }
 
-/* Logo scroll animation — seamless infinite marquee */
+/* Logo scroll animation - seamless infinite marquee */
 @keyframes logo-scroll {
   from { transform: translateX(0) }
   to   { transform: translateX(-33.333%) }

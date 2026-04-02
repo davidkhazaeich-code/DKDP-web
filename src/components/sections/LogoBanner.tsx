@@ -31,7 +31,7 @@ export function LogoBanner() {
         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling strip — tripled so the loop restart is never in view */}
+        {/* Scrolling strip - tripled so the loop restart is never in view */}
         <div className="logo-scroll items-center gap-16">
           {[...LOGOS, ...LOGOS, ...LOGOS].map((logo, i) => (
             <div

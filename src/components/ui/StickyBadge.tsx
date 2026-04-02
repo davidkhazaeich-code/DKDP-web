@@ -39,7 +39,7 @@ export function StickyBadge() {
           className="fixed bottom-6 left-6 z-30 drop-shadow-2xl"
           style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.5))' }}
         >
-          <h2 className="sr-only">Agence Digitale · Service 100% Suisse</h2>
+          <h2 className="sr-only">Service Digital · Service 100% Suisse</h2>
           <TrustBadge variant="dark" />
         </motion.div>
       )}

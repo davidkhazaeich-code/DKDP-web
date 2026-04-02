@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { CheckCircle2, Zap, Search, Settings, ChevronRight, TrendingUp, BarChart2, ShieldCheck, Star, Globe2, Clock } from 'lucide-react'
+import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -9,6 +10,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
+import { SiteAuditBlock } from '@/components/sections/SiteAuditBlock'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
@@ -62,10 +64,16 @@ function PerformanceComparison() {
 
 function TechStack() {
   const techs = [
+    { name: 'HTML', c: '#E34F26', bg: 'rgba(227,79,38,0.08)', b: 'rgba(227,79,38,0.28)' },
+    { name: 'CSS', c: '#1572B6', bg: 'rgba(21,114,182,0.10)', b: 'rgba(21,114,182,0.28)' },
+    { name: 'JavaScript', c: '#F7DF1E', bg: 'rgba(247,223,30,0.06)', b: 'rgba(247,223,30,0.22)' },
     { name: 'Next.js', c: '#ffffff', bg: 'rgba(255,255,255,0.06)', b: 'rgba(255,255,255,0.15)' },
     { name: 'Astro', c: '#FF5D01', bg: 'rgba(255,93,1,0.10)', b: 'rgba(255,93,1,0.28)' },
     { name: 'WordPress', c: '#21759B', bg: 'rgba(33,117,155,0.10)', b: 'rgba(33,117,155,0.28)' },
     { name: 'Shopify', c: '#96BF48', bg: 'rgba(150,191,72,0.08)', b: 'rgba(150,191,72,0.28)' },
+    { name: 'Webflow', c: '#4353FF', bg: 'rgba(67,83,255,0.08)', b: 'rgba(67,83,255,0.28)' },
+    { name: 'Elementor', c: '#E2173E', bg: 'rgba(226,23,62,0.08)', b: 'rgba(226,23,62,0.28)' },
+    { name: 'Squarespace', c: '#D4D4D8', bg: 'rgba(212,212,216,0.06)', b: 'rgba(212,212,216,0.18)' },
     { name: 'Vercel', c: '#D4D4D8', bg: 'rgba(212,212,216,0.06)', b: 'rgba(212,212,216,0.20)' },
     { name: 'Figma', c: '#F24E1E', bg: 'rgba(242,78,30,0.08)', b: 'rgba(242,78,30,0.28)' },
     { name: 'Sanity', c: '#F03E2F', bg: 'rgba(240,62,47,0.08)', b: 'rgba(240,62,47,0.28)' },
@@ -122,6 +130,21 @@ const FAQ = [
     answer:
       'Le processus inclut une phase de maquette validée avant tout développement. Deux cycles de révisions sont inclus. Si un désaccord persiste, on en discute : DKDP ne livre jamais un site sans accord explicite du client.',
   },
+  {
+    question: 'Est-ce que je peux suivre l\'avancement du projet ?',
+    answer:
+      'Oui. Vous avez accès à un lien de prévisualisation dès la phase de développement et recevez des points d\'avancement réguliers par email ou visio.',
+  },
+  {
+    question: 'Que se passe-t-il si je veux changer quelque chose en cours de route ?',
+    answer:
+      'On distingue les ajustements (inclus) des nouvelles fonctionnalités (devis complémentaire). Tout est défini clairement dans le contrat dès le départ.',
+  },
+  {
+    question: 'Proposez-vous un accompagnement après la mise en ligne ?',
+    answer:
+      'Oui. On propose des forfaits de maintenance, d\'évolution et de SEO mensuel. Vous n\'êtes jamais seuls une fois le site livré.',
+  },
 ]
 
 const BENEFITS = [
@@ -145,31 +168,45 @@ const BENEFITS = [
   },
 ]
 
-const PROCESS = [
+type AccentKey = 'violet' | 'chrome' | 'orange' | 'green'
+
+const ACCENT_MAP: Record<AccentKey, { color: string; bg: string; bd: string }> = {
+  violet: { color: '#A78BFA', bg: 'rgba(124,58,237,0.10)', bd: 'rgba(124,58,237,0.20)' },
+  chrome: { color: '#D4D4D8', bg: 'rgba(212,212,216,0.06)', bd: 'rgba(212,212,216,0.14)' },
+  orange: { color: '#FF8C00', bg: 'rgba(255,107,0,0.08)', bd: 'rgba(255,107,0,0.18)' },
+  green:  { color: '#4ade80', bg: 'rgba(74,222,128,0.08)', bd: 'rgba(74,222,128,0.20)' },
+}
+
+const STEPS: { num: number; title: string; week: string; duration: string; accent: AccentKey; desc: string; deliverables: string; icon: string }[] = [
   {
-    step: '01',
-    title: 'Brief & objectifs',
-    desc: 'On définit ensemble vos objectifs, votre audience cible et les fonctionnalités nécessaires. Un devis fixe est établi.',
+    num: 1, title: 'Audit & découverte', week: 'Semaine 1', duration: '1 à 2 jours', accent: 'violet',
+    desc: 'On commence par comprendre votre activité, votre cible, vos objectifs et vos contraintes. Analyse de l\'existant, benchmark concurrentiel, identification des opportunités digitales.',
+    deliverables: 'Brief complet, rapport d\'audit (si site existant), proposition stratégique', icon: 'search',
   },
   {
-    step: '02',
-    title: 'Design & maquettes',
-    desc: 'Maquettes Figma de toutes les pages clés, adaptées mobile et desktop. Validation avant tout développement.',
+    num: 2, title: 'Proposition & devis', week: 'Semaine 1-2', duration: '2 à 5 jours', accent: 'chrome',
+    desc: 'On vous remet une proposition détaillée : périmètre exact, calendrier, technologies recommandées, budget transparent. Pas de surprise.',
+    deliverables: 'Devis détaillé, plan de projet, technologies choisies', icon: 'doc',
   },
   {
-    step: '03',
-    title: 'Développement',
-    desc: 'Développement du site avec les technologies adaptées à votre projet. Intégrations tierces si nécessaire.',
+    num: 3, title: 'Design & maquettes', week: 'Semaine 2-4', duration: '5 à 10 jours', accent: 'violet',
+    desc: 'Wireframes, maquettes desktop et mobile. Chaque décision UI est justifiée. Vous validez avant qu\'une seule ligne de code soit écrite.',
+    deliverables: 'Maquettes Figma, charte graphique, prototype interactif', icon: 'pen',
   },
   {
-    step: '04',
-    title: 'Tests & recette',
-    desc: 'Tests complets : performance, SEO, accessibilité, compatibilité cross-browser. Vous testez, on corrige.',
+    num: 4, title: 'Développement', week: 'Semaine 3-8', duration: '2 à 6 semaines', accent: 'orange',
+    desc: 'Intégration en Next.js ou Astro, optimisation performances, SEO technique, accessibilité. Vous avez accès à un lien de prévisualisation à chaque étape clé.',
+    deliverables: 'Site complet, code source, tests et optimisations', icon: 'code',
   },
   {
-    step: '05',
-    title: 'Mise en ligne & formation',
-    desc: 'Déploiement sur votre domaine + session de formation à l\'administration. Votre site est à vous.',
+    num: 5, title: 'Recettes & ajustements', week: 'Semaine 7-9', duration: '3 à 7 jours', accent: 'green',
+    desc: 'On teste ensemble chaque fonctionnalité. Vous soumettez vos retours, on intègre les ajustements. Zéro frustration : on ne livre pas un produit que vous n\'avez pas validé.',
+    deliverables: 'Procès-verbal de recette, liste des correctifs, version finale validée', icon: 'check',
+  },
+  {
+    num: 6, title: 'Mise en ligne & suivi', week: 'Semaine 9-10', duration: '1 à 2 jours', accent: 'violet',
+    desc: 'Déploiement, configuration DNS, vérifications SEO post-lancement, rapport de démarrage. Et après ? On reste disponibles pour les évolutions.',
+    deliverables: 'Site en ligne, guide de prise en main, rapport de lancement', icon: 'rocket',
   },
 ]
 
@@ -194,7 +231,7 @@ export default function CreationSiteWebPage() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
               <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-white transition-colors">
-                Agence Digitale
+                Service Digital
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
               <span className="text-sm" style={{ color }}>Création de site web</span>
@@ -210,7 +247,7 @@ export default function CreationSiteWebPage() {
                   DKDP crée des sites web professionnels à Genève : vitrine, e-commerce ou sur mesure. Chaque projet est pensé pour être rapide, visible sur Google et facile à gérer en autonomie. Les tarifs démarrent à CHF 2&apos;500, avec un devis fixe et sans surprise.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
-                  <LiquidMetalButton href="/contact" size="lg">Devis gratuit →</LiquidMetalButton>
+                  <LiquidMetalButton href="/contact?service=service-digital" size="lg">Devis gratuit →</LiquidMetalButton>
                   <Link href="#process" className="text-sm text-text-muted hover:text-white transition-colors">
                     Notre méthode ↓
                   </Link>
@@ -256,8 +293,40 @@ export default function CreationSiteWebPage() {
         </div>
       </section>
 
+      {/* ── Subnav ── */}
+      <div className="sticky top-14 z-30 border-b border-zinc-800 bg-[rgba(9,9,11,0.92)] backdrop-blur-md">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="flex items-center justify-between gap-2">
+            <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
+              {[
+                { label: 'Notre approche', href: '#approche' },
+                { label: 'Tarifs', href: '#tarifs' },
+                { label: 'Processus', href: '#process' },
+                { label: 'Réalisations', href: '#realisations' },
+                { label: 'FAQ', href: '#faq' },
+              ].map(({ label, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold text-text-muted hover:text-white transition-colors duration-150 whitespace-nowrap"
+                >
+                  {label}
+                </a>
+              ))}
+            </nav>
+            <Link
+              href="/contact?service=service-digital"
+              className="flex-shrink-0 hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-bold transition-opacity hover:opacity-80"
+              style={{ background: 'rgba(124,58,237,0.18)', color: '#A78BFA', border: '1px solid rgba(124,58,237,0.30)' }}
+            >
+              Prendre contact
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* ── Ce qu'on fait ── */}
-      <section className="py-24 bg-bg-card border-y border-border">
+      <section id="approche" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
@@ -331,7 +400,7 @@ export default function CreationSiteWebPage() {
             </SectionReveal>
             <SectionReveal delay={0.15}>
               <div
-                className="rounded-[20px] p-8 border"
+                className="rounded-[20px] p-5 md:p-7 border"
                 style={{ background: bg, borderColor: border, boxShadow: '0 0 50px rgba(124,58,237,0.08)' }}
               >
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6 text-center" style={{ color }}>
@@ -379,7 +448,8 @@ export default function CreationSiteWebPage() {
       </section>
 
       {/* ── Offres ── */}
-      <section className="py-24 bg-bg-card border-y border-border">
+      <InfiniteGrid accentRgb="124,58,237" blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
+        <section id="tarifs" className="py-24 border-y border-border scroll-mt-[112px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -470,7 +540,7 @@ export default function CreationSiteWebPage() {
                       ))}
                     </div>
                     <Link
-                      href="/contact"
+                      href="/contact?service=service-digital"
                       className="mt-8 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-semibold transition-all hover:opacity-80"
                       style={{
                         background: offer.highlight ? color : bg,
@@ -487,6 +557,7 @@ export default function CreationSiteWebPage() {
           </div>
         </div>
       </section>
+      </InfiniteGrid>
 
       {/* ── Stack techno ── */}
       <section className="py-14 border-b border-border">
@@ -504,32 +575,25 @@ export default function CreationSiteWebPage() {
       </section>
 
       {/* ── Process ── */}
-      <section id="process" className="py-24 bg-bg-card border-y border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Méthode</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                De l&apos;idée à la mise en ligne.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {PROCESS.map((p, i) => (
-              <SectionReveal key={p.step} delay={i * 0.08}>
-                <div className="flex flex-col gap-3 p-5 bg-bg rounded-[14px] border border-border h-full">
-                  <div className="text-[11px] font-bold tracking-widest" style={{ color }}>{p.step}</div>
-                  <h3 className="text-white font-semibold text-sm">{p.title}</h3>
-                  <p className="text-text-muted text-xs leading-relaxed">{p.desc}</p>
-                </div>
-              </SectionReveal>
-            ))}
+      <InfiniteGrid accentRgb="124,58,237" blob1="rgba(124,58,237,0.12)" blob2="rgba(124,58,237,0.06)">
+        <section id="process" className="py-24 border-y border-border scroll-mt-[112px]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <SectionReveal>
+              <div className="text-center mb-16">
+                <GradTag className="mb-4">Le processus</GradTag>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                  6 étapes, zéro improvisation.
+                </h2>
+              </div>
+            </SectionReveal>
+
+            <ProcessTimeline steps={STEPS} />
           </div>
-        </div>
-      </section>
+        </section>
+      </InfiniteGrid>
 
       {/* ── Réalisations ── */}
-      <section className="py-24">
+      <section id="realisations" className="py-24 scroll-mt-[112px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -579,7 +643,7 @@ export default function CreationSiteWebPage() {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg/80" />
                     <span
                       className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full"
-                      style={{ background: 'rgba(124,58,237,0.20)', color, border: `1px solid ${border}` }}
+                      style={{ background: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(6px)', color, border: `1px solid ${border}` }}
                     >
                       {r.type}
                     </span>
@@ -631,8 +695,13 @@ export default function CreationSiteWebPage() {
         </div>
       </section>
 
+      {/* ── Audit gratuit ── */}
+      <SiteAuditBlock />
+
       {/* ── FAQ ── */}
-      <FAQSection items={FAQ} title="Vos questions sur la création de site web" />
+      <div id="faq" className="scroll-mt-[112px]">
+        <FAQSection items={FAQ} title="Vos questions sur la création de site web" />
+      </div>
 
       {/* ── Bridge SEO ── */}
       <section className="py-16 border-t border-border">

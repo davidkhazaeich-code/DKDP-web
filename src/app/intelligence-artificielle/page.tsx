@@ -9,6 +9,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
+import { ROICalculator } from '@/components/sections/ROICalculator'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService } from '@/lib/schema'
 import { FAQ_IA } from '@/data/faq-ia'
@@ -70,7 +71,7 @@ const SERVICES = [
   {
     Icon: BrainCircuit, title: 'Audit & Conseil IA', href: '/intelligence-artificielle/audit-conseil',
     description: "Audit de votre potentiel d'automatisation. On identifie les 3 actions à fort ROI dans votre entreprise.",
-    badge: null,
+    badge: 'Best seller',
     image: '/images/services/dkdp-ia-audit-conseil.webp',
   },
   {
@@ -105,9 +106,10 @@ const BENEFITS = [
 const color  = '#D4D4D8'
 const bg     = 'rgba(212,212,216,0.06)'
 const border = 'rgba(212,212,216,0.15)'
-const badgeColors: Record<string, { bg: string; text: string; border: string }> = {
-  'Populaire': { bg: 'rgba(124,58,237,0.15)', text: '#A78BFA', border: 'rgba(124,58,237,0.3)' },
-  'Gratuit':   { bg: 'rgba(34,197,94,0.12)',  text: '#4ade80', border: 'rgba(34,197,94,0.25)' },
+const badgeColors: Record<string, { background: string; color: string; border: string }> = {
+  'Best seller': { background: 'rgba(10,10,10,0.84)', color: '#86efac', border: '1px solid rgba(74,222,128,0.68)' },
+  'Populaire':   { background: 'rgba(10,10,10,0.84)', color: '#C4B5FD', border: '1px solid rgba(124,58,237,0.65)' },
+  'Gratuit':     { background: 'rgba(10,10,10,0.84)', color: '#86efac', border: '1px solid rgba(74,222,128,0.60)' },
 }
 
 export default function IntelligenceArtificiellePage() {
@@ -167,7 +169,7 @@ export default function IntelligenceArtificiellePage() {
             {STATS.map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.value}</p>
+                  <p className="text-3xl md:text-4xl font-bold mb-1 text-white">{s.value}</p>
                   <p className="text-text-muted text-sm">{s.label}</p>
                 </div>
               </SectionReveal>
@@ -221,7 +223,8 @@ export default function IntelligenceArtificiellePage() {
       </section>
 
       {/* ── Services ── */}
-      <section id="services" className="py-24 bg-bg-card border-y border-border">
+      <InfiniteGrid accentRgb="212,212,216" blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)">
+        <section id="services" className="py-24 border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="mb-14">
@@ -232,52 +235,16 @@ export default function IntelligenceArtificiellePage() {
             </div>
           </SectionReveal>
 
-          {/* ── Service phare ── */}
-          <SectionReveal>
-            <Link
-              href="/intelligence-artificielle/audit-conseil"
-              className="group mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 rounded-[14px] p-6 md:p-7 border transition-all hover:-translate-y-0.5 duration-200"
-              style={{
-                background: 'linear-gradient(135deg, rgba(34,197,94,0.10) 0%, rgba(34,197,94,0.03) 100%)',
-                borderColor: 'rgba(34,197,94,0.28)',
-                boxShadow: '0 0 40px rgba(34,197,94,0.06)',
-              }}
-            >
-              <div className="flex items-center gap-4">
-                <div
-                  className="flex h-12 w-12 items-center justify-center rounded-[10px] flex-shrink-0"
-                  style={{ background: 'rgba(34,197,94,0.10)', border: '1px solid rgba(34,197,94,0.25)' }}
-                >
-                  <BrainCircuit size={20} style={{ color: '#4ade80' }} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color: '#4ade80' }}>
-                    Sans engagement
-                  </p>
-                  <p className="text-white font-bold text-lg leading-tight">
-                    Audit & Conseil IA
-                  </p>
-                  <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
-                    Identifiez les 3 actions à fort ROI pour automatiser votre entreprise. Résultats concrets, sans engagement.
-                  </p>
-                </div>
-              </div>
-              <span
-                className="flex-shrink-0 inline-flex items-center gap-1.5 text-[12px] font-semibold px-4 py-2 rounded-[8px] transition-opacity group-hover:opacity-80"
-                style={{ background: 'rgba(34,197,94,0.12)', color: '#4ade80', border: '1px solid rgba(34,197,94,0.25)' }}
-              >
-                Demander mon audit <ChevronRight size={12} />
-              </span>
-            </Link>
-          </SectionReveal>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {SERVICES.map((s, i) => (
               <SectionReveal key={s.href} delay={i * 0.08}>
                 <Link
                   href={s.href}
                   className="group flex flex-col h-full bg-bg rounded-[14px] border overflow-hidden hover:-translate-y-0.5 transition-transform duration-200 relative"
-                  style={{ borderColor: border }}
+                  style={{
+                    borderColor: s.badge === 'Best seller' ? 'rgba(34,197,94,0.38)' : s.badge ? 'rgba(167,139,250,0.32)' : border,
+                    boxShadow: s.badge ? '0 0 28px rgba(34,197,94,0.06)' : undefined,
+                  }}
                 >
                   {/* Image */}
                   <div className="relative h-44 overflow-hidden">
@@ -291,7 +258,7 @@ export default function IntelligenceArtificiellePage() {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg/80" />
                     {s.badge && (
                       <span
-                        className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full"
+                        className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
                         style={badgeColors[s.badge]}
                       >
                         {s.badge}
@@ -362,6 +329,7 @@ export default function IntelligenceArtificiellePage() {
 
         </div>
       </section>
+      </InfiniteGrid>
 
       {/* ── Benefits ── */}
       <section className="py-24">
@@ -411,6 +379,9 @@ export default function IntelligenceArtificiellePage() {
         </div>
       </section>
 
+      {/* ── Calculateur ROI ── */}
+      <ROICalculator />
+
       {/* ── Méthode IA ── */}
       <section className="py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -422,7 +393,16 @@ export default function IntelligenceArtificiellePage() {
               </h2>
             </div>
           </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="relative">
+            {/* Ligne directrice horizontale - chrome métal */}
+            <div
+              aria-hidden="true"
+              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] pointer-events-none"
+              style={{
+                background: 'linear-gradient(to right, transparent, rgba(212,212,216,0.20) 5%, #c0c0c0 25%, #D4D4D8 50%, #c0c0c0 75%, rgba(212,212,216,0.20) 95%, transparent)',
+              }}
+            />
+          <div className="relative z-[1] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 Icon: Layers,
@@ -469,6 +449,7 @@ export default function IntelligenceArtificiellePage() {
               </SectionReveal>
             ))}
           </div>
+          </div>
         </div>
       </section>
 
@@ -484,18 +465,18 @@ export default function IntelligenceArtificiellePage() {
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14 items-stretch">
             {[
               { v: '85%', l: 'Réduction temps de traitement', sub: 'Sur les processus automatisés' },
               { v: '10h', l: 'Gagnées par semaine', sub: 'Par collaborateur en moyenne' },
               { v: '3 sem.', l: 'Premier prototype livré', sub: 'En conditions réelles' },
               { v: 'x3.1', l: 'ROI moyen à 6 mois', sub: 'Calculé sur les projets livrés' },
             ].map((kpi, i) => (
-              <SectionReveal key={kpi.l} delay={i * 0.08}>
-                <div className="text-center p-6 rounded-[14px] border" style={{ background: bg, borderColor: border }}>
-                  <p className="text-3xl md:text-4xl font-bold mb-2" style={{ color }}>{kpi.v}</p>
-                  <p className="text-white text-sm font-semibold">{kpi.l}</p>
-                  <p className="text-text-muted text-xs mt-1">{kpi.sub}</p>
+              <SectionReveal key={kpi.l} delay={i * 0.08} className="h-full">
+                <div className="flex flex-col justify-center text-center h-full p-6 rounded-[14px] border" style={{ background: bg, borderColor: border }}>
+                  <p className="text-3xl md:text-4xl font-bold mb-2 leading-none" style={{ color }}>{kpi.v}</p>
+                  <p className="text-white text-sm font-semibold leading-snug">{kpi.l}</p>
+                  <p className="text-text-muted text-xs mt-1 leading-snug">{kpi.sub}</p>
                 </div>
               </SectionReveal>
             ))}
@@ -580,7 +561,7 @@ export default function IntelligenceArtificiellePage() {
                 style={{ background: 'rgba(124,58,237,0.07)', borderColor: 'rgba(124,58,237,0.22)' }}
               >
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#A78BFA' }}>Agence Digitale</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#A78BFA' }}>Service Digital</p>
                   <p className="text-white font-semibold">Votre site et votre SEO optimisés</p>
                   <p className="text-text-muted text-xs mt-1">Création de sites, SEO, Google Ads. Présence digitale mesurable.</p>
                 </div>

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const MAIN_LINKS = [
-  { label: 'Agence Digitale', href: '/agence-digitale' },
+  { label: 'Service Digital', href: '/agence-digitale' },
   { label: 'Intelligence Artificielle', href: '/intelligence-artificielle' },
   { label: 'Formation', href: '/formation-entreprise' },
 ]

@@ -18,16 +18,12 @@ describe('SchemaOrg', () => {
 })
 
 describe('buildLocalBusiness', () => {
-  it('returns @type LocalBusiness', () => {
-    expect(buildLocalBusiness()['@type']).toBe('LocalBusiness')
+  it('returns @type ProfessionalService', () => {
+    expect(buildLocalBusiness()['@type']).toBe('ProfessionalService')
   })
 
   it('includes Genève address', () => {
     expect(buildLocalBusiness().address.addressLocality).toBe('Genève')
-  })
-
-  it('includes aggregateRating 4.9', () => {
-    expect(buildLocalBusiness().aggregateRating.ratingValue).toBe('4.9')
   })
 
   it('includes telephone', () => {

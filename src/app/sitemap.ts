@@ -1,25 +1,79 @@
 import { MetadataRoute } from 'next'
+import { ARTICLES } from '@/lib/blog-data'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const BASE = 'https://dkdp.ch'
-  const now = new Date()
+const BASE = 'https://dkdp.ch'
 
-  const pages = [
-    { url: '/', priority: 1.0, changeFrequency: 'weekly' as const },
-    { url: '/agence-digitale', priority: 0.9, changeFrequency: 'weekly' as const },
-    { url: '/intelligence-artificielle', priority: 0.9, changeFrequency: 'weekly' as const },
-    { url: '/formation-entreprise', priority: 0.9, changeFrequency: 'weekly' as const },
-    { url: '/tarifs', priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: '/contact', priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: '/realisations', priority: 0.7, changeFrequency: 'weekly' as const },
-    { url: '/a-propos', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/blog', priority: 0.7, changeFrequency: 'daily' as const },
-  ]
+type ChangeFreq = NonNullable<MetadataRoute.Sitemap[number]['changeFrequency']>
 
-  return pages.map(({ url, priority, changeFrequency }) => ({
+function entry(url: string, priority: number, changeFrequency: ChangeFreq) {
+  return {
     url: `${BASE}${url}`,
-    lastModified: now,
+    lastModified: new Date(),
     changeFrequency,
     priority,
-  }))
+  }
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+
+    // ─── Hub ─────────────────────────────────────────────────────────────────
+    entry('/',                          1.00, 'weekly'),
+    entry('/agence-digitale',           0.90, 'weekly'),
+    entry('/intelligence-artificielle', 0.90, 'weekly'),
+    entry('/formation-entreprise',      0.90, 'weekly'),
+
+    // ─── Service Digital ─────────────────────────────────────────────────────
+    entry('/agence-digitale/creation-site-web',            0.85, 'monthly'),
+    entry('/agence-digitale/seo',                          0.85, 'monthly'),
+    entry('/agence-digitale/publicite-sea',                0.80, 'monthly'),
+    entry('/agence-digitale/reseaux-sociaux',              0.75, 'monthly'),
+    entry('/agence-digitale/creation-video',               0.75, 'monthly'),
+    entry('/agence-digitale/consulting-marketing',         0.75, 'monthly'),
+    entry('/agence-digitale/rgpd-cookies',                 0.60, 'monthly'),
+
+    // ─── Audits gratuits (lead gen haute valeur) ──────────────────────────────
+    entry('/agence-digitale/creation-site-web/audit-site', 0.85, 'monthly'),
+    entry('/agence-digitale/seo/audit-seo',                0.85, 'monthly'),
+
+    // ─── Intelligence Artificielle ────────────────────────────────────────────
+    entry('/intelligence-artificielle/audit-conseil',      0.85, 'monthly'),
+    entry('/intelligence-artificielle/agents-ia',          0.80, 'monthly'),
+    entry('/intelligence-artificielle/automatisation',     0.80, 'monthly'),
+    entry('/intelligence-artificielle/mise-en-place',      0.75, 'monthly'),
+
+    // ─── Formation Entreprise ─────────────────────────────────────────────────
+    entry('/formation-entreprise/ia',                      0.85, 'monthly'),
+    entry('/formation-entreprise/cybersecurite',           0.75, 'monthly'),
+    entry('/formation-entreprise/bureautique',             0.75, 'monthly'),
+    entry('/formation-entreprise/reseaux-sociaux',         0.70, 'monthly'),
+    entry('/formation-entreprise/web-design',              0.70, 'monthly'),
+    entry('/formation-entreprise/montage-video',           0.70, 'monthly'),
+    entry('/formation-entreprise/informatique',            0.70, 'monthly'),
+    entry('/formation-particuliers',                       0.75, 'monthly'),
+
+    // ─── Contenu & ressources ─────────────────────────────────────────────────
+    entry('/blog',              0.80, 'weekly'),
+    entry('/glossaire',         0.70, 'monthly'),
+    entry('/comment-ca-marche', 0.65, 'monthly'),
+    entry('/realisations',      0.75, 'monthly'),
+
+    // ─── Agence ───────────────────────────────────────────────────────────────
+    entry('/tarifs',    0.80, 'monthly'),
+    entry('/contact',   0.80, 'monthly'),
+    entry('/a-propos',  0.65, 'monthly'),
+
+    // ─── Articles de blog ─────────────────────────────────────────────────────
+    ...ARTICLES.map((a) =>
+      entry(`/blog/${a.slug}`, 0.65, 'monthly')
+    ),
+
+    // ─── Légal & utilitaires ─────────────────────────────────────────────────
+    entry('/rgpd-cookies',                  0.40, 'yearly'),
+    entry('/mentions-legales',              0.30, 'yearly'),
+    entry('/politique-de-confidentialite',  0.30, 'yearly'),
+    entry('/conditions-generales-de-vente', 0.30, 'yearly'),
+    entry('/plan-du-site',                  0.40, 'monthly'),
+
+  ]
 }

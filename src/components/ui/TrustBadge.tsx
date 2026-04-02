@@ -13,7 +13,7 @@ const minRotate = -0.25
 const maxScale = 1
 const minScale = 0.97
 
-// Original rainbow spectrum — overlay on light, screen on dark
+// Original rainbow spectrum - overlay on light, screen on dark
 const OVERLAY_COLORS = [
   'hsl(358, 100%, 62%)',
   'hsl(30, 100%, 50%)',
@@ -135,7 +135,7 @@ function useBadgeInteraction() {
 }
 
 export function TrustBadge({ variant = 'light', scale = 1 }: TrustBadgeProps) {
-  const id = variant // 'light' | 'dark' — used to namespace SVG filter/gradient IDs
+  const id = variant // 'light' | 'dark' - used to namespace SVG filter/gradient IDs
   const { ref, firstOverlayPos, matrix, disableInOut, disableOverlay, handleEnter, handleMove, handleLeave } = useBadgeInteraction()
 
   const keyframes = OVERLAY_COLORS.map((_, i) => `
@@ -218,7 +218,7 @@ export function TrustBadge({ variant = 'light', scale = 1 }: TrustBadgeProps) {
           {/* Inner border */}
           <rect x="4" y="4" width={W - 8} height={H - 8} rx="8" fill="transparent" stroke={innerBorder} strokeWidth="1" />
 
-          {/* Swiss cross — engraved metal plate */}
+          {/* Swiss cross - engraved metal plate */}
           <g transform="translate(10, 9)">
             <rect width="36" height="36" rx="5" fill={`url(#tb-${id}-plate)`} />
             <rect width="36" height="36" rx="5" fill="none" stroke={plateStroke} strokeWidth="0.8" />

@@ -18,12 +18,12 @@ interface GhostButtonProps {
 export function GhostButton({ children, href, onClick, className }: GhostButtonProps) {
   const inner = (
     <>
-      {/* Radial violet glow — idle: faint, hover: bright */}
+      {/* Radial violet glow - idle: faint, hover: bright */}
       <span className="absolute inset-0 overflow-hidden rounded-full">
         <span className="absolute inset-0 rounded-full bg-[radial-gradient(75%_100%_at_50%_0%,rgba(124,58,237,0.85)_0%,rgba(167,139,250,0.25)_75%)] opacity-20 transition-opacity duration-500 group-hover:opacity-100" />
       </span>
 
-      {/* Inner pill — dark bg creates the visible gradient border ring */}
+      {/* Inner pill - dark bg creates the visible gradient border ring */}
       <div className="relative z-10 flex h-[44px] items-center rounded-full bg-[#0A0A0A] px-7 text-sm font-semibold text-white/75 ring-1 ring-white/[0.06] transition-colors duration-200 group-hover:text-white">
         {children}
       </div>

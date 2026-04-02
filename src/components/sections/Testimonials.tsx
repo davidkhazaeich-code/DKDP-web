@@ -41,7 +41,7 @@ const TESTIMONIALS = [
   },
 ] as const
 
-export function Testimonials() {
+export function Testimonials({ className }: { className?: string }) {
   const [current, setCurrent] = useState(0)
   const [expanded, setExpanded] = useState(false)
 
@@ -68,7 +68,7 @@ export function Testimonials() {
   const testimonial = TESTIMONIALS[current]
 
   return (
-    <section aria-labelledby="testimonials-heading" className="py-24 bg-bg-card border-y border-border">
+    <section aria-labelledby="testimonials-heading" className={className ?? 'py-24 bg-bg-card border-y border-border'}>
       <div className="max-w-[1200px] mx-auto px-6">
         <SectionReveal>
           <div className="text-center mb-16">
@@ -101,6 +101,8 @@ export function Testimonials() {
               <blockquote>
                 <div className="mb-8">
                   <motion.div
+                    key={`quote-${current}`}
+                    initial={{ height: '5.5rem' }}
                     animate={{ height: expanded ? 'auto' : '5.5rem' }}
                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     style={{ overflow: 'hidden' }}

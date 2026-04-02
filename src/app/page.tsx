@@ -5,23 +5,25 @@ import { ProblemBlock } from '@/components/sections/ProblemBlock'
 import { PillarCards } from '@/components/sections/PillarCards'
 import { BeforeAfter } from '@/components/sections/BeforeAfter'
 import { ProofStack } from '@/components/sections/ProofStack'
-import { FeaturedProject } from '@/components/sections/FeaturedProject'
 import { ProcessSteps } from '@/components/sections/ProcessSteps'
 import { Testimonials } from '@/components/sections/Testimonials'
-import { DavidCard } from '@/components/sections/DavidCard'
+import { TeamSection } from '@/components/sections/TeamSection'
 import { CTAFinal } from '@/components/sections/CTAFinal'
+import { FeaturedServices } from '@/components/sections/FeaturedServices'
+import { FAQSection } from '@/components/sections/FAQSection'
+import { FAQ_ITEMS } from '@/data/faq'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildLocalBusiness } from '@/lib/schema'
+import { buildLocalBusiness, buildFAQPage } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'DKDP · Agence Digitale à Genève · IA · Formation',
+  title: 'DKDP · Service Digital à Genève · IA · Formation',
   description:
-    'Agence digitale à Genève. Création de sites, SEO, intelligence artificielle et formation entreprise. 150+ clients. Devis gratuit.',
+    'Service digital à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise. 150+ PME accompagnées en Suisse romande. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch' },
   openGraph: {
-    title: 'DKDP · Agence Digitale à Genève · IA · Formation',
+    title: 'DKDP · Service Digital à Genève · IA · Formation',
     description:
-      'Agence digitale à Genève. 150+ entreprises accompagnées. Devis gratuit.',
+      'Sites web, SEO, IA et formation pour PME à Genève. 150+ entreprises accompagnées en Suisse romande.',
     url: 'https://dkdp.ch',
   },
 }
@@ -30,16 +32,18 @@ export default function HomePage() {
   return (
     <>
       <SchemaOrg schema={buildLocalBusiness()} />
+      <SchemaOrg schema={buildFAQPage(FAQ_ITEMS.map(({ question, answer }) => ({ question, answer })))} />
       <HomeHero />
       <LogoBanner />
       <ProblemBlock />
       <PillarCards />
+      <FeaturedServices />
       <ProcessSteps />
       <BeforeAfter />
       <ProofStack />
-      <FeaturedProject />
       <Testimonials />
-      <DavidCard />
+      <TeamSection />
+      <FAQSection />
       <CTAFinal />
     </>
   )

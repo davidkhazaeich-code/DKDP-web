@@ -37,16 +37,17 @@ export function HomeHero() {
           variants={fadeUp}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-[-0.03em] mb-6 max-w-[1100px] mx-auto"
         >
-          Votre entreprise mérite un digital{' '}
-          <GradText as="span">qui travaille pour vous.</GradText>
+          L&apos;agence digitale genevoise
+          <br />
+          <GradText as="span">qui fait ce qu&apos;elle dit.</GradText>
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
           className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-[860px] mx-auto"
         >
-          Agence digitale à Genève. On crée votre site, on déploie l&apos;IA dans vos équipes,
-          on forme vos collaborateurs. Résultats mesurables, pas de blabla.
+          On crée votre site, on optimise votre SEO, on déploie l&apos;IA dans vos équipes
+          et on forme vos collaborateurs. Résultats mesurables, pas de blabla.
         </motion.p>
 
         <motion.div

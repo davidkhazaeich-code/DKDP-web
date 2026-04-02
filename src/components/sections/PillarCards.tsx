@@ -30,7 +30,7 @@ const PILLARS = [
     badgeVariant: 'orange' as const,
     href: '/formation-entreprise',
     title: 'Formation Entreprise',
-    description: "Des équipes formées = une entreprise qui avance 2x plus vite.",
+    description: "Formez vos équipes sur l'IA et le digital : elles gagnent en autonomie et en vitesse d'exécution.",
     services: ['Formation IA', 'Excel & bureautique', 'Cybersécurité', 'Sur mesure'],
     cta: 'Voir les formations',
     image: '/images/pillars/formation-entreprise.webp',
@@ -49,7 +49,7 @@ const PILLARS = [
     href: '/intelligence-artificielle',
     title: 'Intelligence Artificielle',
     description: "Automatisez ce qui vous ralentit. Déployez l'IA là où ça compte.",
-    services: ['Agents IA sur mesure', 'Automatisation', 'ChatGPT / Claude', 'Audit IA gratuit'],
+    services: ['Agents IA sur mesure', 'Automatisation', 'ChatGPT / Claude', 'Audit & Conseil IA'],
     cta: "Explorer l'IA",
     image: '/images/pillars/intelligence-artificielle.webp',
     imageAlt: "Réseau neuronal violet dans un espace sombre futuriste",
@@ -58,7 +58,7 @@ const PILLARS = [
     ctaColor: 'text-[#D4D4D8]',
     bulletColor: 'bg-[#D4D4D8]',
     ctaDelay: '0.6s',
-    cardStyle: { borderColor: '#1C1C22', borderHoverColor: 'rgba(212,212,216,0.2)' },
+    cardStyle: { borderColor: 'rgba(212,212,216,0.15)', borderHoverColor: 'rgba(212,212,216,0.35)' },
   },
 ] as const
 
@@ -70,7 +70,7 @@ export function PillarCards() {
           <div className="text-center mb-16">
             <GradTag className="mb-6">Nos 3 piliers</GradTag>
             <h2 id="pillars-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em]">
-              Trois expertises, un seul interlocuteur.
+              Création de sites web, SEO et formation IA à Genève. Un seul interlocuteur.
             </h2>
           </div>
         </SectionReveal>
@@ -94,15 +94,14 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
     <div
       className="pillar-card relative bg-bg rounded-[12px] overflow-hidden flex flex-col h-full hover:-translate-y-[2px] group"
       style={{
-        border: '1px solid',
-        '--border-idle': pillar.cardStyle.borderColor,
+        border: `1px solid ${pillar.cardStyle.borderColor}`,
         '--border-hover': pillar.cardStyle.borderHoverColor,
       } as React.CSSProperties}
     >
       {/* Top accent line */}
       <div className={`h-[3px] w-full ${pillar.accentBar} opacity-80`} />
 
-      {/* Pillar image — clickable */}
+      {/* Pillar image - clickable */}
       <Link href={pillar.href} className="relative w-full aspect-[16/9] overflow-hidden block" tabIndex={-1} aria-hidden="true">
         <Image
           src={pillar.image}

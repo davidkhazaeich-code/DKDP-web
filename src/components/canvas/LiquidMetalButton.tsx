@@ -6,6 +6,7 @@ import Link from 'next/link'
 interface LiquidMetalButtonProps {
   children: React.ReactNode
   href?: string
+  calLink?: string
   onClick?: () => void
   size?: 'md' | 'lg'
   className?: string
@@ -20,6 +21,7 @@ const sizeMap = {
 export function LiquidMetalButton({
   children,
   href,
+  calLink,
   onClick,
   size = 'lg',
   className = '',
@@ -198,6 +200,24 @@ export function LiquidMetalButton({
     transition: 'box-shadow 0.15s cubic-bezier(0.4,0,0.2,1), transform 0.15s cubic-bezier(0.4,0,0.2,1)',
     cursor: 'pointer',
     userSelect: 'none',
+  }
+
+  if (calLink) {
+    return (
+      <div ref={wrapperRef} style={{ display: 'inline-flex' }}>
+        <button
+          type="button"
+          className={className}
+          style={{ ...wrapperStyle, border: 'none', padding: 0, background: 'transparent' }}
+          data-cal-link={calLink}
+          data-cal-namespace="planifier-un-appel"
+          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+          {...interactionHandlers}
+        >
+          {visualContent}
+        </button>
+      </div>
+    )
   }
 
   if (href) {

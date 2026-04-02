@@ -19,8 +19,10 @@ export function CTAFinal() {
 
   return (
     <InfiniteGrid>
-      <section ref={sectionRef} aria-labelledby="cta-heading" className="py-44 relative">
-        <Watermark />
+      <section ref={sectionRef} aria-labelledby="cta-heading" className="py-16 md:py-[130px] lg:py-[200px] relative">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+          <Watermark />
+        </div>
 
         <motion.div
           style={{ y }}
@@ -37,7 +39,7 @@ export function CTAFinal() {
             </p>
 
             <div className="flex justify-center mb-10">
-              <LiquidMetalButton href="/contact" size="lg">
+              <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                 Réservez votre appel gratuit<span aria-hidden="true"> →</span>
               </LiquidMetalButton>
             </div>
@@ -65,7 +67,7 @@ export function CTAFinal() {
             </div>
 
             <p className="text-text-muted text-sm">
-              Sans engagement · Réponse sous 24h · À Genève ou en visio
+              Sans engagement · Réponse sous 24h · Eaux-Vives, Genève ou en visio
             </p>
           </SectionReveal>
         </motion.div>

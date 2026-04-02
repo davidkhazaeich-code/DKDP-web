@@ -7,19 +7,28 @@ export function DavidCard() {
     <section aria-labelledby="david-heading" className="py-24">
       <div className="max-w-[1200px] mx-auto px-6">
         <SectionReveal>
-          <div className="bg-bg-card border border-border rounded-[16px] p-8 md:p-12 flex flex-col sm:flex-row gap-8 md:gap-12 items-center">
-            <div className="flex-shrink-0">
-              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden">
-                <Image
-                  src="/images/team/david-khazaei.png"
-                  alt="David Khazaei"
-                  width={144}
-                  height={144}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          <div className="bg-bg-card border border-border rounded-[20px] overflow-hidden flex flex-col md:flex-row">
+
+            {/* Photo - fond transparent qui se fond dans la card */}
+            <div className="relative flex-shrink-0 flex items-end justify-center md:justify-start w-full md:w-[280px] h-[260px] md:h-auto">
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(124,58,237,0.12) 0%, transparent 70%)',
+                }}
+              />
+              <Image
+                src="/images/team/david-khazaei.png"
+                alt="David Khazaei"
+                width={280}
+                height={320}
+                className="relative z-10 h-full w-auto object-contain object-bottom"
+                style={{ maxHeight: '320px' }}
+              />
             </div>
-            <div className="text-center sm:text-left">
+
+            {/* Texte */}
+            <div className="flex flex-col justify-center p-8 md:p-12 text-center md:text-left">
               <p className="text-violet-light text-xs font-semibold uppercase tracking-[0.12em] mb-3">
                 À propos
               </p>
@@ -31,11 +40,12 @@ export function DavidCard() {
               </p>
               <Link
                 href="/a-propos"
-                className="text-violet-light text-sm font-semibold hover-grad-text transition-all inline-flex items-center gap-1"
+                className="text-violet-light text-sm font-semibold hover-grad-text transition-all inline-flex items-center gap-1 md:w-fit mx-auto md:mx-0"
               >
                 En savoir plus<span aria-hidden="true"> →</span>
               </Link>
             </div>
+
           </div>
         </SectionReveal>
       </div>

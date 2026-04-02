@@ -9,6 +9,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
+import { ROICalculatorFormation } from '@/components/sections/ROICalculatorFormation'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
@@ -47,7 +48,7 @@ function ToolComparison() {
     },
   ]
   return (
-    <div className="grid grid-cols-3 gap-3 w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
       {tools.map((t) => (
         <div
           key={t.name}
@@ -141,12 +142,12 @@ const FAQ = [
   {
     question: 'Combien de personnes peuvent participer à la formation ?',
     answer:
-      'Le format idéal est de 4 à 12 personnes pour garantir que chaque participant puisse pratiquer et poser ses questions. Pour les grandes équipes, on organise plusieurs sessions. Des ateliers de sensibilisation jusqu\'à 25 personnes sont aussi possibles.',
+      'Le format idéal est de 4 à 10 personnes par groupe pour garantir que chaque participant puisse pratiquer et poser ses questions. Pour les grandes équipes, on organise plusieurs sessions successives.',
   },
   {
     question: 'Combien coûte une journée de formation IA pour mon équipe ?',
     answer:
-      'Une journée de formation IA en entreprise est facturée entre CHF 1\'500 et CHF 2\'000 selon la personnalisation et le nombre de participants (tarif forfaitaire par groupe). La demi-journée démarre à CHF 900. Un devis précis est établi après le brief.',
+      'La formation IA est facturée à un tarif forfaitaire par groupe : CHF 1\'500 pour la demi-journée, CHF 3\'000 pour la journée complète et CHF 6\'000 pour le format sur 2 jours. Un devis précis est établi après le brief.',
   },
   {
     question: 'Les participants repartent-ils avec des outils utilisables le soir même ?',
@@ -220,7 +221,7 @@ export default function FormationIAPage() {
                   DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève. Programme 100% sur mesure, orienté pratique. Vos équipes gagnent en moyenne 8 heures par semaine dès le lendemain de la formation.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
-                  <LiquidMetalButton href="/contact" size="lg">Demander un devis →</LiquidMetalButton>
+                  <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
                   <Link href="#programme" className="text-sm text-text-muted hover:text-white transition-colors">
                     Voir le programme ↓
                   </Link>
@@ -249,7 +250,7 @@ export default function FormationIAPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '200+', l: 'Participants formés', sub: 'En Suisse romande' },
+              { v: '500+', l: 'Participants formés', sub: 'En Suisse romande' },
               { v: '4.9/5', l: 'Satisfaction', sub: 'Note post-formation' },
               { v: '91%', l: 'Appliquent dès J+1', sub: 'Compétences utilisées' },
               { v: '1h30', l: 'Gagnée / jour / pers.', sub: 'Moyenne observée' },
@@ -266,8 +267,41 @@ export default function FormationIAPage() {
         </div>
       </section>
 
+      {/* ── Subnav ── */}
+      <div className="sticky top-14 z-30 border-b border-zinc-800 bg-[rgba(9,9,11,0.92)] backdrop-blur-md">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="flex items-center justify-between gap-2">
+            <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
+              {[
+                { label: 'Pourquoi maintenant', href: '#pourquoi' },
+                { label: 'Programme', href: '#programme' },
+                { label: 'ROI', href: '#roi' },
+                { label: 'Format', href: '#format' },
+                { label: 'Tarifs', href: '#tarifs' },
+                { label: 'FAQ', href: '#faq' },
+              ].map(({ label, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold text-text-muted hover:text-white transition-colors duration-150 whitespace-nowrap"
+                >
+                  {label}
+                </a>
+              ))}
+            </nav>
+            <Link
+              href="/contact"
+              className="flex-shrink-0 hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-bold transition-opacity hover:opacity-80"
+              style={{ background: 'rgba(255,107,0,0.12)', color: '#FF8C00', border: '1px solid rgba(255,107,0,0.25)' }}
+            >
+              Prendre contact
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* ── Contexte IA ── */}
-      <section className="py-24">
+      <section id="pourquoi" className="scroll-mt-[112px] py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
@@ -296,7 +330,7 @@ export default function FormationIAPage() {
             </SectionReveal>
             <SectionReveal delay={0.15}>
               <div
-                className="rounded-[20px] p-8 border"
+                className="rounded-[20px] p-5 md:p-7 border"
                 style={{ background: bg, borderColor: border, boxShadow: '0 0 50px rgba(255,107,0,0.07)' }}
               >
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6 text-center" style={{ color }}>
@@ -313,7 +347,7 @@ export default function FormationIAPage() {
       </section>
 
       {/* ── Programme ── */}
-      <section id="programme" className="py-24 bg-bg-card border-y border-border">
+      <section id="programme" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
@@ -343,7 +377,7 @@ export default function FormationIAPage() {
       </section>
 
       {/* ── ROI par poste ── */}
-      <section className="py-24 bg-bg-card border-y border-border">
+      <section id="roi" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -468,7 +502,7 @@ export default function FormationIAPage() {
       </section>
 
       {/* ── Formats ── */}
-      <section className="py-24 bg-bg-card border-y border-border">
+      <section id="format" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -498,7 +532,8 @@ export default function FormationIAPage() {
       </section>
 
       {/* ── Témoignages ── */}
-      <section className="py-24">
+      <InfiniteGrid accentRgb="255,140,0" blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
+        <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -550,9 +585,10 @@ export default function FormationIAPage() {
           </div>
         </div>
       </section>
+      </InfiniteGrid>
 
       {/* ── Tarifs ── */}
-      <section className="py-24 bg-bg-card border-y border-border">
+      <section id="tarifs" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -569,9 +605,9 @@ export default function FormationIAPage() {
             {[
               {
                 label: 'Demi-journée',
-                price: 'CHF 900',
-                duration: '3h30',
-                max: "Jusqu'à 12 personnes",
+                price: "CHF 1'500",
+                duration: '3h',
+                max: "Jusqu'à 10 personnes",
                 features: [
                   'Introduction aux outils IA',
                   'Techniques de prompting de base',
@@ -583,9 +619,9 @@ export default function FormationIAPage() {
               },
               {
                 label: 'Journée complète',
-                price: "CHF 1'500",
-                duration: '7 heures',
-                max: "Jusqu'à 12 personnes",
+                price: "CHF 3'000",
+                duration: '6h',
+                max: "Jusqu'à 10 personnes",
                 features: [
                   'Programme complet (voir agenda)',
                   'Automatisations Make / Zapier',
@@ -598,8 +634,8 @@ export default function FormationIAPage() {
               },
               {
                 label: '2 jours',
-                price: "CHF 2'800",
-                duration: '14 heures',
+                price: "CHF 6'000",
+                duration: '12h',
                 max: "Jusqu'à 10 personnes",
                 features: [
                   'Maîtrise avancée des outils IA',
@@ -645,7 +681,7 @@ export default function FormationIAPage() {
                       ))}
                     </div>
                     <Link
-                      href="/contact"
+                      href="/contact?service=formation"
                       className="mt-8 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-semibold transition-all hover:opacity-80"
                       style={{
                         background: offer.highlight ? color : bg,
@@ -663,8 +699,13 @@ export default function FormationIAPage() {
         </div>
       </section>
 
+      {/* ── Calculateur ROI Formation ── */}
+      <ROICalculatorFormation />
+
       {/* ── FAQ ── */}
-      <FAQSection items={FAQ} title="Vos questions sur la formation IA" />
+      <div id="faq" className="scroll-mt-[112px]">
+        <FAQSection items={FAQ} title="Vos questions sur la formation IA" />
+      </div>
 
       {/* ── Bridge IA ── */}
       <section className="py-16 border-t border-border">

@@ -13,6 +13,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
+import { FormationROICalculator } from '@/components/sections/FormationROICalculator'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse } from '@/lib/schema'
 import { FAQ_FORMATION } from '@/data/faq-formation'
@@ -47,7 +48,7 @@ function ProgressionDiagram() {
           <p className="text-right text-[10px] font-bold mt-0.5" style={{ color: lvl.color }}>{lvl.pct}%</p>
         </div>
       ))}
-      <p className="text-text-muted text-[11px] text-center pt-2">Progression moyenne observée sur 200+ participants</p>
+      <p className="text-text-muted text-[11px] text-center pt-2">Progression moyenne observée sur 500+ participants</p>
     </div>
   )
 }
@@ -98,7 +99,7 @@ const PROGRAMS = [
 ]
 
 const STATS = [
-  { value: '200+', label: 'Personnes formées' },
+  { value: '500+', label: 'Personnes formées' },
   { value: '4.9/5', label: 'Satisfaction moyenne' },
   { value: '100%', label: 'Sur mesure' },
 ]
@@ -121,6 +122,11 @@ const FORMATS = [
 const color  = '#FF8C00'
 const bg     = 'rgba(255,107,0,0.08)'
 const border = 'rgba(255,107,0,0.18)'
+
+const badgeColors: Record<string, { background: string; color: string; border: string }> = {
+  'Tendance':    { background: 'rgba(10,10,10,0.84)', color: '#FCD34D', border: '1px solid rgba(255,140,0,0.68)' },
+  'Populaire':   { background: 'rgba(10,10,10,0.84)', color: '#FDBA74', border: '1px solid rgba(255,107,0,0.62)' },
+}
 
 export default function FormationEntreprisePage() {
   return (
@@ -146,7 +152,7 @@ export default function FormationEntreprisePage() {
                   Des formations pratiques, adaptées à votre secteur et vos outils. En présentiel ou en ligne, pour des équipes qui progressent vraiment.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
-                  <LiquidMetalButton href="/contact" size="lg">Demander un devis →</LiquidMetalButton>
+                  <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
                   <Link href="#programmes" className="text-sm text-text-muted hover:text-white transition-colors">
                     Voir les programmes ↓
                   </Link>
@@ -177,7 +183,7 @@ export default function FormationEntreprisePage() {
             {STATS.map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.value}</p>
+                  <p className="text-3xl md:text-4xl font-bold mb-1 text-white">{s.value}</p>
                   <p className="text-text-muted text-sm">{s.label}</p>
                 </div>
               </SectionReveal>
@@ -261,52 +267,16 @@ export default function FormationEntreprisePage() {
             </div>
           </SectionReveal>
 
-          {/* ── Formation phare ── */}
-          <SectionReveal>
-            <Link
-              href="/formation-entreprise/ia"
-              className="group mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 rounded-[14px] p-6 md:p-7 border transition-all hover:-translate-y-0.5 duration-200"
-              style={{
-                background: 'linear-gradient(135deg, rgba(255,107,0,0.13) 0%, rgba(255,107,0,0.04) 100%)',
-                borderColor: 'rgba(255,107,0,0.32)',
-                boxShadow: '0 0 40px rgba(255,107,0,0.07)',
-              }}
-            >
-              <div className="flex items-center gap-4">
-                <div
-                  className="flex h-12 w-12 items-center justify-center rounded-[10px] flex-shrink-0"
-                  style={{ background: 'rgba(255,107,0,0.12)', border: '1px solid rgba(255,107,0,0.28)' }}
-                >
-                  <BrainCircuit size={20} style={{ color }} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>
-                    Formation phare
-                  </p>
-                  <p className="text-white font-bold text-lg leading-tight">
-                    Formation Intelligence Artificielle
-                  </p>
-                  <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
-                    ChatGPT, Claude, Copilot : vos équipes maîtrisent les outils IA en une journée et gagnent 2h par jour.
-                  </p>
-                </div>
-              </div>
-              <span
-                className="flex-shrink-0 inline-flex items-center gap-1.5 text-[12px] font-semibold px-4 py-2 rounded-[8px] transition-opacity group-hover:opacity-80"
-                style={{ background: 'rgba(255,107,0,0.15)', color, border: '1px solid rgba(255,107,0,0.25)' }}
-              >
-                Voir le programme <ChevronRight size={12} />
-              </span>
-            </Link>
-          </SectionReveal>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {PROGRAMS.map((p, i) => (
               <SectionReveal key={p.href} delay={i * 0.06}>
                 <Link
                   href={p.href}
                   className="group flex flex-col h-full bg-bg rounded-[14px] border overflow-hidden hover:-translate-y-0.5 transition-transform duration-200 relative"
-                  style={{ borderColor: border }}
+                  style={{
+                    borderColor: p.badge ? 'rgba(255,140,0,0.40)' : border,
+                    boxShadow: p.badge ? '0 0 28px rgba(255,107,0,0.08)' : undefined,
+                  }}
                 >
                   {/* Image */}
                   <div className="relative h-40 overflow-hidden">
@@ -320,8 +290,8 @@ export default function FormationEntreprisePage() {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg/80" />
                     {p.badge && (
                       <span
-                        className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full"
-                        style={{ background: 'rgba(255,107,0,0.15)', color, border: `1px solid rgba(255,107,0,0.3)` }}
+                        className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
+                        style={badgeColors[p.badge] ?? { background: 'rgba(10,10,10,0.84)', color: '#FDBA74', border: '1px solid rgba(255,107,0,0.62)' }}
                       >
                         {p.badge}
                       </span>
@@ -363,34 +333,40 @@ export default function FormationEntreprisePage() {
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
-            <div className="grid grid-cols-2 gap-5">
-              {[
-                { v: '200+', l: 'Participants formés', sub: 'En Suisse romande depuis 2015' },
-                { v: '4.9/5', l: 'Satisfaction', sub: 'Note moyenne post-formation' },
-                { v: '91%', l: 'Appliquent dès J+1', sub: 'Compétences utilisées immédiatement' },
-                { v: '< 3 sem.', l: 'Pour constater l\'effet', sub: 'Gain de productivité mesurable' },
-              ].map((kpi, i) => (
-                <SectionReveal key={kpi.l} delay={i * 0.08}>
-                  <div className="p-6 rounded-[14px] border" style={{ background: bg, borderColor: border }}>
-                    <p className="text-2xl md:text-3xl font-bold mb-1" style={{ color }}>{kpi.v}</p>
-                    <p className="text-white text-sm font-semibold">{kpi.l}</p>
-                    <p className="text-text-muted text-xs mt-1">{kpi.sub}</p>
-                  </div>
-                </SectionReveal>
-              ))}
-            </div>
-            <SectionReveal delay={0.2}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch mb-16">
+            {/* Progression — gauche */}
+            <SectionReveal>
               <div
-                className="rounded-[20px] p-8 border"
+                className="h-full rounded-[20px] p-8 border"
                 style={{ background: bg, borderColor: border }}
               >
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6" style={{ color }}>
-                  Progression observée sur 200+ participants
+                  Progression observée sur 500+ participants
                 </p>
                 <ProgressionDiagram />
               </div>
             </SectionReveal>
+
+            {/* KPIs — droite */}
+            <div className="grid grid-cols-2 gap-4 items-stretch">
+              {[
+                { v: '500+',     l: 'Participants formés',     sub: 'En Suisse romande depuis 2015' },
+                { v: '4.9/5',    l: 'Satisfaction',            sub: 'Note moyenne post-formation' },
+                { v: '91%',      l: 'Appliquent dès J+1',      sub: 'Compétences utilisées immédiatement' },
+                { v: '< 3 sem.', l: 'Pour constater l\'effet', sub: 'Gain de productivité mesurable' },
+              ].map((kpi, i) => (
+                <SectionReveal key={kpi.l} delay={i * 0.08} className="h-full">
+                  <div
+                    className="flex flex-col justify-center h-full p-6 rounded-[14px] border text-center"
+                    style={{ background: bg, borderColor: border }}
+                  >
+                    <p className="text-3xl font-bold mb-2 leading-none" style={{ color }}>{kpi.v}</p>
+                    <p className="text-white text-sm font-semibold leading-snug">{kpi.l}</p>
+                    <p className="text-text-muted text-xs mt-1 leading-snug">{kpi.sub}</p>
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -416,10 +392,10 @@ export default function FormationEntreprisePage() {
             ].map((c, i) => (
               <SectionReveal key={c.title} delay={i * 0.1}>
                 <div className="flex flex-col h-full rounded-[16px] border border-border overflow-hidden">
-                  <div className="p-5" style={{ background: bg }}>
+                  <div className="p-5 min-h-[96px] flex flex-col justify-between" style={{ background: bg }}>
                     <span
-                      className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full"
-                      style={{ background: 'rgba(255,107,0,0.15)', color, border: '1px solid rgba(255,107,0,0.25)' }}
+                      className="self-start text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                      style={{ background: 'rgba(10,10,10,0.84)', color, border: '1px solid rgba(255,107,0,0.52)' }}
                     >
                       {c.tag}
                     </span>
@@ -441,6 +417,9 @@ export default function FormationEntreprisePage() {
           </div>
         </div>
       </section>
+
+      {/* ── ROI Calculator ── */}
+      <FormationROICalculator />
 
       {/* ── Formats ── */}
       <section className="py-24">
@@ -491,7 +470,8 @@ export default function FormationEntreprisePage() {
       </section>
 
       {/* ── Déroulement ── */}
-      <section className="py-24 bg-bg-card border-y border-border">
+      <InfiniteGrid accentRgb="255,140,0" blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
+        <section className="py-24 border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -501,7 +481,16 @@ export default function FormationEntreprisePage() {
               </h2>
             </div>
           </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="relative">
+            {/* Ligne directrice horizontale - orange */}
+            <div
+              aria-hidden="true"
+              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] pointer-events-none"
+              style={{
+                background: 'linear-gradient(to right, transparent, rgba(255,140,0,0.20) 5%, rgba(255,140,0,0.70) 25%, #FF8C00 50%, rgba(255,140,0,0.70) 75%, rgba(255,140,0,0.20) 95%, transparent)',
+              }}
+            />
+          <div className="relative z-[1] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 Icon: Users,
@@ -548,8 +537,10 @@ export default function FormationEntreprisePage() {
               </SectionReveal>
             ))}
           </div>
+          </div>
         </div>
       </section>
+      </InfiniteGrid>
 
       {/* ── FAQ ── */}
       <FAQSection items={FAQ_FORMATION} title="Vos questions sur nos formations" />
@@ -584,7 +575,7 @@ export default function FormationEntreprisePage() {
                 style={{ background: 'rgba(124,58,237,0.07)', borderColor: 'rgba(124,58,237,0.22)' }}
               >
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#A78BFA' }}>Agence Digitale</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#A78BFA' }}>Service Digital</p>
                   <p className="text-white font-semibold">Un site et un SEO qui ramènent des clients</p>
                   <p className="text-text-muted text-xs mt-1">Création de sites, SEO, Google Ads. Un seul interlocuteur.</p>
                 </div>

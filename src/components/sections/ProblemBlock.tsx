@@ -86,12 +86,12 @@ const PROBLEMS = [
 export function ProblemBlock() {
   return (
     <InfiniteGrid>
-      <section id="problem-section" className="py-24">
+      <section id="problem-section" aria-labelledby="problem-heading" className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
               <GradTag className="mb-6">Le problème</GradTag>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-6">
+              <h2 id="problem-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-6">
                 Ça vous ressemble ?
               </h2>
               <p className="text-text-secondary text-lg max-w-xl mx-auto">

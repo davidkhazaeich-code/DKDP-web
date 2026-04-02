@@ -3,9 +3,9 @@ const BASE_URL = 'https://dkdp.ch'
 export function buildLocalBusiness() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'DKDP - Agence Digitale Genève',
-    description: 'Agence digitale à Genève. Création de sites, SEO, intelligence artificielle et formation entreprise.',
+    '@type': 'ProfessionalService',
+    name: 'DKDP - Service Digital Genève',
+    description: 'Service digital à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME.',
     url: BASE_URL,
     telephone: '+41799407969',
     email: 'dk@dkdp.ch',
@@ -29,12 +29,7 @@ export function buildLocalBusiness() {
         closes: '18:00',
       },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '150',
-    },
-    priceRange: 'CHF CHF CHF',
+    priceRange: '$$',
     currenciesAccepted: 'CHF',
     areaServed: ['Genève', 'Suisse romande', 'Lausanne', 'Nyon', 'Morges'],
     logo: {

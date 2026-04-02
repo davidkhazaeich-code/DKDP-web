@@ -4,6 +4,30 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
 
+  async redirects() {
+    return [
+      // Service Digital
+      { source: '/creation-site-internet-geneve',             destination: '/agence-digitale/creation-site-web',     permanent: true },
+      { source: '/referencement-naturel-seo',                 destination: '/agence-digitale/seo',                   permanent: true },
+      { source: '/publicite-google-sea',                      destination: '/agence-digitale/publicite-sea',         permanent: true },
+      { source: '/gestion-reseaux-sociaux-publicite',         destination: '/agence-digitale/reseaux-sociaux',       permanent: true },
+      { source: '/creation-video-geneve',                     destination: '/agence-digitale/creation-video',        permanent: true },
+      { source: '/consulting-strategie-marketing-geneve',     destination: '/agence-digitale/consulting-marketing',  permanent: true },
+      { source: '/rgpd-gestion-des-cookies',                  destination: '/agence-digitale/rgpd-cookies',          permanent: true },
+
+      // Intelligence Artificielle
+      { source: '/intelligence-artificielle-agent-ia-et-automatisation', destination: '/intelligence-artificielle', permanent: true },
+
+      // Formation
+      { source: '/formation-ia-pour-entreprise-suisse-romande', destination: '/formation-entreprise/ia',            permanent: true },
+      { source: '/formation-informatique-entreprise-geneve',    destination: '/formation-entreprise',               permanent: true },
+
+      // Réalisations
+      { source: '/nos-realisations',                          destination: '/realisations',                          permanent: true },
+      { source: '/nos-realisations/:slug',                    destination: '/realisations',                          permanent: true },
+    ]
+  },
+
   async headers() {
     return [
       {

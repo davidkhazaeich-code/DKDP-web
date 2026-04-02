@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
 
   // ── Honeypot check ──
   if (_gotcha) {
-    // Bot filled the hidden field — silently accept (don't reveal detection)
+    // Bot filled the hidden field - silently accept (don't reveal detection)
     return NextResponse.json({ ok: true })
   }
 
@@ -32,11 +32,11 @@ export async function POST(req: NextRequest) {
       from: 'DKDP Contact <contact@dkdp.ch>',
       to: 'dk@dkdp.ch',
       replyTo: `${sanitize(firstName)} ${sanitize(lastName ?? '')} <${sanitize(email)}>`,
-      subject: `[Contact] ${sanitize(service)} — ${sanitize(firstName)} ${sanitize(lastName ?? '')}`,
+      subject: `[Contact] ${sanitize(service)} - ${sanitize(firstName)} ${sanitize(lastName ?? '')}`,
       html: `
         <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a">
           <h2 style="margin-bottom:4px">Nouveau message de contact</h2>
-          <p style="color:#6b7280;margin-top:0">dkdp.ch — formulaire de contact</p>
+          <p style="color:#6b7280;margin-top:0">dkdp.ch - formulaire de contact</p>
           <table style="width:100%;border-collapse:collapse;margin-top:16px">
             <tr>
               <td style="padding:9px 14px;background:#f5f5f5;font-weight:600;width:110px;border-radius:4px 0 0 4px;white-space:nowrap">Nom</td>

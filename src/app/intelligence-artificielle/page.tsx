@@ -165,7 +165,7 @@ export default function IntelligenceArtificiellePage() {
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-3 gap-6 md:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-12">
             {STATS.map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">

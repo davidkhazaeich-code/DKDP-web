@@ -55,7 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ─── Contenu & ressources ─────────────────────────────────────────────────
     entry('/blog',              0.80, 'weekly'),
     entry('/glossaire',         0.70, 'monthly'),
-    entry('/comment-ca-marche', 0.65, 'monthly'),
     entry('/realisations',      0.75, 'monthly'),
 
     // ─── Agence ───────────────────────────────────────────────────────────────

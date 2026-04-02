@@ -12,15 +12,15 @@ export const metadata: Metadata = {
 
 const SECTIONS = [
   {
-    title: 'Article 1 — Champ d\'application',
+    title: 'Article 1 : Champ d\'application',
     text: 'Les présentes Conditions Générales de Vente (CGV) régissent l\'ensemble des prestations de services proposées par DKDP (ci-après « le Prestataire »), dont le siège est situé 36 Rue du 31 Décembre, 1207 Genève, Suisse, à ses clients professionnels et particuliers (ci-après « le Client »). Toute commande implique l\'acceptation pleine et entière des présentes CGV. En cas de contradiction entre les présentes CGV et tout autre document, les présentes prévalent.',
   },
   {
-    title: 'Article 2 — Devis et commandes',
+    title: 'Article 2 : Devis et commandes',
     text: 'Toute prestation fait l\'objet d\'un devis écrit remis au Client, valable 30 jours à compter de sa date d\'émission. Le devis est réputé accepté à réception de son bon de commande signé ou de toute confirmation écrite (email inclus) par le Client. Toute modification de périmètre demandée après acceptation du devis fait l\'objet d\'un avenant signé des deux parties.',
   },
   {
-    title: 'Article 3 — Prix et modalités de paiement',
+    title: 'Article 3 : Prix et modalités de paiement',
     items: [
       { label: 'Devise', value: 'Tous les prix sont exprimés en francs suisses (CHF), hors TVA le cas échéant.' },
       { label: 'Acompte', value: '50 % du montant total à la signature du devis, solde à la livraison.' },
@@ -30,31 +30,31 @@ const SECTIONS = [
     ],
   },
   {
-    title: 'Article 4 — Délais de réalisation',
+    title: 'Article 4 : Délais de réalisation',
     text: 'Les délais indiqués dans le devis sont donnés à titre indicatif. Ils courent à compter de la réception de l\'acompte et de l\'ensemble des éléments nécessaires à la réalisation de la prestation. Tout retard imputable au Client (fourniture tardive des contenus, validations, retours) entraîne automatiquement le report des délais sans pénalité pour le Prestataire.',
   },
   {
-    title: 'Article 5 — Obligations du Client',
+    title: 'Article 5 : Obligations du Client',
     text: 'Le Client s\'engage à fournir dans les délais convenus l\'ensemble des informations, contenus, accès et validations nécessaires à la bonne exécution de la mission. Le Client garantit être titulaire des droits de propriété intellectuelle sur les éléments qu\'il transmet au Prestataire (textes, images, logos, données). Le Client est seul responsable de la conformité de ses activités et contenus aux lois applicables.',
   },
   {
-    title: 'Article 6 — Propriété intellectuelle',
+    title: 'Article 6 : Propriété intellectuelle',
     text: 'Les livrables produits dans le cadre de la mission (sites web, visuels, contenus, codes sources) deviennent propriété du Client à compter du règlement intégral des sommes dues. Jusqu\'au paiement complet, le Prestataire conserve tous les droits de propriété intellectuelle sur les travaux réalisés. Les outils, méthodes, frameworks et savoir-faire propres au Prestataire utilisés pour la réalisation restent en toute hypothèse sa propriété exclusive. Le Prestataire se réserve le droit de mentionner la réalisation à titre de référence commerciale, sauf opposition expresse du Client notifiée par écrit.',
   },
   {
-    title: 'Article 7 — Confidentialité',
+    title: 'Article 7 : Confidentialité',
     text: 'Le Prestataire s\'engage à maintenir strictement confidentielle toute information de nature confidentielle communiquée par le Client dans le cadre de la mission. Cette obligation de confidentialité perdure pendant une durée de 3 ans après la fin de la mission. Elle ne s\'applique pas aux informations accessibles au public ou connues du Prestataire antérieurement.',
   },
   {
-    title: 'Article 8 — Limitation de responsabilité',
+    title: 'Article 8 : Limitation de responsabilité',
     text: 'La responsabilité du Prestataire est limitée aux dommages directs et prévisibles résultant d\'une faute prouvée dans l\'exécution de la prestation, dans la limite du montant total de la prestation concernée. Le Prestataire ne saurait être tenu responsable des dommages indirects, perte d\'exploitation, perte de données, perte de chiffre d\'affaires, ni des conséquences d\'une utilisation inadéquate des livrables par le Client. Le Prestataire ne garantit pas les résultats de référencement naturel (SEO), de publicité en ligne (SEA) ni de campagnes marketing, dont les résultats dépendent de facteurs extérieurs à son contrôle.',
   },
   {
-    title: 'Article 9 — Résiliation',
+    title: 'Article 9 : Résiliation',
     text: 'En cas de résiliation à l\'initiative du Client après acceptation du devis, l\'acompte versé reste acquis au Prestataire à titre d\'indemnité forfaitaire. Les travaux réalisés jusqu\'à la date de résiliation sont facturés au prorata du temps passé, selon le taux journalier convenu. Le Prestataire peut résilier la prestation en cas de manquement grave du Client à ses obligations après mise en demeure restée sans effet pendant 15 jours.',
   },
   {
-    title: 'Article 10 — Droit applicable et juridiction',
+    title: 'Article 10 : Droit applicable et juridiction',
     text: 'Les présentes CGV sont soumises au droit suisse, à l\'exclusion de toute règle de conflit de lois. En cas de litige, les parties s\'engagent à rechercher une solution amiable avant tout recours judiciaire. À défaut d\'accord amiable, les tribunaux du canton de Genève sont seuls compétents.',
   },
 ]

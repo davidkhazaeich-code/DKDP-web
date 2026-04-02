@@ -7,7 +7,7 @@ import { ARTICLES } from '@/lib/blog-data'
 export const metadata: Metadata = {
   title: 'Plan du site · DKDP Genève',
   description:
-    'Plan du site DKDP : retrouvez toutes les pages de notre agence digitale à Genève — services, formations, IA, blog et ressources.',
+    'Plan du site DKDP : retrouvez toutes les pages de notre agence digitale à Genève - services, formations, IA, blog et ressources.',
   alternates: { canonical: 'https://dkdp.ch/plan-du-site' },
 }
 
@@ -39,7 +39,7 @@ const GROUPS: SitemapGroup[] = [
     bg: violetBg,
     border: violetBd,
     links: [
-      { label: 'Agence digitale — vue d\'ensemble', href: '/agence-digitale' },
+      { label: 'Agence digitale : vue d\'ensemble', href: '/agence-digitale' },
       { label: 'Création de site web', href: '/agence-digitale/creation-site-web' },
       { label: 'Audit de site gratuit', href: '/agence-digitale/creation-site-web/audit-site' },
       { label: 'Référencement SEO', href: '/agence-digitale/seo' },
@@ -57,7 +57,7 @@ const GROUPS: SitemapGroup[] = [
     bg: chromeBg,
     border: chromeBd,
     links: [
-      { label: 'Intelligence artificielle — vue d\'ensemble', href: '/intelligence-artificielle' },
+      { label: 'Intelligence artificielle : vue d\'ensemble', href: '/intelligence-artificielle' },
       { label: 'Audit & Conseil IA', href: '/intelligence-artificielle/audit-conseil' },
       { label: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia' },
       { label: 'Automatisation métier', href: '/intelligence-artificielle/automatisation' },
@@ -70,7 +70,7 @@ const GROUPS: SitemapGroup[] = [
     bg: orangeBg,
     border: orangeBd,
     links: [
-      { label: 'Formation entreprise — vue d\'ensemble', href: '/formation-entreprise' },
+      { label: 'Formation entreprise : vue d\'ensemble', href: '/formation-entreprise' },
       { label: 'Formation IA', href: '/formation-entreprise/ia' },
       { label: 'Cybersécurité', href: '/formation-entreprise/cybersecurite' },
       { label: 'Bureautique & Excel', href: '/formation-entreprise/bureautique' },
@@ -92,7 +92,6 @@ const GROUPS: SitemapGroup[] = [
       { label: 'Tarifs', href: '/tarifs' },
       { label: 'Blog', href: '/blog' },
       { label: 'Glossaire', href: '/glossaire' },
-      { label: 'Comment ça marche', href: '/comment-ca-marche' },
       { label: 'Contact', href: '/contact' },
     ],
   },

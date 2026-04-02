@@ -178,7 +178,7 @@ export default function AgenceDigitalePage() {
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-3 gap-6 md:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-12">
             {STATS.map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">
@@ -308,12 +308,12 @@ export default function AgenceDigitalePage() {
       </section>
 
       {/* ── Audits gratuits ── */}
-      <section className="py-[90px] border-b border-border">
+      <section className="py-24 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-5">Gratuit &amp; sans engagement</GradTag>
-              <h2 className="text-4xl md:text-[3.15rem] font-bold tracking-[-0.02em] leading-[1.1]">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] leading-[1.1]">
                 Commencez par un audit gratuit.
               </h2>
               <p className="text-text-secondary mt-5 max-w-2xl mx-auto text-base leading-relaxed">
@@ -325,7 +325,7 @@ export default function AgenceDigitalePage() {
             <SectionReveal delay={0.05}>
               <Link
                 href="/agence-digitale/creation-site-web/audit-site"
-                className="group flex flex-col h-full rounded-[22px] p-11 border transition-all hover:-translate-y-0.5 duration-200 relative overflow-hidden"
+                className="group flex flex-col h-full rounded-[22px] p-7 border transition-all hover:-translate-y-0.5 duration-200 relative overflow-hidden"
                 style={{ background: bg, borderColor: border }}
               >
                 <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: color }} />
@@ -347,7 +347,7 @@ export default function AgenceDigitalePage() {
             <SectionReveal delay={0.1}>
               <Link
                 href="/agence-digitale/seo/audit-seo"
-                className="group flex flex-col h-full rounded-[22px] p-11 border transition-all hover:-translate-y-0.5 duration-200 relative overflow-hidden"
+                className="group flex flex-col h-full rounded-[22px] p-7 border transition-all hover:-translate-y-0.5 duration-200 relative overflow-hidden"
                 style={{ background: bg, borderColor: border }}
               >
                 <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: color }} />

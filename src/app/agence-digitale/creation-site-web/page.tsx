@@ -26,9 +26,9 @@ function PerformanceComparison() {
         <p className="text-red-400 text-[10px] font-bold uppercase tracking-widest mb-4 text-center">Site non optimisé</p>
         <div className="space-y-2">
           {[
-            { label: 'LCP (chargement)', val: '6.2s', bad: true },
-            { label: 'Score mobile', val: '34/100', bad: true },
-            { label: 'Taux de rebond', val: '78%', bad: true },
+            { label: 'LCP (chargement)', val: '6.2s' },
+            { label: 'Score mobile', val: '34/100' },
+            { label: 'Taux de rebond', val: '78%' },
           ].map((m) => (
             <div key={m.label} className="flex justify-between items-center">
               <span className="text-text-muted text-[11px]">{m.label}</span>
@@ -312,7 +312,7 @@ export default function CreationSiteWebPage() {
                   { Icon: TrendingUp, title: '70% du trafic web vient des mobiles. Un site non adapté perd 7 visiteurs sur 10', sub: 'Source : Statista 2024' },
                   { Icon: Search, title: 'Les 3 premiers résultats Google captent 75% des clics. En dessous : invisible', sub: 'Source : Advanced Web Ranking' },
                 ].map((item, i) => (
-                  <SectionReveal key={i} delay={i * 0.08}>
+                  <SectionReveal key={item.title} delay={i * 0.08}>
                     <div className="flex gap-3 items-start">
                       <div
                         className="flex h-9 w-9 items-center justify-center rounded-[8px] flex-shrink-0"

@@ -5,7 +5,15 @@ import { getCalApi } from '@calcom/embed-react'
 
 export function CalProvider() {
   useEffect(() => {
-    ;(async () => {
+    // Différer l'initialisation Cal.com après la première interaction utilisateur
+    // pour ne pas bloquer le thread principal au chargement initial (impact LCP)
+    let initiated = false
+    const init = async () => {
+      if (initiated) return
+      initiated = true
+      window.removeEventListener('mousemove', init)
+      window.removeEventListener('scroll', init, { capture: true })
+      window.removeEventListener('touchstart', init)
       const cal = await getCalApi({ namespace: 'planifier-un-appel' })
       cal('ui', {
         hideEventTypeDetails: false,
@@ -38,7 +46,15 @@ export function CalProvider() {
           },
         },
       })
-    })()
+    }
+    window.addEventListener('mousemove', init, { once: true })
+    window.addEventListener('scroll', init, { capture: true, once: true })
+    window.addEventListener('touchstart', init, { once: true })
+    return () => {
+      window.removeEventListener('mousemove', init)
+      window.removeEventListener('scroll', init, { capture: true })
+      window.removeEventListener('touchstart', init)
+    }
   }, [])
 
   return null

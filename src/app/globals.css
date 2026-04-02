@@ -79,7 +79,7 @@ html {
   background-color: #0A0A0A;
   color: #fff;
   font-family: var(--font-sans);
-  scroll-behavior: smooth;
+  /* scroll-behavior géré par Lenis — pas de conflit avec scroll-behavior CSS natif */
 }
 
 @media (prefers-reduced-motion: reduce) {

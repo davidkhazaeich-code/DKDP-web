@@ -48,7 +48,7 @@ export function HomeHero() {
         </p>
 
         <div className="hero-cta flex justify-center">
-          <LiquidMetalButton href="#nos-expertises" size="lg">
+          <LiquidMetalButton href="#nos-expertises" size="lg" shaderDelay={800}>
             Découvrez nos services →
           </LiquidMetalButton>
         </div>

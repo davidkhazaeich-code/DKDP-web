@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://dkdp.ch'),
   title: {
     default: 'DKDP · Service Digital à Genève · IA · Formation',
-    template: '%s · DKDP',
+    template: '%s',
   },
   description: 'Service digital à Genève. Création de sites, SEO, intelligence artificielle et formation entreprise. 150+ clients. Devis gratuit.',
   openGraph: {
@@ -26,11 +26,11 @@ export const metadata: Metadata = {
     locale: 'fr_CH',
     url: 'https://dkdp.ch',
     siteName: 'DKDP',
-    images: [{ url: 'https://dkdp.ch/og-image.jpg', width: 1200, height: 630, alt: 'DKDP, Service Digital Genève' }],
+    images: [{ url: 'https://dkdp.ch/opengraph-image', width: 1200, height: 630, alt: 'DKDP, Service Digital Genève' }],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['https://dkdp.ch/og-image.jpg'],
+    images: ['https://dkdp.ch/opengraph-image'],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://dkdp.ch' },

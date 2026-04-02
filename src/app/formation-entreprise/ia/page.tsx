@@ -26,24 +26,24 @@ function ToolComparison() {
       maker: 'OpenAI',
       strengths: ['Polyvalent et créatif', "Génération d'images", 'Plugins et GPTs', 'Navigation web'],
       color: '#10b981',
-      bg: 'rgba(16,185,129,0.08)',
-      border: 'rgba(16,185,129,0.25)',
+      cardBg: 'rgba(16,185,129,0.08)',
+      cardBorder: 'rgba(16,185,129,0.25)',
     },
     {
       name: 'Claude',
       maker: 'Anthropic',
       strengths: ['Documents très longs', 'Données sensibles', 'Rédaction précise', 'Analyse de PDF'],
       color: '#A78BFA',
-      bg: 'rgba(124,58,237,0.08)',
-      border: 'rgba(124,58,237,0.25)',
+      cardBg: 'rgba(124,58,237,0.08)',
+      cardBorder: 'rgba(124,58,237,0.25)',
     },
     {
       name: 'Copilot',
       maker: 'Microsoft',
       strengths: ['Intégré Office 365', 'Word et PowerPoint', 'Excel et Outlook', 'Teams et OneNote'],
       color: '#3b82f6',
-      bg: 'rgba(59,130,246,0.08)',
-      border: 'rgba(59,130,246,0.25)',
+      cardBg: 'rgba(59,130,246,0.08)',
+      cardBorder: 'rgba(59,130,246,0.25)',
     },
   ]
   return (
@@ -52,7 +52,7 @@ function ToolComparison() {
         <div
           key={t.name}
           className="flex flex-col gap-3 p-4 rounded-[12px]"
-          style={{ background: t.bg, border: `1px solid ${t.border}` }}
+          style={{ background: t.cardBg, border: `1px solid ${t.cardBorder}` }}
         >
           <div>
             <p className="text-white font-bold text-sm">{t.name}</p>

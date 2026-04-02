@@ -633,7 +633,7 @@ export function Header() {
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
             onClick={() => setMobileOpen((v) => !v)}
-            className="xl:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:bg-white/5 transition-colors"
+            className="xl:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-border hover:bg-white/5 transition-colors"
           >
             {mobileOpen
               ? <X size={18} />

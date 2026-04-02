@@ -22,7 +22,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Gestion Réseaux Sociaux à Genève · Instagram, LinkedIn, TikTok · DKDP',
+  title: 'Gestion Réseaux Sociaux Genève · Instagram, LinkedIn · DKDP',
   description:
     'Gestion des réseaux sociaux pour PME à Genève. Stratégie, création de contenu, community management et Social Ads sur Instagram, LinkedIn, Facebook, TikTok et YouTube.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/reseaux-sociaux' },

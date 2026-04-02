@@ -13,7 +13,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Formation Web Design & Canva à Genève · Visuels professionnels · DKDP',
+  title: 'Formation Web Design & Canva Genève · DKDP',
   description:
     'Formation web design et Canva pour entreprises à Genève. Créez des visuels professionnels sans être graphiste. Charte graphique, templates et exports. Sur mesure.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/web-design' },

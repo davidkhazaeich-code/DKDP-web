@@ -10,11 +10,12 @@ import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { ROICalculatorFormation } from '@/components/sections/ROICalculatorFormation'
+import { Testimonials } from '@/components/sections/Testimonials'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Formation IA en Entreprise à Genève · ChatGPT, Claude, Copilot · DKDP',
+  title: 'Formation IA Entreprise Genève · ChatGPT, Claude · DKDP',
   description:
     'Formation Intelligence Artificielle en entreprise à Genève. ChatGPT, Claude et Copilot maîtrisés en une journée. Programme sur mesure, présentiel ou distanciel.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/ia' },
@@ -214,8 +215,8 @@ export default function FormationIAPage() {
               <div>
                 <GradTag className="mb-6">Intelligence Artificielle · 1 journée</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Vos équipes maîtrisent l&apos;IA{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>en une journée.</GradText>
+                  Vos équipes maîtrisent l&apos;IA en une journée.{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Formation à Genève.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève. Programme 100% sur mesure, orienté pratique. Vos équipes gagnent en moyenne 8 heures par semaine dès le lendemain de la formation.
@@ -701,6 +702,9 @@ export default function FormationIAPage() {
 
       {/* ── Calculateur ROI Formation ── */}
       <ROICalculatorFormation />
+
+      {/* ── Témoignages ── */}
+      <Testimonials />
 
       {/* ── FAQ ── */}
       <div id="faq" className="scroll-mt-[112px]">

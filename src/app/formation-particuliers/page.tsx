@@ -14,10 +14,10 @@ import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildCourse } from '@/lib/schema'
+import { buildCourse, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Formation Informatique Particuliers Genève · cours-informatique.ch · DKDP',
+  title: 'Formation Informatique Particuliers Genève · DKDP',
   description:
     "Cours d'informatique à domicile pour particuliers à Genève. 463+ clients satisfaits, 4.6/5 étoiles. Excel, IA, smartphone, cybersécurité. CHF 140/h, sans engagement.",
   alternates: { canonical: 'https://dkdp.ch/formation-particuliers' },
@@ -173,6 +173,7 @@ export default function FormationParticuliersPage() {
             "Cours d'informatique à domicile pour particuliers à Genève. 463+ clients satisfaits. Excel, IA, smartphone, cybersécurité. CHF 140/h, sans engagement.",
         })}
       />
+      <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Formation Particuliers', url: '/formation-particuliers' }])} />
 
       {/* ── Hero ── */}
       <InfiniteGrid

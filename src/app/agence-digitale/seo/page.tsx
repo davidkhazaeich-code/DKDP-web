@@ -9,6 +9,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
+import { Testimonials } from '@/components/sections/Testimonials'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
@@ -110,8 +111,8 @@ const BENEFITS = [
   {
     Icon: Globe2,
     value: '95%',
-    title: 'Top 3 garanti',
-    desc: '95% de nos clients atteignent le top 3 Google sur leurs mots-clés stratégiques dans les 6 à 12 premiers mois.',
+    title: 'Dans le top 5 Google',
+    desc: '95% de nos clients atteignent le top 5 Google sur leurs mots-clés stratégiques en 6 à 12 mois.',
   },
 ]
 
@@ -169,7 +170,7 @@ export default function SEOPage() {
               <div>
                 <GradTag className="mb-6">SEO · Genève &amp; Suisse romande</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Dominez Google sur les{' '}
+                  Référencement SEO à Genève : dominez les{' '}
                   <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>mots-clés de votre marché.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
@@ -206,7 +207,7 @@ export default function SEOPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: '+340%', l: 'Trafic organique', sub: 'Gain moyen à 12 mois' },
-              { v: 'Top 3', l: 'Mots-clés cibles', sub: '95% de nos clients' },
+              { v: 'Top 5', l: 'Mots-clés cibles', sub: '95% de nos clients' },
               { v: 'CHF 0', l: 'Par clic', sub: 'Contrairement aux Ads' },
               { v: '6 mois', l: 'Pour des résultats', sub: 'Durée moyenne constatée' },
             ].map((s) => (
@@ -744,6 +745,9 @@ export default function SEOPage() {
         </div>
       </section>
 
+      {/* ── Témoignages ── */}
+      <Testimonials />
+
       {/* ── FAQ ── */}
       <div id="faq" className="scroll-mt-[112px]">
         <FAQSection items={FAQ} title="Vos questions sur le référencement SEO" />
@@ -788,6 +792,11 @@ export default function SEOPage() {
       </section>
 
       {/* ── CTA ── */}
+      <div className="text-center pb-2">
+        <Link href="/a-propos" className="text-text-muted hover:text-white text-sm transition-colors mt-3 block">
+          En savoir plus sur l&apos;agence et David Khazaei
+        </Link>
+      </div>
       <CTAFinal />
     </main>
   )

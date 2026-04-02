@@ -78,6 +78,27 @@ export function buildCourse({ name, url, description }: { name: string; url: str
     courseMode: 'onsite',
     inLanguage: 'fr',
     availableLanguage: 'French',
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'onsite',
+      inLanguage: 'fr',
+      location: {
+        '@type': 'Place',
+        name: 'Genève, Suisse',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Genève',
+          postalCode: '1207',
+          addressCountry: 'CH',
+        },
+      },
+      offers: {
+        '@type': 'Offer',
+        category: 'Sur devis',
+        priceCurrency: 'CHF',
+        url: `${BASE_URL}/contact`,
+      },
+    },
   }
 }
 
@@ -106,6 +127,45 @@ export function buildBreadcrumbList(items: { name: string; url: string }[]) {
       name,
       item: url,
     })),
+  }
+}
+
+export function buildWebSite() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'DKDP',
+    url: BASE_URL,
+    description: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise.',
+    inLanguage: 'fr-CH',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${BASE_URL}/blog?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  }
+}
+
+export function buildPerson() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'David Khazaei',
+    url: `${BASE_URL}/a-propos`,
+    jobTitle: 'Fondateur et Directeur',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'DKDP',
+      url: BASE_URL,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Genève',
+      addressCountry: 'CH',
+    },
   }
 }
 

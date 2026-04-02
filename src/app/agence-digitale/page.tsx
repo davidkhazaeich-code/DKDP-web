@@ -16,12 +16,12 @@ import { Testimonials } from '@/components/sections/Testimonials'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { SiteAuditBlock } from '@/components/sections/SiteAuditBlock'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildService } from '@/lib/schema'
+import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_AGENCE } from '@/data/faq-agence'
 
 export const metadata: Metadata = {
   title: 'Agence Digitale Genève · Site web, SEO, Google Ads · DKDP',
-  description: 'Agence digitale à Genève. Création de site web, référencement SEO, Google Ads, réseaux sociaux, vidéo. Résultats mesurables.',
+  description: 'Agence digitale à Genève et Suisse romande. Création de site web, référencement SEO, Google Ads, réseaux sociaux, vidéo. Résultats mesurables.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale' },
 }
 
@@ -71,8 +71,8 @@ const SERVICES = [
 ]
 
 const STATS = [
-  { value: '150+', label: 'Sites livrés' },
-  { value: '8 ans', label: "D'expérience" },
+  { value: '100+', label: 'Sites livrés' },
+  { value: '10+ ans', label: "D'expérience" },
   { value: '4.9/5', label: 'Satisfaction client' },
 ]
 
@@ -131,6 +131,7 @@ export default function AgenceDigitalePage() {
   return (
     <main className="pt-14">
       <SchemaOrg schema={buildService({ name: 'Agence Digitale Genève', url: '/agence-digitale', description: 'Création de sites web, SEO, Google Ads et réseaux sociaux pour entreprises à Genève et en Suisse romande.' })} />
+      <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Agence Digitale', url: '/agence-digitale' }])} />
 
       {/* ── Hero ── */}
       <InfiniteGrid

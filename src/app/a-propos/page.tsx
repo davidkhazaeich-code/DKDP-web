@@ -21,7 +21,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildLocalBusiness } from '@/lib/schema'
+import { buildLocalBusiness, buildPerson } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'À propos · David Khazaei · DKDP Genève',
@@ -61,10 +61,10 @@ const VALUES = [
 ]
 
 const STATS = [
-  { value: '50+', label: 'Entreprises accompagnées' },
+  { value: '700+', label: 'Clients accompagnés' },
   { value: '3',   label: "Piliers d'expertise" },
   { value: '98%', label: 'Clients satisfaits' },
-  { value: '2019', label: 'Année de création' },
+  { value: '2015', label: 'Actif depuis' },
 ]
 
 const PILLARS = [
@@ -130,6 +130,7 @@ export default function AProposPage() {
   return (
     <main className="pt-14">
       <SchemaOrg schema={buildLocalBusiness()} />
+      <SchemaOrg schema={buildPerson()} />
 
       {/* ── Hero ── */}
       <InfiniteGrid
@@ -262,7 +263,7 @@ export default function AProposPage() {
                 </SectionReveal>
                 <SectionReveal delay={0.10}>
                   <p className="text-text-secondary leading-relaxed">
-                    En 2019, il fonde DKDP à Genève avec un positionnement clair : apporter aux PME
+                    Actif depuis 2015, il fonde DKDP officiellement à Genève en 2019 avec un positionnement clair : apporter aux PME
                     de Suisse romande le niveau d'expertise et d'exigence habituellement réservé aux
                     grandes entreprises. Pas de jargon inutile, pas de solutions toutes faites.
                     Des résultats concrets, mesurables, et des clients qui comprennent ce qu'on fait

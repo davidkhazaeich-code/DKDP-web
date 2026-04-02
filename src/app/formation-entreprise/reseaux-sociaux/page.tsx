@@ -13,7 +13,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Formation Réseaux Sociaux Entreprise à Genève · LinkedIn, Instagram, TikTok · DKDP',
+  title: 'Formation Réseaux Sociaux Entreprise Genève · DKDP',
   description:
     'Formation réseaux sociaux professionnels à Genève. Instagram, LinkedIn, TikTok et Facebook. Stratégie, Canva, calendrier éditorial. Vos équipes repartent autonomes dès le lendemain.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/reseaux-sociaux' },

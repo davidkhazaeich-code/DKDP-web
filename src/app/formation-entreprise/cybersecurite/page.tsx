@@ -13,7 +13,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Formation Cybersécurité en Entreprise à Genève · Phishing, Ransomware · DKDP',
+  title: 'Formation Cybersécurité Entreprise Genève · DKDP',
   description:
     'Formation cybersécurité pour PME à Genève. Phishing, ransomware, social engineering. Simulations réelles, bonnes pratiques et plan d\'urgence. Équipes non-techniques.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/cybersecurite' },

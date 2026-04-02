@@ -10,13 +10,14 @@ import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { ROICalculator } from '@/components/sections/ROICalculator'
+import { Testimonials } from '@/components/sections/Testimonials'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildService } from '@/lib/schema'
+import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_IA } from '@/data/faq-ia'
 
 export const metadata: Metadata = {
-  title: 'Intelligence Artificielle Genève · Agents IA, Automatisation · DKDP',
-  description: 'Déployez l\'IA dans votre entreprise. Agents IA sur mesure, automatisation des processus, audit et conseil. Genève.',
+  title: 'Intelligence Artificielle Genève · Agents IA · DKDP',
+  description: 'Déployez l\'IA dans votre entreprise. Agents IA sur mesure, automatisation des processus, audit et conseil. Genève et Suisse romande.',
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle' },
 }
 
@@ -83,7 +84,7 @@ const SERVICES = [
 ]
 
 const STATS = [
-  { value: '50+', label: 'Entreprises accompagnées' },
+  { value: '700+', label: 'Clients accompagnés' },
   { value: '10h', label: 'Économisées / semaine en moyenne' },
   { value: '3 mois', label: 'Pour un ROI positif' },
 ]
@@ -116,6 +117,7 @@ export default function IntelligenceArtificiellePage() {
   return (
     <main className="pt-14">
       <SchemaOrg schema={buildService({ name: 'Intelligence Artificielle pour PME Genève', url: '/intelligence-artificielle', description: 'Agents IA sur mesure, automatisation des processus et conseil IA pour PME en Suisse romande.' })} />
+      <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Intelligence Artificielle', url: '/intelligence-artificielle' }])} />
 
       {/* ── Hero ── */}
       <InfiniteGrid
@@ -129,8 +131,8 @@ export default function IntelligenceArtificiellePage() {
               <div>
                 <GradTag className="mb-6">Intelligence Artificielle</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  L&apos;IA au service de{' '}
-                  <GradText as="span">votre productivité.</GradText>
+                  L&apos;IA au service des entreprises de{' '}
+                  <GradText as="span">Genève et Suisse romande.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   Automatisez ce qui vous ralentit. Déployez l&apos;IA là où ça compte vraiment. On s&apos;occupe de tout, de l&apos;audit à la mise en production.
@@ -527,6 +529,9 @@ export default function IntelligenceArtificiellePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Témoignages ── */}
+      <Testimonials />
 
       {/* ── FAQ ── */}
       <FAQSection items={FAQ_IA} title="Vos questions sur l'intelligence artificielle" />

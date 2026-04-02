@@ -25,7 +25,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Publicité Google Ads à Genève · Campagnes SEA rentables · DKDP',
+  title: 'Publicité Google Ads Genève · Campagnes SEA · DKDP',
   description:
     'Agence Google Ads à Genève. Campagnes Search et Display rentables, avec suivi précis du ROI. Résultats dès la première semaine.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/publicite-sea' },

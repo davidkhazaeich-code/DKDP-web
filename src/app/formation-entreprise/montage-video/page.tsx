@@ -13,7 +13,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Formation Montage Vidéo en Entreprise à Genève · CapCut, DaVinci, Premiere · DKDP',
+  title: 'Formation Montage Vidéo Entreprise Genève · DKDP',
   description:
     'Formation montage vidéo pour entreprises à Genève. CapCut, DaVinci Resolve et Premiere Pro. Produisez vos Reels, vidéos YouTube et contenus d\'entreprise en interne. Sur mesure.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/montage-video' },

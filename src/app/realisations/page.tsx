@@ -15,7 +15,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildService } from '@/lib/schema'
+import { buildService, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Réalisations · Projets clients · DKDP Genève',
@@ -198,6 +198,7 @@ export default function RealisationsPage() {
             'Projets livrés par DKDP pour des PME en Suisse romande. Sites web, agents IA, formations entreprise.',
         })}
       />
+      <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Realisations', url: '/realisations' }])} />
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <InfiniteGrid

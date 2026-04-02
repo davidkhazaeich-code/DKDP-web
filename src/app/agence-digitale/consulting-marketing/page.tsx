@@ -13,7 +13,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Consulting Marketing Digital à Genève · Stratégie & Audit · DKDP',
+  title: 'Consulting Marketing Digital Genève · DKDP',
   description:
     'Consulting marketing digital pour PME à Genève. Audit de présence digitale, stratégie sur mesure et accompagnement. Clarifiez votre cap digital.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/consulting-marketing' },

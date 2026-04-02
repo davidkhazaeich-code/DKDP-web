@@ -3,6 +3,8 @@ import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { SchemaOrg } from '@/components/seo/SchemaOrg'
+import { buildLocalBusiness, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Contact · DKDP · Service Digital Genève',
@@ -14,6 +16,11 @@ export default function ContactPage() {
   return (
     <InfiniteGrid>
       <main className="pt-14">
+        <SchemaOrg schema={buildLocalBusiness()} />
+        <SchemaOrg schema={buildBreadcrumbList([
+          { name: 'Accueil', url: '/' },
+          { name: 'Contact', url: '/contact' },
+        ])} />
 
         {/* Hero */}
         <section className="relative pt-[160px] pb-[72px]">

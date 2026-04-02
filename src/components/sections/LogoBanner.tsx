@@ -22,7 +22,7 @@ export function LogoBanner() {
     <section className="py-14 border-y border-border overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-6 mb-8 text-center">
         <p className="text-text-muted text-xs uppercase tracking-[0.12em] font-semibold">
-          150+ entreprises nous font confiance
+          700+ clients nous font confiance
         </p>
       </div>
 

@@ -11,6 +11,7 @@ import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { SiteAuditBlock } from '@/components/sections/SiteAuditBlock'
+import { Testimonials } from '@/components/sections/Testimonials'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
@@ -240,7 +241,7 @@ export default function CreationSiteWebPage() {
               <div>
                 <GradTag className="mb-6">Site web sur mesure · Genève</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Votre site web,{' '}
+                  Votre site web à Genève,{' '}
                   <GradText as="span">conçu pour convertir.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
@@ -276,8 +277,8 @@ export default function CreationSiteWebPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '150+', l: 'Sites livrés', sub: 'En Suisse romande' },
-              { v: '8 ans', l: "D'expérience", sub: 'Dans le digital genevois' },
+              { v: '100+', l: 'Sites livrés', sub: 'En Suisse romande' },
+              { v: '10+ ans', l: "D'expérience", sub: 'Dans le digital genevois' },
               { v: '4.9/5', l: 'Satisfaction', sub: 'Note client vérifiée' },
               { v: '< 1.5s', l: 'Vitesse moyenne', sub: 'Score PageSpeed 90+' },
             ].map((s) => (
@@ -698,6 +699,9 @@ export default function CreationSiteWebPage() {
       {/* ── Audit gratuit ── */}
       <SiteAuditBlock />
 
+      {/* ── Témoignages ── */}
+      <Testimonials />
+
       {/* ── FAQ ── */}
       <div id="faq" className="scroll-mt-[112px]">
         <FAQSection items={FAQ} title="Vos questions sur la création de site web" />
@@ -742,6 +746,11 @@ export default function CreationSiteWebPage() {
       </section>
 
       {/* ── CTA ── */}
+      <div className="text-center pb-2">
+        <Link href="/a-propos" className="text-text-muted hover:text-white text-sm transition-colors mt-3 block">
+          En savoir plus sur l&apos;agence et David Khazaei
+        </Link>
+      </div>
       <CTAFinal />
     </main>
   )

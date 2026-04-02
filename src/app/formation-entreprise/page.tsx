@@ -15,12 +15,12 @@ import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { FormationROICalculator } from '@/components/sections/FormationROICalculator'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildCourse } from '@/lib/schema'
+import { buildCourse, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_FORMATION } from '@/data/faq-formation'
 
 export const metadata: Metadata = {
   title: 'Formation Entreprise Genève · IA, Bureautique, Cybersécurité · DKDP',
-  description: 'Formations professionnelles en entreprise à Genève. IA, Excel, Cybersécurité, Réseaux sociaux. Sessions sur mesure, en présentiel ou en ligne.',
+  description: 'Formations professionnelles en entreprise à Genève et Suisse romande. IA, Excel, Cybersécurité, Réseaux sociaux. Sessions sur mesure, en présentiel ou en ligne.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise' },
 }
 
@@ -132,6 +132,7 @@ export default function FormationEntreprisePage() {
   return (
     <main className="pt-14">
       <SchemaOrg schema={buildCourse({ name: 'Formation IA et Digital en Entreprise', url: '/formation-entreprise', description: 'Formations professionnelles en IA, bureautique, cybersécurité et réseaux sociaux pour entreprises à Genève et en Suisse romande.' })} />
+      <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Formation Entreprise', url: '/formation-entreprise' }])} />
 
       {/* ── Hero ── */}
       <InfiniteGrid

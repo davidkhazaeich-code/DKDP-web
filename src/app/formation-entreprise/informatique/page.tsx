@@ -13,7 +13,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Formation Informatique en Entreprise à Genève · Autonomie numérique · DKDP',
+  title: 'Formation Informatique Entreprise Genève · DKDP',
   description:
     'Formation informatique pour PME à Genève. Windows, emails, réseau, outils collaboratifs. Tous niveaux, en présentiel. Réduisez les tickets IT de 40%.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/informatique' },

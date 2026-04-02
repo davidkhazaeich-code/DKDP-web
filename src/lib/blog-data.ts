@@ -99,7 +99,7 @@ export const ARTICLES: Article[] = [
       },
     ],
     tags: ['IA', 'ChatGPT', 'Claude', 'Copilot', 'PME', 'productivité'],
-    seoTitle: 'ChatGPT, Claude ou Copilot : quel assistant IA pour votre PME en 2026 ?',
+    seoTitle: 'ChatGPT, Claude ou Copilot : lequel pour votre PME ?',
     seoDescription:
       'Comparatif complet ChatGPT vs Claude vs Microsoft Copilot pour les PME suisses en 2026. Prix, forces, limites et recommandations par cas d\'usage.',
     content: `## Pourquoi ce choix est stratégique pour votre PME
@@ -201,7 +201,7 @@ Il n'existe pas de meilleur outil universel : il existe l'outil le mieux aligné
       },
     ],
     tags: ['SEO', 'Genève', 'Google Maps', 'SEO local', 'GMB', 'PME'],
-    seoTitle: 'SEO local Genève 2026 : guide complet pour dominer Google Maps',
+    seoTitle: 'SEO local Genève 2026 : dominer Google Maps · DKDP',
     seoDescription:
       'Guide complet pour optimiser votre référencement local à Genève en 2026. Google Business Profile, avis clients, NAP, contenu local : toutes les stratégies.',
     content: `## Pourquoi le SEO local est différent du SEO classique
@@ -305,7 +305,7 @@ Le SEO local à Genève n'est pas une question de budget publicitaire, mais de r
       },
     ],
     tags: ['automatisation', 'workflow', 'no-code', 'productivité', 'Zapier', 'Make'],
-    seoTitle: '7 automatisations indispensables pour les PME : Make, Zapier, n8n',
+    seoTitle: '7 automatisations PME : Make, Zapier, n8n · DKDP',
     seoDescription:
       'Découvrez les 7 workflows à automatiser en priorité pour votre PME. Leads, rapports, facturation, réseaux sociaux : économisez 10h par semaine avec Make et Zapier.',
     content: `## Pourquoi l'automatisation n'est plus réservée aux grandes entreprises
@@ -412,7 +412,7 @@ L'automatisation n'est pas un projet IT. C'est une décision stratégique qui li
       },
     ],
     tags: ['SEO', 'performance', 'Core Web Vitals', 'LCP', 'INP', 'CLS', 'Next.js'],
-    seoTitle: 'Core Web Vitals 2026 : guide complet LCP, CLS, INP pour améliorer votre SEO',
+    seoTitle: 'Core Web Vitals 2026 : LCP, INP, CLS pour le SEO · DKDP',
     seoDescription:
       'Guide complet Core Web Vitals 2026 : comprendre LCP, CLS et INP, les mesurer avec PageSpeed Insights et les optimiser sur WordPress, Shopify et Next.js.',
     content: `## Pourquoi les Core Web Vitals impactent directement votre SEO
@@ -520,7 +520,7 @@ Les Core Web Vitals ne sont pas une contrainte technique abstraite : ils sont la
       },
     ],
     tags: ['formation', 'IA', 'ROI', 'entreprise', 'management', 'productivité'],
-    seoTitle: "Formation IA en entreprise : calculer le ROI et convaincre sa direction en 2026",
+    seoTitle: 'Formation IA entreprise : calculer le ROI en 2026 · DKDP',
     seoDescription:
       "Comment calculer le ROI d'une formation IA pour vos équipes et convaincre votre direction d'investir. Méthode, chiffres, erreurs à éviter et structure de programme.",
     content: `## Le problème : l'IA est là, les équipes ne savent pas l'utiliser
@@ -621,7 +621,7 @@ Former ses collaborateurs à l'IA n'est pas un projet RH périphérique. C'est u
       },
     ],
     tags: ['UX', 'conversion', 'site web', 'heatmap', 'CRO', 'PME'],
-    seoTitle: 'Site vitrine qui ne convertit pas : 7 causes et plan d\'action en 30 jours',
+    seoTitle: 'Site vitrine qui ne convertit pas : 7 causes · DKDP',
     seoDescription:
       'Votre site reçoit du trafic mais peu de leads ? Découvrez les 7 raisons les plus fréquentes et un plan d\'action concret en 30 jours pour améliorer votre taux de conversion.',
     content: `## Le vrai problème : votre site informe mais ne convainc pas
@@ -725,7 +725,7 @@ Avant d'investir dans plus de trafic, assurez-vous d'abord que votre site sait c
       },
     ],
     tags: ['no-code', 'low-code', 'Webflow', 'Bubble', 'Airtable', 'PME', 'outils'],
-    seoTitle: 'No-code et low-code pour PME suisses : les meilleurs outils en 2026',
+    seoTitle: 'No-code et low-code pour PME suisses : top outils 2026',
     seoDescription:
       'Tour d\'horizon des outils no-code et low-code pour les PME suisses en 2026. Sites, apps métier, automatisations, bases de données : lequel choisir et quand garder un développeur.',
     content: `## La révolution silencieuse : construire sans coder
@@ -841,7 +841,7 @@ Le no-code et le low-code ne suppriment pas le besoin de réflexion stratégique
       },
     ],
     tags: ['cybersécurité', 'PME', 'sécurité', 'RGPD', 'phishing', 'mots de passe'],
-    seoTitle: 'Cybersécurité PME 2026 : 8 erreurs à corriger pour protéger votre entreprise',
+    seoTitle: 'Cybersécurité PME 2026 : 8 erreurs à corriger · DKDP',
     seoDescription:
       '60 % des cyberattaques visent les PME. Découvrez les 8 erreurs de sécurité les plus fréquentes et un plan d\'action concret pour renforcer votre protection ce mois-ci.',
     content: `## La réalité : les PME sont la cible principale des cyberattaques
@@ -954,7 +954,7 @@ La cybersécurité n'est pas un projet réservé aux DSI des grandes entreprises
       },
     ],
     tags: ['audit digital', 'SEO', 'UX', 'refonte web', 'stratégie', 'PME'],
-    seoTitle: "Audit digital 360 avant refonte web : les 6 dimensions et la checklist complète",
+    seoTitle: 'Audit digital 360 avant refonte web : les 6 dimensions',
     seoDescription:
       'Avant de refaire votre site, réalisez un audit digital 360. SEO, performance, UX, sécurité, contenu, analytics : les 6 dimensions et 20 points de contrôle indispensables.',
     content: `## Pourquoi refaire un site sans audit préalable est une erreur coûteuse

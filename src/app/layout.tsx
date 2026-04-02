@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     default: 'DKDP · Service Digital à Genève · IA · Formation',
     template: '%s',
   },
-  description: 'Service digital à Genève. Création de sites, SEO, intelligence artificielle et formation entreprise. 150+ clients. Devis gratuit.',
+  description: 'Service digital à Genève. Création de sites, SEO, intelligence artificielle et formation entreprise. 700+ clients accompagnés. Devis gratuit.',
   openGraph: {
     type: 'website',
     locale: 'fr_CH',

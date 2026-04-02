@@ -13,7 +13,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Formation Bureautique & Excel à Genève · Microsoft 365 · DKDP',
+  title: 'Formation Bureautique & Excel Genève · Microsoft 365 · DKDP',
   description:
     'Formation bureautique professionnelle à Genève. Excel, Word, PowerPoint et Microsoft 365. Tous niveaux, sur mesure, en présentiel ou en ligne.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/bureautique' },

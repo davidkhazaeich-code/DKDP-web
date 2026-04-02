@@ -13,7 +13,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Création Vidéo d\'Entreprise à Genève · Institutionnel, Reels, Témoignages · DKDP',
+  title: 'Création Vidéo Entreprise Genève · DKDP',
   description:
     'Production vidéo professionnelle à Genève. Vidéos institutionnelles, témoignages clients, Reels et contenus courts. Captez l\'attention et restez en mémoire.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-video' },

@@ -1,0 +1,49 @@
+# DKDP
+
+> DKDP est une agence digitale basee a Geneve, en Suisse. Elle accompagne les PME de Suisse romande sur trois piliers : le digital (creation de site web, SEO, publicite en ligne), l'intelligence artificielle (agents IA, automatisation, audit IA) et la formation (formation entreprise et particuliers en informatique, IA et digital). Plus de 150 PME accompagnees depuis la creation de l'agence.
+
+## Services
+
+### Agence Digitale
+- Creation de sites web sur mesure (vitrine, e-commerce, landing page)
+- Referencement SEO et GEO (optimisation pour Google et les moteurs IA)
+- Publicite en ligne Google Ads (SEA)
+- Gestion des reseaux sociaux
+- Creation video
+- Consulting marketing digital
+- Conformite RGPD et cookies
+- Audit de site web gratuit
+- Audit SEO gratuit
+
+### Intelligence Artificielle
+- Audit et conseil IA pour PME
+- Agents IA sur mesure (support client, traitement de donnees, automatisation)
+- Automatisation des processus metier
+- Mise en place de solutions IA
+
+### Formation Entreprise
+- Formation IA pour collaborateurs
+- Formation cybersecurite
+- Formation bureautique et Excel
+- Formation reseaux sociaux
+- Formation web design et Canva
+- Formation montage video
+- Formation informatique
+- Formation pour particuliers
+
+## Zone geographique
+
+Geneve, Suisse romande. Interventions sur site dans le canton de Geneve et cantons voisins (Vaud, Fribourg, Valais). Prestations a distance disponibles pour toute la Suisse.
+
+## Contact et ressources
+
+- Site web : https://dkdp.ch
+- Contact et devis : https://dkdp.ch/contact
+- Tarifs : https://dkdp.ch/tarifs
+- Blog : https://dkdp.ch/blog
+- Glossaire digital et IA : https://dkdp.ch/glossaire
+- Realisations clients : https://dkdp.ch/realisations
+
+## Conditions d'utilisation du contenu
+
+Le contenu de ce site peut etre cite a des fins d'information avec attribution a DKDP (dkdp.ch). Reproduction commerciale interdite sans accord ecrit.

@@ -1,12 +1,17 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { ChevronDown } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { DottedSurface } from '@/components/canvas/DottedSurface'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { GradText } from '@/components/ui/GradText'
 import { TrustBadge } from '@/components/ui/TrustBadge'
-import { staggerContainer, fadeUp } from '@/lib/animations'
+
+// Lazy-load Three.js canvas — defer après hydration pour ne pas bloquer LCP
+const DottedSurface = dynamic(
+  () => import('@/components/canvas/DottedSurface').then((m) => ({ default: m.DottedSurface })),
+  { ssr: false, loading: () => null }
+)
 
 export function HomeHero() {
   const { scrollY } = useScroll()
@@ -14,51 +19,39 @@ export function HomeHero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
-      {/* Three.js background */}
+      {/* Three.js background — lazy-loadé après hydration */}
       <DottedSurface className="absolute inset-0 z-0 opacity-60" />
 
       {/* Radial blobs */}
       <div className="blob-orange absolute -top-32 -left-32 w-[600px] h-[600px] opacity-25 pointer-events-none" />
       <div className="blob-violet absolute -bottom-32 -right-32 w-[600px] h-[600px] opacity-20 pointer-events-none" />
 
-      {/* Content */}
+      {/* Content — parallax scroll uniquement, pas d'initial hidden */}
       <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
         style={{ y }}
         className="relative z-10 max-w-[1200px] mx-auto px-6 text-center"
       >
-        <motion.div variants={fadeUp} className="mb-8 flex flex-col items-center gap-4">
+        <div className="hero-title mb-8 flex flex-col items-center gap-4">
           <TrustBadge variant="light" />
-        </motion.div>
+        </div>
 
-        <motion.h1
-          variants={fadeUp}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-[-0.03em] mb-6 max-w-[1100px] mx-auto"
-        >
+        {/* H1 en CSS animation — visible immédiatement (LCP non bloqué par JS) */}
+        <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-[-0.03em] mb-6 max-w-[1100px] mx-auto">
           L&apos;agence digitale genevoise
           <br />
           <GradText as="span">qui fait ce qu&apos;elle dit.</GradText>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          variants={fadeUp}
-          className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-[860px] mx-auto"
-        >
+        <p className="hero-subtitle text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-[860px] mx-auto">
           On crée votre site, on optimise votre SEO, on déploie l&apos;IA dans vos équipes
           et on forme vos collaborateurs. Résultats mesurables, pas de blabla.
-        </motion.p>
+        </p>
 
-        <motion.div
-          variants={fadeUp}
-          className="flex justify-center"
-        >
+        <div className="hero-cta flex justify-center">
           <LiquidMetalButton href="#nos-expertises" size="lg">
             Découvrez nos services →
           </LiquidMetalButton>
-        </motion.div>
-
+        </div>
 
       </motion.div>
 

@@ -18,7 +18,7 @@
 
   /* --- Text --- */
   --color-text-secondary: #9CA3AF;
-  --color-text-muted: #6B7280;
+  --color-text-muted: #9CA3AF;
 
   /* --- Fonts --- */
   --font-sans: var(--font-inter, Inter, system-ui, sans-serif);
@@ -54,6 +54,17 @@
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero title — CSS animation so LCP element is visible before JS hydrates */
+.hero-title {
+  animation: fadeUp 0.8s var(--ease-entry) both;
+}
+.hero-subtitle {
+  animation: fadeUp 0.8s var(--ease-entry) 0.15s both;
+}
+.hero-cta {
+  animation: fadeUp 0.8s var(--ease-entry) 0.3s both;
 }
 
 @keyframes countUp {

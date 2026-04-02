@@ -67,12 +67,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       entry(`/blog/${a.slug}`, 0.65, 'monthly')
     ),
 
-    // ─── Légal & utilitaires ─────────────────────────────────────────────────
-    entry('/rgpd-cookies',                  0.40, 'yearly'),
-    entry('/mentions-legales',              0.30, 'yearly'),
-    entry('/politique-de-confidentialite',  0.30, 'yearly'),
-    entry('/conditions-generales-de-vente', 0.30, 'yearly'),
-    entry('/plan-du-site',                  0.40, 'monthly'),
+    // ─── Utilitaires (pages légales noindex exclues du sitemap) ──────────────
+    entry('/plan-du-site', 0.40, 'monthly'),
 
   ]
 }

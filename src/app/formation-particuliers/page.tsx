@@ -244,13 +244,7 @@ export default function FormationParticuliersPage() {
                   className="hidden lg:flex flex-col gap-5 rounded-2xl p-7 border"
                   style={{ background: cardBg, borderColor: cardBorder }}
                 >
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-1">
-                        Notre plateforme dédiée
-                      </p>
-                      <p className="text-white font-bold text-xl">cours-informatique.ch</p>
-                    </div>
+                  <div className="flex items-center gap-4">
                     <Image
                       src="/images/partners/ci-mascot-thumbs.svg"
                       alt="Mascotte cours-informatique.ch"
@@ -258,6 +252,12 @@ export default function FormationParticuliersPage() {
                       height={120}
                       className="flex-shrink-0"
                     />
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-1">
+                        Notre plateforme dédiée
+                      </p>
+                      <p className="text-white font-bold text-xl">cours-informatique.ch</p>
+                    </div>
                   </div>
 
                   <div className="h-px bg-border" />

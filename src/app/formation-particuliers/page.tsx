@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   Monitor, Smartphone, FileSpreadsheet, Bot, Share2,
   Palette, Shield, Code,
@@ -192,18 +193,25 @@ export default function FormationParticuliersPage() {
                   Apprenez l&apos;informatique{' '}
                   <GradText as="span">à domicile, à Genève.</GradText>
                 </h1>
+                {/* Logo + URL */}
+                <a
+                  href="https://cours-informatique.ch"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mb-4 opacity-70 hover:opacity-100 transition-opacity"
+                >
+                  <Image
+                    src="/images/partners/ci-logo-orange.jpg"
+                    alt="cours-informatique.ch"
+                    width={24}
+                    height={24}
+                    className="rounded-sm"
+                  />
+                  <span className="text-sm font-medium text-text-muted">cours-informatique.ch</span>
+                </a>
+
                 <p className="text-text-secondary text-lg leading-relaxed mb-4">
-                  Via{' '}
-                  <a
-                    href="https://cours-informatique.ch"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold underline underline-offset-2 transition-opacity hover:opacity-75"
-                    style={{ color: accent }}
-                  >
-                    cours-informatique.ch
-                  </a>
-                  , notre plateforme dédiée aux particuliers : cours privés personnalisés, à domicile ou en ligne, sans engagement.
+                  Notre plateforme dédiée aux particuliers : cours privés personnalisés, à domicile ou en ligne, sans engagement.
                 </p>
 
                 {/* Social proof */}

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -67,8 +67,28 @@ export function Testimonials({ className }: { className?: string }) {
 
   const testimonial = TESTIMONIALS[current]
 
+  const dragStartX = useRef<number | null>(null)
+  const DRAG_THRESHOLD = 50
+
+  function onDragStart(x: number) { dragStartX.current = x }
+  function onDragEnd(x: number) {
+    if (dragStartX.current === null) return
+    const delta = x - dragStartX.current
+    if (delta < -DRAG_THRESHOLD) next()
+    else if (delta > DRAG_THRESHOLD) prev()
+    dragStartX.current = null
+  }
+
   return (
-    <section aria-labelledby="testimonials-heading" className={className ?? 'py-24 bg-bg-card border-y border-border'}>
+    <section
+      aria-labelledby="testimonials-heading"
+      className={className ?? 'py-24 bg-bg-card border-y border-border'}
+      onMouseDown={(e) => onDragStart(e.clientX)}
+      onMouseUp={(e) => onDragEnd(e.clientX)}
+      onMouseLeave={() => { dragStartX.current = null }}
+      onTouchStart={(e) => onDragStart(e.touches[0].clientX)}
+      onTouchEnd={(e) => onDragEnd(e.changedTouches[0].clientX)}
+    >
       <div className="max-w-[1200px] mx-auto px-6">
         <SectionReveal>
           <div className="text-center mb-16">

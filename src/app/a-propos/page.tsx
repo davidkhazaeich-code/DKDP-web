@@ -121,6 +121,8 @@ const EQUIPE = [
     skills: ['Formation Claude IA', 'Réseaux sociaux', 'Bureautique', 'Canva & Design'],
     email: 'rd@dkdp.ch',
     linkedin: 'https://www.linkedin.com/in/romane-degeorges/',
+    imageScale: 0.4,
+    imageOffsetX: 50,
   },
   {
     name: 'Ali Khazaei',
@@ -466,6 +468,10 @@ export default function AProposPage() {
                         fill
                         className="relative z-10 object-contain object-bottom"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        style={('imageScale' in member || 'imageOffsetX' in member) ? {
+                          transform: `translateX(${(member as { imageOffsetX?: number }).imageOffsetX ?? 0}px) scale(${(member as { imageScale?: number }).imageScale ?? 1})`,
+                          transformOrigin: 'bottom center',
+                        } : undefined}
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
                     </div>

@@ -101,6 +101,7 @@ export function InfiniteGrid({
             background: blob1,
             borderRadius: '50%',
             filter: 'blur(70px)',
+            animation: 'blobFloat 8s ease-in-out infinite',
           }}
         />
         <div
@@ -113,6 +114,7 @@ export function InfiniteGrid({
             background: blob2,
             borderRadius: '50%',
             filter: 'blur(70px)',
+            animation: 'blobFloat 10s ease-in-out infinite reverse',
           }}
         />
       </motion.div>

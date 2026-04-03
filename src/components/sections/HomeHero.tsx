@@ -19,75 +19,83 @@ export function HomeHero() {
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 600], [0, -80])
 
-  // null = inconnu (SSR/hydration), true = desktop, false = mobile
+  // null = SSR/hydration, true = desktop ≥768px, false = mobile
   const [isDesktop, setIsDesktop] = useState<boolean | null>(null)
   useEffect(() => {
     setIsDesktop(window.matchMedia('(min-width: 768px)').matches)
   }, [])
 
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
-      {/* Desktop : fond Three.js points lumineux */}
-      {isDesktop === true && <DottedSurface className="absolute inset-0 z-0 opacity-60" />}
-      {/* Mobile : grille CSS animée — même esthétique, zéro Three.js */}
-      {isDesktop === false && <InfiniteGrid className="absolute inset-0 z-0" />}
-
-      {/* Radial blobs */}
-      <div className="blob-orange absolute -top-32 -left-32 w-[600px] h-[600px] opacity-25 pointer-events-none" />
-      <div className="blob-violet absolute -bottom-32 -right-32 w-[600px] h-[600px] opacity-20 pointer-events-none" />
-
-      {/* Content — parallax scroll uniquement, pas d'initial hidden */}
-      <motion.div
-        style={{ y }}
-        className="relative z-10 max-w-[1200px] mx-auto px-6 text-center"
-      >
-        <div className="hero-title mb-8 flex flex-col items-center gap-4">
-          <TrustBadge variant="light" />
-        </div>
-
-        {/* H1 en CSS animation — visible immédiatement (LCP non bloqué par JS) */}
-        <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-[-0.03em] mb-6 max-w-[1100px] mx-auto">
-          L&apos;agence digitale genevoise
-          <br />
-          <GradText as="span">qui fait ce qu&apos;elle dit.</GradText>
-        </h1>
-
-        <p className="hero-subtitle text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-[860px] mx-auto">
-          On crée votre site, on optimise votre SEO, on déploie l&apos;IA dans vos équipes
-          et on forme vos collaborateurs. Résultats mesurables, pas de blabla.
-        </p>
-
-        <div className="hero-cta flex justify-center">
-          <LiquidMetalButton href="#nos-expertises" size="lg" shaderDelay={800}>
-            Découvrez nos services →
-          </LiquidMetalButton>
-        </div>
-
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <div
-        aria-hidden="true"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-text-muted">
-          Défiler
-        </span>
-        <div className="flex flex-col items-center -space-y-3">
-          <motion.div
-            animate={{ opacity: [0.2, 1, 0.2], y: [0, 6, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut', delay: 0 }}
-          >
-            <ChevronDown size={20} className="text-text-secondary" />
-          </motion.div>
-          <motion.div
-            animate={{ opacity: [0.1, 0.5, 0.1], y: [0, 6, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut', delay: 0.18 }}
-          >
-            <ChevronDown size={20} className="text-text-muted" />
-          </motion.div>
-        </div>
+  const scrollIndicator = (
+    <div
+      aria-hidden="true"
+      className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
+    >
+      <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-text-muted">
+        Défiler
+      </span>
+      <div className="flex flex-col items-center -space-y-3">
+        <motion.div
+          animate={{ opacity: [0.2, 1, 0.2], y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut', delay: 0 }}
+        >
+          <ChevronDown size={20} className="text-text-secondary" />
+        </motion.div>
+        <motion.div
+          animate={{ opacity: [0.1, 0.5, 0.1], y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut', delay: 0.18 }}
+        >
+          <ChevronDown size={20} className="text-text-muted" />
+        </motion.div>
       </div>
-    </section>
+    </div>
+  )
+
+  const content = (
+    <motion.div style={{ y }} className="max-w-[1200px] mx-auto px-6 text-center">
+      <div className="hero-title mb-8 flex flex-col items-center gap-4">
+        <TrustBadge variant="light" />
+      </div>
+      <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-[-0.03em] mb-6 max-w-[1100px] mx-auto">
+        L&apos;agence digitale genevoise
+        <br />
+        <GradText as="span">qui fait ce qu&apos;elle dit.</GradText>
+      </h1>
+      <p className="hero-subtitle text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-[860px] mx-auto">
+        On crée votre site, on optimise votre SEO, on déploie l&apos;IA dans vos équipes
+        et on forme vos collaborateurs. Résultats mesurables, pas de blabla.
+      </p>
+      <div className="hero-cta flex justify-center">
+        <LiquidMetalButton href="#nos-expertises" size="lg" shaderDelay={800}>
+          Découvrez nos services →
+        </LiquidMetalButton>
+      </div>
+    </motion.div>
+  )
+
+  // Desktop : Three.js points lumineux
+  if (isDesktop === true) {
+    return (
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
+        <DottedSurface className="absolute inset-0 z-0 opacity-60" />
+        <div className="blob-orange absolute -top-32 -left-32 w-[600px] h-[600px] opacity-25 pointer-events-none" />
+        <div className="blob-violet absolute -bottom-32 -right-32 w-[600px] h-[600px] opacity-20 pointer-events-none" />
+        <div className="relative z-10">{content}</div>
+        {scrollIndicator}
+      </section>
+    )
+  }
+
+  // Mobile : InfiniteGrid CSS (zéro Three.js)
+  return (
+    <div className="relative min-h-screen">
+      <InfiniteGrid
+        blob1="rgba(124,58,237,0.12)"
+        blob2="rgba(255,107,0,0.09)"
+        className="min-h-screen flex items-center justify-center pt-14"
+      >
+        {content}
+      </InfiniteGrid>
+      {scrollIndicator}
+    </div>
   )
 }

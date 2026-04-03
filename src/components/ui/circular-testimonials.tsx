@@ -74,8 +74,23 @@ export function CircularTestimonials({
 
   const containerRef = useRef<HTMLDivElement>(null)
   const autoplayRef  = useRef<NodeJS.Timeout | null>(null)
+  const dragStartX   = useRef<number | null>(null)
   const count        = useMemo(() => items.length, [items])
   const active       = useMemo(() => items[activeIndex], [activeIndex, items])
+
+  const DRAG_THRESHOLD = 50
+
+  function onDragStart(x: number) {
+    dragStartX.current = x
+  }
+
+  function onDragEnd(x: number) {
+    if (dragStartX.current === null) return
+    const delta = x - dragStartX.current
+    if (delta < -DRAG_THRESHOLD) handleNext()
+    else if (delta > DRAG_THRESHOLD) handlePrev()
+    dragStartX.current = null
+  }
 
   useEffect(() => {
     const el = containerRef.current
@@ -150,7 +165,14 @@ export function CircularTestimonials({
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div
+      className="w-full max-w-4xl mx-auto select-none"
+      onMouseDown={(e) => onDragStart(e.clientX)}
+      onMouseUp={(e) => onDragEnd(e.clientX)}
+      onMouseLeave={() => { dragStartX.current = null }}
+      onTouchStart={(e) => onDragStart(e.touches[0].clientX)}
+      onTouchEnd={(e) => onDragEnd(e.changedTouches[0].clientX)}
+    >
       <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
 
         {/* Photo cards */}

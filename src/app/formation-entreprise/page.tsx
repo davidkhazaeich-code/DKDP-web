@@ -305,6 +305,7 @@ export default function FormationEntreprisePage() {
           </div>
         </div>
       </section>
+      </HeroBg>
 
       {/* ── Impact ── */}
       <section className="py-24">
@@ -402,7 +403,6 @@ export default function FormationEntreprisePage() {
           </div>
         </div>
       </section>
-      </HeroBg>
 
       {/* ── ROI Calculator ── */}
       <FormationROICalculator />

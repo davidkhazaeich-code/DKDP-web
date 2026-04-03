@@ -18,6 +18,7 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
+import { LogoBanner } from '@/components/sections/LogoBanner'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildPerson } from '@/lib/schema'
 import { violet, orange, chrome } from '@/lib/tokens'
@@ -285,6 +286,8 @@ export default function AProposPage() {
           </div>
         </section>
       </InfiniteGrid>
+
+      <LogoBanner label="700+ clients accompagnés" />
 
       {/* ── Approche / 3 valeurs ── */}
       <section className="py-24 border-b border-border">

@@ -29,9 +29,11 @@ export const metadata: Metadata = {
     locale: 'fr_CH',
     url: 'https://dkdp.ch',
     siteName: 'DKDP',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'DKDP Agence Digitale Genève' }],
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/og-image.png'],
   },
   robots: { index: true, follow: true },
 }

@@ -29,7 +29,7 @@ const TERMS: Term[] = [
     term: 'Agent IA',
     category: 'IA',
     definition:
-      'Programme autonome qui peut percevoir son environnement, prendre des décisions et agir pour accomplir un objectif. Les agents IA de DKDP automatisent des workflows entiers sans intervention humaine.',
+      'Programme autonome capable de percevoir son environnement, prendre des décisions et exécuter des actions pour atteindre un objectif défini. Un agent IA se distingue d\'un simple chatbot par sa capacité à enchainer plusieurs étapes sans intervention humaine : lire un email, extraire les données, mettre à jour un CRM et envoyer une confirmation, le tout automatiquement. En entreprise, les agents IA les plus courants gèrent le tri d\'emails, la qualification de leads, la rédaction de comptes rendus et la veille concurrentielle. Selon McKinsey (2024), les entreprises utilisant des agents IA réduisent de 25 à 45 % le temps consacré aux taches administratives répétitives. En Suisse romande, une PME de 10 personnes peut économiser jusqu\'à 15 heures par semaine en déployant un agent IA sur ses processus internes. DKDP conçoit des agents IA sur mesure adaptés aux workflows spécifiques de chaque entreprise genevoise.',
     link: '/intelligence-artificielle/agents-ia',
   },
   {
@@ -42,13 +42,13 @@ const TERMS: Term[] = [
     term: 'AEO',
     category: 'SEO',
     definition:
-      'Answer Engine Optimization. Optimisation de contenu pour apparaitre dans les réponses des IA comme ChatGPT ou Perplexity.',
+      'Answer Engine Optimization. Discipline du marketing digital qui consiste à optimiser le contenu d\'un site pour apparaitre directement dans les réponses générées par les moteurs de réponse IA tels que ChatGPT, Perplexity, Google AI Overviews et Bing Copilot. L\'AEO se distingue du SEO classique par son objectif : au lieu de positionner un lien dans une liste de résultats, on cherche à ce que l\'IA cite le contenu comme source fiable dans sa réponse. Les techniques AEO incluent la structuration du contenu en blocs de réponse directe, l\'ajout de données structurées (Schema.org), la présence de FAQ avec des réponses complètes, et le renforcement de l\'autorité de l\'auteur. Pour une entreprise genevoise, être citée dans une réponse IA génère un trafic qualifié sans coût publicitaire récurrent. DKDP combine SEO et AEO dans ses stratégies de visibilité pour couvrir à la fois Google et les moteurs IA.',
   },
   {
     term: 'Automatisation',
     category: 'IA',
     definition:
-      'Remplacement de tâches manuelles répétitives par des scripts, des workflows ou des agents IA pour gagner en efficacité.',
+      'Remplacement de tâches manuelles répétitives par des scripts, des workflows automatisés ou des agents IA pour gagner en efficacité et réduire les erreurs humaines. L\'automatisation en entreprise couvre un large spectre : de la simple règle "si un email arrive de X, le transférer à Y" jusqu\'aux workflows complexes enchainant CRM, facturation, relances et reporting. Les outils les plus utilisés en Suisse romande incluent Make (ex-Integromat), Zapier et n8n pour le no-code, ainsi que des agents IA sur mesure pour les processus métier spécifiques. Selon une étude McKinsey (2023), environ 30 % des taches effectuées dans 60 % des métiers pourraient être automatisées avec les technologies actuelles. Pour une PME genevoise de 15 collaborateurs, l\'automatisation des taches administratives peut représenter une économie de 1 000 à 2 000 heures par an. DKDP analyse les processus internes de ses clients et conçoit des solutions d\'automatisation adaptées à leur budget et leur maturité digitale.',
     link: '/intelligence-artificielle',
   },
   // B
@@ -125,7 +125,7 @@ const TERMS: Term[] = [
     term: 'E-E-A-T',
     category: 'SEO',
     definition:
-      'Experience, Expertise, Authoritativeness, Trustworthiness. Critères de qualite utilisés par Google pour évaluer la fiabilité d\'un contenu.',
+      'Experience, Expertise, Authoritativeness, Trustworthiness (Expérience, Expertise, Autorité, Fiabilité). Cadre d\'évaluation utilisé par les Quality Raters de Google pour juger la fiabilité et la pertinence d\'un contenu web. Depuis la mise à jour de septembre 2025, le E-E-A-T pèse encore plus dans le classement des sites traitant de sujets YMYL (Your Money Your Life), c\'est-à-dire la santé, la finance et les services professionnels. Concrètement, Google vérifie si l\'auteur a une expérience réelle du sujet, si le site démontre une expertise vérifiable, si d\'autres sources fiables le citent (autorité), et si les informations sont exactes et transparentes (fiabilité). Pour une PME à Genève, le E-E-A-T se traduit par des éléments concrets : page équipe avec photos et biographies, avis clients vérifiables, adresse physique, certifications et témoignages. DKDP intègre les signaux E-E-A-T dans chaque site qu\'elle conçoit pour ses clients suisses.',
   },
   {
     term: 'ERP',
@@ -145,7 +145,7 @@ const TERMS: Term[] = [
     term: 'GEO',
     category: 'SEO',
     definition:
-      'Generative Engine Optimization. Optimisation pour être cité par les IA generatives comme sources de référence.',
+      'Generative Engine Optimization. Stratégie d\'optimisation de contenu visant à être cité comme source de référence par les moteurs de recherche génératifs tels que Google AI Overviews, ChatGPT, Perplexity et Bing Copilot. Contrairement au SEO classique qui cible les liens bleus, le GEO cible les réponses générées par l\'IA. Les facteurs clés incluent la structure du contenu en passages citables de 134 à 167 mots, l\'intégration de statistiques sourcées, la présence de schémas FAQ en JSON-LD, et l\'autorité perçue de l\'auteur (E-E-A-T). Selon une étude de Georgia Tech (2024), les contenus contenant des citations vérifiables ont 40 % plus de chances d\'être cités par un LLM. Pour une PME genevoise, apparaitre dans une réponse IA pour "agence digitale Genève" équivaut à un positionnement organique permanent. DKDP intègre le GEO dans toutes ses stratégies SEO.',
   },
   {
     term: 'GPT',
@@ -158,7 +158,7 @@ const TERMS: Term[] = [
     term: 'Hallucination',
     category: 'IA',
     definition:
-      'Phénomène où un LLM génère des informations fausses mais présentées avec confiance. Risque à connaitre avant tout déploiement IA.',
+      'Phénomène où un LLM génère des informations factuellement fausses mais formulées avec une grande assurance, ce qui les rend difficiles à détecter sans vérification. Les hallucinations surviennent parce que les modèles de langage prédisent le mot suivant le plus probable, sans véritable compréhension factuelle. Exemples courants : citations juridiques inventées, statistiques fictives, ou noms d\'entreprises inexistants. Selon une étude de l\'Université de Stanford (2024), les LLM hallucinent dans 3 à 15 % de leurs réponses selon la complexité du sujet. Pour une PME qui utilise l\'IA dans ses communications ou son service client, ce risque nécessite la mise en place de garde-fous : relecture humaine systématique, connexion à une base de données vérifiée (RAG), ou limitation du périmètre de réponse de l\'IA. DKDP accompagne les entreprises genevoises dans le déploiement d\'agents IA avec des mécanismes de vérification intégrés pour minimiser les hallucinations.',
   },
   {
     term: 'Hébergement',
@@ -177,7 +177,7 @@ const TERMS: Term[] = [
     term: 'IA générative',
     category: 'IA',
     definition:
-      'IA capable de créer du contenu nouveau : texte, image, code, audio. ChatGPT, Claude et Midjourney en sont des exemples.',
+      'Branche de l\'intelligence artificielle capable de créer du contenu original : texte, images, code, audio et vidéo. Les modèles d\'IA générative les plus connus en 2026 sont ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google) et Midjourney pour les images. Contrairement à l\'IA analytique qui classe ou prédit, l\'IA générative produit quelque chose de nouveau à partir d\'un prompt. En entreprise, ses applications les plus courantes incluent la rédaction de contenus marketing, la génération de visuels, l\'assistance au code, la traduction automatique et la synthèse de documents. Selon le World Economic Forum (2024), 75 % des entreprises prévoient d\'adopter l\'IA générative avant 2027. Pour les PME suisses, l\'IA générative représente un levier de productivité majeur : un collaborateur formé peut réduire de 60 % le temps consacré à la rédaction et à la recherche. DKDP forme les équipes des entreprises genevoises à l\'utilisation concrète de l\'IA générative dans leur quotidien professionnel.',
     link: '/intelligence-artificielle',
   },
   // K
@@ -210,7 +210,7 @@ const TERMS: Term[] = [
     term: 'LLM',
     category: 'IA',
     definition:
-      'Large Language Model. Modèle de langage de grande taille (GPT-4, Claude, Mistral) capable de comprendre et générer du texte.',
+      'Large Language Model (modèle de langage de grande taille). Réseau de neurones entrainé sur des milliards de textes, capable de comprendre, résumer, traduire et générer du contenu en langage naturel. Les LLM les plus utilisés en 2026 sont GPT-4o (OpenAI), Claude (Anthropic) et Gemini (Google). Pour les entreprises, un LLM peut automatiser la rédaction d\'emails, l\'analyse de documents juridiques, la traduction, le service client et la synthèse de rapports. Un LLM ne remplace pas un expert humain mais multiplie sa productivité : une tache de synthèse de 45 minutes peut être réduite à 3 minutes avec un prompt bien construit. Les PME suisses qui adoptent les LLM constatent un gain moyen de 12 heures par collaborateur et par semaine sur les taches administratives, d\'après les retours clients de DKDP. DKDP propose des formations et un accompagnement pour intégrer les LLM dans les processus métier des entreprises genevoises.',
   },
   {
     term: 'LPD',
@@ -250,7 +250,7 @@ const TERMS: Term[] = [
     term: 'Prompt',
     category: 'IA',
     definition:
-      'Instruction textuelle donnée à un LLM pour obtenir une réponse. La qualité du prompt détermine en grande partie la qualité de la réponse.',
+      'Instruction textuelle donnée à un modèle d\'IA (LLM) pour obtenir une réponse ou déclencher une action. La qualité et la précision du prompt déterminent directement la qualité du résultat. Un bon prompt inclut le contexte, le format de sortie souhaité, le ton et les contraintes. Le "prompt engineering" est devenu une compétence professionnelle recherchée : savoir formuler des instructions claires pour un LLM peut multiplier par cinq la pertinence des résultats obtenus. En entreprise, les usages les plus courants incluent la rédaction assistée, l\'extraction de données à partir de documents, la traduction et la synthèse de réunions. Un collaborateur formé au prompt engineering gagne en moyenne 30 à 60 minutes par jour sur ses taches de rédaction et de recherche. Les formations DKDP enseignent le prompt engineering appliqué aux outils utilisés en Suisse romande (Claude, ChatGPT, Copilot) avec des cas pratiques adaptés à chaque métier.',
   },
   {
     term: 'PWA',
@@ -263,7 +263,7 @@ const TERMS: Term[] = [
     term: 'RAG',
     category: 'IA',
     definition:
-      'Retrieval-Augmented Generation. Technique qui connecte un LLM à une base de données externe pour répondre avec des informations actualisées.',
+      'Retrieval-Augmented Generation. Technique d\'intelligence artificielle qui connecte un LLM (comme Claude ou GPT) à une base de connaissances externe pour enrichir ses réponses avec des informations actualisées et vérifiables. Sans RAG, un LLM ne connait que ses données d\'entrainement, souvent datées de plusieurs mois. Avec RAG, il consulte en temps réel des documents internes, des bases de données ou des pages web avant de formuler sa réponse, ce qui réduit considérablement les hallucinations. Application concrète pour une PME genevoise : un RAG connecté à votre documentation interne permet à vos collaborateurs d\'obtenir des réponses précises sur vos procédures, tarifs et historique client via un simple chatbot interne. Selon une étude NVIDIA (2024), le RAG réduit les erreurs factuelles des LLM de 30 à 50 %. DKDP déploie des solutions RAG pour les entreprises romandes qui souhaitent exploiter l\'IA sur leurs données propriétaires.',
   },
   {
     term: 'Redirect 301',

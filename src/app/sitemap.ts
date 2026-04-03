@@ -8,15 +8,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = ROUTES.map((route) => ({
     url: `${BASE_URL}${route.url}`,
     lastModified: new Date(),
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
   }))
 
   const blogRoutes: MetadataRoute.Sitemap = ARTICLES.map((a) => ({
     url: `${BASE_URL}/blog/${a.slug}`,
     lastModified: new Date(a.dateISO),
-    changeFrequency: 'monthly',
-    priority: 0.65,
   }))
 
   return [...staticRoutes, ...blogRoutes]

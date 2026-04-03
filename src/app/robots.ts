@@ -13,6 +13,7 @@ export default function robots(): MetadataRoute.Robots {
         // Crawlers AI Search : accès explicite confirmé
         userAgent: ["GPTBot", "OAI-SearchBot", "ClaudeBot", "PerplexityBot", "Applebot", "Bingbot"],
         allow: "/",
+        disallow: ["/api/"],
       },
       {
         // Crawlers d'entraînement pur : bloqués

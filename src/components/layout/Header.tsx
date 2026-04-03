@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { createPortal } from 'react-dom'
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   Globe, Cpu, GraduationCap, Search, Megaphone, BarChart2,
   Bot, Workflow, BrainCircuit, BookOpen, Users2, Presentation,
@@ -435,12 +435,20 @@ export function Header() {
   const [scrolled, setScrolled] = React.useState(false)
   const pathname = usePathname()
   const router = useRouter()
-  const { scrollYProgress } = useScroll()
   const progressGradient = getPillarGradient(pathname)
-  const progressOpacity = useTransform(scrollYProgress, [0, 0.03, 1], [0, 1, 1])
+  const progressBarRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20)
+    const bar = progressBarRef.current
+    const handler = () => {
+      setScrolled(window.scrollY > 20)
+      if (bar) {
+        const total = document.documentElement.scrollHeight - window.innerHeight
+        const pct = total > 0 ? window.scrollY / total : 0
+        bar.style.transform = `scaleX(${pct})`
+        bar.style.opacity = pct > 0.03 ? '1' : '0'
+      }
+    }
     window.addEventListener('scroll', handler, { passive: true })
     handler()
     return () => window.removeEventListener('scroll', handler)
@@ -455,7 +463,7 @@ export function Header() {
 
   return (
     <>
-      <motion.header
+      <header
         role="banner"
         className={cn(
           'fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,backdrop-filter,border-color] duration-300',
@@ -652,13 +660,14 @@ export function Header() {
           </button>
         </div>
 
-        {/* Scroll progress bar */}
-        <motion.div
+        {/* Scroll progress bar — direct DOM update, zero re-render */}
+        <div
+          ref={progressBarRef}
           aria-hidden="true"
           className="absolute top-0 left-0 right-0 h-[2px] origin-left"
-          style={{ scaleX: scrollYProgress, opacity: progressOpacity, background: progressGradient }}
+          style={{ background: progressGradient, transform: 'scaleX(0)', opacity: 0, transition: 'opacity 0.3s' }}
         />
-      </motion.header>
+      </header>
 
       {/* Mobile nav */}
       <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />

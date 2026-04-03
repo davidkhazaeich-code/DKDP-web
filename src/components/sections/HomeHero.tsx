@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { ChevronDown } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { GradText } from '@/components/ui/GradText'
 import { TrustBadge } from '@/components/ui/TrustBadge'
@@ -33,18 +32,12 @@ export function HomeHero() {
         Défiler
       </span>
       <div className="flex flex-col items-center -space-y-3">
-        <motion.div
-          animate={{ opacity: [0.2, 1, 0.2], y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut', delay: 0 }}
-        >
+        <div style={{ animation: 'chevronBounce 1.5s ease-in-out infinite' }}>
           <ChevronDown size={20} className="text-text-secondary" />
-        </motion.div>
-        <motion.div
-          animate={{ opacity: [0.1, 0.5, 0.1], y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut', delay: 0.18 }}
-        >
+        </div>
+        <div style={{ animation: 'chevronBounce2 1.5s ease-in-out infinite 0.18s' }}>
           <ChevronDown size={20} className="text-text-muted" />
-        </motion.div>
+        </div>
       </div>
     </div>
   )
@@ -111,7 +104,7 @@ export function HomeHero() {
           <TrustBadge variant="light" />
         </div>
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-[-0.03em] mb-6 max-w-[1100px] mx-auto">
-          L&apos;agence digitale genevoise
+          L&apos;agence digitale à Genève
           <br />
           <GradText as="span">qui fait ce qu&apos;elle dit.</GradText>
         </h1>

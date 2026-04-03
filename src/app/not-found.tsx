@@ -1,7 +1,13 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { GradTag } from '@/components/ui/GradTag'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { HeroBg } from '@/components/ui/HeroBg'
+
+export const metadata: Metadata = {
+  title: '404 - Page introuvable | DKDP',
+  robots: { index: false, follow: false },
+}
 
 export default function NotFound() {
   return (

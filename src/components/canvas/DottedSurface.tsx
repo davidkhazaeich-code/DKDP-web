@@ -369,17 +369,21 @@ export function DottedSurface({
       }
     }
 
-    // Defer Three.js init until the browser is idle — keeps LCP unblocked on mobile
+    // Wait 4 s minimum before starting Three.js — keeps TBT window clear on desktop.
+    // Three.js init blocks the main thread for ~400 ms; starting it at 4 s means it
+    // fires well after TTI is settled (FCP ~1.5 s, TTI target ~3 s on desktop).
     const ric = (window as any).requestIdleCallback
       ?? ((cb: () => void) => setTimeout(cb, 200))
-    const cancelRic = (window as any).cancelIdleCallback
-      ?? ((id: ReturnType<typeof setTimeout>) => clearTimeout(id))
 
-    const ricId = ric(() => { if (!cancelled) init(container) }, { timeout: 2000 })
+    let ricId: ReturnType<typeof setTimeout>
+    const delayId = setTimeout(() => {
+      ricId = ric(() => { if (!cancelled) init(container) }, { timeout: 4000 })
+    }, 4000)
 
     return () => {
       cancelled = true
-      cancelRic(ricId)
+      clearTimeout(delayId)
+      clearTimeout(ricId)
       cleanupFn?.()
     }
   }, [violetRatio, orangeRatio])

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footer DKDP — Design complet</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0A0A0A; color: #fff; font-family: Inter, system-ui, sans-serif; }
+
+  /* Scroll zone above footer */
+  .scroll-zone {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    color: #4B5563;
+    font-size: 13px;
+    border-bottom: 1px solid #1E1E1E;
+  }
+  .scroll-zone svg { opacity: 0.4; }
+
+  /* ── STICKY FOOTER EFFECT ── */
+  .footer-sticky-wrapper {
+    position: relative;
+    height: 780px;
+    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+  }
+  .footer-sticky-inner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 780px;
+  }
+  .footer-sticky-scroll {
+    position: sticky;
+    top: calc(100vh - 780px);
+    height: 780px;
+    overflow: hidden;
+  }
+
+  /* ── FOOTER ITSELF ── */
+  footer {
+    background: #0D0D0D;
+    border-top: 1px solid #1E1E1E;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Ambient glow */
+  footer::before {
+    content: '';
+    position: absolute;
+    top: -120px; left: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  footer::after {
+    content: '';
+    position: absolute;
+    top: -80px; right: -60px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,107,0,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── CTA ZONE ── */
+  .cta-zone {
+    padding: 36px 0 28px;
+    border-bottom: 1px solid #1E1E1E;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .cta-zone-left h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .cta-zone-left p {
+    font-size: 13px;
+    color: #6B7280;
+  }
+  .cta-zone-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #FF6B00, #7C3AED);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-ghost {
+    color: #6B7280;
+    font-size: 12px;
+    border: 1px solid #1E1E1E;
+    border-radius: 100px;
+    padding: 10px 18px;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  /* ── NAV GRID ── */
+  .nav-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    flex: 1;
+  }
+
+  /* Brand col */
+  .brand-col { display: flex; flex-direction: column; gap: 12px; }
+  .brand-logo { font-size: 18px; font-weight: 900; letter-spacing: -.03em; color: #fff; }
+  .brand-desc { font-size: 11px; color: #6B7280; line-height: 1.6; }
+  .brand-address { font-size: 10px; color: #4B5563; line-height: 1.8; margin-top: 2px; }
+  .socials { display: flex; gap: 6px; margin-top: 4px; }
+  .social-btn {
+    width: 30px; height: 30px;
+    border-radius: 7px;
+    border: 1px solid #1E1E1E;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: border-color .2s;
+  }
+  .social-btn:hover { border-color: #FF6B00; }
+  .social-btn svg { width: 14px; height: 14px; fill: #6B7280; }
+  .social-btn.linkedin svg { fill: #A78BFA; }
+  .social-btn.instagram svg { fill: #FF6B00; }
+  .social-btn.google svg { fill: #9CA3AF; }
+
+  /* Nav columns */
+  .nav-col {}
+  .nav-col-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-col-label.violet { color: #A78BFA; }
+  .nav-col-label.orange { color: #FF8C00; }
+  .nav-col-label.chrome { color: #D4D4D8; }
+  .nav-col-label.neutral { color: #9CA3AF; }
+  .nav-col ul { list-style: none; display: flex; flex-direction: column; gap: 1px; }
+  .nav-col li a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11.5px;
+    color: #6B7280;
+    text-decoration: none;
+    padding: 4px 5px;
+    border-radius: 5px;
+    transition: color .15s, background .15s;
+  }
+  .nav-col li a:hover { color: #fff; background: rgba(255,255,255,.04); }
+  .nav-col li a .icon {
+    width: 14px; height: 14px;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+  .nav-col li a:hover .icon { opacity: 1; }
+
+  /* Hub link */
+  .hub-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-decoration: none;
+    opacity: 0.8;
+  }
+  .hub-link:hover { opacity: 1; }
+  .hub-link.violet { color: #A78BFA; }
+  .hub-link.orange { color: #FF8C00; }
+  .hub-link.chrome { color: #D4D4D8; }
+
+  /* Divider */
+  .nav-divider {
+    height: 1px;
+    background: #1A1A1A;
+    margin: 8px 0;
+  }
+  .nav-sub-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #3B3B3B;
+    margin: 8px 0 6px 5px;
+  }
+
+  /* ── BOTTOM BAR ── */
+  .bottom-bar {
+    border-top: 1px solid #1A1A1A;
+    padding: 14px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .bottom-bar .copy { font-size: 10px; color: #3B3B3B; }
+  .bottom-bar .legal { display: flex; gap: 16px; }
+  .bottom-bar .legal a { font-size: 10px; color: #3B3B3B; text-decoration: none; }
+  .bottom-bar .legal a:hover { color: #6B7280; }
+
+  /* Label badge */
+  .pillar-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+  }
+  .pillar-badge.violet { color: #A78BFA; background: rgba(124,58,237,.12); border: 1px solid rgba(124,58,237,.2); }
+  .pillar-badge.orange { color: #FF8C00; background: rgba(255,107,0,.10); border: 1px solid rgba(255,107,0,.2); }
+  .pillar-badge.chrome { color: #D4D4D8; background: rgba(212,212,216,.08); border: 1px solid rgba(212,212,216,.15); }
+
+  /* SVG icons inline */
+  .i-globe { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A78BFA' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-search { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A78BFA' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-megaphone { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A78BFA' stroke-width='2'%3E%3Cpath d='M3 11l18-5v12L3 14v-3zM11.6 16.8a3 3 0 1 1-5.8-1.6'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-share { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A78BFA' stroke-width='2'%3E%3Ccircle cx='18' cy='5' r='3'/%3E%3Ccircle cx='6' cy='12' r='3'/%3E%3Ccircle cx='18' cy='19' r='3'/%3E%3Cpath d='m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-film { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A78BFA' stroke-width='2'%3E%3Crect x='2' y='2' width='20' height='20' rx='2.18'/%3E%3Cpath d='M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-presentation { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A78BFA' stroke-width='2'%3E%3Cpath d='M2 3h20M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3M8 21l4-4 4 4M12 17v4'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-shield { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A78BFA' stroke-width='2'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E") no-repeat center/contain; }
+
+  .i-brain { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4D4D8' stroke-width='2'%3E%3Cpath d='M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-1.07-4.65A3 3 0 0 1 4.5 9.5a2.5 2.5 0 0 1 .5-5z'/%3E%3Cpath d='M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 1.07-4.65A3 3 0 0 0 19.5 9.5a2.5 2.5 0 0 0-.5-5z'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-workflow { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4D4D8' stroke-width='2'%3E%3Crect x='3' y='3' width='5' height='5' rx='1'/%3E%3Crect x='16' y='3' width='5' height='5' rx='1'/%3E%3Crect x='16' y='16' width='5' height='5' rx='1'/%3E%3Cpath d='M8 5.5h5a1 1 0 0 1 1 1v1M21 8.5v5a1 1 0 0 1-1 1h-1M8 18.5h5a1 1 0 0 0 1-1v-1'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-bot { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4D4D8' stroke-width='2'%3E%3Crect x='3' y='11' width='18' height='10' rx='2'/%3E%3Ccircle cx='12' cy='5' r='2'/%3E%3Cpath d='M12 7v4M8 15h.01M16 15h.01'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-cpu { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4D4D8' stroke-width='2'%3E%3Crect x='4' y='4' width='16' height='16' rx='2'/%3E%3Crect x='9' y='9' width='6' height='6'/%3E%3Cpath d='M15 2v2M15 20v2M9 2v2M9 20v2M2 15h2M20 15h2M2 9h2M20 9h2'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-audit { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4D4D8' stroke-width='2'%3E%3Cpath d='M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zM12 8v4l3 3'/%3E%3C/svg%3E") no-repeat center/contain; }
+
+  .i-book { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8C00' stroke-width='2'%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/%3E%3Cpath d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-shield-o { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8C00' stroke-width='2'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-palette { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8C00' stroke-width='2'%3E%3Ccircle cx='13.5' cy='6.5' r='.5'/%3E%3Ccircle cx='17.5' cy='10.5' r='.5'/%3E%3Ccircle cx='8.5' cy='7.5' r='.5'/%3E%3Ccircle cx='6.5' cy='12.5' r='.5'/%3E%3Cpath d='M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-film-o { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8C00' stroke-width='2'%3E%3Crect x='2' y='2' width='20' height='20' rx='2.18'/%3E%3Cpath d='M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-cpu-o { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8C00' stroke-width='2'%3E%3Crect x='4' y='4' width='16' height='16' rx='2'/%3E%3Crect x='9' y='9' width='6' height='6'/%3E%3Cpath d='M15 2v2M15 20v2M9 2v2M9 20v2M2 15h2M20 15h2M2 9h2M20 9h2'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-share-o { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8C00' stroke-width='2'%3E%3Ccircle cx='18' cy='5' r='3'/%3E%3Ccircle cx='6' cy='12' r='3'/%3E%3Ccircle cx='18' cy='19' r='3'/%3E%3Cpath d='m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-users { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8C00' stroke-width='2'%3E%3Cpath d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E") no-repeat center/contain; }
+
+  .i-star { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-file { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpolyline points='14 2 14 8 20 8'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-phone { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.76a16 16 0 0 0 6.29 6.29l1.07-.89a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-info { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4M12 8h.01'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-blog { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/%3E%3Cpath d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-glossaire { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-method { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Crect x='3' y='3' width='5' height='5' rx='1'/%3E%3Crect x='16' y='3' width='5' height='5' rx='1'/%3E%3Crect x='16' y='16' width='5' height='5' rx='1'/%3E%3Cpath d='M8 5.5h5a1 1 0 0 1 1 1v1M21 8.5v5a1 1 0 0 1-1 1h-1M8 18.5h5a1 1 0 0 0 1-1v-1'/%3E%3C/svg%3E") no-repeat center/contain; }
+  .i-grad { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Cpath d='M22 10v6M2 10l10-5 10 5-10 5z'/%3E%3Cpath d='M6 12v5c3 3 9 3 12 0v-5'/%3E%3C/svg%3E") no-repeat center/contain; }
+
+  .info-note {
+    background: rgba(255,107,0,.07);
+    border: 1px solid rgba(255,107,0,.15);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 11px;
+    color: #9CA3AF;
+    margin: 16px 0 0;
+    line-height: 1.5;
+  }
+  .info-note strong { color: #FF8C00; }
+</style>
+</head>
+<body>
+
+<!-- Page content above footer (scroll zone) -->
+<div class="scroll-zone">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  <span>Défiler pour voir le footer sticky</span>
+</div>
+
+<!-- STICKY FOOTER WRAPPER -->
+<div class="footer-sticky-wrapper">
+  <div class="footer-sticky-inner">
+    <div class="footer-sticky-scroll">
+      <footer>
+        <div class="footer-inner">
+
+          <!-- CTA ZONE -->
+          <div class="cta-zone">
+            <div class="cta-zone-left">
+              <h2>15 minutes pour transformer votre digital.</h2>
+              <p>Appel gratuit · Sans engagement · On vous répond sous 24h</p>
+            </div>
+            <div class="cta-zone-right">
+              <a href="/contact" class="btn-primary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 2v4M16 2v4M3 10h18M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"/></svg>
+                Réservez un appel
+              </a>
+              <a href="mailto:dk@dkdp.ch" class="btn-ghost">dk@dkdp.ch</a>
+            </div>
+          </div>
+
+          <!-- NAV GRID -->
+          <div class="nav-grid">
+
+            <!-- Brand -->
+            <div class="brand-col">
+              <div class="brand-logo">DKDP</div>
+              <p class="brand-desc">Agence digitale en Suisse romande.<br/>IA · Formation · Web</p>
+              <address class="brand-address" style="font-style:normal;">
+                36 Rue du 31 Décembre<br/>
+                1207 Genève, Suisse<br/>
+                Lun–Ven 09:00–18:00
+              </address>
+              <div class="socials">
+                <div class="social-btn linkedin" title="LinkedIn">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                </div>
+                <div class="social-btn instagram" title="Instagram">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="#0D0D0D"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <div class="social-btn google" title="Google">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.8 12.2c0-.7-.1-1.3-.2-1.9H12v3.6h5.5c-.2 1.3-1 2.4-2.1 3.1v2.6h3.4c2-1.8 3-4.5 3-7.4z" fill="#9CA3AF"/><path d="M12 22c2.7 0 5-.9 6.7-2.4l-3.4-2.6c-.9.6-2 1-3.3 1-2.5 0-4.7-1.7-5.5-4H3v2.7C4.8 19.9 8.1 22 12 22z" fill="#6B7280"/><path d="M6.5 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.3H3C2.4 8.5 2 9.7 2 12s.4 3.5 1 4.7L6.5 14z" fill="#4B5563"/><path d="M12 5.4c1.4 0 2.6.5 3.6 1.3l2.7-2.7C16.9 2.5 14.7 1.6 12 1.6 8.1 1.6 4.8 3.7 3 7l3.5 2.7C7.3 7.1 9.5 5.4 12 5.4z" fill="#6B7280"/></svg>
+                </div>
+              </div>
+              <a href="tel:+41799407969" style="font-size:10px;color:#4B5563;text-decoration:none;margin-top:4px;">+41 79 940 79 69</a>
+            </div>
+
+            <!-- Agence Digitale -->
+            <div class="nav-col">
+              <div class="nav-col-label violet">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                Agence Digitale
+                <span class="pillar-badge violet">hub</span>
+              </div>
+              <ul>
+                <li><a href="/agence-digitale/creation-site-web"><span class="icon i-globe"></span>Création de site web</a></li>
+                <li><a href="/agence-digitale/seo"><span class="icon i-search"></span>SEO & Référencement</a></li>
+                <li><a href="/agence-digitale/publicite-sea"><span class="icon i-megaphone"></span>Publicité SEA (Google Ads)</a></li>
+                <li><a href="/agence-digitale/reseaux-sociaux"><span class="icon i-share"></span>Réseaux sociaux</a></li>
+                <li><a href="/agence-digitale/creation-video"><span class="icon i-film"></span>Création vidéo</a></li>
+                <li><a href="/agence-digitale/consulting-marketing"><span class="icon i-presentation"></span>Consulting marketing</a></li>
+                <li><a href="/agence-digitale/rgpd-cookies"><span class="icon i-shield"></span>RGPD & Cookies</a></li>
+              </ul>
+              <a href="/agence-digitale" class="hub-link violet">Voir tous les services →</a>
+            </div>
+
+            <!-- Intelligence Artificielle -->
+            <div class="nav-col">
+              <div class="nav-col-label chrome">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4D4D8" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v4l3 3"/></svg>
+                Intelligence Artificielle
+                <span class="pillar-badge chrome">hub</span>
+              </div>
+              <ul>
+                <li><a href="/intelligence-artificielle/agents-ia"><span class="icon i-bot"></span>Agents IA sur mesure</a></li>
+                <li><a href="/intelligence-artificielle/automatisation"><span class="icon i-workflow"></span>Automatisation métier</a></li>
+                <li><a href="/intelligence-artificielle/audit-conseil"><span class="icon i-audit"></span>Audit & Conseil IA</a></li>
+                <li><a href="/intelligence-artificielle/mise-en-place"><span class="icon i-cpu"></span>Mise en place IA</a></li>
+              </ul>
+              <a href="/intelligence-artificielle" class="hub-link chrome">Voir toutes les solutions IA →</a>
+            </div>
+
+            <!-- Formation -->
+            <div class="nav-col">
+              <div class="nav-col-label orange">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF8C00" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                Formation Entreprise
+                <span class="pillar-badge orange">hub</span>
+              </div>
+              <ul>
+                <li><a href="/formation-entreprise/ia"><span class="icon i-brain"></span>Formation IA entreprise</a></li>
+                <li><a href="/formation-entreprise/bureautique"><span class="icon i-book"></span>Bureautique</a></li>
+                <li><a href="/formation-entreprise/reseaux-sociaux"><span class="icon i-share-o"></span>Réseaux sociaux</a></li>
+                <li><a href="/formation-entreprise/cybersecurite"><span class="icon i-shield-o"></span>Cybersécurité</a></li>
+                <li><a href="/formation-entreprise/web-design"><span class="icon i-palette"></span>Web design</a></li>
+                <li><a href="/formation-entreprise/informatique"><span class="icon i-cpu-o"></span>Informatique</a></li>
+                <li><a href="/formation-entreprise/montage-video"><span class="icon i-film-o"></span>Montage vidéo</a></li>
+                <li><a href="/formation-particuliers"><span class="icon i-users"></span>Pour les particuliers</a></li>
+              </ul>
+              <a href="/formation-entreprise" class="hub-link orange">Voir toutes les formations →</a>
+            </div>
+
+            <!-- Autres pages -->
+            <div class="nav-col">
+              <div class="nav-col-label neutral">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+                Pages
+              </div>
+              <ul>
+                <li><a href="/realisations"><span class="icon i-star"></span>Réalisations</a></li>
+                <li><a href="/tarifs"><span class="icon i-file"></span>Tarifs</a></li>
+                <li><a href="/blog"><span class="icon i-blog"></span>Blog</a></li>
+                <li><a href="/a-propos"><span class="icon i-info"></span>À propos</a></li>
+                <li><a href="/comment-ca-marche"><span class="icon i-method"></span>Comment ça marche</a></li>
+                <li><a href="/glossaire"><span class="icon i-glossaire"></span>Glossaire</a></li>
+                <li><a href="/formation-particuliers"><span class="icon i-grad"></span>Formation particuliers</a></li>
+                <li><a href="/contact"><span class="icon i-phone"></span>Contact</a></li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- BOTTOM BAR -->
+          <div class="bottom-bar">
+            <span class="copy">© 2026 dkdp.ch · Tous droits réservés</span>
+            <div class="legal">
+              <a href="/mentions-legales">Mentions légales</a>
+              <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+              <a href="/rgpd-cookies">RGPD & Cookies</a>
+            </div>
+          </div>
+
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<div class="info-note" style="max-width:900px;margin:24px auto;">
+  <strong>Note :</strong> L'effet sticky est actif — le footer reste collé au bas de l'écran pendant que tu scrolles. Sur mobile, les 4 colonnes de nav s'empilent verticalement avec leurs accordéons. Les icônes utilisent lucide-react (déjà installé dans le projet).
+</div>
+
+</body>
+</html>

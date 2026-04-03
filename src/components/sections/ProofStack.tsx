@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useInView } from 'framer-motion'
 import Image from 'next/image'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
@@ -26,26 +25,37 @@ const LOGO_GRID = [
 
 function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
   const [count, setCount] = useState(0)
   const isDecimal = !Number.isInteger(end)
+  const triggered = useRef(false)
 
   useEffect(() => {
-    if (!isInView) return
-    const duration = 1500
-    const fps = 60
-    const totalFrames = (duration / 1000) * fps
-    let frame = 0
-    const timer = setInterval(() => {
-      frame++
-      const progress = frame / totalFrames
-      const eased = 1 - Math.pow(1 - progress, 3) // ease-out cubic
-      const value = Math.min(end * eased, end)
-      setCount(isDecimal ? parseFloat(value.toFixed(1)) : Math.floor(value))
-      if (frame >= totalFrames) clearInterval(timer)
-    }, 1000 / fps)
-    return () => clearInterval(timer)
-  }, [isInView, end, isDecimal])
+    const el = ref.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !triggered.current) {
+          triggered.current = true
+          io.disconnect()
+          const duration = 1500
+          const fps = 60
+          const totalFrames = (duration / 1000) * fps
+          let frame = 0
+          const timer = setInterval(() => {
+            frame++
+            const progress = frame / totalFrames
+            const eased = 1 - Math.pow(1 - progress, 3)
+            const value = Math.min(end * eased, end)
+            setCount(isDecimal ? parseFloat(value.toFixed(1)) : Math.floor(value))
+            if (frame >= totalFrames) clearInterval(timer)
+          }, 1000 / fps)
+        }
+      },
+      { rootMargin: '-50px' }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [end, isDecimal])
 
   return (
     <span ref={ref} className="text-4xl md:text-5xl font-bold text-white" aria-label={`${end}${suffix}`}>
@@ -89,8 +99,9 @@ export function ProofStack() {
                 <Image
                   src={`/images/clients/${logo.file}`}
                   alt={logo.name}
-                  width={Math.round(logo.width * 2.7)}
-                  height={108}
+                  width={logo.width}
+                  height={logo.small ? 42 : 84}
+                  sizes={`${logo.width}px`}
                   className={`object-contain w-auto ${logo.small ? 'h-[42px]' : 'h-[84px]'}`}
                 />
               </div>

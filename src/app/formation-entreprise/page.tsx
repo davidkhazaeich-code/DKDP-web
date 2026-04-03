@@ -14,6 +14,7 @@ import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { FormationROICalculator } from '@/components/sections/FormationROICalculator'
+import { ParallaxOrangeBlobs } from '@/components/ui/ParallaxOrangeBlobs'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_FORMATION } from '@/data/faq-formation'
@@ -61,7 +62,7 @@ const PROGRAMS = [
     image: '/images/services/dkdp-formation-ia.webp',
   },
   {
-    Icon: Sparkles, title: 'Formation Claude AI', href: '/formation-entreprise/claude-ai',
+    Icon: Sparkles, title: 'Claude Cowork', href: '/formation-entreprise/claude-ai',
     description: 'Maîtrisez Claude.ai, les Projects collaboratifs et Claude Code. La formation spécialisée sur l\'IA la plus puissante du marché.',
     badge: 'Nouveau',
     image: '/images/services/dkdp-formation-ia.webp',
@@ -263,7 +264,8 @@ export default function FormationEntreprisePage() {
       </section>
 
       {/* ── Programmes ── */}
-      <section id="programmes" className="py-24 bg-bg-card border-y border-border">
+      <section id="programmes" className="relative py-24 bg-bg-card border-y border-border overflow-hidden">
+        <ParallaxOrangeBlobs />
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="mb-14">

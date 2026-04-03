@@ -141,11 +141,11 @@ export function ROICalculatorFormation() {
 
           {/* ── Sliders ── */}
           <div
-            className="rounded-[20px] p-6 sm:p-8 border space-y-6 sm:space-y-8 backdrop-blur-sm"
+            className="rounded-[20px] p-6 sm:p-8 border space-y-6 sm:space-y-8 backdrop-blur-md"
             style={{
-              background: 'rgba(212,212,216,0.03)',
+              background: 'rgba(12,12,14,0.65)',
               borderColor: chromeBd,
-              boxShadow: '0 0 40px rgba(212,212,216,0.04)',
+              boxShadow: '0 0 40px rgba(212,212,216,0.06)',
             }}
           >
             <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'rgba(212,212,216,0.45)' }}>
@@ -192,8 +192,8 @@ export function ROICalculatorFormation() {
             {/* Grands chiffres - vert */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div
-                className="rounded-[14px] sm:rounded-[16px] p-4 sm:p-6 border backdrop-blur-sm"
-                style={{ background: 'rgba(74,222,128,0.06)', borderColor: 'rgba(74,222,128,0.20)' }}
+                className="rounded-[14px] sm:rounded-[16px] p-4 sm:p-6 border backdrop-blur-md"
+                style={{ background: 'rgba(10,22,14,0.70)', borderColor: 'rgba(74,222,128,0.22)' }}
               >
                 <p className="flex items-center gap-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest mb-2 sm:mb-3" style={{ color: green }}>
                   <Timer size={12} /> Heures libérées / an
@@ -207,8 +207,8 @@ export function ROICalculatorFormation() {
               </div>
 
               <div
-                className="rounded-[14px] sm:rounded-[16px] p-4 sm:p-6 border backdrop-blur-sm"
-                style={{ background: 'rgba(74,222,128,0.06)', borderColor: 'rgba(74,222,128,0.20)' }}
+                className="rounded-[14px] sm:rounded-[16px] p-4 sm:p-6 border backdrop-blur-md"
+                style={{ background: 'rgba(10,22,14,0.70)', borderColor: 'rgba(74,222,128,0.22)' }}
               >
                 <p className="flex items-center gap-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest mb-2 sm:mb-3" style={{ color: green }}>
                   <TrendingUp size={12} /> Gains estimés / an
@@ -224,8 +224,8 @@ export function ROICalculatorFormation() {
 
             {/* Projection formation - chrome neutre */}
             <div
-              className="rounded-[16px] p-6 border backdrop-blur-sm"
-              style={{ background: chromeBg, borderColor: chromeBd }}
+              className="rounded-[16px] p-6 border backdrop-blur-md"
+              style={{ background: 'rgba(12,12,14,0.65)', borderColor: chromeBd }}
             >
               <p
                 className="text-[10px] font-bold uppercase tracking-widest mb-5"

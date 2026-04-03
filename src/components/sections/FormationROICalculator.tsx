@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 
 const accent      = '#FF8C00'
 const accentBg    = 'rgba(255,107,0,0.08)'
@@ -116,6 +117,12 @@ export function FormationROICalculator() {
   }, [collaborateurs, heuresParSemaine, coutHoraire])
 
   return (
+    <InfiniteGrid
+      accentRgb="255,107,0"
+      blob1="rgba(255,107,0,0.07)"
+      blob2="rgba(212,212,216,0.04)"
+      className="bg-bg-card border-y border-border"
+    >
     <section className="py-24">
       <div className="max-w-[1200px] mx-auto px-6">
         <SectionReveal>
@@ -132,13 +139,13 @@ export function FormationROICalculator() {
 
         <SectionReveal delay={0.1}>
           <div
-            className="rounded-[24px] border overflow-hidden"
-            style={{ background: 'rgba(18,12,6,0.6)', borderColor: chromeBd }}
+            className="rounded-[24px] border overflow-hidden backdrop-blur-md"
+            style={{ background: 'rgba(12,8,4,0.72)', borderColor: chromeBd, boxShadow: '0 0 60px rgba(255,107,0,0.06)' }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2">
 
               {/* ── Left: sliders ── */}
-              <div className="p-8 md:p-10 space-y-8 border-b lg:border-b-0 lg:border-r" style={{ borderColor: chromeBd }}>
+              <div className="p-8 md:p-10 space-y-8 border-b lg:border-b-0 lg:border-r backdrop-blur-sm" style={{ borderColor: chromeBd, background: 'rgba(255,107,0,0.02)' }}>
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-widest mb-6" style={{ color: accent }}>
                     Votre situation actuelle
@@ -176,8 +183,8 @@ export function FormationROICalculator() {
 
                 {/* Before / After visual */}
                 <div
-                  className="rounded-[14px] p-5 border"
-                  style={{ background: chromeBg, borderColor: chromeBd }}
+                  className="rounded-[14px] p-5 border backdrop-blur-sm"
+                  style={{ background: 'rgba(212,212,216,0.05)', borderColor: chromeBd }}
                 >
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: accent }}>
                     Temps moyen sur une tâche digitale
@@ -217,14 +224,14 @@ export function FormationROICalculator() {
               </div>
 
               {/* ── Right: results ── */}
-              <div className="p-8 md:p-10 flex flex-col gap-5">
+              <div className="p-8 md:p-10 flex flex-col gap-5 backdrop-blur-sm" style={{ background: 'rgba(0,0,0,0.15)' }}>
                 <p className="text-[11px] font-bold uppercase tracking-widest" style={{ color: accent }}>
                   Impact estimé pour votre entreprise
                 </p>
 
                 {/* Main metric */}
                 <div
-                  className="rounded-[16px] p-6 border text-center"
+                  className="rounded-[16px] p-6 border text-center backdrop-blur-sm"
                   style={{ background: greenBg, borderColor: greenBorder }}
                 >
                   <p className="text-text-muted text-xs mb-1">Valeur libérée sur 1 an</p>
@@ -239,7 +246,7 @@ export function FormationROICalculator() {
                 {/* 3 sub-metrics */}
                 <div className="grid grid-cols-2 gap-3">
                   <div
-                    className="rounded-[12px] p-4 border"
+                    className="rounded-[12px] p-4 border backdrop-blur-sm"
                     style={{ background: chromeBg, borderColor: chromeBd }}
                   >
                     <p className="text-text-muted text-[10px] mb-1">Heures récupérées / sem.</p>
@@ -251,7 +258,7 @@ export function FormationROICalculator() {
                     </p>
                   </div>
                   <div
-                    className="rounded-[12px] p-4 border"
+                    className="rounded-[12px] p-4 border backdrop-blur-sm"
                     style={{ background: chromeBg, borderColor: chromeBd }}
                   >
                     <p className="text-text-muted text-[10px] mb-1">Heures libérées / an</p>
@@ -266,8 +273,8 @@ export function FormationROICalculator() {
 
                 {/* Investment vs ROI */}
                 <div
-                  className="rounded-[16px] p-5 border"
-                  style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.08)' }}
+                  className="rounded-[16px] p-5 border backdrop-blur-sm"
+                  style={{ background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.09)' }}
                 >
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div>
@@ -330,5 +337,6 @@ export function FormationROICalculator() {
         </SectionReveal>
       </div>
     </section>
+    </InfiniteGrid>
   )
 }

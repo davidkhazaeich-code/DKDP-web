@@ -112,9 +112,9 @@ export function ROICalculator() {
 
   return (
     <HeroBg
-     
       blob1="rgba(212,212,216,0.07)"
       blob2="rgba(124,58,237,0.06)"
+      accentRgb="212,212,216"
       className="bg-bg-card border-y border-border"
     >
     <section id="calculateur-roi" className="py-16 md:py-24">

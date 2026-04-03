@@ -42,7 +42,7 @@ const TESTIMONIALS = [
   },
 ] as const
 
-export function Testimonials({ className }: { className?: string }) {
+export function Testimonials({ className, accentRgb }: { className?: string; accentRgb?: string }) {
   const [current, setCurrent] = useState(0)
   const [expanded, setExpanded] = useState(false)
 
@@ -81,7 +81,7 @@ export function Testimonials({ className }: { className?: string }) {
   }
 
   return (
-    <HeroBg className="bg-bg-card border-y border-border" blob1="rgba(124,58,237,0.09)" blob2="rgba(255,107,0,0.06)">
+    <HeroBg className="bg-bg-card border-y border-border" blob1="rgba(124,58,237,0.09)" blob2="rgba(255,107,0,0.06)" accentRgb={accentRgb}>
     <section
       aria-labelledby="testimonials-heading"
       className={className ?? 'py-24'}

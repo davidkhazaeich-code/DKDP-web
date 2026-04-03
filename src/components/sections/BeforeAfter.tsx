@@ -24,9 +24,9 @@ const TRANSFORMATIONS = [
   },
 ] as const
 
-export function BeforeAfter() {
+export function BeforeAfter({ accentRgb }: { accentRgb?: string } = {}) {
   return (
-    <HeroBg>
+    <HeroBg accentRgb={accentRgb}>
       <section aria-labelledby="beforeafter-heading" className="py-36">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>

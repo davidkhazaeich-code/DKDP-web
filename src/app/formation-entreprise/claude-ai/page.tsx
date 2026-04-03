@@ -152,7 +152,7 @@ export default function FormationClaudeAIPage() {
       ])} />
 
       {/* ══ 1. Hero ══ */}
-      <HeroBg blob1="rgba(124,58,237,0.15)" blob2="rgba(167,139,250,0.06)">
+      <HeroBg blob1="rgba(124,58,237,0.15)" blob2="rgba(167,139,250,0.06)" accentRgb="167,139,250">
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             {/* Breadcrumb */}
@@ -814,6 +814,7 @@ export default function FormationClaudeAIPage() {
       <HeroBg
         blob1="rgba(255,107,0,0.06)"
         blob2="rgba(212,212,216,0.04)"
+        accentRgb="167,139,250"
         className="border-b border-border"
       >
       <section id="metiers" className="py-24">
@@ -1184,6 +1185,7 @@ export default function FormationClaudeAIPage() {
       <HeroBg
         blob1="rgba(255,107,0,0.08)"
         blob2="rgba(124,58,237,0.05)"
+        accentRgb="167,139,250"
         className="border-b border-border"
       >
         <section className="py-24">
@@ -1221,7 +1223,7 @@ export default function FormationClaudeAIPage() {
       </HeroBg>
 
       {/* ══ 13. Testimonials ══ */}
-      <Testimonials />
+      <Testimonials accentRgb="167,139,250" />
 
       {/* ══ 13. FAQ ══ */}
       <section id="faq" className="py-24 border-b border-border">
@@ -1260,7 +1262,7 @@ export default function FormationClaudeAIPage() {
       </section>
 
       {/* ══ 14. CTA Final ══ */}
-      <CTAFinal />
+      <CTAFinal accentRgb="167,139,250" />
     </main>
   )
 }

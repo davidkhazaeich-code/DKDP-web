@@ -184,6 +184,7 @@ export default function AProposPage() {
       <HeroBg
         blob1="rgba(212,212,216,0.08)"
         blob2="rgba(124,58,237,0.07)"
+        accentRgb="156,163,175"
       >
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
@@ -437,6 +438,7 @@ export default function AProposPage() {
       <HeroBg
         blob1="rgba(212,212,216,0.06)"
         blob2="rgba(255,107,0,0.04)"
+        accentRgb="156,163,175"
         className="border-b border-border"
       >
         <section className="py-24">
@@ -576,7 +578,7 @@ export default function AProposPage() {
       </section>
 
       {/* ── CTA ── */}
-      <CTAFinal />
+      <CTAFinal accentRgb="156,163,175" />
     </main>
   )
 }

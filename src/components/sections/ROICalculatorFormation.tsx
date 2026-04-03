@@ -113,9 +113,9 @@ export function ROICalculatorFormation() {
 
   return (
     <HeroBg
-     
       blob1="rgba(212,212,216,0.06)"
       blob2="rgba(255,107,0,0.04)"
+      accentRgb="255,140,0"
       className="bg-bg-card border-y border-border"
     >
     <section id="calculateur-roi-formation" className="py-16 md:py-24">

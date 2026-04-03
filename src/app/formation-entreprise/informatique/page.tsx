@@ -88,7 +88,7 @@ export default function FormationInformatiquePage() {
       ])} />
 
       {/* ── Hero ── */}
-      <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
+      <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
@@ -345,7 +345,7 @@ export default function FormationInformatiquePage() {
       </section>
 
       {/* ── Tarifs ── */}
-      <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
+      <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
         <section className="py-24 border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -499,7 +499,7 @@ export default function FormationInformatiquePage() {
       </section>
 
       {/* ── CTA ── */}
-      <CTAFinal />
+      <CTAFinal accentRgb="255,140,0" />
     </main>
   )
 }

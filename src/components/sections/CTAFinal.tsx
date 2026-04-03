@@ -5,9 +5,9 @@ import { Watermark } from '@/components/ui/Watermark'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
 
-export function CTAFinal() {
+export function CTAFinal({ accentRgb }: { accentRgb?: string } = {}) {
   return (
-    <HeroBg>
+    <HeroBg accentRgb={accentRgb}>
       <section aria-labelledby="cta-heading" className="py-16 md:py-[130px] lg:py-[200px] relative">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <Watermark />

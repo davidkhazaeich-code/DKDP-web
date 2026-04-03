@@ -109,9 +109,9 @@ const STEPS = [
   },
 ] as const
 
-export function ProcessSteps() {
+export function ProcessSteps({ accentRgb }: { accentRgb?: string } = {}) {
   return (
-    <HeroBg blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.08)">
+    <HeroBg blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.08)" accentRgb={accentRgb}>
     <section aria-labelledby="process-heading" className="py-32">
       <div className="max-w-[1200px] mx-auto px-6">
         <SectionReveal>

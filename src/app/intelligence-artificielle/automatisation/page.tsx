@@ -177,6 +177,7 @@ export default function AutomationPage() {
       <HeroBg
         blob1="rgba(212,212,216,0.09)"
         blob2="rgba(124,58,237,0.08)"
+        accentRgb="212,212,216"
       >
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
@@ -538,7 +539,7 @@ export default function AutomationPage() {
       </section>
 
       {/* ── Témoignages ── */}
-      <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)">
+      <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)" accentRgb="212,212,216">
         <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -707,7 +708,7 @@ export default function AutomationPage() {
       </section>
 
       {/* ── CTA ── */}
-      <CTAFinal />
+      <CTAFinal accentRgb="212,212,216" />
     </main>
   )
 }

@@ -12,7 +12,6 @@ import { buildLocalBusiness, buildFAQPage, buildWebSite } from '@/lib/schema'
 // Sections sous le fold — lazy-loadées pour ne pas bloquer le bundle initial (LCP/TTI)
 const ProblemBlock = dynamic(() => import('@/components/sections/ProblemBlock').then(m => ({ default: m.ProblemBlock })))
 const ProcessSteps = dynamic(() => import('@/components/sections/ProcessSteps').then(m => ({ default: m.ProcessSteps })))
-const BeforeAfter  = dynamic(() => import('@/components/sections/BeforeAfter').then(m => ({ default: m.BeforeAfter })))
 const ProofStack   = dynamic(() => import('@/components/sections/ProofStack').then(m => ({ default: m.ProofStack })))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 const TeamSection  = dynamic(() => import('@/components/sections/TeamSection').then(m => ({ default: m.TeamSection })))
@@ -45,8 +44,7 @@ export default function HomePage() {
         <PillarCards />
         <FeaturedServices />
         <ProcessSteps />
-        <BeforeAfter />
-        <ProofStack />
+<ProofStack />
         <Testimonials />
         <TeamSection />
         <FAQSection />

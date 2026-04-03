@@ -5,6 +5,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
+import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 
 const TESTIMONIALS = [
   {
@@ -80,6 +81,7 @@ export function Testimonials({ className }: { className?: string }) {
   }
 
   return (
+    <InfiniteGrid blob1="rgba(124,58,237,0.09)" blob2="rgba(255,107,0,0.06)">
     <section
       aria-labelledby="testimonials-heading"
       className={className ?? 'py-24 bg-bg-card border-y border-border'}
@@ -202,5 +204,6 @@ export function Testimonials({ className }: { className?: string }) {
         </div>
       </div>
     </section>
+    </InfiniteGrid>
   )
 }

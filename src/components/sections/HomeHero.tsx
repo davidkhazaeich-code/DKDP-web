@@ -45,57 +45,47 @@ export function HomeHero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
 
-      {/* ── Mobile : grille CSS pure (aucun JS, aucun framer-motion) ── */}
-      {isDesktop === false && (
-        <>
-          {/* Grille animée — compositor only, zéro TBT */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0"
-            style={{
-              backgroundImage: GRID_SVG,
-              backgroundSize: '60px 60px',
-              animation: 'gridScrollUp 2s linear infinite',
-              zIndex: 1,
-            }}
-          />
-          {/* Blobs mobiles */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute"
-            style={{
-              top: '-5%', left: '0%',
-              width: '38%', height: '50%',
-              background: 'rgba(124,58,237,0.12)',
-              borderRadius: '50%',
-              filter: 'blur(70px)',
-              animation: 'blobFloat 8s ease-in-out infinite',
-              zIndex: 0,
-            }}
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute"
-            style={{
-              bottom: '-5%', right: '0%',
-              width: '35%', height: '45%',
-              background: 'rgba(255,107,0,0.09)',
-              borderRadius: '50%',
-              filter: 'blur(70px)',
-              animation: 'blobFloat 10s ease-in-out infinite reverse',
-              zIndex: 0,
-            }}
-          />
-        </>
-      )}
+      {/* ── Fond immédiat : grille CSS + blobs — visible dès le SSR, zéro JS ── */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: GRID_SVG,
+          backgroundSize: '60px 60px',
+          animation: 'gridScrollUp 2s linear infinite',
+          zIndex: 1,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute"
+        style={{
+          top: '-5%', left: '0%',
+          width: '38%', height: '50%',
+          background: 'rgba(124,58,237,0.12)',
+          borderRadius: '50%',
+          filter: 'blur(70px)',
+          animation: 'blobFloat 8s ease-in-out infinite',
+          zIndex: 0,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute"
+        style={{
+          bottom: '-5%', right: '0%',
+          width: '35%', height: '45%',
+          background: 'rgba(255,107,0,0.09)',
+          borderRadius: '50%',
+          filter: 'blur(70px)',
+          animation: 'blobFloat 10s ease-in-out infinite reverse',
+          zIndex: 0,
+        }}
+      />
 
-      {/* ── Desktop : Three.js dots + blobs ── */}
+      {/* ── Desktop uniquement : Three.js dots par-dessus la grille CSS ── */}
       {isDesktop === true && (
-        <>
-          <DottedSurface className="absolute inset-0 z-0 opacity-60" />
-          <div className="blob-orange absolute -top-32 -left-32 w-[600px] h-[600px] opacity-25 pointer-events-none" />
-          <div className="blob-violet absolute -bottom-32 -right-32 w-[600px] h-[600px] opacity-20 pointer-events-none" />
-        </>
+        <DottedSurface className="absolute inset-0 z-[2] opacity-60" />
       )}
 
       {/* ── Contenu — toujours dans le HTML SSR, jamais conditionnel ── */}
@@ -113,7 +103,7 @@ export function HomeHero() {
           et on forme vos collaborateurs. Résultats mesurables, pas de blabla.
         </p>
         <div className="flex justify-center">
-          <LiquidMetalButton href="#nos-expertises" size="lg" shaderDelay={300}>
+          <LiquidMetalButton href="#nos-expertises" size="lg">
             Découvrez nos services →
           </LiquidMetalButton>
         </div>

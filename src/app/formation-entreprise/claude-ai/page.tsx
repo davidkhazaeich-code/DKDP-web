@@ -484,39 +484,113 @@ export default function FormationClaudeAIPage() {
               className="rounded-[20px] p-6 md:p-8"
               style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
-              <p className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: V }}>Comparatif rapide</p>
+              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: V }}>Comparatif rapide</p>
+              <p className="text-text-muted text-xs mb-6">Évaluation DKDP basée sur les versions 2026 (Claude Sonnet 4.6, GPT-4o, Microsoft Copilot)</p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
-                    <tr>
-                      <th className="text-left py-2 px-4 text-xs font-bold uppercase tracking-wider text-text-muted">Critère</th>
-                      <th className="text-center py-2 px-4 text-xs font-bold" style={{ color: V }}>Claude</th>
-                      <th className="text-center py-2 px-4 text-xs font-bold text-[#10b981]">ChatGPT</th>
-                      <th className="text-center py-2 px-4 text-xs font-bold text-[#3b82f6]">Copilot</th>
+                    <tr className="border-b border-zinc-800">
+                      <th className="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-text-muted w-[40%]">Critère</th>
+                      <th className="text-center py-3 px-4 text-xs font-bold" style={{ color: V }}>Claude</th>
+                      <th className="text-center py-3 px-4 text-xs font-bold text-[#10b981]">ChatGPT</th>
+                      <th className="text-center py-3 px-4 text-xs font-bold text-[#3b82f6]">Copilot</th>
                     </tr>
                   </thead>
                   <tbody>
                     {[
-                      { crit: 'Documents et contexte long', claude: '★★★★★', gpt: '★★★★☆', cop: '★★★☆☆' },
-                      { crit: 'Raisonnement complexe', claude: '★★★★★', gpt: '★★★★☆', cop: '★★★☆☆' },
-                      { crit: 'Travail collaboratif (Projects)', claude: '★★★★★', gpt: '★★★☆☆', cop: '★★★★☆' },
-                      { crit: 'Confidentialité données', claude: '★★★★★', gpt: '★★★★☆', cop: '★★★★☆' },
-                      { crit: 'Développement (Claude Code)', claude: '★★★★★', gpt: '★★★★☆', cop: '★★★★☆' },
-                      { crit: 'Intégration Office 365', claude: '★★★☆☆', gpt: '★★★★☆', cop: '★★★★★' },
-                      { crit: 'Génération d\'images', claude: '★★☆☆☆', gpt: '★★★★★', cop: '★★★★☆' },
-                    ].map((row, i) => (
-                      <tr key={row.crit} className={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
-                        <td className="py-2.5 px-4 text-zinc-300 font-medium text-[13px]">{row.crit}</td>
-                        <td className="py-2.5 px-4 text-center text-[13px]" style={{ color: V }}>{row.claude}</td>
-                        <td className="py-2.5 px-4 text-center text-[13px] text-[#10b981]">{row.gpt}</td>
-                        <td className="py-2.5 px-4 text-center text-[13px] text-[#3b82f6]">{row.cop}</td>
-                      </tr>
-                    ))}
+                      {
+                        crit: 'Contexte long (documents entiers)',
+                        sub: 'Haiku 200k · Sonnet/Opus 1M tokens',
+                        claude: { n: 5, color: V },
+                        gpt:    { n: 4, color: '#10b981' },
+                        cop:    { n: 2, color: '#3b82f6' },
+                      },
+                      {
+                        crit: 'Raisonnement et analyse complexe',
+                        sub: 'Extended Thinking vs o3 vs GPT-4o',
+                        claude: { n: 5, color: V },
+                        gpt:    { n: 5, color: '#10b981' },
+                        cop:    { n: 3, color: '#3b82f6' },
+                      },
+                      {
+                        crit: 'Confidentialité et contrôle données',
+                        sub: 'Plan Team/Enterprise : zéro rétention',
+                        claude: { n: 5, color: V },
+                        gpt:    { n: 4, color: '#10b981' },
+                        cop:    { n: 4, color: '#3b82f6' },
+                      },
+                      {
+                        crit: 'Travail collaboratif (Projects)',
+                        sub: 'Mémoire partagée, fichiers, instructions',
+                        claude: { n: 5, color: V },
+                        gpt:    { n: 3, color: '#10b981' },
+                        cop:    { n: 4, color: '#3b82f6' },
+                      },
+                      {
+                        crit: 'Développement et code (agent)',
+                        sub: 'Claude Code vs GitHub Copilot vs GPT Operator',
+                        claude: { n: 5, color: V },
+                        gpt:    { n: 4, color: '#10b981' },
+                        cop:    { n: 4, color: '#3b82f6' },
+                      },
+                      {
+                        crit: 'Analyse de documents visuels (PDF, images)',
+                        sub: 'Tableaux, graphiques, schémas scannés',
+                        claude: { n: 5, color: V },
+                        gpt:    { n: 4, color: '#10b981' },
+                        cop:    { n: 3, color: '#3b82f6' },
+                      },
+                      {
+                        crit: 'Intégration Microsoft 365',
+                        sub: 'Word, Excel, Outlook, Teams natif',
+                        claude: { n: 2, color: V },
+                        gpt:    { n: 3, color: '#10b981' },
+                        cop:    { n: 5, color: '#3b82f6' },
+                      },
+                      {
+                        crit: 'Génération d\'images',
+                        sub: 'DALL-E 3 vs Image Creator vs aucun natif',
+                        claude: { n: 1, color: V },
+                        gpt:    { n: 5, color: '#10b981' },
+                        cop:    { n: 4, color: '#3b82f6' },
+                      },
+                    ].map((row, i) => {
+                      const Stars = ({ n, color }: { n: number; color: string }) => (
+                        <span className="inline-flex items-center gap-0.5">
+                          {Array.from({ length: 5 }).map((_, idx) => (
+                            <span
+                              key={idx}
+                              className="text-[13px] leading-none"
+                              style={{ color: idx < n ? color : '#3f3f46' }}
+                            >
+                              ★
+                            </span>
+                          ))}
+                          <span
+                            className="ml-1.5 text-[10px] font-bold tabular-nums"
+                            style={{ color: n >= 4 ? color : '#71717a' }}
+                          >
+                            {n}/5
+                          </span>
+                        </span>
+                      )
+                      return (
+                        <tr key={row.crit} className={`border-b border-zinc-800/50 ${i % 2 === 0 ? 'bg-white/[0.015]' : ''}`}>
+                          <td className="py-3 px-4">
+                            <p className="text-zinc-200 font-medium text-[13px] leading-snug">{row.crit}</p>
+                            <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">{row.sub}</p>
+                          </td>
+                          <td className="py-3 px-4 text-center"><Stars n={row.claude.n} color={row.claude.color} /></td>
+                          <td className="py-3 px-4 text-center"><Stars n={row.gpt.n} color={row.gpt.color} /></td>
+                          <td className="py-3 px-4 text-center"><Stars n={row.cop.n} color={row.cop.color} /></td>
+                        </tr>
+                      )
+                    })}
                   </tbody>
                 </table>
               </div>
-              <p className="text-text-muted text-xs mt-4 text-right">
-                Recommandation DKDP : Claude pour l&apos;analyse et la profondeur · ChatGPT pour la polyvalence · Copilot si vous êtes sur Microsoft 365
+              <p className="text-zinc-600 text-[11px] mt-5 text-right">
+                Recommandation DKDP : Claude pour l&apos;analyse et la profondeur · ChatGPT pour la créativité et les images · Copilot si Microsoft 365 est votre stack
               </p>
             </div>
           </SectionReveal>

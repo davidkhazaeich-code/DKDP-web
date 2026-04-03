@@ -29,26 +29,26 @@ const TERMS: Term[] = [
     term: 'Agent IA',
     category: 'IA',
     definition:
-      'Programme autonome capable de percevoir son environnement, prendre des décisions et exécuter des actions pour atteindre un objectif défini. Un agent IA se distingue d\'un simple chatbot par sa capacité à enchainer plusieurs étapes sans intervention humaine : lire un email, extraire les données, mettre à jour un CRM et envoyer une confirmation, le tout automatiquement. En entreprise, les agents IA les plus courants gèrent le tri d\'emails, la qualification de leads, la rédaction de comptes rendus et la veille concurrentielle. Selon McKinsey (2024), les entreprises utilisant des agents IA réduisent de 25 à 45 % le temps consacré aux taches administratives répétitives. En Suisse romande, une PME de 10 personnes peut économiser jusqu\'à 15 heures par semaine en déployant un agent IA sur ses processus internes. DKDP conçoit des agents IA sur mesure adaptés aux workflows spécifiques de chaque entreprise genevoise.',
+      'Programme autonome qui enchaine des actions sans intervention humaine : lire un email, extraire des données, mettre à jour un CRM et envoyer une confirmation. Se distingue d\'un chatbot par sa capacité à prendre des décisions sur plusieurs étapes. Réduit de 25 à 45 % les taches administratives répétitives.',
     link: '/intelligence-artificielle/agents-ia',
   },
   {
     term: 'API',
     category: 'Web',
     definition:
-      'Interface de programmation permettant à deux logiciels de communiquer entre eux. Ex. : votre CRM qui parle à votre outil de facturation via une API.',
+      'Interface qui permet à deux logiciels de communiquer. Votre CRM peut ainsi envoyer automatiquement des données à votre outil de facturation ou à votre newsletter. Fondement de toute intégration entre outils digitaux.',
   },
   {
     term: 'AEO',
     category: 'SEO',
     definition:
-      'Answer Engine Optimization. Discipline du marketing digital qui consiste à optimiser le contenu d\'un site pour apparaitre directement dans les réponses générées par les moteurs de réponse IA tels que ChatGPT, Perplexity, Google AI Overviews et Bing Copilot. L\'AEO se distingue du SEO classique par son objectif : au lieu de positionner un lien dans une liste de résultats, on cherche à ce que l\'IA cite le contenu comme source fiable dans sa réponse. Les techniques AEO incluent la structuration du contenu en blocs de réponse directe, l\'ajout de données structurées (Schema.org), la présence de FAQ avec des réponses complètes, et le renforcement de l\'autorité de l\'auteur. Pour une entreprise genevoise, être citée dans une réponse IA génère un trafic qualifié sans coût publicitaire récurrent. DKDP combine SEO et AEO dans ses stratégies de visibilité pour couvrir à la fois Google et les moteurs IA.',
+      'Answer Engine Optimization. Discipline visant à apparaitre dans les réponses générées par les IA (ChatGPT, Perplexity, Google AI Overviews) plutôt que dans les liens bleus classiques. Combine contenu structuré, Schema.org et FAQ pour que l\'IA cite votre site comme source.',
   },
   {
     term: 'Automatisation',
     category: 'IA',
     definition:
-      'Remplacement de tâches manuelles répétitives par des scripts, des workflows automatisés ou des agents IA pour gagner en efficacité et réduire les erreurs humaines. L\'automatisation en entreprise couvre un large spectre : de la simple règle "si un email arrive de X, le transférer à Y" jusqu\'aux workflows complexes enchainant CRM, facturation, relances et reporting. Les outils les plus utilisés en Suisse romande incluent Make (ex-Integromat), Zapier et n8n pour le no-code, ainsi que des agents IA sur mesure pour les processus métier spécifiques. Selon une étude McKinsey (2023), environ 30 % des taches effectuées dans 60 % des métiers pourraient être automatisées avec les technologies actuelles. Pour une PME genevoise de 15 collaborateurs, l\'automatisation des taches administratives peut représenter une économie de 1 000 à 2 000 heures par an. DKDP analyse les processus internes de ses clients et conçoit des solutions d\'automatisation adaptées à leur budget et leur maturité digitale.',
+      'Remplacement de taches manuelles par des scripts ou des agents IA : relances automatiques, tri d\'emails, mise à jour CRM. Outils courants : Make, Zapier, n8n. Une PME de 15 personnes peut économiser plusieurs centaines d\'heures par an.',
     link: '/intelligence-artificielle',
   },
   // B
@@ -56,128 +56,128 @@ const TERMS: Term[] = [
     term: 'Backlink',
     category: 'SEO',
     definition:
-      'Lien provenant d\'un autre site vers le vôtre. Un indicateur clé de l\'autorité d\'un domaine aux yeux de Google.',
+      'Lien entrant provenant d\'un autre site vers le vôtre. Plus les sites référents sont fiables, plus l\'autorité de votre domaine augmente aux yeux de Google, ce qui améliore directement votre positionnement dans les résultats de recherche.',
   },
   {
     term: 'Bounce rate',
     category: 'Web',
     definition:
-      'Taux de rebond. Pourcentage de visiteurs qui quittent un site sans interagir. Un taux elevé indique souvent un problème de pertinence ou d\'expérience.',
+      'Taux de rebond. Pourcentage de visiteurs qui quittent un site sans interagir. Un taux élevé signale souvent un problème de pertinence, de temps de chargement ou d\'expérience utilisateur insuffisante.',
   },
   // C
   {
     term: 'CMS',
     category: 'Web',
     definition:
-      'Content Management System. Logiciel de gestion de contenu (WordPress, Sanity, Strapi) permettant de mettre à jour un site sans coder.',
+      'Content Management System. Logiciel permettant de gérer et mettre à jour un site sans coder. Les plus courants : WordPress, Sanity, Strapi. Adapté aux équipes non techniques qui ont besoin d\'autonomie sur le contenu.',
   },
   {
     term: 'CRM',
     category: 'General',
     definition:
-      'Customer Relationship Management. Logiciel de gestion de la relation client (HubSpot, Salesforce, Pipedrive).',
+      'Customer Relationship Management. Logiciel qui centralise contacts, ventes et historique client. Ex. : HubSpot, Salesforce, Pipedrive. Indispensable pour suivre les leads et piloter la relation commerciale au quotidien.',
   },
   {
     term: 'CTR',
     category: 'SEO',
     definition:
-      'Click-Through Rate. Taux de clic. Ratio entre les impressions et les clics sur un lien dans les résultats de recherche.',
+      'Click-Through Rate. Ratio entre les impressions et les clics sur un lien dans Google. Un bon CTR (3 à 5 %) signale un titre et une meta description attractifs qui incitent l\'internaute à visiter la page.',
   },
   {
     term: 'Claude',
     category: 'IA',
     definition:
-      'Modèle de langage développé par Anthropic, concurrent de ChatGPT. Reconnu pour sa précision et sa gestion des instructions complexes.',
+      'Modèle de langage développé par Anthropic, concurrent de ChatGPT et Gemini. Reconnu pour sa précision, sa capacité à suivre des instructions complexes et sa fiabilité sur les taches professionnelles sensibles.',
   },
   {
     term: 'Conversion',
     category: 'Web',
     definition:
-      'Action souhaitée accomplie par un visiteur : achat, prise de contact, inscription. Le taux de conversion mesure l\'efficacité d\'une page.',
+      'Action souhaitée accomplie par un visiteur : prise de contact, achat, inscription. Le taux de conversion mesure l\'efficacité d\'une page à transformer un visiteur en prospect ou en client actif.',
   },
   {
     term: 'Core Web Vitals',
     category: 'SEO',
     definition:
-      'Ensemble de métriques Google mesurant l\'expérience utilisateur : vitesse d\'affichage (LCP), interactivité (INP) et stabilité visuelle (CLS).',
+      'Métriques Google évaluant l\'expérience utilisateur : LCP (vitesse d\'affichage), INP (interactivité) et CLS (stabilité visuelle). Ces indicateurs influencent directement le classement d\'un site dans les résultats de recherche.',
   },
   {
     term: 'Crawl',
     category: 'SEO',
     definition:
-      'Exploration automatique d\'un site par les robots de Google pour indexer ses pages.',
+      'Exploration automatique d\'un site par les robots de Google pour découvrir et indexer ses pages. Une structure claire et un sitemap à jour facilitent le crawl et améliorent la couverture d\'indexation.',
   },
   // D
   {
     term: 'DA',
     category: 'SEO',
     definition:
-      'Domain Authority. Score de 0 à 100 (Moz) estimant la capacité d\'un domaine à se positionner sur Google.',
+      'Domain Authority. Score de 0 à 100 (Moz) estimant la capacité d\'un domaine à se positionner sur Google, basé principalement sur la qualité et la quantité des backlinks reçus par le site.',
   },
   {
     term: 'DNS',
     category: 'Web',
     definition:
-      'Domain Name System. Système qui traduit un nom de domaine (ex. dkdp.ch) en adresse IP.',
+      'Domain Name System. Système qui traduit un nom de domaine (dkdp.ch) en adresse IP lisible par les serveurs. Un DNS bien configuré garantit la disponibilité, la sécurité et la rapidité de résolution du site.',
   },
   // E
   {
     term: 'E-E-A-T',
     category: 'SEO',
     definition:
-      'Experience, Expertise, Authoritativeness, Trustworthiness (Expérience, Expertise, Autorité, Fiabilité). Cadre d\'évaluation utilisé par les Quality Raters de Google pour juger la fiabilité et la pertinence d\'un contenu web. Depuis la mise à jour de septembre 2025, le E-E-A-T pèse encore plus dans le classement des sites traitant de sujets YMYL (Your Money Your Life), c\'est-à-dire la santé, la finance et les services professionnels. Concrètement, Google vérifie si l\'auteur a une expérience réelle du sujet, si le site démontre une expertise vérifiable, si d\'autres sources fiables le citent (autorité), et si les informations sont exactes et transparentes (fiabilité). Pour une PME à Genève, le E-E-A-T se traduit par des éléments concrets : page équipe avec photos et biographies, avis clients vérifiables, adresse physique, certifications et témoignages. DKDP intègre les signaux E-E-A-T dans chaque site qu\'elle conçoit pour ses clients suisses.',
+      'Experience, Expertise, Authoritativeness, Trustworthiness. Cadre Google pour évaluer la fiabilité d\'un contenu. Se traduit concrètement par : biographies d\'auteurs, avis clients vérifiables, adresse physique et certifications affichées sur le site.',
   },
   {
     term: 'ERP',
     category: 'General',
     definition:
-      'Enterprise Resource Planning. Logiciel de gestion intégrée couvrant comptabilité, stocks, RH et production.',
+      'Enterprise Resource Planning. Logiciel de gestion intégrée couvrant comptabilité, stocks, RH et production. Ex. : SAP, Odoo. Centralise toutes les données de l\'entreprise dans un système unique et cohérent.',
   },
   // F
   {
     term: 'Fine-tuning',
     category: 'IA',
     definition:
-      'Processus d\'entraînement supplémentaire d\'un modèle IA sur des données spécifiques pour l\'adapter à un usage particulier.',
+      'Entraînement supplémentaire d\'un modèle IA sur des données propres à votre secteur ou entreprise. Améliore la précision du modèle sur vos taches spécifiques, par rapport à un LLM généraliste utilisé sans adaptation.',
   },
   // G
   {
     term: 'GEO',
     category: 'SEO',
     definition:
-      'Generative Engine Optimization. Stratégie d\'optimisation de contenu visant à être cité comme source de référence par les moteurs de recherche génératifs tels que Google AI Overviews, ChatGPT, Perplexity et Bing Copilot. Contrairement au SEO classique qui cible les liens bleus, le GEO cible les réponses générées par l\'IA. Les facteurs clés incluent la structure du contenu en passages citables de 134 à 167 mots, l\'intégration de statistiques sourcées, la présence de schémas FAQ en JSON-LD, et l\'autorité perçue de l\'auteur (E-E-A-T). Selon une étude de Georgia Tech (2024), les contenus contenant des citations vérifiables ont 40 % plus de chances d\'être cités par un LLM. Pour une PME genevoise, apparaitre dans une réponse IA pour "agence digitale Genève" équivaut à un positionnement organique permanent. DKDP intègre le GEO dans toutes ses stratégies SEO.',
+      'Generative Engine Optimization. Stratégie pour être cité comme source par les IA génératives (ChatGPT, Perplexity, Google AI Overviews). Nécessite contenu structuré en passages citables, statistiques sourcées et autorité d\'auteur (E-E-A-T).',
   },
   {
     term: 'GPT',
     category: 'IA',
     definition:
-      'Generative Pre-trained Transformer. Architecture de réseau de neurones à la base de ChatGPT et de nombreux LLM modernes.',
+      'Generative Pre-trained Transformer. Architecture de réseau de neurones développée par OpenAI, à la base de ChatGPT et de nombreux modèles de langage modernes utilisés en entreprise.',
   },
   // H
   {
     term: 'Hallucination',
     category: 'IA',
     definition:
-      'Phénomène où un LLM génère des informations factuellement fausses mais formulées avec une grande assurance, ce qui les rend difficiles à détecter sans vérification. Les hallucinations surviennent parce que les modèles de langage prédisent le mot suivant le plus probable, sans véritable compréhension factuelle. Exemples courants : citations juridiques inventées, statistiques fictives, ou noms d\'entreprises inexistants. Selon une étude de l\'Université de Stanford (2024), les LLM hallucinent dans 3 à 15 % de leurs réponses selon la complexité du sujet. Pour une PME qui utilise l\'IA dans ses communications ou son service client, ce risque nécessite la mise en place de garde-fous : relecture humaine systématique, connexion à une base de données vérifiée (RAG), ou limitation du périmètre de réponse de l\'IA. DKDP accompagne les entreprises genevoises dans le déploiement d\'agents IA avec des mécanismes de vérification intégrés pour minimiser les hallucinations.',
+      'Phénomène où un LLM génère des informations fausses formulées avec assurance : statistiques fictives, citations inexistantes. Fréquence : 3 à 15 % selon le sujet. Se corrige avec RAG, vérification humaine ou périmètre de réponse limité.',
   },
   {
     term: 'Hébergement',
     category: 'Web',
     definition:
-      'Service qui rend un site accessible sur internet en stockant ses fichiers sur un serveur. Ex. : Vercel, OVH, Infomaniak.',
+      'Service qui rend un site accessible sur internet en stockant ses fichiers sur un serveur. Ex. : Vercel, Infomaniak, OVH. Le choix de l\'hébergement impacte la vitesse, la sécurité et indirectement le SEO.',
   },
   // I
   {
     term: 'Indexation',
     category: 'SEO',
     definition:
-      'Processus par lequel Google enregistre une page dans sa base de données après l\'avoir crawlée.',
+      'Processus par lequel Google enregistre une page dans sa base de données après l\'avoir crawlée. Sans indexation, une page est totalement invisible dans les résultats de recherche, quels que soient son contenu et sa qualité.',
   },
   {
     term: 'IA générative',
     category: 'IA',
     definition:
-      'Branche de l\'intelligence artificielle capable de créer du contenu original : texte, images, code, audio et vidéo. Les modèles d\'IA générative les plus connus en 2026 sont ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google) et Midjourney pour les images. Contrairement à l\'IA analytique qui classe ou prédit, l\'IA générative produit quelque chose de nouveau à partir d\'un prompt. En entreprise, ses applications les plus courantes incluent la rédaction de contenus marketing, la génération de visuels, l\'assistance au code, la traduction automatique et la synthèse de documents. Selon le World Economic Forum (2024), 75 % des entreprises prévoient d\'adopter l\'IA générative avant 2027. Pour les PME suisses, l\'IA générative représente un levier de productivité majeur : un collaborateur formé peut réduire de 60 % le temps consacré à la rédaction et à la recherche. DKDP forme les équipes des entreprises genevoises à l\'utilisation concrète de l\'IA générative dans leur quotidien professionnel.',
+      'Branche de l\'IA qui crée du contenu original : texte, images, code, audio. Principaux modèles en 2026 : ChatGPT, Claude, Gemini, Midjourney. Un collaborateur formé peut réduire jusqu\'à 60 % le temps consacré à la rédaction.',
     link: '/intelligence-artificielle',
   },
   // K
@@ -185,192 +185,192 @@ const TERMS: Term[] = [
     term: 'KPI',
     category: 'General',
     definition:
-      'Key Performance Indicator. Indicateur clé de performance permettant de mesurer l\'atteinte d\'un objectif.',
+      'Key Performance Indicator. Indicateur clé de performance permettant de mesurer l\'atteinte d\'un objectif. Ex. : taux de conversion, nombre de leads, coût par acquisition. Outil central du pilotage digital.',
   },
   {
     term: 'Keyword',
     category: 'SEO',
     definition:
-      'Mot-clé. Terme ou expression saisi par un internaute dans un moteur de recherche.',
+      'Mot-clé. Terme ou expression saisi par un internaute dans un moteur de recherche. Le choix et le ciblage des bons mots-clés constituent la base de toute stratégie SEO efficace.',
   },
   // L
   {
     term: 'Landing page',
     category: 'Web',
     definition:
-      'Page d\'atterrissage optimisée pour convertir un visiteur en lead ou en client autour d\'une offre précise.',
+      'Page d\'atterrissage conçue pour convertir un visiteur autour d\'une offre précise. Structurée pour limiter les distractions et maximiser le passage à l\'action : formulaire, réservation ou prise de contact.',
   },
   {
     term: 'LCP',
     category: 'SEO',
     definition:
-      'Largest Contentful Paint. Temps d\'affichage du plus grand élément visible. Core Web Vital de Google.',
+      'Largest Contentful Paint. Temps d\'affichage du plus grand élément visible (image ou texte). Core Web Vital Google : un LCP inférieur à 2,5 secondes est considéré comme bon pour l\'expérience utilisateur.',
   },
   {
     term: 'LLM',
     category: 'IA',
     definition:
-      'Large Language Model (modèle de langage de grande taille). Réseau de neurones entrainé sur des milliards de textes, capable de comprendre, résumer, traduire et générer du contenu en langage naturel. Les LLM les plus utilisés en 2026 sont GPT-4o (OpenAI), Claude (Anthropic) et Gemini (Google). Pour les entreprises, un LLM peut automatiser la rédaction d\'emails, l\'analyse de documents juridiques, la traduction, le service client et la synthèse de rapports. Un LLM ne remplace pas un expert humain mais multiplie sa productivité : une tache de synthèse de 45 minutes peut être réduite à 3 minutes avec un prompt bien construit. Les PME suisses qui adoptent les LLM constatent un gain moyen de 12 heures par collaborateur et par semaine sur les taches administratives, d\'après les retours clients de DKDP. DKDP propose des formations et un accompagnement pour intégrer les LLM dans les processus métier des entreprises genevoises.',
+      'Large Language Model. Modèle de langage entraîné sur des milliards de textes, capable de résumer, traduire, rédiger et analyser. Ex. : Claude, GPT-4o, Gemini. Multiplie la productivité des équipes sur les taches textuelles.',
   },
   {
     term: 'LPD',
     category: 'General',
     definition:
-      'Loi fédérale sur la Protection des Données. Equivalent suisse du RGPD européen, en vigueur depuis septembre 2023.',
+      'Loi fédérale sur la Protection des Données. Équivalent suisse du RGPD européen, en vigueur depuis septembre 2023. Régule la collecte, le traitement et le stockage des données personnelles en Suisse.',
   },
   // M
   {
     term: 'Meta description',
     category: 'SEO',
     definition:
-      'Courte description d\'une page affichée sous le titre dans les résultats Google. Impact sur le CTR mais pas directement sur le classement.',
+      'Courte description affichée sous le titre dans les résultats Google. N\'impacte pas directement le classement, mais une formulation claire et incitative améliore le taux de clic (CTR) vers la page.',
   },
   {
     term: 'Mot-clé longue traine',
     category: 'SEO',
     definition:
-      'Expression de recherche spécifique et moins concurrentielle. Ex. : "formation Excel pour cabinet comptable Genève".',
+      'Expression de recherche spécifique et peu concurrentielle. Ex. : "formation Excel cabinet comptable Genève". Génère moins de trafic mais des visiteurs plus qualifiés et davantage prêts à convertir.',
   },
   // N
   {
     term: 'No-code',
     category: 'General',
     definition:
-      'Approche de développement sans écriture de code, via des outils visuels comme Make, Zapier ou Bubble.',
+      'Développement sans écriture de code via des outils visuels : Make, Zapier, Bubble, Webflow. Permet à des non-développeurs de créer des automatisations, des formulaires et des interfaces simples en toute autonomie.',
   },
   // O
   {
     term: 'On-page SEO',
     category: 'SEO',
     definition:
-      'Optimisation des éléments directement sur la page : balises title, Hn, maillage interne, vitesse, contenu.',
+      'Optimisation des éléments directement sur la page : balises title et Hn, maillage interne, vitesse de chargement, structure du contenu et présence des mots-clés cibles dans les zones stratégiques.',
   },
   // P
   {
     term: 'Prompt',
     category: 'IA',
     definition:
-      'Instruction textuelle donnée à un modèle d\'IA (LLM) pour obtenir une réponse ou déclencher une action. La qualité et la précision du prompt déterminent directement la qualité du résultat. Un bon prompt inclut le contexte, le format de sortie souhaité, le ton et les contraintes. Le "prompt engineering" est devenu une compétence professionnelle recherchée : savoir formuler des instructions claires pour un LLM peut multiplier par cinq la pertinence des résultats obtenus. En entreprise, les usages les plus courants incluent la rédaction assistée, l\'extraction de données à partir de documents, la traduction et la synthèse de réunions. Un collaborateur formé au prompt engineering gagne en moyenne 30 à 60 minutes par jour sur ses taches de rédaction et de recherche. Les formations DKDP enseignent le prompt engineering appliqué aux outils utilisés en Suisse romande (Claude, ChatGPT, Copilot) avec des cas pratiques adaptés à chaque métier.',
+      'Instruction textuelle envoyée à un LLM. Un bon prompt précise le contexte, le format attendu et les contraintes. Le prompt engineering est une compétence clé : il améliore significativement la qualité et la précision des réponses obtenues.',
   },
   {
     term: 'PWA',
     category: 'Web',
     definition:
-      'Progressive Web App. Application web qui se comporte comme une app mobile, installable sur l\'écran d\'accueil.',
+      'Progressive Web App. Application web installable sur l\'écran d\'accueil d\'un smartphone, fonctionnant comme une app native. Offre une expérience rapide, accessible hors ligne, sans passer par un store applicatif.',
   },
   // R
   {
     term: 'RAG',
     category: 'IA',
     definition:
-      'Retrieval-Augmented Generation. Technique d\'intelligence artificielle qui connecte un LLM (comme Claude ou GPT) à une base de connaissances externe pour enrichir ses réponses avec des informations actualisées et vérifiables. Sans RAG, un LLM ne connait que ses données d\'entrainement, souvent datées de plusieurs mois. Avec RAG, il consulte en temps réel des documents internes, des bases de données ou des pages web avant de formuler sa réponse, ce qui réduit considérablement les hallucinations. Application concrète pour une PME genevoise : un RAG connecté à votre documentation interne permet à vos collaborateurs d\'obtenir des réponses précises sur vos procédures, tarifs et historique client via un simple chatbot interne. Selon une étude NVIDIA (2024), le RAG réduit les erreurs factuelles des LLM de 30 à 50 %. DKDP déploie des solutions RAG pour les entreprises romandes qui souhaitent exploiter l\'IA sur leurs données propriétaires.',
+      'Retrieval-Augmented Generation. Technique qui connecte un LLM à une base de données externe pour des réponses actualisées et vérifiables. Permet à vos collaborateurs d\'interroger vos documents internes via un chatbot. Réduit les hallucinations de 30 à 50 %.',
   },
   {
     term: 'Redirect 301',
     category: 'SEO',
     definition:
-      'Redirection permanente d\'une URL vers une autre. Transfère l\'autorité SEO de l\'ancienne URL vers la nouvelle.',
+      'Redirection permanente d\'une URL vers une autre. Transfère l\'autorité SEO de l\'ancienne page vers la nouvelle. Indispensable lors d\'une refonte de site ou d\'un changement de structure d\'URL.',
   },
   {
     term: 'RGPD',
     category: 'General',
     definition:
-      'Règlement Général sur la Protection des Données. Règlement européen encadrant la collecte et le traitement des données personnelles.',
+      'Règlement Général sur la Protection des Données. Règlement européen encadrant la collecte et le traitement des données personnelles. S\'applique à toute entreprise traitant des données de résidents européens.',
   },
   {
     term: 'ROI',
     category: 'General',
     definition:
-      'Return on Investment. Retour sur investissement. Mesure la rentabilité d\'une action par rapport à son coût.',
+      'Return on Investment. Retour sur investissement. Mesure la rentabilité d\'une action par rapport à son coût. Formule : (gain - coût) / coût x 100. Indicateur clé pour arbitrer les dépenses digitales et marketing.',
   },
   // S
   {
     term: 'Schema.org',
     category: 'SEO',
     definition:
-      'Vocabulaire standard de balisage structuré permettant aux moteurs de recherche et aux IA de mieux comprendre le contenu d\'une page.',
+      'Vocabulaire de balisage structuré permettant aux moteurs de recherche et aux IA de mieux comprendre le contenu d\'une page. Améliore l\'affichage dans les SERP : rich snippets, FAQ, étoiles de notation.',
   },
   {
     term: 'SEA',
     category: 'SEO',
     definition:
-      'Search Engine Advertising. Publicité dans les moteurs de recherche (Google Ads, Bing Ads).',
+      'Search Engine Advertising. Publicité dans les moteurs de recherche (Google Ads, Bing Ads). Génère du trafic immédiat mais payant, contrairement au SEO qui produit des résultats organiques durables sans coût au clic.',
   },
   {
     term: 'SEO',
     category: 'SEO',
     definition:
-      'Search Engine Optimization. Ensemble de techniques visant à améliorer le positionnement organique d\'un site dans les résultats de recherche.',
+      'Search Engine Optimization. Ensemble de techniques visant à améliorer la visibilité organique d\'un site dans Google. Comprend le contenu, la technique, les backlinks et l\'expérience utilisateur.',
   },
   {
     term: 'SERP',
     category: 'SEO',
     definition:
-      'Search Engine Results Page. Page de résultats d\'un moteur de recherche.',
+      'Search Engine Results Page. Page de résultats d\'un moteur de recherche. Les 3 premiers résultats captent environ 54 % des clics organiques totaux. La position 1 reste l\'objectif SEO prioritaire.',
   },
   {
     term: 'SSL/TLS',
     category: 'Web',
     definition:
-      'Protocole de sécurisation des échanges entre un navigateur et un serveur. Un site sans SSL (HTTPS) est pénalisé par Google.',
+      'Protocole sécurisant les échanges entre navigateur et serveur (cadenas HTTPS). Obligatoire : sans SSL, Google affiche un avertissement de sécurité et pénalise le classement du site dans les résultats.',
   },
   // T
   {
     term: 'Token',
     category: 'IA',
     definition:
-      'Unité de traitement d\'un LLM. Environ 3/4 d\'un mot en français. Les LLMs facturent souvent à la consommation de tokens.',
+      'Unité de traitement d\'un LLM, correspondant à environ 3/4 d\'un mot en français. Les LLM facturent à la consommation de tokens. Un email de 300 mots représente environ 400 tokens en entrée.',
   },
   {
     term: 'Trafic organique',
     category: 'SEO',
     definition:
-      'Visites provenant des résultats naturels (non payants) d\'un moteur de recherche.',
+      'Visites générées par les résultats naturels et non payants d\'un moteur de recherche. Contrairement au trafic payant (SEA), il ne s\'arrête pas lorsqu\'un budget publicitaire est coupé.',
   },
   // U
   {
     term: 'UI',
     category: 'Web',
     definition:
-      'User Interface. Interface utilisateur. Ce que l\'utilisateur voit et avec quoi il interagit.',
+      'User Interface. Interface utilisateur. L\'ensemble des éléments visuels avec lesquels l\'utilisateur interagit : boutons, menus, formulaires. Une bonne UI rend le parcours clair, intuitif et agréable à utiliser.',
   },
   {
     term: 'URL',
     category: 'Web',
     definition:
-      'Uniform Resource Locator. Adresse unique d\'une page web. Une URL bien structurée améliore le SEO.',
+      'Uniform Resource Locator. Adresse unique d\'une page web. Une URL courte, descriptive et bien structurée améliore le SEO et aide les utilisateurs à comprendre le contenu avant même de cliquer.',
   },
   {
     term: 'UX',
     category: 'Web',
     definition:
-      'User Experience. Expérience utilisateur. Qualité globale de l\'interaction d\'un utilisateur avec un produit ou un site.',
+      'User Experience. Expérience utilisateur. Qualité globale de l\'interaction avec un site ou un produit : fluidité, logique de navigation, accessibilité. Une bonne UX réduit le taux de rebond et augmente les conversions.',
   },
   // V
   {
     term: 'Vercel',
     category: 'Web',
     definition:
-      'Plateforme d\'hébergement et de déploiement, optimisée pour Next.js. Utilisée par DKDP pour ses projets clients.',
+      'Plateforme de déploiement et d\'hébergement optimisée pour Next.js. Déploiement automatique à chaque commit GitHub, CDN mondial et analytics intégrés. Utilisée par DKDP pour tous ses projets clients.',
   },
   // W
   {
     term: 'Webhook',
     category: 'General',
     definition:
-      'Mécanisme permettant à une application d\'envoyer des données automatiquement à une autre en temps réel lors d\'un événement.',
+      'Mécanisme qui envoie automatiquement des données d\'une application à une autre en temps réel lors d\'un événement. Ex. : notifier Slack à chaque nouveau paiement Stripe ou lead entrant dans le CRM.',
   },
   {
     term: 'WordPress',
     category: 'Web',
     definition:
-      'CMS open-source représentant environ 43% des sites web mondiaux. Flexible mais nécessite une maintenance régulière.',
+      'CMS open-source représentant environ 43 % des sites mondiaux. Très flexible grâce à ses extensions, mais nécessite une maintenance régulière pour garantir la sécurité et les performances.',
   },
   {
     term: 'Workflow',
     category: 'General',
     definition:
-      'Ensemble d\'étapes et de tâches organisées pour accomplir un processus métier. Peut être automatisé avec des outils no-code ou des agents IA.',
+      'Enchaînement d\'étapes organisées pour accomplir un processus métier. Peut être automatisé avec des outils no-code (Make, Zapier) ou des agents IA, réduisant les erreurs et le temps de traitement.',
     link: '/intelligence-artificielle',
   },
 ]

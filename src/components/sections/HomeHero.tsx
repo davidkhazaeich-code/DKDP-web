@@ -50,8 +50,8 @@ export function HomeHero() {
     </div>
   )
 
-  const content = (
-    <motion.div style={{ y }} className="max-w-[1200px] mx-auto px-6 text-center">
+  const innerContent = (
+    <>
       <div className="hero-title mb-8 flex flex-col items-center gap-4">
         <TrustBadge variant="light" />
       </div>
@@ -69,8 +69,13 @@ export function HomeHero() {
           Découvrez nos services →
         </LiquidMetalButton>
       </div>
-    </motion.div>
+    </>
   )
+
+  // Desktop : parallax actif — Mobile : div statique
+  const content = isDesktop === false
+    ? <div className="max-w-[1200px] mx-auto px-6 text-center">{innerContent}</div>
+    : <motion.div style={{ y }} className="max-w-[1200px] mx-auto px-6 text-center">{innerContent}</motion.div>
 
   // Mobile uniquement : InfiniteGrid CSS (zéro Three.js)
   if (isDesktop === false) {

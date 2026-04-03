@@ -45,7 +45,7 @@ export function HomeHero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
 
-      {/* ── Fond immédiat : grille CSS + blobs — visible dès le SSR, zéro JS ── */}
+      {/* ── Grille CSS mobile uniquement ── */}
       <div
         aria-hidden="true"
         className="md:hidden pointer-events-none absolute inset-0"
@@ -56,34 +56,8 @@ export function HomeHero() {
           zIndex: 1,
         }}
       />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute"
-        style={{
-          top: '-5%', left: '0%',
-          width: '38%', height: '50%',
-          background: 'rgba(124,58,237,0.12)',
-          borderRadius: '50%',
-          filter: 'blur(70px)',
-          animation: 'blobFloat 8s ease-in-out infinite',
-          zIndex: 0,
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute"
-        style={{
-          bottom: '-5%', right: '0%',
-          width: '35%', height: '45%',
-          background: 'rgba(255,107,0,0.09)',
-          borderRadius: '50%',
-          filter: 'blur(70px)',
-          animation: 'blobFloat 10s ease-in-out infinite reverse',
-          zIndex: 0,
-        }}
-      />
 
-      {/* ── Desktop uniquement : Three.js dots par-dessus la grille CSS ── */}
+      {/* ── Desktop uniquement : Three.js dots ── */}
       {isDesktop === true && (
         <DottedSurface className="absolute inset-0 z-[2] opacity-60" />
       )}

@@ -134,15 +134,17 @@ function MegaPanel({
                   href={item.href}
                   className="group flex items-start gap-3 rounded-[8px] p-2.5 transition-colors hover:bg-white/[0.04]"
                 >
-                  <div
-                    className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[6px]"
-                    style={{ background: bg, border: `1px solid ${border}` }}
-                  >
-                    {item.logoSrc
-                      ? <Image src={item.logoSrc} alt="" width={18} height={18} className="rounded-[4px]" />
-                      : <item.icon size={15} style={{ color }} />
-                    }
-                  </div>
+                  {item.logoSrc
+                    ? <Image src={item.logoSrc} alt="" width={32} height={32} className="mt-0.5 flex-shrink-0 rounded-[6px]" />
+                    : (
+                      <div
+                        className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[6px]"
+                        style={{ background: bg, border: `1px solid ${border}` }}
+                      >
+                        <item.icon size={15} style={{ color }} />
+                      </div>
+                    )
+                  }
                   <div>
                     <p className="text-[13px] font-semibold text-white leading-snug group-hover:text-white">
                       {item.title}
@@ -184,7 +186,7 @@ function MegaPanel({
                   className="flex items-center gap-2 rounded-[6px] px-2 py-1.5 text-[12px] text-text-secondary hover:bg-white/[0.04] hover:text-white transition-colors group"
                 >
                   {item.logoSrc
-                    ? <Image src={item.logoSrc} alt="" width={13} height={13} className="flex-shrink-0 rounded-[3px] opacity-80 group-hover:opacity-100 transition-opacity" />
+                    ? <Image src={item.logoSrc} alt="" width={20} height={20} className="flex-shrink-0 rounded-[4px] opacity-80 group-hover:opacity-100 transition-opacity" />
                     : <item.icon size={13} className="flex-shrink-0 text-text-muted group-hover:text-white transition-colors" />
                   }
                   <span>{item.title}</span>

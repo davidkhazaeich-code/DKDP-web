@@ -113,7 +113,7 @@ export function HomeHero() {
           et on forme vos collaborateurs. Résultats mesurables, pas de blabla.
         </p>
         <div className="flex justify-center">
-          <LiquidMetalButton href="#nos-expertises" size="lg" shaderDelay={800}>
+          <LiquidMetalButton href="#nos-expertises" size="lg" shaderDelay={300}>
             Découvrez nos services →
           </LiquidMetalButton>
         </div>

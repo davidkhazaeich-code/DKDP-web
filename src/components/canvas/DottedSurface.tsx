@@ -369,16 +369,16 @@ export function DottedSurface({
       }
     }
 
-    // Wait 4 s minimum before starting Three.js — keeps TBT window clear on desktop.
-    // Three.js init blocks the main thread for ~400 ms; starting it at 4 s means it
-    // fires well after TTI is settled (FCP ~1.5 s, TTI target ~3 s on desktop).
+    // Wait 1.5 s before starting Three.js — keeps main thread free during LCP/FID
+    // but still loads dots at a perceptually fast moment (FCP ~1.5 s).
+    // Three.js import + init takes ~400 ms on desktop, so dots appear ~2-2.5 s after load.
     const ric = (window as any).requestIdleCallback
       ?? ((cb: () => void) => setTimeout(cb, 200))
 
     let ricId: ReturnType<typeof setTimeout>
     const delayId = setTimeout(() => {
-      ricId = ric(() => { if (!cancelled) init(container) }, { timeout: 4000 })
-    }, 4000)
+      ricId = ric(() => { if (!cancelled) init(container) }, { timeout: 2000 })
+    }, 1500)
 
     return () => {
       cancelled = true

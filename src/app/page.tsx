@@ -28,10 +28,10 @@ export const metadata: Metadata = {
     description:
       'Sites web sur mesure, SEO, IA et formation pour PME à Genève. 700+ clients accompagnés en Suisse romande. Devis gratuit en 24h.',
     url: 'https://dkdp.ch',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'DKDP Agence Digitale Genève' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'DKDP Agence Digitale Genève' }],
   },
   twitter: {
-    images: ['/opengraph-image'],
+    images: ['/og-image.png'],
   },
 }
 

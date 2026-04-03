@@ -112,6 +112,7 @@ const EQUIPE = [
     skills: ['IA & Automatisation', 'Stratégie digitale', 'Développement web', 'SEO', 'Google Ads'],
     email: 'dk@dkdp.ch',
     linkedin: 'https://www.linkedin.com/in/davidkhazaei/',
+    imageScale: 0.9,
   },
   {
     name: 'Romane',

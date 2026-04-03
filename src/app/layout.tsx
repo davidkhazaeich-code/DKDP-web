@@ -18,20 +18,20 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://dkdp.ch'),
   title: {
-    default: 'DKDP · Service Digital à Genève · IA · Formation',
+    default: 'DKDP · Agence Digitale Genève · Sites web, IA & Formation',
     template: '%s',
   },
-  description: 'Service digital à Genève. Création de sites, SEO, intelligence artificielle et formation entreprise. 700+ clients accompagnés. Devis gratuit.',
+  description: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise. 700+ clients accompagnés en Suisse romande. Devis gratuit.',
   openGraph: {
     type: 'website',
     locale: 'fr_CH',
     url: 'https://dkdp.ch',
     siteName: 'DKDP',
-    images: [{ url: 'https://dkdp.ch/opengraph-image', width: 1200, height: 630, alt: 'DKDP, Service Digital Genève' }],
+    images: [{ url: 'https://dkdp.ch/og-image.png', width: 1200, height: 630, alt: 'DKDP · Sites web, IA & Formation · Agence digitale Genève' }],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['https://dkdp.ch/opengraph-image'],
+    images: ['https://dkdp.ch/og-image.png'],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://dkdp.ch' },

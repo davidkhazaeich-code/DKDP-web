@@ -19,14 +19,14 @@ const FAQSection   = dynamic(() => import('@/components/sections/FAQSection').th
 const CTAFinal     = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 
 export const metadata: Metadata = {
-  title: 'DKDP · Service Digital à Genève · IA · Formation',
+  title: 'DKDP · Agence Digitale Genève · Sites web, IA & Formation',
   description:
-    'Service digital à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise. 700+ clients accompagnés en Suisse romande. Devis gratuit.',
+    'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise. 700+ clients accompagnés en Suisse romande. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch' },
   openGraph: {
-    title: 'DKDP · Service Digital à Genève · IA · Formation',
+    title: 'DKDP · Agence Digitale Genève · Sites web, IA & Formation',
     description:
-      'Sites web, SEO, IA et formation pour PME à Genève. 700+ clients accompagnés en Suisse romande.',
+      'Sites web sur mesure, SEO, IA et formation pour PME à Genève. 700+ clients accompagnés en Suisse romande. Devis gratuit en 24h.',
     url: 'https://dkdp.ch',
   },
 }

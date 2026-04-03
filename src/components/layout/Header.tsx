@@ -113,10 +113,7 @@ function MegaPanel({
 }) {
   const { color, bg, border } = PILLAR_ACCENT[pillar]
   return (
-    <div
-      className="w-[700px] p-5 grid grid-cols-[1fr_190px] gap-5"
-      style={{ background: bg }}
-    >
+    <div className="w-[700px] p-5 grid grid-cols-[1fr_190px] gap-5">
       {/* Left - main links */}
       <div>
         {/* Pillar header */}
@@ -471,7 +468,7 @@ export function Header() {
               <NavigationMenuList>
                 {/* ── Service Digital ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')} style={{ '--trigger-hover-bg': 'rgba(124,58,237,0.12)' } as React.CSSProperties}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="agence"
@@ -487,7 +484,7 @@ export function Header() {
 
                 {/* ── Formation ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')} style={{ '--trigger-hover-bg': 'rgba(255,107,0,0.12)' } as React.CSSProperties}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="formation"
@@ -503,7 +500,7 @@ export function Header() {
 
                 {/* ── Intelligence Artificielle ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')}><Sparkles size={13} style={{ color: '#D4D4D8' }} className="mr-1" />Intelligence Artificielle</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={{ '--trigger-hover-bg': 'rgba(212,212,216,0.10)' } as React.CSSProperties}><Sparkles size={13} style={{ color: '#D4D4D8' }} className="mr-1" />Intelligence Artificielle</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="ia"
@@ -519,7 +516,7 @@ export function Header() {
 
                 {/* ── À propos ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')}><LayoutGrid size={13} style={{ color: '#9CA3AF' }} className="mr-1" />À propos</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={{ '--trigger-hover-bg': 'rgba(156,163,175,0.12)' } as React.CSSProperties}><LayoutGrid size={13} style={{ color: '#9CA3AF' }} className="mr-1" />À propos</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="apropos"
@@ -559,7 +556,7 @@ export function Header() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')} style={{ '--trigger-hover-bg': 'rgba(124,58,237,0.12)' } as React.CSSProperties}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="agence"
@@ -573,7 +570,7 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')} style={{ '--trigger-hover-bg': 'rgba(255,107,0,0.12)' } as React.CSSProperties}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="formation"
@@ -587,7 +584,7 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')}><Sparkles size={13} style={{ color: '#D4D4D8' }} className="mr-1" />IA</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={{ '--trigger-hover-bg': 'rgba(212,212,216,0.10)' } as React.CSSProperties}><Sparkles size={13} style={{ color: '#D4D4D8' }} className="mr-1" />IA</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="ia"
@@ -601,7 +598,7 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')}><LayoutGrid size={13} style={{ color: '#9CA3AF' }} className="mr-1" />Agence</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={{ '--trigger-hover-bg': 'rgba(156,163,175,0.12)' } as React.CSSProperties}><LayoutGrid size={13} style={{ color: '#9CA3AF' }} className="mr-1" />Agence</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="apropos"

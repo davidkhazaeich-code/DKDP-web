@@ -72,30 +72,32 @@ export function HomeHero() {
     </motion.div>
   )
 
-  // Desktop : Three.js points lumineux
-  if (isDesktop === true) {
+  // Mobile uniquement : InfiniteGrid CSS (zéro Three.js)
+  if (isDesktop === false) {
     return (
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
-        <DottedSurface className="absolute inset-0 z-0 opacity-60" />
-        <div className="blob-orange absolute -top-32 -left-32 w-[600px] h-[600px] opacity-25 pointer-events-none" />
-        <div className="blob-violet absolute -bottom-32 -right-32 w-[600px] h-[600px] opacity-20 pointer-events-none" />
-        <div className="relative z-10">{content}</div>
+      <div className="relative min-h-screen">
+        <InfiniteGrid
+          blob1="rgba(124,58,237,0.12)"
+          blob2="rgba(255,107,0,0.09)"
+          className="min-h-screen flex items-center justify-center pt-14"
+        >
+          {content}
+        </InfiniteGrid>
         {scrollIndicator}
-      </section>
+      </div>
     )
   }
 
-  // Mobile : InfiniteGrid CSS (zéro Three.js)
+  // Desktop (isDesktop === true) + état initial null :
+  // même layout — DottedSurface n'apparaît que quand isDesktop est confirmé true,
+  // évitant le flash grille → points au chargement
   return (
-    <div className="relative min-h-screen">
-      <InfiniteGrid
-        blob1="rgba(124,58,237,0.12)"
-        blob2="rgba(255,107,0,0.09)"
-        className="min-h-screen flex items-center justify-center pt-14"
-      >
-        {content}
-      </InfiniteGrid>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
+      {isDesktop === true && <DottedSurface className="absolute inset-0 z-0 opacity-60" />}
+      <div className="blob-orange absolute -top-32 -left-32 w-[600px] h-[600px] opacity-25 pointer-events-none" />
+      <div className="blob-violet absolute -bottom-32 -right-32 w-[600px] h-[600px] opacity-20 pointer-events-none" />
+      <div className="relative z-10">{content}</div>
       {scrollIndicator}
-    </div>
+    </section>
   )
 }

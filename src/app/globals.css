@@ -277,13 +277,13 @@ html {
 
 /* Logo scroll animation - seamless infinite marquee */
 @keyframes logo-scroll {
-  from { transform: translate3d(0, 0, 0) }
-  to   { transform: translate3d(-33.333%, 0, 0) }
+  from { transform: translateX(0) }
+  to   { transform: translateX(-25%) }
 }
 
 .logo-scroll {
   display: flex;
   width: max-content;
-  transform: translateZ(0);
-  animation: logo-scroll 28s linear infinite;
+  backface-visibility: hidden;
+  animation: logo-scroll 36s linear infinite;
 }

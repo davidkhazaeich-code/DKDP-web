@@ -1,59 +1,112 @@
 # DKDP - Agence Digitale Genève
 
-> DKDP est une agence digitale basée à Genève (Suisse), spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour les PME de Suisse romande. Fondée en 2019, 700+ clients accompagnés.
+> DKDP est une agence digitale à Genève (Suisse) spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour les PME de Suisse romande. Fondée en 2015, 700+ clients accompagnés, 10+ ans d'expérience.
 
-## À propos
+## À propos de DKDP
 
-DKDP accompagne les entreprises genevoises et romandes dans leur transformation digitale avec trois piliers : l'agence digitale (sites web, SEO, Google Ads, réseaux sociaux), l'intelligence artificielle (agents IA, automatisation, audit), et la formation entreprise (IA, bureautique, cybersécurité).
+DKDP est une agence digitale basée au 36 rue du 31 Décembre, 1207 Genève. Elle accompagne les PME, indépendants et grandes entreprises de Suisse romande (Genève, Vaud, Fribourg, Valais, Neuchâtel) dans leur transformation digitale.
 
-Fondateur : David Khazaei, directeur et formateur IA à Genève depuis 2015.
+Fondateur : David Khazaei, directeur d'agence et formateur IA certifié, basé à Genève depuis 2015. Expertise en développement web (Next.js, Astro, WordPress), stratégie SEO, agents IA et formation professionnelle.
 
-## Pages principales
+Trois piliers de service :
+- Agence digitale : création de sites web, SEO, Google Ads, réseaux sociaux, vidéo
+- Intelligence artificielle : agents IA, automatisation de processus, audit IA, déploiement LLM
+- Formation entreprise : formation IA, bureautique, cybersécurité, web design
 
-- / : Accueil - agence digitale genevoise
-- /agence-digitale : Services digitaux (création web, SEO, Google Ads, réseaux sociaux, vidéo, RGPD)
-- /agence-digitale/creation-site-web : Création de sites web sur mesure à Genève
-- /agence-digitale/seo : Référencement SEO et GEO à Genève
+Langues de travail : français (principal), anglais, farsi.
+Zone géographique : Genève, Lausanne, Fribourg, Sion, Neuchâtel, toute la Suisse romande.
+
+## Services et tarifs
+
+### Création de sites web (/agence-digitale/creation-site-web)
+Sites web sur mesure pour PME suisses. Technologies : Next.js, Astro (sites statiques performants), WordPress (CMS). Fourchettes : site vitrine PME à partir de CHF 2'500, site avec CMS à partir de CHF 4'500, site e-commerce à partir de CHF 6'000. Délai moyen : 4 à 8 semaines. Inclut SEO on-page, Core Web Vitals, responsive mobile et conformité RGPD/LPD.
+
+### SEO et référencement (/agence-digitale/seo)
+Référencement naturel Google pour PME genevoises et romandes. Services : audit SEO, optimisation on-page, stratégie de contenu, link building, SEO local (Google Business Profile), GEO (Generative Engine Optimization pour ChatGPT, Perplexity, Google AI Overviews). Résultats typiques : +40 à +120% de trafic organique en 6 mois.
+
+### Publicité Google Ads (/agence-digitale/publicite-sea)
+Campagnes Google Ads Search, Display et Performance Max. Budget minimum recommandé : CHF 500/mois. Frais de gestion : à partir de CHF 400/mois. Secteurs couverts : services B2B, e-commerce, professions libérales, commerce local.
+
+### Intelligence artificielle (/intelligence-artificielle)
+Solutions IA sur mesure pour PME : agents IA autonomes, automatisation de workflows (Make, n8n, Zapier), audit IA, déploiement de LLM (Claude, GPT-4o, Mistral) sur données propriétaires via RAG. Gain moyen constaté : 8 à 15 heures par collaborateur et par semaine.
+
+### Formation IA en entreprise (/formation-entreprise/ia)
+Formations IA appliquées pour équipes d'entreprise. Format : sessions de 6-7 heures en groupe (max 12 personnes), 100% appliqué sur les outils et documents réels de l'entreprise. Cas d'usage couverts : rédaction assistée, synthèse de documents, automatisation, prompt engineering. À partir de CHF 1'500 par session.
+
+### Formation Claude IA (/formation-entreprise/claude-ai)
+Formation spécialisée Claude (Anthropic) : utilisation avancée, Projects et Cowork, Claude Code pour les équipes techniques. Niveau débutant à avancé.
+
+## Pages du site
+
+- / : Accueil
+- /agence-digitale : Présentation complète des services digitaux
+- /agence-digitale/creation-site-web : Création de sites web sur mesure
+- /agence-digitale/seo : Référencement SEO et GEO
 - /agence-digitale/publicite-sea : Publicité Google Ads
-- /agence-digitale/reseaux-sociaux : Gestion réseaux sociaux
-- /agence-digitale/creation-video : Création vidéo
-- /agence-digitale/consulting-marketing : Consulting marketing digital
+- /agence-digitale/reseaux-sociaux : Gestion des réseaux sociaux
+- /agence-digitale/creation-video : Création vidéo et motion design
+- /agence-digitale/consulting-marketing : Consulting stratégie marketing digital
 - /intelligence-artificielle : Solutions IA pour PME
-- /intelligence-artificielle/agents-ia : Agents IA sur mesure
-- /intelligence-artificielle/automatisation : Automatisation de processus
-- /intelligence-artificielle/audit-conseil : Audit et conseil IA
-- /intelligence-artificielle/mise-en-place : Mise en place LLM
+- /intelligence-artificielle/agents-ia : Agents IA autonomes sur mesure
+- /intelligence-artificielle/automatisation : Automatisation de processus métier
+- /intelligence-artificielle/audit-conseil : Audit et conseil en transformation IA
+- /intelligence-artificielle/mise-en-place : Déploiement LLM et RAG
 - /formation-entreprise : Formations digitales pour entreprises
-- /formation-entreprise/ia : Formation IA en entreprise
-- /formation-entreprise/claude-ai : Formation Claude IA
-- /formation-entreprise/bureautique : Formation bureautique et Excel
-- /formation-entreprise/cybersecurite : Formation cybersécurité
-- /formation-entreprise/web-design : Formation web design
-- /tarifs : Grille tarifaire complète
-- /a-propos : Équipe et histoire de DKDP
-- /blog : Articles sur l'IA, le SEO et la formation
-- /glossaire : Glossaire des termes IA et digital (65+ termes)
+- /formation-entreprise/ia : Formation IA en entreprise (généraliste)
+- /formation-entreprise/claude-ai : Formation Claude IA (spécialisée)
+- /formation-entreprise/bureautique : Formation bureautique avancée et Excel
+- /formation-entreprise/cybersecurite : Formation cybersécurité PME
+- /formation-entreprise/web-design : Formation web design et Figma
+- /tarifs : Grille tarifaire complète (sites web, SEO, IA, formation)
+- /a-propos : Équipe, histoire et valeurs de DKDP
+- /realisations : Portfolio de projets réalisés
+- /blog : Articles experts sur l'IA, le SEO et la formation digitale
+- /glossaire : Glossaire 65+ termes (IA, SEO, GEO, digital)
 - /contact : Contact et prise de rendez-vous
+- /plan-du-site : Plan du site complet
 
-## Blog - Articles récents
+## Blog - Articles experts
 
-- /blog/chatgpt-claude-copilot-lequel-choisir-pme-2026 : ChatGPT, Claude ou Copilot : lequel choisir pour votre PME en 2026 ?
-- /blog/seo-local-geneve-2026 : SEO local à Genève en 2026 : le guide complet
-- /blog/automatiser-taches-repetitives-pme : Automatiser les tâches répétitives en PME
-- /blog/core-web-vitals-2026-guide-complet : Core Web Vitals 2026 : guide complet
-- /blog/formation-ia-collaborateurs-roi : Formation IA pour collaborateurs : ROI et bonnes pratiques
-- /blog/site-web-vitrine-convertit : Site web vitrine qui convertit
-- /blog/no-code-low-code-pme-suisse : No-code et low-code pour les PME suisses
-- /blog/cybersecurite-pme-erreurs-courantes : Cybersécurité en PME : les erreurs courantes
-- /blog/audit-digital-360-avant-de-se-lancer : Audit digital 360 avant de se lancer
-- /blog/cout-site-web-geneve-2026 : Coût d'un site web à Genève en 2026
-- /blog/choisir-agence-digitale-geneve : Choisir une agence digitale à Genève
-- /blog/seo-vs-google-ads-geneve : SEO vs Google Ads à Genève
-- /blog/refonte-site-web-quand-pourquoi : Refonte de site web : quand et pourquoi ?
-- /blog/formation-ia-entreprise-geneve-2026 : Formation IA en entreprise à Genève en 2026
-- /blog/automatiser-taches-repetitives-ia-pme : Automatiser les tâches répétitives avec l'IA en PME
-- /blog/creer-site-web-pme-suisse-romande : Créer un site web pour une PME en Suisse romande
-- /blog/ia-ou-consultant-humain-pme : IA ou consultant humain pour votre PME ?
+- /blog/chatgpt-claude-copilot-lequel-choisir-pme-2026 : Comparatif ChatGPT vs Claude vs Microsoft Copilot pour PME en 2026 (prix, forces, cas d'usage)
+- /blog/seo-local-geneve-2026 : Guide complet SEO local Genève 2026 (Google Business Profile, NAP, avis clients, contenu local)
+- /blog/automatiser-taches-repetitives-pme : 7 workflows à automatiser en PME avec Make, Zapier, n8n (gain de 5 à 15h/semaine)
+- /blog/core-web-vitals-2026-guide-complet : Core Web Vitals 2026 : LCP, CLS, INP (comprendre, mesurer, optimiser)
+- /blog/formation-ia-collaborateurs-roi : ROI d'une formation IA entreprise (méthode de calcul, cas concret PME suisse, ROI > 500%)
+- /blog/site-web-vitrine-convertit : 7 raisons pour lesquelles votre site ne convertit pas (diagnostic et plan d'action)
+- /blog/no-code-low-code-pme-suisse : No-code et low-code pour PME suisses (Webflow, Bubble, Make, Airtable)
+- /blog/cybersecurite-pme-erreurs-courantes : 8 erreurs de cybersécurité en PME et plan d'action 30 jours
+- /blog/audit-digital-360-avant-de-se-lancer : Audit digital 360 (SEO, UX, contenu, tracking, conversion)
+- /blog/cout-site-web-geneve-2026 : Combien coûte un site web à Genève en 2026 (fourchettes et comparatif)
+- /blog/choisir-agence-digitale-geneve : Comment choisir son agence digitale à Genève (8 critères clés)
+- /blog/seo-vs-google-ads-geneve : SEO ou Google Ads à Genève (comparatif coût, délai, ROI)
+- /blog/refonte-site-web-quand-pourquoi : 7 signaux qu'il est temps de refaire votre site web
+- /blog/formation-ia-entreprise-geneve-2026 : Formation IA en entreprise à Genève en 2026 (programmes et résultats)
+- /blog/automatiser-taches-repetitives-ia-pme : Automatiser les tâches répétitives avec l'IA (10 cas d'usage PME)
+- /blog/creer-site-web-pme-suisse-romande : Créer un site web pour une PME en Suisse romande (étapes et budget)
+- /blog/ia-ou-consultant-humain-pme : IA ou consultant humain pour votre PME (quand choisir quoi)
+
+## FAQ
+
+**Combien coûte un site web à Genève ?**
+Un site vitrine PME coûte entre CHF 2'500 et CHF 8'000 selon la complexité. Un site avec CMS (gestion de contenu autonome) est entre CHF 4'500 et CHF 12'000. Un e-commerce démarre à CHF 6'000. Ces fourchettes incluent le design, le développement, le SEO on-page et la formation à l'outil.
+
+**Quelle est la différence entre SEO et GEO ?**
+Le SEO (Search Engine Optimization) optimise un site pour apparaître dans les résultats Google classiques. Le GEO (Generative Engine Optimization) optimise le contenu pour être cité par les moteurs IA comme ChatGPT, Perplexity ou Google AI Overviews. DKDP intègre les deux dans ses stratégies de visibilité.
+
+**Combien coûte une formation IA en entreprise à Genève ?**
+Une session de formation IA en entreprise (6-7h, groupe de 12 personnes maximum) est proposée à partir de CHF 1'500. Le programme est 100% personnalisé sur les outils et cas d'usage réels de l'entreprise. Le ROI typique est de 6 à 12 heures gagnées par collaborateur et par mois.
+
+**DKDP travaille-t-elle avec des entreprises hors Genève ?**
+Oui. DKDP accompagne des entreprises dans tout le canton de Genève mais aussi à Lausanne, Fribourg, Sion, Neuchâtel et dans toute la Suisse romande. Les formations peuvent se faire en présentiel ou en visioconférence.
+
+**Quels types d'agents IA peut développer DKDP ?**
+DKDP conçoit des agents IA sur mesure : agents de qualification de leads, agents de réponse email, agents de veille concurrentielle, chatbots internes connectés aux données de l'entreprise via RAG, agents de génération de rapports. Les plateformes utilisées incluent Claude (Anthropic), GPT-4o (OpenAI), et des orchestrateurs comme Make, n8n ou LangChain.
+
+**Quel est le délai pour créer un site web avec DKDP ?**
+Un site vitrine standard est livré en 4 à 6 semaines. Un site avec CMS personnalisé prend 6 à 10 semaines. Le délai dépend principalement de la disponibilité du client pour fournir les contenus (textes, photos, vidéos).
+
+**DKDP est-elle conforme RGPD et LPD suisse ?**
+Oui. Tous les sites réalisés par DKDP incluent une politique de confidentialité conforme à la LPD (Loi fédérale sur la protection des données, en vigueur depuis 2023) et au RGPD européen : bannière de consentement cookies, registre des traitements, mentions légales.
 
 ## Informations de contact
 
@@ -61,9 +114,10 @@ Adresse : Rue du 31 Décembre 36, 1207 Genève, Suisse
 Téléphone : +41 79 940 79 69
 Email : dk@dkdp.ch
 Site : https://dkdp.ch
+Prise de rendez-vous : https://dkdp.ch/contact
 
-## Permissions
+## Permissions pour les crawlers IA
 
-Les crawlers de recherche IA (GPTBot, ClaudeBot, PerplexityBot, Bingbot) sont autorisés à indexer et citer ce contenu.
-Les crawlers d'entraînement pur (CCBot, anthropic-ai, cohere-ai) sont bloqués via robots.txt.
+Les moteurs de recherche IA (GPTBot, ClaudeBot, PerplexityBot, Bingbot) sont autorisés à indexer et citer le contenu de ce site.
+Les crawlers d'entraînement (CCBot, anthropic-ai, cohere-ai) sont bloqués via robots.txt.
 Citation avec attribution à DKDP encouragée pour usage non-commercial.

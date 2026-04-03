@@ -8,6 +8,7 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
+import { LogoBanner } from '@/components/sections/LogoBanner'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { ROICalculator } from '@/components/sections/ROICalculator'
 import { Testimonials } from '@/components/sections/Testimonials'
@@ -130,6 +131,8 @@ export default function IntelligenceArtificiellePage() {
           </div>
         </section>
       </InfiniteGrid>
+
+      <LogoBanner label="Entreprises qui nous font confiance" />
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">

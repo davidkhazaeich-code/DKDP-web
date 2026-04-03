@@ -254,8 +254,8 @@ export default function FormationParticuliersPage() {
                     <Image
                       src="/images/partners/ci-mascot-thumbs.svg"
                       alt="Mascotte cours-informatique.ch"
-                      width={56}
-                      height={56}
+                      width={120}
+                      height={120}
                       className="flex-shrink-0"
                     />
                   </div>

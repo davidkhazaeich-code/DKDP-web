@@ -12,6 +12,7 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
+import { LogoBanner } from '@/components/sections/LogoBanner'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { FormationROICalculator } from '@/components/sections/FormationROICalculator'
 import { ParallaxOrangeBlobs } from '@/components/ui/ParallaxOrangeBlobs'
@@ -154,6 +155,8 @@ export default function FormationEntreprisePage() {
           </div>
         </section>
       </InfiniteGrid>
+
+      <LogoBanner label="Équipes déjà formées" />
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">

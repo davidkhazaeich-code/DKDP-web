@@ -365,10 +365,17 @@ export function DottedSurface({
       }
     }
 
-    init(container)
+    // Defer Three.js init until the browser is idle — keeps LCP unblocked on mobile
+    const ric = (window as any).requestIdleCallback
+      ?? ((cb: () => void) => setTimeout(cb, 200))
+    const cancelRic = (window as any).cancelIdleCallback
+      ?? ((id: ReturnType<typeof setTimeout>) => clearTimeout(id))
+
+    const ricId = ric(() => { if (!cancelled) init(container) }, { timeout: 2000 })
 
     return () => {
       cancelled = true
+      cancelRic(ricId)
       cleanupFn?.()
     }
   }, [violetRatio, orangeRatio])

@@ -159,12 +159,14 @@ export function Testimonials({ className }: { className?: string }) {
                   aria-selected={i === current}
                   aria-label={`Témoignage ${i + 1}`}
                   onClick={() => goTo(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
+                  className="group relative flex items-center justify-center w-11 h-11"
+                >
+                  <span className={`h-2 rounded-full transition-all duration-300 ${
                     i === current
                       ? 'bg-violet w-6'
-                      : 'bg-border hover:bg-text-muted w-2'
-                  }`}
-                />
+                      : 'bg-border group-hover:bg-text-muted w-2'
+                  }`} />
+                </button>
               ))}
             </div>
 

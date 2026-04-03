@@ -113,7 +113,7 @@ function FooterInner({ constrained = false }: { constrained?: boolean }) {
               src="/images/logo/dkdp_blanc-croped.png"
               alt="DKDP, Service Digital Genève"
               width={80}
-              height={26}
+              height={14}
               className="mb-4"
             />
             <p className="text-text-secondary text-sm leading-relaxed mb-5">
@@ -188,7 +188,7 @@ function FooterInner({ constrained = false }: { constrained?: boolean }) {
               src="/images/logo/dkdp_blanc-croped.png"
               alt="DKDP, Service Digital Genève"
               width={80}
-              height={26}
+              height={14}
               className="mb-3"
             />
             <p className="text-text-secondary text-sm leading-relaxed">

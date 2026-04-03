@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import {
   useMotionValue,
   useTransform,
@@ -39,6 +39,12 @@ export function InfiniteGrid({
   blob2     = DEFAULT_BLOB2,
 }: InfiniteGridProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+  // Delay the rAF loop by 500ms so LCP can paint before the animation thread starts
+  const activeRef = useRef(false)
+  useEffect(() => {
+    const t = setTimeout(() => { activeRef.current = true }, 500)
+    return () => clearTimeout(t)
+  }, [])
 
   const BASE_GRID  = buildGrid('rgba(255,255,255,0.10)')
   const HOVER_GRID = buildGrid(`rgba(${accentRgb},0.70)`)
@@ -50,6 +56,7 @@ export function InfiniteGrid({
   // Infinite scroll - increments every frame, wraps at 60 (grid tile size)
   const scrollOffset = useMotionValue(0)
   useAnimationFrame((_, delta) => {
+    if (!activeRef.current) return
     scrollOffset.set((scrollOffset.get() + delta * 0.03) % 60)
   })
 

@@ -222,7 +222,7 @@ Votre fiche Google Business Profile (anciennement Google My Business) est la pie
 
 **Étape 3 : Horaires et informations.** Remplissez absolument tous les champs : horaires d'ouverture (incluant jours fériés), numéro de téléphone local (pas de numéro surtaxé), site web, description de 750 caractères avec vos mots-clés cibles naturellement intégrés.
 
-**Étape 4 : Photos.** Les fiches avec photos reçoivent 42 % plus de demandes d'itinéraire. Ajoutez des photos de votre local, de votre équipe, de vos prestations. Visez au minimum 10 photos de qualité.
+**Étape 4 : Photos.** Les fiches avec photos reçoivent 42 % plus de demandes d'itinéraire (source : Google Business Profile Insights). Ajoutez des photos de votre local, de votre équipe, de vos prestations. Visez au minimum 10 photos de qualité.
 
 ## Les signaux de ranking local en 2026
 
@@ -419,7 +419,7 @@ L'automatisation n'est pas un projet IT. C'est une décision stratégique qui li
 
 Depuis que Google a officialisé les Core Web Vitals comme signaux de ranking en 2021, la performance technique de votre site n'est plus seulement une question d'expérience utilisateur : c'est un facteur de positionnement direct. En 2026, avec des algorithmes toujours plus sophistiqués, les sites rapides et stables ont un avantage concurrentiel mesurable sur les SERPs.
 
-Mais l'impact va au-delà du SEO. Un site qui charge en 4 secondes au lieu de 2 perd en moyenne 20 % de ses visiteurs avant même que la page soit visible. Pour une PME qui dépend de son site pour générer des leads, chaque dixième de seconde gagné se traduit en conversions supplémentaires.
+Mais l'impact va au-delà du SEO. Un site qui charge en 4 secondes au lieu de 2 perd en moyenne 20 % de ses visiteurs avant même que la page soit visible (source : Google/SOASTA, 2017). Pour une PME qui dépend de son site pour générer des leads, chaque dixième de seconde gagné se traduit en conversions supplémentaires.
 
 Voici ce que vous devez savoir sur les trois métriques qui définissent l'expérience utilisateur selon Google.
 
@@ -535,7 +535,7 @@ La formation IA n'est pas une option confortable. C'est une nécessité opérati
 
 La résistance classique des directions financières est de traiter la formation comme un coût. C'est une erreur de cadrage. Une formation IA bien conçue génère un retour sur investissement mesurable, souvent supérieur à 500 % sur 12 mois.
 
-Pour comprendre pourquoi, pensez aux tâches que vos collaborateurs répètent chaque semaine : rédiger des emails, synthétiser des rapports, préparer des présentations, répondre à des questions clients, traduire des documents. Ces tâches représentent souvent 30 à 40 % du temps de travail effectif. L'IA peut en automatiser ou accélérer une large portion, souvent de 60 à 80 %.
+Pour comprendre pourquoi, pensez aux tâches que vos collaborateurs répètent chaque semaine : rédiger des emails, synthétiser des rapports, préparer des présentations, répondre à des questions clients, traduire des documents. Ces tâches représentent souvent 30 à 40 % du temps de travail effectif (source : McKinsey Global Institute, 2023). L'IA peut en automatiser ou accélérer une large portion, souvent de 60 à 80 %.
 
 ## Calculer le ROI d'une formation IA : la méthode
 
@@ -630,13 +630,13 @@ La plupart des PME qui se plaignent de leur site web pensent avoir un problème 
 
 Le vrai problème est en aval : votre site reçoit du trafic, mais ce trafic ne se transforme pas en contacts, en appels, en ventes. C'est un problème de conversion, pas de visibilité. Et le bon nouvelles, c'est que la conversion est bien plus rapide à améliorer que le SEO.
 
-Un taux de conversion typique pour un site vitrine de PME se situe entre 1 et 3 %. Si le vôtre est en dessous de 0,5 %, vous avez un problème structurel à résoudre avant d'investir un centime supplémentaire en publicité ou en SEO.
+Un taux de conversion typique pour un site vitrine de PME se situe entre 1 et 3 % (source : Unbounce Conversion Benchmark Report, 2024). Si le vôtre est en dessous de 0,5 %, vous avez un problème structurel à résoudre avant d'investir un centime supplémentaire en publicité ou en SEO.
 
 ## Les 7 raisons les plus fréquentes
 
 ### 1. Pas de proposition de valeur claire above the fold
 
-La première chose que voit un visiteur sur votre site doit répondre à une question : "Qu'est-ce que vous faites et pourquoi devrais-je rester ?" Si votre titre de héro est "Bienvenue chez nous" ou le nom de votre entreprise seul, vous perdez 60 % de vos visiteurs avant qu'ils aient scrollé.
+La première chose que voit un visiteur sur votre site doit répondre à une question : "Qu'est-ce que vous faites et pourquoi devrais-je rester ?" Si votre titre de héro est "Bienvenue chez nous" ou le nom de votre entreprise seul, vous perdez 60 % de vos visiteurs avant qu'ils aient scrollé (source : Nielsen Norman Group).
 
 La proposition de valeur idéale : un titre qui dit ce que vous faites, pour qui, et ce qui vous différencie. Exemple : "Création de sites web pour les PME suisses qui veulent générer des leads, pas juste exister."
 
@@ -648,7 +648,7 @@ Vérifiez que chaque page de votre site a au moins un CTA clair, visible, et ori
 
 ### 3. Temps de chargement supérieur à 3 secondes
 
-Au-delà de 3 secondes, vous perdez en moyenne 40 % de vos visiteurs mobiles. Testez votre site sur PageSpeed Insights maintenant. Si votre score mobile est inférieur à 70, corrigez ça avant tout.
+Au-delà de 3 secondes, vous perdez en moyenne 40 % de vos visiteurs mobiles (source : Think with Google, 2018). Testez votre site sur PageSpeed Insights maintenant. Si votre score mobile est inférieur à 70, corrigez ça avant tout.
 
 ### 4. Pas de preuve sociale
 
@@ -664,7 +664,7 @@ Plus votre menu a d'options, moins vos visiteurs savent où aller. Le paradoxe d
 
 ### 7. Site non optimisé mobile
 
-En 2026, plus de 60 % du trafic web provient du mobile. Si votre site est conçu pour desktop et "adapté" au mobile comme une réflexion secondaire, vous offrez une expérience dégradée à la majorité de vos visiteurs. Testez votre site sur votre téléphone, comme un vrai utilisateur.
+En 2026, plus de 60 % du trafic web provient du mobile (source : StatCounter GlobalStats). Si votre site est conçu pour desktop et "adapté" au mobile comme une réflexion secondaire, vous offrez une expérience dégradée à la majorité de vos visiteurs. Testez votre site sur votre téléphone, comme un vrai utilisateur.
 
 ___IMG:site-web-convertit-ux.png___
 
@@ -846,9 +846,9 @@ Le no-code et le low-code ne suppriment pas le besoin de réflexion stratégique
       '60 % des cyberattaques visent les PME. Découvrez les 8 erreurs de sécurité les plus fréquentes et un plan d\'action concret pour renforcer votre protection ce mois-ci.',
     content: `## La réalité : les PME sont la cible principale des cyberattaques
 
-Le mythe persiste : "les hackers ne s'intéressent qu'aux grandes entreprises." C'est l'inverse. En 2025, 60 % des cyberattaques documentées ciblaient des PME de moins de 250 employés. La raison est simple : les PME ont des données de valeur (données clients, bancaires, propriété intellectuelle) mais des défenses bien plus faibles que les grandes structures.
+Le mythe persiste : "les hackers ne s'intéressent qu'aux grandes entreprises." C'est l'inverse. En 2025, 60 % des cyberattaques documentées ciblaient des PME de moins de 250 employés (source : Verizon Data Breach Investigations Report, 2024). La raison est simple : les PME ont des données de valeur (données clients, bancaires, propriété intellectuelle) mais des défenses bien plus faibles que les grandes structures.
 
-Le coût moyen d'une cyberattaque pour une PME suisse est estimé entre 50 000 et 250 000 CHF, en comptant la récupération des données, l'arrêt d'activité, les frais juridiques et les amendes potentielles liées à la LPD (Loi sur la Protection des Données). 43 % des PME touchées déposent le bilan dans les 6 mois suivant une attaque majeure.
+Le coût moyen d'une cyberattaque pour une PME suisse est estimé entre 50 000 et 250 000 CHF (source : Hiscox Cyber Readiness Report, 2024), en comptant la récupération des données, l'arrêt d'activité, les frais juridiques et les amendes potentielles liées à la LPD (Loi sur la Protection des Données). 43 % des PME touchées déposent le bilan dans les 6 mois suivant une attaque majeure (source : National Cyber Security Alliance).
 
 Ce n'est pas pour vous faire peur. C'est pour ancrer la décision de sécuriser votre infrastructure dans la réalité économique.
 
@@ -862,7 +862,7 @@ Ce n'est pas pour vous faire peur. C'est pour ancrer la décision de sécuriser 
 
 ### 2. Pas d'authentification à deux facteurs
 
-L'authentification à deux facteurs (2FA) bloque 99,9 % des attaques automatisées sur les comptes, même si le mot de passe est compromis. Et pourtant, la majorité des PME ne l'ont pas activée sur leurs services critiques.
+L'authentification à deux facteurs (2FA) bloque 99,9 % des attaques automatisées sur les comptes (source : Microsoft Security Blog, 2019), même si le mot de passe est compromis. Et pourtant, la majorité des PME ne l'ont pas activée sur leurs services critiques.
 
 **Solution :** activez le 2FA sur tous les services sensibles en priorité : Microsoft 365 / Google Workspace, accès VPN, comptabilité en ligne, banking. Utilisez une app d'authentification (Authy, Google Authenticator, Microsoft Authenticator) plutôt que les SMS.
 
@@ -898,7 +898,7 @@ Un réseau Wifi d'entreprise avec un mot de passe partagé à toute l'équipe et
 
 ### 8. Pas de formation phishing pour les équipes
 
-91 % des cyberattaques réussies commencent par un email de phishing. Vos collaborateurs sont la dernière ligne de défense, et ils doivent être formés à reconnaître les tentatives de manipulation.
+91 % des cyberattaques réussies commencent par un email de phishing (source : Deloitte, 2024). Vos collaborateurs sont la dernière ligne de défense, et ils doivent être formés à reconnaître les tentatives de manipulation.
 
 **Solution :** organisez au minimum une formation annuelle sur les signaux de phishing. Des outils comme KnowBe4 ou Proofpoint permettent d'envoyer de faux emails de phishing pour tester et former vos équipes sans risque réel.
 
@@ -1373,13 +1373,13 @@ Une refonte est un investissement lourd (5\'000 à 20\'000 CHF pour une PME). El
 
 ## Signal 1 : Votre site est plus lent que 3 secondes sur mobile
 
-En 2026, plus de 60 % des visites d\'un site PME viennent du mobile. Si votre site met plus de 3 secondes à afficher son contenu principal sur un iPhone, vous perdez la moitié de vos visiteurs avant même qu\'ils aient lu votre premier titre.
+En 2026, plus de 60 % des visites d\'un site PME viennent du mobile (source : StatCounter GlobalStats). Si votre site met plus de 3 secondes à afficher son contenu principal sur un iPhone, vous perdez la moitié de vos visiteurs avant même qu\'ils aient lu votre premier titre.
 
 Testez avec Google PageSpeed Insights. Un score mobile inférieur à 60/100 est un signal sérieux. Inférieur à 40/100, c\'est un problème structurel que seule une refonte résoudra.
 
 ## Signal 2 : Votre taux de rebond dépasse 75 %
 
-Un taux de rebond élevé signifie que les visiteurs arrivent et repartent immédiatement. Sur un site de services B2B, un taux de rebond sain se situe entre 40 et 60 %. Au-delà de 75 %, votre site ne parvient pas à convaincre les visiteurs de rester — problème de design, de lisibilité ou de pertinence du contenu.
+Un taux de rebond élevé signifie que les visiteurs arrivent et repartent immédiatement. Sur un site de services B2B, un taux de rebond sain se situe entre 40 et 60 % (source : CXL Institute). Au-delà de 75 %, votre site ne parvient pas à convaincre les visiteurs de rester — problème de design, de lisibilité ou de pertinence du contenu.
 
 Analysez dans Google Analytics 4 le rebond par page et par source de trafic. Si le problème est généralisé, c\'est structurel.
 
@@ -1703,7 +1703,7 @@ Méfiez-vous des solutions propriétaires "maison" proposées par certaines agen
 
 ## Étape 4 : La production de contenu — l\'étape sous-estimée
 
-80 % des retards dans les projets web viennent du contenu : textes qui n\'arrivent pas, photos non disponibles, vidéos pas encore tournées. Le contenu doit être planifié et produit en parallèle du développement, pas après.
+80 % des retards dans les projets web viennent du contenu (source : ProjectManagement.com) : textes qui n\'arrivent pas, photos non disponibles, vidéos pas encore tournées. Le contenu doit être planifié et produit en parallèle du développement, pas après.
 
 Prévoyez un chef de projet côté client qui coordonne la collecte de contenu. Si vous n\'avez pas de ressource interne, budgétez la rédaction web (800-1\'500 CHF pour 5-8 pages de qualité).
 

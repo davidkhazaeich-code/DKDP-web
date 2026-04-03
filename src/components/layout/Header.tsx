@@ -49,7 +49,7 @@ const IA_MAIN = [
 
 const IA_SECONDARY = [
   { title: 'Formation IA entreprise', href: '/formation-entreprise/ia', icon: GraduationCap },
-  { title: 'Formation Claude AI', href: '/formation-entreprise/claude-ai', icon: Sparkles },
+  { title: 'Formation Claude AI', href: '/formation-entreprise/claude-ai', icon: Sparkles, logoSrc: '/images/partners/claude-logo.png' },
   { title: 'Cas clients IA', href: '/realisations', icon: Star },
   { title: 'Tarifs IA', href: '/tarifs', icon: FileText },
   { title: 'Parler à un expert', href: '/contact', icon: Phone },
@@ -57,7 +57,7 @@ const IA_SECONDARY = [
 
 const FORMATION_MAIN = [
   { title: 'Formation IA en entreprise', href: '/formation-entreprise/ia', icon: BrainCircuit, description: 'Formez vos équipes aux outils IA du quotidien.' },
-  { title: 'Formation Claude AI', href: '/formation-entreprise/claude-ai', icon: Sparkles, description: 'Claude.ai, Projects et Claude Code en profondeur.' },
+  { title: 'Formation Claude AI', href: '/formation-entreprise/claude-ai', icon: Sparkles, description: 'Claude.ai, Projects et Claude Code en profondeur.', logoSrc: '/images/partners/claude-logo.png' },
   { title: 'Bureautique', href: '/formation-entreprise/bureautique', icon: BookOpen, description: 'Gagnez du temps sur chaque fichier.' },
   { title: 'Réseaux sociaux', href: '/formation-entreprise/reseaux-sociaux', icon: Share2, description: 'Maîtrisez les plateformes sociales.' },
   { title: 'Cybersécurité', href: '/formation-entreprise/cybersecurite', icon: Shield, description: 'Protégez vos données et vos collaborateurs.' },
@@ -96,8 +96,8 @@ const PILLAR_ACCENT = {
 
 // ─── MegaMenu panel ───────────────────────────────────────────────────────────
 
-type MegaItem = { title: string; href: string; icon: React.ElementType; description?: string }
-type MegaSecondary = { title: string; href: string; icon: React.ElementType }
+type MegaItem = { title: string; href: string; icon: React.ElementType; description?: string; logoSrc?: string }
+type MegaSecondary = { title: string; href: string; icon: React.ElementType; logoSrc?: string }
 type PillarKey = 'agence' | 'ia' | 'formation' | 'apropos'
 
 function MegaPanel({
@@ -138,7 +138,10 @@ function MegaPanel({
                     className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[6px]"
                     style={{ background: bg, border: `1px solid ${border}` }}
                   >
-                    <item.icon size={15} style={{ color }} />
+                    {item.logoSrc
+                      ? <Image src={item.logoSrc} alt="" width={18} height={18} className="rounded-[4px]" />
+                      : <item.icon size={15} style={{ color }} />
+                    }
                   </div>
                   <div>
                     <p className="text-[13px] font-semibold text-white leading-snug group-hover:text-white">
@@ -180,7 +183,10 @@ function MegaPanel({
                   href={item.href}
                   className="flex items-center gap-2 rounded-[6px] px-2 py-1.5 text-[12px] text-text-secondary hover:bg-white/[0.04] hover:text-white transition-colors group"
                 >
-                  <item.icon size={13} className="flex-shrink-0 text-text-muted group-hover:text-white transition-colors" />
+                  {item.logoSrc
+                    ? <Image src={item.logoSrc} alt="" width={13} height={13} className="flex-shrink-0 rounded-[3px] opacity-80 group-hover:opacity-100 transition-opacity" />
+                    : <item.icon size={13} className="flex-shrink-0 text-text-muted group-hover:text-white transition-colors" />
+                  }
                   <span>{item.title}</span>
                   <ChevronRight size={11} className="ml-auto opacity-0 group-hover:opacity-60 transition-opacity" />
                 </Link>
@@ -330,7 +336,10 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                           className="flex h-9 w-9 items-center justify-center rounded-[8px]"
                           style={{ background: 'rgba(0,0,0,0.35)', border: `1px solid ${tab.border}` }}
                         >
-                          <item.icon size={16} style={{ color: tab.color }} />
+                          {item.logoSrc
+                            ? <Image src={item.logoSrc} alt="" width={20} height={20} className="rounded-[5px]" />
+                            : <item.icon size={16} style={{ color: tab.color }} />
+                          }
                         </div>
                         <div>
                           <p className="text-[13px] font-semibold text-white leading-snug">{item.title}</p>
@@ -369,7 +378,10 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                           onClick={onClose}
                           className="flex items-center gap-3 px-2 py-2.5 rounded-[8px] text-[13px] text-text-secondary hover:bg-white/[0.05] hover:text-white transition-colors group"
                         >
-                          <item.icon size={14} className="flex-shrink-0 transition-colors" style={{ color: tab.color }} />
+                          {item.logoSrc
+                            ? <Image src={item.logoSrc} alt="" width={14} height={14} className="flex-shrink-0 rounded-[3px]" />
+                            : <item.icon size={14} className="flex-shrink-0 transition-colors" style={{ color: tab.color }} />
+                          }
                           <span>{item.title}</span>
                           <ChevronRight size={11} className="ml-auto opacity-0 group-hover:opacity-60 transition-opacity" />
                         </Link>

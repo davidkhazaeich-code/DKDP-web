@@ -229,6 +229,32 @@ function UseCaseCard({ dept, icon: Icon, color, bg, border, cases }: {
   )
 }
 
+function UseCaseRow({ dept, color, bg, border, cases }: {
+  dept: string; color: string; bg: string; border: string; cases: string[]
+}) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 items-start">
+      <div
+        className="px-3 py-2 rounded-[8px] text-center sm:text-left"
+        style={{ background: bg, border: `1px solid ${border}` }}
+      >
+        <span className="text-xs font-bold" style={{ color }}>{dept}</span>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {cases.map((c) => (
+          <span
+            key={c}
+            className="text-[11px] px-3 py-1.5 rounded-full text-text-secondary"
+            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+          >
+            {c}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 /* ─────────────────────────────────────────────
    Page
 ───────────────────────────────────────────── */

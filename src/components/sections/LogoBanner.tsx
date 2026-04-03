@@ -35,9 +35,9 @@ export function LogoBanner({ label = 'Ils nous font confiance' }: LogoBannerProp
         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling strip — duplicated ×2, loop resets at -50% */}
+        {/* Scrolling strip — duplicated ×3, loop resets at -33.333% */}
         <div className="logo-scroll items-center gap-12">
-          {[...LOGOS, ...LOGOS].map((logo, i) => (
+          {[...LOGOS, ...LOGOS, ...LOGOS].map((logo, i) => (
             <div
               key={i}
               className="flex-shrink-0 grayscale opacity-40 hover:opacity-80 hover:grayscale-0 transition-all duration-300"

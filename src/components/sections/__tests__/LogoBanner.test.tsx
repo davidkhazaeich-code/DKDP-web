@@ -23,10 +23,10 @@ describe('LogoBanner', () => {
     expect(screen.getAllByAltText(/howden/i).length).toBeGreaterThanOrEqual(1)
   })
 
-  it('duplicates logos for seamless 2x loop', () => {
+  it('duplicates logos for seamless 3x loop', () => {
     render(<LogoBanner />)
-    // 14 logos × 2 = 28 img elements
+    // 14 logos × 3 = 42 img elements
     const allLogos = screen.getAllByRole('img')
-    expect(allLogos.length).toBe(28)
+    expect(allLogos.length).toBe(42)
   })
 })

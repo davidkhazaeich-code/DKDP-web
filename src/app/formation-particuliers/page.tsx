@@ -193,25 +193,18 @@ export default function FormationParticuliersPage() {
                   Apprenez l&apos;informatique{' '}
                   <GradText as="span">à domicile, à Genève.</GradText>
                 </h1>
-                {/* Logo + URL */}
-                <a
-                  href="https://cours-informatique.ch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mb-4 opacity-70 hover:opacity-100 transition-opacity"
-                >
-                  <Image
-                    src="/images/partners/ci-logo-orange.jpg"
-                    alt="cours-informatique.ch"
-                    width={24}
-                    height={24}
-                    className="rounded-sm"
-                  />
-                  <span className="text-sm font-medium text-text-muted">cours-informatique.ch</span>
-                </a>
-
                 <p className="text-text-secondary text-lg leading-relaxed mb-4">
-                  Notre plateforme dédiée aux particuliers : cours privés personnalisés, à domicile ou en ligne, sans engagement.
+                  Via{' '}
+                  <a
+                    href="https://cours-informatique.ch"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold underline underline-offset-2 transition-opacity hover:opacity-75"
+                    style={{ color: accent }}
+                  >
+                    cours-informatique.ch
+                  </a>
+                  , notre plateforme dédiée aux particuliers : cours privés personnalisés, à domicile ou en ligne, sans engagement.
                 </p>
 
                 {/* Social proof */}
@@ -258,12 +251,13 @@ export default function FormationParticuliersPage() {
                       </p>
                       <p className="text-white font-bold text-xl">cours-informatique.ch</p>
                     </div>
-                    <div
-                      className="flex h-10 w-10 items-center justify-center rounded-[10px]"
-                      style={{ background: 'rgba(255,107,0,0.10)', border: `1px solid rgba(255,107,0,0.20)` }}
-                    >
-                      <Monitor size={18} style={{ color: accent }} aria-hidden="true" />
-                    </div>
+                    <Image
+                      src="/images/partners/ci-mascot-thumbs.svg"
+                      alt="Mascotte cours-informatique.ch"
+                      width={56}
+                      height={56}
+                      className="flex-shrink-0"
+                    />
                   </div>
 
                   <div className="h-px bg-border" />

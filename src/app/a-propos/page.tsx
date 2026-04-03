@@ -124,7 +124,7 @@ const EQUIPE = [
     skills: ['Formation Claude IA', 'Réseaux sociaux', 'Bureautique', 'Canva & Design'],
     email: 'rd@dkdp.ch',
     linkedin: 'https://www.linkedin.com/in/romane-degeorges/',
-    imageScale: 0.85,
+    imageScale: 1.7,
     imageOffsetX: 15,
   },
   {

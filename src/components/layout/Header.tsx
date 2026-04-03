@@ -49,6 +49,7 @@ const IA_MAIN = [
 
 const IA_SECONDARY = [
   { title: 'Formation IA entreprise', href: '/formation-entreprise/ia', icon: GraduationCap },
+  { title: 'Formation Claude AI', href: '/formation-entreprise/claude-ai', icon: Sparkles },
   { title: 'Cas clients IA', href: '/realisations', icon: Star },
   { title: 'Tarifs IA', href: '/tarifs', icon: FileText },
   { title: 'Parler à un expert', href: '/contact', icon: Phone },
@@ -56,6 +57,7 @@ const IA_SECONDARY = [
 
 const FORMATION_MAIN = [
   { title: 'Formation IA en entreprise', href: '/formation-entreprise/ia', icon: BrainCircuit, description: 'Formez vos équipes aux outils IA du quotidien.' },
+  { title: 'Formation Claude AI', href: '/formation-entreprise/claude-ai', icon: Sparkles, description: 'Claude.ai, Projects et Claude Code en profondeur.' },
   { title: 'Bureautique', href: '/formation-entreprise/bureautique', icon: BookOpen, description: 'Gagnez du temps sur chaque fichier.' },
   { title: 'Réseaux sociaux', href: '/formation-entreprise/reseaux-sociaux', icon: Share2, description: 'Maîtrisez les plateformes sociales.' },
   { title: 'Cybersécurité', href: '/formation-entreprise/cybersecurite', icon: Shield, description: 'Protégez vos données et vos collaborateurs.' },
@@ -111,7 +113,10 @@ function MegaPanel({
 }) {
   const { color, bg, border } = PILLAR_ACCENT[pillar]
   return (
-    <div className="w-[700px] p-5 grid grid-cols-[1fr_190px] gap-5">
+    <div
+      className="w-[700px] p-5 grid grid-cols-[1fr_190px] gap-5"
+      style={{ background: bg }}
+    >
       {/* Left - main links */}
       <div>
         {/* Pillar header */}

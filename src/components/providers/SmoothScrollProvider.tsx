@@ -17,12 +17,17 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
 
     lenisRef.current = lenis
 
+    let animId: number
+
     function raf(time: number) {
       lenis.raf(time)
-      requestAnimationFrame(raf)
+      animId = requestAnimationFrame(raf)
     }
 
-    requestAnimationFrame(raf)
+    // Defer rAF loop by 800ms so it doesn't compete with LCP paint
+    const timer = setTimeout(() => {
+      animId = requestAnimationFrame(raf)
+    }, 800)
 
     // Intercept anchor link clicks so Lenis handles the scroll (desktop + mobile)
     function onAnchorClick(e: MouseEvent | TouchEvent) {
@@ -40,6 +45,8 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     document.addEventListener('click', onAnchorClick)
 
     return () => {
+      clearTimeout(timer)
+      cancelAnimationFrame(animId)
       document.removeEventListener('click', onAnchorClick)
       lenis.destroy()
       lenisRef.current = null

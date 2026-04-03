@@ -10,7 +10,7 @@ import './globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['400', '600', '700'],
   variable: '--font-inter',
   display: 'swap',
 })
@@ -38,6 +38,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={inter.variable}>
+      <head>
+        <link rel="preconnect" href="https://app.cal.com" />
+        <link rel="preconnect" href="https://cal.com" />
+        <link rel="dns-prefetch" href="https://app.cal.com" />
+      </head>
       <body className="bg-bg text-white font-sans antialiased">
         <SmoothScrollProvider>
           <CalProvider />

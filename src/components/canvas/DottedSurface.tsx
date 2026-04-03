@@ -32,8 +32,8 @@ export function DottedSurface({
       if (cancelled) return
 
       const SEPARATION = 150
-      const AMOUNTX = 60
-      const AMOUNTY = 90
+      const AMOUNTX = 40
+      const AMOUNTY = 60
       const SHUFFLE_INTERVAL = 4500
       const FADE_SPEED = 0.028
       const BREATH_SPEED = 2.2
@@ -117,7 +117,7 @@ export function DottedSurface({
       camera.position.set(0, 500, 900)
 
       const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
-      renderer.setPixelRatio(window.devicePixelRatio)
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
       renderer.setSize(container.offsetWidth || window.innerWidth, container.offsetHeight || window.innerHeight)
       renderer.setClearColor(0x000000, 0)
       container.appendChild(renderer.domElement)

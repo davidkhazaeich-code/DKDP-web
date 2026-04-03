@@ -41,6 +41,7 @@ export function InfiniteGrid({
   const containerRef = useRef<HTMLDivElement>(null)
   // Delay the rAF loop by 500ms so LCP can paint before the animation thread starts
   const activeRef = useRef(false)
+  const mouseThrottleRef = useRef(false)
   useEffect(() => {
     const t = setTimeout(() => { activeRef.current = true }, 500)
     return () => clearTimeout(t)
@@ -72,9 +73,16 @@ export function InfiniteGrid({
   const radialMask = useMotionTemplate`radial-gradient(450px circle at ${mouseX}px ${mouseY}px, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)`
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (mouseThrottleRef.current) return
+    mouseThrottleRef.current = true
     const rect = e.currentTarget.getBoundingClientRect()
-    mouseX.set(e.clientX - rect.left)
-    mouseY.set(e.clientY - rect.top)
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    requestAnimationFrame(() => {
+      mouseX.set(x)
+      mouseY.set(y)
+      mouseThrottleRef.current = false
+    })
   }
 
   function handleMouseLeave() {

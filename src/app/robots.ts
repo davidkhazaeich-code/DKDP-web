@@ -4,13 +4,18 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        // Moteurs classiques + crawlers AI Search : acces complet
-        userAgent: ["*", "GPTBot", "OAI-SearchBot", "ClaudeBot", "PerplexityBot", "Applebot", "Bingbot"],
+        // Tous les crawlers : accès complet sauf /api/
+        userAgent: "*",
         allow: "/",
         disallow: ["/api/"],
       },
       {
-        // Crawlers d'entrainement pur : bloques
+        // Crawlers AI Search : accès explicite confirmé
+        userAgent: ["GPTBot", "OAI-SearchBot", "ClaudeBot", "PerplexityBot", "Applebot", "Bingbot"],
+        allow: "/",
+      },
+      {
+        // Crawlers d'entraînement pur : bloqués
         userAgent: ["CCBot", "cohere-ai", "anthropic-ai"],
         disallow: "/",
       },

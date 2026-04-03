@@ -56,10 +56,7 @@ export function HomeHero() {
       </motion.div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 1 }}
+      <div
         aria-hidden="true"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
@@ -80,7 +77,7 @@ export function HomeHero() {
             <ChevronDown size={20} className="text-text-muted" />
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }

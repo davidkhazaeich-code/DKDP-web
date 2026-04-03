@@ -56,16 +56,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Hero title — CSS animation so LCP element is visible before JS hydrates */
-.hero-title {
-  animation: fadeUp 0.8s var(--ease-entry) both;
-}
-.hero-subtitle {
-  animation: fadeUp 0.8s var(--ease-entry) 0.15s both;
-}
-.hero-cta {
-  animation: fadeUp 0.8s var(--ease-entry) 0.3s both;
-}
+/* Hero title — no entrance animation, elements appear immediately for LCP */
 
 @keyframes countUp {
   from { opacity: 0; transform: translateY(10px); }

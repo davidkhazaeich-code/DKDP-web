@@ -45,9 +45,10 @@ export function LogoBanner({ label = 'Ils nous font confiance' }: LogoBannerProp
               <Image
                 src={`/images/clients/${logo.file}`}
                 alt={logo.name}
-                width={Math.round(logo.width * 2.7)}
-                height={108}
-                className="object-contain h-[48px] w-auto"
+                width={logo.width}
+                height={logo.height}
+                sizes={`${logo.width}px`}
+                className="object-contain h-[40px] w-auto"
               />
             </div>
           ))}

@@ -50,19 +50,26 @@ export function LiquidMetalButton({
     return () => ro.disconnect()
   }, [])
 
-  // Lazy-load the React shader component (with optional delay for phase offset)
+  // Lazy-load the shader — always via requestIdleCallback so it never blocks LCP
   useEffect(() => {
+    let cancelled = false
     const load = () => {
       import('@paper-design/shaders-react').then((mod) => {
+        if (cancelled) return
         LiquidMetalRef.current = mod.LiquidMetal as React.ComponentType<Record<string, unknown>>
         setShaderLoaded(true)
       }).catch(() => {})
     }
-    if (shaderDelay > 0) {
-      const t = setTimeout(load, shaderDelay)
-      return () => clearTimeout(t)
+    const ric = (window as Window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback
+      ?? ((cb: () => void) => setTimeout(cb, 200))
+    const delay = Math.max(shaderDelay, 0)
+    const id = delay > 0
+      ? setTimeout(() => ric(load, { timeout: 3000 }), delay)
+      : ric(load, { timeout: 3000 })
+    return () => {
+      cancelled = true
+      if (delay > 0) clearTimeout(id as ReturnType<typeof setTimeout>)
     }
-    load()
   }, [shaderDelay])
 
   const handleMouseEnter = () => setIsHovered(true)

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { ChevronDown } from 'lucide-react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { GradText } from '@/components/ui/GradText'
 import { TrustBadge } from '@/components/ui/TrustBadge'
@@ -16,9 +16,6 @@ const DottedSurface = dynamic(
 )
 
 export function HomeHero() {
-  const { scrollY } = useScroll()
-  const y = useTransform(scrollY, [0, 600], [0, -80])
-
   // null = SSR/hydration, true = desktop ≥768px, false = mobile
   const [isDesktop, setIsDesktop] = useState<boolean | null>(null)
   useEffect(() => {
@@ -72,10 +69,9 @@ export function HomeHero() {
     </>
   )
 
-  // Desktop : parallax actif — Mobile : div statique
-  const content = isDesktop === false
-    ? <div className="max-w-[1200px] mx-auto px-6 text-center">{innerContent}</div>
-    : <motion.div style={{ y }} className="max-w-[1200px] mx-auto px-6 text-center">{innerContent}</motion.div>
+  const content = (
+    <div className="max-w-[1200px] mx-auto px-6 text-center">{innerContent}</div>
+  )
 
   // Mobile uniquement : InfiniteGrid CSS (zéro Three.js)
   if (isDesktop === false) {

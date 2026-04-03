@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { ChevronDown } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -7,7 +8,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { GradText } from '@/components/ui/GradText'
 import { TrustBadge } from '@/components/ui/TrustBadge'
 
-// Lazy-load Three.js canvas — defer après hydration pour ne pas bloquer LCP
+// Lazy-load Three.js canvas — desktop uniquement, jamais chargé sur mobile
 const DottedSurface = dynamic(
   () => import('@/components/canvas/DottedSurface').then((m) => ({ default: m.DottedSurface })),
   { ssr: false, loading: () => null }
@@ -17,10 +18,16 @@ export function HomeHero() {
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 600], [0, -80])
 
+  // Ne charger Three.js que sur desktop (≥768px) — sur mobile le bundle n'est pas téléchargé
+  const [isDesktop, setIsDesktop] = useState(false)
+  useEffect(() => {
+    setIsDesktop(window.matchMedia('(min-width: 768px)').matches)
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
-      {/* Three.js background — lazy-loadé après hydration */}
-      <DottedSurface className="absolute inset-0 z-0 opacity-60" />
+      {/* Three.js background — desktop uniquement */}
+      {isDesktop && <DottedSurface className="absolute inset-0 z-0 opacity-60" />}
 
       {/* Radial blobs */}
       <div className="blob-orange absolute -top-32 -left-32 w-[600px] h-[600px] opacity-25 pointer-events-none" />

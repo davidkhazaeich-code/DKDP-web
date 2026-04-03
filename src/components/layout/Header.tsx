@@ -639,15 +639,6 @@ export function Header() {
             </NavigationMenu>
           </div>
 
-          {/* Contact button — mobile only (below md) */}
-          <Link
-            href="/contact"
-            className="flex md:hidden items-center gap-1.5 px-4 py-2 text-[13px] font-semibold rounded-full bg-white text-black active:scale-[0.97] transition-transform"
-          >
-            <CalendarCheck size={13} />
-            RDV
-          </Link>
-
           {/* Hamburger (mobile + tablet, below xl) */}
           <button
             type="button"

@@ -5,6 +5,7 @@ import { CalProvider } from '@/components/providers/CalProvider'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { StickyBadge } from '@/components/ui/StickyBadge'
+import { MobileRDV } from '@/components/ui/MobileRDV'
 import './globals.css'
 
 const inter = Inter({
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Footer />
           <StickyBadge />
+          <MobileRDV />
         </SmoothScrollProvider>
       </body>
     </html>

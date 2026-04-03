@@ -14,6 +14,9 @@ import { SiteAuditBlock } from '@/components/sections/SiteAuditBlock'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import { PerformanceComparison } from './_components/PerformanceComparison'
+import { TechStack } from './_components/TechStack'
+import { violet } from '@/lib/tokens'
 
 export const metadata: Metadata = {
   title: 'Création de Site Web à Genève · Sur mesure & performant · DKDP',
@@ -22,78 +25,6 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-site-web' },
 }
 
-function PerformanceComparison() {
-  return (
-    <div className="grid grid-cols-2 gap-3 w-full">
-      <div className="p-4 rounded-[12px]" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.22)' }}>
-        <p className="text-red-400 text-[10px] font-bold uppercase tracking-widest mb-4 text-center">Site non optimisé</p>
-        <div className="space-y-2">
-          {[
-            { label: 'LCP (chargement)', val: '6.2s' },
-            { label: 'Score mobile', val: '34/100' },
-            { label: 'Taux de rebond', val: '78%' },
-          ].map((m) => (
-            <div key={m.label} className="flex justify-between items-center">
-              <span className="text-text-muted text-[11px]">{m.label}</span>
-              <span className="text-red-400 text-[11px] font-bold">{m.val}</span>
-            </div>
-          ))}
-        </div>
-        <div className="h-1.5 rounded-full mt-4 bg-red-500/40" />
-        <p className="text-red-400 text-[10px] text-center mt-2 font-semibold">Clients perdus chaque jour</p>
-      </div>
-      <div className="p-4 rounded-[12px]" style={{ background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.22)' }}>
-        <p className="text-[10px] font-bold uppercase tracking-widest mb-4 text-center" style={{ color: '#4ade80' }}>Site DKDP</p>
-        <div className="space-y-2">
-          {[
-            { label: 'LCP (chargement)', val: '< 1.2s' },
-            { label: 'Score mobile', val: '97/100' },
-            { label: 'Taux de rebond', val: '< 35%' },
-          ].map((m) => (
-            <div key={m.label} className="flex justify-between items-center">
-              <span className="text-text-muted text-[11px]">{m.label}</span>
-              <span className="text-[11px] font-bold" style={{ color: '#4ade80' }}>{m.val}</span>
-            </div>
-          ))}
-        </div>
-        <div className="h-1.5 rounded-full mt-4" style={{ background: 'linear-gradient(90deg, #22c55e55, #4ade80)' }} />
-        <p className="text-[10px] text-center mt-2 font-semibold" style={{ color: '#4ade80' }}>Visiteurs convertis</p>
-      </div>
-    </div>
-  )
-}
-
-function TechStack() {
-  const techs = [
-    { name: 'HTML', c: '#E34F26', bg: 'rgba(227,79,38,0.08)', b: 'rgba(227,79,38,0.28)' },
-    { name: 'CSS', c: '#1572B6', bg: 'rgba(21,114,182,0.10)', b: 'rgba(21,114,182,0.28)' },
-    { name: 'JavaScript', c: '#F7DF1E', bg: 'rgba(247,223,30,0.06)', b: 'rgba(247,223,30,0.22)' },
-    { name: 'Next.js', c: '#ffffff', bg: 'rgba(255,255,255,0.06)', b: 'rgba(255,255,255,0.15)' },
-    { name: 'Astro', c: '#FF5D01', bg: 'rgba(255,93,1,0.10)', b: 'rgba(255,93,1,0.28)' },
-    { name: 'WordPress', c: '#21759B', bg: 'rgba(33,117,155,0.10)', b: 'rgba(33,117,155,0.28)' },
-    { name: 'Shopify', c: '#96BF48', bg: 'rgba(150,191,72,0.08)', b: 'rgba(150,191,72,0.28)' },
-    { name: 'Webflow', c: '#4353FF', bg: 'rgba(67,83,255,0.08)', b: 'rgba(67,83,255,0.28)' },
-    { name: 'Elementor', c: '#E2173E', bg: 'rgba(226,23,62,0.08)', b: 'rgba(226,23,62,0.28)' },
-    { name: 'Squarespace', c: '#D4D4D8', bg: 'rgba(212,212,216,0.06)', b: 'rgba(212,212,216,0.18)' },
-    { name: 'Vercel', c: '#D4D4D8', bg: 'rgba(212,212,216,0.06)', b: 'rgba(212,212,216,0.20)' },
-    { name: 'Figma', c: '#F24E1E', bg: 'rgba(242,78,30,0.08)', b: 'rgba(242,78,30,0.28)' },
-    { name: 'Sanity', c: '#F03E2F', bg: 'rgba(240,62,47,0.08)', b: 'rgba(240,62,47,0.28)' },
-    { name: 'Tailwind CSS', c: '#38BDF8', bg: 'rgba(56,189,248,0.08)', b: 'rgba(56,189,248,0.28)' },
-  ]
-  return (
-    <div className="flex flex-wrap gap-2 justify-center">
-      {techs.map((t) => (
-        <span
-          key={t.name}
-          className="px-3 py-1.5 rounded-[6px] text-[12px] font-semibold"
-          style={{ background: t.bg, border: `1px solid ${t.b}`, color: t.c }}
-        >
-          {t.name}
-        </span>
-      ))}
-    </div>
-  )
-}
 
 const FAQ = [
   {
@@ -211,9 +142,9 @@ const STEPS: { num: number; title: string; week: string; duration: string; accen
   },
 ]
 
-const color = '#A78BFA'
-const bg = 'rgba(124,58,237,0.10)'
-const border = 'rgba(124,58,237,0.20)'
+const color = violet.color
+const bg = violet.bg
+const border = violet.border
 
 export default function CreationSiteWebPage() {
   return (

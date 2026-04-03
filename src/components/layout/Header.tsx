@@ -48,14 +48,14 @@ const IA_MAIN = [
 
 const IA_SECONDARY = [
   { title: 'Formation IA entreprise', href: '/formation-entreprise/ia', icon: GraduationCap },
-  { title: 'Claude Cowork', href: '/formation-entreprise/claude-ai', icon: Sparkles, logoSrc: '/images/partners/claude-logo.png' },
+  { title: 'Formation Claude', href: '/formation-entreprise/claude-ai', icon: Sparkles, logoSrc: '/images/partners/claude-logo.png' },
   { title: 'Tarifs IA', href: '/tarifs', icon: FileText },
   { title: 'Parler à un expert', href: '/contact', icon: Phone },
 ]
 
 const FORMATION_MAIN = [
   { title: 'Formation IA en entreprise', href: '/formation-entreprise/ia', icon: BrainCircuit, description: 'Formez vos équipes aux outils IA du quotidien.' },
-  { title: 'Claude Cowork', href: '/formation-entreprise/claude-ai', icon: Sparkles, description: 'Claude en remote, en agent et en équipe.', logoSrc: '/images/partners/claude-logo.png' },
+  { title: 'Formation Claude', href: '/formation-entreprise/claude-ai', icon: Sparkles, description: 'Claude.ai, Projects Cowork et Claude Code pour vos équipes.', logoSrc: '/images/partners/claude-logo.png' },
   { title: 'Bureautique', href: '/formation-entreprise/bureautique', icon: BookOpen, description: 'Gagnez du temps sur chaque fichier.' },
   { title: 'Réseaux sociaux', href: '/formation-entreprise/reseaux-sociaux', icon: Share2, description: 'Maîtrisez les plateformes sociales.' },
   { title: 'Cybersécurité', href: '/formation-entreprise/cybersecurite', icon: Shield, description: 'Protégez vos données et vos collaborateurs.' },

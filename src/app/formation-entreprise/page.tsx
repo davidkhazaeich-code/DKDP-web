@@ -18,40 +18,13 @@ import { ParallaxOrangeBlobs } from '@/components/ui/ParallaxOrangeBlobs'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_FORMATION } from '@/data/faq-formation'
+import { orange } from '@/lib/tokens'
+import { ProgressionDiagram } from './_components/ProgressionDiagram'
 
 export const metadata: Metadata = {
   title: 'Formation Entreprise Genève · IA, Bureautique, Cybersécurité · DKDP',
   description: 'Formations professionnelles en entreprise à Genève et Suisse romande. IA, Excel, Cybersécurité, Réseaux sociaux. Sessions sur mesure, en présentiel ou en ligne.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise' },
-}
-
-function ProgressionDiagram() {
-  const levels = [
-    { label: 'Niveau initial', sub: 'Avant la formation', pct: 20, color: '#6B7280' },
-    { label: 'Fin de formation', sub: 'J+1', pct: 65, color: '#FF8C00' },
-    { label: 'Après 30 jours', sub: 'Mise en pratique', pct: 80, color: '#FF6900' },
-    { label: 'Autonomie totale', sub: 'Après 60 jours', pct: 95, color: '#FF4500' },
-  ]
-  return (
-    <div className="w-full space-y-4">
-      {levels.map((lvl, i) => (
-        <div key={i}>
-          <div className="flex justify-between items-center mb-1.5">
-            <span className="text-white text-xs font-semibold">{lvl.label}</span>
-            <span className="text-text-muted text-[10px]">{lvl.sub}</span>
-          </div>
-          <div className="h-2.5 rounded-full bg-white/5 overflow-hidden">
-            <div
-              className="h-full rounded-full"
-              style={{ width: `${lvl.pct}%`, background: `linear-gradient(90deg, ${lvl.color}88, ${lvl.color})` }}
-            />
-          </div>
-          <p className="text-right text-[10px] font-bold mt-0.5" style={{ color: lvl.color }}>{lvl.pct}%</p>
-        </div>
-      ))}
-      <p className="text-text-muted text-[11px] text-center pt-2">Progression moyenne observée sur 500+ participants</p>
-    </div>
-  )
 }
 
 const PROGRAMS = [
@@ -62,7 +35,7 @@ const PROGRAMS = [
     image: '/images/services/dkdp-formation-ia.webp',
   },
   {
-    Icon: Sparkles, title: 'Claude Cowork', href: '/formation-entreprise/claude-ai',
+    Icon: Sparkles, title: 'Formation Claude IA', href: '/formation-entreprise/claude-ai',
     description: 'Maîtrisez Claude.ai, les Projects collaboratifs et Claude Code. La formation spécialisée sur l\'IA la plus puissante du marché.',
     badge: 'Nouveau',
     image: '/images/services/dkdp-formation-ia.webp',
@@ -126,9 +99,7 @@ const FORMATS = [
   },
 ]
 
-const color  = '#FF8C00'
-const bg     = 'rgba(255,107,0,0.08)'
-const border = 'rgba(255,107,0,0.18)'
+const color = orange.color, bg = orange.bg, border = orange.border
 
 const badgeColors: Record<string, { background: string; color: string; border: string }> = {
   'Tendance':    { background: 'rgba(10,10,10,0.84)', color: '#FCD34D', border: '1px solid rgba(255,140,0,0.68)' },

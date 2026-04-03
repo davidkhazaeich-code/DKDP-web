@@ -12,6 +12,7 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
+import { violet, orange, chrome, green } from '@/lib/tokens'
 
 export const metadata: Metadata = {
   title: 'Tarifs · Création de site, Formation IA, Automatisation · DKDP',
@@ -20,17 +21,17 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://dkdp.ch/tarifs' },
 }
 
-/* ── Design tokens ── */
-const chrome   = '#D4D4D8'
-const chromeBg = 'rgba(212,212,216,0.06)'
-const chromeBd = 'rgba(212,212,216,0.14)'
-const violet   = '#A78BFA'
-const violetBg = 'rgba(124,58,237,0.08)'
-const violetBd = 'rgba(124,58,237,0.20)'
-const orange   = '#FF8C00'
-const orangeBg = 'rgba(255,107,0,0.08)'
-const orangeBd = 'rgba(255,107,0,0.18)'
-const green    = '#4ade80'
+/* ── Design tokens (aliases) ── */
+const chromeColor = chrome.color
+const chromeBg    = chrome.bg
+const chromeBd    = chrome.border
+const violetColor = violet.color
+const violetBg    = violet.bg
+const violetBd    = violet.border
+const orangeColor = orange.color
+const orangeBg    = orange.bg
+const orangeBd    = orange.border
+const greenColor  = green.color
 
 /* ── Formation table data ── */
 const FORMATION_TOPICS = [
@@ -186,7 +187,7 @@ export default function TarifsPage() {
               <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
                 {['Prix fixe par projet', 'Devis sous 48h', 'Pas d\'engagement'].map((pt) => (
                   <div key={pt} className="flex items-center gap-2 text-sm text-text-muted">
-                    <Check size={14} style={{ color: green }} />
+                    <Check size={14} style={{ color: greenColor }} />
                     {pt}
                   </div>
                 ))}
@@ -208,7 +209,7 @@ export default function TarifsPage() {
                 className="flex h-10 w-10 items-center justify-center rounded-[10px] flex-shrink-0"
                 style={{ background: 'rgba(212,212,216,0.10)', border: `1px solid ${chromeBd}` }}
               >
-                <HelpCircle size={20} style={{ color: chrome }} />
+                <HelpCircle size={20} style={{ color: chromeColor }} />
               </div>
               <p className="text-text-secondary leading-relaxed text-[15px]">
                 <strong className="text-white font-semibold">Nos tarifs sont indicatifs.</strong>{' '}
@@ -229,13 +230,13 @@ export default function TarifsPage() {
             <div className="mb-12">
               <span
                 className="inline-block text-[12px] font-bold uppercase tracking-widest px-3 py-1 rounded-[6px] mb-4"
-                style={{ color: orange, background: orangeBg, border: `1px solid ${orangeBd}` }}
+                style={{ color: orangeColor, background: orangeBg, border: `1px solid ${orangeBd}` }}
               >
                 Formation Entreprise
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-xl">
                 Formations en entreprise.{' '}
-                <span style={{ color: orange }}>Groupe jusqu&apos;à 10 personnes.</span>
+                <span style={{ color: orangeColor }}>Groupe jusqu&apos;à 10 personnes.</span>
               </h2>
               <p className="text-text-muted text-[15px] mt-3 max-w-xl">
                 Tarif forfaitaire par groupe. Le programme est conçu sur mesure pour chaque entreprise.
@@ -284,14 +285,14 @@ export default function TarifsPage() {
                       className="flex h-9 w-9 items-center justify-center rounded-[8px] flex-shrink-0"
                       style={{ background: orangeBg, border: `1px solid ${orangeBd}` }}
                     >
-                      <row.Icon size={16} style={{ color: orange }} />
+                      <row.Icon size={16} style={{ color: orangeColor }} />
                     </div>
                     <div>
                       <p className="text-white text-[13px] font-semibold leading-tight">{row.name}</p>
                       {row.badge && (
                         <span
                           className="inline-block text-[10px] font-bold px-1.5 py-0.5 rounded mt-1"
-                          style={{ background: orangeBg, color: orange, border: `1px solid ${orangeBd}` }}
+                          style={{ background: orangeBg, color: orangeColor, border: `1px solid ${orangeBd}` }}
                         >
                           {row.badge}
                         </span>
@@ -301,7 +302,7 @@ export default function TarifsPage() {
                   {/* Price cells */}
                   {[row.demi, row.journee, row.deux].map((price, j) => (
                     <div key={j} className="flex items-center justify-center px-4 py-5">
-                      <span className="text-[15px] font-bold" style={{ color: orange }}>{price}</span>
+                      <span className="text-[15px] font-bold" style={{ color: orangeColor }}>{price}</span>
                     </div>
                   ))}
                 </div>
@@ -319,7 +320,7 @@ export default function TarifsPage() {
                 <Link
                   href="/formation-entreprise"
                   className="flex-shrink-0 inline-flex items-center gap-1.5 text-[12px] font-semibold px-4 py-2 rounded-[8px] transition-opacity hover:opacity-80 whitespace-nowrap"
-                  style={{ background: orangeBg, color: orange, border: `1px solid ${orangeBd}` }}
+                  style={{ background: orangeBg, color: orangeColor, border: `1px solid ${orangeBd}` }}
                 >
                   Voir les programmes <ChevronRight size={12} />
                 </Link>
@@ -338,13 +339,13 @@ export default function TarifsPage() {
             <div className="mb-12">
               <span
                 className="inline-block text-[12px] font-bold uppercase tracking-widest px-3 py-1 rounded-[6px] mb-4"
-                style={{ color: chrome, background: chromeBg, border: `1px solid ${chromeBd}` }}
+                style={{ color: chromeColor, background: chromeBg, border: `1px solid ${chromeBd}` }}
               >
                 Intelligence Artificielle
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-xl">
                 Automatisation et IA{' '}
-                <span style={{ color: chrome }}>sur mesure.</span>
+                <span style={{ color: chromeColor }}>sur mesure.</span>
               </h2>
               <p className="text-text-muted text-[15px] mt-3 max-w-xl">
                 Du diagnostic à l&apos;agent IA complet. Chaque projet est dimensionné selon vos besoins réels.
@@ -365,7 +366,7 @@ export default function TarifsPage() {
                       className="flex h-11 w-11 items-center justify-center rounded-[10px] flex-shrink-0"
                       style={{ background: 'rgba(212,212,216,0.10)', border: `1px solid ${chromeBd}` }}
                     >
-                      <svc.Icon size={20} style={{ color: chrome }} />
+                      <svc.Icon size={20} style={{ color: chromeColor }} />
                     </div>
                     <div>
                       <h3 className="text-white font-bold text-[16px] leading-tight">{svc.title}</h3>
@@ -382,14 +383,14 @@ export default function TarifsPage() {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-0.5">
                         {svc.labelFrom}
                       </p>
-                      <p className="text-[17px] font-bold" style={{ color: chrome }}>{svc.from}</p>
+                      <p className="text-[17px] font-bold" style={{ color: chromeColor }}>{svc.from}</p>
                     </div>
                     <div className="text-text-muted text-[20px] font-light select-none">↔</div>
                     <div className="text-center">
                       <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-0.5">
                         {svc.labelTo}
                       </p>
-                      <p className="text-[17px] font-bold" style={{ color: chrome }}>{svc.to}</p>
+                      <p className="text-[17px] font-bold" style={{ color: chromeColor }}>{svc.to}</p>
                     </div>
                     <Link
                       href={svc.href}
@@ -397,7 +398,7 @@ export default function TarifsPage() {
                       style={{ background: chromeBg, border: `1px solid ${chromeBd}` }}
                       aria-label={`En savoir plus sur ${svc.title}`}
                     >
-                      <ChevronRight size={14} style={{ color: chrome }} />
+                      <ChevronRight size={14} style={{ color: chromeColor }} />
                     </Link>
                   </div>
                 </div>
@@ -410,7 +411,7 @@ export default function TarifsPage() {
               <Link
                 href="/intelligence-artificielle"
                 className="inline-flex items-center gap-2 text-[13px] font-semibold transition-opacity hover:opacity-70"
-                style={{ color: chrome }}
+                style={{ color: chromeColor }}
               >
                 Découvrir tous nos services IA <ChevronRight size={14} />
               </Link>
@@ -428,13 +429,13 @@ export default function TarifsPage() {
             <div className="mb-12">
               <span
                 className="inline-block text-[12px] font-bold uppercase tracking-widest px-3 py-1 rounded-[6px] mb-4"
-                style={{ color: violet, background: violetBg, border: `1px solid ${violetBd}` }}
+                style={{ color: violetColor, background: violetBg, border: `1px solid ${violetBd}` }}
               >
                 Service Digital
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-xl">
                 Site web, SEO et{' '}
-                <span style={{ color: violet }}>marketing digital.</span>
+                <span style={{ color: violetColor }}>marketing digital.</span>
               </h2>
               <p className="text-text-muted text-[15px] mt-3 max-w-xl">
                 Les tarifs reflètent la complexité et la portée du projet. Un devis gratuit vous donnera le chiffre exact.
@@ -455,7 +456,7 @@ export default function TarifsPage() {
                       className="flex h-11 w-11 items-center justify-center rounded-[10px] flex-shrink-0"
                       style={{ background: 'rgba(124,58,237,0.12)', border: `1px solid ${violetBd}` }}
                     >
-                      <item.Icon size={20} style={{ color: violet }} />
+                      <item.Icon size={20} style={{ color: violetColor }} />
                     </div>
                     <div>
                       <p className="text-white font-bold text-[15px] leading-tight">{item.title}</p>
@@ -463,10 +464,10 @@ export default function TarifsPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-3 flex-shrink-0">
-                    <p className="text-[15px] font-bold" style={{ color: violet }}>{item.price}</p>
+                    <p className="text-[15px] font-bold" style={{ color: violetColor }}>{item.price}</p>
                     <ChevronRight
                       size={16}
-                      style={{ color: violet }}
+                      style={{ color: violetColor }}
                       className="opacity-50 group-hover:opacity-100 transition-opacity"
                     />
                   </div>
@@ -493,7 +494,7 @@ export default function TarifsPage() {
               <Link
                 href="/agence-digitale"
                 className="inline-flex items-center gap-2 text-[13px] font-semibold transition-opacity hover:opacity-70"
-                style={{ color: violet }}
+                style={{ color: violetColor }}
               >
                 Découvrir tous nos services digitaux <ChevronRight size={14} />
               </Link>
@@ -528,7 +529,7 @@ export default function TarifsPage() {
                       className="flex h-8 w-8 items-center justify-center rounded-[8px] flex-shrink-0 mt-0.5"
                       style={{ background: 'rgba(212,212,216,0.10)', border: `1px solid ${chromeBd}` }}
                     >
-                      <GraduationCap size={15} style={{ color: chrome }} />
+                      <GraduationCap size={15} style={{ color: chromeColor }} />
                     </div>
                     <div>
                       <p className="text-white font-bold text-[15px] mb-2">{item.q}</p>

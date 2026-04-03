@@ -12,19 +12,23 @@ import {
   BLOG_CATEGORIES,
   type CategoryKey,
 } from '@/lib/blog-data'
+import { violet, orange, chrome } from '@/lib/tokens'
+import { InlineCTA } from './_components/InlineCTA'
+import { ServiceGrid } from './_components/ServiceGrid'
+import type { ServiceLink } from './_components/InlineCTA'
 
 /* ─────────────────────────────────────────────
-   Design tokens
+   Design tokens (aliases)
 ───────────────────────────────────────────── */
-const violet   = '#A78BFA'
-const violetBg = 'rgba(124,58,237,0.08)'
-const violetBd = 'rgba(124,58,237,0.20)'
-const chrome   = '#D4D4D8'
-const chromeBg = 'rgba(212,212,216,0.06)'
-const chromeBd = 'rgba(212,212,216,0.14)'
-const orange   = '#FF8C00'
-const orangeBg = 'rgba(255,107,0,0.08)'
-const orangeBd = 'rgba(255,107,0,0.18)'
+const violetColor = violet.color
+const violetBg    = violet.bg
+const violetBd    = violet.border
+const chromeColor = chrome.color
+const chromeBg    = chrome.bg
+const chromeBd    = chrome.border
+const orangeColor = orange.color
+const orangeBg    = orange.bg
+const orangeBd    = orange.border
 
 /* ─────────────────────────────────────────────
    Static params
@@ -62,51 +66,42 @@ export async function generateMetadata(
 /* ─────────────────────────────────────────────
    Internal service CTAs
 ───────────────────────────────────────────── */
-interface ServiceLink {
-  label: string
-  href: string
-  desc: string
-  color: string
-  bg: string
-  border: string
-}
-
 const ALL_SERVICES: ServiceLink[] = [
   {
     label: 'Création de site web',
     href: '/agence-digitale/creation-site-web',
     desc: 'Sites performants, SEO-first et adaptatifs pour votre PME.',
-    color: violet, bg: violetBg, border: violetBd,
+    color: violetColor, bg: violetBg, border: violetBd,
   },
   {
     label: 'SEO & Référencement',
     href: '/agence-digitale/seo',
     desc: 'Visibilité locale et nationale sur Google, durable et mesurable.',
-    color: violet, bg: violetBg, border: violetBd,
+    color: violetColor, bg: violetBg, border: violetBd,
   },
   {
     label: 'Audit & Conseil IA',
     href: '/intelligence-artificielle/audit-conseil',
     desc: 'Identifiez vos opportunités IA concrètes en 1 session.',
-    color: chrome, bg: chromeBg, border: chromeBd,
+    color: chromeColor, bg: chromeBg, border: chromeBd,
   },
   {
     label: 'Automatisation IA',
     href: '/intelligence-artificielle/automatisation',
     desc: 'Workflows automatisés qui libèrent vos équipes des tâches répétitives.',
-    color: chrome, bg: chromeBg, border: chromeBd,
+    color: chromeColor, bg: chromeBg, border: chromeBd,
   },
   {
     label: 'Formation IA entreprise',
     href: '/formation-entreprise/ia',
     desc: 'Formez vos collaborateurs aux outils IA adaptés à leur métier.',
-    color: orange, bg: orangeBg, border: orangeBd,
+    color: orangeColor, bg: orangeBg, border: orangeBd,
   },
   {
     label: 'Formation cybersécurité',
     href: '/formation-entreprise/cybersecurite',
     desc: 'Sensibilisez vos équipes aux risques et aux bons réflexes.',
-    color: orange, bg: orangeBg, border: orangeBd,
+    color: orangeColor, bg: orangeBg, border: orangeBd,
   },
 ]
 
@@ -324,99 +319,6 @@ function renderMarkdown(md: string): string {
 }
 
 /* ─────────────────────────────────────────────
-   Inline CTA banner (mid-article)
-───────────────────────────────────────────── */
-function InlineCTA({ service }: { service: ServiceLink }) {
-  return (
-    <aside
-      className="my-10 rounded-[16px] border p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4"
-      style={{ background: service.bg, borderColor: service.border }}
-    >
-      {/* Icon dot */}
-      <div
-        className="w-10 h-10 rounded-full shrink-0 flex items-center justify-center"
-        style={{ background: service.border }}
-      >
-        <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-          <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke={service.color} strokeWidth="2"
-            strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </div>
-      <div className="flex-1 min-w-0">
-        <span
-          className="text-[10px] font-bold uppercase tracking-widest mb-1 block"
-          style={{ color: service.color }}
-        >
-          Service DKDP
-        </span>
-        <p className="text-white font-semibold text-sm mb-1">{service.label}</p>
-        <p className="text-zinc-400 text-xs leading-relaxed">{service.desc}</p>
-      </div>
-      <Link
-        href={service.href}
-        className="shrink-0 text-xs font-bold px-4 py-2 rounded-[8px] transition-opacity hover:opacity-80 whitespace-nowrap"
-        style={{ background: service.color, color: '#09090B' }}
-      >
-        En savoir plus
-      </Link>
-    </aside>
-  )
-}
-
-/* ─────────────────────────────────────────────
-   End-of-article service grid
-───────────────────────────────────────────── */
-function ServiceGrid({ services }: { services: ServiceLink[] }) {
-  return (
-    <section className="mt-16 mb-4">
-      <div
-        className="rounded-[20px] border p-8"
-        style={{ background: 'rgba(124,58,237,0.04)', borderColor: 'rgba(124,58,237,0.14)' }}
-      >
-        <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: violet }}>
-          Nos services
-        </p>
-        <h3 className="text-xl font-black text-white mb-6">
-          Vous avez des questions ? On peut vous aider.
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {services.map(svc => (
-            <Link
-              key={svc.href}
-              href={svc.href}
-              className="group flex flex-col gap-2 rounded-[14px] border p-4 transition-all duration-200 hover:-translate-y-0.5"
-              style={{ background: svc.bg, borderColor: svc.border }}
-            >
-              <span className="text-[11px] font-bold" style={{ color: svc.color }}>
-                {svc.label}
-              </span>
-              <p className="text-zinc-400 text-xs leading-relaxed flex-1">
-                {svc.desc}
-              </p>
-              <span
-                className="text-[11px] font-semibold mt-1 group-hover:opacity-70 transition-opacity"
-                style={{ color: svc.color }}
-              >
-                Decouvrir &rarr;
-              </span>
-            </Link>
-          ))}
-        </div>
-        <div className="mt-6 text-center">
-          <Link
-            href="/contact"
-            className="inline-block text-sm font-bold px-6 py-2.5 rounded-[10px] transition-opacity hover:opacity-80"
-            style={{ background: violet, color: '#09090B' }}
-          >
-            Planifier un appel gratuit
-          </Link>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ─────────────────────────────────────────────
    Page
 ───────────────────────────────────────────── */
 export default async function ArticlePage(
@@ -612,7 +514,7 @@ export default async function ArticlePage(
                 <Link
                   href="/contact"
                   className="block w-full text-center text-xs font-bold py-2 px-4 rounded-[8px] transition-opacity hover:opacity-80"
-                  style={{ background: violet, color: '#09090B' }}
+                  style={{ background: violetColor, color: '#09090B' }}
                 >
                   Appel gratuit
                 </Link>
@@ -653,7 +555,7 @@ export default async function ArticlePage(
                         </h3>
                         <div className="flex items-center justify-between mt-2">
                           <span className="text-xs text-zinc-500">{rel.date}</span>
-                          <span className="text-xs font-semibold" style={{ color: violet }}>
+                          <span className="text-xs font-semibold" style={{ color: violetColor }}>
                             Lire &rarr;
                           </span>
                         </div>

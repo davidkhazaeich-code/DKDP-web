@@ -11,6 +11,8 @@ import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import { VideoFormatsGrid } from './_components/VideoFormatsGrid'
+import { violet } from '@/lib/tokens'
 
 export const metadata: Metadata = {
   title: 'Création Vidéo Entreprise Genève · DKDP',
@@ -19,59 +21,9 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-video' },
 }
 
-const color = '#A78BFA'
-const bg = 'rgba(124,58,237,0.10)'
-const border = 'rgba(124,58,237,0.20)'
-
-function VideoFormatsGrid() {
-  const formats = [
-    {
-      type: 'Clip Social / Reel',
-      duration: '15 – 90 sec',
-      ratio: '9:16 ou 1:1',
-      use: 'Réseaux sociaux',
-      platforms: 'Instagram · TikTok · LinkedIn',
-      c: '#A78BFA',
-      cbg: 'rgba(124,58,237,0.10)',
-      cborder: 'rgba(124,58,237,0.22)',
-    },
-    {
-      type: 'Témoignage / Interview',
-      duration: '1 – 3 min',
-      ratio: '16:9',
-      use: 'Site web & LinkedIn',
-      platforms: 'Homepage · LinkedIn · YouTube',
-      c: '#4ade80',
-      cbg: 'rgba(74,222,128,0.08)',
-      cborder: 'rgba(74,222,128,0.22)',
-    },
-    {
-      type: 'Brand Film',
-      duration: '2 – 5 min',
-      ratio: 'Cinématographique',
-      use: 'Identité de marque',
-      platforms: 'Événements · Site · Ads',
-      c: '#60a5fa',
-      cbg: 'rgba(96,165,250,0.08)',
-      cborder: 'rgba(96,165,250,0.22)',
-    },
-  ]
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
-      {formats.map((f) => (
-        <div key={f.type} className="p-4 rounded-[12px] flex flex-col gap-2" style={{ background: f.cbg, border: `1px solid ${f.cborder}` }}>
-          <p className="text-white font-bold text-sm">{f.type}</p>
-          <div className="space-y-1">
-            <div className="flex justify-between"><span className="text-text-muted text-[11px]">Durée</span><span className="text-white text-[11px] font-semibold">{f.duration}</span></div>
-            <div className="flex justify-between"><span className="text-text-muted text-[11px]">Format</span><span className="text-white text-[11px] font-semibold">{f.ratio}</span></div>
-            <div className="flex justify-between"><span className="text-text-muted text-[11px]">Usage</span><span className="font-bold text-[11px]" style={{ color: f.c }}>{f.use}</span></div>
-          </div>
-          <p className="text-text-muted text-[10px] mt-1 font-mono">{f.platforms}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
+const color = violet.color
+const bg = violet.bg
+const border = violet.border
 
 const FAQ = [
   {

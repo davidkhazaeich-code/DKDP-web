@@ -14,46 +14,13 @@ import { Testimonials } from '@/components/sections/Testimonials'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_IA } from '@/data/faq-ia'
+import { chrome } from '@/lib/tokens'
+import { AutomationDiagram } from './_components/AutomationDiagram'
 
 export const metadata: Metadata = {
   title: 'Intelligence Artificielle Genève · Agents IA · DKDP',
   description: 'Déployez l\'IA dans votre entreprise. Agents IA sur mesure, automatisation des processus, audit et conseil. Genève et Suisse romande.',
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle' },
-}
-
-function AutomationDiagram() {
-  const manualSteps = ['Réception email', 'Saisie manuelle', 'Transfert tableur', 'Vérification', 'Rapport PDF']
-  const autoSteps = ['Déclencheur auto', 'Agent IA analyse', 'CRM mis à jour', 'Validation auto', 'Rapport instantané']
-  const accentColor = '#D4D4D8'
-  const greenColor = '#4ade80'
-  return (
-    <div className="grid grid-cols-2 gap-4 w-full">
-      <div>
-        <p className="text-[10px] font-bold uppercase tracking-widest text-red-400 mb-3 text-center">Avant</p>
-        <div className="flex flex-col gap-2">
-          {manualSteps.map((s, i) => (
-            <div key={i} className="flex items-center gap-2 p-2 rounded-[6px]" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.20)' }}>
-              <span className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold flex-shrink-0" style={{ background: 'rgba(239,68,68,0.20)', color: '#f87171' }}>{i + 1}</span>
-              <span className="text-text-muted text-[11px]">{s}</span>
-            </div>
-          ))}
-          <p className="text-red-400 text-[10px] text-center mt-2 font-semibold">3h / tâche</p>
-        </div>
-      </div>
-      <div>
-        <p className="text-[10px] font-bold uppercase tracking-widest mb-3 text-center" style={{ color: greenColor }}>Après IA</p>
-        <div className="flex flex-col gap-2">
-          {autoSteps.map((s, i) => (
-            <div key={i} className="flex items-center gap-2 p-2 rounded-[6px]" style={{ background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.20)' }}>
-              <span className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold flex-shrink-0" style={{ background: 'rgba(74,222,128,0.20)', color: greenColor }}>{i + 1}</span>
-              <span className="text-[11px]" style={{ color: accentColor }}>{s}</span>
-            </div>
-          ))}
-          <p className="text-[10px] text-center mt-2 font-semibold" style={{ color: greenColor }}>4 min / tâche</p>
-        </div>
-      </div>
-    </div>
-  )
 }
 
 const SERVICES = [
@@ -104,7 +71,7 @@ const BENEFITS = [
   },
 ]
 
-const color  = '#D4D4D8'
+const color  = chrome.color
 const bg     = 'rgba(212,212,216,0.06)'
 const border = 'rgba(212,212,216,0.15)'
 const badgeColors: Record<string, { background: string; color: string; border: string }> = {

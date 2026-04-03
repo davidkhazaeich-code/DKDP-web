@@ -16,6 +16,7 @@ import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildBreadcrumbList } from '@/lib/schema'
+import { orange } from '@/lib/tokens'
 
 export const metadata: Metadata = {
   title: 'Formation Informatique Particuliers Genève · DKDP',
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://dkdp.ch/formation-particuliers' },
 }
 
-const accent          = '#FF8C00'
+const accent          = orange.color
 const cardBg          = 'rgba(18,18,24,0.85)'
 const cardBorder      = 'rgba(212,212,216,0.10)'
 const highlightBg     = 'rgba(255,107,0,0.07)'

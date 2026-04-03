@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, Zap, AlertTriangle, Lock, Star, XCircle } from 'lucide-react'
+import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, Zap, AlertTriangle, Lock, Star } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -11,6 +11,8 @@ import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import { ComplianceGap } from './_components/ComplianceGap'
+import { violet } from '@/lib/tokens'
 
 export const metadata: Metadata = {
   title: 'Mise en conformité RGPD & Cookies à Genève · LPD Suisse · DKDP',
@@ -106,52 +108,9 @@ const PROCESS = [
   },
 ]
 
-const color = '#A78BFA'
-const bg = 'rgba(124,58,237,0.10)'
-const border = 'rgba(124,58,237,0.20)'
-
-function ComplianceGap() {
-  return (
-    <div className="grid grid-cols-2 gap-3 w-full">
-      <div className="p-4 rounded-[12px]" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.22)' }}>
-        <p className="text-red-400 text-[10px] font-bold uppercase tracking-widest mb-4 text-center">Risques actuels</p>
-        <div className="space-y-2.5">
-          {[
-            'Cookies sans consentement valide',
-            'Politique de confidentialité absente ou incomplète',
-            'Formulaires non conformes',
-            'Sous-traitants sans contrats DPA',
-            'Registre des traitements manquant',
-            'Amende jusqu\'à CHF 50\'000',
-          ].map((item) => (
-            <div key={item} className="flex items-start gap-2">
-              <XCircle size={12} className="flex-shrink-0 mt-0.5 text-red-400" />
-              <span className="text-red-300 text-[11px] leading-snug">{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="p-4 rounded-[12px]" style={{ background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.22)' }}>
-        <p className="text-[10px] font-bold uppercase tracking-widest mb-4 text-center" style={{ color: '#4ade80' }}>Situation corrigée</p>
-        <div className="space-y-2.5">
-          {[
-            'Banner cookies conforme (Axeptio / Cookiebot)',
-            'Politique vie privée complète et à jour',
-            'Formulaires avec mentions légales',
-            'Contrats DPA signés avec sous-traitants',
-            'Registre des traitements complet',
-            'Certificat de conformité DKDP remis',
-          ].map((item) => (
-            <div key={item} className="flex items-start gap-2">
-              <CheckCircle2 size={12} className="flex-shrink-0 mt-0.5" style={{ color: '#4ade80' }} />
-              <span className="text-[11px] leading-snug" style={{ color: '#86efac' }}>{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
+const color = violet.color
+const bg = violet.bg
+const border = violet.border
 
 export default function RGPDCookiesPage() {
   return (

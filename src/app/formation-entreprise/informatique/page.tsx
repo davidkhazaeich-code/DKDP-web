@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Star, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, XCircle } from 'lucide-react'
+import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Star, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -11,6 +11,8 @@ import { CTAFinal } from '@/components/sections/CTAFinal'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import { orange } from '@/lib/tokens'
+import { ITProblemsComparison } from './_components/ITProblemsComparison'
 
 export const metadata: Metadata = {
   title: 'Formation Informatique Entreprise Genève · DKDP',
@@ -63,9 +65,7 @@ const MODULES = [
   'Introduction aux outils collaboratifs (Teams, Google Workspace)',
 ]
 
-const color = '#FF8C00'
-const bg = 'rgba(255,107,0,0.08)'
-const border = 'rgba(255,107,0,0.18)'
+const color = orange.color, bg = orange.bg, border = orange.border
 
 const steps = [
   { Icon: Monitor, title: 'Diagnostic de groupe', desc: 'Évaluation du niveau réel de chaque participant. Programme ajusté selon les lacunes identifiées.' },
@@ -73,49 +73,6 @@ const steps = [
   { Icon: Cpu, title: 'Cas du quotidien', desc: 'Simulation de pannes courantes et procédures de dépannage simples. Autonomie immédiate.' },
   { Icon: Award, title: 'Suivi & attestation', desc: 'Guide de référence numérique livré. Attestation individuelle. Support réponses 30 jours post-formation.' },
 ]
-
-function ITProblemsComparison() {
-  const before = [
-    'Ordinateur lent, performance dégradée',
-    'Fichiers perdus ou mal organisés',
-    'Imprimante / réseau bloqué',
-    'Boîte mail en désordre',
-    'Mots de passe oubliés régulièrement',
-  ]
-  const after = [
-    'Ordinateur optimisé et rapide',
-    'Sauvegarde automatique OneDrive',
-    'Réseau et imprimante maîtrisés',
-    'Boîte mail organisée avec règles',
-    'Gestionnaire de mots de passe actif',
-  ]
-  return (
-    <div className="grid grid-cols-2 gap-3 w-full">
-      <div className="p-4 rounded-[12px]" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.22)' }}>
-        <p className="text-red-400 text-[10px] font-bold uppercase tracking-widest mb-4 text-center">Problèmes courants</p>
-        <div className="space-y-2">
-          {before.map((item) => (
-            <div key={item} className="flex items-start gap-2">
-              <XCircle size={12} className="text-red-400 flex-shrink-0 mt-0.5" />
-              <span className="text-text-muted text-[11px] leading-snug">{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="p-4 rounded-[12px]" style={{ background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.22)' }}>
-        <p className="text-[10px] font-bold uppercase tracking-widest mb-4 text-center" style={{ color: '#4ade80' }}>Après formation DKDP</p>
-        <div className="space-y-2">
-          {after.map((item) => (
-            <div key={item} className="flex items-start gap-2">
-              <CheckCircle2 size={12} className="flex-shrink-0 mt-0.5" style={{ color: '#4ade80' }} />
-              <span className="text-text-muted text-[11px] leading-snug">{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export default function FormationInformatiquePage() {
   return (

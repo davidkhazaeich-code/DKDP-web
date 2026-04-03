@@ -18,6 +18,8 @@ import { SiteAuditBlock } from '@/components/sections/SiteAuditBlock'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_AGENCE } from '@/data/faq-agence'
+import { FunnelDiagram } from './_components/FunnelDiagram'
+import { violet } from '@/lib/tokens'
 
 export const metadata: Metadata = {
   title: 'Agence Digitale Genève · Site web, SEO, Google Ads · DKDP',
@@ -91,36 +93,9 @@ const WHY = [
   },
 ]
 
-function FunnelDiagram() {
-  const steps = [
-    { label: 'Trafic SEO & Ads', sub: 'Visibilité sur Google', w: '100%', color: '#A78BFA' },
-    { label: 'Visiteurs qualifiés', sub: 'Site rapide et convaincant', w: '78%', color: '#9B7CF0' },
-    { label: 'Leads entrants', sub: 'Formulaires et CTAs optimisés', w: '54%', color: '#8B65E3' },
-    { label: 'Clients signés', sub: 'Pipeline commercial alimenté', w: '34%', color: '#7C3AED' },
-  ]
-  return (
-    <div className="flex flex-col gap-2 w-full max-w-sm mx-auto">
-      {steps.map((s, i) => (
-        <div key={i} className="flex flex-col gap-1">
-          <div className="flex justify-between items-center mb-0.5">
-            <span className="text-white text-xs font-semibold">{s.label}</span>
-            <span className="text-text-muted text-[10px]">{s.sub}</span>
-          </div>
-          <div className="h-9 rounded-[6px] flex items-center px-3" style={{ width: s.w, background: `${s.color}22`, border: `1px solid ${s.color}55` }}>
-            <span className="text-[11px] font-bold" style={{ color: s.color }}>
-              {['01', '02', '03', '04'][i]}
-            </span>
-          </div>
-        </div>
-      ))}
-      <p className="text-text-muted text-[11px] text-center mt-3">Entonnoir de conversion digital DKDP</p>
-    </div>
-  )
-}
-
-const color = '#A78BFA'
-const bg    = 'rgba(124,58,237,0.10)'
-const border = 'rgba(124,58,237,0.20)'
+const color = violet.color
+const bg    = violet.bg
+const border = violet.border
 
 const badgeColors: Record<string, { background: string; color: string; border: string }> = {
   'Best seller': { background: 'rgba(10,10,10,0.84)', color: '#D8B4FE', border: '1px solid rgba(167,139,250,0.70)' },

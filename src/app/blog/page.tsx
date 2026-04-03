@@ -12,8 +12,9 @@ import {
   ARTICLES,
   BLOG_CATEGORIES,
   FEATURED_SLUG,
-  type Article,
 } from '@/lib/blog-data'
+import { violet, orange, chrome, green } from '@/lib/tokens'
+import { ArticleCard } from './_components/ArticleCard'
 
 export const metadata: Metadata = {
   title: 'Blog · Ressources digitales, IA et formation · DKDP',
@@ -22,73 +23,20 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://dkdp.ch/blog' },
 }
 
-/* ── Design tokens ── */
-const violet   = '#A78BFA'
-const violetBg = 'rgba(124,58,237,0.08)'
-const violetBd = 'rgba(124,58,237,0.20)'
-const chrome   = '#D4D4D8'
-const chromeBg = 'rgba(212,212,216,0.06)'
-const chromeBd = 'rgba(212,212,216,0.14)'
-const orange   = '#FF8C00'
-const orangeBg = 'rgba(255,107,0,0.08)'
-const orangeBd = 'rgba(255,107,0,0.18)'
-const green    = '#4ade80'
+/* ── Design tokens (aliases) ── */
+const violetColor = violet.color
+const violetBg    = violet.bg
+const violetBd    = violet.border
+const chromeColor = chrome.color
+const chromeBg    = chrome.bg
+const chromeBd    = chrome.border
+const orangeColor = orange.color
+const orangeBg    = orange.bg
+const orangeBd    = orange.border
+const greenColor  = green.color
 
 const FEATURED = ARTICLES.find(a => a.slug === FEATURED_SLUG) ?? ARTICLES[0]
 const GRID_ARTICLES = ARTICLES.filter(a => a.slug !== FEATURED_SLUG)
-
-/* ── Article card ── */
-function ArticleCard({ article, delay }: { article: Article; delay: number }) {
-  const cat = BLOG_CATEGORIES[article.category]
-  return (
-    <SectionReveal delay={delay} className="h-full">
-      <Link
-        href={`/blog/${article.slug}`}
-        className="group flex flex-col h-full rounded-[16px] border overflow-hidden hover:-translate-y-0.5 transition-transform duration-200"
-        style={{ borderColor: cat.border }}
-      >
-        {/* Hero image */}
-        <div className="h-[200px] flex-shrink-0 relative overflow-hidden">
-          <img
-            src={article.heroImage.src}
-            alt={article.heroImage.alt}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <span
-            className="absolute bottom-3 left-3 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
-            style={{
-              background: 'rgba(10,10,10,0.84)',
-              color: cat.color,
-              border: `1px solid ${cat.border}`,
-            }}
-          >
-            {cat.label}
-          </span>
-        </div>
-
-        {/* Content */}
-        <div className="flex flex-col flex-1 p-5 gap-3 bg-zinc-900/60">
-          <p className="text-zinc-500 text-xs">
-            {article.date} · {article.readTime} de lecture
-          </p>
-          <h3 className="text-white font-semibold text-[15px] leading-snug line-clamp-2">
-            {article.title}
-          </h3>
-          <p className="text-zinc-400 text-sm leading-relaxed flex-1 line-clamp-2">
-            {article.excerpt}
-          </p>
-          <span
-            className="mt-1 text-[12px] font-semibold transition-opacity group-hover:opacity-70"
-            style={{ color: cat.color }}
-          >
-            Lire &rarr;
-          </span>
-        </div>
-      </Link>
-    </SectionReveal>
-  )
-}
 
 /* ── Page ── */
 export default function BlogPage() {
@@ -141,23 +89,23 @@ export default function BlogPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Filtres categories">
             <a href="#articles" className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold transition-colors"
-              style={{ background: violetBg, color: violet, border: `1px solid ${violetBd}` }}>
+              style={{ background: violetBg, color: violetColor, border: `1px solid ${violetBd}` }}>
               Toutes
             </a>
             <a href="#articles" className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold transition-colors"
-              style={{ background: chromeBg, color: chrome, border: `1px solid ${chromeBd}` }}>
+              style={{ background: chromeBg, color: chromeColor, border: `1px solid ${chromeBd}` }}>
               Intelligence Artificielle
             </a>
             <a href="#cat-seo" className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold transition-colors"
-              style={{ background: violetBg, color: violet, border: `1px solid ${violetBd}` }}>
+              style={{ background: violetBg, color: violetColor, border: `1px solid ${violetBd}` }}>
               SEO &amp; Visibilité
             </a>
             <a href="#cat-formation" className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold transition-colors"
-              style={{ background: orangeBg, color: orange, border: `1px solid ${orangeBd}` }}>
+              style={{ background: orangeBg, color: orangeColor, border: `1px solid ${orangeBd}` }}>
               Formation
             </a>
             <a href="#cat-outils" className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold transition-colors"
-              style={{ background: 'rgba(74,222,128,0.08)', color: green, border: '1px solid rgba(74,222,128,0.18)' }}>
+              style={{ background: 'rgba(74,222,128,0.08)', color: greenColor, border: '1px solid rgba(74,222,128,0.18)' }}>
               Outils &amp; Productivité
             </a>
           </nav>
@@ -203,7 +151,7 @@ export default function BlogPage() {
                   </span>
                   <span
                     className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
-                    style={{ background: 'rgba(10,10,10,0.84)', color: violet, border: `1px solid ${violetBd}` }}
+                    style={{ background: 'rgba(10,10,10,0.84)', color: violetColor, border: `1px solid ${violetBd}` }}
                   >
                     A la une
                   </span>
@@ -223,7 +171,7 @@ export default function BlogPage() {
 
                 <span
                   className="mt-2 inline-flex items-center gap-1.5 text-[13px] font-semibold transition-opacity group-hover:opacity-70"
-                  style={{ color: violet }}
+                  style={{ color: violetColor }}
                 >
                   Lire l&apos;article &rarr;
                 </span>
@@ -243,7 +191,7 @@ export default function BlogPage() {
               <SectionReveal>
                 <div className="flex items-center gap-3 mb-8">
                   <span className="text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                    style={{ background: chromeBg, color: chrome, border: `1px solid ${chromeBd}` }}>
+                    style={{ background: chromeBg, color: chromeColor, border: `1px solid ${chromeBd}` }}>
                     Intelligence Artificielle
                   </span>
                   <div className="flex-1 h-px" style={{ background: chromeBd }} />
@@ -264,7 +212,7 @@ export default function BlogPage() {
                 <SectionReveal>
                   <div className="flex items-center gap-3 mb-8">
                     <span className="text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                      style={{ background: violetBg, color: violet, border: `1px solid ${violetBd}` }}>
+                      style={{ background: violetBg, color: violetColor, border: `1px solid ${violetBd}` }}>
                       SEO &amp; Visibilité
                     </span>
                     <div className="flex-1 h-px" style={{ background: violetBd }} />
@@ -286,7 +234,7 @@ export default function BlogPage() {
                 <SectionReveal>
                   <div className="flex items-center gap-3 mb-8">
                     <span className="text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                      style={{ background: orangeBg, color: orange, border: `1px solid ${orangeBd}` }}>
+                      style={{ background: orangeBg, color: orangeColor, border: `1px solid ${orangeBd}` }}>
                       Formation
                     </span>
                     <div className="flex-1 h-px" style={{ background: orangeBd }} />
@@ -308,7 +256,7 @@ export default function BlogPage() {
                 <SectionReveal>
                   <div className="flex items-center gap-3 mb-8">
                     <span className="text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                      style={{ background: 'rgba(74,222,128,0.08)', color: green, border: '1px solid rgba(74,222,128,0.18)' }}>
+                      style={{ background: 'rgba(74,222,128,0.08)', color: greenColor, border: '1px solid rgba(74,222,128,0.18)' }}>
                       Outils &amp; Productivité
                     </span>
                     <div className="flex-1 h-px" style={{ background: 'rgba(74,222,128,0.18)' }} />

@@ -6,6 +6,7 @@ import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import { violet as violetToken, chrome as chromeToken, orange as orangeToken, green as greenToken } from '@/lib/tokens'
 
 export const metadata: Metadata = {
   title: 'Audit SEO gratuit · DKDP Genève',
@@ -22,14 +23,14 @@ export const metadata: Metadata = {
 }
 
 // Design tokens
-const violet   = '#A78BFA'
-const violetBg = 'rgba(124,58,237,0.08)'
-const violetBd = 'rgba(124,58,237,0.20)'
-const chrome   = '#D4D4D8'
-const chromeBg = 'rgba(212,212,216,0.06)'
-const chromeBd = 'rgba(212,212,216,0.14)'
-const orange   = '#FF8C00'
-const green    = '#4ade80'
+const violet   = violetToken.color
+const violetBg = violetToken.bg
+const violetBd = violetToken.border
+const chrome   = chromeToken.color
+const chromeBg = chromeToken.bg
+const chromeBd = chromeToken.border
+const orange   = orangeToken.color
+const green    = greenToken.color
 
 // Schema JSON-LD
 const schemas = [

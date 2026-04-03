@@ -8,8 +8,6 @@ import {
   Globe,
   Brain,
   BookOpen,
-  MapPin,
-  Phone,
   Mail,
   CheckCircle2,
 } from 'lucide-react'
@@ -22,6 +20,7 @@ import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildPerson } from '@/lib/schema'
+import { violet, orange, chrome } from '@/lib/tokens'
 
 export const metadata: Metadata = {
   title: 'À propos · David Khazaei · DKDP Genève',
@@ -30,16 +29,16 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://dkdp.ch/a-propos' },
 }
 
-// ── Design tokens ────────────────────────────────────────────────
-const chrome    = '#D4D4D8'
-const chromeBg  = 'rgba(212,212,216,0.06)'
-const chromeBd  = 'rgba(212,212,216,0.14)'
-const violet    = '#A78BFA'
-const violetBg  = 'rgba(124,58,237,0.08)'
-const violetBd  = 'rgba(124,58,237,0.18)'
-const orange    = '#FF8C00'
-const orangeBg  = 'rgba(255,140,0,0.08)'
-const orangeBd  = 'rgba(255,140,0,0.20)'
+// ── Design tokens (aliases) ───────────────────────────────────────
+const chromeColor = chrome.color
+const chromeBg    = chrome.bg
+const chromeBd    = chrome.border
+const violetColor = violet.color
+const violetBg    = violet.bg
+const violetBd    = violet.border
+const orangeColor = orange.color
+const orangeBg    = orange.bg
+const orangeBd    = orange.border
 
 // ── Data ─────────────────────────────────────────────────────────
 const VALUES = [
@@ -73,7 +72,7 @@ const PILLARS = [
     title: 'Service Digital',
     desc: 'Sites web, SEO, Google Ads, réseaux sociaux. Une présence digitale cohérente qui génère de vrais résultats.',
     href: '/agence-digitale',
-    color: violet,
+    color: violetColor,
     bg: violetBg,
     bd: violetBd,
   },
@@ -82,7 +81,7 @@ const PILLARS = [
     title: 'Formation Entreprise',
     desc: 'Sessions sur mesure, en présentiel ou en visio. On forme vos équipes aux outils digitaux et à l\'IA.',
     href: '/formation-entreprise',
-    color: orange,
+    color: orangeColor,
     bg: orangeBg,
     bd: orangeBd,
   },
@@ -91,19 +90,61 @@ const PILLARS = [
     title: 'Intelligence Artificielle',
     desc: 'Agents IA, automatisation de processus, intégration LLM. 10 heures économisées par semaine en moyenne.',
     href: '/intelligence-artificielle',
-    color: chrome,
+    color: chromeColor,
     bg: chromeBg,
     bd: chromeBd,
   },
 ]
 
-const SKILLS = [
-  'IA et Automatisation',
-  'Stratégie digitale',
-  'Formation entreprise',
-  'Google Ads',
-  'SEO',
-  'Web',
+const EQUIPE = [
+  {
+    name: 'David Khazaei',
+    role: 'Fondateur · Développeur & Consultant Digital',
+    bio: "Expert en stratégie digitale et intelligence artificielle, David accompagne les PME suisses depuis plus de dix ans. Basé dans les Eaux-Vives à Genève, il croit que la technologie doit servir les gens, pas l'inverse.",
+    src: '/images/team/david-khazaei.png',
+    color: violetColor,
+    border: violetBd,
+    cardBg: 'linear-gradient(160deg, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.05) 100%)',
+    skills: ['IA & Automatisation', 'Stratégie digitale', 'Développement web', 'SEO', 'Google Ads'],
+    email: 'dk@dkdp.ch',
+    linkedin: 'https://www.linkedin.com/in/davidkhazaei/',
+  },
+  {
+    name: 'Romane',
+    role: 'Formatrice · Experte IA & Réseaux sociaux',
+    bio: "Formatrice passionnée et spécialiste de l'intégration IA en entreprise, Romane anime les sessions de formation pour rendre les outils digitaux accessibles à tous les profils.",
+    src: '/images/team/romane.png',
+    color: orangeColor,
+    border: 'rgba(255,107,0,0.28)',
+    cardBg: 'linear-gradient(160deg, rgba(255,107,0,0.18) 0%, rgba(255,107,0,0.04) 100%)',
+    skills: ['Formation Claude IA', 'Réseaux sociaux', 'Bureautique', 'Canva & Design'],
+    email: 'rd@dkdp.ch',
+    linkedin: 'https://www.linkedin.com/in/romane-degeorges/',
+  },
+  {
+    name: 'Ali Khazaei',
+    role: 'Formateur · Développeur & Informatique',
+    bio: "Développeur et formateur passionné, Ali intervient sur les modules informatique et développement web. Pédagogue avant tout, il s'assure que chaque participant repart avec des bases solides.",
+    src: '/images/team/ali-khazaei.png',
+    color: '#60a5fa',
+    border: 'rgba(96,165,250,0.25)',
+    cardBg: 'linear-gradient(160deg, rgba(96,165,250,0.16) 0%, rgba(96,165,250,0.04) 100%)',
+    skills: ['Développement web', 'Python', 'Informatique', 'Bureautique', 'Formation'],
+    email: null,
+    linkedin: null,
+  },
+  {
+    name: 'Claude',
+    role: 'Collaborateur Indépendant · Développeur & Formateur',
+    bio: "Développeur et formateur indépendant, Claude apporte son expertise technique en programmation et informatique aux projets DKDP. Il anime les formations techniques pour les profils IT.",
+    src: '/images/team/claude-formation.png',
+    color: chromeColor,
+    border: chromeBd,
+    cardBg: 'linear-gradient(160deg, rgba(212,212,216,0.12) 0%, rgba(212,212,216,0.03) 100%)',
+    skills: ['Développement web', 'Python', 'Informatique', 'Cybersécurité'],
+    email: null,
+    linkedin: null,
+  },
 ]
 
 const REASONS = [
@@ -167,36 +208,73 @@ export default function AProposPage() {
                 </div>
               </div>
 
-              {/* Right: portrait */}
-              <div className="hidden lg:flex items-end justify-center">
-                <div
-                  className="relative w-[340px] h-[400px] rounded-2xl overflow-hidden flex items-end justify-center"
-                  style={{
-                    background: chromeBg,
-                    border: `1px solid ${chromeBd}`,
-                    boxShadow: `0 0 60px rgba(212,212,216,0.08)`,
-                  }}
-                >
+              {/* Right: Logo DKDP */}
+              <div className="hidden lg:flex items-center justify-center">
+                <div className="relative">
+                  {/* Glow backdrop */}
                   <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(124,58,237,0.12) 0%, transparent 70%)' }}
+                    className="absolute inset-0 rounded-[28px] blur-3xl scale-125 opacity-60"
+                    style={{ background: 'radial-gradient(ellipse, rgba(124,58,237,0.30) 0%, rgba(212,212,216,0.06) 60%, transparent 100%)' }}
                   />
-                  <Image
-                    src="/images/team/david-khazaei.png"
-                    alt="David Khazaei, fondateur DKDP Genève"
-                    width={280}
-                    height={380}
-                    className="relative z-10 w-auto object-contain object-bottom"
-                    style={{ maxHeight: '380px' }}
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/40 to-transparent" />
+                  {/* Logo card */}
                   <div
-                    className="absolute bottom-5 left-5 right-5 rounded-[10px] px-4 py-3 z-20"
-                    style={{ background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(8px)' }}
+                    className="relative w-[380px] h-[280px] rounded-[28px] flex flex-col items-center justify-center gap-7 overflow-hidden"
+                    style={{
+                      background: 'linear-gradient(140deg, rgba(124,58,237,0.14) 0%, rgba(9,9,11,0.80) 50%, rgba(212,212,216,0.06) 100%)',
+                      border: '1px solid rgba(124,58,237,0.28)',
+                      boxShadow: '0 0 80px rgba(124,58,237,0.14), inset 0 1px 0 rgba(255,255,255,0.06)',
+                    }}
                   >
-                    <p className="text-white text-sm font-semibold">David Khazaei</p>
-                    <p className="text-text-muted text-xs mt-0.5">Fondateur · DKDP Genève</p>
+                    {/* Subtle grid */}
+                    <div
+                      className="absolute inset-0 opacity-[0.07]"
+                      style={{
+                        backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,0.06) 39px,rgba(255,255,255,0.06) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,0.06) 39px,rgba(255,255,255,0.06) 40px)',
+                      }}
+                    />
+                    <Image
+                      src="/images/logo/dkdp_blanc-croped.png"
+                      alt="DKDP Genève"
+                      width={220}
+                      height={80}
+                      className="relative z-10 h-auto opacity-95"
+                      style={{ width: '210px' }}
+                      priority
+                    />
+                    {/* Pillar tags */}
+                    <div className="relative z-10 flex gap-2">
+                      {[
+                        { label: 'Service Digital', color: violetColor, bg: violetBg, border: violetBd },
+                        { label: 'Formation', color: orangeColor, bg: orangeBg, border: orangeBd },
+                        { label: 'IA', color: chromeColor, bg: chromeBg, border: chromeBd },
+                      ].map((p) => (
+                        <span
+                          key={p.label}
+                          className="text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide"
+                          style={{ background: p.bg, border: `1px solid ${p.border}`, color: p.color }}
+                        >
+                          {p.label}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Floating stat : clients */}
+                  <div
+                    className="absolute -top-5 -right-8 px-4 py-2.5 rounded-[14px] text-center"
+                    style={{ background: 'rgba(9,9,11,0.88)', border: `1px solid ${violetBd}`, backdropFilter: 'blur(12px)' }}
+                  >
+                    <p className="font-bold text-xl leading-none" style={{ color: violetColor }}>700+</p>
+                    <p className="text-text-muted text-[10px] mt-0.5">Clients</p>
+                  </div>
+
+                  {/* Floating stat : experience */}
+                  <div
+                    className="absolute -bottom-5 -left-8 px-4 py-2.5 rounded-[14px] text-center"
+                    style={{ background: 'rgba(9,9,11,0.88)', border: `1px solid ${orangeBd}`, backdropFilter: 'blur(12px)' }}
+                  >
+                    <p className="font-bold text-xl leading-none" style={{ color: orangeColor }}>10+</p>
+                    <p className="text-text-muted text-[10px] mt-0.5">Ans d&apos;expérience</p>
                   </div>
                 </div>
               </div>
@@ -228,7 +306,7 @@ export default function AProposPage() {
                     className="flex h-12 w-12 items-center justify-center rounded-[10px]"
                     style={{ background: chromeBg, border: `1px solid ${chromeBd}` }}
                   >
-                    <v.Icon size={22} style={{ color: chrome }} />
+                    <v.Icon size={22} style={{ color: chromeColor }} />
                   </div>
                   <h3 className="text-white font-bold text-lg">{v.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1">{v.desc}</p>
@@ -291,7 +369,7 @@ export default function AProposPage() {
                   >
                     <p
                       className="text-[2.4rem] font-bold leading-none"
-                      style={{ color: chrome }}
+                      style={{ color: chromeColor }}
                     >
                       {s.value}
                     </p>
@@ -347,113 +425,109 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* ── David ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left: portrait */}
+      {/* ── Équipe ── */}
+      <InfiniteGrid
+        accentRgb="212,212,216"
+        blob1="rgba(212,212,216,0.06)"
+        blob2="rgba(255,107,0,0.04)"
+        className="border-b border-border"
+      >
+        <section className="py-24">
+          <div className="max-w-[1200px] mx-auto px-6">
             <SectionReveal>
-              <div
-                className="relative w-full max-w-sm mx-auto lg:mx-0 aspect-[4/5] rounded-2xl overflow-hidden flex items-end justify-center"
-                style={{
-                  background: chromeBg,
-                  border: `1px solid ${chromeBd}`,
-                  boxShadow: `0 0 60px rgba(212,212,216,0.06)`,
-                }}
-              >
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(124,58,237,0.14) 0%, transparent 70%)' }}
-                />
-                <Image
-                  src="/images/team/david-khazaei.png"
-                  alt="David Khazaei, fondateur DKDP Genève"
-                  width={320}
-                  height={420}
-                  className="relative z-10 w-auto object-contain object-bottom"
-                  style={{ maxHeight: '90%' }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg/40 to-transparent" />
-                <div
-                  className="absolute bottom-5 left-5 right-5 rounded-[10px] px-4 py-3 z-20"
-                  style={{ background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(8px)' }}
-                >
-                  <p className="text-white text-sm font-semibold">David Khazaei</p>
-                  <p className="text-text-muted text-xs mt-0.5">Fondateur · DKDP Genève</p>
-                </div>
+              <div className="text-center mb-16">
+                <GradTag className="mb-6">L&apos;équipe</GradTag>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                  Quatre experts, une seule vision.
+                </h2>
               </div>
             </SectionReveal>
 
-            {/* Right: bio */}
-            <div>
-              <SectionReveal>
-                <GradTag className="mb-5">Fondateur</GradTag>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                  David Khazaei
-                </h2>
-              </SectionReveal>
-
-              <SectionReveal delay={0.05}>
-                <p className="text-text-secondary leading-relaxed mb-4">
-                  Expert en stratégie digitale et intelligence artificielle, David accompagne
-                  les PME suisses depuis plus de six ans. Basé dans les Eaux-Vives à Genève,
-                  il croit fermement que la technologie doit servir les gens, pas l'inverse.
-                </p>
-              </SectionReveal>
-              <SectionReveal delay={0.08}>
-                <p className="text-text-secondary leading-relaxed mb-8">
-                  Sa conviction : les outils les plus puissants ne valent rien sans adoption
-                  réelle. C'est pourquoi formation et accompagnement sont au coeur de chaque
-                  mission DKDP.
-                </p>
-              </SectionReveal>
-
-              {/* Skills */}
-              <SectionReveal delay={0.12}>
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {SKILLS.map((skill) => (
-                    <span
-                      key={skill}
-                      className="text-[12px] font-semibold px-3 py-1.5 rounded-full"
-                      style={{
-                        background: chromeBg,
-                        border: `1px solid ${chromeBd}`,
-                        color: chrome,
-                      }}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {EQUIPE.map((member, i) => (
+                <SectionReveal key={member.name} delay={i * 0.1}>
+                  <div
+                    className="flex flex-col rounded-[20px] overflow-hidden h-full"
+                    style={{ background: member.cardBg, border: `1px solid ${member.border}` }}
+                  >
+                    {/* Portrait */}
+                    <div
+                      className="relative h-64 flex items-end justify-center overflow-hidden"
+                      style={{ background: 'rgba(0,0,0,0.25)' }}
                     >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </SectionReveal>
+                      <div
+                        className="absolute inset-0"
+                        style={{ background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${member.color}22 0%, transparent 70%)` }}
+                      />
+                      <Image
+                        src={member.src}
+                        alt={member.name}
+                        fill
+                        className="relative z-10 object-contain object-bottom"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
+                    </div>
 
-              {/* Contact */}
-              <SectionReveal delay={0.15}>
-                <div className="flex flex-col gap-3">
-                  <a
-                    href="mailto:dk@dkdp.ch"
-                    className="inline-flex items-center gap-2.5 text-sm text-text-muted hover:text-white transition-colors"
-                  >
-                    <Mail size={15} style={{ color: chrome }} />
-                    dk@dkdp.ch
-                  </a>
-                  <a
-                    href="tel:+41799407969"
-                    className="inline-flex items-center gap-2.5 text-sm text-text-muted hover:text-white transition-colors"
-                  >
-                    <Phone size={15} style={{ color: chrome }} />
-                    +41 79 940 79 69
-                  </a>
-                  <span className="inline-flex items-center gap-2.5 text-sm text-text-muted">
-                    <MapPin size={15} style={{ color: chrome }} />
-                    36 Rue du 31 Décembre, Eaux-Vives, 1207 Genève
-                  </span>
-                </div>
-              </SectionReveal>
+                    {/* Contenu */}
+                    <div className="flex flex-col gap-4 p-6 flex-1">
+                      <div>
+                        <p className="text-white font-bold text-lg leading-tight">{member.name}</p>
+                        <p className="text-[11px] font-semibold mt-1 uppercase tracking-wider" style={{ color: member.color }}>{member.role}</p>
+                      </div>
+                      <p className="text-text-secondary text-sm leading-relaxed">{member.bio}</p>
+
+                      {/* Skills */}
+                      <div className="flex flex-wrap gap-1.5">
+                        {member.skills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
+                            style={{ background: 'rgba(0,0,0,0.30)', border: `1px solid ${member.border}`, color: member.color }}
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Liens */}
+                      {(member.email || member.linkedin) && (
+                        <div
+                          className="mt-auto pt-4 border-t flex flex-wrap gap-3"
+                          style={{ borderColor: member.border }}
+                        >
+                          {member.email && (
+                            <a
+                              href={`mailto:${member.email}`}
+                              className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-white transition-colors"
+                            >
+                              <Mail size={12} style={{ color: member.color }} />
+                              {member.email}
+                            </a>
+                          )}
+                          {member.linkedin && (
+                            <a
+                              href={member.linkedin}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-white transition-colors"
+                            >
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style={{ color: member.color }}>
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                              </svg>
+                              LinkedIn
+                            </a>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </SectionReveal>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </InfiniteGrid>
 
       {/* ── Pourquoi DKDP ── */}
       <section className="py-24 bg-bg-card border-y border-border">
@@ -477,7 +551,7 @@ export default function AProposPage() {
                   <CheckCircle2
                     size={22}
                     className="flex-shrink-0 mt-0.5"
-                    style={{ color: chrome }}
+                    style={{ color: chromeColor }}
                   />
                   <div>
                     <h3 className="text-white font-bold text-base mb-2">{r.title}</h3>

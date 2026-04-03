@@ -11,12 +11,18 @@ import {
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
+import { CircularTestimonials } from '@/components/ui/circular-testimonials'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import { violet, orange, chrome } from '@/lib/tokens'
+import { ClaudeProductCard } from './_components/ClaudeProductCard'
+import { AgendaRow } from './_components/AgendaRow'
+import { CapabilityCard } from './_components/CapabilityCard'
+import { UseCaseCard } from './_components/UseCaseCard'
 
 export const metadata: Metadata = {
   title: 'Formation Claude IA Genève · Claude.ai & Projects · DKDP',
@@ -26,17 +32,11 @@ export const metadata: Metadata = {
 }
 
 /* ─────────────────────────────────────────────
-   Design tokens
+   Design tokens (source : @/lib/tokens)
 ───────────────────────────────────────────── */
-const V  = '#A78BFA'   // violet Claude
-const VB = 'rgba(124,58,237,0.10)'
-const VD = 'rgba(124,58,237,0.25)'
-const OR = '#FF8C00'   // orange formation
-const ORB = 'rgba(255,107,0,0.08)'
-const ORD = 'rgba(255,107,0,0.20)'
-const CH = '#D4D4D8'   // chrome code
-const CHB = 'rgba(212,212,216,0.08)'
-const CHD = 'rgba(212,212,216,0.18)'
+const V = violet.color, VB = violet.bg, VD = violet.border
+const OR = orange.color, ORB = orange.bg, ORD = orange.border
+const CH = chrome.color, CHB = chrome.bg, CHD = chrome.border
 
 /* ─────────────────────────────────────────────
    FAQ
@@ -85,175 +85,51 @@ const FAQ = [
 ]
 
 /* ─────────────────────────────────────────────
-   Composants internes
+   Formateurs
 ───────────────────────────────────────────── */
-
-function ClaudeProductCard({
-  title, subtitle, color, bg, border, icon: Icon, features, badge,
-}: {
-  title: string
-  subtitle: string
-  color: string
-  bg: string
-  border: string
-  icon: React.ElementType
-  features: string[]
-  badge?: string
-}) {
-  return (
-    <div
-      className="flex flex-col gap-5 p-6 rounded-[16px] h-full"
-      style={{ background: bg, border: `1px solid ${border}` }}
-    >
-      <div className="flex items-start justify-between gap-3">
-        <div
-          className="w-11 h-11 rounded-[10px] flex items-center justify-center flex-shrink-0"
-          style={{ background: 'rgba(0,0,0,0.35)', border: `1px solid ${border}` }}
-        >
-          <Icon size={20} style={{ color }} />
-        </div>
-        {badge && (
-          <span
-            className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full flex-shrink-0"
-            style={{ color, background: bg, border: `1px solid ${border}` }}
-          >
-            {badge}
-          </span>
-        )}
-      </div>
-      <div>
-        <h3 className="text-white font-bold text-lg leading-tight mb-1">{title}</h3>
-        <p className="text-text-muted text-sm leading-relaxed">{subtitle}</p>
-      </div>
-      <ul className="space-y-2 mt-auto">
-        {features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-sm text-text-secondary">
-            <CheckCircle2 size={14} style={{ color }} className="flex-shrink-0 mt-0.5" />
-            {f}
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-function AgendaRow({
-  time, title, dur, type,
-}: {
-  time: string; title: string; dur: string
-  type: 'theory' | 'practice' | 'break' | 'workshop' | 'code' | 'qa'
-}) {
-  const styles = {
-    theory:   { bg: CHB,                 border: CHD,                 color: CH,   label: 'Théorie' },
-    practice: { bg: ORB,                 border: ORD,                 color: OR,   label: 'Pratique' },
-    break:    { bg: 'rgba(100,100,100,0.06)', border: 'rgba(100,100,100,0.15)', color: '#6b7280', label: 'Pause' },
-    workshop: { bg: VB,                  border: VD,                  color: V,    label: 'Atelier' },
-    code:     { bg: 'rgba(74,222,128,0.08)', border: 'rgba(74,222,128,0.22)', color: '#4ade80', label: 'Code' },
-    qa:       { bg: 'rgba(34,197,94,0.08)',  border: 'rgba(34,197,94,0.22)',  color: '#4ade80', label: 'Q&R' },
-  }
-  const s = styles[type]
-  return (
-    <div
-      className="flex items-center gap-3 p-3 rounded-[8px]"
-      style={{ background: s.bg, border: `1px solid ${s.border}` }}
-    >
-      <span className="text-[11px] font-bold w-11 flex-shrink-0" style={{ color: s.color }}>{time}</span>
-      <span className="text-white text-[12px] font-medium flex-1">{title}</span>
-      <span
-        className="hidden sm:inline text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full flex-shrink-0"
-        style={{ background: s.bg, color: s.color, border: `1px solid ${s.border}` }}
-      >
-        {s.label}
-      </span>
-      <span className="text-text-muted text-[10px] flex-shrink-0">{dur}</span>
-    </div>
-  )
-}
-
-function CapabilityCard({
-  icon: Icon, title, desc, color, bg, border,
-}: {
-  icon: React.ElementType; title: string; desc: string
-  color: string; bg: string; border: string
-}) {
-  return (
-    <SectionReveal>
-      <div
-        className="flex flex-col gap-3 p-5 rounded-[14px] h-full"
-        style={{ background: bg, border: `1px solid ${border}` }}
-      >
-        <div
-          className="w-10 h-10 rounded-[8px] flex items-center justify-center"
-          style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${border}` }}
-        >
-          <Icon size={18} style={{ color }} />
-        </div>
-        <p className="text-white font-semibold text-sm leading-snug">{title}</p>
-        <p className="text-text-muted text-xs leading-relaxed">{desc}</p>
-      </div>
-    </SectionReveal>
-  )
-}
-
-function UseCaseCard({ dept, icon: Icon, color, bg, border, cases }: {
-  dept: string; icon: React.ElementType; color: string; bg: string; border: string; cases: string[]
-}) {
-  return (
-    <div
-      className="flex flex-col gap-3 rounded-[14px] border p-5"
-      style={{ background: bg, borderColor: border }}
-    >
-      {/* Header */}
-      <div className="flex items-center gap-2.5">
-        <div
-          className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[8px]"
-          style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${border}` }}
-        >
-          <Icon size={15} style={{ color }} aria-hidden="true" />
-        </div>
-        <span className="text-sm font-bold" style={{ color }}>{dept}</span>
-      </div>
-      {/* Tags */}
-      <div className="flex flex-wrap gap-1.5">
-        {cases.map((c) => (
-          <span
-            key={c}
-            className="text-[11px] px-2.5 py-1 rounded-full font-medium"
-            style={{ background: 'rgba(0,0,0,0.20)', border: `1px solid ${border}`, color }}
-          >
-            {c}
-          </span>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function UseCaseRow({ dept, color, bg, border, cases }: {
-  dept: string; color: string; bg: string; border: string; cases: string[]
-}) {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 items-start">
-      <div
-        className="px-3 py-2 rounded-[8px] text-center sm:text-left"
-        style={{ background: bg, border: `1px solid ${border}` }}
-      >
-        <span className="text-xs font-bold" style={{ color }}>{dept}</span>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {cases.map((c) => (
-          <span
-            key={c}
-            className="text-[11px] px-3 py-1.5 rounded-full text-text-secondary"
-            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-          >
-            {c}
-          </span>
-        ))}
-      </div>
-    </div>
-  )
-}
+const FORMATEURS = [
+  {
+    name: 'Romane',
+    designation: 'Formatrice · Claude.ai & Réseaux sociaux',
+    quote:
+      "Spécialiste de l'intégration IA en environnement professionnel, j'anime les sessions Claude.ai et Projects pour les équipes non-techniques. Mon objectif : que chaque collaborateur reparte avec des outils qu'il maîtrise vraiment.",
+    src: '/images/team/romane.png',
+    cardBg: 'linear-gradient(160deg, rgba(255,107,0,0.20) 0%, rgba(255,107,0,0.05) 100%)',
+    cardBorder: 'rgba(255,107,0,0.28)',
+    imageScale: 1.38,
+    imageOffsetX: 80,
+  },
+  {
+    name: 'David Khazaei',
+    designation: 'Formateur Claude Code · Fondateur DKDP',
+    quote:
+      "Développeur et consultant digital, j'utilise Claude Code au quotidien pour mes projets client. J'anime le module technique : navigation de codebase, tests automatisés, workflow GitHub et agents agentic.",
+    src: '/images/team/david-khazaei.png',
+    cardBg: 'linear-gradient(160deg, rgba(124,58,237,0.22) 0%, rgba(124,58,237,0.06) 100%)',
+    cardBorder: 'rgba(124,58,237,0.3)',
+    imageScale: 1,
+  },
+  {
+    name: 'Ali Khazaei',
+    designation: 'Formateur · Développement & Informatique',
+    quote:
+      "Développeur et formateur, j'interviens sur les modules informatique et développement web. Pédagogue avant tout, je m'assure que chaque participant repart avec des bases solides et des compétences immédiatement applicables.",
+    src: '/images/team/ali-khazaei.png',
+    cardBg: 'linear-gradient(160deg, rgba(96,165,250,0.18) 0%, rgba(96,165,250,0.04) 100%)',
+    cardBorder: 'rgba(96,165,250,0.25)',
+    imageScale: 1,
+  },
+  {
+    name: 'Claude',
+    designation: 'Formateur Indépendant · Programmation & Informatique',
+    quote:
+      "Formateur et développeur indépendant, j'interviens sur la partie technique des formations en programmation et en informatique. Praticien du terrain, je traduis les concepts complexes en compétences directement applicables.",
+    src: '/images/team/claude-formation.png',
+    cardBg: 'linear-gradient(160deg, rgba(212,212,216,0.15) 0%, rgba(212,212,216,0.04) 100%)',
+    cardBorder: 'rgba(212,212,216,0.22)',
+    imageScale: 1,
+  },
+]
 
 /* ─────────────────────────────────────────────
    Page
@@ -933,7 +809,13 @@ export default function FormationClaudeAIPage() {
       </section>
 
       {/* ══ 8. Cas d'usage par métier ══ */}
-      <section id="metiers" className="py-24 border-b border-border">
+      <InfiniteGrid
+        accentRgb="255,107,0"
+        blob1="rgba(255,107,0,0.06)"
+        blob2="rgba(212,212,216,0.04)"
+        className="border-b border-border"
+      >
+      <section id="metiers" className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
@@ -1057,6 +939,7 @@ export default function FormationClaudeAIPage() {
           </SectionReveal>
         </div>
       </section>
+      </InfiniteGrid>
 
       {/* ══ 9. Formats ══ */}
       <section className="py-24 border-b border-border">
@@ -1297,102 +1180,45 @@ export default function FormationClaudeAIPage() {
       </section>
 
       {/* ══ 12. Formateurs ══ */}
-      <section className="py-24 border-b border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-12">
-              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
-                Vos formateurs
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
-                Formés par des praticiens, pas des théoriciens.
-              </h2>
-            </div>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {/* Romane */}
+      <InfiniteGrid
+        accentRgb="255,140,0"
+        blob1="rgba(255,107,0,0.08)"
+        blob2="rgba(124,58,237,0.05)"
+        className="border-b border-border"
+      >
+        <section className="py-24">
+          <div className="max-w-[1200px] mx-auto px-6">
             <SectionReveal>
-              <div
-                className="flex flex-col gap-5 p-6 rounded-[20px]"
-                style={{ background: ORB, border: `1px solid ${ORD}` }}
-              >
-                <div className="flex items-center gap-4">
-                  <div className="relative w-16 h-16 flex-shrink-0">
-                    <Image
-                      src="/images/team/romane.png"
-                      alt="Romane, formatrice Claude IA"
-                      fill
-                      className="object-cover rounded-full"
-                      sizes="64px"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-white font-bold text-base leading-snug">Romane</p>
-                    <p className="text-xs font-semibold mt-0.5" style={{ color: OR }}>Formatrice Claude IA</p>
-                  </div>
-                </div>
-                <p className="text-text-secondary text-sm leading-relaxed">
-                  Spécialiste de l&apos;intégration IA en environnement professionnel, Romane anime les sessions
-                  Claude.ai et Projects pour les équipes non-techniques. Elle adapte chaque formation
-                  aux flux de travail réels de ses participants.
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {['Claude.ai', 'Projects', 'Prompting', 'Équipes métier'].map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
-                      style={{ background: 'rgba(255,107,0,0.12)', color: OR, border: `1px solid ${ORD}` }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <div className="text-center mb-16">
+                <GradTag className="mb-6">Vos formateurs</GradTag>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] text-white">
+                  Formés par des praticiens, pas des théoriciens.
+                </h2>
               </div>
             </SectionReveal>
 
-            {/* David */}
-            <SectionReveal>
-              <div
-                className="flex flex-col gap-5 p-6 rounded-[20px]"
-                style={{ background: CHB, border: `1px solid ${CHD}` }}
-              >
-                <div className="flex items-center gap-4">
-                  <div className="relative w-16 h-16 flex-shrink-0">
-                    <Image
-                      src="/images/team/david-khazaei.png"
-                      alt="David Khazaei, formateur Claude Code"
-                      fill
-                      className="object-cover rounded-full"
-                      sizes="64px"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-white font-bold text-base leading-snug">David Khazaei</p>
-                    <p className="text-xs font-semibold mt-0.5" style={{ color: CH }}>Formateur Claude Code · Fondateur DKDP</p>
-                  </div>
-                </div>
-                <p className="text-text-secondary text-sm leading-relaxed">
-                  Développeur et consultant digital, David utilise Claude Code au quotidien pour ses propres projets
-                  client. Il anime le module technique : navigation de codebase, tests automatisés,
-                  workflow GitHub et agents agentic.
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {['Claude Code', 'Agentic', 'GitHub', 'Devs & DevOps'].map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
-                      style={{ background: CHB, color: CH, border: `1px solid ${CHD}` }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            <SectionReveal delay={0.15}>
+              <CircularTestimonials
+                items={FORMATEURS}
+                autoplay={true}
+                colors={{
+                  name: '#ffffff',
+                  designation: OR,
+                  quote: '#9CA3AF',
+                  arrowBackground: '#1E1E1E',
+                  arrowForeground: '#ffffff',
+                  arrowHoverBackground: '#FF6B00',
+                }}
+                fontSizes={{
+                  name: '1.6rem',
+                  designation: '0.75rem',
+                  quote: '1rem',
+                }}
+              />
             </SectionReveal>
           </div>
-        </div>
-      </section>
+        </section>
+      </InfiniteGrid>
 
       {/* ══ 13. Testimonials ══ */}
       <Testimonials />

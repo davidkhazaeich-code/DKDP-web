@@ -8,24 +8,13 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import type { Category, Term } from './_types'
+import { LetterSection } from './_components/LetterSection'
 
 export const metadata: Metadata = {
   title: 'Glossaire Digital et IA · Définitions pour PME · DKDP',
   description: 'Lexique complet du web, du SEO et de l\'intelligence artificielle. 65 termes expliqués simplement pour les PME en Suisse romande.',
   alternates: { canonical: 'https://dkdp.ch/glossaire' },
-}
-
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
-
-type Category = 'IA' | 'SEO' | 'Web' | 'Formation' | 'General'
-
-interface Term {
-  term: string
-  category: Category
-  definition: string
-  link?: string
 }
 
 // ---------------------------------------------------------------------------
@@ -388,16 +377,6 @@ const TERMS: Term[] = [
 // Helpers
 // ---------------------------------------------------------------------------
 
-function termId(term: string) {
-  return 'term-' + term
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '')
-}
-
 function getFirstLetter(term: string): string {
   return term[0].toUpperCase()
 }
@@ -414,110 +393,6 @@ function groupByLetter(terms: Term[]): Map<string, Term[]> {
 }
 
 const ALL_LETTERS = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-
-// ---------------------------------------------------------------------------
-// Badge config
-// ---------------------------------------------------------------------------
-
-const CATEGORY_STYLES: Record<Category, { color: string; border: string; label: string }> = {
-  IA:        { color: '#C4B5FD', border: 'rgba(124,58,237,0.65)',   label: 'IA' },
-  SEO:       { color: '#D4D4D8', border: 'rgba(212,212,216,0.50)',  label: 'SEO' },
-  Web:       { color: '#86efac', border: 'rgba(74,222,128,0.55)',   label: 'Web' },
-  Formation: { color: '#FDBA74', border: 'rgba(255,107,0,0.55)',    label: 'Formation' },
-  General:   { color: '#9CA3AF', border: 'rgba(156,163,175,0.45)', label: 'Général' },
-}
-
-// ---------------------------------------------------------------------------
-// Sub-components (server, no 'use client')
-// ---------------------------------------------------------------------------
-
-function CategoryBadge({ category }: { category: Category }) {
-  const { color, border, label } = CATEGORY_STYLES[category]
-  return (
-    <span
-      className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider"
-      style={{
-        color,
-        border: `1px solid ${border}`,
-        background: 'rgba(10,10,10,0.84)',
-      }}
-    >
-      {label}
-    </span>
-  )
-}
-
-function TermCard({ item, delay }: { item: Term; delay: number }) {
-  return (
-    <SectionReveal delay={delay}>
-      <div
-        id={termId(item.term)}
-        className="group rounded-[14px] border p-5 flex flex-col gap-3 h-full transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5"
-        style={{
-          background: 'rgba(18,18,24,0.80)',
-          borderColor: 'rgba(212,212,216,0.14)',
-        }}
-      >
-        {/* Header */}
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="text-white font-bold text-lg leading-snug">{item.term}</h3>
-          <CategoryBadge category={item.category} />
-        </div>
-
-        {/* Definition */}
-        <p className="text-text-secondary text-sm leading-relaxed flex-1">
-          {item.definition}
-        </p>
-
-        {/* Optional internal link */}
-        {item.link && (
-          <a
-            href={item.link}
-            className="inline-flex items-center gap-1 text-xs font-semibold mt-auto"
-            style={{ color: '#A78BFA' }}
-          >
-            En savoir plus
-            <span aria-hidden="true">&#8594;</span>
-          </a>
-        )}
-      </div>
-    </SectionReveal>
-  )
-}
-
-function LetterSection({ letter, terms }: { letter: string; terms: Term[] }) {
-  return (
-    <section id={`lettre-${letter}`} className="scroll-mt-32 md:scroll-mt-28">
-      {/* Letter heading */}
-      <div className="flex items-center gap-4 mb-6 pb-4 border-b border-border">
-        <div className="relative select-none">
-          <span
-            className="absolute inset-0 flex items-center justify-center text-6xl font-black text-white/10 leading-none pointer-events-none"
-            aria-hidden="true"
-          >
-            {letter}
-          </span>
-          <span
-            className="relative text-4xl font-black leading-none"
-            style={{ color: '#A78BFA' }}
-          >
-            {letter}
-          </span>
-        </div>
-        <span className="text-text-muted text-sm">
-          {terms.length} terme{terms.length > 1 ? 's' : ''}
-        </span>
-      </div>
-
-      {/* Cards grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {terms.map((item, i) => (
-          <TermCard key={item.term} item={item} delay={i * 0.04} />
-        ))}
-      </div>
-    </section>
-  )
-}
 
 // ---------------------------------------------------------------------------
 // Schema data (first 18 terms as FAQ)

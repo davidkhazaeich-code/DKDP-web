@@ -9,18 +9,20 @@ import {
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
+import dynamic from 'next/dynamic'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { LogoBanner } from '@/components/sections/LogoBanner'
-import { FAQSection } from '@/components/sections/FAQSection'
-import { FormationROICalculator } from '@/components/sections/FormationROICalculator'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { ParallaxOrangeBlobs } from '@/components/ui/ParallaxOrangeBlobs'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
+const FormationROICalculator = dynamic(() => import('@/components/sections/FormationROICalculator').then(m => ({ default: m.FormationROICalculator })))
+const ProgressionDiagram = dynamic(() => import('./_components/ProgressionDiagram').then(m => ({ default: m.ProgressionDiagram })))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_FORMATION } from '@/data/faq-formation'
 import { orange } from '@/lib/tokens'
-import { ProgressionDiagram } from './_components/ProgressionDiagram'
 
 export const metadata: Metadata = {
   title: 'Formation Entreprise Genève · IA, Bureautique, Cybersécurité · DKDP',
@@ -114,8 +116,7 @@ export default function FormationEntreprisePage() {
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Formation Entreprise', url: '/formation-entreprise' }])} />
 
       {/* ── Hero ── */}
-      <InfiniteGrid
-        accentRgb="255,140,0"
+      <HeroBg
         blob1="rgba(255,107,0,0.13)"
         blob2="rgba(255,107,0,0.06)"
       >
@@ -154,7 +155,7 @@ export default function FormationEntreprisePage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       <LogoBanner label="Équipes déjà formées" />
 
@@ -453,7 +454,7 @@ export default function FormationEntreprisePage() {
       </section>
 
       {/* ── Déroulement ── */}
-      <InfiniteGrid accentRgb="255,140,0" blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
+      <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
         <section className="py-24 border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -523,7 +524,7 @@ export default function FormationEntreprisePage() {
           </div>
         </div>
       </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── FAQ ── */}
       <FAQSection items={FAQ_FORMATION} title="Vos questions sur nos formations" />

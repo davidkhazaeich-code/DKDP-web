@@ -16,13 +16,15 @@ import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { LogoBanner } from '@/components/sections/LogoBanner'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildPerson } from '@/lib/schema'
 import { violet, orange, chrome } from '@/lib/tokens'
-import { CircularTestimonials } from '@/components/ui/circular-testimonials'
+import dynamic from 'next/dynamic'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
+const CircularTestimonials = dynamic(() => import('@/components/ui/circular-testimonials').then(m => m.CircularTestimonials))
 
 export const metadata: Metadata = {
   title: 'À propos · David Khazaei · DKDP Genève',
@@ -178,8 +180,7 @@ export default function AProposPage() {
       <SchemaOrg schema={buildPerson()} />
 
       {/* ── Hero ── */}
-      <InfiniteGrid
-        accentRgb="212,212,216"
+      <HeroBg
         blob1="rgba(212,212,216,0.08)"
         blob2="rgba(124,58,237,0.07)"
       >
@@ -285,7 +286,7 @@ export default function AProposPage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       <LogoBanner label="700+ clients accompagnés" />
 
@@ -432,8 +433,7 @@ export default function AProposPage() {
       </section>
 
       {/* ── Équipe ── */}
-      <InfiniteGrid
-        accentRgb="212,212,216"
+      <HeroBg
         blob1="rgba(212,212,216,0.06)"
         blob2="rgba(255,107,0,0.04)"
         className="border-b border-border"
@@ -537,7 +537,7 @@ export default function AProposPage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Pourquoi DKDP ── */}
       <section className="py-24 bg-bg-card border-y border-border">

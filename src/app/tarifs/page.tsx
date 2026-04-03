@@ -9,10 +9,12 @@ import {
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
+import dynamic from 'next/dynamic'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { violet, orange, chrome, green } from '@/lib/tokens'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 
 export const metadata: Metadata = {
   title: 'Tarifs · Création de site, Formation IA, Automatisation · DKDP',
@@ -162,8 +164,7 @@ export default function TarifsPage() {
     <main className="pt-14">
 
       {/* ── Hero ── */}
-      <InfiniteGrid
-        accentRgb="212,212,216"
+      <HeroBg
         blob1="rgba(212,212,216,0.07)"
         blob2="rgba(124,58,237,0.05)"
       >
@@ -195,7 +196,7 @@ export default function TarifsPage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Philosophy banner ── */}
       <section className="py-10 border-b border-border">

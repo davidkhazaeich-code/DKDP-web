@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
 import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Layers, PenTool, Layout, Globe2, TrendingUp, BarChart2, Zap } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { FAQSection } from '@/components/sections/FAQSection'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
 import { DesignToolCards } from './_components/DesignToolCards'
@@ -102,7 +104,7 @@ export default function FormationWebDesignPage() {
       ])} />
 
       {/* ── Hero ── */}
-      <InfiniteGrid accentRgb="255,140,0" blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
+      <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
@@ -145,7 +147,7 @@ export default function FormationWebDesignPage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
@@ -375,7 +377,7 @@ export default function FormationWebDesignPage() {
       </section>
 
       {/* ── Tarifs ── */}
-      <InfiniteGrid accentRgb="255,140,0" blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
+      <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
         <section className="py-24 border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -488,7 +490,7 @@ export default function FormationWebDesignPage() {
           </div>
         </div>
       </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── FAQ ── */}
       <FAQSection items={FAQ} title="Vos questions sur la formation web design et Canva" />

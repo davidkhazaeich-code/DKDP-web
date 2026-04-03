@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { GradTag } from '@/components/ui/GradTag'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { HeroBg } from '@/components/ui/HeroBg'
 
 export default function NotFound() {
   return (
-    <InfiniteGrid>
+    <HeroBg>
       <main className="pt-14 min-h-[80vh] flex items-center">
         <div className="max-w-[600px] mx-auto px-6 text-center py-24">
           <GradTag className="mb-6">404</GradTag>
@@ -28,6 +28,6 @@ export default function NotFound() {
           </div>
         </div>
       </main>
-    </InfiniteGrid>
+    </HeroBg>
   )
 }

@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet as violetToken, chrome as chromeToken, orange as orangeToken, green as greenToken } from '@/lib/tokens'
 import { AuditHeroForm } from '@/components/sections/AuditHeroForm'
@@ -233,7 +235,7 @@ export default function AuditSitePage() {
       ))}
 
       {/* ── Hero + Formulaire ─────────────────────────────────────────────── */}
-      <InfiniteGrid>
+      <HeroBg>
         <section
           aria-labelledby="hero-heading"
           className="relative pt-44 pb-40 px-6"
@@ -314,7 +316,7 @@ export default function AuditSitePage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Section 3 : Ce qu'on analyse ─────────────────────────────────── */}
       <section aria-labelledby="analysis-heading" className="py-20 px-6">

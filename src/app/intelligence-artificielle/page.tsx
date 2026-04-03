@@ -5,18 +5,20 @@ import { Bot, Workflow, BrainCircuit, Cpu, ChevronRight, Clock, TrendingUp, Shie
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
+import dynamic from 'next/dynamic'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { LogoBanner } from '@/components/sections/LogoBanner'
-import { FAQSection } from '@/components/sections/FAQSection'
-import { ROICalculator } from '@/components/sections/ROICalculator'
-import { Testimonials } from '@/components/sections/Testimonials'
+import { HeroBg } from '@/components/ui/HeroBg'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
+const ROICalculator = dynamic(() => import('@/components/sections/ROICalculator').then(m => ({ default: m.ROICalculator })))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
+const AutomationDiagram = dynamic(() => import('./_components/AutomationDiagram').then(m => ({ default: m.AutomationDiagram })))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_IA } from '@/data/faq-ia'
 import { chrome } from '@/lib/tokens'
-import { AutomationDiagram } from './_components/AutomationDiagram'
 
 export const metadata: Metadata = {
   title: 'Intelligence Artificielle Genève · Agents IA · DKDP',
@@ -88,8 +90,7 @@ export default function IntelligenceArtificiellePage() {
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Intelligence Artificielle', url: '/intelligence-artificielle' }])} />
 
       {/* ── Hero ── */}
-      <InfiniteGrid
-        accentRgb="212,212,216"
+      <HeroBg
         blob1="rgba(212,212,216,0.09)"
         blob2="rgba(124,58,237,0.08)"
       >
@@ -130,7 +131,7 @@ export default function IntelligenceArtificiellePage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       <LogoBanner label="Entreprises qui nous font confiance" />
 
@@ -195,7 +196,7 @@ export default function IntelligenceArtificiellePage() {
       </section>
 
       {/* ── Services ── */}
-      <InfiniteGrid accentRgb="212,212,216" blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)">
+      <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)">
         <section id="services" className="py-24 border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -301,7 +302,7 @@ export default function IntelligenceArtificiellePage() {
 
         </div>
       </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Benefits ── */}
       <section className="py-24">

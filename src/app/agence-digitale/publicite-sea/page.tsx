@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -18,13 +19,14 @@ import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { FAQSection } from '@/components/sections/FAQSection'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { AdComparison } from './_components/AdComparison'
 import { violet } from '@/lib/tokens'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 export const metadata: Metadata = {
   title: 'Publicité Google Ads Genève · Campagnes SEA · DKDP',
@@ -199,7 +201,7 @@ export default function PubliciteSEAPage() {
       ])} />
 
       {/* ── Hero ── */}
-      <InfiniteGrid accentRgb="124,58,237" blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
+      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
@@ -242,7 +244,7 @@ export default function PubliciteSEAPage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
@@ -447,7 +449,7 @@ export default function PubliciteSEAPage() {
       </section>
 
       {/* ── Offres ── */}
-      <InfiniteGrid accentRgb="124,58,237" blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
+      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
         <section id="tarifs" className="py-24 border-y border-border scroll-mt-[112px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -552,7 +554,7 @@ export default function PubliciteSEAPage() {
           </div>
         </div>
       </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Process ── */}
       <section id="process" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">

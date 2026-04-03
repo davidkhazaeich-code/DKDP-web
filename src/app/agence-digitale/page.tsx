@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import {
   Globe, Search, Megaphone, Share2, Film, Presentation, Shield,
   ChevronRight, Zap, Users, BarChart2,
@@ -10,17 +11,18 @@ import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { LogoBanner } from '@/components/sections/LogoBanner'
-import { Testimonials } from '@/components/sections/Testimonials'
-import { FAQSection } from '@/components/sections/FAQSection'
-import { SiteAuditBlock } from '@/components/sections/SiteAuditBlock'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_AGENCE } from '@/data/faq-agence'
 import { FunnelDiagram } from './_components/FunnelDiagram'
 import { violet } from '@/lib/tokens'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
+const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBlock').then(m => ({ default: m.SiteAuditBlock })))
 
 export const metadata: Metadata = {
   title: 'Agence Digitale Genève · Site web, SEO, Google Ads · DKDP',
@@ -110,8 +112,7 @@ export default function AgenceDigitalePage() {
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Agence Digitale', url: '/agence-digitale' }])} />
 
       {/* ── Hero ── */}
-      <InfiniteGrid
-        accentRgb="124,58,237"
+      <HeroBg
         blob1="rgba(124,58,237,0.14)"
         blob2="rgba(124,58,237,0.07)"
       >
@@ -150,7 +151,7 @@ export default function AgenceDigitalePage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       <LogoBanner label="Ils nous font confiance" />
 
@@ -473,9 +474,9 @@ export default function AgenceDigitalePage() {
       </section>
 
       {/* ── Testimonials ── */}
-      <InfiniteGrid accentRgb="124,58,237" blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
+      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
         <Testimonials className="py-24 border-y border-border" />
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Résultats ── */}
       <section className="py-24">

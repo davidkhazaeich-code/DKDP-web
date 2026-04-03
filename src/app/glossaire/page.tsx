@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { GlossaireSearch } from '@/components/sections/GlossaireSearch'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { CTAFinal } from '@/components/sections/CTAFinal'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import type { Category, Term } from './_types'
-import { LetterSection } from './_components/LetterSection'
+
+const CTAFinal     = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LetterSection = dynamic(() => import('./_components/LetterSection').then(m => m.LetterSection))
 
 export const metadata: Metadata = {
   title: 'Glossaire Digital et IA · Définitions pour PME · DKDP',
@@ -427,8 +429,7 @@ export default function GlossairePage() {
       {/* ------------------------------------------------------------------ */}
       {/* HERO                                                                */}
       {/* ------------------------------------------------------------------ */}
-      <InfiniteGrid
-        accentRgb="212,212,216"
+      <HeroBg
         blob1="rgba(124,58,237,0.10)"
         blob2="rgba(212,212,216,0.07)"
         className="min-h-[520px] flex items-center justify-center py-24 px-4"
@@ -459,7 +460,7 @@ export default function GlossairePage() {
             </p>
           </SectionReveal>
         </div>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ------------------------------------------------------------------ */}
       {/* STICKY SEARCH + ALPHABETIC NAV                                      */}

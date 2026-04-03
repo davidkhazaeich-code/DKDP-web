@@ -1,17 +1,19 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
 import { CheckCircle2, Clock, Users, Award, ChevronRight, TrendingUp, BarChart2, Zap, BrainCircuit } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { FAQSection } from '@/components/sections/FAQSection'
-import { ROICalculatorFormation } from '@/components/sections/ROICalculatorFormation'
-import { Testimonials } from '@/components/sections/Testimonials'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
+const ROICalculatorFormation = dynamic(() => import('@/components/sections/ROICalculatorFormation').then(m => m.ROICalculatorFormation))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => m.Testimonials))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
 import { ToolComparison } from './_components/ToolComparison'
@@ -104,7 +106,7 @@ export default function FormationIAPage() {
       ])} />
 
       {/* ── Hero ── */}
-      <InfiniteGrid accentRgb="255,140,0" blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
+      <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
@@ -147,7 +149,7 @@ export default function FormationIAPage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
@@ -436,7 +438,7 @@ export default function FormationIAPage() {
       </section>
 
       {/* ── Témoignages ── */}
-      <InfiniteGrid accentRgb="255,140,0" blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
+      <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)">
         <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -489,7 +491,7 @@ export default function FormationIAPage() {
           </div>
         </div>
       </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Tarifs ── */}
       <section id="tarifs" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">

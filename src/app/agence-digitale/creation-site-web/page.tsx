@@ -1,22 +1,24 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { CheckCircle2, Zap, Search, Settings, ChevronRight, TrendingUp, BarChart2, ShieldCheck, Star, Globe2, Clock } from 'lucide-react'
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { FAQSection } from '@/components/sections/FAQSection'
-import { SiteAuditBlock } from '@/components/sections/SiteAuditBlock'
-import { Testimonials } from '@/components/sections/Testimonials'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { PerformanceComparison } from './_components/PerformanceComparison'
 import { TechStack } from './_components/TechStack'
 import { violet } from '@/lib/tokens'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
+const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBlock').then(m => ({ default: m.SiteAuditBlock })))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
   title: 'Création de Site Web à Genève · Sur mesure & performant · DKDP',
@@ -158,7 +160,7 @@ export default function CreationSiteWebPage() {
       ])} />
 
       {/* ── Hero ── */}
-      <InfiniteGrid accentRgb="124,58,237" blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
+      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
@@ -201,7 +203,7 @@ export default function CreationSiteWebPage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
@@ -380,7 +382,7 @@ export default function CreationSiteWebPage() {
       </section>
 
       {/* ── Offres ── */}
-      <InfiniteGrid accentRgb="124,58,237" blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
+      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
         <section id="tarifs" className="py-24 border-y border-border scroll-mt-[112px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -489,7 +491,7 @@ export default function CreationSiteWebPage() {
           </div>
         </div>
       </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Stack techno ── */}
       <section className="py-14 border-b border-border">
@@ -507,7 +509,7 @@ export default function CreationSiteWebPage() {
       </section>
 
       {/* ── Process ── */}
-      <InfiniteGrid accentRgb="124,58,237" blob1="rgba(124,58,237,0.12)" blob2="rgba(124,58,237,0.06)">
+      <HeroBg blob1="rgba(124,58,237,0.12)" blob2="rgba(124,58,237,0.06)">
         <section id="process" className="py-24 border-y border-border scroll-mt-[112px]">
           <div className="max-w-[1200px] mx-auto px-6">
             <SectionReveal>
@@ -522,7 +524,7 @@ export default function CreationSiteWebPage() {
             <ProcessTimeline steps={STEPS} />
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Réalisations ── */}
       <section id="realisations" className="py-24 scroll-mt-[112px]">

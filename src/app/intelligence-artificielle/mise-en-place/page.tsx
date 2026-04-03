@@ -20,13 +20,14 @@ import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { FAQSection } from '@/components/sections/FAQSection'
+import dynamic from 'next/dynamic'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
-import { LLMStackDiagram } from './_components/LLMStackDiagram'
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
+const LLMStackDiagram = dynamic(() => import('./_components/LLMStackDiagram').then(m => m.LLMStackDiagram))
 
 export const metadata: Metadata = {
   title: 'Mise en place IA Genève · Intégration ChatGPT Claude LLM · DKDP',
@@ -84,8 +85,7 @@ export default function MiseEnPlacePage() {
       />
 
       {/* ── Hero ──────────────────────────────────────────────── */}
-      <InfiniteGrid
-        accentRgb="212,212,216"
+      <HeroBg
         blob1="rgba(212,212,216,0.09)"
         blob2="rgba(124,58,237,0.08)"
       >
@@ -146,7 +146,7 @@ export default function MiseEnPlacePage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Stats ─────────────────────────────────────────────── */}
       <section className="py-12 border-b border-border">
@@ -633,7 +633,7 @@ export default function MiseEnPlacePage() {
       </section>
 
       {/* ── Testimonials ──────────────────────────────────────── */}
-      <InfiniteGrid accentRgb="212,212,216" blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)">
+      <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)">
         <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -695,7 +695,7 @@ export default function MiseEnPlacePage() {
           </div>
         </div>
       </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── FAQ ───────────────────────────────────────────────── */}
       <FAQSection items={FAQ_ITEMS} title="Vos questions sur l'intégration LLM." />

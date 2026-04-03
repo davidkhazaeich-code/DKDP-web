@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { ContactSection } from '@/components/sections/ContactSection'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildBreadcrumbList } from '@/lib/schema'
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <InfiniteGrid>
+    <HeroBg className="min-h-screen">
       <main className="pt-14">
         <SchemaOrg schema={buildLocalBusiness()} />
         <SchemaOrg schema={buildBreadcrumbList([
@@ -40,6 +40,6 @@ export default function ContactPage() {
         <ContactSection />
 
       </main>
-    </InfiniteGrid>
+    </HeroBg>
   )
 }

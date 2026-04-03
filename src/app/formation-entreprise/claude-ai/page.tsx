@@ -11,11 +11,13 @@ import {
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
-import { CircularTestimonials } from '@/components/ui/circular-testimonials'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { Testimonials } from '@/components/sections/Testimonials'
+import { HeroBg } from '@/components/ui/HeroBg'
+import dynamic from 'next/dynamic'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => m.Testimonials))
+const CircularTestimonialsLazy = dynamic(() => import('@/components/ui/circular-testimonials').then(m => m.CircularTestimonials))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet, orange, chrome } from '@/lib/tokens'
@@ -150,7 +152,7 @@ export default function FormationClaudeAIPage() {
       ])} />
 
       {/* ══ 1. Hero ══ */}
-      <InfiniteGrid accentRgb="167,139,250" blob1="rgba(124,58,237,0.15)" blob2="rgba(167,139,250,0.06)">
+      <HeroBg blob1="rgba(124,58,237,0.15)" blob2="rgba(167,139,250,0.06)">
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             {/* Breadcrumb */}
@@ -277,7 +279,7 @@ export default function FormationClaudeAIPage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ══ 2. Stats ══ */}
       <section className="py-12 border-b border-border">
@@ -809,8 +811,7 @@ export default function FormationClaudeAIPage() {
       </section>
 
       {/* ══ 8. Cas d'usage par métier ══ */}
-      <InfiniteGrid
-        accentRgb="255,107,0"
+      <HeroBg
         blob1="rgba(255,107,0,0.06)"
         blob2="rgba(212,212,216,0.04)"
         className="border-b border-border"
@@ -939,7 +940,7 @@ export default function FormationClaudeAIPage() {
           </SectionReveal>
         </div>
       </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ══ 9. Formats ══ */}
       <section className="py-24 border-b border-border">
@@ -1180,8 +1181,7 @@ export default function FormationClaudeAIPage() {
       </section>
 
       {/* ══ 12. Formateurs ══ */}
-      <InfiniteGrid
-        accentRgb="255,140,0"
+      <HeroBg
         blob1="rgba(255,107,0,0.08)"
         blob2="rgba(124,58,237,0.05)"
         className="border-b border-border"
@@ -1198,7 +1198,7 @@ export default function FormationClaudeAIPage() {
             </SectionReveal>
 
             <SectionReveal delay={0.15}>
-              <CircularTestimonials
+              <CircularTestimonialsLazy
                 items={FORMATEURS}
                 autoplay={true}
                 colors={{
@@ -1218,7 +1218,7 @@ export default function FormationClaudeAIPage() {
             </SectionReveal>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ══ 13. Testimonials ══ */}
       <Testimonials />

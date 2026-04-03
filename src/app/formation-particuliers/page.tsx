@@ -10,11 +10,13 @@ import {
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
+import dynamic from 'next/dynamic'
 import { SectionReveal } from '@/components/ui/SectionReveal'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { FAQSection } from '@/components/sections/FAQSection'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
+
+const CTAFinal   = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 import { buildCourse, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
 
@@ -178,8 +180,7 @@ export default function FormationParticuliersPage() {
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Formation Particuliers', url: '/formation-particuliers' }])} />
 
       {/* ── Hero ── */}
-      <InfiniteGrid
-        accentRgb="255,140,0"
+      <HeroBg
         blob1="rgba(255,107,0,0.07)"
         blob2="rgba(212,212,216,0.05)"
       >
@@ -295,7 +296,7 @@ export default function FormationParticuliersPage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">

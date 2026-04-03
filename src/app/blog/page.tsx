@@ -4,8 +4,7 @@ import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
-import { CTAFinal } from '@/components/sections/CTAFinal'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import {
@@ -15,7 +14,10 @@ import {
 } from '@/lib/blog-data'
 import { violet, orange, chrome, green } from '@/lib/tokens'
 import { ArticleCard } from './_components/ArticleCard'
-import { NewsletterForm } from '@/components/sections/NewsletterForm'
+import dynamic from 'next/dynamic'
+
+const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const NewsletterForm = dynamic(() => import('@/components/sections/NewsletterForm').then(m => m.NewsletterForm))
 
 export const metadata: Metadata = {
   title: 'Blog · Ressources digitales, IA et formation · DKDP',
@@ -58,8 +60,7 @@ export default function BlogPage() {
       />
 
       {/* ══ 1. Hero ══ */}
-      <InfiniteGrid
-        accentRgb="124,58,237"
+      <HeroBg
         blob1="rgba(124,58,237,0.12)"
         blob2="rgba(255,107,0,0.07)"
       >
@@ -83,7 +84,7 @@ export default function BlogPage() {
             </div>
           </div>
         </section>
-      </InfiniteGrid>
+      </HeroBg>
 
       {/* ══ 2. Filtres catégories ══ */}
       <div className="sticky top-14 z-30 border-b border-zinc-800 bg-[rgba(9,9,11,0.92)] backdrop-blur-md">

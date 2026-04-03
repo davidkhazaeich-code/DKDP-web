@@ -10,7 +10,6 @@ const MAIN_LINKS = [
 ]
 
 const SECONDARY_LINKS = [
-  { label: 'Réalisations', href: '/realisations' },
   { label: 'Tarifs', href: '/tarifs' },
   { label: 'Blog', href: '/blog' },
 ]

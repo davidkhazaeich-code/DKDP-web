@@ -46,10 +46,10 @@ export function FeaturedProject() {
                 ))}
               </div>
               <Link
-                href="/realisations"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-[22px] py-[11px] bg-white text-black text-[13px] font-semibold rounded-full hover:bg-gray-100 transition-all duration-[150ms] hover:-translate-y-px"
               >
-                Voir toutes nos réalisations →
+                Discuter de votre projet →
               </Link>
             </div>
             <div>

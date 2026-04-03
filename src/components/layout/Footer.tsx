@@ -63,7 +63,6 @@ const PILLARS = [
     Icon: LayoutGrid,
     links: [
       { label: 'À propos de l\'agence', href: '/a-propos' },
-      { label: 'Réalisations', href: '/realisations' },
       { label: 'Tarifs', href: '/tarifs' },
       { label: 'Blog', href: '/blog' },
       { label: 'Glossaire', href: '/glossaire' },

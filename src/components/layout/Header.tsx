@@ -35,7 +35,6 @@ const AGENCE_MAIN = [
 const AGENCE_SECONDARY = [
   { title: 'Audit site gratuit', href: '/agence-digitale/creation-site-web/audit-site', icon: Search },
   { title: 'Audit SEO gratuit', href: '/agence-digitale/seo/audit-seo', icon: BarChart2 },
-  { title: 'Nos réalisations', href: '/realisations', icon: Star },
   { title: 'Tarifs agence', href: '/tarifs', icon: FileText },
   { title: 'Contacter l\'agence', href: '/contact', icon: Phone },
 ]
@@ -50,7 +49,6 @@ const IA_MAIN = [
 const IA_SECONDARY = [
   { title: 'Formation IA entreprise', href: '/formation-entreprise/ia', icon: GraduationCap },
   { title: 'Claude Cowork', href: '/formation-entreprise/claude-ai', icon: Sparkles, logoSrc: '/images/partners/claude-logo.png' },
-  { title: 'Cas clients IA', href: '/realisations', icon: Star },
   { title: 'Tarifs IA', href: '/tarifs', icon: FileText },
   { title: 'Parler à un expert', href: '/contact', icon: Phone },
 ]
@@ -74,7 +72,6 @@ const FORMATION_SECONDARY = [
 
 const APROPOS_MAIN = [
   { title: 'À propos de l\'agence', href: '/a-propos', icon: Users2, description: 'Notre équipe, nos valeurs et notre histoire.' },
-  { title: 'Réalisations', href: '/realisations', icon: Star, description: 'Nos projets et succès clients.' },
   { title: 'Tarifs', href: '/tarifs', icon: FileText, description: 'Formules et prix clairs et transparents.' },
   { title: 'Blog', href: '/blog', icon: BookOpen, description: 'Ressources et conseils digitaux.' },
   { title: 'Glossaire', href: '/glossaire', icon: Search, description: 'Lexique du digital et de l\'IA.' },

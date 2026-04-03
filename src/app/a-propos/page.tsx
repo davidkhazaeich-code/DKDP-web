@@ -21,6 +21,7 @@ import { CTAFinal } from '@/components/sections/CTAFinal'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildPerson } from '@/lib/schema'
 import { violet, orange, chrome } from '@/lib/tokens'
+import { CircularTestimonials } from '@/components/ui/circular-testimonials'
 
 export const metadata: Metadata = {
   title: 'À propos · David Khazaei · DKDP Genève',

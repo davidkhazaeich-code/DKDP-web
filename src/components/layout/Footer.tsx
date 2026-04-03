@@ -114,6 +114,7 @@ function FooterInner({ constrained = false }: { constrained?: boolean }) {
               alt="DKDP, Service Digital Genève"
               width={80}
               height={14}
+              style={{ height: 'auto' }}
               className="mb-4"
             />
             <p className="text-text-secondary text-sm leading-relaxed mb-5">
@@ -189,6 +190,7 @@ function FooterInner({ constrained = false }: { constrained?: boolean }) {
               alt="DKDP, Service Digital Genève"
               width={80}
               height={14}
+              style={{ height: 'auto' }}
               className="mb-3"
             />
             <p className="text-text-secondary text-sm leading-relaxed">

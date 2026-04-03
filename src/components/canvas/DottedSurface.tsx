@@ -24,6 +24,10 @@ export function DottedSurface({
     let cancelled = false
 
     async function init(container: HTMLDivElement) {
+      // Bail out silently if WebGL is unavailable (headless, privacy browsers, some iOS)
+      const probe = document.createElement('canvas')
+      if (!probe.getContext('webgl2') && !probe.getContext('webgl')) return
+
       const THREE = await import('three')
       if (cancelled) return
 

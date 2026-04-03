@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
 
+  experimental: {
+    optimizeCss: true,
+  },
+
   async redirects() {
     // Source de vérité : src/lib/routes.ts → REDIRECTS
     // Pour ajouter ou modifier une redirection, éditer ce tableau.

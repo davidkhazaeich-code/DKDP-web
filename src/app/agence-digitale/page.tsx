@@ -12,6 +12,7 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 import { CTAFinal } from '@/components/sections/CTAFinal'
+import { LogoBanner } from '@/components/sections/LogoBanner'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { SiteAuditBlock } from '@/components/sections/SiteAuditBlock'
@@ -150,6 +151,8 @@ export default function AgenceDigitalePage() {
           </div>
         </section>
       </InfiniteGrid>
+
+      <LogoBanner label="Ils nous font confiance" />
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">

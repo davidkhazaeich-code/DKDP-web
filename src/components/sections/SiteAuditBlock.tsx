@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Globe, Mail, Search, CheckCircle2, Loader2 } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { HeroBg } from '@/components/ui/HeroBg'
 
 const color  = '#A78BFA'
 const bg     = 'rgba(124,58,237,0.08)'
@@ -50,7 +50,7 @@ export function SiteAuditBlock() {
     'placeholder:text-text-muted focus:outline-none focus:border-violet transition-colors duration-150'
 
   return (
-    <InfiniteGrid accentRgb="124,58,237" blob1="rgba(124,58,237,0.10)" blob2="rgba(124,58,237,0.05)">
+    <HeroBg blob1="rgba(124,58,237,0.10)" blob2="rgba(124,58,237,0.05)">
       <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -177,6 +177,6 @@ export function SiteAuditBlock() {
           </SectionReveal>
         </div>
       </section>
-    </InfiniteGrid>
+    </HeroBg>
   )
 }

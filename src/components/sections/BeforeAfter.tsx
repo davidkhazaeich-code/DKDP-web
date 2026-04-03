@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 import { ImagePlaceholder } from '@/components/ui/ImagePlaceholder'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { HeroBg } from '@/components/ui/HeroBg'
 
 const TRANSFORMATIONS = [
   {
@@ -37,7 +37,7 @@ export function BeforeAfter() {
   const y = useTransform(scrollYProgress, [0, 1], [60, -60])
 
   return (
-    <InfiniteGrid>
+    <HeroBg>
       <section ref={sectionRef} aria-labelledby="beforeafter-heading" className="py-36">
         <motion.div style={{ y }} className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -90,6 +90,6 @@ export function BeforeAfter() {
           </div>
         </motion.div>
       </section>
-    </InfiniteGrid>
+    </HeroBg>
   )
 }

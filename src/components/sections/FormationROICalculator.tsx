@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { HeroBg } from '@/components/ui/HeroBg'
 
 const accent      = '#FF8C00'
 const accentBg    = 'rgba(255,107,0,0.08)'
@@ -117,8 +117,8 @@ export function FormationROICalculator() {
   }, [collaborateurs, heuresParSemaine, coutHoraire])
 
   return (
-    <InfiniteGrid
-      accentRgb="255,107,0"
+    <HeroBg
+     
       blob1="rgba(255,107,0,0.07)"
       blob2="rgba(212,212,216,0.04)"
       className="bg-bg-card border-y border-border"
@@ -337,6 +337,6 @@ export function FormationROICalculator() {
         </SectionReveal>
       </div>
     </section>
-    </InfiniteGrid>
+    </HeroBg>
   )
 }

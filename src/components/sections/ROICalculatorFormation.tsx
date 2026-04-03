@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ChevronRight, Users, Clock, Banknote, Timer, TrendingUp, Tag, BarChart2, CalendarClock } from 'lucide-react'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { HeroBg } from '@/components/ui/HeroBg'
 
 const JOURS_OUVRES = 220  // jours travaillés / an
 const RECOVERY     = 0.65 // taux d'heures récupérables via meilleures pratiques IA
@@ -112,8 +112,8 @@ export function ROICalculatorFormation() {
   const moisRetour    = gainsAn > 0 ? Math.max(1, Math.ceil((prixFormation / gainsAn) * 12)) : 0
 
   return (
-    <InfiniteGrid
-      accentRgb="212,212,216"
+    <HeroBg
+     
       blob1="rgba(212,212,216,0.06)"
       blob2="rgba(255,107,0,0.04)"
       className="bg-bg-card border-y border-border"
@@ -285,6 +285,6 @@ export function ROICalculatorFormation() {
         </div>
       </div>
     </section>
-    </InfiniteGrid>
+    </HeroBg>
   )
 }

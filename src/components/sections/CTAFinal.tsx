@@ -7,7 +7,7 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { Watermark } from '@/components/ui/Watermark'
 import { GradText } from '@/components/ui/GradText'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { HeroBg } from '@/components/ui/HeroBg'
 
 export function CTAFinal() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -18,7 +18,7 @@ export function CTAFinal() {
   const y = useTransform(scrollYProgress, [0, 1], [60, -60])
 
   return (
-    <InfiniteGrid>
+    <HeroBg>
       <section ref={sectionRef} aria-labelledby="cta-heading" className="py-16 md:py-[130px] lg:py-[200px] relative">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <Watermark />
@@ -72,6 +72,6 @@ export function CTAFinal() {
           </SectionReveal>
         </motion.div>
       </section>
-    </InfiniteGrid>
+    </HeroBg>
   )
 }

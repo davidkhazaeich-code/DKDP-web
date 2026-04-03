@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ChevronRight, Clock, Users, Banknote, Timer, TrendingUp, Layers, BarChart2, CalendarClock } from 'lucide-react'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { HeroBg } from '@/components/ui/HeroBg'
 
 const WEEKS = 50       // semaines travaillées / an
 const RECOVERY = 0.70  // taux d'heures récupérables par l'IA
@@ -111,8 +111,8 @@ export function ROICalculator() {
   const moisRentabilite  = gainsAn > 0 ? Math.max(1, Math.ceil((investMin / gainsAn) * 12)) : 0
 
   return (
-    <InfiniteGrid
-      accentRgb="212,212,216"
+    <HeroBg
+     
       blob1="rgba(212,212,216,0.07)"
       blob2="rgba(124,58,237,0.06)"
       className="bg-bg-card border-y border-border"
@@ -278,6 +278,6 @@ export function ROICalculator() {
         </div>
       </div>
     </section>
-    </InfiniteGrid>
+    </HeroBg>
   )
 }

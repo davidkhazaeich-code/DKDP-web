@@ -1,7 +1,7 @@
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradText } from '@/components/ui/GradText'
 import { GradTag } from '@/components/ui/GradTag'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { HeroBg } from '@/components/ui/HeroBg'
 
 function IconDeclining() {
   return (
@@ -85,7 +85,7 @@ const PROBLEMS = [
 
 export function ProblemBlock() {
   return (
-    <InfiniteGrid>
+    <HeroBg>
       <section id="problem-section" aria-labelledby="problem-heading" className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -126,6 +126,6 @@ export function ProblemBlock() {
           </SectionReveal>
         </div>
       </section>
-    </InfiniteGrid>
+    </HeroBg>
   )
 }

@@ -48,7 +48,7 @@ export function LogoBanner({ label = 'Ils nous font confiance' }: LogoBannerProp
                 width={logo.width}
                 height={logo.height}
                 sizes={`${logo.width}px`}
-                className={`object-contain w-auto ${logo.small ? 'h-[30px]' : 'h-[60px]'}`}
+                className={`object-contain w-auto ${logo.small ? 'h-[30px]' : 'h-[78px]'}`}
               />
             </div>
           ))}

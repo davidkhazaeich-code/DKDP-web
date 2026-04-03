@@ -81,10 +81,10 @@ export function Testimonials({ className }: { className?: string }) {
   }
 
   return (
-    <InfiniteGrid blob1="rgba(124,58,237,0.09)" blob2="rgba(255,107,0,0.06)">
+    <InfiniteGrid className="bg-bg-card border-y border-border" blob1="rgba(124,58,237,0.09)" blob2="rgba(255,107,0,0.06)">
     <section
       aria-labelledby="testimonials-heading"
-      className={className ?? 'py-24 bg-bg-card border-y border-border'}
+      className={className ?? 'py-24'}
       onMouseDown={(e) => onDragStart(e.clientX)}
       onMouseUp={(e) => onDragEnd(e.clientX)}
       onMouseLeave={() => { dragStartX.current = null }}

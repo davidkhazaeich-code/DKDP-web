@@ -61,6 +61,11 @@ export async function generateMetadata(
         ? [{ url: `https://dkdp.ch${article.heroImage.src}` }]
         : [],
     },
+    twitter: {
+      images: article.heroImage.src
+        ? [`https://dkdp.ch${article.heroImage.src}`]
+        : ['/og-image.png'],
+    },
   }
 }
 

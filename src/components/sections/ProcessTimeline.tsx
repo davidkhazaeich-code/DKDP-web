@@ -1,7 +1,4 @@
-'use client'
-
-import { useRef, type ReactElement } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { type ReactElement } from 'react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 
 type AccentKey = 'violet' | 'chrome' | 'orange' | 'green'
@@ -37,20 +34,10 @@ interface Step {
 }
 
 export function ProcessTimeline({ steps }: { steps: Step[] }) {
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start 80%', 'end 20%'],
-  })
-
-  // Glow that trails the progress head
-  const glowOpacity = useTransform(scrollYProgress, [0, 0.05, 0.95, 1], [0, 1, 1, 0])
-
   return (
     <>
       {/* ── Desktop ── */}
-      <div ref={containerRef} className="hidden lg:block relative">
+      <div className="hidden lg:block relative">
 
         {/* Track line (faint background) */}
         <div
@@ -58,29 +45,13 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
           style={{ background: 'rgba(255,255,255,0.06)' }}
         />
 
-        {/* Animated progress line */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 overflow-hidden rounded-full" aria-hidden="true">
-          <motion.div
-            className="w-full origin-top"
-            style={{
-              scaleY: scrollYProgress,
-              height: '100%',
-              background: 'linear-gradient(to bottom, #A78BFA 0%, #ffffff 50%, #FF8C00 100%)',
-              boxShadow: '0 0 8px 2px rgba(167,139,250,0.5)',
-            }}
-          />
-        </div>
-
-        {/* Glow dot at the progress head */}
-        <motion.div
+        {/* Gradient line — CSS scroll-driven animation where supported, static otherwise */}
+        <div
           aria-hidden="true"
-          className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full pointer-events-none z-20"
+          className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 rounded-full timeline-progress-line"
           style={{
-            top: useTransform(scrollYProgress, [0, 1], ['0%', '100%']),
-            opacity: glowOpacity,
-            background: '#A78BFA',
-            boxShadow: '0 0 12px 4px rgba(167,139,250,0.7)',
-            marginTop: '-6px',
+            background: 'linear-gradient(to bottom, #A78BFA 0%, #ffffff 50%, #FF8C00 100%)',
+            boxShadow: '0 0 8px 2px rgba(167,139,250,0.4)',
           }}
         />
 

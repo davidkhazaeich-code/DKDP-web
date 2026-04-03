@@ -296,3 +296,26 @@ html {
   backface-visibility: hidden;
   animation: logo-scroll 36s linear infinite;
 }
+
+/* ═══ ProcessTimeline — CSS scroll-driven progress line ═══ */
+@keyframes timeline-fill {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+.timeline-progress-line {
+  transform-origin: top;
+  transform: scaleY(0);
+  /* CSS scroll-driven animation — compositor only, zero JS cost */
+  animation: timeline-fill linear both;
+  animation-timeline: view(block);
+  animation-range: entry 10% exit 90%;
+}
+
+/* Fallback for browsers without scroll-driven animation support */
+@supports not (animation-timeline: view()) {
+  .timeline-progress-line {
+    transform: scaleY(1);
+    animation: none;
+  }
+}

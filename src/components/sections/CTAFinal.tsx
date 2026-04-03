@@ -1,8 +1,4 @@
-'use client'
-
-import { useRef } from 'react'
 import Link from 'next/link'
-import { motion, useScroll, useTransform } from 'framer-motion'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { Watermark } from '@/components/ui/Watermark'
@@ -10,24 +6,14 @@ import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
 
 export function CTAFinal() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  })
-  const y = useTransform(scrollYProgress, [0, 1], [60, -60])
-
   return (
     <HeroBg>
-      <section ref={sectionRef} aria-labelledby="cta-heading" className="py-16 md:py-[130px] lg:py-[200px] relative">
+      <section aria-labelledby="cta-heading" className="py-16 md:py-[130px] lg:py-[200px] relative">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <Watermark />
         </div>
 
-        <motion.div
-          style={{ y }}
-          className="relative z-10 max-w-[1200px] mx-auto px-6 text-center"
-        >
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
           <SectionReveal>
             <h2 id="cta-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-6">
               Parlons de{' '}
@@ -70,7 +56,7 @@ export function CTAFinal() {
               Sans engagement · Réponse sous 24h · Eaux-Vives, Genève ou en visio
             </p>
           </SectionReveal>
-        </motion.div>
+        </div>
       </section>
     </HeroBg>
   )

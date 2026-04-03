@@ -1066,6 +1066,762 @@ Un audit digital 360 ne se fait pas en une heure. Pour un site de 50 à 200 page
 
 Avec un audit solide, votre brief d'agence est précis, vos priorités sont fondées sur des données réelles, et votre nouveau site a une base stratégique, pas juste esthétique. C'est ce qui fait la différence entre un site web qui génère de la valeur et un site web qui existe juste pour exister.`,
   },
+
+  // =========================================================================
+  // Article 10 : Combien coûte un site web à Genève en 2026
+  // =========================================================================
+  {
+    slug: 'cout-site-web-geneve-2026',
+    category: 'seo',
+    title: 'Combien coûte un site web à Genève en 2026 ? Tarifs, fourchettes et pièges à éviter',
+    excerpt:
+      'Entre 500 CHF et 50\'000 CHF : les écarts de prix pour un site web à Genève sont immenses. Ce guide vous explique ce qui justifie ces différences, les fourchettes réalistes selon votre projet, et comment éviter les mauvaises surprises.',
+    date: '2 avril 2026',
+    dateISO: '2026-04-02',
+    readTime: '7 min',
+    author: 'David Khazaei',
+    heroImage: {
+      src: '/images/blog/cout-site-web-geneve-hero.png',
+      alt: 'Tableau de bord avec budgets et graphiques pour un projet web à Genève',
+    },
+    images: [
+      {
+        src: '/images/blog/cout-site-web-geneve-tableau.png',
+        alt: 'Tableau comparatif des prix selon le type de site web à Genève',
+        caption: 'Fourchettes de prix pour les principaux types de sites web en Suisse romande (2026)',
+      },
+    ],
+    tags: ['création site web', 'prix', 'Genève', 'PME', 'budget', 'agence digitale'],
+    seoTitle: 'Prix d\'un site web à Genève en 2026 : tarifs et fourchettes',
+    seoDescription:
+      'Combien coûte un site web à Genève en 2026 ? Découvrez les fourchettes de prix réalistes selon le type de projet, ce qui justifie les écarts, et comment éviter les mauvaises surprises.',
+    content: `## Pourquoi les prix varient autant : de 500 à 50\'000 CHF
+
+C\'est la première question que posent les PME genevoises quand elles cherchent à créer ou refaire leur site web. Et la réponse est souvent décevante : "ça dépend." Mais "ça dépend de quoi" précisément ?
+
+La réalité, c\'est que le marché genevois est particulièrement fragmenté. Vous pouvez obtenir un site Wix en quelques heures pour 30 CHF/mois, ou commander un projet custom à une agence pour 25\'000 CHF, et les deux peuvent être "adaptés à votre situation" selon l\'interlocuteur. La clé est de comprendre ce que vous achetez réellement dans chaque cas.
+
+## Les fourchettes réalistes par type de projet
+
+| Type de site | Fourchette CHF | Délai typique | Pour qui |
+|---|---|---|---|
+| Site DIY (Wix, Squarespace) | 0 - 500/an | 1-3 jours | Indépendant, micro-activité |
+| Site vitrine template (agence) | 2\'500 - 6\'000 | 3-6 semaines | PME avec besoins standards |
+| Site vitrine custom | 6\'000 - 15\'000 | 6-12 semaines | PME exigeante, secteur concurrentiel |
+| Site e-commerce Shopify/WooCommerce | 5\'000 - 20\'000 | 8-16 semaines | Commerce en ligne, boutique |
+| Site sur-mesure full-stack | 15\'000 - 50\'000+ | 3-6 mois | Plateforme, fonctionnalités complexes |
+
+Ces fourchettes incluent le design, le développement et le lancement. Elles n\'incluent généralement pas l\'hébergement annuel (200-600 CHF/an), le SEO, la maintenance ou la création de contenu.
+
+## Ce qui compose réellement un devis
+
+Quand une agence genevoise vous soumet un devis, voici ce que cachent les lignes :
+
+**Design UX/UI (20-30% du budget)** : pas juste "faire joli". Cela inclut l\'analyse de votre audience, les wireframes, la charte graphique adaptée au digital, les maquettes desktop et mobile, et plusieurs allers-retours de validation.
+
+**Développement (30-40%)** : intégration des maquettes, développement des fonctionnalités (formulaires, CMS, e-commerce, API tierces), tests multi-navigateurs et multi-appareils, optimisation des performances.
+
+**SEO on-page (10-15%)** : structure de URL, balises title et meta, balisage sémantique H1/H2, optimisation des images, Core Web Vitals. C\'est ici que beaucoup de projets économisent à tort — un site invisible sur Google ne sert à rien.
+
+**Gestion de projet et communication (15-20%)** : réunions de cadrage, suivi, recettes, formation à l\'utilisation du CMS. Ce temps est réel et nécessaire.
+
+**Contenu et médias (variable)** : si l\'agence prend en charge la rédaction et les photos, ajoutez 1\'000 à 5\'000 CHF selon le volume.
+
+## Les offres low-cost : ce qu\'on ne vous dit pas
+
+Un site vitrine "complet" à 990 CHF existe. Mais voici ce qu\'il implique systématiquement : un template acheté 29 CHF personnalisé en quelques heures, aucun travail SEO, des performances médiocres (temps de chargement > 4 secondes), et une maintenance à vos frais dès le lendemain.
+
+Ce n\'est pas nécessairement une escroquerie. Mais c\'est un produit différent d\'un site web stratégique. Le problème, c\'est que les deux sont vendus sous le même nom.
+
+Le vrai coût d\'un site low-cost à 12 mois : 990 CHF initiaux + 300 CHF d\'hébergement + 1\'500 CHF de corrections + zéro clients via Google = bilan négatif.
+
+## Les 5 questions à poser avant de signer
+
+1. **Est-ce que le SEO on-page est inclus ?** (title, meta, structure sémantique, Core Web Vitals)
+2. **Qui héberge le site et à quel prix après livraison ?**
+3. **Puis-je modifier le contenu moi-même sans frais ?** (accès CMS)
+4. **Qu\'est-ce qui n\'est pas inclus dans ce devis ?** (la question la plus révélatrice)
+5. **Avez-vous des références clients dans mon secteur d\'activité à Genève ?**
+
+## Ce qu\'on pratique chez DKDP
+
+Après 700+ projets en Suisse romande, notre constat est clair : les PME qui investissent entre 6\'000 et 12\'000 CHF dans un site bien conçu récupèrent cet investissement en moins d\'un an si le SEO est correctement adressé.
+
+Le site n\'est pas une dépense — c\'est un commercial qui travaille 24h/24. La question n\'est pas "combien ça coûte" mais "quel retour puis-je en attendre si c\'est bien fait."
+
+## Conclusion
+
+À Genève en 2026, un site vitrine professionnel bien référencé coûte entre 5\'000 et 12\'000 CHF pour une PME standard. En dessous, attendez-vous à des compromis importants sur le SEO, les performances ou la personnalisation. Au-dessus, vous payez la complexité fonctionnelle ou un positionnement premium.
+
+La meilleure démarche : demandez 3 devis détaillés, comparez ligne par ligne, et choisissez l\'agence qui vous explique clairement ce qui est inclus — et ce qui ne l\'est pas.`,
+  },
+
+  // =========================================================================
+  // Article 11 : Comment choisir son agence digitale à Genève
+  // =========================================================================
+  {
+    slug: 'choisir-agence-digitale-geneve',
+    category: 'seo',
+    title: 'Comment choisir son agence digitale à Genève : 6 critères qui font vraiment la différence',
+    excerpt:
+      'Genève compte plusieurs dizaines d\'agences digitales. Mais entre les généralistes, les boutiques spécialisées et les freelances offshore, comment identifier le bon partenaire pour votre PME ? Voici 6 critères concrets pour faire le bon choix.',
+    date: '1 avril 2026',
+    dateISO: '2026-04-01',
+    readTime: '6 min',
+    author: 'David Khazaei',
+    heroImage: {
+      src: '/images/blog/choisir-agence-digitale-geneve-hero.png',
+      alt: 'Réunion entre un client PME et une équipe d\'agence digitale à Genève',
+    },
+    images: [
+      {
+        src: '/images/blog/choisir-agence-digitale-geneve-criteres.png',
+        alt: 'Checklist illustrée pour évaluer une agence digitale à Genève',
+        caption: 'Les 6 critères clés pour choisir une agence digitale à Genève',
+      },
+    ],
+    tags: ['agence digitale', 'Genève', 'PME', 'sélection prestataire', 'marketing digital'],
+    seoTitle: 'Choisir son agence digitale à Genève : 6 critères clés',
+    seoDescription:
+      'Comment choisir la bonne agence digitale à Genève pour votre PME ? Découvrez les 6 critères concrets : spécialisation, références locales, transparence, SEO, et red flags à éviter.',
+    content: `## Le problème : trop d\'agences, pas assez de clarté
+
+Il y a une dizaine d\'années, une PME genevoise avait 5 ou 6 agences digitales à comparer. Aujourd\'hui, le marché s\'est multiplié : agences généralistes, boutiques spécialisées SEO, développeurs freelances qui proposent aussi du marketing, prestataires basés en France ou en Roumanie avec des équipes de vente locales...
+
+Le résultat ? Un appel d\'offres moyen reçoit entre 6 et 12 propositions très disparates. Et le prix ne suffit pas à les différencier : une agence moins chère peut livrer un meilleur résultat qu\'une agence premium si le projet est bien adapté à son modèle.
+
+Voici les 6 critères qui permettent de filtrer efficacement.
+
+## Critère 1 : La spécialisation vs la généralité
+
+Une agence "full-service" qui fait du web, du SEO, de la pub, des réseaux sociaux, de la vidéo et de l\'IA peut être excellente... ou médiocre dans tout. Demandez : **quels sont vos 3 services où vous obtenez les meilleurs résultats clients ?**
+
+Si la réponse couvre tout sans prioriser, c\'est un signal. Les meilleures agences ont des expertises profondes dans 2 ou 3 domaines, et le font savoir.
+
+## Critère 2 : Les références locales et sectorielles
+
+Avoir fait 50 sites web est différent d\'avoir fait 5 sites web pour des PME dans votre secteur à Genève. Demandez des exemples concrets : **un site similaire au vôtre, avec des résultats mesurables avant/après**.
+
+Une agence sérieuse peut vous montrer l\'évolution du trafic organique d\'un client, son taux de conversion, ses positions sur Google. Si elle ne peut pas — ou ne veut pas — partager ces données, posez-vous la question.
+
+## Critère 3 : La transparence sur la sous-traitance
+
+Beaucoup d\'agences genevoises vendent en local et développent à l\'étranger. Ce n\'est pas forcément un problème, mais c\'est un fait que certaines cachent. Demandez directement : **qui développe le site ? Qui rédige le contenu SEO ? Ces personnes sont-elles en Suisse ?**
+
+La sous-traitance offshore peut fonctionner si elle est bien gérée. Mais si l\'agence la dissimule, c\'est un problème de confiance qui se répercutera sur toute la relation.
+
+## Critère 4 : La vision SEO dès le départ
+
+Un site web sans SEO est une brochure papier digitale. L\'agence que vous choisissez doit intégrer le référencement naturel dans sa réflexion dès la phase de stratégie, pas comme une option à cocher en fin de projet.
+
+Testez-la : demandez-lui comment elle structure les URL, comment elle gère les balises title, comment elle optimise les Core Web Vitals. Si elle change de sujet ou répond "on fait le SEO après", passez votre chemin.
+
+## Critère 5 : Le suivi et la relation post-livraison
+
+Beaucoup de PME se retrouvent seules après la livraison de leur site. L\'agence a encaissé le projet, et les emails restent sans réponse. Demandez : **qui est mon interlocuteur après la mise en ligne ? Quelle est votre politique de maintenance et de support ?**
+
+Exigez un contrat de maintenance clair ou a minima une garantie sur les bugs pendant 3 mois. Un site web doit évoluer — l\'agence qui le comprend est celle qui construit une relation, pas qui vend un produit.
+
+## Critère 6 : La compréhension de votre marché
+
+Une agence qui vous demande "quels sont vos objectifs business" avant de vous parler de technologie est une bonne agence. Celle qui parle immédiatement de WordPress, de template ou de nombre de pages sans vous avoir écouté... est une agence produit, pas une agence stratégique.
+
+La bonne agence pose des questions sur vos clients, vos concurrents, votre processus de vente, ce qui vous différencie. Parce que c\'est de là que vient un site web qui convertit.
+
+## Les red flags à fuir
+
+- Garantie de résultats SEO en 30 jours (impossible)
+- Devis en 10 minutes sans brief sérieux
+- Portfolio sans résultats chiffrés
+- Contrat sans clause de résiliation claire
+- Hébergement "propriétaire" sans accès pour vous (vous perdez votre site si vous partez)
+
+## Conclusion
+
+Choisir une agence digitale à Genève, c\'est choisir un partenaire de croissance, pas un fournisseur de pages web. Prenez le temps du brief, comparez les réponses à vos vraies questions, et méfiez-vous autant du moins-disant que du trop-prometteur.
+
+Chez DKDP, chaque projet commence par un appel de 30 minutes sans engagement pour comprendre votre situation réelle. Parce qu\'un bon site web commence par une bonne conversation.`,
+  },
+
+  // =========================================================================
+  // Article 12 : SEO vs Google Ads à Genève
+  // =========================================================================
+  {
+    slug: 'seo-vs-google-ads-geneve',
+    category: 'seo',
+    title: 'SEO ou Google Ads à Genève : que choisir pour votre PME en 2026 ?',
+    excerpt:
+      'SEO ou Google Ads : c\'est la question que se posent la plupart des PME genevoises quand elles veulent gagner en visibilité sur Google. Les deux ont leur logique, leurs coûts et leurs délais. Voici comment choisir selon votre situation réelle.',
+    date: '31 mars 2026',
+    dateISO: '2026-03-31',
+    readTime: '6 min',
+    author: 'David Khazaei',
+    heroImage: {
+      src: '/images/blog/seo-vs-google-ads-geneve-hero.png',
+      alt: 'Comparaison visuelle entre résultats organiques SEO et annonces Google Ads sur une page de recherche',
+    },
+    images: [
+      {
+        src: '/images/blog/seo-vs-google-ads-geneve-tableau.png',
+        alt: 'Tableau de comparaison SEO vs Google Ads sur 8 critères clés pour PME à Genève',
+        caption: 'SEO vs Google Ads : comparatif sur 8 dimensions pour les PME de Suisse romande',
+      },
+    ],
+    tags: ['SEO', 'Google Ads', 'référencement', 'Genève', 'PME', 'visibilité'],
+    seoTitle: 'SEO vs Google Ads à Genève : que choisir pour votre PME ?',
+    seoDescription:
+      'SEO ou Google Ads pour votre PME à Genève ? Comparatif complet en 2026 : coûts, délais, ROI, et recommandations selon votre secteur et vos objectifs.',
+    content: `## La vraie question : vitesse ou durabilité ?
+
+Quand une PME genevoise veut apparaître sur Google, elle a deux grandes options : payer pour apparaître immédiatement (Google Ads) ou investir pour apparaître durablement (SEO). Les deux fonctionnent. Mais pas pour les mêmes raisons, pas dans les mêmes délais, et pas pour les mêmes budgets.
+
+La plupart des conseils en ligne caricaturent la comparaison : "le SEO c\'est gratuit, les Ads c\'est payant" (faux), ou "les Ads donnent des résultats immédiats, le SEO prend du temps" (vrai mais incomplet). La réalité est plus nuancée — et beaucoup plus utile à comprendre pour prendre la bonne décision.
+
+## Comparatif : SEO vs Google Ads sur 8 dimensions
+
+| Critère | SEO | Google Ads |
+|---|---|---|
+| Délai avant premiers résultats | 3-6 mois | 24-48h |
+| Coût au clic | 0 (trafic organique) | 1-8 CHF/clic à Genève |
+| Budget mensuel minimal utile | 800-1\'500 CHF (prestation) | 500-1\'000 CHF (régie + budget) |
+| Durabilité des résultats | Long terme (>2 ans) | Arrête à la fin du budget |
+| Contrôle précis du ciblage | Non | Oui (mots-clés, horaires, zones) |
+| Visibilité sur requêtes locales | Excellent | Excellent |
+| Notoriété de marque | Fort | Modéré |
+| ROI à 24 mois | Très élevé | Dépend du secteur |
+
+## Quand choisir le SEO
+
+Le SEO est le choix stratégique pour les PME qui s\'inscrivent dans la durée. Si votre activité sera la même dans 3 ans, que vous avez 6 mois devant vous avant d\'avoir besoin de résultats, et que vous êtes prêts à produire du contenu de qualité, le SEO offre le meilleur ROI à long terme.
+
+À Genève, les requêtes locales comme "agence web Genève", "avocat droit du travail Genève" ou "plombier 1207" sont souvent moins compétitives qu\'on ne le pense. Une stratégie SEO locale bien menée peut placer une PME dans le top 5 en 4 à 6 mois sur ces requêtes.
+
+Le SEO est indispensable si : vous avez un site avec du contenu (blog, fiches services, FAQ), votre secteur génère des recherches régulières sur Google, et vous voulez réduire votre dépendance aux plateformes payantes à terme.
+
+## Quand choisir Google Ads
+
+Google Ads est l\'outil de précision pour les PME qui ont besoin de résultats rapides, qui testent un nouveau marché, ou dont l\'activité est saisonnière.
+
+**Exemples concrets :** un cabinet dentaire qui ouvre à Carouge et veut des patients dès le premier mois, une PME qui lance un service pendant la saison fiscale, ou une boutique qui a du stock à écouler avant une date limite.
+
+Google Ads est aussi efficace pour tester la pertinence d\'un positionnement marketing avant d\'investir dans du contenu SEO. Si 1\'000 clics sur une requête ne génèrent aucun appel, repensez votre offre avant d\'en faire le pilier de votre stratégie SEO.
+
+## La combinaison idéale pour une PME genevoise
+
+La vraie réponse n\'est pas "l\'un ou l\'autre" — c\'est une question de phase :
+
+**Phase 1 (0-6 mois)** : Google Ads pour générer des leads immédiatement pendant que le SEO se construit. Budget : 500-800 CHF/mois en régie + prestation agence.
+
+**Phase 2 (6-18 mois)** : réduction progressive des Ads sur les mots-clés où le SEO prend le dessus. Le budget Ads se concentre sur les requêtes à forte intention d\'achat.
+
+**Phase 3 (18 mois+)** : le SEO couvre les requêtes organiques. Les Ads restent actifs en remarketing et sur les requêtes concurrentielles les plus rentables.
+
+Cette approche permet de ne jamais être "dark" sur Google pendant la phase de construction organique, tout en réduisant progressivement la dépendance aux clics payants.
+
+## Budget réaliste à Genève
+
+Pour une PME standard (10-50 employés, secteur de services, zone Genève + Suisse romande) :
+
+- **SEO seul** : 1\'200-2\'000 CHF/mois pour une agence locale, avec résultats tangibles à partir de 4-6 mois
+- **Google Ads seul** : 800-1\'500 CHF/mois (régie incluse), résultats immédiats mais arrêt à la fin du budget
+- **Combiné** : 1\'500-2\'500 CHF/mois les 6 premiers mois, avec réduction progressive des Ads ensuite
+
+## Conclusion
+
+En 2026, les PME genevoises qui performent le mieux sur Google utilisent les deux leviers de façon complémentaire. Le SEO construit votre présence long terme. Les Ads testent, accélèrent et comblent les lacunes de visibilité. Choisir l\'un en excluant l\'autre, c\'est se priver de la moitié du potentiel.
+
+Si vous devez prioriser avec un budget limité : commencez par le SEO si vous avez 6+ mois devant vous, et par les Ads si vous avez besoin de clients dans les 30 prochains jours.`,
+  },
+
+  // =========================================================================
+  // Article 13 : Refonte site web quand et pourquoi
+  // =========================================================================
+  {
+    slug: 'refonte-site-web-quand-pourquoi',
+    category: 'outils',
+    title: 'Refonte de site web : 7 signaux qui indiquent qu\'il est temps de se lancer',
+    excerpt:
+      'Votre site web a 4 ou 5 ans et vous sentez qu\'il "vieillit". Mais est-ce vraiment le moment d\'investir dans une refonte ? Voici les 7 signaux objectifs qui indiquent que oui — et ceux qui peuvent encore attendre.',
+    date: '30 mars 2026',
+    dateISO: '2026-03-30',
+    readTime: '5 min',
+    author: 'David Khazaei',
+    heroImage: {
+      src: '/images/blog/refonte-site-web-hero.png',
+      alt: 'Comparaison côte-à-côte d\'un ancien site web et d\'un nouveau site web moderne sur tablette',
+    },
+    images: [
+      {
+        src: '/images/blog/refonte-site-web-checklist.png',
+        alt: 'Checklist illustrée des 7 signaux indiquant qu\'une refonte de site est nécessaire',
+        caption: 'Les 7 indicateurs objectifs qui justifient une refonte de site web',
+      },
+    ],
+    tags: ['refonte site web', 'PME', 'UX', 'performance', 'Genève', 'stratégie web'],
+    seoTitle: 'Refonte site web : 7 signaux pour savoir si c\'est le moment',
+    seoDescription:
+      'Votre site web a besoin d\'une refonte ? Découvrez les 7 signaux objectifs qui indiquent qu\'il est temps d\'agir, et comment distinguer refonte, redesign et simple optimisation.',
+    content: `## Refonte ou optimisation : comprendre la différence
+
+Il existe une confusion fréquente entre trois niveaux d\'intervention sur un site web :
+
+- **L\'optimisation** : améliorer la vitesse, corriger des bugs, ajuster des textes. Durée : quelques jours.
+- **Le redesign** : changer l\'apparence sans toucher à la structure technique. Durée : 3-6 semaines.
+- **La refonte** : reconstruire le site de zéro — nouvelle architecture, nouvelle technologie, nouveau contenu. Durée : 2-4 mois.
+
+Une refonte est un investissement lourd (5\'000 à 20\'000 CHF pour une PME). Elle se justifie quand les problèmes sont structurels, pas cosmétiques. Voici les 7 signaux qui font la différence.
+
+## Signal 1 : Votre site est plus lent que 3 secondes sur mobile
+
+En 2026, plus de 60 % des visites d\'un site PME viennent du mobile. Si votre site met plus de 3 secondes à afficher son contenu principal sur un iPhone, vous perdez la moitié de vos visiteurs avant même qu\'ils aient lu votre premier titre.
+
+Testez avec Google PageSpeed Insights. Un score mobile inférieur à 60/100 est un signal sérieux. Inférieur à 40/100, c\'est un problème structurel que seule une refonte résoudra.
+
+## Signal 2 : Votre taux de rebond dépasse 75 %
+
+Un taux de rebond élevé signifie que les visiteurs arrivent et repartent immédiatement. Sur un site de services B2B, un taux de rebond sain se situe entre 40 et 60 %. Au-delà de 75 %, votre site ne parvient pas à convaincre les visiteurs de rester — problème de design, de lisibilité ou de pertinence du contenu.
+
+Analysez dans Google Analytics 4 le rebond par page et par source de trafic. Si le problème est généralisé, c\'est structurel.
+
+## Signal 3 : Votre site n\'est pas géré par votre équipe
+
+Si modifier le texte d\'un bouton ou ajouter une photo nécessite d\'appeler votre prestataire ou de manipuler du code, vous avez un problème d\'autonomie. Un CMS moderne (WordPress, Sanity, Webflow) doit permettre à n\'importe quel membre de votre équipe de gérer le contenu sans compétences techniques.
+
+L\'absence d\'autonomie éditoriale coûte en temps et en réactivité — surtout pour les offres, les actualités, et les promotions.
+
+## Signal 4 : Votre site ne génère pas de leads qualifiés
+
+Un site vitrine a un job : transformer les visiteurs en contacts commerciaux. Si votre formulaire de contact reçoit moins d\'un message par semaine pour 500 visites mensuelles, le problème n\'est pas le volume de trafic — c\'est le taux de conversion.
+
+Les causes peuvent être multiples : pas d\'appel à l\'action clair, formulaire trop long, proposition de valeur floue, pas de preuve sociale. Une refonte bien conduite traite tous ces points simultanément.
+
+## Signal 5 : Votre site n\'apparaît pas sur les requêtes locales
+
+Tapez votre secteur d\'activité + "Genève" sur Google. Si votre site n\'apparaît pas dans les 10 premiers résultats, vous manquez du trafic qualifié chaque jour. Et si votre site a plus de 4 ans, il a probablement été construit sans considération SEO sérieuse.
+
+Repartir d\'une base technique saine (structure URL, balisage sémantique, vitesse, mobile-first) est souvent plus efficace que d\'essayer de corriger un socle fragile.
+
+## Signal 6 : Votre design date visuellement de plus de 4 ans
+
+Le web évolue vite visuellement. Un site qui semblait moderne en 2020 peut communiquer "vieillissement" et "manque de sérieux" en 2026 — même si le contenu est excellent. La confiance se construit en quelques secondes : une première impression visuelle datée pénalise votre conversion avant même que le visiteur ait lu une ligne.
+
+## Signal 7 : Votre stack technique crée des problèmes de sécurité
+
+Un WordPress non mis à jour, un plugin obsolète avec des vulnérabilités connues, ou un hébergeur qui ne supporte plus HTTPS correctement : les risques de sécurité augmentent avec l\'âge de la stack. Une refonte est l\'occasion de partir sur une base moderne, maintenue et sécurisée.
+
+## Refonte ou optimisation : la règle des 3 signaux
+
+Si vous identifiez **3 signaux ou plus** parmi les 7 ci-dessus, une refonte est justifiée. Si vous en avez 1 ou 2, commencez par des optimisations ciblées — plus rapides et moins coûteuses.
+
+La refonte n\'est pas une fin en soi. C\'est un investissement stratégique que l\'on fait quand l\'existant est un frein à la croissance, pas quand on veut juste "changer l\'apparence".
+
+## Conclusion
+
+Une bonne refonte ne se décide pas sur un coup de tête ou parce que le design "vieillit". Elle se justifie par des données : trafic, conversion, performance, positionnement SEO. Prenez le temps d\'auditer ces indicateurs avant de lancer un projet.
+
+Chez DKDP, chaque projet de refonte commence par un audit de l\'existant. Parce qu\'on ne construit pas quelque chose de mieux sans comprendre ce qui ne fonctionne pas dans l\'actuel.`,
+  },
+
+  // =========================================================================
+  // Article 14 : Formation IA entreprise Genève 2026
+  // =========================================================================
+  {
+    slug: 'formation-ia-entreprise-geneve-2026',
+    category: 'formation',
+    title: 'Formation IA pour entreprises à Genève en 2026 : ce qui a vraiment changé',
+    excerpt:
+      'La demande de formation IA explose dans les entreprises genevoises. Mais les besoins ont évolué : en 2026, il ne s\'agit plus d\'initier les équipes à l\'IA, mais de les former aux usages métier spécifiques qui génèrent des gains de productivité réels. Ce guide fait le point.',
+    date: '29 mars 2026',
+    dateISO: '2026-03-29',
+    readTime: '6 min',
+    author: 'David Khazaei',
+    heroImage: {
+      src: '/images/blog/formation-ia-entreprise-geneve-hero.png',
+      alt: 'Séance de formation IA en entreprise à Genève avec participants sur ordinateurs portables',
+    },
+    images: [
+      {
+        src: '/images/blog/formation-ia-entreprise-geneve-usages.png',
+        alt: 'Tableau des usages IA par département : marketing, RH, finance, commercial',
+        caption: 'Les usages IA à fort ROI par département pour les PME de Genève',
+      },
+    ],
+    tags: ['formation IA', 'entreprise', 'Genève', 'productivité', 'PME', 'ChatGPT', 'upskilling'],
+    seoTitle: 'Formation IA entreprise à Genève en 2026 : usages et ROI',
+    seoDescription:
+      'Formation IA pour vos équipes à Genève en 2026 : quels usages prioriser, quels formats choisir, quel ROI attendre ? Guide complet pour les PME de Suisse romande.',
+    content: `## Ce qui a changé depuis 2024
+
+En 2024, former ses équipes à l\'IA signifiait surtout initier : expliquer ce qu\'est ChatGPT, montrer comment poser une question, démystifier. C\'était utile — et souvent suffisant pour débloquer les premiers gains de productivité.
+
+En 2026, la situation a radicalement évolué. La plupart des cadres et gestionnaires genevois ont déjà utilisé un outil IA. Mais l\'utilisation reste superficielle : on génère du texte, on résume des documents, on reformule des emails. Le potentiel réel — automatisation de flux, analyse de données complexes, intégration dans les outils métier — reste largement inexploité.
+
+La demande que nous recevons chez DKDP a changé de nature : les entreprises ne cherchent plus de l\'initiation. Elles cherchent de l\'application concrète et du ROI mesurable.
+
+## Ce que vos équipes savent déjà faire (et ce qu\'elles ne savent pas encore)
+
+| Compétence | Niveau moyen 2026 | Potentiel non exploité |
+|---|---|---|
+| Rédiger avec ChatGPT | Intermédiaire | Prompting avancé, templates métier |
+| Résumer des documents | Basique | Analyse comparative, extraction structurée |
+| Générer des images | Basique | Charte graphique, cohérence visuelle |
+| Automatiser des tâches | Très faible | Workflows Make/n8n, connexions API |
+| Analyser des données avec l\'IA | Très faible | SQL naturel, dashboards automatisés |
+| Former des modèles custom | Quasi nul | GPTs métier, fine-tuning |
+
+Ce tableau illustre où se trouve la vraie valeur : pas dans l\'utilisation basique que vos équipes maîtrisent déjà, mais dans les couches supérieures d\'application.
+
+## Les 4 formats de formation adaptés aux PME genevoises
+
+**Format 1 : Workshop d\'une journée (le plus demandé)**
+6-7 heures de formation par groupe métier (max 12 personnes). Contenu 100 % appliqué sur les vrais outils et documents de votre entreprise. Résultat : chaque participant repart avec 5 cas d\'usage opérationnels immédiatement.
+
+Coût moyen à Genève : 1\'500-3\'000 CHF pour le groupe.
+
+**Format 2 : Programme sur 3 mois**
+Idéal pour les transformations profondes. 4 demi-journées réparties sur 3 mois + accès à un slack de support + revue mensuelle des KPI. Le format qui produit les changements d\'habitudes durables.
+
+**Format 3 : Formation de formateurs**
+Former 2-3 référents internes qui diffuseront ensuite dans leurs équipes. Économique pour les organisations de 50+ personnes. Requiert des profils avec de l\'appétence technologique.
+
+**Format 4 : Audit + coaching dirigeant**
+Pour les CEO et directeurs : comprendre les implications stratégiques de l\'IA pour leur secteur, identifier les opportunités d\'automatisation à fort impact, et construire une feuille de route réaliste.
+
+## Les usages à prioriser en 2026 selon votre secteur
+
+**Services professionnels (avocats, fiduciaires, consultants) :**
+Rédaction et synthèse de documents contractuels, extraction d\'informations de fichiers volumineux, préparation de présentations clients, veille réglementaire automatisée.
+
+**Marketing et communication :**
+Génération de variantes de contenus, analyse de performance des campagnes, création de personas, traitement des feedbacks clients, production de briefs créatifs.
+
+**RH et recrutement :**
+Rédaction de fiches de poste, présélection de CVs, onboarding documentaire, FAQ interne automatisée, analyse des feedbacks collaborateurs.
+
+**Finance et comptabilité :**
+Classification automatique des factures, génération de rapports, extraction de données de documents PDF, alertes sur anomalies.
+
+## Comment mesurer le ROI de votre formation IA
+
+La formule de base : **heures économisées par semaine × coût horaire moyen × 52 semaines**.
+
+Si une formation d\'une journée (2\'000 CHF) permet à 10 collaborateurs d\'économiser chacun 2 heures par semaine, et que leur coût horaire moyen est 60 CHF :
+10 × 2 × 60 × 52 = **62\'400 CHF d\'économies annuelles** pour un investissement de 2\'000 CHF.
+
+Ce calcul est conservateur. Dans la pratique, les gains vont au-delà du temps : meilleure qualité des livrables, réduction des erreurs, délais plus courts, avantage concurrentiel.
+
+## Ce qui distingue une bonne formation IA d\'une mauvaise
+
+Une bonne formation IA part des cas d\'usage réels de vos équipes, pas d\'une présentation générique sur "les 5 tendances IA de 2026". Elle utilise vos propres documents et processus comme matière première. Elle mesure les résultats 30 et 90 jours après.
+
+Une mauvaise formation IA est une conférence de 3 heures sur ChatGPT sans pratique, avec un support Keynote de 80 slides que personne ne relira.
+
+## Conclusion
+
+En 2026, la question n\'est plus "est-ce qu\'on forme nos équipes à l\'IA" mais "quels usages on priorise et comment on mesure l\'impact". Les PME genevoises qui prennent de l\'avance maintenant se dotent d\'un levier de productivité que leurs concurrents mettront 18 mois à rattraper.
+
+DKDP propose des formations IA sur-mesure pour les équipes de PME à Genève et en Suisse romande. Chaque programme est construit autour de vos outils, vos métiers et vos objectifs mesurables.`,
+  },
+
+  // =========================================================================
+  // Article 15 : Automatiser ses tâches avec l'IA
+  // =========================================================================
+  {
+    slug: 'automatiser-taches-repetitives-ia-pme',
+    category: 'ia',
+    title: 'Comment automatiser vos tâches répétitives avec l\'IA : guide pratique pour les PME',
+    excerpt:
+      'Saisie de données, rapports hebdomadaires, réponses aux emails standards, tri de documents... Ces tâches occupent en moyenne 28 % du temps de vos équipes. L\'IA peut en automatiser une grande partie. Voici comment démarrer sans se perdre.',
+    date: '28 mars 2026',
+    dateISO: '2026-03-28',
+    readTime: '7 min',
+    author: 'David Khazaei',
+    heroImage: {
+      src: '/images/blog/automatiser-taches-ia-hero.png',
+      alt: 'Schéma d\'un workflow automatisé connectant emails, CRM et documents via l\'IA',
+    },
+    images: [
+      {
+        src: '/images/blog/automatiser-taches-ia-workflow.png',
+        alt: 'Exemple de workflow Make.com automatisant le traitement des demandes clients',
+        caption: 'Exemple de workflow : demande client reçue par email → qualification IA → CRM → notification équipe',
+      },
+    ],
+    tags: ['automatisation', 'IA', 'PME', 'productivité', 'Make', 'n8n', 'workflow'],
+    seoTitle: 'Automatiser ses tâches avec l\'IA : guide pratique PME 2026',
+    seoDescription:
+      'Comment automatiser les tâches répétitives de votre PME avec l\'IA en 2026 ? Outils, méthode, exemples concrets et ROI. Guide pratique pour les entreprises de Suisse romande.',
+    content: `## Le coût caché des tâches répétitives
+
+Une étude McKinsey de 2025 révèle que les travailleurs du savoir passent en moyenne 28 % de leur temps sur des tâches qui pourraient être automatisées ou semi-automatisées grâce à l\'IA. Pour une PME de 15 personnes avec un coût salarial moyen de 80\'000 CHF/an, c\'est 336\'000 CHF par an de valeur créée sur des tâches à faible valeur ajoutée.
+
+L\'automatisation IA ne signifie pas remplacer des postes. Elle signifie libérer du temps humain pour les tâches qui nécessitent réellement le jugement, la créativité et la relation : vendre, innover, conseiller, créer.
+
+## Les 10 tâches les plus faciles à automatiser aujourd\'hui
+
+### Catégorie A : Automatisable à 80-100 % sans intervention humaine
+
+1. **Tri et catégorisation d\'emails** : les emails entrants classés par priorité et type en moins de 5 secondes
+2. **Extraction de données de documents PDF** : factures, contrats, formulaires — vers Excel ou CRM directement
+3. **Génération de comptes-rendus de réunion** : à partir de la transcription audio (Whisper + IA)
+4. **Rapports hebdomadaires standardisés** : agrégation de données + narration automatique
+5. **Réponses aux FAQ clients** : chatbot entraîné sur votre documentation
+
+### Catégorie B : Automatisable à 60-80 % avec validation humaine
+
+6. **Rédaction de premiers drafts d\'emails commerciaux** : à partir d\'un template + données CRM
+7. **Qualification de leads entrants** : scoring automatique selon critères définis
+8. **Traduction et adaptation de contenus** : blog, fiches produits, supports de présentation
+9. **Création de résumés exécutifs** : de rapports longs, d\'articles, de propositions commerciales
+10. **Mise à jour de bases de données** : enrichissement automatique depuis LinkedIn, email ou web
+
+## Les outils sans code pour PME
+
+**Make (ex-Integromat)** : le plus accessible pour des non-développeurs. Connecte vos outils (Gmail, Sheets, Notion, CRM, Slack) en workflows visuels. Tarif : à partir de 9 CHF/mois. Parfait pour 80 % des automatisations PME.
+
+**n8n** : plus puissant que Make, open-source, hébergeable chez vous. Idéal si vous avez un développeur interne ou une agence pour l\'implémenter. Aucun coût par opération.
+
+**Zapier** : l\'original. Simple, bien documenté, mais plus cher que Make pour les gros volumes.
+
+**Claude API / GPT-4o API** : pour les tâches qui nécessitent du raisonnement complexe (analyse de contrats, classification avancée, génération de contenu personnalisé). À intégrer dans vos workflows Make/n8n.
+
+## Méthode pour démarrer : les 4 étapes
+
+**Étape 1 : Cartographier vos tâches répétitives (1 journée)**
+Demandez à chaque membre de l\'équipe de noter pendant une semaine toutes les tâches qu\'ils répètent plus d\'une fois par semaine. Vous obtiendrez une liste de 20 à 40 candidats à l\'automatisation.
+
+**Étape 2 : Prioriser par ROI (2 heures)**
+Pour chaque tâche candidate, estimez : fréquence × temps par occurrence × coût horaire. Les tâches qui représentent plus de 2h/semaine pour l\'équipe sont vos priorités absolues.
+
+**Étape 3 : Prototype sur une seule tâche (1-2 semaines)**
+Ne cherchez pas à tout automatiser d\'un coup. Choisissez la tâche la plus simple et la plus impactante. Construisez le workflow, testez, ajustez. L\'objectif est de réussir un premier cas avant d\'en lancer d\'autres.
+
+**Étape 4 : Documenter et dupliquer**
+Une fois le premier workflow stable, documentez-le (inputs, outputs, cas d\'erreur). Utilisez-le comme modèle pour les automatisations suivantes.
+
+## Exemple concret : traitement des demandes clients entrantes
+
+**Situation initiale :** une PME B2B reçoit 30 demandes par email par semaine. Une assistante passe 45 minutes par jour à lire, catégoriser, répondre aux FAQ, et transférer les demandes complexes aux bons commerciaux.
+
+**Après automatisation avec Make + Claude API :**
+- Chaque email entrant est analysé par l\'IA en 3 secondes
+- Les FAQ sont répondues automatiquement (50 % des emails)
+- Les 50 % restants sont catégorisés (priorité, type) et assignés au bon commercial dans le CRM
+- L\'assistante reçoit un résumé quotidien des demandes nécessitant une attention humaine
+
+**Résultat :** 45 minutes/jour → 10 minutes/jour. Gain annuel : environ 200 heures, soit 14\'000 CHF au coût chargé.
+
+**Coût d\'implémentation :** 2\'500 CHF (une fois). **ROI en 3 mois.**
+
+## Les erreurs à éviter
+
+**Automatiser avant de standardiser.** Si votre processus est flou, l\'automatisation le rendra juste plus rapide d\'être flou. Documentez d\'abord le processus idéal, puis automatisez.
+
+**Oublier la gestion d\'erreurs.** Tout workflow automatisé doit prévoir ce qui se passe quand les données sont incomplètes ou inattendues. Prévoyez toujours une "sortie humaine".
+
+**Tout automatiser d\'un coup.** Le volume de changements simultanés génère confusion et résistance. Un workflow par mois, mesuré et validé, est plus efficace que 10 workflows lancés en même temps.
+
+## Conclusion
+
+L\'automatisation IA n\'est pas réservée aux grandes entreprises avec des équipes IT. En 2026, les outils no-code comme Make permettent à n\'importe quelle PME de Genève de récupérer des dizaines d\'heures par mois en quelques semaines d\'implémentation. Le retour sur investissement est rapide, mesurable, et libère vos équipes pour ce qui compte vraiment.`,
+  },
+
+  // =========================================================================
+  // Article 16 : Créer un site web PME Suisse romande
+  // =========================================================================
+  {
+    slug: 'creer-site-web-pme-suisse-romande',
+    category: 'seo',
+    title: 'Créer un site web pour votre PME en Suisse romande : les 5 étapes d\'un projet réussi',
+    excerpt:
+      'Créer un site web professionnel en Suisse romande implique des spécificités locales que beaucoup d\'agences internationales ignorent : multilinguisme potentiel, confiance helvetique, standards de qualité, hébergement et RGPD suisse. Voici comment naviguer ces 5 étapes sans fausse route.',
+    date: '27 mars 2026',
+    dateISO: '2026-03-27',
+    readTime: '6 min',
+    author: 'David Khazaei',
+    heroImage: {
+      src: '/images/blog/creer-site-web-pme-suisse-romande-hero.png',
+      alt: 'Équipe genevoise travaillant sur la conception d\'un site web PME autour d\'une table avec maquettes',
+    },
+    images: [
+      {
+        src: '/images/blog/creer-site-web-pme-suisse-romande-etapes.png',
+        alt: 'Diagramme des 5 étapes de création d\'un site web pour PME en Suisse romande',
+        caption: 'Les 5 étapes d\'un projet web réussi pour les PME de Suisse romande',
+      },
+    ],
+    tags: ['création site web', 'Suisse romande', 'PME', 'Genève', 'web', 'projet web'],
+    seoTitle: 'Créer un site web PME en Suisse romande : 5 étapes clés',
+    seoDescription:
+      'Comment créer un site web professionnel pour votre PME en Suisse romande ? Les 5 étapes clés, spécificités helvetiques, budget réaliste et erreurs à éviter. Guide DKDP.',
+    content: `## Les spécificités suisses que votre site doit respecter
+
+Créer un site web pour une PME en Suisse romande n\'est pas exactement comme en France ou en Belgique. Le marché genevois et romand a ses propres codes, ses propres attentes de qualité, et ses propres contraintes légales.
+
+**La confiance avant le pitch.** Le consommateur helvétique est plus exigeant sur la crédibilité que sur la créativité. Un design sobre, des mentions légales complètes, des adresses physiques visibles et des certifications professionnelles affichées comptent plus qu\'un effet wow visuel.
+
+**Le multilinguisme potentiel.** Même si votre activité est franco-suisse, si vous visez des clients à Berne ou Zurich, une version allemande sera nécessaire. Prévoyez la structure dès le départ — rétrospectivement, c\'est toujours plus coûteux.
+
+**La LPD (Loi sur la Protection des Données).** Depuis 2023, la Suisse a renforcé sa réglementation sur les données personnelles. Votre site doit disposer d\'une politique de confidentialité complète, d\'un bandeau cookies conforme, et d\'un formulaire de contact qui respecte les droits des utilisateurs.
+
+**L\'hébergement en Suisse.** Pour les clients sensibles (fiduciaires, avocats, secteur médical), l\'hébergement des données sur des serveurs suisses est souvent une exigence non négociable. Prévoyez ce point dès le choix de votre stack technique.
+
+## Étape 1 : Définir les objectifs business (avant le design)
+
+La première erreur que commettent les PME est de commencer par "à quoi doit ressembler le site". La bonne question est "qu\'est-ce que ce site doit accomplir pour mon business dans les 12 prochains mois ?"
+
+Objectifs courants : générer X demandes de devis par mois, positionner la marque sur des requêtes locales, recruter des profils ciblés, réduire le temps de support client avec une FAQ complète.
+
+Chaque objectif implique des choix de design, de contenu et de fonctionnalités différents. Sans objectifs clairs, vous obtiendrez un site joli et inutile.
+
+## Étape 2 : Définir l\'architecture et les pages prioritaires
+
+Un site PME efficace n\'a pas besoin de 30 pages. Il a besoin des bonnes pages, bien structurées. Pour une PME de services, la structure minimale est :
+
+- **Accueil** : proposition de valeur + preuves sociales + CTA
+- **Services** : une page par service principal (pas une seule page "Nos services")
+- **À propos** : qui vous êtes, votre histoire, vos valeurs, photos de l\'équipe
+- **Références / Réalisations** : cas clients avec résultats
+- **Blog** : 8-12 articles de fond sur vos sujets d\'expertise (SEO)
+- **Contact** : formulaire court, téléphone, adresse, Google Maps
+
+L\'architecture des URL doit être pensée dès le départ pour le SEO : \`/services/nom-du-service\` plutôt que \`/page-2\`.
+
+## Étape 3 : Choisir la bonne technologie
+
+Le choix de la technologie doit dépendre de vos besoins réels, pas des préférences de votre prestataire. En 2026, les options principales pour une PME :
+
+**WordPress + Gutenberg** : idéal pour les PME qui ont besoin d\'autonomie éditoriale totale. Écosystème immense, maintenance à prévoir.
+
+**Webflow** : excellent pour les PME qui veulent un design haut de gamme sans développement custom. Hébergement inclus, pas de maintenance technique.
+
+**Next.js / Astro** : pour les PME qui prioritisent les performances et le SEO. Nécessite une agence technique compétente.
+
+**Shopify** : pour le e-commerce. La référence en Suisse romande pour les boutiques en ligne.
+
+Méfiez-vous des solutions propriétaires "maison" proposées par certaines agences : si vous changez de prestataire, vous perdez votre site.
+
+## Étape 4 : La production de contenu — l\'étape sous-estimée
+
+80 % des retards dans les projets web viennent du contenu : textes qui n\'arrivent pas, photos non disponibles, vidéos pas encore tournées. Le contenu doit être planifié et produit en parallèle du développement, pas après.
+
+Prévoyez un chef de projet côté client qui coordonne la collecte de contenu. Si vous n\'avez pas de ressource interne, budgétez la rédaction web (800-1\'500 CHF pour 5-8 pages de qualité).
+
+Pour les photos, évitez les banques d\'images génériques. Des photos de vos locaux, de votre équipe et de vos réalisations convertissent 3 à 5 fois mieux que des stock photos.
+
+## Étape 5 : Le lancement et les 90 premiers jours
+
+Un site lancé n\'est pas un site terminé. Les 90 premiers jours sont critiques pour :
+
+- Soumettre le sitemap dans Google Search Console et surveiller l\'indexation
+- Corriger les premiers bugs signalés par les utilisateurs réels
+- Analyser les heatmaps (Hotjar, Microsoft Clarity) pour identifier les points de friction
+- Publier 2-3 articles de blog pour signaler l\'activité éditoriale à Google
+- Demander des avis Google à vos premiers clients via le site
+
+Le référencement local démarre avec la cohérence NAP (nom, adresse, téléphone) : votre fiche Google Business Profile, votre site et toute autre mention en ligne doivent être identiques.
+
+## Budget réaliste pour une PME romande
+
+Pour un site vitrine professionnel avec CMS, SEO on-page, 6-8 pages de contenu et formation à l\'administration :
+- **Entrée de gamme** (template + customisation) : 4\'500-7\'000 CHF
+- **Milieu de gamme** (design semi-custom + développement) : 8\'000-14\'000 CHF
+- **Haut de gamme** (full-custom, animations, performances LCP < 1s) : 15\'000-25\'000 CHF
+
+Ajoutez l\'hébergement (300-600 CHF/an), le nom de domaine (20-40 CHF/an), et la maintenance annuelle (500-1\'500 CHF/an).
+
+## Conclusion
+
+Un site web pour une PME en Suisse romande est un investissement à 3-5 ans. Prenez le temps du brief, choisissez un prestataire local qui comprend votre marché, et n\'économisez pas sur le SEO et le contenu — c\'est là que se joue votre retour sur investissement.`,
+  },
+
+  // =========================================================================
+  // Article 17 : IA ou consultant humain pour PME
+  // =========================================================================
+  {
+    slug: 'ia-ou-consultant-humain-pme',
+    category: 'ia',
+    title: 'IA ou consultant humain pour votre PME : ce que l\'un fait mieux que l\'autre',
+    excerpt:
+      'Face à un problème stratégique ou opérationnel, faut-il appeler un consultant ou demander à l\'IA ? La question se pose de plus en plus dans les PME. La réponse honnête : les deux ont des forces irremplaçables — et des limites réelles.',
+    date: '26 mars 2026',
+    dateISO: '2026-03-26',
+    readTime: '5 min',
+    author: 'David Khazaei',
+    heroImage: {
+      src: '/images/blog/ia-ou-consultant-humain-hero.png',
+      alt: 'Illustration symbolique : interface IA face à un consultant humain en réunion d\'entreprise',
+    },
+    images: [
+      {
+        src: '/images/blog/ia-ou-consultant-humain-tableau.png',
+        alt: 'Tableau comparatif IA vs consultant humain sur 10 dimensions pour PME',
+        caption: 'IA vs consultant humain : forces et limites respectives pour les PME',
+      },
+    ],
+    tags: ['IA', 'consultant', 'PME', 'stratégie', 'productivité', 'Genève', 'décision'],
+    seoTitle: 'IA ou consultant humain pour votre PME : comparatif honnête',
+    seoDescription:
+      'Faut-il faire appel à l\'IA ou à un consultant humain pour votre PME ? Comparatif honnête des forces et limites de chacun, avec cas d\'usage concrets pour les entreprises de Suisse romande.',
+    content: `## La vraie question n\'est pas "lequel choisir"
+
+Quand une PME genevoise se demande "est-ce que j\'utilise l\'IA ou est-ce que j\'engage un consultant", la prémisse est souvent fausse. Ce n\'est pas une décision binaire. La vraie question est : pour quel type de problème, à quel moment, avec quel budget ?
+
+L\'IA et le conseil humain ont des anatomies de valeur radicalement différentes. Les comprendre permet de combiner les deux intelligemment — et d\'éviter de payer cher pour des choses que l\'IA ferait en 3 minutes, ou d\'attendre 3 minutes pour des décisions qui nécessitent une vraie expertise humaine.
+
+## Ce que l\'IA fait mieux que le consultant
+
+**La vitesse d\'exécution.** Générer un premier draft de stratégie marketing, analyser 200 avis clients, résumer un rapport de 50 pages, traduire une proposition commerciale en 3 langues : l\'IA le fait en quelques minutes. Un consultant facture 2-4 heures pour produire les mêmes livrables.
+
+**La disponibilité.** L\'IA est disponible à 3h du matin, le week-end, pendant les vacances. Pour les décisions opérationnelles urgentes, cette disponibilité est précieuse.
+
+**La scalabilité.** Une fois un prompt ou un workflow IA bien configuré, il produit le même résultat pour 1 document ou 10\'000. Le consultant, lui, est limité par son temps.
+
+**Le coût marginal quasi nul.** Après l\'abonnement mensuel (20-200 CHF), chaque usage supplémentaire ne coûte rien. Le conseil humain se facture à l\'heure ou au projet.
+
+**L\'absence de biais de complaisance.** L\'IA ne vous dit pas ce que vous voulez entendre pour préserver la relation commerciale. Elle analyse et répond sur la base des données fournies — même si la réponse est inconfortable.
+
+## Ce que le consultant humain fait mieux que l\'IA
+
+**La connaissance contextuelle profonde.** Un bon consultant a travaillé avec 50 entreprises similaires à la vôtre. Il reconnaît les patterns que les données ne montrent pas encore. "Je vois ça souvent dans les PME B2B qui passent de 10 à 30 employés" — cette phrase vaut de l\'or, et l\'IA ne peut pas la prononcer de façon crédible.
+
+**La responsabilité.** Si un consultant vous recommande une stratégie qui échoue, vous pouvez demander des comptes. L\'IA n\'a pas de responsabilité. Dans les décisions à fort enjeu (restructuration, acquisition, pivot stratégique), cette responsabilité partagée a une valeur réelle.
+
+**La gestion des parties prenantes.** Un consultant peut animer un comité de direction, gérer les résistances au changement, faciliter des conflits internes. L\'IA peut vous préparer un argumentaire, mais elle ne peut pas être dans la salle.
+
+**La connaissance du tissu local.** À Genève, connaître les bons avocats, les bons banquiers, les bonnes ressources institutionnelles (CCIG, DéveloppementPME, etc.) est une valeur qui ne s\'automatise pas.
+
+**Le jugement sur l\'information incomplète.** En affaires, on décide rarement avec toutes les données. Un consultant expérimenté sait quand il a assez d\'information pour agir. L\'IA, face à l\'ambiguïté, produit une réponse qui peut sembler confiante mais qui est statistiquement interpolée.
+
+## Le modèle hybride : la pratique des PME qui avancent le plus vite
+
+Les PME genevoises qui tirent le meilleur parti de l\'IA ne l\'utilisent pas pour remplacer le conseil humain. Elles l\'utilisent pour rendre le conseil humain plus efficace.
+
+**Avant une session de consulting :** utiliser l\'IA pour préparer un brief structuré, analyser les données disponibles, générer 5 hypothèses à valider. Le consultant arrive avec un contexte riche, la session va plus loin.
+
+**Pendant l\'implémentation :** l\'IA exécute les tâches opérationnelles (rédaction, analyse, suivi), pendant que le consultant se concentre sur les décisions et ajustements stratégiques.
+
+**Pour le suivi :** l\'IA génère des tableaux de bord automatiques et des alertes. Le consultant intervient quand les indicateurs sortent des seuils normaux.
+
+Ce modèle réduit les coûts de consulting de 30 à 50 % tout en augmentant la profondeur des interventions.
+
+## Cas d\'usage : quand appeler qui
+
+| Situation | IA | Consultant |
+|---|---|---|
+| Rédiger un plan marketing | 80 % IA, 20 % relecture | Inutile si profil marketing interne |
+| Choisir entre deux marchés | IA pour les données | Consultant pour le jugement final |
+| Restructurer une équipe | IA pour les benchmarks | Consultant essentiel |
+| Améliorer les fiches produits SEO | 100 % IA | Inutile |
+| Lever des fonds ou vendre | IA pour les documents | Consultant indispensable |
+| Former les équipes à l\'IA | IA pour le contenu | Formateur humain pour l\'animation |
+
+## Conclusion
+
+En 2026, la question "IA ou consultant ?" est aussi pertinente que "voiture ou transport en commun ?" Les deux ont leur utilité selon le contexte. La compétence clé pour un dirigeant de PME est de savoir instantanément quel outil convient à quel problème — et de ne pas payer les deux pour la même chose.
+
+Ce que l\'IA ne remplacera pas dans les 5 prochaines années : le jugement humain dans les décisions ambiguës à fort enjeu, la gestion des relations et des conflits, et la responsabilité assumée face aux résultats.`,
+  },
 ]
 
 // ---------------------------------------------------------------------------

@@ -4,14 +4,14 @@ export function buildLocalBusiness() {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'DKDP - Service Digital Genève',
-    description: 'Service digital à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME.',
+    name: 'DKDP',
+    description: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME. 700+ clients accompagnés en Suisse romande.',
     url: BASE_URL,
     telephone: '+41799407969',
     email: 'dk@dkdp.ch',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '36 Rue du 31 Décembre',
+      streetAddress: 'Rue du 31 Décembre 36',
       addressLocality: 'Genève',
       postalCode: '1207',
       addressCountry: 'CH',
@@ -29,6 +29,13 @@ export function buildLocalBusiness() {
         closes: '18:00',
       },
     ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '18',
+      bestRating: '5',
+      worstRating: '1',
+    },
     priceRange: '$$',
     currenciesAccepted: 'CHF',
     areaServed: ['Genève', 'Suisse romande', 'Lausanne', 'Nyon', 'Morges'],
@@ -39,6 +46,7 @@ export function buildLocalBusiness() {
     sameAs: [
       'https://www.linkedin.com/company/dkdp',
       'https://www.instagram.com/davidkhazaei',
+      `https://maps.google.com/?cid=13230766909416496931`,
     ],
   }
 }

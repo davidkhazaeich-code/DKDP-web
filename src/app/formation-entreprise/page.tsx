@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
-  BrainCircuit, BookOpen, Shield, Share2, Palette, Cpu, Film,
+  BrainCircuit, BookOpen, Shield, Share2, Palette, Cpu, Film, Sparkles,
   ChevronRight, Award, CalendarCheck, Users, ExternalLink, User, GraduationCap, Monitor,
   Clock, BarChart2, Lightbulb, CheckCircle2, Target, BookCheck,
 } from 'lucide-react'
@@ -58,6 +58,12 @@ const PROGRAMS = [
     Icon: BrainCircuit, title: 'Formation IA en entreprise', href: '/formation-entreprise/ia',
     description: 'ChatGPT, Claude, Copilot : apprenez à intégrer les outils IA dans votre quotidien professionnel et gagnez 2h par jour.',
     badge: 'Tendance',
+    image: '/images/services/dkdp-formation-ia.webp',
+  },
+  {
+    Icon: Sparkles, title: 'Formation Claude AI', href: '/formation-entreprise/claude-ai',
+    description: 'Maîtrisez Claude.ai, les Projects collaboratifs et Claude Code. La formation spécialisée sur l\'IA la plus puissante du marché.',
+    badge: 'Nouveau',
     image: '/images/services/dkdp-formation-ia.webp',
   },
   {

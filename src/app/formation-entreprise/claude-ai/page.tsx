@@ -1,0 +1,1189 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  CheckCircle2, Clock, Users, Award, ChevronRight,
+  BrainCircuit, Zap, FileText, Code2, Bot, Layers,
+  MessageSquare, Eye, Database, Workflow, BarChart2,
+  Shield, Target, Sparkles, BookOpen, Lightbulb,
+} from 'lucide-react'
+import { GradTag } from '@/components/ui/GradTag'
+import { GradText } from '@/components/ui/GradText'
+import { SectionReveal } from '@/components/ui/SectionReveal'
+import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { CTAFinal } from '@/components/sections/CTAFinal'
+import { Testimonials } from '@/components/sections/Testimonials'
+import { SchemaOrg } from '@/components/seo/SchemaOrg'
+import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+
+export const metadata: Metadata = {
+  title: 'Formation Claude AI Genève · Claude.ai, Projects, Claude Code · DKDP',
+  description:
+    'Formation Claude AI pour entreprises à Genève. Maîtrisez Claude.ai, les Projects collaboratifs et Claude Code. Programme sur mesure, 1 ou 2 jours, présentiel ou distanciel.',
+  alternates: { canonical: 'https://dkdp.ch/formation-entreprise/claude-ai' },
+}
+
+/* ─────────────────────────────────────────────
+   Design tokens
+───────────────────────────────────────────── */
+const V  = '#A78BFA'   // violet Claude
+const VB = 'rgba(124,58,237,0.10)'
+const VD = 'rgba(124,58,237,0.25)'
+const OR = '#FF8C00'   // orange formation
+const ORB = 'rgba(255,107,0,0.08)'
+const ORD = 'rgba(255,107,0,0.20)'
+const CH = '#D4D4D8'   // chrome code
+const CHB = 'rgba(212,212,216,0.08)'
+const CHD = 'rgba(212,212,216,0.18)'
+
+/* ─────────────────────────────────────────────
+   FAQ
+───────────────────────────────────────────── */
+const FAQ = [
+  {
+    question: 'Faut-il déjà connaître Claude pour suivre cette formation ?',
+    answer:
+      'Non. La formation est conçue pour tous les niveaux, du débutant complet au professionnel qui utilise déjà Claude de façon basique. Le programme s\'adapte au niveau du groupe lors du briefing préalable.',
+  },
+  {
+    question: 'Quelle est la différence entre la formation Claude et la formation IA générale ?',
+    answer:
+      'La formation IA générale couvre ChatGPT, Claude, Copilot et les automatisations. Cette formation est une spécialisation exclusive sur Claude : on va beaucoup plus loin — Projects, mémoire partagée, Extended Thinking, analyse de documents longs, et Claude Code pour les profils techniques.',
+  },
+  {
+    question: 'Claude Code est-il inclus dans la formation de base ?',
+    answer:
+      'Claude Code fait l\'objet d\'un module optionnel (demi-journée supplémentaire) réservé aux développeurs, DevOps et profils techniques. Pour une équipe mixte, on propose une journée générale le matin et le module Code l\'après-midi pour les profils tech.',
+  },
+  {
+    question: 'La formation est-elle adaptée à notre secteur d\'activité ?',
+    answer:
+      'Oui. Avant chaque session, DKDP envoie un questionnaire pour identifier vos cas d\'usage métier. La formation utilise vos propres documents, processus et situations réelles comme matière première — pas des exemples génériques.',
+  },
+  {
+    question: 'Claude respecte-t-il la confidentialité de nos données ?',
+    answer:
+      'Avec le plan Team ou Enterprise, Anthropic s\'engage à ne pas utiliser vos données pour entraîner ses modèles. Nous consacrons un module entier aux bonnes pratiques de confidentialité : quoi envoyer, quoi ne pas envoyer, et comment configurer votre workspace d\'équipe de façon sécurisée.',
+  },
+  {
+    question: 'Peut-on former une équipe de 20 personnes en une seule session ?',
+    answer:
+      'Le format idéal est de 6 à 12 personnes par groupe. Pour 20 personnes, on organise deux sessions successives de la même journée, ou on forme 2-3 référents internes qui diffuseront ensuite (programme "Train the trainer").',
+  },
+  {
+    question: 'Quels sont les tarifs de la formation Claude AI ?',
+    answer:
+      'La journée de formation (Claude.ai + Projects, jusqu\'à 10 participants) est à CHF 2\'800. Le module Claude Code (demi-journée, jusqu\'à 6 devs) est à CHF 1\'500. Un devis précis est établi après le brief selon la taille de l\'équipe et les besoins spécifiques.',
+  },
+  {
+    question: 'Est-ce que Claude.ai est disponible en français ?',
+    answer:
+      'Oui. Claude comprend et répond en français avec une qualité excellente. Toute la formation est animée en français et les exercices pratiques utilisent des documents et communications en français.',
+  },
+]
+
+/* ─────────────────────────────────────────────
+   Composants internes
+───────────────────────────────────────────── */
+
+function ClaudeProductCard({
+  title, subtitle, color, bg, border, icon: Icon, features, badge,
+}: {
+  title: string
+  subtitle: string
+  color: string
+  bg: string
+  border: string
+  icon: React.ElementType
+  features: string[]
+  badge?: string
+}) {
+  return (
+    <div
+      className="flex flex-col gap-5 p-6 rounded-[16px] h-full"
+      style={{ background: bg, border: `1px solid ${border}` }}
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div
+          className="w-11 h-11 rounded-[10px] flex items-center justify-center flex-shrink-0"
+          style={{ background: 'rgba(0,0,0,0.35)', border: `1px solid ${border}` }}
+        >
+          <Icon size={20} style={{ color }} />
+        </div>
+        {badge && (
+          <span
+            className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full flex-shrink-0"
+            style={{ color, background: bg, border: `1px solid ${border}` }}
+          >
+            {badge}
+          </span>
+        )}
+      </div>
+      <div>
+        <h3 className="text-white font-bold text-lg leading-tight mb-1">{title}</h3>
+        <p className="text-text-muted text-sm leading-relaxed">{subtitle}</p>
+      </div>
+      <ul className="space-y-2 mt-auto">
+        {features.map((f) => (
+          <li key={f} className="flex items-start gap-2.5 text-sm text-text-secondary">
+            <CheckCircle2 size={14} style={{ color }} className="flex-shrink-0 mt-0.5" />
+            {f}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+function AgendaRow({
+  time, title, dur, type,
+}: {
+  time: string; title: string; dur: string
+  type: 'theory' | 'practice' | 'break' | 'workshop' | 'code' | 'qa'
+}) {
+  const styles = {
+    theory:   { bg: CHB,                 border: CHD,                 color: CH,   label: 'Théorie' },
+    practice: { bg: ORB,                 border: ORD,                 color: OR,   label: 'Pratique' },
+    break:    { bg: 'rgba(100,100,100,0.06)', border: 'rgba(100,100,100,0.15)', color: '#6b7280', label: 'Pause' },
+    workshop: { bg: VB,                  border: VD,                  color: V,    label: 'Atelier' },
+    code:     { bg: 'rgba(74,222,128,0.08)', border: 'rgba(74,222,128,0.22)', color: '#4ade80', label: 'Code' },
+    qa:       { bg: 'rgba(34,197,94,0.08)',  border: 'rgba(34,197,94,0.22)',  color: '#4ade80', label: 'Q&R' },
+  }
+  const s = styles[type]
+  return (
+    <div
+      className="flex items-center gap-3 p-3 rounded-[8px]"
+      style={{ background: s.bg, border: `1px solid ${s.border}` }}
+    >
+      <span className="text-[11px] font-bold w-11 flex-shrink-0" style={{ color: s.color }}>{time}</span>
+      <span className="text-white text-[12px] font-medium flex-1">{title}</span>
+      <span
+        className="hidden sm:inline text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full flex-shrink-0"
+        style={{ background: s.bg, color: s.color, border: `1px solid ${s.border}` }}
+      >
+        {s.label}
+      </span>
+      <span className="text-text-muted text-[10px] flex-shrink-0">{dur}</span>
+    </div>
+  )
+}
+
+function CapabilityCard({
+  icon: Icon, title, desc, color, bg, border,
+}: {
+  icon: React.ElementType; title: string; desc: string
+  color: string; bg: string; border: string
+}) {
+  return (
+    <SectionReveal>
+      <div
+        className="flex flex-col gap-3 p-5 rounded-[14px] h-full"
+        style={{ background: bg, border: `1px solid ${border}` }}
+      >
+        <div
+          className="w-10 h-10 rounded-[8px] flex items-center justify-center"
+          style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${border}` }}
+        >
+          <Icon size={18} style={{ color }} />
+        </div>
+        <p className="text-white font-semibold text-sm leading-snug">{title}</p>
+        <p className="text-text-muted text-xs leading-relaxed">{desc}</p>
+      </div>
+    </SectionReveal>
+  )
+}
+
+function UseCaseRow({ dept, color, bg, border, cases }: {
+  dept: string; color: string; bg: string; border: string; cases: string[]
+}) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 items-start">
+      <div
+        className="px-3 py-2 rounded-[8px] text-center sm:text-left"
+        style={{ background: bg, border: `1px solid ${border}` }}
+      >
+        <span className="text-xs font-bold" style={{ color }}>{dept}</span>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {cases.map((c) => (
+          <span
+            key={c}
+            className="text-[11px] px-3 py-1.5 rounded-full text-text-secondary"
+            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+          >
+            {c}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/* ─────────────────────────────────────────────
+   Page
+───────────────────────────────────────────── */
+export default function FormationClaudeAIPage() {
+  return (
+    <main className="pt-14">
+      <SchemaOrg schema={buildCourse({
+        name: 'Formation Claude AI en entreprise Genève',
+        url: '/formation-entreprise/claude-ai',
+        description: 'Formation spécialisée Claude AI pour équipes d\'entreprise à Genève. Claude.ai, Projects collaboratifs, Extended Thinking et Claude Code. Programme sur mesure.',
+      })} />
+      <SchemaOrg schema={buildFAQPage(FAQ)} />
+      <SchemaOrg schema={buildBreadcrumbList([
+        { name: 'Accueil', url: 'https://dkdp.ch' },
+        { name: 'Formation Entreprise', url: 'https://dkdp.ch/formation-entreprise' },
+        { name: 'Formation Claude AI', url: 'https://dkdp.ch/formation-entreprise/claude-ai' },
+      ])} />
+
+      {/* ══ 1. Hero ══ */}
+      <InfiniteGrid accentRgb="167,139,250" blob1="rgba(124,58,237,0.15)" blob2="rgba(167,139,250,0.06)">
+        <section className="pt-28 pb-24">
+          <div className="max-w-[1200px] mx-auto px-6">
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 mb-6">
+              <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-white transition-colors">
+                Formation Entreprise
+              </Link>
+              <ChevronRight size={14} className="text-text-muted" />
+              <span className="text-sm" style={{ color: V }}>Claude AI</span>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Left */}
+              <div>
+                <div className="flex flex-wrap items-center gap-3 mb-6">
+                  <GradTag>Formation · Claude AI · 1-2 jours</GradTag>
+                  <span
+                    className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                    style={{ color: OR, background: ORB, border: `1px solid ${ORD}` }}
+                  >
+                    Nouveau 2026
+                  </span>
+                </div>
+
+                <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
+                  Formez vos équipes à{' '}
+                  <GradText as="span">Claude, l&apos;IA qui révolutionne le travail.</GradText>
+                </h1>
+
+                <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
+                  Claude AI d&apos;Anthropic est l&apos;outil le plus puissant pour les équipes professionnelles en 2026.
+                  Documents longs, projets collaboratifs, raisonnement complexe, automatisation de code.
+                  DKDP vous forme en profondeur sur chaque fonctionnalité qui compte.
+                </p>
+
+                <p className="text-text-muted text-base leading-relaxed mb-8">
+                  Nous l&apos;utilisons nous-mêmes au quotidien — y compris pour développer ce site web.
+                  Ce que nous vous apprenons, nous le pratiquons.
+                </p>
+
+                {/* Trust signals */}
+                <div className="flex flex-wrap gap-3 mb-8">
+                  {[
+                    { label: '100% pratique', icon: Zap },
+                    { label: 'Sur vos documents réels', icon: FileText },
+                    { label: 'Toutes industries', icon: Users },
+                    { label: 'Genève & Suisse romande', icon: Target },
+                  ].map(({ label, icon: Icon }) => (
+                    <div
+                      key={label}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-text-secondary"
+                      style={{ background: VB, border: `1px solid ${VD}` }}
+                    >
+                      <Icon size={12} style={{ color: V }} />
+                      {label}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-4 items-center">
+                  <LiquidMetalButton href="/contact?service=formation-claude" size="lg">
+                    Demander un devis gratuit →
+                  </LiquidMetalButton>
+                  <Link href="#programme" className="text-sm text-text-muted hover:text-white transition-colors">
+                    Voir le programme ↓
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right — visual */}
+              <div className="relative hidden lg:flex flex-col gap-4">
+                {/* Terminal Claude Code */}
+                <div
+                  className="rounded-[14px] p-5"
+                  style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${VD}`, boxShadow: `0 0 40px rgba(124,58,237,0.15)` }}
+                >
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                    <span className="text-[11px] text-text-muted ml-2 font-mono">claude — formation DKDP</span>
+                  </div>
+                  <div className="space-y-2 font-mono text-[12px]">
+                    <p><span style={{ color: V }}>{'>'}</span> <span className="text-zinc-400">Analyse ce rapport de 80 pages et</span></p>
+                    <p className="pl-4 text-zinc-400">identifie les 5 risques critiques</p>
+                    <div className="h-px bg-zinc-800 my-2" />
+                    <p style={{ color: '#4ade80' }}>Claude ● Extended Thinking activé...</p>
+                    <p className="text-zinc-300">Analyse en cours (200k tokens) ●●●</p>
+                    <div className="h-px bg-zinc-800 my-2" />
+                    <p className="text-zinc-300">5 risques identifiés :</p>
+                    <p className="text-zinc-400 pl-4">1. Exposition réglementaire (Art. 7)</p>
+                    <p className="text-zinc-400 pl-4">2. Concentration fournisseur (35%)</p>
+                    <p className="text-zinc-400 pl-4">3. ...</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: V }} />
+                      <span style={{ color: V }}>Réponse générée en 4.2s</span>
+                    </div>
+                  </div>
+                </div>
+                {/* Mini stats */}
+                <div className="grid grid-cols-3 gap-3">
+                  {[
+                    { v: '200k', l: 'tokens contexte', c: V },
+                    { v: '1M', l: 'tokens Sonnet', c: CH },
+                    { v: '5/5', l: 'avis DKDP', c: OR },
+                  ].map((s) => (
+                    <div
+                      key={s.l}
+                      className="text-center py-3 rounded-[10px]"
+                      style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
+                    >
+                      <p className="text-xl font-bold" style={{ color: s.c }}>{s.v}</p>
+                      <p className="text-[10px] text-text-muted mt-0.5">{s.l}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </InfiniteGrid>
+
+      {/* ══ 2. Stats ══ */}
+      <section className="py-12 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { v: '2h30', l: 'Gagnées / jour / pers.', sub: 'Moyenne post-formation' },
+              { v: '94%', l: 'Appliquent dès J+1', sub: 'Compétences utilisées' },
+              { v: '4.9/5', l: 'Satisfaction', sub: 'Note moyenne DKDP' },
+              { v: '100%', l: 'Sur mesure', sub: 'Vos cas d\'usage réels' },
+            ].map((s) => (
+              <SectionReveal key={s.l}>
+                <div className="text-center">
+                  <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color: V }}>{s.v}</p>
+                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 3. Subnav sticky ══ */}
+      <div className="sticky top-14 z-30 border-b border-zinc-800 bg-[rgba(9,9,11,0.92)] backdrop-blur-md">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="flex items-center justify-between gap-2">
+            <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Sections de la page">
+              {[
+                { label: 'Pourquoi Claude', href: '#pourquoi' },
+                { label: 'Produits', href: '#produits' },
+                { label: 'Programme', href: '#programme' },
+                { label: 'Capacités', href: '#capacites' },
+                { label: 'Métiers', href: '#metiers' },
+                { label: 'Tarifs', href: '#tarifs' },
+                { label: 'FAQ', href: '#faq' },
+              ].map(({ label, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold text-text-muted hover:text-white transition-colors whitespace-nowrap"
+                >
+                  {label}
+                </a>
+              ))}
+            </nav>
+            <Link
+              href="/contact?service=formation-claude"
+              className="flex-shrink-0 hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-bold transition-opacity hover:opacity-80"
+              style={{ background: VB, color: V, border: `1px solid ${VD}` }}
+            >
+              Prendre contact
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* ══ 4. Pourquoi Claude maintenant ══ */}
+      <section id="pourquoi" className="py-24 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+                Contexte 2026
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                Pourquoi Claude est l&apos;outil IA<br />prioritaire pour les entreprises
+              </h2>
+              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                Pas tous les assistants IA ne se valent pour un usage professionnel exigeant.
+                Claude se distingue sur les dimensions qui comptent en entreprise.
+              </p>
+            </div>
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {[
+              {
+                icon: FileText,
+                title: 'Contexte de 200k à 1M tokens',
+                desc: 'Analysez des rapports entiers, contrats, datasets, sans découper les documents. Là où ChatGPT s\'arrête, Claude continue.',
+                color: V, bg: VB, border: VD,
+              },
+              {
+                icon: BrainCircuit,
+                title: 'Extended Thinking',
+                desc: 'Claude peut raisonner en profondeur sur des problèmes complexes avant de répondre — comme un consultant senior qui réfléchit avant de parler.',
+                color: CH, bg: CHB, border: CHD,
+              },
+              {
+                icon: Shield,
+                title: 'Confidentialité des données',
+                desc: 'Plan Team et Enterprise : vos données ne servent pas à entraîner le modèle. Zéro rétention, conforme aux exigences suisses.',
+                color: OR, bg: ORB, border: ORD,
+              },
+              {
+                icon: Layers,
+                title: 'Projects collaboratifs',
+                desc: 'Créez des espaces de travail partagés avec mémoire persistante, fichiers et instructions communes pour toute l\'équipe.',
+                color: V, bg: VB, border: VD,
+              },
+              {
+                icon: Code2,
+                title: 'Claude Code — agent de dev',
+                desc: 'Un agent autonome qui lit votre codebase, écrit des tests, corrige des bugs et crée des PR GitHub — sans vous interrompre.',
+                color: '#4ade80', bg: 'rgba(74,222,128,0.08)', border: 'rgba(74,222,128,0.22)',
+              },
+              {
+                icon: Eye,
+                title: 'Vision et analyse de documents',
+                desc: 'Tableaux, graphiques, schémas, PDFs scannés — Claude extrait et interprète avec une précision que les autres modèles ne match pas.',
+                color: CH, bg: CHB, border: CHD,
+              },
+            ].map((c) => (
+              <CapabilityCard key={c.title} icon={c.icon} title={c.title} desc={c.desc} color={c.color} bg={c.bg} border={c.border} />
+            ))}
+          </div>
+
+          {/* Comparatif simplifié */}
+          <SectionReveal>
+            <div
+              className="rounded-[20px] p-6 md:p-8"
+              style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
+            >
+              <p className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: V }}>Comparatif rapide</p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr>
+                      <th className="text-left py-2 px-4 text-xs font-bold uppercase tracking-wider text-text-muted">Critère</th>
+                      <th className="text-center py-2 px-4 text-xs font-bold" style={{ color: V }}>Claude</th>
+                      <th className="text-center py-2 px-4 text-xs font-bold text-[#10b981]">ChatGPT</th>
+                      <th className="text-center py-2 px-4 text-xs font-bold text-[#3b82f6]">Copilot</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { crit: 'Documents et contexte long', claude: '★★★★★', gpt: '★★★★☆', cop: '★★★☆☆' },
+                      { crit: 'Raisonnement complexe', claude: '★★★★★', gpt: '★★★★☆', cop: '★★★☆☆' },
+                      { crit: 'Travail collaboratif (Projects)', claude: '★★★★★', gpt: '★★★☆☆', cop: '★★★★☆' },
+                      { crit: 'Confidentialité données', claude: '★★★★★', gpt: '★★★★☆', cop: '★★★★☆' },
+                      { crit: 'Développement (Claude Code)', claude: '★★★★★', gpt: '★★★★☆', cop: '★★★★☆' },
+                      { crit: 'Intégration Office 365', claude: '★★★☆☆', gpt: '★★★★☆', cop: '★★★★★' },
+                      { crit: 'Génération d\'images', claude: '★★☆☆☆', gpt: '★★★★★', cop: '★★★★☆' },
+                    ].map((row, i) => (
+                      <tr key={row.crit} className={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                        <td className="py-2.5 px-4 text-zinc-300 font-medium text-[13px]">{row.crit}</td>
+                        <td className="py-2.5 px-4 text-center text-[13px]" style={{ color: V }}>{row.claude}</td>
+                        <td className="py-2.5 px-4 text-center text-[13px] text-[#10b981]">{row.gpt}</td>
+                        <td className="py-2.5 px-4 text-center text-[13px] text-[#3b82f6]">{row.cop}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-text-muted text-xs mt-4 text-right">
+                Recommandation DKDP : Claude pour l&apos;analyse et la profondeur · ChatGPT pour la polyvalence · Copilot si vous êtes sur Microsoft 365
+              </p>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ══ 5. Produits Claude ══ */}
+      <section id="produits" className="py-24 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+                L&apos;écosystème Claude
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                3 outils, un seul programme de formation
+              </h2>
+              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                La formation DKDP couvre l&apos;intégralité de l&apos;écosystème Claude,
+                du collaborateur non-technique au développeur.
+              </p>
+            </div>
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <SectionReveal>
+              <ClaudeProductCard
+                title="Claude.ai"
+                subtitle="L'interface web et mobile pour tous les collaborateurs. Conversations, analyse de documents, rédaction, recherche — la porte d'entrée vers Claude pour l'ensemble de votre équipe."
+                color={V}
+                bg={VB}
+                border={VD}
+                icon={MessageSquare}
+                badge="Pour tous"
+                features={[
+                  'Prompting efficace et structuré',
+                  'Analyse de PDFs, Excel, images',
+                  'Rédaction professionnelle avancée',
+                  'Synthèse de réunions et rapports',
+                  'Traduction et adaptation de contenus',
+                  'Recherche et veille automatisée',
+                ]}
+              />
+            </SectionReveal>
+            <SectionReveal>
+              <ClaudeProductCard
+                title="Claude Projects"
+                subtitle="Les espaces de travail collaboratifs de Claude. Votre équipe partage une mémoire commune, des fichiers, des instructions et un contexte persistant — le cerveau collectif de votre organisation."
+                color={CH}
+                bg={CHB}
+                border={CHD}
+                icon={Layers}
+                badge="Pour les équipes"
+                features={[
+                  'Création et gestion de Projects partagés',
+                  'Mémoire persistante et context documents',
+                  'Instructions personnalisées par projet',
+                  'Contrôle des accès et permissions',
+                  'Base de connaissance d\'équipe',
+                  'Synchronisation avec Google Drive',
+                ]}
+              />
+            </SectionReveal>
+            <SectionReveal>
+              <ClaudeProductCard
+                title="Claude Code"
+                subtitle="L'agent de développement autonome d'Anthropic. Il lit votre codebase, écrit des tests, corrige des bugs, crée des PR et exécute des tâches complexes sur 14 heures sans intervention."
+                color="#4ade80"
+                bg="rgba(74,222,128,0.08)"
+                border="rgba(74,222,128,0.22)"
+                icon={Code2}
+                badge="Pour les devs"
+                features={[
+                  'Installation et configuration CLI',
+                  'Navigation et compréhension de codebase',
+                  'Génération de tests automatisés',
+                  'Correction de bugs et refactoring',
+                  'Workflow GitHub/GitLab complet',
+                  'Hooks, MCP et extensions',
+                ]}
+              />
+            </SectionReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 6. Programme ══ */}
+      <section id="programme" className="py-24 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+                Programme détaillé
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                Une journée intense. Une maîtrise réelle.
+              </h2>
+              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                7 heures de formation pratique, construites sur vos propres documents et cas d&apos;usage.
+                Pas de slides génériques. Pas d&apos;exemples inventés.
+              </p>
+            </div>
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Jour 1 */}
+            <SectionReveal>
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div
+                    className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
+                    style={{ background: VB, color: V, border: `1px solid ${VD}` }}
+                  >
+                    Journée 1 · Claude.ai + Projects
+                  </div>
+                  <span className="text-text-muted text-xs">Tous profils</span>
+                </div>
+                <div className="space-y-2">
+                  <AgendaRow time="09:00" title="Comment Claude pense : architecture et limites réelles" dur="45 min" type="theory" />
+                  <AgendaRow time="09:45" title="Prompting structuré : la méthode DKDP en 5 niveaux" dur="1h" type="practice" />
+                  <AgendaRow time="10:45" title="Analyse de vos documents réels (contrats, rapports, données)" dur="1h" type="workshop" />
+                  <AgendaRow time="11:45" title="Extended Thinking : activer le raisonnement profond" dur="30 min" type="practice" />
+                  <AgendaRow time="12:15" title="Pause déjeuner" dur="1h" type="break" />
+                  <AgendaRow time="13:15" title="Claude Projects : créer votre espace d'équipe en live" dur="1h30" type="workshop" />
+                  <AgendaRow time="14:45" title="Mémoire, context et partage de fichiers d'équipe" dur="1h" type="practice" />
+                  <AgendaRow time="15:45" title="Confidentialité, RGPD et bonnes pratiques d'entreprise" dur="30 min" type="theory" />
+                  <AgendaRow time="16:15" title="Atelier : construire votre prompt library d'équipe" dur="30 min" type="workshop" />
+                  <AgendaRow time="16:45" title="Questions / Réponses et roadmap d'adoption" dur="15 min" type="qa" />
+                </div>
+              </div>
+            </SectionReveal>
+
+            {/* Module Code */}
+            <SectionReveal>
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div
+                    className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
+                    style={{ background: 'rgba(74,222,128,0.10)', color: '#4ade80', border: '1px solid rgba(74,222,128,0.25)' }}
+                  >
+                    Module optionnel · Claude Code
+                  </div>
+                  <span className="text-text-muted text-xs">Profils techniques</span>
+                </div>
+                <div className="space-y-2">
+                  <AgendaRow time="09:00" title="Architecture de Claude Code : agent vs assistant" dur="30 min" type="theory" />
+                  <AgendaRow time="09:30" title="Installation, config et premier projet en live" dur="45 min" type="code" />
+                  <AgendaRow time="10:15" title="Navigation de codebase : lire 50k lignes en 30 secondes" dur="1h" type="code" />
+                  <AgendaRow time="11:15" title="Génération de tests automatisés sur votre stack" dur="1h" type="workshop" />
+                  <AgendaRow time="12:15" title="Pause déjeuner" dur="1h" type="break" />
+                  <AgendaRow time="13:15" title="Workflow GitHub complet : issue → code → PR automatique" dur="1h30" type="code" />
+                  <AgendaRow time="14:45" title="Hooks, MCP et extensions : aller plus loin" dur="45 min" type="code" />
+                  <AgendaRow time="15:30" title="Agents multi-tâches et délégation longue durée" dur="45 min" type="workshop" />
+                  <AgendaRow time="16:15" title="Sécurité, secrets et bonnes pratiques agentic" dur="30 min" type="theory" />
+                  <AgendaRow time="16:45" title="Q&R et cas pratiques de votre équipe" dur="15 min" type="qa" />
+                </div>
+
+                <div
+                  className="mt-5 p-4 rounded-[12px] text-sm"
+                  style={{ background: 'rgba(74,222,128,0.06)', border: '1px solid rgba(74,222,128,0.18)' }}
+                >
+                  <p className="text-[#4ade80] font-semibold text-xs uppercase tracking-wider mb-1">Note</p>
+                  <p className="text-text-secondary text-xs leading-relaxed">
+                    Ce module est animé en demi-journée (5h) ou en journée complète selon le niveau de l&apos;équipe.
+                    Prérequis : confort avec le terminal et Git. Pas de langage imposé.
+                  </p>
+                </div>
+              </div>
+            </SectionReveal>
+          </div>
+
+          {/* Modules appris */}
+          <SectionReveal>
+            <div
+              className="mt-12 p-6 md:p-8 rounded-[20px]"
+              style={{ background: VB, border: `1px solid ${VD}` }}
+            >
+              <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: V }}>
+                Compétences acquises à l&apos;issue de la formation
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                {[
+                  'Prompting avancé multi-niveaux',
+                  'Analyse de documents longs (200k+ tokens)',
+                  'Extended Thinking pour problèmes complexes',
+                  'Claude Projects et mémoire partagée',
+                  'Prompt library personnalisée d\'équipe',
+                  'Workflows de rédaction professionnelle',
+                  'Synthèse et résumé de réunions',
+                  'Extraction de données depuis PDF/Excel',
+                  'Bonnes pratiques RGPD et confidentialité',
+                  'Automatisations basiques sans code',
+                  'Claude Code : agentic dev workflow',
+                  'Intégrations API et MCP (profils tech)',
+                ].map((m) => (
+                  <div key={m} className="flex items-start gap-2 text-xs text-text-secondary">
+                    <CheckCircle2 size={12} style={{ color: V }} className="flex-shrink-0 mt-0.5" />
+                    {m}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ══ 7. Capacités clés ══ */}
+      <section id="capacites" className="py-24 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+                Fonctionnalités couvertes
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                On va au fond de chaque capacité
+              </h2>
+              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                La formation ne survole pas les fonctionnalités. Elle vous apprend
+                à maîtriser chaque outil dans des situations professionnelles réelles.
+              </p>
+            </div>
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                icon: BrainCircuit,
+                title: 'Extended Thinking',
+                desc: 'Activez le raisonnement profond de Claude pour les problèmes stratégiques. Claude réfléchit avant de répondre — avec transparence sur son raisonnement.',
+                color: V, bg: VB, border: VD,
+              },
+              {
+                icon: FileText,
+                title: 'Contexte long (200k-1M)',
+                desc: 'Analysez des rapports de 300 pages, des bases de code entières, ou des datasets complets en une seule conversation.',
+                color: CH, bg: CHB, border: CHD,
+              },
+              {
+                icon: Eye,
+                title: 'Vision et analyse d\'images',
+                desc: 'Tableaux, graphiques, schémas, captures d\'écran, PDFs scannés — Claude voit, comprend et explique chaque élément visuel.',
+                color: V, bg: VB, border: VD,
+              },
+              {
+                icon: Layers,
+                title: 'Artifacts',
+                desc: 'Créez des livrables isolés de la conversation : documents, code, visualisations, mini-apps interactives. Partagez en un clic.',
+                color: CH, bg: CHB, border: CHD,
+              },
+              {
+                icon: Database,
+                title: 'Projects & mémoire',
+                desc: 'Persistez le contexte entre les sessions. Claude se souvient de votre entreprise, vos clients, vos processus — sans répéter les instructions.',
+                color: OR, bg: ORB, border: ORD,
+              },
+              {
+                icon: Workflow,
+                title: 'Computer Use',
+                desc: 'Claude peut contrôler un navigateur ou un bureau pour automatiser des tâches répétitives sans une seule ligne de code.',
+                color: '#4ade80', bg: 'rgba(74,222,128,0.08)', border: 'rgba(74,222,128,0.22)',
+              },
+              {
+                icon: Bot,
+                title: 'Claude Code — Agentic',
+                desc: 'Délégez des tâches de développement sur 14 heures. Claude lit, code, teste et commit pendant que vous dormez.',
+                color: '#4ade80', bg: 'rgba(74,222,128,0.08)', border: 'rgba(74,222,128,0.22)',
+              },
+              {
+                icon: BarChart2,
+                title: 'Analyse de données',
+                desc: 'Interrogez vos données en langage naturel. Claude écrit du SQL, génère des graphiques, identifie des anomalies et rédige le commentaire.',
+                color: V, bg: VB, border: VD,
+              },
+            ].map((c) => (
+              <CapabilityCard key={c.title} {...c} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 8. Cas d'usage par métier ══ */}
+      <section id="metiers" className="py-24 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+                Par département
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                Des cas d&apos;usage concrets pour chaque métier
+              </h2>
+              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                La formation est personnalisée selon les fonctions de votre équipe.
+                Voici les cas d&apos;usage les plus demandés par département.
+              </p>
+            </div>
+          </SectionReveal>
+
+          <SectionReveal>
+            <div className="space-y-4">
+              <UseCaseRow
+                dept="Direction"
+                color={V} bg={VB} border={VD}
+                cases={[
+                  'Synthèse de rapports exécutifs',
+                  'Analyse stratégique de marché',
+                  'Préparation de board meetings',
+                  'Rédaction de plans stratégiques',
+                  'Évaluation de risques',
+                ]}
+              />
+              <UseCaseRow
+                dept="Marketing"
+                color={V} bg={VB} border={VD}
+                cases={[
+                  'Rédaction campagnes multi-formats',
+                  'Analyse de concurrents',
+                  'Création de briefs créatifs',
+                  'A/B testing de copywriting',
+                  'SEO et contenu de blog',
+                  'Personas et audience research',
+                ]}
+              />
+              <UseCaseRow
+                dept="Commercial"
+                color={OR} bg={ORB} border={ORD}
+                cases={[
+                  'Rédaction de propositions commerciales',
+                  'Analyse des objections clients',
+                  'Compte-rendu de réunions',
+                  'Recherche sur les prospects',
+                  'Scripts et emails de prospection',
+                ]}
+              />
+              <UseCaseRow
+                dept="RH"
+                color={OR} bg={ORB} border={ORD}
+                cases={[
+                  'Rédaction de fiches de poste',
+                  'Résumé de candidatures',
+                  'FAQ interne automatisée',
+                  'Onboarding documentaire',
+                  'Politiques et procédures',
+                  'Analyse des feedbacks collaborateurs',
+                ]}
+              />
+              <UseCaseRow
+                dept="Finance"
+                color={CH} bg={CHB} border={CHD}
+                cases={[
+                  'Analyse de rapports financiers',
+                  'Extraction de données de factures PDF',
+                  'Génération de commentaires de résultats',
+                  'Analyse de contrats fournisseurs',
+                  'Tableaux de bord commentés',
+                ]}
+              />
+              <UseCaseRow
+                dept="Juridique"
+                color={CH} bg={CHB} border={CHD}
+                cases={[
+                  'Résumé de contrats longs',
+                  'Extraction de clauses clés',
+                  'Comparaison de versions de documents',
+                  'Veille réglementaire',
+                  'Rédaction de courriers',
+                ]}
+              />
+              <UseCaseRow
+                dept="Développeurs"
+                color="#4ade80"
+                bg="rgba(74,222,128,0.08)"
+                border="rgba(74,222,128,0.22)"
+                cases={[
+                  'Review de code automatisée',
+                  'Génération de tests unitaires',
+                  'Documentation de codebase',
+                  'Debugging assisté',
+                  'Migration de stack technique',
+                  'Workflow GitHub/GitLab complet',
+                ]}
+              />
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ══ 9. Formats ══ */}
+      <section className="py-24 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+                Modalités
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                Présentiel, distanciel ou hybride
+              </h2>
+            </div>
+          </SectionReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
+            {[
+              {
+                Icon: Users,
+                title: 'En présentiel chez vous',
+                desc: 'DKDP se déplace dans vos locaux à Genève ou en Suisse romande. Format idéal : travail sur vos propres machines, environnement réel.',
+              },
+              {
+                Icon: Clock,
+                title: 'En ligne (Zoom/Teams)',
+                desc: 'Sessions interactives avec partage d\'écran, ateliers en sous-groupes. Aussi efficace que le présentiel avec les bons outils.',
+              },
+              {
+                Icon: Award,
+                title: 'Attestation individuelle',
+                desc: 'Chaque participant reçoit une attestation nominative précisant les compétences et modules suivis.',
+              },
+            ].map(({ Icon, title, desc }) => (
+              <SectionReveal key={title}>
+                <div
+                  className="flex flex-col gap-4 p-5 rounded-[14px] h-full"
+                  style={{ background: VB, border: `1px solid ${VD}` }}
+                >
+                  <div
+                    className="w-10 h-10 rounded-[8px] flex items-center justify-center"
+                    style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${VD}` }}
+                  >
+                    <Icon size={18} style={{ color: V }} />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm mb-1">{title}</p>
+                    <p className="text-text-muted text-xs leading-relaxed">{desc}</p>
+                  </div>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 10. Tarifs ══ */}
+      <section id="tarifs" className="py-24 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+                Tarifs
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                Forfait groupe, prix transparent
+              </h2>
+              <p className="text-text-secondary text-lg max-w-xl mx-auto">
+                Les tarifs s&apos;entendent par groupe, pas par personne. Contactez-nous pour un devis adapté à votre équipe.
+              </p>
+            </div>
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                name: 'Claude.ai · Demi-journée',
+                price: 'CHF 1\'500',
+                dur: '3h30',
+                participants: 'Jusqu\'à 10 participants',
+                color: V, bg: VB, border: VD,
+                features: [
+                  'Prompting avancé',
+                  'Analyse de vos documents réels',
+                  'Extended Thinking en pratique',
+                  'Attestation individuelle',
+                  'Guide de démarrage DKDP',
+                ],
+              },
+              {
+                name: 'Claude.ai + Projects · Journée',
+                price: 'CHF 2\'800',
+                dur: '7h',
+                participants: 'Jusqu\'à 10 participants',
+                color: V, bg: VB, border: VD,
+                featured: true,
+                features: [
+                  'Tout le module demi-journée',
+                  'Claude Projects : espace équipe en live',
+                  'Mémoire partagée et base de connaissance',
+                  'Confidentialité et RGPD suisse',
+                  'Prompt library personnalisée',
+                  'Suivi 30 jours par email',
+                ],
+              },
+              {
+                name: 'Module Claude Code',
+                price: 'CHF 1\'500',
+                dur: '5h',
+                participants: 'Jusqu\'à 6 développeurs',
+                color: '#4ade80', bg: 'rgba(74,222,128,0.08)', border: 'rgba(74,222,128,0.22)',
+                features: [
+                  'Installation et config CLI',
+                  'Navigation de codebase',
+                  'Tests et debugging automatisés',
+                  'Workflow GitHub complet',
+                  'MCP et extensions',
+                  'Ajout à la journée complète : +CHF 1\'200',
+                ],
+              },
+            ].map((plan) => (
+              <SectionReveal key={plan.name}>
+                <div
+                  className="relative flex flex-col gap-6 p-6 rounded-[18px] h-full"
+                  style={{
+                    background: plan.featured ? VB : 'rgba(255,255,255,0.02)',
+                    border: `1px solid ${plan.featured ? plan.border : 'rgba(255,255,255,0.07)'}`,
+                    boxShadow: plan.featured ? `0 0 30px rgba(124,58,237,0.12)` : 'none',
+                  }}
+                >
+                  {plan.featured && (
+                    <div
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-bold"
+                      style={{ background: V, color: '#09090B' }}
+                    >
+                      Recommandé
+                    </div>
+                  )}
+                  <div>
+                    <p className="text-text-muted text-xs font-semibold mb-2">{plan.name}</p>
+                    <div className="flex items-end gap-2 mb-1">
+                      <p className="text-3xl font-bold text-white">{plan.price}</p>
+                    </div>
+                    <p className="text-text-muted text-xs">{plan.dur} · {plan.participants}</p>
+                  </div>
+                  <ul className="space-y-2.5 flex-1">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-xs text-text-secondary">
+                        <CheckCircle2 size={12} style={{ color: plan.color }} className="flex-shrink-0 mt-0.5" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/contact?service=formation-claude"
+                    className="block w-full text-center py-2.5 px-4 rounded-[10px] text-sm font-bold transition-opacity hover:opacity-80"
+                    style={plan.featured
+                      ? { background: V, color: '#09090B' }
+                      : { background: plan.bg, color: plan.color, border: `1px solid ${plan.border}` }
+                    }
+                  >
+                    Demander un devis
+                  </Link>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+
+          <SectionReveal>
+            <p className="text-center text-text-muted text-sm mt-8">
+              Besoin d&apos;un programme sur 2 jours, d&apos;un format Train-the-Trainer ou d&apos;un suivi coaching ?{' '}
+              <Link href="/contact" className="underline hover:text-white transition-colors" style={{ color: V }}>
+                Parlons-en
+              </Link>
+            </p>
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ══ 11. Pourquoi DKDP ══ */}
+      <section className="py-24 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <SectionReveal>
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+                  Pourquoi DKDP
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6">
+                  Nous formons sur ce que nous<br />
+                  <GradText as="span">utilisons nous-mêmes.</GradText>
+                </h2>
+                <p className="text-text-secondary text-lg leading-relaxed mb-6">
+                  Ce site web a été développé avec Claude Code. Notre SEO est analysé avec Claude.
+                  Nos contenus sont assistés par Claude. Nous ne formons pas à partir d&apos;un manuel —
+                  nous formons à partir de notre pratique quotidienne.
+                </p>
+                <p className="text-text-secondary leading-relaxed mb-8">
+                  Cette expérience de terrain nous permet d&apos;aller bien au-delà des tutoriels génériques :
+                  nous savons ce qui fonctionne vraiment, ce qui ne fonctionne pas, et comment adapter
+                  Claude à des contextes professionnels spécifiques.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    'Formateur praticien — pas un consultant certifié généralisé',
+                    'Exemples tirés de projets DKDP réels',
+                    'Suivi post-formation par email pendant 30 jours',
+                    'Programme mis à jour à chaque nouvelle version Claude',
+                  ].map((p) => (
+                    <div key={p} className="flex items-start gap-3 text-sm text-text-secondary">
+                      <Sparkles size={14} style={{ color: V }} className="flex-shrink-0 mt-0.5" />
+                      {p}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </SectionReveal>
+
+            <SectionReveal>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { v: '700+', l: 'Clients accompagnés', c: V },
+                  { v: '10+', l: 'Ans d\'expérience', c: CH },
+                  { v: '5/5', l: 'Note Google', c: OR },
+                  { v: '100%', l: 'Sur mesure', c: V },
+                ].map((s) => (
+                  <div
+                    key={s.l}
+                    className="text-center py-8 rounded-[16px]"
+                    style={{ background: VB, border: `1px solid ${VD}` }}
+                  >
+                    <p className="text-4xl font-bold mb-2" style={{ color: s.c }}>{s.v}</p>
+                    <p className="text-text-muted text-xs">{s.l}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 12. Testimonials ══ */}
+      <Testimonials />
+
+      {/* ══ 13. FAQ ══ */}
+      <section id="faq" className="py-24 border-b border-border">
+        <div className="max-w-[900px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-white mb-3">Questions fréquentes</h2>
+              <p className="text-text-muted">Tout ce que vous devez savoir avant de réserver.</p>
+            </div>
+          </SectionReveal>
+          <div className="space-y-4">
+            {FAQ.map((item) => (
+              <SectionReveal key={item.question}>
+                <details className="group rounded-[14px] border border-zinc-800 bg-zinc-900/40 overflow-hidden">
+                  <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none">
+                    <span className="text-white text-sm font-semibold leading-snug">{item.question}</span>
+                    <ChevronRight size={16} className="flex-shrink-0 text-text-muted transition-transform duration-200 group-open:rotate-90" />
+                  </summary>
+                  <div className="px-5 pb-5">
+                    <p className="text-text-secondary text-sm leading-relaxed">{item.answer}</p>
+                  </div>
+                </details>
+              </SectionReveal>
+            ))}
+          </div>
+
+          <SectionReveal>
+            <div className="text-center mt-10">
+              <p className="text-text-muted text-sm mb-4">Vous avez une question spécifique ?</p>
+              <LiquidMetalButton href="/contact?service=formation-claude" size="md">
+                Poser votre question →
+              </LiquidMetalButton>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ══ 14. CTA Final ══ */}
+      <CTAFinal />
+    </main>
+  )
+}

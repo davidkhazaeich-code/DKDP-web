@@ -1,6 +1,6 @@
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
-import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
+import { HeroBg } from '@/components/ui/HeroBg'
 
 // Interpolated colors: violet #7C3AED → orange #FF6B00 across 5 steps
 // Step 0→4, t = i/4
@@ -111,7 +111,7 @@ const STEPS = [
 
 export function ProcessSteps() {
   return (
-    <InfiniteGrid blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.08)">
+    <HeroBg blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.08)">
     <section aria-labelledby="process-heading" className="py-32">
       <div className="max-w-[1200px] mx-auto px-6">
         <SectionReveal>
@@ -164,6 +164,6 @@ export function ProcessSteps() {
         </div>
       </div>
     </section>
-    </InfiniteGrid>
+    </HeroBg>
   )
 }

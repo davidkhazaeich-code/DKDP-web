@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { createPortal } from 'react-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import {
   Globe, Cpu, GraduationCap, Search, Megaphone, BarChart2,
   Bot, Workflow, BrainCircuit, BookOpen, Users2, Presentation,
@@ -269,7 +269,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
   return createPortal(
     <AnimatePresence>
       {open && (
-        <motion.div
+        <m.div
           key="mobile-nav"
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -306,7 +306,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
           {/* ── Scrollable content ── */}
           <div className="flex-1 overflow-y-auto overscroll-contain min-h-0">
             <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
+              <m.div
                 key={activeTab}
                 custom={direction}
                 variants={slideVariants}
@@ -319,7 +319,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                 {/* Cards grid */}
                 <div className="grid grid-cols-2 gap-2 mt-1">
                   {tab.items.map((item, i) => (
-                    <motion.div
+                    <m.div
                       key={item.href}
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -347,7 +347,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                           )}
                         </div>
                       </Link>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
 
@@ -388,7 +388,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                     </div>
                   </div>
                 )}
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </div>
 
@@ -411,7 +411,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
               Réservez un appel →
             </button>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>,
     document.body

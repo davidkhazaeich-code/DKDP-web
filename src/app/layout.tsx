@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider'
 import { CalProvider } from '@/components/providers/CalProvider'
+import { MotionProvider } from '@/components/providers/MotionProvider'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { StickyBadge } from '@/components/ui/StickyBadge'
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://app.cal.com" />
       </head>
       <body className="bg-bg text-white font-sans antialiased">
+        <MotionProvider>
         <SmoothScrollProvider>
           <CalProvider />
           <Header />
@@ -50,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <StickyBadge />
           <MobileRDV />
         </SmoothScrollProvider>
+        </MotionProvider>
         <Analytics />
       </body>
     </html>

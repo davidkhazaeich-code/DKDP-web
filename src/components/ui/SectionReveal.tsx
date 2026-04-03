@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext } from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 
 const RevealDisabledCtx = createContext(false)
@@ -41,7 +41,7 @@ export function SectionReveal({
   }
 
   return (
-    <motion.div
+    <m.div
       className={className}
       initial="hidden"
       whileInView="visible"
@@ -59,6 +59,6 @@ export function SectionReveal({
       }}
     >
       {children}
-    </motion.div>
+    </m.div>
   )
 }

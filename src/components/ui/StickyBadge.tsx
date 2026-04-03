@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import { TrustBadge } from './TrustBadge'
 
 export function StickyBadge() {
@@ -30,7 +30,7 @@ export function StickyBadge() {
   return (
     <AnimatePresence>
       {visible && (
-        <motion.div
+        <m.div
           key="sticky-badge"
           initial={{ opacity: 0, scale: 0.85, y: 12 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -41,7 +41,7 @@ export function StickyBadge() {
         >
           <h2 className="sr-only">Service Digital · Service 100% Suisse</h2>
           <TrustBadge variant="dark" />
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   )

@@ -1,7 +1,3 @@
-'use client'
-
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 import { ImagePlaceholder } from '@/components/ui/ImagePlaceholder'
@@ -29,17 +25,10 @@ const TRANSFORMATIONS = [
 ] as const
 
 export function BeforeAfter() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  })
-  const y = useTransform(scrollYProgress, [0, 1], [60, -60])
-
   return (
     <HeroBg>
-      <section ref={sectionRef} aria-labelledby="beforeafter-heading" className="py-36">
-        <motion.div style={{ y }} className="max-w-[1200px] mx-auto px-6">
+      <section aria-labelledby="beforeafter-heading" className="py-36">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
               <GradTag className="mb-6">Transformations</GradTag>
@@ -88,7 +77,7 @@ export function BeforeAfter() {
               </SectionReveal>
             ))}
           </div>
-        </motion.div>
+        </div>
       </section>
     </HeroBg>
   )

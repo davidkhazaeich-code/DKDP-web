@@ -1259,7 +1259,7 @@ export default function FormationClaudeAIPage() {
                 </p>
                 <div className="space-y-3">
                   {[
-                    'Formateur praticien, pas un consultant certifié généralisé',
+                    'David & Romane : deux praticiens qui l\'utilisent au quotidien',
                     'Exemples tirés de projets DKDP réels',
                     'Suivi post-formation par email pendant 30 jours',
                     'Programme mis à jour à chaque nouvelle version Claude',
@@ -1296,7 +1296,105 @@ export default function FormationClaudeAIPage() {
         </div>
       </section>
 
-      {/* ══ 12. Testimonials ══ */}
+      {/* ══ 12. Formateurs ══ */}
+      <section className="py-24 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
+                Vos formateurs
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+                Formés par des praticiens, pas des théoriciens.
+              </h2>
+            </div>
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {/* Romane */}
+            <SectionReveal>
+              <div
+                className="flex flex-col gap-5 p-6 rounded-[20px]"
+                style={{ background: ORB, border: `1px solid ${ORD}` }}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="relative w-16 h-16 flex-shrink-0">
+                    <Image
+                      src="/images/team/romane.png"
+                      alt="Romane, formatrice Claude IA"
+                      fill
+                      className="object-cover rounded-full"
+                      sizes="64px"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-base leading-snug">Romane</p>
+                    <p className="text-xs font-semibold mt-0.5" style={{ color: OR }}>Formatrice Claude IA</p>
+                  </div>
+                </div>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  Spécialiste de l&apos;intégration IA en environnement professionnel, Romane anime les sessions
+                  Claude.ai et Projects pour les équipes non-techniques. Elle adapte chaque formation
+                  aux flux de travail réels de ses participants.
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {['Claude.ai', 'Projects', 'Prompting', 'Équipes métier'].map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
+                      style={{ background: 'rgba(255,107,0,0.12)', color: OR, border: `1px solid ${ORD}` }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </SectionReveal>
+
+            {/* David */}
+            <SectionReveal>
+              <div
+                className="flex flex-col gap-5 p-6 rounded-[20px]"
+                style={{ background: CHB, border: `1px solid ${CHD}` }}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="relative w-16 h-16 flex-shrink-0">
+                    <Image
+                      src="/images/team/david-khazaei.png"
+                      alt="David Khazaei, formateur Claude Code"
+                      fill
+                      className="object-cover rounded-full"
+                      sizes="64px"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-base leading-snug">David Khazaei</p>
+                    <p className="text-xs font-semibold mt-0.5" style={{ color: CH }}>Formateur Claude Code · Fondateur DKDP</p>
+                  </div>
+                </div>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  Développeur et consultant digital, David utilise Claude Code au quotidien pour ses propres projets
+                  client. Il anime le module technique : navigation de codebase, tests automatisés,
+                  workflow GitHub et agents agentic.
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {['Claude Code', 'Agentic', 'GitHub', 'Devs & DevOps'].map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
+                      style={{ background: CHB, color: CH, border: `1px solid ${CHD}` }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </SectionReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 13. Testimonials ══ */}
       <Testimonials />
 
       {/* ══ 13. FAQ ══ */}

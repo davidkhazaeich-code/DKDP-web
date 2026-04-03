@@ -19,9 +19,9 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Formation Claude AI Genève · Claude.ai, Projects, Claude Code · DKDP',
+  title: 'Formation Claude IA Genève · Claude.ai & Projects · DKDP',
   description:
-    'Formation Claude AI pour entreprises à Genève. Maîtrisez Claude.ai, les Projects collaboratifs et Claude Code. Programme sur mesure, 1 ou 2 jours, présentiel ou distanciel.',
+    'Formation Claude IA pour entreprises à Genève. Claude.ai, Projects collaboratifs, Claude Code. Programme sur mesure, 1 à 2 jours, présentiel ou distanciel.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/claude-ai' },
 }
 
@@ -50,7 +50,7 @@ const FAQ = [
   {
     question: 'Quelle est la différence entre la formation Claude et la formation IA générale ?',
     answer:
-      'La formation IA générale couvre ChatGPT, Claude, Copilot et les automatisations. Cette formation est une spécialisation exclusive sur Claude : on va beaucoup plus loin — Projects, mémoire partagée, Extended Thinking, analyse de documents longs, et Claude Code pour les profils techniques.',
+      'La formation IA générale couvre ChatGPT, Claude, Copilot et les automatisations. Cette formation est une spécialisation exclusive sur Claude : on va beaucoup plus loin avec les Projects, la mémoire partagée, Extended Thinking, l\'analyse de documents longs, et Claude Code pour les profils techniques.',
   },
   {
     question: 'Claude Code est-il inclus dans la formation de base ?',
@@ -60,7 +60,7 @@ const FAQ = [
   {
     question: 'La formation est-elle adaptée à notre secteur d\'activité ?',
     answer:
-      'Oui. Avant chaque session, DKDP envoie un questionnaire pour identifier vos cas d\'usage métier. La formation utilise vos propres documents, processus et situations réelles comme matière première — pas des exemples génériques.',
+      'Oui. Avant chaque session, DKDP envoie un questionnaire pour identifier vos cas d\'usage métier. La formation utilise vos propres documents, processus et situations réelles comme matière première, pas des exemples génériques.',
   },
   {
     question: 'Claude respecte-t-il la confidentialité de nos données ?',
@@ -73,7 +73,7 @@ const FAQ = [
       'Le format idéal est de 6 à 12 personnes par groupe. Pour 20 personnes, on organise deux sessions successives de la même journée, ou on forme 2-3 référents internes qui diffuseront ensuite (programme "Train the trainer").',
   },
   {
-    question: 'Quels sont les tarifs de la formation Claude AI ?',
+    question: 'Quels sont les tarifs de la formation Claude IA ?',
     answer:
       'La journée de formation (Claude.ai + Projects, jusqu\'à 10 participants) est à CHF 2\'800. Le module Claude Code (demi-journée, jusqu\'à 6 devs) est à CHF 1\'500. Un devis précis est établi après le brief selon la taille de l\'équipe et les besoins spécifiques.',
   },
@@ -262,7 +262,7 @@ export default function FormationClaudeAIPage() {
   return (
     <main className="pt-14">
       <SchemaOrg schema={buildCourse({
-        name: 'Formation Claude AI en entreprise Genève',
+        name: 'Formation Claude IA en entreprise Genève',
         url: '/formation-entreprise/claude-ai',
         description: 'Formation spécialisée Claude AI pour équipes d\'entreprise à Genève. Claude.ai, Projects collaboratifs, Extended Thinking et Claude Code. Programme sur mesure.',
       })} />
@@ -270,7 +270,7 @@ export default function FormationClaudeAIPage() {
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
         { name: 'Formation Entreprise', url: 'https://dkdp.ch/formation-entreprise' },
-        { name: 'Formation Claude AI', url: 'https://dkdp.ch/formation-entreprise/claude-ai' },
+        { name: 'Formation Claude IA', url: 'https://dkdp.ch/formation-entreprise/claude-ai' },
       ])} />
 
       {/* ══ 1. Hero ══ */}
@@ -285,7 +285,7 @@ export default function FormationClaudeAIPage() {
               <ChevronRight size={14} className="text-text-muted" />
               <div className="flex items-center gap-1.5">
                 <Image src="/images/partners/claude-logo.png" alt="Claude AI" width={16} height={16} className="rounded-[4px] opacity-90" />
-                <span className="text-sm" style={{ color: OR }}>Claude AI</span>
+                <span className="text-sm" style={{ color: OR }}>Formation Claude IA</span>
               </div>
             </div>
 
@@ -293,7 +293,7 @@ export default function FormationClaudeAIPage() {
               {/* Left */}
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <GradTag>Formation · Claude AI · 1-2 jours</GradTag>
+                  <GradTag>Formation · Claude IA · 1-2 jours</GradTag>
                   <span
                     className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
                     style={{ color: OR, background: ORB, border: `1px solid ${ORD}` }}
@@ -347,7 +347,7 @@ export default function FormationClaudeAIPage() {
                 </div>
               </div>
 
-              {/* Right — visual */}
+              {/* Right - visual */}
               <div className="relative hidden lg:flex flex-col gap-4">
                 {/* Terminal Claude Code */}
                 <div
@@ -488,7 +488,7 @@ export default function FormationClaudeAIPage() {
               {
                 icon: BrainCircuit,
                 title: 'Extended Thinking',
-                desc: 'Claude peut raisonner en profondeur sur des problèmes complexes avant de répondre — comme un consultant senior qui réfléchit avant de parler.',
+                desc: 'Claude peut raisonner en profondeur sur des problèmes complexes avant de répondre, comme un consultant senior qui réfléchit avant de parler.',
                 color: CH, bg: CHB, border: CHD,
               },
               {
@@ -505,14 +505,14 @@ export default function FormationClaudeAIPage() {
               },
               {
                 icon: Code2,
-                title: 'Claude Code — agent de dev',
-                desc: 'Un agent autonome qui lit votre codebase, écrit des tests, corrige des bugs et crée des PR GitHub — sans vous interrompre.',
+                title: 'Claude Code : agent de dev',
+                desc: 'Un agent autonome qui lit votre codebase, écrit des tests, corrige des bugs et crée des PR GitHub, sans vous interrompre.',
                 color: '#4ade80', bg: 'rgba(74,222,128,0.08)', border: 'rgba(74,222,128,0.22)',
               },
               {
                 icon: Eye,
                 title: 'Vision et analyse de documents',
-                desc: 'Tableaux, graphiques, schémas, PDFs scannés — Claude extrait et interprète avec une précision que les autres modèles ne match pas.',
+                desc: 'Tableaux, graphiques, schémas, PDFs scannés : Claude extrait et interprète avec une précision que les autres modèles ne match pas.',
                 color: CH, bg: CHB, border: CHD,
               },
             ].map((c) => (
@@ -679,7 +679,7 @@ export default function FormationClaudeAIPage() {
             <SectionReveal>
               <ClaudeProductCard
                 title="Claude.ai"
-                subtitle="L'interface web et mobile pour tous les collaborateurs. Conversations, analyse de documents, rédaction, recherche — la porte d'entrée vers Claude pour l'ensemble de votre équipe."
+                subtitle="L'interface web et mobile pour tous les collaborateurs. Conversations, analyse de documents, rédaction, recherche. La porte d'entrée vers Claude pour l'ensemble de votre équipe."
                 color={V}
                 bg={VB}
                 border={VD}
@@ -698,7 +698,7 @@ export default function FormationClaudeAIPage() {
             <SectionReveal>
               <ClaudeProductCard
                 title="Claude Projects"
-                subtitle="Les espaces de travail collaboratifs de Claude. Votre équipe partage une mémoire commune, des fichiers, des instructions et un contexte persistant — le cerveau collectif de votre organisation."
+                subtitle="Les espaces de travail collaboratifs de Claude. Votre équipe partage une mémoire commune, des fichiers, des instructions et un contexte persistant. Le cerveau collectif de votre organisation."
                 color={CH}
                 bg={CHB}
                 border={CHD}
@@ -904,7 +904,7 @@ export default function FormationClaudeAIPage() {
               {
                 icon: Database,
                 title: 'Projects & mémoire',
-                desc: 'Persistez le contexte entre les sessions. Claude se souvient de votre entreprise, vos clients, vos processus — sans répéter les instructions.',
+                desc: 'Persistez le contexte entre les sessions. Claude se souvient de votre entreprise, vos clients, vos processus, sans répéter les instructions.',
                 color: OR, bg: ORB, border: ORD,
               },
               {
@@ -915,7 +915,7 @@ export default function FormationClaudeAIPage() {
               },
               {
                 icon: Bot,
-                title: 'Claude Code — Agentic',
+                title: 'Claude Code : Agentic',
                 desc: 'Délégez des tâches de développement sur 14 heures. Claude lit, code, teste et commit pendant que vous dormez.',
                 color: '#4ade80', bg: 'rgba(74,222,128,0.08)', border: 'rgba(74,222,128,0.22)',
               },
@@ -1249,8 +1249,8 @@ export default function FormationClaudeAIPage() {
                 </h2>
                 <p className="text-text-secondary text-lg leading-relaxed mb-6">
                   Ce site web a été développé avec Claude Code. Notre SEO est analysé avec Claude.
-                  Nos contenus sont assistés par Claude. Nous ne formons pas à partir d&apos;un manuel —
-                  nous formons à partir de notre pratique quotidienne.
+                  Nos contenus sont assistés par Claude. Nous ne formons pas à partir d&apos;un manuel.
+                  Nous formons à partir de notre pratique quotidienne.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-8">
                   Cette expérience de terrain nous permet d&apos;aller bien au-delà des tutoriels génériques :
@@ -1259,7 +1259,7 @@ export default function FormationClaudeAIPage() {
                 </p>
                 <div className="space-y-3">
                   {[
-                    'Formateur praticien — pas un consultant certifié généralisé',
+                    'Formateur praticien, pas un consultant certifié généralisé',
                     'Exemples tirés de projets DKDP réels',
                     'Suivi post-formation par email pendant 30 jours',
                     'Programme mis à jour à chaque nouvelle version Claude',

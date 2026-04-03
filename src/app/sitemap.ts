@@ -44,6 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ─── Formation Entreprise ─────────────────────────────────────────────────
     entry('/formation-entreprise/ia',                      0.85, 'monthly'),
+    entry('/formation-entreprise/claude-ai',               0.85, 'monthly'),
     entry('/formation-entreprise/cybersecurite',           0.75, 'monthly'),
     entry('/formation-entreprise/bureautique',             0.75, 'monthly'),
     entry('/formation-entreprise/reseaux-sociaux',         0.70, 'monthly'),
@@ -55,7 +56,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ─── Contenu & ressources ─────────────────────────────────────────────────
     entry('/blog',              0.80, 'weekly'),
     entry('/glossaire',         0.70, 'monthly'),
-    entry('/realisations',      0.75, 'monthly'),
 
     // ─── Agence ───────────────────────────────────────────────────────────────
     entry('/tarifs',    0.80, 'monthly'),

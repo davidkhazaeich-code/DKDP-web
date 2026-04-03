@@ -22,10 +22,10 @@ export function ContactSection() {
       <div className="max-w-[1200px] mx-auto px-6">
 
         {/* Tab switcher */}
-        <div className="flex gap-3 mb-10 p-1 bg-bg-card border border-border rounded-[14px] w-fit">
+        <div className="flex gap-3 mb-10 p-1 bg-bg-card border border-border rounded-[14px] w-full sm:w-fit">
           <button
             onClick={() => setTab('message')}
-            className="flex items-center gap-2.5 px-5 py-2.5 rounded-[10px] text-[13px] font-semibold transition-all duration-200"
+            className="flex flex-1 sm:flex-none items-center justify-center gap-2.5 px-5 py-2.5 rounded-[10px] text-[13px] font-semibold transition-all duration-200"
             style={{
               background: tab === 'message' ? 'rgba(124,58,237,0.18)' : 'transparent',
               color: tab === 'message' ? '#A78BFA' : '#6B7280',
@@ -37,7 +37,7 @@ export function ContactSection() {
           </button>
           <button
             onClick={() => setTab('booking')}
-            className="flex items-center gap-2.5 px-5 py-2.5 rounded-[10px] text-[13px] font-semibold transition-all duration-200"
+            className="flex flex-1 sm:flex-none items-center justify-center gap-2.5 px-5 py-2.5 rounded-[10px] text-[13px] font-semibold transition-all duration-200"
             style={{
               background: tab === 'booking' ? 'rgba(124,58,237,0.18)' : 'transparent',
               color: tab === 'booking' ? '#A78BFA' : '#6B7280',

@@ -94,7 +94,7 @@ function ContactFormInner() {
           >
             {step > 1 ? <CheckCircle2 size={13} /> : '1'}
           </div>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.08em]"
+          <span className="hidden sm:inline text-[11px] font-semibold uppercase tracking-[0.08em]"
             style={{ color: step === 1 ? '#fff' : step > 1 ? '#86efac' : '#6B7280' }}>
             Votre demande
           </span>
@@ -114,7 +114,7 @@ function ContactFormInner() {
           >
             {step > 2 ? <CheckCircle2 size={13} /> : '2'}
           </div>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.08em]"
+          <span className="hidden sm:inline text-[11px] font-semibold uppercase tracking-[0.08em]"
             style={{ color: step === 2 ? '#fff' : step > 2 ? '#86efac' : '#4B5563' }}>
             Vos coordonnées
           </span>
@@ -134,7 +134,7 @@ function ContactFormInner() {
           >
             {step === 3 ? <CheckCircle2 size={13} /> : '3'}
           </div>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.08em]"
+          <span className="hidden sm:inline text-[11px] font-semibold uppercase tracking-[0.08em]"
             style={{ color: step === 3 ? '#86efac' : '#374151' }}>
             Notre projet démarre
           </span>
@@ -149,7 +149,7 @@ function ContactFormInner() {
               <Briefcase size={11} />
               Service <span className="text-violet-light">*</span>
             </label>
-            <div className="relative max-w-[280px]">
+            <div className="relative w-full sm:max-w-[280px]">
               <select
                 required
                 value={service}
@@ -201,7 +201,7 @@ function ContactFormInner() {
             <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className={labelCls}>
                 <User size={11} />
@@ -226,7 +226,7 @@ function ContactFormInner() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className={labelCls}>
                 <Mail size={11} />

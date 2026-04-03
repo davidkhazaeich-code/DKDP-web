@@ -15,6 +15,7 @@ import {
 } from '@/lib/blog-data'
 import { violet, orange, chrome, green } from '@/lib/tokens'
 import { ArticleCard } from './_components/ArticleCard'
+import { NewsletterForm } from '@/components/sections/NewsletterForm'
 
 export const metadata: Metadata = {
   title: 'Blog · Ressources digitales, IA et formation · DKDP',
@@ -288,24 +289,7 @@ export default function BlogPage() {
               <p className="text-zinc-400 text-sm leading-relaxed mb-8">
                 1 article par mois, pratique et directement applicable.
               </p>
-              <form action="#" method="post" className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="votre@email.ch"
-                  aria-label="Adresse email"
-                  className="flex-1 rounded-[10px] border px-4 py-3 text-sm bg-transparent text-white placeholder:text-zinc-500 outline-none focus:border-[rgba(167,139,250,0.50)] transition-colors"
-                  style={{ borderColor: chromeBd }}
-                />
-                <button
-                  type="submit"
-                  className="flex-shrink-0 px-6 py-3 rounded-[10px] text-sm font-bold text-black transition-opacity hover:opacity-90"
-                  style={{ background: 'linear-gradient(135deg, #D4D4D8, #A78BFA)' }}
-                >
-                  S&apos;abonner
-                </button>
-              </form>
+              <NewsletterForm />
               <p className="text-zinc-500 text-xs mt-5">
                 Aucun spam. Desabonnement en 1 clic.
               </p>

@@ -13,6 +13,7 @@ import dynamic from 'next/dynamic'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ParallaxOrangeBlobs } from '@/components/ui/ParallaxOrangeBlobs'
+import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
@@ -239,7 +240,8 @@ export default function FormationEntreprisePage() {
       </section>
 
       {/* ── Programmes ── */}
-      <section id="programmes" className="relative py-24 bg-bg-card border-y border-border overflow-hidden">
+      <InfiniteGrid className="bg-bg-card border-y border-border" accentRgb="255,140,0" blob1="rgba(255,107,0,0.10)" blob2="rgba(124,58,237,0.07)">
+      <section id="programmes" className="relative py-24 overflow-hidden">
         <ParallaxOrangeBlobs />
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -401,6 +403,7 @@ export default function FormationEntreprisePage() {
           </div>
         </div>
       </section>
+      </InfiniteGrid>
 
       {/* ── ROI Calculator ── */}
       <FormationROICalculator />

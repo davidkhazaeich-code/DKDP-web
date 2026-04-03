@@ -17,6 +17,7 @@ import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_AGENCE } from '@/data/faq-agence'
 import { FunnelDiagram } from './_components/FunnelDiagram'
 import { violet } from '@/lib/tokens'
+import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
@@ -225,7 +226,8 @@ export default function AgenceDigitalePage() {
       </section>
 
       {/* ── Services ── */}
-      <section id="services" className="py-24 bg-bg-card border-y border-border">
+      <InfiniteGrid className="bg-bg-card border-y border-border" blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.07)">
+      <section id="services" className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="mb-14">
@@ -286,6 +288,7 @@ export default function AgenceDigitalePage() {
           </div>
         </div>
       </section>
+      </InfiniteGrid>
 
       {/* ── Audits gratuits ── */}
       <section className="py-24 border-b border-border">

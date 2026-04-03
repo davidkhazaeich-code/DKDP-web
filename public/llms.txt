@@ -1,49 +1,69 @@
-# DKDP
+# DKDP - Agence Digitale Genève
 
-> DKDP est une agence digitale basee a Geneve, en Suisse. Elle accompagne les PME de Suisse romande sur trois piliers : le digital (creation de site web, SEO, publicite en ligne), l'intelligence artificielle (agents IA, automatisation, audit IA) et la formation (formation entreprise et particuliers en informatique, IA et digital). Plus de 150 PME accompagnees depuis la creation de l'agence.
+> DKDP est une agence digitale basée à Genève (Suisse), spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour les PME de Suisse romande. Fondée en 2019, 700+ clients accompagnés.
 
-## Services
+## À propos
 
-### Agence Digitale
-- Creation de sites web sur mesure (vitrine, e-commerce, landing page)
-- Referencement SEO et GEO (optimisation pour Google et les moteurs IA)
-- Publicite en ligne Google Ads (SEA)
-- Gestion des reseaux sociaux
-- Creation video
-- Consulting marketing digital
-- Conformite RGPD et cookies
-- Audit de site web gratuit
-- Audit SEO gratuit
+DKDP accompagne les entreprises genevoises et romandes dans leur transformation digitale avec trois piliers : l'agence digitale (sites web, SEO, Google Ads, réseaux sociaux), l'intelligence artificielle (agents IA, automatisation, audit), et la formation entreprise (IA, bureautique, cybersécurité).
 
-### Intelligence Artificielle
-- Audit et conseil IA pour PME
-- Agents IA sur mesure (support client, traitement de donnees, automatisation)
-- Automatisation des processus metier
-- Mise en place de solutions IA
+Fondateur : David Khazaei, directeur et formateur IA à Genève depuis 2015.
 
-### Formation Entreprise
-- Formation IA pour collaborateurs
-- Formation cybersecurite
-- Formation bureautique et Excel
-- Formation reseaux sociaux
-- Formation web design et Canva
-- Formation montage video
-- Formation informatique
-- Formation pour particuliers
+## Pages principales
 
-## Zone geographique
+- / : Accueil - agence digitale genevoise
+- /agence-digitale : Services digitaux (création web, SEO, Google Ads, réseaux sociaux, vidéo, RGPD)
+- /agence-digitale/creation-site-web : Création de sites web sur mesure à Genève
+- /agence-digitale/seo : Référencement SEO et GEO à Genève
+- /agence-digitale/publicite-sea : Publicité Google Ads
+- /agence-digitale/reseaux-sociaux : Gestion réseaux sociaux
+- /agence-digitale/creation-video : Création vidéo
+- /agence-digitale/consulting-marketing : Consulting marketing digital
+- /intelligence-artificielle : Solutions IA pour PME
+- /intelligence-artificielle/agents-ia : Agents IA sur mesure
+- /intelligence-artificielle/automatisation : Automatisation de processus
+- /intelligence-artificielle/audit-conseil : Audit et conseil IA
+- /intelligence-artificielle/mise-en-place : Mise en place LLM
+- /formation-entreprise : Formations digitales pour entreprises
+- /formation-entreprise/ia : Formation IA en entreprise
+- /formation-entreprise/claude-ai : Formation Claude IA
+- /formation-entreprise/bureautique : Formation bureautique et Excel
+- /formation-entreprise/cybersecurite : Formation cybersécurité
+- /formation-entreprise/web-design : Formation web design
+- /tarifs : Grille tarifaire complète
+- /a-propos : Équipe et histoire de DKDP
+- /blog : Articles sur l'IA, le SEO et la formation
+- /glossaire : Glossaire des termes IA et digital (65+ termes)
+- /contact : Contact et prise de rendez-vous
 
-Geneve, Suisse romande. Interventions sur site dans le canton de Geneve et cantons voisins (Vaud, Fribourg, Valais). Prestations a distance disponibles pour toute la Suisse.
+## Blog - Articles récents
 
-## Contact et ressources
+- /blog/chatgpt-claude-copilot-lequel-choisir-pme-2026 : ChatGPT, Claude ou Copilot : lequel choisir pour votre PME en 2026 ?
+- /blog/seo-local-geneve-2026 : SEO local à Genève en 2026 : le guide complet
+- /blog/automatiser-taches-repetitives-pme : Automatiser les tâches répétitives en PME
+- /blog/core-web-vitals-2026-guide-complet : Core Web Vitals 2026 : guide complet
+- /blog/formation-ia-collaborateurs-roi : Formation IA pour collaborateurs : ROI et bonnes pratiques
+- /blog/site-web-vitrine-convertit : Site web vitrine qui convertit
+- /blog/no-code-low-code-pme-suisse : No-code et low-code pour les PME suisses
+- /blog/cybersecurite-pme-erreurs-courantes : Cybersécurité en PME : les erreurs courantes
+- /blog/audit-digital-360-avant-de-se-lancer : Audit digital 360 avant de se lancer
+- /blog/cout-site-web-geneve-2026 : Coût d'un site web à Genève en 2026
+- /blog/choisir-agence-digitale-geneve : Choisir une agence digitale à Genève
+- /blog/seo-vs-google-ads-geneve : SEO vs Google Ads à Genève
+- /blog/refonte-site-web-quand-pourquoi : Refonte de site web : quand et pourquoi ?
+- /blog/formation-ia-entreprise-geneve-2026 : Formation IA en entreprise à Genève en 2026
+- /blog/automatiser-taches-repetitives-ia-pme : Automatiser les tâches répétitives avec l'IA en PME
+- /blog/creer-site-web-pme-suisse-romande : Créer un site web pour une PME en Suisse romande
+- /blog/ia-ou-consultant-humain-pme : IA ou consultant humain pour votre PME ?
 
-- Site web : https://dkdp.ch
-- Contact et devis : https://dkdp.ch/contact
-- Tarifs : https://dkdp.ch/tarifs
-- Blog : https://dkdp.ch/blog
-- Glossaire digital et IA : https://dkdp.ch/glossaire
-- Realisations clients : https://dkdp.ch/realisations
+## Informations de contact
 
-## Conditions d'utilisation du contenu
+Adresse : Rue du 31 Décembre 36, 1207 Genève, Suisse
+Téléphone : +41 79 940 79 69
+Email : dk@dkdp.ch
+Site : https://dkdp.ch
 
-Le contenu de ce site peut etre cite a des fins d'information avec attribution a DKDP (dkdp.ch). Reproduction commerciale interdite sans accord ecrit.
+## Permissions
+
+Les crawlers de recherche IA (GPTBot, ClaudeBot, PerplexityBot, Bingbot) sont autorisés à indexer et citer ce contenu.
+Les crawlers d'entraînement pur (CCBot, anthropic-ai, cohere-ai) sont bloqués via robots.txt.
+Citation avec attribution à DKDP encouragée pour usage non-commercial.

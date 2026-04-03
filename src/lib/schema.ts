@@ -4,6 +4,7 @@ export function buildLocalBusiness() {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
+    '@id': 'https://dkdp.ch/#local-business',
     name: 'DKDP',
     description: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME. 700+ clients accompagnés en Suisse romande.',
     url: BASE_URL,

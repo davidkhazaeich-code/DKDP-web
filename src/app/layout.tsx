@@ -33,15 +33,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://dkdp.ch' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={inter.variable}>
       <head>
-        <link rel="preconnect" href="https://app.cal.com" />
-        <link rel="preconnect" href="https://cal.com" />
         <link rel="dns-prefetch" href="https://app.cal.com" />
       </head>
       <body className="bg-bg text-white font-sans antialiased">

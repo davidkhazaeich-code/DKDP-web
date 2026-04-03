@@ -6,7 +6,7 @@ export function SchemaOrg({ schema }: SchemaOrgProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/<\//g, '<\\/') }}
     />
   )
 }

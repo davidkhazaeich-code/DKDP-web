@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CTAFinal } from '@/components/sections/CTAFinal'
@@ -434,10 +435,13 @@ export default async function ArticlePage(
       <div className="bg-zinc-950 pb-2">
         <div className="max-w-5xl mx-auto px-4 mb-12">
           <div className="rounded-[20px] overflow-hidden aspect-video border border-zinc-800/60">
-            <img
+            <Image
               src={article.heroImage.src}
               alt={article.heroImage.alt}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
             />
           </div>
         </div>

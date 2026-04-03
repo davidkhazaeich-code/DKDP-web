@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   CheckCircle2, Clock, Users, Award, ChevronRight,
   BrainCircuit, Zap, FileText, Code2, Bot, Layers,
   MessageSquare, Eye, Database, Workflow, BarChart2,
   Shield, Target, Sparkles, BookOpen, Lightbulb,
+  Briefcase, TrendingUp, ShoppingCart, UserCog, DollarSign, Scale,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
@@ -193,23 +195,31 @@ function CapabilityCard({
   )
 }
 
-function UseCaseRow({ dept, color, bg, border, cases }: {
-  dept: string; color: string; bg: string; border: string; cases: string[]
+function UseCaseCard({ dept, icon: Icon, color, bg, border, cases }: {
+  dept: string; icon: React.ElementType; color: string; bg: string; border: string; cases: string[]
 }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 items-start">
-      <div
-        className="px-3 py-2 rounded-[8px] text-center sm:text-left"
-        style={{ background: bg, border: `1px solid ${border}` }}
-      >
-        <span className="text-xs font-bold" style={{ color }}>{dept}</span>
+    <div
+      className="flex flex-col gap-3 rounded-[14px] border p-5"
+      style={{ background: bg, borderColor: border }}
+    >
+      {/* Header */}
+      <div className="flex items-center gap-2.5">
+        <div
+          className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[8px]"
+          style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${border}` }}
+        >
+          <Icon size={15} style={{ color }} aria-hidden="true" />
+        </div>
+        <span className="text-sm font-bold" style={{ color }}>{dept}</span>
       </div>
-      <div className="flex flex-wrap gap-2">
+      {/* Tags */}
+      <div className="flex flex-wrap gap-1.5">
         {cases.map((c) => (
           <span
             key={c}
-            className="text-[11px] px-3 py-1.5 rounded-full text-text-secondary"
-            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            className="text-[11px] px-2.5 py-1 rounded-full font-medium"
+            style={{ background: 'rgba(0,0,0,0.20)', border: `1px solid ${border}`, color }}
           >
             {c}
           </span>
@@ -247,7 +257,10 @@ export default function FormationClaudeAIPage() {
                 Formation Entreprise
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
-              <span className="text-sm" style={{ color: V }}>Claude AI</span>
+              <div className="flex items-center gap-1.5">
+                <Image src="/images/partners/claude-logo.png" alt="Claude AI" width={16} height={16} className="rounded-[4px] opacity-90" />
+                <span className="text-sm" style={{ color: OR }}>Claude AI</span>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -275,7 +288,7 @@ export default function FormationClaudeAIPage() {
                 </p>
 
                 <p className="text-text-muted text-base leading-relaxed mb-8">
-                  Nous l&apos;utilisons nous-mêmes au quotidien — y compris pour développer ce site web.
+                  Nous l&apos;utilisons nous-mêmes au quotidien, y compris pour développer ce site web.
                   Ce que nous vous apprenons, nous le pratiquons.
                 </p>
 
@@ -290,9 +303,9 @@ export default function FormationClaudeAIPage() {
                     <div
                       key={label}
                       className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-text-secondary"
-                      style={{ background: VB, border: `1px solid ${VD}` }}
+                      style={{ background: ORB, border: `1px solid ${ORD}` }}
                     >
-                      <Icon size={12} style={{ color: V }} />
+                      <Icon size={12} style={{ color: OR }} />
                       {label}
                     </div>
                   ))}
@@ -319,7 +332,10 @@ export default function FormationClaudeAIPage() {
                     <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                    <span className="text-[11px] text-text-muted ml-2 font-mono">claude — formation DKDP</span>
+                    <div className="flex items-center gap-1.5 ml-2">
+                      <Image src="/images/partners/claude-logo.png" alt="Claude AI" width={18} height={18} className="rounded-[4px]" />
+                      <span className="text-[11px] text-text-muted font-mono">claude · formation DKDP</span>
+                    </div>
                   </div>
                   <div className="space-y-2 font-mono text-[12px]">
                     <p><span style={{ color: V }}>{'>'}</span> <span className="text-zinc-400">Analyse ce rapport de 80 pages et</span></p>
@@ -373,7 +389,7 @@ export default function FormationClaudeAIPage() {
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color: V }}>{s.v}</p>
+                  <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color: OR }}>{s.v}</p>
                   <p className="text-white text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
@@ -409,7 +425,7 @@ export default function FormationClaudeAIPage() {
             <Link
               href="/contact?service=formation-claude"
               className="flex-shrink-0 hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-bold transition-opacity hover:opacity-80"
-              style={{ background: VB, color: V, border: `1px solid ${VD}` }}
+              style={{ background: ORB, color: OR, border: `1px solid ${ORD}` }}
             >
               Prendre contact
             </Link>
@@ -422,7 +438,7 @@ export default function FormationClaudeAIPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Contexte 2026
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
@@ -484,16 +500,31 @@ export default function FormationClaudeAIPage() {
               className="rounded-[20px] p-6 md:p-8"
               style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
-              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: V }}>Comparatif rapide</p>
+              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: OR }}>Comparatif rapide</p>
               <p className="text-text-muted text-xs mb-6">Évaluation DKDP basée sur les versions 2026 (Claude Sonnet 4.6, GPT-4o, Microsoft Copilot)</p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
                     <tr className="border-b border-zinc-800">
                       <th className="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-text-muted w-[40%]">Critère</th>
-                      <th className="text-center py-3 px-4 text-xs font-bold" style={{ color: V }}>Claude</th>
-                      <th className="text-center py-3 px-4 text-xs font-bold text-[#10b981]">ChatGPT</th>
-                      <th className="text-center py-3 px-4 text-xs font-bold text-[#3b82f6]">Copilot</th>
+                      <th className="text-center py-3 px-4 text-xs font-bold" style={{ color: V }}>
+                        <div className="inline-flex items-center gap-1.5">
+                          <Image src="/images/partners/claude-logo.png" alt="" width={14} height={14} className="rounded-[3px]" />
+                          Claude
+                        </div>
+                      </th>
+                      <th className="text-center py-3 px-4 text-xs font-bold text-[#10b981]">
+                        <div className="inline-flex items-center gap-1.5">
+                          <Image src="/images/partners/chatgpt-logo.png" alt="" width={14} height={14} className="rounded-[3px]" />
+                          ChatGPT
+                        </div>
+                      </th>
+                      <th className="text-center py-3 px-4 text-xs font-bold text-[#3b82f6]">
+                        <div className="inline-flex items-center gap-1.5">
+                          <Image src="/images/partners/copilot-logo.png" alt="" width={14} height={14} className="rounded-[3px]" />
+                          Copilot
+                        </div>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -602,9 +633,12 @@ export default function FormationClaudeAIPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
-                L&apos;écosystème Claude
-              </span>
+              <div className="inline-flex items-center gap-2 mb-3">
+                <Image src="/images/partners/claude-logo.png" alt="Claude AI" width={20} height={20} className="rounded-[5px]" />
+                <span className="text-xs font-bold uppercase tracking-widest" style={{ color: OR }}>
+                  L&apos;écosystème Claude
+                </span>
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
                 3 outils, un seul programme de formation
               </h2>
@@ -682,7 +716,7 @@ export default function FormationClaudeAIPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Programme détaillé
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
@@ -702,7 +736,7 @@ export default function FormationClaudeAIPage() {
                 <div className="flex items-center gap-3 mb-5">
                   <div
                     className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
-                    style={{ background: VB, color: V, border: `1px solid ${VD}` }}
+                    style={{ background: ORB, color: OR, border: `1px solid ${ORD}` }}
                   >
                     Journée 1 · Claude.ai + Projects
                   </div>
@@ -766,9 +800,9 @@ export default function FormationClaudeAIPage() {
           <SectionReveal>
             <div
               className="mt-12 p-6 md:p-8 rounded-[20px]"
-              style={{ background: VB, border: `1px solid ${VD}` }}
+              style={{ background: ORB, border: `1px solid ${ORD}` }}
             >
-              <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: V }}>
+              <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: OR }}>
                 Compétences acquises à l&apos;issue de la formation
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -787,7 +821,7 @@ export default function FormationClaudeAIPage() {
                   'Intégrations API et MCP (profils tech)',
                 ].map((m) => (
                   <div key={m} className="flex items-start gap-2 text-xs text-text-secondary">
-                    <CheckCircle2 size={12} style={{ color: V }} className="flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 size={12} style={{ color: OR }} className="flex-shrink-0 mt-0.5" />
                     {m}
                   </div>
                 ))}
@@ -802,7 +836,7 @@ export default function FormationClaudeAIPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Fonctionnalités couvertes
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
@@ -820,8 +854,8 @@ export default function FormationClaudeAIPage() {
               {
                 icon: BrainCircuit,
                 title: 'Extended Thinking',
-                desc: 'Activez le raisonnement profond de Claude pour les problèmes stratégiques. Claude réfléchit avant de répondre — avec transparence sur son raisonnement.',
-                color: V, bg: VB, border: VD,
+                desc: 'Activez le raisonnement profond de Claude pour les problèmes stratégiques. Claude réfléchit avant de répondre, avec transparence sur son raisonnement.',
+                color: OR, bg: ORB, border: ORD,
               },
               {
                 icon: FileText,
@@ -832,8 +866,8 @@ export default function FormationClaudeAIPage() {
               {
                 icon: Eye,
                 title: 'Vision et analyse d\'images',
-                desc: 'Tableaux, graphiques, schémas, captures d\'écran, PDFs scannés — Claude voit, comprend et explique chaque élément visuel.',
-                color: V, bg: VB, border: VD,
+                desc: 'Tableaux, graphiques, schémas, captures d\'écran, PDFs scannés. Claude voit, comprend et explique chaque élément visuel.',
+                color: CH, bg: CHB, border: CHD,
               },
               {
                 icon: Layers,
@@ -863,7 +897,7 @@ export default function FormationClaudeAIPage() {
                 icon: BarChart2,
                 title: 'Analyse de données',
                 desc: 'Interrogez vos données en langage naturel. Claude écrit du SQL, génère des graphiques, identifie des anomalies et rédige le commentaire.',
-                color: V, bg: VB, border: VD,
+                color: OR, bg: ORB, border: ORD,
               },
             ].map((c) => (
               <CapabilityCard key={c.title} {...c} />
@@ -877,7 +911,7 @@ export default function FormationClaudeAIPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Par département
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
@@ -891,10 +925,13 @@ export default function FormationClaudeAIPage() {
           </SectionReveal>
 
           <SectionReveal>
-            <div className="space-y-4">
-              <UseCaseRow
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <UseCaseCard
                 dept="Direction"
-                color={V} bg={VB} border={VD}
+                icon={Briefcase}
+                color="#FF8C00"
+                bg="rgba(255,107,0,0.07)"
+                border="rgba(255,107,0,0.20)"
                 cases={[
                   'Synthèse de rapports exécutifs',
                   'Analyse stratégique de marché',
@@ -903,75 +940,91 @@ export default function FormationClaudeAIPage() {
                   'Évaluation de risques',
                 ]}
               />
-              <UseCaseRow
+              <UseCaseCard
                 dept="Marketing"
-                color={V} bg={VB} border={VD}
+                icon={TrendingUp}
+                color="#A78BFA"
+                bg="rgba(124,58,237,0.08)"
+                border="rgba(124,58,237,0.22)"
                 cases={[
                   'Rédaction campagnes multi-formats',
                   'Analyse de concurrents',
-                  'Création de briefs créatifs',
-                  'A/B testing de copywriting',
+                  'Briefs créatifs',
+                  'A/B testing copywriting',
                   'SEO et contenu de blog',
                   'Personas et audience research',
                 ]}
               />
-              <UseCaseRow
+              <UseCaseCard
                 dept="Commercial"
-                color={OR} bg={ORB} border={ORD}
+                icon={ShoppingCart}
+                color="#60a5fa"
+                bg="rgba(96,165,250,0.08)"
+                border="rgba(96,165,250,0.22)"
                 cases={[
-                  'Rédaction de propositions commerciales',
+                  'Propositions commerciales',
                   'Analyse des objections clients',
                   'Compte-rendu de réunions',
                   'Recherche sur les prospects',
                   'Scripts et emails de prospection',
                 ]}
               />
-              <UseCaseRow
+              <UseCaseCard
                 dept="RH"
-                color={OR} bg={ORB} border={ORD}
+                icon={UserCog}
+                color="#f472b6"
+                bg="rgba(244,114,182,0.08)"
+                border="rgba(244,114,182,0.22)"
                 cases={[
-                  'Rédaction de fiches de poste',
+                  'Fiches de poste',
                   'Résumé de candidatures',
                   'FAQ interne automatisée',
                   'Onboarding documentaire',
                   'Politiques et procédures',
-                  'Analyse des feedbacks collaborateurs',
+                  'Analyse des feedbacks',
                 ]}
               />
-              <UseCaseRow
+              <UseCaseCard
                 dept="Finance"
-                color={CH} bg={CHB} border={CHD}
+                icon={DollarSign}
+                color="#2dd4bf"
+                bg="rgba(45,212,191,0.08)"
+                border="rgba(45,212,191,0.22)"
                 cases={[
                   'Analyse de rapports financiers',
-                  'Extraction de données de factures PDF',
-                  'Génération de commentaires de résultats',
+                  'Extraction de données PDF',
+                  'Commentaires de résultats',
                   'Analyse de contrats fournisseurs',
                   'Tableaux de bord commentés',
                 ]}
               />
-              <UseCaseRow
+              <UseCaseCard
                 dept="Juridique"
-                color={CH} bg={CHB} border={CHD}
+                icon={Scale}
+                color="#fbbf24"
+                bg="rgba(251,191,36,0.07)"
+                border="rgba(251,191,36,0.22)"
                 cases={[
                   'Résumé de contrats longs',
                   'Extraction de clauses clés',
-                  'Comparaison de versions de documents',
+                  'Comparaison de versions',
                   'Veille réglementaire',
                   'Rédaction de courriers',
                 ]}
               />
-              <UseCaseRow
+              <UseCaseCard
                 dept="Développeurs"
+                icon={Code2}
                 color="#4ade80"
-                bg="rgba(74,222,128,0.08)"
+                bg="rgba(74,222,128,0.07)"
                 border="rgba(74,222,128,0.22)"
                 cases={[
                   'Review de code automatisée',
                   'Génération de tests unitaires',
                   'Documentation de codebase',
                   'Debugging assisté',
-                  'Migration de stack technique',
-                  'Workflow GitHub/GitLab complet',
+                  'Migration de stack',
+                  'Workflow GitHub/GitLab',
                 ]}
               />
             </div>
@@ -984,7 +1037,7 @@ export default function FormationClaudeAIPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Modalités
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
@@ -1013,13 +1066,13 @@ export default function FormationClaudeAIPage() {
               <SectionReveal key={title}>
                 <div
                   className="flex flex-col gap-4 p-5 rounded-[14px] h-full"
-                  style={{ background: VB, border: `1px solid ${VD}` }}
+                  style={{ background: ORB, border: `1px solid ${ORD}` }}
                 >
                   <div
                     className="w-10 h-10 rounded-[8px] flex items-center justify-center"
-                    style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${VD}` }}
+                    style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${ORD}` }}
                   >
-                    <Icon size={18} style={{ color: V }} />
+                    <Icon size={18} style={{ color: OR }} />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm mb-1">{title}</p>
@@ -1037,7 +1090,7 @@ export default function FormationClaudeAIPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Tarifs
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
@@ -1056,7 +1109,7 @@ export default function FormationClaudeAIPage() {
                 price: 'CHF 1\'500',
                 dur: '3h30',
                 participants: 'Jusqu\'à 10 participants',
-                color: V, bg: VB, border: VD,
+                color: OR, bg: ORB, border: ORD,
                 features: [
                   'Prompting avancé',
                   'Analyse de vos documents réels',
@@ -1070,7 +1123,7 @@ export default function FormationClaudeAIPage() {
                 price: 'CHF 2\'800',
                 dur: '7h',
                 participants: 'Jusqu\'à 10 participants',
-                color: V, bg: VB, border: VD,
+                color: OR, bg: ORB, border: ORD,
                 featured: true,
                 features: [
                   'Tout le module demi-journée',
@@ -1101,15 +1154,15 @@ export default function FormationClaudeAIPage() {
                 <div
                   className="relative flex flex-col gap-6 p-6 rounded-[18px] h-full"
                   style={{
-                    background: plan.featured ? VB : 'rgba(255,255,255,0.02)',
+                    background: plan.featured ? ORB : 'rgba(255,255,255,0.02)',
                     border: `1px solid ${plan.featured ? plan.border : 'rgba(255,255,255,0.07)'}`,
-                    boxShadow: plan.featured ? `0 0 30px rgba(124,58,237,0.12)` : 'none',
+                    boxShadow: plan.featured ? `0 0 30px rgba(255,107,0,0.15)` : 'none',
                   }}
                 >
                   {plan.featured && (
                     <div
                       className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-bold"
-                      style={{ background: V, color: '#09090B' }}
+                      style={{ background: OR, color: '#09090B' }}
                     >
                       Recommandé
                     </div>
@@ -1133,7 +1186,7 @@ export default function FormationClaudeAIPage() {
                     href="/contact?service=formation-claude"
                     className="block w-full text-center py-2.5 px-4 rounded-[10px] text-sm font-bold transition-opacity hover:opacity-80"
                     style={plan.featured
-                      ? { background: V, color: '#09090B' }
+                      ? { background: OR, color: '#09090B' }
                       : { background: plan.bg, color: plan.color, border: `1px solid ${plan.border}` }
                     }
                   >
@@ -1147,7 +1200,7 @@ export default function FormationClaudeAIPage() {
           <SectionReveal>
             <p className="text-center text-text-muted text-sm mt-8">
               Besoin d&apos;un programme sur 2 jours, d&apos;un format Train-the-Trainer ou d&apos;un suivi coaching ?{' '}
-              <Link href="/contact" className="underline hover:text-white transition-colors" style={{ color: V }}>
+              <Link href="/contact" className="underline hover:text-white transition-colors" style={{ color: OR }}>
                 Parlons-en
               </Link>
             </p>
@@ -1161,7 +1214,7 @@ export default function FormationClaudeAIPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <SectionReveal>
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: V }}>
+                <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                   Pourquoi DKDP
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6">
@@ -1186,7 +1239,7 @@ export default function FormationClaudeAIPage() {
                     'Programme mis à jour à chaque nouvelle version Claude',
                   ].map((p) => (
                     <div key={p} className="flex items-start gap-3 text-sm text-text-secondary">
-                      <Sparkles size={14} style={{ color: V }} className="flex-shrink-0 mt-0.5" />
+                      <Sparkles size={14} style={{ color: OR }} className="flex-shrink-0 mt-0.5" />
                       {p}
                     </div>
                   ))}
@@ -1205,7 +1258,7 @@ export default function FormationClaudeAIPage() {
                   <div
                     key={s.l}
                     className="text-center py-8 rounded-[16px]"
-                    style={{ background: VB, border: `1px solid ${VD}` }}
+                    style={{ background: ORB, border: `1px solid ${ORD}` }}
                   >
                     <p className="text-4xl font-bold mb-2" style={{ color: s.c }}>{s.v}</p>
                     <p className="text-text-muted text-xs">{s.l}</p>

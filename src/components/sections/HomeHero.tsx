@@ -7,8 +7,9 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { GradText } from '@/components/ui/GradText'
 import { TrustBadge } from '@/components/ui/TrustBadge'
+import { InfiniteGrid } from '@/components/canvas/InfiniteGrid'
 
-// Lazy-load Three.js canvas — desktop uniquement, jamais chargé sur mobile
+// Three.js — desktop uniquement, jamais chargé sur mobile
 const DottedSurface = dynamic(
   () => import('@/components/canvas/DottedSurface').then((m) => ({ default: m.DottedSurface })),
   { ssr: false, loading: () => null }
@@ -18,16 +19,18 @@ export function HomeHero() {
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 600], [0, -80])
 
-  // Ne charger Three.js que sur desktop (≥768px) — sur mobile le bundle n'est pas téléchargé
-  const [isDesktop, setIsDesktop] = useState(false)
+  // null = inconnu (SSR/hydration), true = desktop, false = mobile
+  const [isDesktop, setIsDesktop] = useState<boolean | null>(null)
   useEffect(() => {
     setIsDesktop(window.matchMedia('(min-width: 768px)').matches)
   }, [])
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
-      {/* Three.js background — desktop uniquement */}
-      {isDesktop && <DottedSurface className="absolute inset-0 z-0 opacity-60" />}
+      {/* Desktop : fond Three.js points lumineux */}
+      {isDesktop === true && <DottedSurface className="absolute inset-0 z-0 opacity-60" />}
+      {/* Mobile : grille CSS animée — même esthétique, zéro Three.js */}
+      {isDesktop === false && <InfiniteGrid className="absolute inset-0 z-0" />}
 
       {/* Radial blobs */}
       <div className="blob-orange absolute -top-32 -left-32 w-[600px] h-[600px] opacity-25 pointer-events-none" />

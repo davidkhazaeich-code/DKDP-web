@@ -48,7 +48,7 @@ export function HomeHero() {
       {/* ── Fond immédiat : grille CSS + blobs — visible dès le SSR, zéro JS ── */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
+        className="md:hidden pointer-events-none absolute inset-0"
         style={{
           backgroundImage: GRID_SVG,
           backgroundSize: '60px 60px',

@@ -369,21 +369,15 @@ export function DottedSurface({
       }
     }
 
-    // Wait 1.5 s before starting Three.js — keeps main thread free during LCP/FID
-    // but still loads dots at a perceptually fast moment (FCP ~1.5 s).
-    // Three.js import + init takes ~400 ms on desktop, so dots appear ~2-2.5 s after load.
+    // Load Three.js as soon as browser is idle — no artificial delay.
     const ric = (window as any).requestIdleCallback
       ?? ((cb: () => void) => setTimeout(cb, 200))
 
-    let ricId: ReturnType<typeof setTimeout>
-    const delayId = setTimeout(() => {
-      ricId = ric(() => { if (!cancelled) init(container) }, { timeout: 2000 })
-    }, 1500)
+    const ricId = ric(() => { if (!cancelled) init(container) }, { timeout: 2000 })
 
     return () => {
       cancelled = true
-      clearTimeout(delayId)
-      clearTimeout(ricId)
+      ;(window as any).cancelIdleCallback?.(ricId)
       cleanupFn?.()
     }
   }, [violetRatio, orangeRatio])

@@ -8,8 +8,8 @@ import { GradText } from '@/components/ui/GradText'
 import { TrustBadge } from '@/components/ui/TrustBadge'
 
 // Three.js — desktop uniquement, chargé en idle après LCP
-const DottedSurface = dynamic(
-  () => import('@/components/canvas/DottedSurface').then((m) => ({ default: m.DottedSurface })),
+const ParticleWaves = dynamic(
+  () => import('@/components/canvas/ParticleWaves').then((m) => ({ default: m.ParticleWaves })),
   { ssr: false, loading: () => null }
 )
 
@@ -57,9 +57,9 @@ export function HomeHero() {
         }}
       />
 
-      {/* ── Desktop uniquement : Three.js dots ── */}
+      {/* ── Desktop uniquement : Three.js particle waves ── */}
       {isDesktop === true && (
-        <DottedSurface className="absolute inset-0 z-[2] opacity-60" />
+        <ParticleWaves className="absolute inset-0 z-[2] opacity-60" />
       )}
 
       {/* ── Contenu — toujours dans le HTML SSR, jamais conditionnel ── */}
@@ -68,9 +68,9 @@ export function HomeHero() {
           <TrustBadge variant="light" />
         </div>
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-[-0.03em] mb-6 max-w-[1100px] mx-auto">
-          L&apos;agence digitale à Genève
+          L&apos;agence digitale genevoise
           <br />
-          <GradText as="span">qui fait ce qu&apos;elle dit.</GradText>
+          <GradText as="span">qui vous fait sortir du lot.</GradText>
         </h1>
         <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-[860px] mx-auto">
           On crée votre site, on optimise votre SEO, on déploie l&apos;IA dans vos équipes

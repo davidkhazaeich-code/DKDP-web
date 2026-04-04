@@ -13,6 +13,7 @@ export async function POST(req: NextRequest) {
 
   if (_gotcha) return NextResponse.json({ ok: true })
   if (!email) return NextResponse.json({ error: 'Email requis' }, { status: 400 })
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return NextResponse.json({ error: 'Email invalide' }, { status: 400 })
 
   const resend = new Resend(process.env.RESEND_API_KEY)
 

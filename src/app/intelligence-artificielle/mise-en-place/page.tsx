@@ -247,6 +247,94 @@ export default function MiseEnPlacePage() {
         </div>
       </section>
 
+      {/* ── Cas d'usage ────────────────────────────────────────── */}
+      <HeroBg className="bg-bg-card border-y border-border" accentRgb="212,212,216" blob1="rgba(212,212,216,0.08)" blob2="rgba(124,58,237,0.06)">
+      <section id="applications" className="py-24 scroll-mt-[112px]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-14">
+              <GradTag className="mb-4">Applications concretes</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                Ce qu&apos;on peut connecter pour vous.
+              </h2>
+            </div>
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                Icon: MessageSquare,
+                title: 'Assistant interne',
+                desc: 'Un chatbot qui repond sur vos docs, procedures internes et base de connaissance. Vos equipes trouvent l\'information en secondes, pas en minutes.',
+                tag: 'Tres demande',
+                tagColor: violet,
+              },
+              {
+                Icon: MailOpen,
+                title: 'Generation de contenu',
+                desc: 'Emails, rapports, fiches produits generes depuis vos templates et donnees. Coherence de ton garantie, temps de production divise par 5.',
+                tag: null,
+                tagColor: '',
+              },
+              {
+                Icon: FileSearch,
+                title: 'Analyse de documents',
+                desc: 'Lecture automatique de PDFs, contrats, factures. Extraction de donnees cles et synthese structuree en quelques secondes par document.',
+                tag: null,
+                tagColor: '',
+              },
+              {
+                Icon: ShieldCheck,
+                title: 'Support client augmente',
+                desc: 'FAQ intelligente connectee a votre CRM et historique client. Resolution automatique des demandes courantes, escalade intelligente des cas complexes.',
+                tag: null,
+                tagColor: '',
+              },
+              {
+                Icon: Code2,
+                title: 'Code et automatisation',
+                desc: 'Generateur de scripts, aide aux developpeurs, revue de code automatisee. Productivite technique multipliee sans recruter.',
+                tag: null,
+                tagColor: '',
+              },
+              {
+                Icon: Newspaper,
+                title: 'Veille et synthese',
+                desc: 'Resumes automatiques de news sectorielles, rapports de marche, alertes concurrentielles. Restez informe sans passer des heures a lire.',
+                tag: null,
+                tagColor: '',
+              },
+            ].map((uc, i) => (
+              <SectionReveal key={uc.title} delay={i * 0.07}>
+                <div
+                  className="relative flex flex-col h-full rounded-[14px] border p-6"
+                  style={{ background: bg, borderColor: border }}
+                >
+                  {uc.tag && (
+                    <span
+                      className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full"
+                      style={{ background: 'rgba(167,139,250,0.15)', color: uc.tagColor, border: `1px solid rgba(167,139,250,0.30)` }}
+                    >
+                      {uc.tag}
+                    </span>
+                  )}
+                  <div
+                    className="flex h-11 w-11 items-center justify-center rounded-[9px] mb-4 flex-shrink-0"
+                    style={{ background: bg, border: `1px solid ${border}` }}
+                  >
+                    <uc.Icon size={20} style={{ color }} />
+                  </div>
+                  <h3 className="text-white font-bold text-base mb-2">{uc.title}</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed flex-1">{uc.desc}</p>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      </HeroBg>
+
       {/* ── LLMs ──────────────────────────────────────────────── */}
       <section id="llms" className="py-24 scroll-mt-[112px]">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -375,92 +463,8 @@ export default function MiseEnPlacePage() {
         </div>
       </section>
 
-      {/* ── Cas d'usage ───────────────────────────────────────── */}
-      <section id="applications" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Applications concretes</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce qu&apos;on peut connecter pour vous.
-              </h2>
-            </div>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              {
-                Icon: MessageSquare,
-                title: 'Assistant interne',
-                desc: 'Un chatbot qui repond sur vos docs, procedures internes et base de connaissance. Vos equipes trouvent l\'information en secondes, pas en minutes.',
-                tag: 'Tres demande',
-                tagColor: violet,
-              },
-              {
-                Icon: MailOpen,
-                title: 'Generation de contenu',
-                desc: 'Emails, rapports, fiches produits generes depuis vos templates et donnees. Coherence de ton garantie, temps de production divise par 5.',
-                tag: null,
-                tagColor: '',
-              },
-              {
-                Icon: FileSearch,
-                title: 'Analyse de documents',
-                desc: 'Lecture automatique de PDFs, contrats, factures. Extraction de donnees cles et synthese structuree en quelques secondes par document.',
-                tag: null,
-                tagColor: '',
-              },
-              {
-                Icon: ShieldCheck,
-                title: 'Support client augmente',
-                desc: 'FAQ intelligente connectee a votre CRM et historique client. Resolution automatique des demandes courantes, escalade intelligente des cas complexes.',
-                tag: null,
-                tagColor: '',
-              },
-              {
-                Icon: Code2,
-                title: 'Code et automatisation',
-                desc: 'Generateur de scripts, aide aux developpeurs, revue de code automatisee. Productivite technique multipliee sans recruter.',
-                tag: null,
-                tagColor: '',
-              },
-              {
-                Icon: Newspaper,
-                title: 'Veille et synthese',
-                desc: 'Resumes automatiques de news sectorielles, rapports de marche, alertes concurrentielles. Restez informe sans passer des heures a lire.',
-                tag: null,
-                tagColor: '',
-              },
-            ].map((uc, i) => (
-              <SectionReveal key={uc.title} delay={i * 0.07}>
-                <div
-                  className="relative flex flex-col h-full rounded-[14px] border p-6"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  {uc.tag && (
-                    <span
-                      className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full"
-                      style={{ background: 'rgba(167,139,250,0.15)', color: uc.tagColor, border: `1px solid rgba(167,139,250,0.30)` }}
-                    >
-                      {uc.tag}
-                    </span>
-                  )}
-                  <div
-                    className="flex h-11 w-11 items-center justify-center rounded-[9px] mb-4 flex-shrink-0"
-                    style={{ background: bg, border: `1px solid ${border}` }}
-                  >
-                    <uc.Icon size={20} style={{ color }} />
-                  </div>
-                  <h3 className="text-white font-bold text-base mb-2">{uc.title}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed flex-1">{uc.desc}</p>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Process ───────────────────────────────────────────── */}
+      {/* ── Process ────────────────────────────────────────── */}
+      <HeroBg accentRgb="212,212,216" blob1="rgba(212,212,216,0.08)" blob2="rgba(124,58,237,0.06)">
       <section id="methode" className="py-24 scroll-mt-[112px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -534,6 +538,8 @@ export default function MiseEnPlacePage() {
           </div>
         </div>
       </section>
+
+      </HeroBg>
 
       {/* ── Pricing ───────────────────────────────────────────── */}
       <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">

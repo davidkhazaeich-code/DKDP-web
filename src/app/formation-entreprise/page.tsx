@@ -16,6 +16,7 @@ import { ParallaxOrangeBlobs } from '@/components/ui/ParallaxOrangeBlobs'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
 const FormationROICalculator = dynamic(() => import('@/components/sections/FormationROICalculator').then(m => ({ default: m.FormationROICalculator })))
 const ProgressionDiagram = dynamic(() => import('./_components/ProgressionDiagram').then(m => ({ default: m.ProgressionDiagram })))
@@ -157,8 +158,6 @@ export default function FormationEntreprisePage() {
           </div>
         </section>
       </HeroBg>
-
-      <LogoBanner label="Équipes déjà formées" />
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
@@ -528,6 +527,10 @@ export default function FormationEntreprisePage() {
         </div>
       </section>
       </HeroBg>
+
+      {/* ── Témoignages ── */}
+      <LogoBanner label="Équipes déjà formées" />
+      <Testimonials accentRgb="255,140,0" />
 
       {/* ── FAQ ── */}
       <FAQSection items={FAQ_FORMATION} title="Vos questions sur nos formations" />

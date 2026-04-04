@@ -153,8 +153,6 @@ export default function AgenceDigitalePage() {
         </section>
       </HeroBg>
 
-      <LogoBanner label="Ils nous font confiance" />
-
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -476,6 +474,7 @@ export default function AgenceDigitalePage() {
       </section>
 
       {/* ── Testimonials ── */}
+      <LogoBanner label="Ils nous font confiance" />
       <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
         <Testimonials className="py-24 border-y border-border" />
       </HeroBg>

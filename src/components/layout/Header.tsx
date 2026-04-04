@@ -245,6 +245,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [activeTab, setActiveTab] = React.useState<TabKey>('agence')
   const [direction, setDirection] = React.useState(0)
   const [mounted, setMounted] = React.useState(false)
+  const router = useRouter()
 
   React.useEffect(() => setMounted(true), [])
   React.useEffect(() => {
@@ -264,6 +265,15 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
     if (ci === ni) return
     setDirection(ni > ci ? 1 : -1)
     setActiveTab(key)
+  }
+
+  function handleTabClick(t: typeof MOBILE_TABS[0]) {
+    if (activeTab === t.key && t.hubHref) {
+      router.push(t.hubHref)
+      onClose()
+    } else {
+      switchTab(t.key)
+    }
   }
 
   return createPortal(
@@ -288,7 +298,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                   <button
                     key={t.key}
                     type="button"
-                    onClick={() => switchTab(t.key)}
+                    onClick={() => handleTabClick(t)}
                     className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-[10px] text-[12px] font-semibold transition-all duration-200"
                     style={isActive
                       ? { color: t.color, background: t.bg, border: `1px solid ${t.border}` }
@@ -297,6 +307,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                   >
                     <t.tabIcon size={13} />
                     <span className="truncate">{t.label}</span>
+                    {isActive && <ChevronRight size={11} className="opacity-50 flex-shrink-0" />}
                   </button>
                 )
               })}

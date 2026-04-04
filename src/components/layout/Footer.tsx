@@ -150,14 +150,14 @@ function FooterInner({ constrained = false }: { constrained?: boolean }) {
           {/* Pillar columns */}
           {PILLARS.map((pillar) => (
             <div key={pillar.label} className="flex flex-col pb-6">
-              <div className="flex items-center gap-2 mb-4 pb-3" style={{ borderBottom: `1px solid ${pillar.border}` }}>
+              <Link href={pillar.hub.href} className="flex items-center gap-2 mb-4 pb-3 hover:opacity-75 transition-opacity" style={{ borderBottom: `1px solid ${pillar.border}` }}>
                 <div className="flex h-6 w-6 items-center justify-center rounded-[5px] flex-shrink-0" style={{ background: pillar.bg, border: `1px solid ${pillar.border}` }}>
                   <pillar.Icon size={12} style={{ color: pillar.color }} />
                 </div>
                 <span className="text-[11px] font-bold uppercase tracking-[0.12em]" style={{ color: pillar.color }}>
                   {pillar.label}
                 </span>
-              </div>
+              </Link>
               <ul className="space-y-2 flex-1">
                 {pillar.links.map(({ label, href }) => (
                   <li key={href}>
@@ -218,14 +218,14 @@ function FooterInner({ constrained = false }: { constrained?: boolean }) {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 py-8 border-b border-border">
           {PILLARS.map((pillar) => (
             <div key={pillar.label} className="flex flex-col">
-              <div className="flex items-center gap-2 mb-3 pb-2.5" style={{ borderBottom: `1px solid ${pillar.border}` }}>
+              <Link href={pillar.hub.href} className="flex items-center gap-2 mb-3 pb-2.5 hover:opacity-75 transition-opacity" style={{ borderBottom: `1px solid ${pillar.border}` }}>
                 <div className="flex h-5 w-5 items-center justify-center rounded-[4px] flex-shrink-0" style={{ background: pillar.bg, border: `1px solid ${pillar.border}` }}>
                   <pillar.Icon size={11} style={{ color: pillar.color }} />
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-[0.10em]" style={{ color: pillar.color }}>
                   {pillar.label}
                 </span>
-              </div>
+              </Link>
               <ul className="space-y-2 mb-3">
                 {pillar.links.map(({ label, href }) => (
                   <li key={href}>

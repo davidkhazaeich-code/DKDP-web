@@ -89,12 +89,12 @@ export const ARTICLES: Article[] = [
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/chatgpt-claude-copilot-hero.png',
-      alt: 'Trois intelligences artificielles représentées par des orbes de lumière connectés dans un espace sombre',
+      alt: 'Comparatif ChatGPT Claude Copilot pour PME en 2026 : trois assistants IA representes par des orbes connectes',
     },
     images: [
       {
         src: '/images/blog/chatgpt-claude-copilot-comparison.png',
-        alt: 'Radar comparatif des trois assistants IA selon 6 critères',
+        alt: 'Radar comparatif ChatGPT vs Claude vs Copilot selon 6 criteres : vitesse, precision, cout, confidentialite, creativite, integrations',
         caption: 'Comparatif radar : vitesse, précision, coût, confidentialité, créativité, intégrations',
       },
     ],
@@ -191,12 +191,12 @@ Il n'existe pas de meilleur outil universel : il existe l'outil le mieux aligné
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/seo-local-geneve-hero.png',
-      alt: 'Vue aérienne de Genève avec des épingles de localisation violettes et une grille numérique superposée',
+      alt: 'SEO local Geneve 2026 : vue aerienne de Geneve avec epingles de localisation et grille numerique pour referencement local PME',
     },
     images: [
       {
         src: '/images/blog/seo-local-geneve-funnel.png',
-        alt: 'Entonnoir de marketing local : sensibilisation, considération, conversion',
+        alt: 'Entonnoir SEO local Geneve : sensibilisation, consideration, conversion pour PME suisse',
         caption: 'L\'entonnoir SEO local : de la découverte à la conversion',
       },
     ],
@@ -295,12 +295,12 @@ Le SEO local à Genève n'est pas une question de budget publicitaire, mais de r
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/automatiser-taches-hero.png',
-      alt: "Visualisation abstraite d'un workflow automatisé avec des noeuds connectés par des flux de données violets",
+      alt: 'Automatiser taches repetitives PME : workflow automatise avec noeuds connectes et flux de donnees pour gagner en productivite',
     },
     images: [
       {
         src: '/images/blog/automatiser-taches-workflow.png',
-        alt: "Diagramme circulaire d'un processus d'automatisation en 6 étapes",
+        alt: 'Cycle automatisation PME en 6 etapes : identifier, modeliser, configurer, tester, deployer, mesurer',
         caption: "Le cycle d'automatisation en 6 étapes : identifier, modéliser, configurer, tester, déployer, mesurer",
       },
     ],
@@ -402,12 +402,12 @@ L'automatisation n'est pas un projet IT. C'est une décision stratégique qui li
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/core-web-vitals-hero.png',
-      alt: 'Dashboard de performance web avec trois jauges circulaires indiquant LCP, CLS et INP au vert',
+      alt: 'Core Web Vitals 2026 : dashboard performance web avec jauges LCP, CLS et INP pour optimisation SEO',
     },
     images: [
       {
         src: '/images/blog/core-web-vitals-metrics.png',
-        alt: 'Visualisation des trois métriques Core Web Vitals : LCP, CLS et INP',
+        alt: 'Metriques Core Web Vitals expliquees : LCP temps de chargement, CLS stabilite visuelle, INP reactivite',
         caption: 'LCP, CLS, INP : les trois signaux qui définissent l\'expérience utilisateur selon Google',
       },
     ],
@@ -510,12 +510,12 @@ Les Core Web Vitals ne sont pas une contrainte technique abstraite : ils sont la
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/formation-ia-roi-hero.png',
-      alt: "Équipe en formation devant des interfaces d'intelligence artificielle dans un bureau moderne éclairé en violet",
+      alt: 'Formation IA entreprise ROI 2026 : equipe en formation devant des interfaces IA dans un bureau moderne',
     },
     images: [
       {
         src: '/images/blog/formation-ia-roi-curve.png',
-        alt: 'Courbe de ROI montrant la progression de la productivité après une formation IA',
+        alt: 'Courbe ROI formation IA entreprise : progression productivite sur 12 mois apres formation collaborateurs',
         caption: 'Courbe ROI type : plateau initial, puis gain exponentiel à partir du 3e mois',
       },
     ],
@@ -611,12 +611,12 @@ Former ses collaborateurs à l'IA n'est pas un projet RH périphérique. C'est u
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/site-web-convertit-hero.png',
-      alt: "Écran d'ordinateur affichant une heatmap de site web avec des zones chaudes en orange et rouge",
+      alt: 'Site web qui convertit : heatmap UX montrant les zones chaudes de clic et points de conversion pour PME',
     },
     images: [
       {
         src: '/images/blog/site-web-convertit-ux.png',
-        alt: "Diagramme d'entonnoir de conversion UX avec les points de friction identifiés",
+        alt: 'Entonnoir de conversion UX site web PME : visiteurs, leads, clients avec points de friction identifies',
         caption: "L'entonnoir de conversion : chaque étape peut être un point de fuite",
       },
     ],
@@ -715,12 +715,12 @@ Avant d'investir dans plus de trafic, assurez-vous d'abord que votre site sait c
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/no-code-low-code-hero.png',
-      alt: 'Interface de programmation visuelle avec des blocs colorés connectés par des courbes dans un espace sombre',
+      alt: 'No-code low-code PME Suisse 2026 : interface de programmation visuelle avec blocs connectes pour creer sans coder',
     },
     images: [
       {
         src: '/images/blog/no-code-low-code-ecosystem.png',
-        alt: "Carte de l'écosystème no-code avec des noeuds représentant différents outils",
+        alt: 'Ecosysteme no-code low-code 2026 : carte des outils Webflow, Bubble, Make, Airtable pour PME suisses',
         caption: "L'écosystème no-code/low-code : du site web à l'automatisation, un outil pour chaque besoin",
       },
     ],
@@ -831,12 +831,12 @@ Le no-code et le low-code ne suppriment pas le besoin de réflexion stratégique
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/cybersecurite-pme-hero.png',
-      alt: 'Bouclier numérique géant en lumière violette repoussant des menaces informatiques dans un environnement sombre',
+      alt: 'Cybersecurite PME 2026 : bouclier numerique protégeant une entreprise contre les cybermenaces et attaques informatiques',
     },
     images: [
       {
         src: '/images/blog/cybersecurite-pme-risques.png',
-        alt: 'Matrice de risques cybersécurité avec des cellules colorées du vert au rouge',
+        alt: 'Matrice de risques cybersecurite PME : evaluation des menaces par probabilite et impact pour entreprises suisses',
         caption: 'Matrice de risques : probabilité vs impact. Les zones rouges demandent une action immédiate',
       },
     ],
@@ -944,12 +944,12 @@ La cybersécurité n'est pas un projet réservé aux DSI des grandes entreprises
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/audit-digital-hero.png',
-      alt: 'Salle de commande numérique avec des écrans analytiques affichant des données et visualisations en lumière violette',
+      alt: 'Audit digital 360 pour PME : salle de commande avec ecrans analytiques SEO, performance, UX et securite',
     },
     images: [
       {
         src: '/images/blog/audit-digital-radar.png',
-        alt: "Graphique radar hexagonal pour l'audit digital avec 6 axes : SEO, Performance, UX, Sécurité, Contenu, Analytics",
+        alt: 'Radar audit digital DKDP : 6 dimensions SEO, performance, UX, securite, contenu, analytics pour evaluer votre site',
         caption: "Le radar d'audit digital DKDP : 6 dimensions pour une vue complète de votre présence en ligne",
       },
     ],
@@ -1082,12 +1082,12 @@ Avec un audit solide, votre brief d'agence est précis, vos priorités sont fond
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/cout-site-web-geneve-hero.png',
-      alt: 'Tableau de bord avec budgets et graphiques pour un projet web à Genève',
+      alt: 'Cout creation site web Geneve 2026 : tableau de bord budgetaire avec prix et options pour PME suisses',
     },
     images: [
       {
         src: '/images/blog/cout-site-web-geneve-tableau.png',
-        alt: 'Tableau comparatif des prix selon le type de site web à Genève',
+        alt: 'Tableau comparatif prix site web Geneve 2026 : vitrine, e-commerce, sur-mesure avec fourchettes de budget',
         caption: 'Fourchettes de prix pour les principaux types de sites web en Suisse romande (2026)',
       },
     ],
@@ -1171,12 +1171,12 @@ La meilleure démarche : demandez 3 devis détaillés, comparez ligne par ligne,
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/choisir-agence-digitale-geneve-hero.png',
-      alt: 'Réunion entre un client PME et une équipe d\'agence digitale à Genève',
+      alt: 'Choisir agence digitale Geneve : reunion entre client PME et equipe agence web pour projet digital',
     },
     images: [
       {
         src: '/images/blog/choisir-agence-digitale-geneve-criteres.png',
-        alt: 'Checklist illustrée pour évaluer une agence digitale à Genève',
+        alt: 'Checklist evaluation agence digitale Geneve : criteres portfolio, expertise, transparence, support pour PME',
         caption: 'Les 6 critères clés pour choisir une agence digitale à Genève',
       },
     ],
@@ -1258,12 +1258,12 @@ Chez DKDP, chaque projet commence par un appel de 30 minutes sans engagement pou
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/seo-vs-google-ads-geneve-hero.png',
-      alt: 'Comparaison visuelle entre résultats organiques SEO et annonces Google Ads sur une page de recherche',
+      alt: 'SEO vs Google Ads Geneve 2026 : comparaison resultats organiques et annonces payantes sur page de recherche Google',
     },
     images: [
       {
         src: '/images/blog/seo-vs-google-ads-geneve-tableau.png',
-        alt: 'Tableau de comparaison SEO vs Google Ads sur 8 critères clés pour PME à Genève',
+        alt: 'Tableau comparatif SEO vs Google Ads Geneve : cout, delai, ROI, durabilite et 8 criteres pour PME suisses',
         caption: 'SEO vs Google Ads : comparatif sur 8 dimensions pour les PME de Suisse romande',
       },
     ],
@@ -1348,12 +1348,12 @@ Si vous devez prioriser avec un budget limité : commencez par le SEO si vous av
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/refonte-site-web-hero.png',
-      alt: 'Comparaison côte-à-côte d\'un ancien site web et d\'un nouveau site web moderne sur tablette',
+      alt: 'Refonte site web avant apres : comparaison ancien design et nouveau site moderne responsive pour PME',
     },
     images: [
       {
         src: '/images/blog/refonte-site-web-checklist.png',
-        alt: 'Checklist illustrée des 7 signaux indiquant qu\'une refonte de site est nécessaire',
+        alt: 'Checklist refonte site web : 7 signaux que votre site a besoin d\'une refonte, design obsolete, lenteur, SEO',
         caption: 'Les 7 indicateurs objectifs qui justifient une refonte de site web',
       },
     ],
@@ -1437,12 +1437,12 @@ Chez DKDP, chaque projet de refonte commence par un audit de l\'existant. Parce 
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/formation-ia-entreprise-geneve-hero.png',
-      alt: 'Séance de formation IA en entreprise à Genève avec participants sur ordinateurs portables',
+      alt: 'Formation IA entreprise Geneve 2026 : seance pratique avec collaborateurs sur ordinateurs portables et outils IA',
     },
     images: [
       {
         src: '/images/blog/formation-ia-entreprise-geneve-usages.png',
-        alt: 'Tableau des usages IA par département : marketing, RH, finance, commercial',
+        alt: 'Usages IA par departement entreprise : cas concrets marketing, RH, finance, commercial avec outils recommandes',
         caption: 'Les usages IA à fort ROI par département pour les PME de Genève',
       },
     ],
@@ -1538,12 +1538,12 @@ DKDP propose des formations IA sur-mesure pour les équipes de PME à Genève et
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/automatiser-taches-ia-hero.png',
-      alt: 'Schéma d\'un workflow automatisé connectant emails, CRM et documents via l\'IA',
+      alt: 'Automatiser taches IA PME : workflow automatise connectant emails, CRM et documents via intelligence artificielle',
     },
     images: [
       {
         src: '/images/blog/automatiser-taches-ia-workflow.png',
-        alt: 'Exemple de workflow Make.com automatisant le traitement des demandes clients',
+        alt: 'Workflow Make.com automatisation IA : traitement automatique des demandes clients pour PME suisses',
         caption: 'Exemple de workflow : demande client reçue par email → qualification IA → CRM → notification équipe',
       },
     ],
@@ -1641,12 +1641,12 @@ L\'automatisation IA n\'est pas réservée aux grandes entreprises avec des équ
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/creer-site-web-pme-suisse-romande-hero.png',
-      alt: 'Équipe genevoise travaillant sur la conception d\'un site web PME autour d\'une table avec maquettes',
+      alt: 'Creer site web PME Suisse romande : equipe genevoise concevant un site web autour de maquettes et wireframes',
     },
     images: [
       {
         src: '/images/blog/creer-site-web-pme-suisse-romande-etapes.png',
-        alt: 'Diagramme des 5 étapes de création d\'un site web pour PME en Suisse romande',
+        alt: '5 etapes creation site web PME Suisse romande : cahier des charges, maquette, developpement, SEO, mise en ligne',
         caption: 'Les 5 étapes d\'un projet web réussi pour les PME de Suisse romande',
       },
     ],
@@ -1750,12 +1750,12 @@ Un site web pour une PME en Suisse romande est un investissement à 3-5 ans. Pre
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/ia-ou-consultant-humain-hero.png',
-      alt: 'Illustration symbolique : interface IA face à un consultant humain en réunion d\'entreprise',
+      alt: 'IA ou consultant humain PME : comparaison intelligence artificielle et expertise humaine pour prise de decision en entreprise',
     },
     images: [
       {
         src: '/images/blog/ia-ou-consultant-humain-tableau.png',
-        alt: 'Tableau comparatif IA vs consultant humain sur 10 dimensions pour PME',
+        alt: 'Tableau comparatif IA vs consultant humain PME : cout, rapidite, expertise, creativite sur 10 dimensions',
         caption: 'IA vs consultant humain : forces et limites respectives pour les PME',
       },
     ],
@@ -1838,7 +1838,7 @@ Ce que l\'IA ne remplacera pas dans les 5 prochaines années : le jugement humai
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/claude-code-leak-hero.png',
-      alt: 'Visualisation abstraite de couches de code révélées dans un espace sombre avec des connexions lumineuses violettes',
+      alt: 'Claude Code leak 2026 : architecture interne agent IA revelee avec couches de code et connexions systeme',
     },
     images: [],
     tags: ['IA', 'Claude Code', 'Agent IA', 'Automatisation', 'Productivité', 'PME'],
@@ -1961,17 +1961,17 @@ C\'est exactement ce qu\'on fait chez DKDP : on ne vend pas des abonnements IA, 
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/gestion-tokens-ia-hero.png',
-      alt: 'Visualisation abstraite du flux de tokens dans un reseau neuronal, teintes violettes et chrome sur fond sombre',
+      alt: 'Gestion tokens Claude IA Geneve : flux de tokens dans un reseau neuronal pour optimiser usage IA en agence',
     },
     images: [
       {
         src: '/images/blog/gestion-tokens-cout-exponentiel.png',
-        alt: 'Graphique montrant la courbe exponentielle du cout par reponse en fonction du nombre de messages',
+        alt: 'Courbe exponentielle cout tokens IA : augmentation du prix par reponse selon longueur de conversation Claude',
         caption: 'Le cout par reponse augmente de maniere exponentielle avec la longueur de la conversation',
       },
       {
         src: '/images/blog/gestion-tokens-lost-middle.png',
-        alt: 'Schema du phenomene lost in the middle : l\'IA traite mieux le debut et la fin de la conversation',
+        alt: 'Effet lost in the middle IA : attention du modele Claude forte au debut et fin, faible au milieu de la conversation',
         caption: 'L\'effet "lost in the middle" : l\'attention du modele est maximale au debut et a la fin',
       },
     ],

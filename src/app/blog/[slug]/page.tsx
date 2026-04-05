@@ -228,6 +228,23 @@ function renderMarkdown(md: string): string {
       continue
     }
 
+    // HTML block: lines starting with <div pass through verbatim
+    if (line.trim().startsWith('<div')) {
+      const block: string[] = [line]
+      let depth = 1
+      i++
+      while (i < lines.length && depth > 0) {
+        const l = lines[i]
+        const opens  = (l.match(/<div[\s>]/g) || []).length
+        const closes = (l.match(/<\/div>/g) || []).length
+        depth += opens - closes
+        block.push(l)
+        i++
+      }
+      out.push(block.join('\n'))
+      continue
+    }
+
     // Table: consecutive lines starting with |
     if (line.trim().startsWith('|')) {
       const tableLines: string[] = []

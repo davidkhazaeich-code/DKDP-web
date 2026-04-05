@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { ROUTES } from '@/lib/routes'
-import { ARTICLES } from '@/lib/blog-data'
+import { ARTICLES } from '@/lib/blog'
 
 const BASE_URL = 'https://dkdp.ch'
 

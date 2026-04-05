@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
-import { ARTICLES } from '@/lib/blog-data'
+import { ARTICLES } from '@/lib/blog'
 
 export const metadata: Metadata = {
   title: 'Plan du site · DKDP Genève',

@@ -48,7 +48,7 @@ Quand David fournit du contenu (lien YouTube, transcript, topic, texte brut) pou
    - **SEO images** :
      - **Noms de fichiers** : toujours descriptifs avec mots-cles, format `mot-cle-principal-description.png` (ex: `seo-local-geneve-funnel.png`, `formation-ia-roi-curve.png`). Jamais de noms generiques (`image1.png`, `hero.png`).
      - **Alt texts** : commencer par le mot-cle cible de l'article, inclure contexte geo (Geneve, Suisse, PME) et annee si pertinent. Format : `"Mot-cle principal : description concise et riche semantiquement"`. Ex: `"Formation IA entreprise Geneve 2026 : seance pratique avec collaborateurs sur outils IA"`.
-4. **Publication** : Ajouter l'objet article dans `src/lib/blog-data.ts`, placer les images dans `public/images/blog/`, mettre a jour `FEATURED_SLUG` si pertinent
+4. **Publication** : Creer un nouveau fichier `src/lib/blog/<slug>.ts` (default export), ajouter l'import dans `src/lib/blog/index.ts`, placer les images dans `public/images/blog/`, mettre a jour `FEATURED_SLUG` dans index.ts si pertinent
 5. **Deploy** : Commit + push sur `main` → auto-deploy Vercel
 6. **Confirmation** : Donner l'URL live `https://dkdp.ch/blog/<slug>`
 
@@ -56,15 +56,16 @@ Quand David fournit du contenu (lien YouTube, transcript, topic, texte brut) pou
 
 | Fichier | Role |
 |---|---|
-| `src/lib/blog-data.ts` | Donnees articles (ARTICLES[], BLOG_CATEGORIES, FEATURED_SLUG). **2 000+ lignes**, lire par sections avec offset/limit |
-| `src/app/blog/page.tsx` | Page listing blog, tri chronologique automatique |
+| `src/lib/blog/` | **1 fichier par article** (default export). Types dans `types.ts`, assemblage dans `index.ts` |
+| `src/lib/blog/index.ts` | Re-exporte ARTICLES[], BLOG_CATEGORIES, FEATURED_SLUG, getArticle(), getRelatedArticles() |
 | `src/app/blog/[slug]/page.tsx` | Page article individuelle, markdown custom avec marqueurs `___IMG:filename___` + blocs HTML pass-through (`<div>`) |
-| `src/app/blog/_components/ArticleCard.tsx` | Card article reutilisable dans la grille |
 | `public/images/blog/` | Images hero, schemas et inline des articles |
 
-**Structure d'un article dans blog-data.ts :**
+**Structure d'un fichier article (`src/lib/blog/<slug>.ts`) :**
 ```ts
-{
+import type { Article } from './types'
+
+const article: Article = {
   slug: 'mon-article',
   title: 'Titre SEO',
   excerpt: 'Description courte pour les cards et meta',
@@ -78,6 +79,9 @@ Quand David fournit du contenu (lien YouTube, transcript, topic, texte brut) pou
   ],
   content: `...markdown + HTML diagrams + ___IMG:filename___ markers...`,
 }
+
+export default article
+```
 ```
 
 **Conventions pour les diagrammes HTML :**
@@ -200,7 +204,7 @@ Claude lit **~750 lignes** en une seule passe (limite 10 000 tokens).
 | `src/lib/tokens.ts` | Palette couleurs et tokens |
 | `src/lib/routes.ts` | Source de verite URLs, sitemap, redirections |
 | `src/lib/schema.ts` | Builders JSON-LD (buildService, buildCourse, buildFAQPage, buildBreadcrumbList) |
-| `src/lib/blog-data.ts` | Donnees articles blog (1 800+ lignes, lire par sections) |
+| `src/lib/blog/` | Articles blog (1 fichier par article, index.ts pour l'assemblage) |
 | `src/components/layout/Header.tsx` | Mega menu complet, donnees nav dans les consts en haut du fichier |
 | `src/components/providers/SmoothScrollProvider.tsx` | Lenis config |
 | `src/components/ui/SectionReveal.tsx` | Animation + `RevealDisabledProvider` |

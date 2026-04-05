@@ -11,7 +11,7 @@ import {
   ARTICLES,
   BLOG_CATEGORIES,
   FEATURED_SLUG,
-} from '@/lib/blog-data'
+} from '@/lib/blog'
 import { violet, orange, chrome, green } from '@/lib/tokens'
 import { ArticleCard } from './_components/ArticleCard'
 import dynamic from 'next/dynamic'

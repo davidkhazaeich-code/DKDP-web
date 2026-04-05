@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { SectionReveal } from '@/components/ui/SectionReveal'
-import { BLOG_CATEGORIES, type Article } from '@/lib/blog-data'
+import { BLOG_CATEGORIES, type Article } from '@/lib/blog'
 
 export function ArticleCard({ article, delay }: { article: Article; delay: number }) {
   const cat = BLOG_CATEGORIES[article.category]

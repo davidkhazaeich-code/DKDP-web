@@ -12,7 +12,7 @@ import {
   getRelatedArticles,
   BLOG_CATEGORIES,
   type CategoryKey,
-} from '@/lib/blog-data'
+} from '@/lib/blog'
 import { violet, orange, chrome } from '@/lib/tokens'
 import { InlineCTA } from './_components/InlineCTA'
 import { ServiceGrid } from './_components/ServiceGrid'

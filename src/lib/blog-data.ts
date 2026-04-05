@@ -67,7 +67,7 @@ export const BLOG_CATEGORIES: Record<CategoryKey, { label: string; color: string
 // Article en vedette
 // ---------------------------------------------------------------------------
 
-export const FEATURED_SLUG = 'chatgpt-claude-copilot-lequel-choisir-pme-2026'
+export const FEATURED_SLUG = 'claude-code-leak-utiliser-ia-comme-infrastructure'
 
 // ---------------------------------------------------------------------------
 // Articles

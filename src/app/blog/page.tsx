@@ -38,8 +38,9 @@ const orangeBg    = orange.bg
 const orangeBd    = orange.border
 const greenColor  = green.color
 
-const FEATURED = ARTICLES.find(a => a.slug === FEATURED_SLUG) ?? ARTICLES[0]
-const GRID_ARTICLES = ARTICLES.filter(a => a.slug !== FEATURED_SLUG)
+const SORTED_ARTICLES = [...ARTICLES].sort((a, b) => b.dateISO.localeCompare(a.dateISO))
+const FEATURED = SORTED_ARTICLES.find(a => a.slug === FEATURED_SLUG) ?? SORTED_ARTICLES[0]
+const GRID_ARTICLES = SORTED_ARTICLES.filter(a => a.slug !== FEATURED_SLUG)
 
 /* ── Page ── */
 export default function BlogPage() {

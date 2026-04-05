@@ -439,7 +439,7 @@ export default async function ArticlePage(
       {/* ══ 2. Hero image ══ */}
       <div className="bg-zinc-950 pb-2">
         <div className="max-w-5xl mx-auto px-4 mb-12">
-          <div className="rounded-[20px] overflow-hidden aspect-video border border-zinc-800/60">
+          <div className="relative rounded-[20px] overflow-hidden aspect-video border border-zinc-800/60">
             <Image
               src={article.heroImage.src}
               alt={article.heroImage.alt}

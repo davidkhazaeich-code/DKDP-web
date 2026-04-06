@@ -20,6 +20,11 @@ const article: Article = {
         alt: 'Entonnoir SEO local Geneve : sensibilisation, consideration, conversion pour PME suisse',
         caption: 'L\'entonnoir SEO local : de la découverte à la conversion',
       },
+      {
+        src: '/images/blog/seo-local-geneve-checklist-gbp.png',
+        alt: 'SEO local Geneve 2026 : checklist optimisation Google Business Profile avec indicateurs de performance pour PME',
+        caption: 'Optimiser votre fiche Google Business Profile : les éléments clés à vérifier',
+      },
     ],
     tags: ['SEO', 'Genève', 'Google Maps', 'SEO local', 'GMB', 'PME'],
     seoTitle: 'SEO local Genève 2026 : dominer Google Maps · DKDP',
@@ -33,6 +38,31 @@ C'est la logique du SEO local : capter l'intention d'achat de proximité. Et cet
 
 En 2026, avec la montée de la recherche vocale et des résultats "zero-click" (où Google répond directement sans que l'utilisateur clique sur un lien), votre présence locale n'a jamais été aussi décisive.
 
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(167,139,250,0.2);background:rgba(167,139,250,0.04)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1rem">ENTONNOIR DE CONVERSION LOCAL</div>
+<div style="display:flex;flex-direction:column;gap:0.75rem">
+<div style="background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.25);border-radius:12px;padding:1rem 1.25rem;text-align:center">
+<div style="font-size:1.1rem;font-weight:700;color:#A78BFA">Recherche locale</div>
+<div style="font-size:0.85rem;color:#9CA3AF;margin-top:0.25rem">"plombier Genève", "restaurant Carouge", "agence web 1207"</div>
+</div>
+<div style="text-align:center;color:#71717a;font-size:1.2rem">↓</div>
+<div style="background:rgba(255,140,0,0.1);border:1px solid rgba(255,140,0,0.25);border-radius:12px;padding:1rem 1.25rem;text-align:center">
+<div style="font-size:1.1rem;font-weight:700;color:#FF8C00">Pack Local (Top 3 Maps)</div>
+<div style="font-size:0.85rem;color:#9CA3AF;margin-top:0.25rem">Fiche GBP, avis, photos, horaires, distance</div>
+</div>
+<div style="text-align:center;color:#71717a;font-size:1.2rem">↓</div>
+<div style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);border-radius:12px;padding:1rem 1.25rem;text-align:center">
+<div style="font-size:1.1rem;font-weight:700;color:#4ade80">Action du prospect</div>
+<div style="font-size:0.85rem;color:#9CA3AF;margin-top:0.25rem">Appel, itinéraire, visite du site, demande de devis</div>
+</div>
+<div style="text-align:center;color:#71717a;font-size:1.2rem">↓</div>
+<div style="background:rgba(212,212,216,0.08);border:1px solid rgba(212,212,216,0.2);border-radius:12px;padding:1rem 1.25rem;text-align:center">
+<div style="font-size:1.1rem;font-weight:700;color:#D4D4D8">Conversion</div>
+<div style="font-size:0.85rem;color:#9CA3AF;margin-top:0.25rem">Client acquis, avis déposé, fidélisation</div>
+</div>
+</div>
+</div>
+
 ## Google Business Profile : la base incontournable
 
 Votre fiche Google Business Profile (anciennement Google My Business) est la pierre angulaire de votre SEO local. C'est elle qui apparaît dans le Pack Local (les 3 fiches en haut des résultats) et sur Google Maps.
@@ -45,6 +75,46 @@ Votre fiche Google Business Profile (anciennement Google My Business) est la pie
 
 **Étape 4 : Photos.** Les fiches avec photos reçoivent 42 % plus de demandes d'itinéraire (source : Google Business Profile Insights). Ajoutez des photos de votre local, de votre équipe, de vos prestations. Visez au minimum 10 photos de qualité.
 
+___IMG:seo-local-geneve-checklist-gbp.png___
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(255,140,0,0.2);background:rgba(255,140,0,0.04)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#FF8C00;margin-bottom:1rem">CHECKLIST GOOGLE BUSINESS PROFILE</div>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem">
+<div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,140,0,0.06);border-radius:8px;padding:0.75rem">
+<span style="color:#4ade80;font-size:1.1rem;line-height:1">✓</span>
+<div><div style="color:#e4e4e7;font-size:0.9rem;font-weight:600">Fiche vérifiée</div><div style="color:#71717a;font-size:0.78rem">Code postal ou vidéo</div></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,140,0,0.06);border-radius:8px;padding:0.75rem">
+<span style="color:#4ade80;font-size:1.1rem;line-height:1">✓</span>
+<div><div style="color:#e4e4e7;font-size:0.9rem;font-weight:600">Catégorie précise</div><div style="color:#71717a;font-size:0.78rem">Principale + secondaires</div></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,140,0,0.06);border-radius:8px;padding:0.75rem">
+<span style="color:#4ade80;font-size:1.1rem;line-height:1">✓</span>
+<div><div style="color:#e4e4e7;font-size:0.9rem;font-weight:600">Description 750 car.</div><div style="color:#71717a;font-size:0.78rem">Mots-clés naturels</div></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,140,0,0.06);border-radius:8px;padding:0.75rem">
+<span style="color:#4ade80;font-size:1.1rem;line-height:1">✓</span>
+<div><div style="color:#e4e4e7;font-size:0.9rem;font-weight:600">10+ photos qualité</div><div style="color:#71717a;font-size:0.78rem">Local, équipe, prestations</div></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,140,0,0.06);border-radius:8px;padding:0.75rem">
+<span style="color:#4ade80;font-size:1.1rem;line-height:1">✓</span>
+<div><div style="color:#e4e4e7;font-size:0.9rem;font-weight:600">Horaires complets</div><div style="color:#71717a;font-size:0.78rem">Inclure jours fériés</div></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,140,0,0.06);border-radius:8px;padding:0.75rem">
+<span style="color:#4ade80;font-size:1.1rem;line-height:1">✓</span>
+<div><div style="color:#e4e4e7;font-size:0.9rem;font-weight:600">Tél. local</div><div style="color:#71717a;font-size:0.78rem">Pas de numéro surtaxé</div></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,140,0,0.06);border-radius:8px;padding:0.75rem">
+<span style="color:#4ade80;font-size:1.1rem;line-height:1">✓</span>
+<div><div style="color:#e4e4e7;font-size:0.9rem;font-weight:600">Publications hebdo</div><div style="color:#71717a;font-size:0.78rem">1x/semaine minimum</div></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:0.5rem;background:rgba(255,140,0,0.06);border-radius:8px;padding:0.75rem">
+<span style="color:#4ade80;font-size:1.1rem;line-height:1">✓</span>
+<div><div style="color:#e4e4e7;font-size:0.9rem;font-weight:600">Réponse aux avis</div><div style="color:#71717a;font-size:0.78rem">Sous 48h, tous les avis</div></div>
+</div>
+</div>
+</div>
+
 ## Les signaux de ranking local en 2026
 
 L'algorithme de Google Maps évalue trois dimensions principales pour classer les résultats locaux.
@@ -56,6 +126,27 @@ L'algorithme de Google Maps évalue trois dimensions principales pour classer le
 **Notoriété.** Google évalue votre popularité globale : nombre et qualité des avis, mentions dans des médias ou annuaires locaux, nombre de backlinks depuis des sites genevois ou suisses.
 
 ___IMG:seo-local-geneve-funnel.png___
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(96,165,250,0.2);background:rgba(96,165,250,0.04)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#60a5fa;margin-bottom:1rem">FACTEURS DE RANKING LOCAL GOOGLE MAPS 2026</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+<div style="background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.2);border-radius:12px;padding:1.25rem;text-align:center">
+<div style="font-size:2rem;margin-bottom:0.5rem">📍</div>
+<div style="font-size:1rem;font-weight:700;color:#A78BFA;margin-bottom:0.5rem">Proximité</div>
+<div style="font-size:0.82rem;color:#9CA3AF;line-height:1.5">Distance entre l'utilisateur et votre établissement. Non contrôlable directement, mais extensible via contenu géolocalisé.</div>
+</div>
+<div style="background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.2);border-radius:12px;padding:1.25rem;text-align:center">
+<div style="font-size:2rem;margin-bottom:0.5rem">🎯</div>
+<div style="font-size:1rem;font-weight:700;color:#FF8C00;margin-bottom:0.5rem">Pertinence</div>
+<div style="font-size:0.82rem;color:#9CA3AF;line-height:1.5">Alignement entre la requête et votre fiche. Catégories, description, publications et contenu du site comptent.</div>
+</div>
+<div style="background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);border-radius:12px;padding:1.25rem;text-align:center">
+<div style="font-size:2rem;margin-bottom:0.5rem">⭐</div>
+<div style="font-size:1rem;font-weight:700;color:#4ade80;margin-bottom:0.5rem">Notoriété</div>
+<div style="font-size:0.82rem;color:#9CA3AF;line-height:1.5">Avis clients, backlinks locaux, mentions presse, citations dans les annuaires suisses (local.ch, search.ch).</div>
+</div>
+</div>
+</div>
 
 ## NAP : Nom, Adresse, Téléphone, la cohérence absolue
 

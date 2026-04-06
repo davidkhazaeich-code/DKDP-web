@@ -20,6 +20,11 @@ const article: Article = {
         alt: 'Radar audit digital DKDP : 6 dimensions SEO, performance, UX, securite, contenu, analytics pour evaluer votre site',
         caption: "Le radar d'audit digital DKDP : 6 dimensions pour une vue complète de votre présence en ligne",
       },
+      {
+        src: '/images/blog/audit-digital-360-processus.png',
+        alt: 'Audit digital 360 PME Suisse 2026 : radar hexagonal avec 6 dimensions SEO, performance, UX, securite, contenu et analytics',
+        caption: 'Le processus d\'audit digital 360 : une analyse complète avant chaque refonte de site',
+      },
     ],
     tags: ['audit digital', 'SEO', 'UX', 'refonte web', 'stratégie', 'PME'],
     seoTitle: 'Audit digital 360 avant refonte web : les 6 dimensions',
@@ -32,6 +37,42 @@ Chaque année, des centaines de PME investissent entre 10 000 et 50 000 CHF dans
 Pourquoi ? Parce qu'elles ont refait le design sans comprendre ce qui ne fonctionnait pas sur l'ancien site. La refonte était une réponse esthétique à un problème stratégique.
 
 Un audit digital 360 effectué avant toute refonte change radicalement ce résultat. Il révèle ce qui fonctionne et doit être préservé, ce qui est cassé et doit être corrigé, et ce qui manque et doit être construit. C'est la fondation sur laquelle votre nouveau site sera conçu.
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(212,212,216,0.2);background:rgba(212,212,216,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:1rem">LES 6 DIMENSIONS DE L'AUDIT DIGITAL</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+<div style="padding:1.25rem;border-radius:12px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.15);text-align:center">
+<div style="font-size:1.5rem;margin-bottom:0.5rem">&#128269;</div>
+<div style="font-size:0.85rem;font-weight:600;color:#A78BFA;margin-bottom:0.25rem">SEO</div>
+<div style="font-size:0.75rem;color:#9CA3AF">Ranking, backlinks, technique, contenu</div>
+</div>
+<div style="padding:1.25rem;border-radius:12px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.15);text-align:center">
+<div style="font-size:1.5rem;margin-bottom:0.5rem">&#9889;</div>
+<div style="font-size:0.85rem;font-weight:600;color:#4ade80;margin-bottom:0.25rem">Performance</div>
+<div style="font-size:0.75rem;color:#9CA3AF">Core Web Vitals, LCP, CLS, INP</div>
+</div>
+<div style="padding:1.25rem;border-radius:12px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.15);text-align:center">
+<div style="font-size:1.5rem;margin-bottom:0.5rem">&#128100;</div>
+<div style="font-size:0.85rem;font-weight:600;color:#FF8C00;margin-bottom:0.25rem">UX</div>
+<div style="font-size:0.75rem;color:#9CA3AF">Heatmaps, parcours, CTAs, navigation</div>
+</div>
+<div style="padding:1.25rem;border-radius:12px;background:rgba(252,165,165,0.08);border:1px solid rgba(252,165,165,0.15);text-align:center">
+<div style="font-size:1.5rem;margin-bottom:0.5rem">&#128274;</div>
+<div style="font-size:0.85rem;font-weight:600;color:#fca5a5;margin-bottom:0.25rem">Securite</div>
+<div style="font-size:0.75rem;color:#9CA3AF">SSL, CMS, headers, vulnerabilites</div>
+</div>
+<div style="padding:1.25rem;border-radius:12px;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.15);text-align:center">
+<div style="font-size:1.5rem;margin-bottom:0.5rem">&#128221;</div>
+<div style="font-size:0.85rem;font-weight:600;color:#60a5fa;margin-bottom:0.25rem">Contenu</div>
+<div style="font-size:0.75rem;color:#9CA3AF">Qualite, actualite, structure, medias</div>
+</div>
+<div style="padding:1.25rem;border-radius:12px;background:rgba(212,212,216,0.08);border:1px solid rgba(212,212,216,0.15);text-align:center">
+<div style="font-size:1.5rem;margin-bottom:0.5rem">&#128200;</div>
+<div style="font-size:0.85rem;font-weight:600;color:#D4D4D8;margin-bottom:0.25rem">Analytics</div>
+<div style="font-size:0.75rem;color:#9CA3AF">GA4, tracking, conversions, attribution</div>
+</div>
+</div>
+</div>
 
 ## Les 6 dimensions de l'audit digital
 
@@ -79,6 +120,56 @@ Points à vérifier : Google Analytics 4 correctement configuré avec les évén
 
 ___IMG:audit-digital-radar.png___
 
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(167,139,250,0.2);background:rgba(167,139,250,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1rem">PROCESSUS D'AUDIT EN 5 ETAPES</div>
+<div style="display:flex;flex-direction:column;gap:0.75rem">
+<div style="display:flex;align-items:flex-start;gap:1rem">
+<div style="min-width:36px;height:36px;border-radius:50%;background:rgba(167,139,250,0.15);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:#A78BFA">1</div>
+<div style="flex:1;padding-top:0.25rem">
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Collecte de donnees</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.15rem">Configuration des outils d'analyse (GA4, Hotjar, Screaming Frog, Semrush)</div>
+</div>
+<div style="font-size:0.7rem;color:#71717a;padding-top:0.3rem">Jour 1</div>
+</div>
+<div style="margin-left:18px;border-left:2px solid rgba(167,139,250,0.15);height:12px"></div>
+<div style="display:flex;align-items:flex-start;gap:1rem">
+<div style="min-width:36px;height:36px;border-radius:50%;background:rgba(167,139,250,0.15);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:#A78BFA">2</div>
+<div style="flex:1;padding-top:0.25rem">
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Analyse des 6 dimensions</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.15rem">SEO, performance, UX, securite, contenu, analytics : audit complet</div>
+</div>
+<div style="font-size:0.7rem;color:#71717a;padding-top:0.3rem">Jours 2-3</div>
+</div>
+<div style="margin-left:18px;border-left:2px solid rgba(167,139,250,0.15);height:12px"></div>
+<div style="display:flex;align-items:flex-start;gap:1rem">
+<div style="min-width:36px;height:36px;border-radius:50%;background:rgba(255,140,0,0.15);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:#FF8C00">3</div>
+<div style="flex:1;padding-top:0.25rem">
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Scoring par dimension</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.15rem">Note de 1 a 10 pour chaque dimension, identification des zones critiques</div>
+</div>
+<div style="font-size:0.7rem;color:#71717a;padding-top:0.3rem">Jour 3</div>
+</div>
+<div style="margin-left:18px;border-left:2px solid rgba(255,140,0,0.15);height:12px"></div>
+<div style="display:flex;align-items:flex-start;gap:1rem">
+<div style="min-width:36px;height:36px;border-radius:50%;background:rgba(255,140,0,0.15);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:#FF8C00">4</div>
+<div style="flex:1;padding-top:0.25rem">
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Priorisation impact/effort</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.15rem">Matrice de priorisation : actions a fort impact et faible effort en premier</div>
+</div>
+<div style="font-size:0.7rem;color:#71717a;padding-top:0.3rem">Jour 4</div>
+</div>
+<div style="margin-left:18px;border-left:2px solid rgba(74,222,128,0.15);height:12px"></div>
+<div style="display:flex;align-items:flex-start;gap:1rem">
+<div style="min-width:36px;height:36px;border-radius:50%;background:rgba(74,222,128,0.15);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:#4ade80">5</div>
+<div style="flex:1;padding-top:0.25rem">
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Rapport et plan d'action</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.15rem">Document de synthese avec recommandations priorisees et planning</div>
+</div>
+<div style="font-size:0.7rem;color:#71717a;padding-top:0.3rem">Jour 4-5</div>
+</div>
+</div>
+</div>
+
 ## Les outils d'audit indispensables
 
 **SEO :** Semrush ou Ahrefs (payants, 100-200 $/mois), Screaming Frog (gratuit jusqu'à 500 URLs), Google Search Console (gratuit), Ubersuggest (freemium).
@@ -92,6 +183,45 @@ ___IMG:audit-digital-radar.png___
 **Contenu :** Screaming Frog pour l'audit structurel (gratuit), Google Search Console pour les pages indexées, Semrush Writing Assistant pour la qualité.
 
 **Analytics :** Google Analytics 4 (gratuit), Google Tag Assistant (gratuit extension Chrome).
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(74,222,128,0.2);background:rgba(74,222,128,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#4ade80;margin-bottom:1rem">SCORING TYPE PAR DIMENSION</div>
+<div style="display:flex;flex-direction:column;gap:0.75rem">
+<div>
+<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">SEO</span><span style="font-size:0.85rem;font-weight:700;color:#FF8C00">4/10</span></div>
+<div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:40%;height:100%;border-radius:4px;background:#FF8C00"></div></div>
+<div style="font-size:0.7rem;color:#71717a;margin-top:0.15rem">Probleme typique : 70% des pages sans trafic organique</div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">Performance</span><span style="font-size:0.85rem;font-weight:700;color:#fca5a5">3/10</span></div>
+<div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:30%;height:100%;border-radius:4px;background:#fca5a5"></div></div>
+<div style="font-size:0.7rem;color:#71717a;margin-top:0.15rem">Probleme typique : PageSpeed mobile sous 40</div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">UX</span><span style="font-size:0.85rem;font-weight:700;color:#FF8C00">5/10</span></div>
+<div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:50%;height:100%;border-radius:4px;background:#FF8C00"></div></div>
+<div style="font-size:0.7rem;color:#71717a;margin-top:0.15rem">Probleme typique : CTA absent ou generique sur les pages cles</div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">Securite</span><span style="font-size:0.85rem;font-weight:700;color:#4ade80">7/10</span></div>
+<div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:70%;height:100%;border-radius:4px;background:#4ade80"></div></div>
+<div style="font-size:0.7rem;color:#71717a;margin-top:0.15rem">Generalement bon : SSL present, CMS a jour</div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">Contenu</span><span style="font-size:0.85rem;font-weight:700;color:#FF8C00">4/10</span></div>
+<div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:40%;height:100%;border-radius:4px;background:#FF8C00"></div></div>
+<div style="font-size:0.7rem;color:#71717a;margin-top:0.15rem">Probleme typique : textes non mis a jour depuis 2+ ans</div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">Analytics</span><span style="font-size:0.85rem;font-weight:700;color:#fca5a5">2/10</span></div>
+<div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:20%;height:100%;border-radius:4px;background:#fca5a5"></div></div>
+<div style="font-size:0.7rem;color:#71717a;margin-top:0.15rem">Probleme typique : GA4 mal configure, pas de tracking conversions</div>
+</div>
+</div>
+<div style="margin-top:1rem;padding-top:0.75rem;border-top:1px solid rgba(74,222,128,0.15);font-size:0.75rem;color:#71717a;text-align:center">Scores moyens constates chez nos clients PME avant refonte</div>
+</div>
+
+___IMG:audit-digital-360-processus.png___
 
 ## Comment prioriser les axes à traiter
 

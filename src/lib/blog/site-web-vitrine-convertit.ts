@@ -20,6 +20,11 @@ const article: Article = {
         alt: 'Entonnoir de conversion UX site web PME : visiteurs, leads, clients avec points de friction identifies',
         caption: "L'entonnoir de conversion : chaque étape peut être un point de fuite",
       },
+      {
+        src: '/images/blog/site-web-vitrine-elements-conversion.png',
+        alt: 'Site web vitrine conversion PME Suisse 2026 : entonnoir de conversion visiteurs vers clients avec elements UX optimises',
+        caption: 'L\'entonnoir de conversion web : transformer les visiteurs en clients grâce aux bons éléments UX',
+      },
     ],
     tags: ['UX', 'conversion', 'site web', 'heatmap', 'CRO', 'PME'],
     seoTitle: 'Site vitrine qui ne convertit pas : 7 causes · DKDP',
@@ -29,9 +34,55 @@ const article: Article = {
 
 La plupart des PME qui se plaignent de leur site web pensent avoir un problème de SEO. "Si on avait plus de trafic, on aurait plus de clients." Dans la majorité des cas, ce diagnostic est faux.
 
-Le vrai problème est en aval : votre site reçoit du trafic, mais ce trafic ne se transforme pas en contacts, en appels, en ventes. C'est un problème de conversion, pas de visibilité. Et le bon nouvelles, c'est que la conversion est bien plus rapide à améliorer que le SEO.
+Le vrai problème est en aval : votre site reçoit du trafic, mais ce trafic ne se transforme pas en contacts, en appels, en ventes. C'est un problème de conversion, pas de visibilité. Et la bonne nouvelle, c'est que la conversion est bien plus rapide à améliorer que le SEO.
 
 Un taux de conversion typique pour un site vitrine de PME se situe entre 1 et 3 % (source : Unbounce Conversion Benchmark Report, 2024). Si le vôtre est en dessous de 0,5 %, vous avez un problème structurel à résoudre avant d'investir un centime supplémentaire en publicité ou en SEO.
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(74,222,128,0.2);background:rgba(74,222,128,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#4ade80;margin-bottom:1rem">ANATOMIE D'UNE PAGE QUI CONVERTIT</div>
+<div style="display:flex;flex-direction:column;gap:0.5rem">
+<div style="padding:1rem;border-radius:12px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.15);display:flex;align-items:center;gap:1rem">
+<div style="min-width:40px;text-align:center;font-size:0.7rem;font-weight:700;color:#A78BFA;text-transform:uppercase">Hero</div>
+<div style="flex:1">
+<div style="font-size:0.85rem;color:#e4e4e7">Proposition de valeur claire + CTA principal</div>
+<div style="font-size:0.75rem;color:#9CA3AF">Repond a : "Qu'est-ce que vous faites et pourquoi rester ?"</div>
+</div>
+<div style="font-size:0.75rem;color:#4ade80;font-weight:600">Critique</div>
+</div>
+<div style="padding:1rem;border-radius:12px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.15);display:flex;align-items:center;gap:1rem">
+<div style="min-width:40px;text-align:center;font-size:0.7rem;font-weight:700;color:#FF8C00;text-transform:uppercase">Trust</div>
+<div style="flex:1">
+<div style="font-size:0.85rem;color:#e4e4e7">Logos clients + temoignages + chiffres concrets</div>
+<div style="font-size:0.75rem;color:#9CA3AF">Brise la barriere de confiance du visiteur inconnu</div>
+</div>
+<div style="font-size:0.75rem;color:#FF8C00;font-weight:600">Important</div>
+</div>
+<div style="padding:1rem;border-radius:12px;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.15);display:flex;align-items:center;gap:1rem">
+<div style="min-width:40px;text-align:center;font-size:0.7rem;font-weight:700;color:#60a5fa;text-transform:uppercase">Offre</div>
+<div style="flex:1">
+<div style="font-size:0.85rem;color:#e4e4e7">Services/produits avec benefices clairs</div>
+<div style="font-size:0.75rem;color:#9CA3AF">Ce que vous faites, pour qui, et ce que le client gagne</div>
+</div>
+<div style="font-size:0.75rem;color:#60a5fa;font-weight:600">Important</div>
+</div>
+<div style="padding:1rem;border-radius:12px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.15);display:flex;align-items:center;gap:1rem">
+<div style="min-width:40px;text-align:center;font-size:0.7rem;font-weight:700;color:#4ade80;text-transform:uppercase">CTA</div>
+<div style="flex:1">
+<div style="font-size:0.85rem;color:#e4e4e7">Appel a l'action oriente benefice</div>
+<div style="font-size:0.75rem;color:#9CA3AF">"Obtenez votre audit gratuit" > "Contactez-nous"</div>
+</div>
+<div style="font-size:0.75rem;color:#4ade80;font-weight:600">Critique</div>
+</div>
+<div style="padding:1rem;border-radius:12px;background:rgba(212,212,216,0.08);border:1px solid rgba(212,212,216,0.15);display:flex;align-items:center;gap:1rem">
+<div style="min-width:40px;text-align:center;font-size:0.7rem;font-weight:700;color:#D4D4D8;text-transform:uppercase">Form</div>
+<div style="flex:1">
+<div style="font-size:0.85rem;color:#e4e4e7">Formulaire minimal (3-4 champs max)</div>
+<div style="font-size:0.75rem;color:#9CA3AF">Chaque champ supplementaire reduit le taux de completion</div>
+</div>
+<div style="font-size:0.75rem;color:#D4D4D8;font-weight:600">Critique</div>
+</div>
+</div>
+</div>
 
 ## Les 7 raisons les plus fréquentes
 
@@ -69,6 +120,44 @@ En 2026, plus de 60 % du trafic web provient du mobile (source : StatCounter Glo
 
 ___IMG:site-web-convertit-ux.png___
 
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(167,139,250,0.2);background:rgba(167,139,250,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1rem">CHECKLIST UX CONVERSION</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem">
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(167,139,250,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #A78BFA;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#A78BFA">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Proposition de valeur claire en hero</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(167,139,250,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #A78BFA;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#A78BFA">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">CTA oriente benefice sur chaque page</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(167,139,250,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #A78BFA;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#A78BFA">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">PageSpeed mobile > 70</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(167,139,250,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #A78BFA;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#A78BFA">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">3+ temoignages clients avec photo</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(167,139,250,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #A78BFA;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#A78BFA">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Formulaire 3-4 champs max</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(167,139,250,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #A78BFA;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#A78BFA">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Menu 5-6 items maximum</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(167,139,250,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #A78BFA;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#A78BFA">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Experience mobile testee manuellement</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(167,139,250,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #A78BFA;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#A78BFA">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Heatmaps installees (Hotjar/Clarity)</div>
+</div>
+</div>
+</div>
+
 ## Comment diagnostiquer avec des outils gratuits
 
 **Hotjar (plan gratuit)** : installez les heatmaps sur vos pages principales. Vous verrez exactement où les visiteurs cliquent, jusqu'où ils scrollent, et où ils abandonnent. C'est le diagnostic le plus révélateur que vous puissiez faire.
@@ -77,11 +166,39 @@ ___IMG:site-web-convertit-ux.png___
 
 **PageSpeed Insights** : testez chaque page importante de votre site sur mobile. Les recommandations sont directement actionnables.
 
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(255,140,0,0.2);background:rgba(255,140,0,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#FF8C00;margin-bottom:1rem">ENTONNOIR DE CONVERSION AVEC TAUX MOYENS</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem">
+<div style="width:100%;padding:0.75rem;background:rgba(212,212,216,0.08);border-radius:8px;text-align:center">
+<div style="font-size:0.85rem;color:#e4e4e7">Visiteurs du site</div>
+<div style="font-size:0.75rem;color:#71717a">100% du trafic</div>
+</div>
+<div style="font-size:0.7rem;color:#fca5a5">&#8595; 40-60% abandonnent (hero faible, chargement lent)</div>
+<div style="width:80%;padding:0.75rem;background:rgba(167,139,250,0.08);border-radius:8px;text-align:center">
+<div style="font-size:0.85rem;color:#e4e4e7">Visiteurs engages</div>
+<div style="font-size:0.75rem;color:#71717a">40-60% scrollent et explorent</div>
+</div>
+<div style="font-size:0.7rem;color:#fca5a5">&#8595; 70-85% partent sans action (CTA faible, pas de confiance)</div>
+<div style="width:55%;padding:0.75rem;background:rgba(255,140,0,0.08);border-radius:8px;text-align:center">
+<div style="font-size:0.85rem;color:#e4e4e7">Clics sur CTA</div>
+<div style="font-size:0.75rem;color:#71717a">5-15% cliquent sur un CTA</div>
+</div>
+<div style="font-size:0.7rem;color:#fca5a5">&#8595; 30-50% abandonnent le formulaire</div>
+<div style="width:35%;padding:0.75rem;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);border-radius:8px;text-align:center">
+<div style="font-size:0.85rem;font-weight:600;color:#4ade80">Leads convertis</div>
+<div style="font-size:0.75rem;color:#71717a">1-3% du trafic initial</div>
+</div>
+</div>
+<div style="margin-top:1rem;padding-top:0.75rem;border-top:1px solid rgba(255,140,0,0.15);font-size:0.75rem;color:#71717a;text-align:center">Chaque point de friction corrige ameliore le taux final de facon cumulative</div>
+</div>
+
+___IMG:site-web-vitrine-elements-conversion.png___
+
 ## Le plan d'action en 30 jours
 
 **Semaine 1 : Audit complet.** Installez Hotjar. Analysez Google Analytics. Testez toutes vos pages clés sur mobile et PageSpeed Insights. Listez les 10 problèmes les plus impactants.
 
-**Semaine 2 : Quick wins.** Reécrivez vos CTA, clarifiez votre proposition de valeur en héro, ajoutez au moins 3 témoignages clients avec photo, allégez votre formulaire. Ces changements ne prennent pas plus de 2 jours.
+**Semaine 2 : Quick wins.** Réécrivez vos CTA, clarifiez votre proposition de valeur en héro, ajoutez au moins 3 témoignages clients avec photo, allégez votre formulaire. Ces changements ne prennent pas plus de 2 jours.
 
 **Semaine 3 : Test de la page d'accueil.** Créez une version alternative de votre page d'accueil avec les améliorations de la semaine 2. Utilisez Google Optimize (ou demandez à votre développeur) pour un A/B test simple.
 

@@ -18,7 +18,12 @@ const article: Article = {
       {
         src: '/images/blog/chatgpt-claude-copilot-comparison.png',
         alt: 'Radar comparatif ChatGPT vs Claude vs Copilot selon 6 criteres : vitesse, precision, cout, confidentialite, creativite, integrations',
-        caption: 'Comparatif radar : vitesse, précision, coût, confidentialité, créativité, intégrations',
+        caption: 'Comparatif radar : vitesse, precision, cout, confidentialite, creativite, integrations',
+      },
+      {
+        src: '/images/blog/chatgpt-claude-copilot-decision-arbre.png',
+        alt: 'Arbre de decision ChatGPT Claude Copilot PME 2026 : choisir le bon assistant IA selon ses besoins bureautique, redaction ou polyvalence',
+        caption: 'Arbre de decision : quel assistant IA selon votre profil PME',
       },
     ],
     tags: ['IA', 'ChatGPT', 'Claude', 'Copilot', 'PME', 'productivité'],
@@ -32,6 +37,27 @@ Le marché des assistants IA s'est densifié à une vitesse vertigineuse. En 202
 Pour une PME, choisir le mauvais outil, c'est payer un abonnement sous-utilisé, former des équipes sur une plateforme inadaptée, et perdre six mois de productivité potentielle. Les budgets sont limités, les décisions doivent être fondées sur des faits, pas sur le battage médiatique.
 
 Ce guide compare les trois assistants sur les critères qui comptent vraiment pour les équipes de 5 à 50 personnes : le coût réel, les capacités concrètes, les limites honnêtes, et les cas d'usage où chacun excelle vraiment.
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(212,212,216,0.15);background:rgba(212,212,216,0.03)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:1.2rem">Les trois philosophies en un coup d'oeil</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem">
+<div style="padding:1.25rem;border-radius:12px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.15)">
+<div style="font-size:1.3rem;margin-bottom:0.5rem">&#9889;</div>
+<div style="font-size:0.9rem;font-weight:700;color:#4ade80;margin-bottom:0.3rem">ChatGPT</div>
+<div style="font-size:0.78rem;color:#9CA3AF;line-height:1.5">Le couteau suisse. Polyvalent, rapide, ecosysteme de plugins. Ideal pour les usages varies.</div>
+</div>
+<div style="padding:1.25rem;border-radius:12px;background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.15)">
+<div style="font-size:1.3rem;margin-bottom:0.5rem">&#9998;</div>
+<div style="font-size:0.9rem;font-weight:700;color:#A78BFA;margin-bottom:0.3rem">Claude</div>
+<div style="font-size:0.78rem;color:#9CA3AF;line-height:1.5">Le redacteur de precision. Consignes strictes, raisonnement profond, contexte etendu a 200k tokens.</div>
+</div>
+<div style="padding:1.25rem;border-radius:12px;background:rgba(96,165,250,0.06);border:1px solid rgba(96,165,250,0.15)">
+<div style="font-size:1.3rem;margin-bottom:0.5rem">&#128187;</div>
+<div style="font-size:0.9rem;font-weight:700;color:#60a5fa;margin-bottom:0.3rem">Copilot</div>
+<div style="font-size:0.78rem;color:#9CA3AF;line-height:1.5">L'integre Office. Directement dans Word, Excel, Teams. Zero friction pour les equipes M365.</div>
+</div>
+</div>
+</div>
 
 ## ChatGPT (OpenAI) : le vétéran polyvalent
 
@@ -82,9 +108,52 @@ Microsoft Copilot n'est pas un assistant IA parmi d'autres : c'est l'IA directem
 | Points forts | Polyvalence | Précision/long | Écosystème Office |
 | Génération image | Oui (DALL-E) | Non natif | Oui (Designer) |
 
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(124,58,237,0.2);background:rgba(124,58,237,0.04)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1.2rem">Cout mensuel par utilisateur</div>
+<div style="display:flex;flex-direction:column;gap:0.75rem">
+<div style="display:flex;align-items:center;gap:1rem">
+<div style="width:5rem;font-size:0.8rem;font-weight:600;color:#4ade80">ChatGPT</div>
+<div style="flex:1;height:2rem;border-radius:8px;background:rgba(74,222,128,0.08);overflow:hidden;position:relative"><div style="width:40%;height:100%;background:rgba(74,222,128,0.25);border-radius:8px;display:flex;align-items:center;padding-left:0.75rem"><span style="font-size:0.75rem;font-weight:700;color:#4ade80">20 $</span></div></div>
+</div>
+<div style="display:flex;align-items:center;gap:1rem">
+<div style="width:5rem;font-size:0.8rem;font-weight:600;color:#A78BFA">Claude</div>
+<div style="flex:1;height:2rem;border-radius:8px;background:rgba(124,58,237,0.08);overflow:hidden;position:relative"><div style="width:40%;height:100%;background:rgba(124,58,237,0.25);border-radius:8px;display:flex;align-items:center;padding-left:0.75rem"><span style="font-size:0.75rem;font-weight:700;color:#A78BFA">20 $</span></div></div>
+</div>
+<div style="display:flex;align-items:center;gap:1rem">
+<div style="width:5rem;font-size:0.8rem;font-weight:600;color:#60a5fa">Copilot</div>
+<div style="flex:1;height:2rem;border-radius:8px;background:rgba(96,165,250,0.08);overflow:hidden;position:relative"><div style="width:60%;height:100%;background:rgba(96,165,250,0.25);border-radius:8px;display:flex;align-items:center;padding-left:0.75rem"><span style="font-size:0.75rem;font-weight:700;color:#60a5fa">30 $ + M365</span></div></div>
+</div>
+</div>
+<div style="margin-top:0.75rem;font-size:0.7rem;color:#71717a;text-align:center">Copilot necessite une licence Microsoft 365 existante en plus de l'abonnement Copilot</div>
+</div>
+
 ## Notre recommandation pour les PME suisses
 
 Le choix n'est pas binaire. La stratégie la plus efficace pour une PME suisse en 2026 dépend de deux facteurs : votre écosystème existant et vos cas d'usage dominants.
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(255,107,0,0.2);background:rgba(255,107,0,0.03)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#FF8C00;margin-bottom:1.2rem">Guide de decision rapide</div>
+<div style="display:flex;flex-direction:column;gap:0.75rem">
+<div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem;border-radius:10px;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.12)">
+<div style="min-width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(96,165,250,0.2);display:flex;align-items:center;justify-content:center;font-size:1rem">&#128187;</div>
+<div style="flex:1"><span style="color:#60a5fa;font-weight:600;font-size:0.85rem">Votre equipe vit dans Microsoft 365</span><br/><span style="color:#9CA3AF;font-size:0.78rem">Copilot. ROI immediat, zero changement d'habitude.</span></div>
+</div>
+<div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem;border-radius:10px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.12)">
+<div style="min-width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(124,58,237,0.2);display:flex;align-items:center;justify-content:center;font-size:1rem">&#9998;</div>
+<div style="flex:1"><span style="color:#A78BFA;font-weight:600;font-size:0.85rem">Vous produisez beaucoup de contenu ecrit</span><br/><span style="color:#9CA3AF;font-size:0.78rem">Claude Pro. Qualite redactionnelle et fiabilite des consignes complexes sans egal.</span></div>
+</div>
+<div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem;border-radius:10px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.12)">
+<div style="min-width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(74,222,128,0.2);display:flex;align-items:center;justify-content:center;font-size:1rem">&#9889;</div>
+<div style="flex:1"><span style="color:#4ade80;font-weight:600;font-size:0.85rem">Vous cherchez la polyvalence maximale</span><br/><span style="color:#9CA3AF;font-size:0.78rem">ChatGPT. Ecosysteme de plugins, communaute, standard de facto.</span></div>
+</div>
+<div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem;border-radius:10px;background:rgba(255,107,0,0.08);border:1px solid rgba(255,107,0,0.12)">
+<div style="min-width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(255,107,0,0.2);display:flex;align-items:center;justify-content:center;font-size:1rem">&#128200;</div>
+<div style="flex:1"><span style="color:#FF8C00;font-weight:600;font-size:0.85rem">Vous voulez le meilleur des deux mondes</span><br/><span style="color:#9CA3AF;font-size:0.78rem">ChatGPT + Claude (40 $/mois). Creatif + strategique. ROI maximal.</span></div>
+</div>
+</div>
+</div>
+
+___IMG:chatgpt-claude-copilot-decision-arbre.png___
 
 **Si votre équipe utilise Microsoft 365 au quotidien**, Copilot est le choix le plus rentable. Le retour sur investissement est immédiat sur la productivité bureautique, et vos collaborateurs n'ont pas besoin d'apprendre un nouvel outil.
 

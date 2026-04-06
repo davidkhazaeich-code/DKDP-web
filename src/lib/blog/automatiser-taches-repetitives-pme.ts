@@ -20,6 +20,11 @@ const article: Article = {
         alt: 'Cycle automatisation PME en 6 etapes : identifier, modeliser, configurer, tester, deployer, mesurer',
         caption: "Le cycle d'automatisation en 6 étapes : identifier, modéliser, configurer, tester, déployer, mesurer",
       },
+      {
+        src: '/images/blog/automatiser-taches-pme-gains-productivite.png',
+        alt: 'Automatisation PME Suisse 2026 : cycle de productivite avec engrenages connectes et flux de donnees automatises',
+        caption: 'Le cycle d\'automatisation PME : des engrenages connectés pour un gain de productivité mesurable',
+      },
     ],
     tags: ['automatisation', 'workflow', 'no-code', 'productivité', 'Zapier', 'Make'],
     seoTitle: '7 automatisations PME : Make, Zapier, n8n · DKDP',
@@ -31,6 +36,42 @@ Il y a cinq ans, automatiser des processus métier demandait des développeurs, 
 
 Le gain est réel et mesurable. Une PME de 10 personnes qui automatise ses processus les plus chronophages peut récupérer entre 5 et 15 heures de travail hebdomadaire, soit l'équivalent d'un mi-temps. Ce n'est pas de la théorie : c'est ce que nos clients constatent régulièrement dans les trois premiers mois.
 
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(167,139,250,0.2);background:rgba(167,139,250,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1rem">CYCLE D'AUTOMATISATION EN 6 ETAPES</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+<div style="padding:1rem;border-radius:12px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.15);text-align:center">
+<div style="font-size:1.5rem;font-weight:700;color:#A78BFA;margin-bottom:0.25rem">1</div>
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Identifier</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Lister les taches repetitives de chaque equipe</div>
+</div>
+<div style="padding:1rem;border-radius:12px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.15);text-align:center">
+<div style="font-size:1.5rem;font-weight:700;color:#A78BFA;margin-bottom:0.25rem">2</div>
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Modeliser</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Documenter chaque etape du processus manuel</div>
+</div>
+<div style="padding:1rem;border-radius:12px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.15);text-align:center">
+<div style="font-size:1.5rem;font-weight:700;color:#A78BFA;margin-bottom:0.25rem">3</div>
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Configurer</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Construire le workflow dans Make, Zapier ou n8n</div>
+</div>
+<div style="padding:1rem;border-radius:12px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.15);text-align:center">
+<div style="font-size:1.5rem;font-weight:700;color:#FF8C00;margin-bottom:0.25rem">4</div>
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Tester</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Valider avec des donnees reelles en mode test</div>
+</div>
+<div style="padding:1rem;border-radius:12px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.15);text-align:center">
+<div style="font-size:1.5rem;font-weight:700;color:#FF8C00;margin-bottom:0.25rem">5</div>
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Deployer</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Activer en production et former l'equipe</div>
+</div>
+<div style="padding:1rem;border-radius:12px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.15);text-align:center">
+<div style="font-size:1.5rem;font-weight:700;color:#FF8C00;margin-bottom:0.25rem">6</div>
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Mesurer</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Suivre les KPIs et optimiser en continu</div>
+</div>
+</div>
+</div>
+
 ## Les outils : Make (ex-Integromat), Zapier, n8n
 
 Avant de lancer vos premières automatisations, voici un rapide positionnement des trois principaux acteurs.
@@ -40,6 +81,33 @@ Avant de lancer vos premières automatisations, voici un rapide positionnement d
 **Zapier** reste la référence en termes de catalogue d'intégrations (plus de 6 000 apps). Sa prise en main est la plus rapide, mais son prix peut grimper vite pour les workflows fréquents. Parfait pour les équipes qui veulent aller vite sur des cas d'usage simples.
 
 **n8n** est la solution open-source. Elle peut être hébergée sur vos propres serveurs, ce qui en fait le choix préféré des entreprises soucieuses de la confidentialité de leurs données. La courbe d'apprentissage est un peu plus prononcée, mais les possibilités sont quasi illimitées.
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(212,212,216,0.2);background:rgba(212,212,216,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:1rem">OUTILS PAR CAS D'USAGE</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.5rem">
+<div style="padding:0.75rem;background:rgba(167,139,250,0.1);border-radius:8px;text-align:center">
+<div style="font-size:0.7rem;color:#71717a;margin-bottom:0.25rem">OUTIL</div>
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Make</div>
+</div>
+<div style="padding:0.75rem;background:rgba(167,139,250,0.1);border-radius:8px;text-align:center">
+<div style="font-size:0.7rem;color:#71717a;margin-bottom:0.25rem">OUTIL</div>
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Zapier</div>
+</div>
+<div style="padding:0.75rem;background:rgba(167,139,250,0.1);border-radius:8px;text-align:center">
+<div style="font-size:0.7rem;color:#71717a;margin-bottom:0.25rem">OUTIL</div>
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">n8n</div>
+</div>
+<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#9CA3AF">Workflows complexes, ramifies</div>
+<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#9CA3AF">Cas simples, demarrage rapide</div>
+<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#9CA3AF">Self-hosted, controle total</div>
+<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#4ade80">des 9 CHF/mois</div>
+<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#fca5a5">des 20 $/mois</div>
+<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#4ade80">Gratuit (open-source)</div>
+<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#A78BFA">6 000+ apps</div>
+<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#A78BFA">7 000+ apps</div>
+<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#A78BFA">400+ apps + custom</div>
+</div>
+</div>
 
 ___IMG:automatiser-taches-workflow.png___
 
@@ -86,6 +154,33 @@ ___IMG:automatiser-taches-workflow.png___
 **Déclencheur :** ajout d'un nouveau profil dans votre outil RH.
 **Automatisation :** création des comptes (Google Workspace, Slack, Notion), envoi du livret d'accueil par email, création des tâches d'onboarding dans le gestionnaire de projet, invitation au canal Slack dédié, rappel au manager après J+7.
 **Gain estimé :** 2-3 heures par recrutement.
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(74,222,128,0.2);background:rgba(74,222,128,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#4ade80;margin-bottom:1rem">GAINS DE TEMPS PAR DEPARTEMENT</div>
+<div style="display:flex;flex-direction:column;gap:0.75rem">
+<div>
+<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">Commercial (leads + relances)</span><span style="font-size:0.85rem;font-weight:700;color:#4ade80">4-6h/semaine</span></div>
+<div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:85%;height:100%;border-radius:4px;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">Marketing (contenu + reseaux)</span><span style="font-size:0.85rem;font-weight:700;color:#4ade80">3-5h/semaine</span></div>
+<div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:70%;height:100%;border-radius:4px;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">Administration (facturation + rapports)</span><span style="font-size:0.85rem;font-weight:700;color:#4ade80">2-4h/semaine</span></div>
+<div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:55%;height:100%;border-radius:4px;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">RH (onboarding + veille)</span><span style="font-size:0.85rem;font-weight:700;color:#4ade80">1-3h/semaine</span></div>
+<div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:40%;height:100%;border-radius:4px;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+</div>
+</div>
+<div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(74,222,128,0.15);text-align:center">
+<span style="font-size:1.1rem;font-weight:700;color:#4ade80">Total : 10-18h recuperees par semaine</span>
+</div>
+</div>
+
+___IMG:automatiser-taches-pme-gains-productivite.png___
 
 ## Par où commencer : la méthode en 3 étapes
 

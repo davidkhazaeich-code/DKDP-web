@@ -20,6 +20,11 @@ const article: Article = {
         alt: 'Matrice de risques cybersecurite PME : evaluation des menaces par probabilite et impact pour entreprises suisses',
         caption: 'Matrice de risques : probabilité vs impact. Les zones rouges demandent une action immédiate',
       },
+      {
+        src: '/images/blog/cybersecurite-pme-checklist-protection.png',
+        alt: 'Cybersecurite PME Suisse 2026 : bouclier de protection numerique contre phishing, malware et violations de donnees',
+        caption: 'Bouclier cybersécurité : les couches de protection essentielles pour une PME suisse',
+      },
     ],
     tags: ['cybersécurité', 'PME', 'sécurité', 'RGPD', 'phishing', 'mots de passe'],
     seoTitle: 'Cybersécurité PME 2026 : 8 erreurs à corriger · DKDP',
@@ -32,6 +37,42 @@ Le mythe persiste : "les hackers ne s'intéressent qu'aux grandes entreprises." 
 Le coût moyen d'une cyberattaque pour une PME suisse est estimé entre 50 000 et 250 000 CHF (source : Hiscox Cyber Readiness Report, 2024), en comptant la récupération des données, l'arrêt d'activité, les frais juridiques et les amendes potentielles liées à la LPD (Loi sur la Protection des Données). 43 % des PME touchées déposent le bilan dans les 6 mois suivant une attaque majeure (source : National Cyber Security Alliance).
 
 Ce n'est pas pour vous faire peur. C'est pour ancrer la décision de sécuriser votre infrastructure dans la réalité économique.
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(252,165,165,0.2);background:rgba(252,165,165,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#fca5a5;margin-bottom:1rem">TOP 5 ERREURS : IMPACT ET FREQUENCE</div>
+<div style="display:flex;flex-direction:column;gap:1rem">
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:0.5rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(252,165,165,0.1)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;color:#71717a">Erreur</div>
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;color:#71717a;text-align:center">Frequence</div>
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;color:#71717a;text-align:center">Impact</div>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:0.5rem;align-items:center">
+<div style="font-size:0.85rem;color:#e4e4e7">Mots de passe faibles</div>
+<div style="text-align:center"><div style="height:8px;border-radius:4px;background:rgba(252,165,165,0.1)"><div style="width:95%;height:100%;border-radius:4px;background:#fca5a5"></div></div></div>
+<div style="text-align:center"><div style="height:8px;border-radius:4px;background:rgba(252,165,165,0.1)"><div style="width:80%;height:100%;border-radius:4px;background:#fca5a5"></div></div></div>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:0.5rem;align-items:center">
+<div style="font-size:0.85rem;color:#e4e4e7">Pas de 2FA</div>
+<div style="text-align:center"><div style="height:8px;border-radius:4px;background:rgba(252,165,165,0.1)"><div style="width:85%;height:100%;border-radius:4px;background:#fca5a5"></div></div></div>
+<div style="text-align:center"><div style="height:8px;border-radius:4px;background:rgba(252,165,165,0.1)"><div style="width:90%;height:100%;border-radius:4px;background:#fca5a5"></div></div></div>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:0.5rem;align-items:center">
+<div style="font-size:0.85rem;color:#e4e4e7">Logiciels non mis a jour</div>
+<div style="text-align:center"><div style="height:8px;border-radius:4px;background:rgba(252,165,165,0.1)"><div style="width:80%;height:100%;border-radius:4px;background:#FF8C00"></div></div></div>
+<div style="text-align:center"><div style="height:8px;border-radius:4px;background:rgba(252,165,165,0.1)"><div style="width:85%;height:100%;border-radius:4px;background:#fca5a5"></div></div></div>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:0.5rem;align-items:center">
+<div style="font-size:0.85rem;color:#e4e4e7">Pas de sauvegarde testee</div>
+<div style="text-align:center"><div style="height:8px;border-radius:4px;background:rgba(252,165,165,0.1)"><div style="width:70%;height:100%;border-radius:4px;background:#FF8C00"></div></div></div>
+<div style="text-align:center"><div style="height:8px;border-radius:4px;background:rgba(252,165,165,0.1)"><div style="width:95%;height:100%;border-radius:4px;background:#fca5a5"></div></div></div>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:0.5rem;align-items:center">
+<div style="font-size:0.85rem;color:#e4e4e7">Pas de formation phishing</div>
+<div style="text-align:center"><div style="height:8px;border-radius:4px;background:rgba(252,165,165,0.1)"><div style="width:90%;height:100%;border-radius:4px;background:#fca5a5"></div></div></div>
+<div style="text-align:center"><div style="height:8px;border-radius:4px;background:rgba(252,165,165,0.1)"><div style="width:75%;height:100%;border-radius:4px;background:#FF8C00"></div></div></div>
+</div>
+</div>
+</div>
 
 ## Les 8 erreurs qui vous exposent
 
@@ -85,6 +126,33 @@ Un réseau Wifi d'entreprise avec un mot de passe partagé à toute l'équipe et
 
 ___IMG:cybersecurite-pme-risques.png___
 
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(167,139,250,0.2);background:rgba(167,139,250,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1rem">LES 3 NIVEAUX DE PROTECTION</div>
+<div style="display:flex;flex-direction:column;gap:1rem">
+<div style="padding:1.25rem;border-radius:12px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.15)">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem">
+<div style="font-size:0.85rem;font-weight:700;color:#4ade80">Niveau 1 : Essentiel</div>
+<div style="font-size:0.7rem;color:#71717a;background:rgba(74,222,128,0.1);padding:0.2rem 0.5rem;border-radius:4px">Semaine 1-2</div>
+</div>
+<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.6">Gestionnaire de mots de passe + 2FA sur tous les services critiques + revocation des acces anciens collaborateurs</div>
+</div>
+<div style="padding:1.25rem;border-radius:12px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.15)">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem">
+<div style="font-size:0.85rem;font-weight:700;color:#FF8C00">Niveau 2 : Renforce</div>
+<div style="font-size:0.7rem;color:#71717a;background:rgba(255,140,0,0.1);padding:0.2rem 0.5rem;border-radius:4px">Semaine 3</div>
+</div>
+<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.6">Sauvegarde 3-2-1 testee + mises a jour automatiques + SPF/DKIM/DMARC configures + Wifi separe</div>
+</div>
+<div style="padding:1.25rem;border-radius:12px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.15)">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem">
+<div style="font-size:0.85rem;font-weight:700;color:#A78BFA">Niveau 3 : Avance</div>
+<div style="font-size:0.7rem;color:#71717a;background:rgba(167,139,250,0.1);padding:0.2rem 0.5rem;border-radius:4px">Semaine 4+</div>
+</div>
+<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.6">Formation phishing equipe + audit des acces par role + monitoring des endpoints + scan de vulnerabilites</div>
+</div>
+</div>
+</div>
+
 ## Le plan d'action minimal en 30 jours
 
 **Semaines 1-2 : Authentification.** Déployez un gestionnaire de mots de passe. Activez le 2FA sur tous les services critiques. Révoquez les accès des anciens collaborateurs.
@@ -92,6 +160,46 @@ ___IMG:cybersecurite-pme-risques.png___
 **Semaine 3 : Sauvegardes.** Auditez votre stratégie de sauvegarde actuelle. Mettez en place la règle 3-2-1. Testez une restauration.
 
 **Semaine 4 : Formation équipe.** Organisez une session de 1h sur le phishing et les bonnes pratiques de sécurité. Configurez SPF/DKIM/DMARC. Séparez vos réseaux Wifi.
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(212,212,216,0.2);background:rgba(212,212,216,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:1rem">CHECKLIST SECURITE ESSENTIELLE</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem">
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Gestionnaire de mots de passe deploye</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">2FA active sur tous les services critiques</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Sauvegarde 3-2-1 en place et testee</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Mises a jour automatiques activees</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">SPF/DKIM/DMARC configures</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Wifi separe (prive + invites)</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Formation phishing realisee</div>
+</div>
+<div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
+<div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Acces audites par role</div>
+</div>
+</div>
+</div>
+
+___IMG:cybersecurite-pme-checklist-protection.png___
 
 ## Outils recommandés
 

@@ -153,7 +153,7 @@ export function AllServices() {
                     onClick={() => { setHasInteracted(true); setActive(isActive ? null : pillar.key) }}
                     className={`group relative flex flex-col overflow-hidden rounded-[12px] sm:rounded-[16px] transition-all duration-300 cursor-pointer ${isActive ? '' : 'hover:scale-[1.02] active:scale-[0.98]'}`}
                     style={{
-                      background: `${pillar.color}${isActive ? '18' : '0a'}`,
+                      background: isActive ? `${pillar.color}18` : 'rgba(9,9,11,0.95)',
                       border: `2px solid ${pillar.color}${isActive ? '' : shouldAnimate ? '40' : '25'}`,
                       boxShadow: isActive ? `0 0 30px ${pillar.color}20, inset 0 1px 0 ${pillar.color}20` : shouldAnimate ? `0 0 16px ${pillar.color}12` : 'none',
                       animation: shouldAnimate ? `pillarNudge 2.8s ease-in-out infinite` : 'none',
@@ -163,14 +163,14 @@ export function AllServices() {
                       if (isActive) return
                       const el = e.currentTarget
                       el.style.borderColor = `${pillar.color}80`
-                      el.style.background = `${pillar.color}15`
+                      el.style.background = `${pillar.color}12`
                       el.style.boxShadow = `0 0 24px ${pillar.color}18`
                     }}
                     onMouseLeave={(e) => {
                       if (isActive) return
                       const el = e.currentTarget
                       el.style.borderColor = `${pillar.color}${shouldAnimate ? '40' : '25'}`
-                      el.style.background = `${pillar.color}0a`
+                      el.style.background = 'rgba(9,9,11,0.95)'
                       el.style.boxShadow = shouldAnimate ? `0 0 16px ${pillar.color}12` : 'none'
                     }}
                   >

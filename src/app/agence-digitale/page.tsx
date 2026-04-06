@@ -12,7 +12,6 @@ import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { HeroBg } from '@/components/ui/HeroBg'
-import { VideoHeroBg } from '@/components/ui/VideoHeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_AGENCE } from '@/data/faq-agence'
@@ -113,10 +112,7 @@ export default function AgenceDigitalePage() {
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Agence Digitale', url: '/agence-digitale' }])} />
 
       {/* ── Hero ── */}
-      <VideoHeroBg
-        videoSrc="/videos/hero-digital-hd.mp4"
-        poster="/images/pillars/agence-digitale.webp"
-        overlayOpacity={0.7}
+      <HeroBg
         blob1="rgba(124,58,237,0.14)"
         blob2="rgba(124,58,237,0.07)"
       >

@@ -58,22 +58,27 @@ const IA_SERVICES: ServiceItem[] = [
 
 type PillarKey = 'agence' | 'formation' | 'ia'
 
-const PILLARS: { key: PillarKey; label: string; shortLabel: string; subtitle: string; Icon: React.ElementType; color: string; bg: string; border: string; items: ServiceItem[]; accentRgb: string; blob1: string; blob2: string; hubHref: string }[] = [
+type PillarData = { key: PillarKey; label: string; shortLabel: string; subtitle: string; preview: string[]; Icon: React.ElementType; color: string; bg: string; border: string; items: ServiceItem[]; accentRgb: string; blob1: string; blob2: string; hubHref: string }
+
+const PILLARS: PillarData[] = [
   {
-    key: 'agence', label: 'Marketing digital', shortLabel: 'Marketing', subtitle: '7 services', Icon: Globe,
-    color: violet.color, bg: violet.bg, border: violet.border, items: AGENCE_SERVICES,
+    key: 'agence', label: 'Marketing digital', shortLabel: 'Marketing', subtitle: '7 services',
+    preview: ['Sites web', 'SEO', 'Google Ads', 'Réseaux sociaux'],
+    Icon: Globe, color: violet.color, bg: violet.bg, border: violet.border, items: AGENCE_SERVICES,
     accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.14)', blob2: 'rgba(124,58,237,0.06)',
     hubHref: '/agence-digitale',
   },
   {
-    key: 'formation', label: 'Formation entreprise', shortLabel: 'Formation', subtitle: '8 programmes', Icon: GraduationCap,
-    color: orange.color, bg: orange.bg, border: orange.border, items: FORMATION_SERVICES,
+    key: 'formation', label: 'Formation entreprise', shortLabel: 'Formation', subtitle: '8 programmes',
+    preview: ['IA entreprise', 'Claude IA', 'Excel', 'Cybersécurité'],
+    Icon: GraduationCap, color: orange.color, bg: orange.bg, border: orange.border, items: FORMATION_SERVICES,
     accentRgb: '255,140,0', blob1: 'rgba(255,140,0,0.12)', blob2: 'rgba(255,107,0,0.06)',
     hubHref: '/formation-entreprise',
   },
   {
-    key: 'ia', label: 'IA et automatisation', shortLabel: 'IA', subtitle: '4 solutions', Icon: Sparkles,
-    color: chrome.color, bg: chrome.bg, border: chrome.border, items: IA_SERVICES,
+    key: 'ia', label: 'IA et automatisation', shortLabel: 'IA', subtitle: '4 solutions',
+    preview: ['Agents IA', 'Automatisation', 'Audit IA', 'Mise en place'],
+    Icon: Sparkles, color: chrome.color, bg: chrome.bg, border: chrome.border, items: IA_SERVICES,
     accentRgb: '212,212,216', blob1: 'rgba(212,212,216,0.10)', blob2: 'rgba(212,212,216,0.05)',
     hubHref: '/intelligence-artificielle',
   },
@@ -95,7 +100,8 @@ const BADGE_STYLES: Record<string, React.CSSProperties> = {
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export function AllServices() {
-  const [active, setActive] = useState<PillarKey>('agence')
+  const [active, setActive] = useState<PillarKey | null>(null)
+  const [hasInteracted, setHasInteracted] = useState(false)
 
   const activePillar = PILLARS.find((p) => p.key === active)
   // Default grid config when nothing selected
@@ -132,23 +138,23 @@ export function AllServices() {
               aria-label="Choisir un pilier"
               className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12"
             >
-              {PILLARS.map((pillar) => {
+              {PILLARS.map((pillar, idx) => {
                 const isActive = active === pillar.key
+                const shouldAnimate = !hasInteracted
                 return (
                   <button
                     key={pillar.key}
                     role="tab"
                     aria-selected={isActive}
                     aria-controls="services-panel"
-                    onClick={() => setActive(isActive ? null : pillar.key)}
+                    onClick={() => { setHasInteracted(true); setActive(isActive ? null : pillar.key) }}
                     className={`group relative flex flex-col items-center gap-2 sm:gap-3 px-3 sm:px-6 py-4 sm:py-6 rounded-[12px] sm:rounded-[16px] transition-all duration-300 cursor-pointer backdrop-blur-md ${isActive ? '' : 'hover:scale-[1.03] active:scale-[0.98]'}`}
                     style={{
                       background: isActive ? pillar.bg : 'rgba(9,9,11,0.60)',
-                      border: isActive ? `2px solid ${pillar.color}` : `2px solid rgba(255,255,255,0.08)`,
-                      boxShadow: isActive ? `0 0 30px ${pillar.color}15, inset 0 1px 0 ${pillar.color}20` : 'none',
-                      // Hover styles applied via onMouseEnter/Leave would be complex, using CSS var trick
-                      ['--hover-border' as string]: `${pillar.color}60`,
-                      ['--hover-bg' as string]: `${pillar.color}08`,
+                      border: isActive ? `2px solid ${pillar.color}` : shouldAnimate ? `2px solid ${pillar.color}30` : `2px solid rgba(255,255,255,0.08)`,
+                      boxShadow: isActive ? `0 0 30px ${pillar.color}15, inset 0 1px 0 ${pillar.color}20` : shouldAnimate ? `0 0 12px ${pillar.color}08` : 'none',
+                      animation: shouldAnimate ? `pillarNudge 2.8s ease-in-out infinite` : 'none',
+                      animationDelay: shouldAnimate ? `${idx * 0.35}s` : '0s',
                     }}
                     onMouseEnter={(e) => {
                       if (isActive) return
@@ -160,9 +166,9 @@ export function AllServices() {
                     onMouseLeave={(e) => {
                       if (isActive) return
                       const el = e.currentTarget
-                      el.style.borderColor = 'rgba(255,255,255,0.08)'
+                      el.style.borderColor = shouldAnimate ? `${pillar.color}30` : 'rgba(255,255,255,0.08)'
                       el.style.background = 'rgba(9,9,11,0.60)'
-                      el.style.boxShadow = 'none'
+                      el.style.boxShadow = shouldAnimate ? `0 0 12px ${pillar.color}08` : 'none'
                     }}
                   >
                     {/* Icon circle */}
@@ -201,6 +207,25 @@ export function AllServices() {
                         {pillar.subtitle}
                       </p>
                     </div>
+
+                    {/* Preview service tags — visible only before first interaction */}
+                    {shouldAnimate && (
+                      <div className="hidden sm:flex flex-wrap justify-center gap-1.5 mt-1">
+                        {pillar.preview.map((name) => (
+                          <span
+                            key={name}
+                            className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full"
+                            style={{
+                              background: `${pillar.color}10`,
+                              color: `${pillar.color}99`,
+                              border: `1px solid ${pillar.color}18`,
+                            }}
+                          >
+                            {name}
+                          </span>
+                        ))}
+                      </div>
+                    )}
 
                     {/* Active indicator dot */}
                     <div

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { MapPin, ChevronRight, Globe2, Users, Building2, Phone, CheckCircle2 } from 'lucide-react'
+import { ChevronRight, Globe2, Users, Building2, Phone, CheckCircle2 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -109,8 +109,8 @@ export default async function CityPage({ params }: Props) {
                 <span className="text-white text-xs md:text-sm font-medium">{city.name}</span>
               </nav>
               <div className="max-w-2xl">
-                <GradTag className="mb-5 inline-flex items-center">
-                  <MapPin size={11} className="mr-1.5 flex-shrink-0" /> {city.name}, {city.canton}
+                <GradTag className="mb-5">
+                  {city.name}, {city.canton}
                 </GradTag>
                 <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
                   Agence digitale pour les entreprises de{' '}

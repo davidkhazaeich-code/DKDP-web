@@ -110,13 +110,14 @@ export function AllServices() {
       blob1={gridBlob1}
       blob2={gridBlob2}
     >
-      <section id="tous-les-services" aria-labelledby="all-services-heading" className="py-14 sm:py-20 md:py-24">
+      <section id="nos-expertises" aria-labelledby="all-services-heading" className="py-14 sm:py-20 md:py-24">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
           <SectionReveal>
             <div className="text-center mb-10 sm:mb-14">
-              <GradTag className="mb-4 sm:mb-6">Tous nos services</GradTag>
-              <h2 id="all-services-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3 sm:mb-4">
-                19 services, 3 piliers, un seul interlocuteur.
+              <GradTag className="mb-4 sm:mb-6">Nos expertises</GradTag>
+              <h2 id="all-services-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-3 sm:mb-5">
+                Sites web, SEO, IA et formation.<br className="hidden sm:block" />
+                Un seul interlocuteur.
               </h2>
               <p className="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto">
                 Sélectionnez un pilier pour explorer nos offres.

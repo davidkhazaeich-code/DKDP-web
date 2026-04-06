@@ -34,6 +34,7 @@ const AGENCE_MAIN = [
 ]
 
 const AGENCE_SECONDARY = [
+  { title: 'Realisations', href: '/realisations', icon: LayoutGrid },
   { title: 'Audit site gratuit', href: '/agence-digitale/creation-site-web/audit-site', icon: Search },
   { title: 'Audit SEO gratuit', href: '/agence-digitale/seo/audit-seo', icon: BarChart2 },
   { title: 'Tarifs agence', href: '/tarifs', icon: FileText },

@@ -97,7 +97,7 @@ export const ROUTES: Route[] = [
   { url: '/glossaire', priority: 0.70, changeFrequency: 'weekly'  },
 
   // ─── Réalisations ─────────────────────────────────────────────────────────
-  { url: '/realisations', priority: 0.65, changeFrequency: 'monthly' },
+  { url: '/realisations', priority: 0.75, changeFrequency: 'monthly' },
 
   // ─── Utilitaires / Légales ────────────────────────────────────────────────
   { url: '/plan-du-site',                    priority: 0.30, changeFrequency: 'yearly' },

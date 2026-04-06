@@ -83,8 +83,10 @@ const FOOTER_HEIGHT = 520
 
 // ─── Shared inner content ─────────────────────────────────────────────────────
 
-function FooterInner({ constrained = false }: { constrained?: boolean }) {
+function FooterInner({ constrained = false, variant = 'all' }: { constrained?: boolean; variant?: 'mobile' | 'desktop' | 'all' }) {
   const year = new Date().getFullYear()
+  const showDesktop = variant === 'desktop' || variant === 'all'
+  const showMobile = variant === 'mobile' || variant === 'all'
 
   return (
     <footer
@@ -104,7 +106,7 @@ function FooterInner({ constrained = false }: { constrained?: boolean }) {
       />
 
       {/* ── Desktop layout (lg+) ── */}
-      <div className="hidden lg:block relative z-10 flex-1 max-w-[1200px] w-full mx-auto px-6 pt-10 pb-0">
+      {showDesktop && <div className="hidden lg:block relative z-10 flex-1 max-w-[1200px] w-full mx-auto px-6 pt-10 pb-0">
         <div className="grid grid-cols-[200px_1fr_1fr_1fr_1fr] gap-6 h-full">
 
           {/* Brand column */}
@@ -177,10 +179,10 @@ function FooterInner({ constrained = false }: { constrained?: boolean }) {
             </div>
           ))}
         </div>
-      </div>
+      </div>}
 
       {/* ── Mobile / Tablet layout (< lg) ── */}
-      <div className="lg:hidden relative z-10 max-w-[1200px] w-full mx-auto px-6 pt-10 pb-6">
+      {showMobile && <div className="lg:hidden relative z-10 max-w-[1200px] w-full mx-auto px-6 pt-10 pb-6">
 
         {/* Brand section */}
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 pb-8 border-b border-border">
@@ -255,7 +257,7 @@ function FooterInner({ constrained = false }: { constrained?: boolean }) {
             Réservez un appel <ChevronRight size={12} />
           </Link>
         </div>
-      </div>
+      </div>}
 
       {/* ── Bottom bar ── */}
       <div className="relative z-10 border-t border-border" style={{ background: 'rgba(0,0,0,0.3)' }}>
@@ -282,19 +284,19 @@ function FooterInner({ constrained = false }: { constrained?: boolean }) {
 export function Footer() {
   return (
     <>
-      {/* Mobile + Tablet: normal auto-height footer */}
+      {/* Mobile + Tablet: normal auto-height footer (only mobile content rendered) */}
       <div className="lg:hidden">
-        <FooterInner />
+        <FooterInner variant="mobile" />
       </div>
 
-      {/* Desktop: scroll-up effect with fixed height */}
+      {/* Desktop: scroll-up effect with fixed height (only desktop content rendered) */}
       <div
         className="hidden lg:block relative"
         style={{ height: FOOTER_HEIGHT, clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
       >
         <div className="fixed bottom-0 w-full" style={{ height: FOOTER_HEIGHT }}>
           <div style={{ position: 'sticky', top: `calc(100vh - ${FOOTER_HEIGHT}px)`, height: FOOTER_HEIGHT }}>
-            <FooterInner constrained />
+            <FooterInner constrained variant="desktop" />
           </div>
         </div>
       </div>

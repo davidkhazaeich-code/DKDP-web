@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { MapPin, ChevronRight, Globe2, Users, Building2, Phone, CheckCircle2, Star, Clock } from 'lucide-react'
+import { MapPin, ChevronRight, Globe2, Users, Building2, Phone, CheckCircle2 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -48,12 +48,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const SERVICES = [
-  { label: 'Creation de site web', href: '/agence-digitale/creation-site-web', desc: 'Sites vitrines, e-commerce et applications web sur mesure. Next.js, Astro ou WordPress selon vos besoins.' },
-  { label: 'Referencement SEO', href: '/agence-digitale/seo', desc: 'SEO local et national pour vous positionner dans les premiers resultats Google dans votre region.' },
-  { label: 'Intelligence artificielle', href: '/intelligence-artificielle', desc: 'Agents IA, automatisation de workflows et audit IA pour gagner en productivite.' },
-  { label: 'Formation IA entreprise', href: '/formation-entreprise/ia', desc: 'Formations pratiques pour vos equipes : IA generative, prompt engineering, outils concrets.' },
-  { label: 'Publicite Google Ads', href: '/agence-digitale/publicite-sea', desc: 'Campagnes Search et Performance Max pour generer des leads qualifies.' },
-  { label: 'Consulting marketing', href: '/agence-digitale/consulting-marketing', desc: 'Strategie digitale, audit de presence en ligne et plan d\'action sur mesure.' },
+  { label: 'Creation de site web', href: '/agence-digitale/creation-site-web', desc: 'Sites vitrines, e-commerce et applications web sur mesure.' },
+  { label: 'Referencement SEO', href: '/agence-digitale/seo', desc: 'SEO local et national pour dominer Google dans votre region.' },
+  { label: 'Intelligence artificielle', href: '/intelligence-artificielle', desc: 'Agents IA, automatisation et audit pour gagner en productivite.' },
+  { label: 'Formation IA entreprise', href: '/formation-entreprise/ia', desc: 'Formations pratiques IA generative et prompt engineering.' },
+  { label: 'Publicite Google Ads', href: '/agence-digitale/publicite-sea', desc: 'Campagnes Search et Performance Max, leads qualifies.' },
+  { label: 'Consulting marketing', href: '/agence-digitale/consulting-marketing', desc: 'Strategie digitale, audit et plan d\'action sur mesure.' },
 ]
 
 export default async function CityPage({ params }: Props) {
@@ -96,33 +96,33 @@ export default async function CityPage({ params }: Props) {
       })} />
 
       {/* ── Hero ── */}
-      <VideoHeroBg videoSrc={city.videoSrc} overlayOpacity={0.7} blob1="rgba(124,58,237,0.14)" blob2="rgba(255,107,0,0.07)">
-        <section className="pt-28 pb-24">
-          <div className="max-w-[1200px] mx-auto px-6">
+      <VideoHeroBg videoSrc={city.videoSrc} overlayOpacity={0.72} blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.05)">
+        <section className="pt-24 pb-20 md:pt-28 md:pb-24">
+          <div className="max-w-[1200px] mx-auto px-5 md:px-6">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 mb-6">
-              <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-white transition-colors">
+            <nav className="flex items-center gap-1.5 mb-5 md:mb-6" aria-label="Fil d'Ariane">
+              <Link href="/agence-digitale" className="text-text-muted text-xs md:text-sm hover:text-white transition-colors">
                 Service Digital
               </Link>
-              <ChevronRight size={14} className="text-text-muted" />
-              <span className="text-sm" style={{ color: V }}>{city.name}</span>
-            </div>
+              <ChevronRight size={12} className="text-text-muted" />
+              <span className="text-white text-xs md:text-sm font-medium">{city.name}</span>
+            </nav>
 
-            <div className="max-w-3xl">
-              <GradTag className="mb-6">
-                <MapPin size={11} className="mr-1" /> Agence digitale · {city.name}, {city.canton}
+            <div className="max-w-2xl">
+              <GradTag className="mb-5">
+                <MapPin size={11} className="mr-1" /> {city.name}, {city.canton}
               </GradTag>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                <GradText as="span">{city.heroLine}</GradText>
+              <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
+                Agence digitale pour les entreprises de{' '}
+                <GradText as="span">{city.name}</GradText>
               </h1>
-              <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4" data-speakable="true">
-                Sites web, SEO, intelligence artificielle et formation pour les entreprises de {city.name}.
-                DKDP, agence basee a Geneve, 700+ clients en Suisse romande.
+              <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-8" data-speakable="true">
+                Sites web, SEO, intelligence artificielle et formation. DKDP, agence basee a Geneve, accompagne 700+ entreprises en Suisse romande.
               </p>
-              <div className="flex flex-wrap gap-4 items-center mt-8">
+              <div className="flex flex-wrap gap-3 items-center">
                 <LiquidMetalButton href="/contact" size="lg">Demarrer un projet →</LiquidMetalButton>
-                <Link href="/tarifs" className="text-sm text-text-muted hover:text-white transition-colors">
-                  Voir les tarifs ↓
+                <Link href="/tarifs" className="text-sm text-text-muted hover:text-white transition-colors px-2 py-1">
+                  Voir les tarifs
                 </Link>
               </div>
             </div>
@@ -131,20 +131,19 @@ export default async function CityPage({ params }: Props) {
       </VideoHeroBg>
 
       {/* ── Stats bar ── */}
-      <section className="py-12 border-b border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="py-10 md:py-12 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-5 md:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
-              { v: '700+', l: 'Clients accompagnes', sub: 'En Suisse romande' },
-              { v: '10+ ans', l: "D'experience", sub: 'Depuis 2015 a Geneve' },
-              { v: '5/5', l: 'Note Google', sub: '18 avis verifies' },
-              { v: city.distance, l: `De ${city.name}`, sub: 'Reunions en personne ou visio' },
+              { v: '700+', l: 'Clients accompagnes' },
+              { v: '10+ ans', l: "D'experience" },
+              { v: '5/5', l: 'Note Google' },
+              { v: city.distance, l: `De ${city.name}` },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
-                  <p className="text-2xl md:text-3xl font-bold text-white">{s.v}</p>
-                  <p className="text-sm text-text-secondary mt-1">{s.l}</p>
-                  <p className="text-xs text-text-muted mt-0.5">{s.sub}</p>
+                  <p className="text-xl md:text-2xl font-bold text-white">{s.v}</p>
+                  <p className="text-xs md:text-sm text-text-muted mt-1">{s.l}</p>
                 </div>
               </SectionReveal>
             ))}
@@ -154,58 +153,46 @@ export default async function CityPage({ params }: Props) {
 
       {/* ── Pourquoi nous faire confiance ── */}
       <SectionReveal>
-        <section className="max-w-[1200px] mx-auto px-6 py-20">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+        <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-16 md:py-20">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
             <div>
-              <GradTag className="mb-4">Expertise locale</GradTag>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                Pourquoi les entreprises de <GradText as="span">{city.name}</GradText> nous font confiance
+              <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Expertise locale</p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-5 text-white">
+                Pourquoi les entreprises de {city.name} nous font confiance
               </h2>
-              <p className="text-text-secondary leading-relaxed mb-8">
+              <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-8">
                 {city.localContext}
               </p>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: VB, border: `1px solid ${VD}` }}>
-                    <Building2 size={14} style={{ color: V }} />
+              <div className="space-y-5">
+                {[
+                  { Icon: Building2, title: 'Tissu economique', text: city.economicProfile },
+                  { Icon: Users, title: 'Population', text: city.population },
+                  { Icon: Globe2, title: 'Proximite', text: city.distance },
+                ].map((item) => (
+                  <div key={item.title} className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 border border-border bg-white/[0.03]">
+                      <item.Icon size={14} className="text-text-secondary" />
+                    </div>
+                    <div>
+                      <p className="text-white text-sm font-medium">{item.title}</p>
+                      <p className="text-text-muted text-xs mt-0.5">{item.text}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white text-sm font-medium">Tissu economique</p>
-                    <p className="text-text-muted text-xs mt-0.5">{city.economicProfile}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: VB, border: `1px solid ${VD}` }}>
-                    <Users size={14} style={{ color: V }} />
-                  </div>
-                  <div>
-                    <p className="text-white text-sm font-medium">Population</p>
-                    <p className="text-text-muted text-xs mt-0.5">{city.population}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: VB, border: `1px solid ${VD}` }}>
-                    <Globe2 size={14} style={{ color: V }} />
-                  </div>
-                  <div>
-                    <p className="text-white text-sm font-medium">Proximite</p>
-                    <p className="text-text-muted text-xs mt-0.5">{city.distance}</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            {/* Avantages card */}
-            <div className="p-6 rounded-2xl border" style={{ borderColor: VD, background: 'rgba(124,58,237,0.04)' }}>
-              <h3 className="text-lg font-semibold mb-5">Ce qu'on fait pour les entreprises de {city.name}</h3>
+            {/* Services card */}
+            <div className="p-5 md:p-6 rounded-2xl border border-border bg-white/[0.02]">
+              <h3 className="text-base md:text-lg font-semibold text-white mb-5">Ce qu'on fait pour vous a {city.name}</h3>
               <ul className="space-y-4">
                 {SERVICES.slice(0, 4).map(s => (
                   <li key={s.href}>
                     <Link href={s.href} className="group flex items-start gap-3">
-                      <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 transition-colors" style={{ color: V }} />
+                      <CheckCircle2 size={15} className="mt-0.5 flex-shrink-0 text-text-secondary group-hover:text-white transition-colors" />
                       <div>
-                        <p className="text-white font-medium text-sm group-hover:opacity-80 transition-opacity">{s.label}</p>
-                        <p className="text-text-muted text-xs mt-0.5">{s.desc}</p>
+                        <p className="text-white text-sm font-medium group-hover:opacity-80 transition-opacity">{s.label}</p>
+                        <p className="text-text-muted text-xs mt-0.5 leading-relaxed">{s.desc}</p>
                       </div>
                     </Link>
                   </li>
@@ -218,25 +205,24 @@ export default async function CityPage({ params }: Props) {
 
       {/* ── Services complets ── */}
       <SectionReveal>
-        <section className="max-w-[1200px] mx-auto px-6 py-20 border-t border-border">
-          <GradTag className="mb-4">Nos services</GradTag>
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+        <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border">
+          <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Nos services</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">
             Tout ce qu'il vous faut a {city.name}
           </h2>
-          <p className="text-text-secondary mb-10 max-w-2xl">
-            De la creation de site web a la formation IA, DKDP couvre l'ensemble de vos besoins digitaux. Tous nos services sont disponibles pour les entreprises de {city.name} et du canton de {city.canton}.
+          <p className="text-text-secondary text-sm md:text-base mb-10 max-w-xl">
+            De la creation de site web a la formation IA, DKDP couvre l'ensemble de vos besoins digitaux pour les entreprises de {city.name} et du canton de {city.canton}.
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {SERVICES.map(s => (
               <Link
                 key={s.href}
                 href={s.href}
-                className="group p-5 rounded-xl border transition-all hover:scale-[1.02]"
-                style={{ borderColor: VD, background: 'rgba(255,255,255,0.02)' }}
+                className="group p-4 md:p-5 rounded-xl border border-border bg-white/[0.02] transition-all hover:-translate-y-0.5 duration-200"
               >
-                <p className="text-white font-semibold text-sm mb-2 group-hover:opacity-80 transition-opacity">{s.label}</p>
+                <p className="text-white font-semibold text-sm mb-1.5 group-hover:opacity-80 transition-opacity">{s.label}</p>
                 <p className="text-text-muted text-xs leading-relaxed">{s.desc}</p>
-                <span className="inline-flex items-center gap-1 text-[11px] font-semibold mt-3 transition-transform group-hover:translate-x-1" style={{ color: V }}>
+                <span className="inline-flex items-center gap-1 text-[11px] font-semibold mt-3 text-text-secondary group-hover:text-white transition-colors">
                   En savoir plus <ChevronRight size={10} />
                 </span>
               </Link>
@@ -247,18 +233,20 @@ export default async function CityPage({ params }: Props) {
 
       {/* ── CTA intermediaire ── */}
       <SectionReveal>
-        <section className="max-w-[1200px] mx-auto px-6 py-16">
-          <div className="p-8 md:p-12 rounded-2xl border text-center" style={{ borderColor: VD, background: 'rgba(124,58,237,0.06)' }}>
-            <GradTag className="mb-4">Parlons de votre projet</GradTag>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+        <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-12 md:py-16">
+          <div className="p-6 md:p-10 rounded-2xl border border-border bg-white/[0.02] text-center">
+            <h2 className="text-xl md:text-2xl font-bold mb-3 text-white">
               Un projet digital a {city.name} ?
             </h2>
-            <p className="text-text-secondary mb-8 max-w-lg mx-auto">
+            <p className="text-text-secondary text-sm md:text-base mb-6 max-w-md mx-auto">
               15 minutes, c'est gratuit. On vous dit honnetement si on peut vous aider et comment.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <LiquidMetalButton href="/contact" size="lg">Reservez un appel gratuit →</LiquidMetalButton>
-              <a href="tel:+41799407969" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-text-secondary border border-border hover:border-white/20 transition-all">
+              <a
+                href="tel:+41799407969"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-medium text-text-secondary border border-border hover:border-white/20 hover:text-white transition-all min-h-[44px]"
+              >
                 <Phone size={14} /> +41 79 940 79 69
               </a>
             </div>

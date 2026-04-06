@@ -12,6 +12,7 @@ import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { HeroBg } from '@/components/ui/HeroBg'
+import { VideoHeroBg } from '@/components/ui/VideoHeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_AGENCE } from '@/data/faq-agence'
@@ -112,46 +113,34 @@ export default function AgenceDigitalePage() {
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Agence Digitale', url: '/agence-digitale' }])} />
 
       {/* ── Hero ── */}
-      <HeroBg
+      <VideoHeroBg
+        videoSrc="/videos/hero-digital-hd.mp4"
+        poster="/images/pillars/agence-digitale.webp"
+        overlayOpacity={0.7}
         blob1="rgba(124,58,237,0.14)"
         blob2="rgba(124,58,237,0.07)"
       >
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <GradTag className="mb-6">Service Digital</GradTag>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Votre présence digitale,{' '}
-                  <GradText as="span">optimisée de A à Z.</GradText>
-                </h1>
-                <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  De la création de site au référencement, en passant par les campagnes payantes : on construit une stratégie cohérente qui génère de vrais résultats.
-                </p>
-                <div className="flex flex-wrap gap-4 items-center">
-                  <LiquidMetalButton href="/contact?service=service-digital" size="lg">Devis gratuit →</LiquidMetalButton>
-                  <Link href="#services" className="text-sm text-text-muted hover:text-white transition-colors">
-                    Voir nos services ↓
-                  </Link>
-                </div>
-              </div>
-              <div className="relative hidden lg:block">
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(124,58,237,0.18)' }}>
-                  <Image
-                    src="/images/pillars/agence-digitale.webp"
-                    alt="Agence digitale DKDP, création de sites web à Genève"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
-                </div>
+            <div className="max-w-3xl">
+              <GradTag className="mb-6">Service Digital</GradTag>
+              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
+                Votre présence digitale,{' '}
+                <GradText as="span">optimisée de A à Z.</GradText>
+              </h1>
+              <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
+                De la création de site au référencement, en passant par les campagnes payantes : on construit une stratégie cohérente qui génère de vrais résultats.
+              </p>
+              <div className="flex flex-wrap gap-4 items-center">
+                <LiquidMetalButton href="/contact?service=service-digital" size="lg">Devis gratuit →</LiquidMetalButton>
+                <Link href="#services" className="text-sm text-text-muted hover:text-white transition-colors">
+                  Voir nos services ↓
+                </Link>
               </div>
             </div>
           </div>
         </section>
-      </HeroBg>
+      </VideoHeroBg>
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">

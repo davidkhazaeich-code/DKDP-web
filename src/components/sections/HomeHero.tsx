@@ -67,12 +67,12 @@ export function HomeHero() {
         <div className="mb-8 flex flex-col items-center gap-4">
           <TrustBadge variant="light" />
         </div>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-[-0.03em] mb-6 max-w-[1100px] mx-auto">
+        <h1 className="text-[clamp(2.25rem,5vw,4.5rem)] font-bold leading-[1.08] tracking-[-0.03em] mb-6 max-w-[1100px] mx-auto">
           L&apos;agence digitale genevoise
           <br />
           <GradText as="span">qui vous fait sortir du lot.</GradText>
         </h1>
-        <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-[860px] mx-auto">
+        <p className="text-text-secondary text-[clamp(1.05rem,1.8vw,1.25rem)] leading-relaxed mb-10 max-w-[860px] mx-auto">
           On crée votre site, on optimise votre SEO, on déploie l&apos;IA dans vos équipes
           et on forme vos collaborateurs. Résultats mesurables, pas de blabla.
         </p>

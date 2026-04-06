@@ -19,6 +19,7 @@ import {
 } from '@/components/ui/navigation-menu'
 import { cn } from '@/lib/utils'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { ClaudeIcon } from '@/components/icons/ClaudeIcon'
 
 // ─── Mega-menu data ───────────────────────────────────────────────────────────
 
@@ -48,14 +49,14 @@ const IA_MAIN = [
 
 const IA_SECONDARY = [
   { title: 'Formation IA entreprise', href: '/formation-entreprise/ia', icon: GraduationCap },
-  { title: 'Formation Claude', href: '/formation-entreprise/claude-ai', icon: Sparkles, logoSrc: '/images/partners/claude-logo.png' },
+  { title: 'Formation Claude', href: '/formation-entreprise/claude-ai', icon: ClaudeIcon },
   { title: 'Tarifs IA', href: '/tarifs', icon: FileText },
   { title: 'Parler à un expert', href: '/contact', icon: Phone },
 ]
 
 const FORMATION_MAIN = [
   { title: 'Formation IA en entreprise', href: '/formation-entreprise/ia', icon: BrainCircuit, description: 'Formez vos équipes aux outils IA du quotidien.' },
-  { title: 'Formation Claude', href: '/formation-entreprise/claude-ai', icon: Sparkles, description: 'Claude.ai, Projects Cowork et Claude Code pour vos équipes.', logoSrc: '/images/partners/claude-logo.png' },
+  { title: 'Formation Claude', href: '/formation-entreprise/claude-ai', icon: ClaudeIcon, description: 'Claude.ai, Projects Cowork et Claude Code pour vos équipes.' },
   { title: 'Bureautique', href: '/formation-entreprise/bureautique', icon: BookOpen, description: 'Gagnez du temps sur chaque fichier.' },
   { title: 'Réseaux sociaux', href: '/formation-entreprise/reseaux-sociaux', icon: Share2, description: 'Maîtrisez les plateformes sociales.' },
   { title: 'Cybersécurité', href: '/formation-entreprise/cybersecurite', icon: Shield, description: 'Protégez vos données et vos collaborateurs.' },
@@ -93,8 +94,8 @@ const PILLAR_ACCENT = {
 
 // ─── MegaMenu panel ───────────────────────────────────────────────────────────
 
-type MegaItem = { title: string; href: string; icon: React.ElementType; description?: string; logoSrc?: string }
-type MegaSecondary = { title: string; href: string; icon: React.ElementType; logoSrc?: string }
+type MegaItem = { title: string; href: string; icon: React.ElementType; description?: string }
+type MegaSecondary = { title: string; href: string; icon: React.ElementType }
 type PillarKey = 'agence' | 'ia' | 'formation' | 'apropos'
 
 function MegaPanel({
@@ -131,17 +132,12 @@ function MegaPanel({
                   href={item.href}
                   className="group flex items-start gap-3 rounded-[8px] p-2.5 transition-colors hover:bg-white/[0.04]"
                 >
-                  {item.logoSrc
-                    ? <Image src={item.logoSrc} alt="" width={32} height={32} className="mt-0.5 flex-shrink-0 rounded-[6px]" />
-                    : (
-                      <div
-                        className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[6px]"
-                        style={{ background: bg, border: `1px solid ${border}` }}
-                      >
-                        <item.icon size={15} style={{ color }} />
-                      </div>
-                    )
-                  }
+                  <div
+                    className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[6px]"
+                    style={{ background: bg, border: `1px solid ${border}` }}
+                  >
+                    <item.icon size={15} style={{ color }} />
+                  </div>
                   <div>
                     <p className="text-[13px] font-semibold text-white leading-snug group-hover:text-white">
                       {item.title}
@@ -182,10 +178,7 @@ function MegaPanel({
                   href={item.href}
                   className="flex items-center gap-2 rounded-[6px] px-2 py-1.5 text-[12px] text-text-secondary hover:bg-white/[0.04] hover:text-white transition-colors group"
                 >
-                  {item.logoSrc
-                    ? <Image src={item.logoSrc} alt="" width={20} height={20} className="flex-shrink-0 rounded-[4px] opacity-80 group-hover:opacity-100 transition-opacity" />
-                    : <item.icon size={13} className="flex-shrink-0 text-text-muted group-hover:text-white transition-colors" />
-                  }
+                  <item.icon size={13} className="flex-shrink-0 text-text-muted group-hover:text-white transition-colors" />
                   <span>{item.title}</span>
                   <ChevronRight size={11} className="ml-auto opacity-0 group-hover:opacity-60 transition-opacity" />
                 </Link>
@@ -346,10 +339,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                           className="flex h-9 w-9 items-center justify-center rounded-[8px]"
                           style={{ background: 'rgba(0,0,0,0.35)', border: `1px solid ${tab.border}` }}
                         >
-                          {item.logoSrc
-                            ? <Image src={item.logoSrc} alt="" width={20} height={20} className="rounded-[5px]" />
-                            : <item.icon size={16} style={{ color: tab.color }} />
-                          }
+                          <item.icon size={16} style={{ color: tab.color }} />
                         </div>
                         <div>
                           <p className="text-[13px] font-semibold text-white leading-snug">{item.title}</p>
@@ -388,10 +378,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                           onClick={onClose}
                           className="flex items-center gap-3 px-2 py-2.5 rounded-[8px] text-[13px] text-text-secondary hover:bg-white/[0.05] hover:text-white transition-colors group"
                         >
-                          {item.logoSrc
-                            ? <Image src={item.logoSrc} alt="" width={14} height={14} className="flex-shrink-0 rounded-[3px]" />
-                            : <item.icon size={14} className="flex-shrink-0 transition-colors" style={{ color: tab.color }} />
-                          }
+                          <item.icon size={14} className="flex-shrink-0 transition-colors" style={{ color: tab.color }} />
                           <span>{item.title}</span>
                           <ChevronRight size={11} className="ml-auto opacity-0 group-hover:opacity-60 transition-opacity" />
                         </Link>

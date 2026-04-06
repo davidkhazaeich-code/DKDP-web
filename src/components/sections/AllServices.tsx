@@ -58,12 +58,13 @@ const IA_SERVICES: ServiceItem[] = [
 
 type PillarKey = 'agence' | 'formation' | 'ia'
 
-type PillarData = { key: PillarKey; label: string; shortLabel: string; subtitle: string; preview: string[]; Icon: React.ElementType; color: string; bg: string; border: string; items: ServiceItem[]; accentRgb: string; blob1: string; blob2: string; hubHref: string }
+type PillarData = { key: PillarKey; label: string; shortLabel: string; subtitle: string; preview: string[]; heroImage: string; Icon: React.ElementType; color: string; bg: string; border: string; items: ServiceItem[]; accentRgb: string; blob1: string; blob2: string; hubHref: string }
 
 const PILLARS: PillarData[] = [
   {
     key: 'agence', label: 'Marketing digital', shortLabel: 'Marketing', subtitle: '7 services',
     preview: ['Sites web', 'SEO', 'Google Ads', 'Réseaux sociaux'],
+    heroImage: '/images/services/dkdp-agence-creation-web.webp',
     Icon: Globe, color: violet.color, bg: violet.bg, border: violet.border, items: AGENCE_SERVICES,
     accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.14)', blob2: 'rgba(124,58,237,0.06)',
     hubHref: '/agence-digitale',
@@ -71,6 +72,7 @@ const PILLARS: PillarData[] = [
   {
     key: 'formation', label: 'Formation entreprise', shortLabel: 'Formation', subtitle: '8 programmes',
     preview: ['IA entreprise', 'Claude IA', 'Excel', 'Cybersécurité'],
+    heroImage: '/images/services/dkdp-formation-ia.webp',
     Icon: GraduationCap, color: orange.color, bg: orange.bg, border: orange.border, items: FORMATION_SERVICES,
     accentRgb: '255,140,0', blob1: 'rgba(255,140,0,0.12)', blob2: 'rgba(255,107,0,0.06)',
     hubHref: '/formation-entreprise',
@@ -78,6 +80,7 @@ const PILLARS: PillarData[] = [
   {
     key: 'ia', label: 'IA et automatisation', shortLabel: 'IA', subtitle: '4 solutions',
     preview: ['Agents IA', 'Automatisation', 'Audit IA', 'Mise en place'],
+    heroImage: '/images/services/dkdp-ia-agents-ia.webp',
     Icon: Sparkles, color: chrome.color, bg: chrome.bg, border: chrome.border, items: IA_SERVICES,
     accentRgb: '212,212,216', blob1: 'rgba(212,212,216,0.10)', blob2: 'rgba(212,212,216,0.05)',
     hubHref: '/intelligence-artificielle',
@@ -116,7 +119,7 @@ export function AllServices() {
       blob1={gridBlob1}
       blob2={gridBlob2}
     >
-      <section id="nos-expertises" aria-labelledby="all-services-heading" className="py-14 sm:py-20 md:py-24">
+      <section id="nos-expertises" aria-labelledby="all-services-heading" className="min-h-[100svh] flex flex-col justify-center py-14 sm:py-20 md:py-24">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
           <SectionReveal>
             <div className="text-center mb-10 sm:mb-14">
@@ -148,7 +151,7 @@ export function AllServices() {
                     aria-selected={isActive}
                     aria-controls="services-panel"
                     onClick={() => { setHasInteracted(true); setActive(isActive ? null : pillar.key) }}
-                    className={`group relative flex flex-col items-center gap-2 sm:gap-3 px-3 sm:px-6 py-4 sm:py-6 rounded-[12px] sm:rounded-[16px] transition-all duration-300 cursor-pointer backdrop-blur-md ${isActive ? '' : 'hover:scale-[1.03] active:scale-[0.98]'}`}
+                    className={`group relative flex flex-col items-center gap-2 sm:gap-3 px-3 sm:px-6 py-4 sm:py-6 md:py-8 rounded-[12px] sm:rounded-[16px] transition-all duration-300 cursor-pointer backdrop-blur-md overflow-hidden ${isActive ? '' : 'hover:scale-[1.03] active:scale-[0.98]'}`}
                     style={{
                       background: isActive ? pillar.bg : 'rgba(9,9,11,0.60)',
                       border: isActive ? `2px solid ${pillar.color}` : shouldAnimate ? `2px solid ${pillar.color}30` : `2px solid rgba(255,255,255,0.08)`,
@@ -171,9 +174,21 @@ export function AllServices() {
                       el.style.boxShadow = shouldAnimate ? `0 0 12px ${pillar.color}08` : 'none'
                     }}
                   >
+                    {/* Background image — desktop only */}
+                    <div className="hidden md:block absolute inset-0 z-0">
+                      <Image
+                        src={pillar.heroImage}
+                        alt=""
+                        fill
+                        sizes="400px"
+                        className={`object-cover transition-all duration-500 ${isActive ? 'opacity-25 scale-105' : 'opacity-15 group-hover:opacity-20 group-hover:scale-105'}`}
+                      />
+                      <div className="absolute inset-0" style={{ background: `linear-gradient(to top, rgba(9,9,11,0.95) 30%, rgba(9,9,11,0.6) 100%)` }} />
+                    </div>
+
                     {/* Icon circle */}
                     <div
-                      className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full transition-all duration-300"
+                      className="relative z-[1] flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full transition-all duration-300"
                       style={{
                         background: isActive ? `${pillar.color}20` : 'rgba(255,255,255,0.04)',
                         border: `1.5px solid ${isActive ? pillar.color : 'rgba(255,255,255,0.10)'}`,
@@ -192,7 +207,7 @@ export function AllServices() {
                     </div>
 
                     {/* Label */}
-                    <div className="text-center">
+                    <div className="relative z-[1] text-center">
                       <p
                         className="text-xs sm:text-sm font-semibold transition-colors duration-300 leading-tight"
                         style={{ color: isActive ? pillar.color : '#e4e4e7' }}
@@ -210,7 +225,7 @@ export function AllServices() {
 
                     {/* Preview service tags — visible only before first interaction */}
                     {shouldAnimate && (
-                      <div className="hidden sm:flex flex-wrap justify-center gap-1.5 mt-1">
+                      <div className="relative z-[1] hidden sm:flex flex-wrap justify-center gap-1.5 mt-1">
                         {pillar.preview.map((name) => (
                           <span
                             key={name}

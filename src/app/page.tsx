@@ -44,8 +44,8 @@ export default function HomePage() {
       <SchemaOrg schema={buildWebPageWithSpeakable({ name: 'Agence Digitale Geneve', url: '/', description: 'Agence digitale a Geneve specialisee en creation de sites web, SEO, intelligence artificielle et formation entreprise.' })} />
       <RevealDisabledProvider>
         <HomeHero />
-        <LogoBanner />
         <ProblemBlock />
+        <LogoBanner />
         <AllServices />
         <ProcessSteps />
         <ProofStack />

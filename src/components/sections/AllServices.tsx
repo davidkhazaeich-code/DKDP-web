@@ -385,7 +385,7 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
     >
       <Link
         href={service.href}
-        className="group flex flex-col h-full bg-bg/80 backdrop-blur-md rounded-[14px] border overflow-hidden hover:-translate-y-0.5 transition-transform duration-200"
+        className="group flex flex-col h-full bg-bg backdrop-blur-md rounded-[14px] border overflow-hidden hover:-translate-y-0.5 transition-transform duration-200"
         style={{ borderColor: service.badge ? `${color}40` : border, boxShadow: service.badge ? `0 0 28px ${color}10` : undefined }}
       >
         {/* Image */}

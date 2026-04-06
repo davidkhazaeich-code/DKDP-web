@@ -195,28 +195,38 @@ export function buildArticle(data: {
   dateModified: string
   authorName?: string
   image?: string
+  readTime?: string
 }) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: data.headline,
     description: data.description,
     url: `${BASE_URL}${data.url}`,
     datePublished: data.datePublished,
     dateModified: data.dateModified,
+    inLanguage: 'fr-CH',
     author: {
       '@type': 'Person',
       name: data.authorName ?? 'David Khazaei',
+      url: `${BASE_URL}/a-propos`,
     },
     publisher: {
       '@type': 'Organization',
       name: 'DKDP',
+      url: BASE_URL,
       logo: {
         '@type': 'ImageObject',
         url: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
       },
     },
+    isPartOf: {
+      '@type': 'Blog',
+      name: 'Blog DKDP',
+      url: `${BASE_URL}/blog`,
+    },
     ...(data.image ? { image: data.image } : {}),
+    ...(data.readTime ? { timeRequired: `PT${data.readTime.replace(/\D/g, '')}M` } : {}),
   }
 }
 

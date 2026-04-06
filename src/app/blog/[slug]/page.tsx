@@ -365,6 +365,7 @@ export default async function ArticlePage(
       dateModified:  article.dateISO,
       authorName:    article.author,
       image:         `https://dkdp.ch${article.heroImage.src}`,
+      readTime:      article.readTime,
     }),
     buildBreadcrumbList([
       { name: 'Accueil', url: 'https://dkdp.ch' },

@@ -84,7 +84,7 @@ describe('buildArticle', () => {
       datePublished: '2026-01-01',
       dateModified: '2026-01-02',
     })
-    expect(a['@type']).toBe('Article')
+    expect(a['@type']).toBe('BlogPosting')
   })
 
   it('defaults authorName to David Khazaei', () => {

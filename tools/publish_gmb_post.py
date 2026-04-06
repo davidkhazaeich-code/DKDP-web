@@ -212,6 +212,18 @@ def main() -> None:
     print(f"      title    : {article['title']}")
     print(f"      category : {article['category']}")
 
+    # --- Dry-run exit (before any API calls) ---
+    if args.dry_run:
+        post_text = generate_post_text_fallback(article)
+        print("\n--- Post preview (fallback text, no API calls in dry-run) ---")
+        print(post_text)
+        print("--- End preview ---\n")
+        print("[DRY-RUN] Would publish the above post to Google Business Profile.")
+        print(f"          Article URL: {build_article_url(article['slug'])}")
+        print(f"          Hero image:  {SITE_URL}{article['heroImage']}")
+        print("Dry run complete. No API calls made.")
+        sys.exit(0)
+
     # --- Generate post text ---
     print("[2/4] Generating post text...")
     api_key = os.environ.get("ANTHROPIC_API_KEY", "")
@@ -232,13 +244,6 @@ def main() -> None:
     print(post_text)
     print(f"\n      Word count : ~{len(post_text.split())} words")
     print("--- End preview ---\n")
-
-    # --- Dry-run exit ---
-    if args.dry_run:
-        print("[DRY-RUN] Would publish the above post to Google Business Profile.")
-        print(f"          Article URL: {build_article_url(article['slug'])}")
-        print("Dry run complete. No API calls made.")
-        sys.exit(0)
 
     # --- Validate environment ---
     print("[3/4] Loading GMB credentials...")

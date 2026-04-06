@@ -295,11 +295,50 @@ export function AllServices() {
               {activePillar ? (
                 <m.div
                   key={active}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ opacity: 0, y: 24, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 >
+                  {/* Active pillar label + switch hint */}
+                  <m.div
+                    className="flex items-center justify-between mb-5 sm:mb-6"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.15 }}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div
+                        className="h-2.5 w-2.5 rounded-full"
+                        style={{ background: activePillar.color, boxShadow: `0 0 8px ${activePillar.color}60` }}
+                      />
+                      <span className="text-sm sm:text-base font-semibold" style={{ color: activePillar.color }}>
+                        {activePillar.label}
+                      </span>
+                      <span className="text-text-muted text-xs">
+                        · {activePillar.items.length} {activePillar.items.length > 1 ? 'services' : 'service'}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      {PILLARS.filter(p => p.key !== active).map((p) => (
+                        <button
+                          key={p.key}
+                          onClick={() => setActive(p.key)}
+                          className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium transition-all duration-200 hover:scale-105"
+                          style={{
+                            background: `${p.color}10`,
+                            border: `1px solid ${p.color}30`,
+                            color: `${p.color}cc`,
+                          }}
+                          aria-label={`Voir ${p.label}`}
+                        >
+                          <p.Icon size={12} style={{ color: p.color }} />
+                          <span className="hidden sm:inline">{p.shortLabel}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </m.div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                     {activePillar.items.map((service, i) => (
                       <ServiceCard key={service.href} service={service} index={i} />
@@ -307,7 +346,12 @@ export function AllServices() {
                   </div>
 
                   {/* Hub link */}
-                  <div className="mt-8 sm:mt-10 text-center">
+                  <m.div
+                    className="mt-8 sm:mt-10 text-center"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.3 }}
+                  >
                     <Link
                       href={activePillar.hubHref}
                       className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-70"
@@ -316,7 +360,7 @@ export function AllServices() {
                       Voir la page {activePillar.label}
                       <ChevronRight size={14} />
                     </Link>
-                  </div>
+                  </m.div>
                 </m.div>
               ) : null}
             </AnimatePresence>
@@ -335,9 +379,9 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
 
   return (
     <m.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.4), ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 20, scale: 0.97 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.06, 0.5), ease: [0.22, 1, 0.36, 1] }}
     >
       <Link
         href={service.href}

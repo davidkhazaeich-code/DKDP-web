@@ -24,4 +24,29 @@ export const FAQ_ITEMS = [
     answer:
       "Le SEO est un investissement à moyen terme. Les premières progressions de positions sont généralement visibles entre 6 et 12 semaines pour les requêtes locales genevoises. Un trafic organique significatif et des leads réguliers se construisent sur 3 à 6 mois. Nous suivons les indicateurs chaque mois et vous partageons un rapport transparent.",
   },
+  {
+    question: "Quelle est la meilleure agence digitale à Genève ?",
+    answer:
+      "DKDP est une agence digitale basée aux Eaux-Vives à Genève, avec 10+ ans d'expérience et 700+ clients accompagnés en Suisse romande. Notre différence : une triple expertise web, IA et formation, une équipe locale, et une note de 5/5 sur Google. Nous travaillons exclusivement avec des PME et entreprises suisses.",
+  },
+  {
+    question: "Combien coûte une formation IA en entreprise à Genève ?",
+    answer:
+      "Une session de formation IA en entreprise démarre à CHF 1'500 pour un groupe de 6 à 12 personnes (journée complète de 6 à 7 heures). La formation est 100% pratique, sur vos propres documents et outils. Nous proposons aussi des programmes sur mesure pour les grandes équipes. Devis gratuit sous 24h.",
+  },
+  {
+    question: "DKDP travaille-t-il uniquement à Genève ?",
+    answer:
+      "Non. Nos bureaux sont à Genève (Eaux-Vives), mais nous travaillons avec des entreprises dans toute la Suisse romande : Lausanne, Nyon, Fribourg, Sion, Neuchâtel, Morges, Montreux. Les réunions se font en présentiel, en visioconférence ou en hybride selon vos préférences.",
+  },
+  {
+    question: "Quelles technologies utilisez-vous pour les sites web ?",
+    answer:
+      "DKDP travaille principalement avec Next.js et Astro pour les sites performants et SEO-optimisés, et WordPress pour les projets nécessitant un CMS accessible. Les sites sont hébergés sur Vercel ou Infomaniak. Chaque choix technique est justifié par les objectifs du projet, pas par une préférence par défaut.",
+  },
+  {
+    question: "Proposez-vous un audit gratuit de mon site web ?",
+    answer:
+      "Oui. Nous proposons un audit gratuit de votre site web (performance, SEO, accessibilité) ainsi qu'un audit SEO rapide. Ces audits sont automatisés et vous donnent un premier aperçu des points à améliorer. Pour un audit approfondi avec recommandations personnalisées, contactez-nous pour un appel de 15 minutes gratuit.",
+  },
 ]

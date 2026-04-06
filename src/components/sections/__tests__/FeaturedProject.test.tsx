@@ -15,8 +15,8 @@ describe('FeaturedProject', () => {
     expect(screen.getByText(/trafic organique/i)).toBeInTheDocument()
   })
 
-  it('renders link to realisations', () => {
+  it('renders link to contact', () => {
     render(<FeaturedProject />)
-    expect(screen.getByRole('link', { name: /voir toutes nos réalisations/i })).toHaveAttribute('href', '/realisations')
+    expect(screen.getByRole('link', { name: /discuter de votre projet/i })).toHaveAttribute('href', '/contact')
   })
 })

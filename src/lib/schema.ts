@@ -313,22 +313,6 @@ export function buildOrganization() {
   }
 }
 
-export function buildCreativeWork({ name, url, description, image }: { name: string; url: string; description: string; image?: string }) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'CreativeWork',
-    name,
-    url: `${BASE_URL}${url}`,
-    description,
-    ...(image ? { image } : {}),
-    creator: {
-      '@type': 'Organization',
-      name: 'DKDP',
-      url: BASE_URL,
-    },
-  }
-}
-
 export function buildWebPageWithSpeakable({ name, url, description }: { name: string; url: string; description: string }) {
   return {
     '@context': 'https://schema.org',

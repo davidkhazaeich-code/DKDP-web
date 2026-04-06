@@ -96,9 +96,6 @@ export const ROUTES: Route[] = [
   { url: '/blog',      priority: 0.75, changeFrequency: 'weekly'  },
   { url: '/glossaire', priority: 0.70, changeFrequency: 'weekly'  },
 
-  // ─── Réalisations ─────────────────────────────────────────────────────────
-  { url: '/realisations', priority: 0.75, changeFrequency: 'monthly' },
-
   // ─── Utilitaires / Légales ────────────────────────────────────────────────
   { url: '/plan-du-site',                    priority: 0.30, changeFrequency: 'yearly' },
   { url: '/mentions-legales',                priority: 0.20, changeFrequency: 'yearly' },
@@ -133,7 +130,7 @@ export const REDIRECTS: Redirect[] = [
   { source: '/formation-informatique-entreprise-geneve',    destination: '/formation-entreprise',     permanent: true },
 
   // ─── Réalisations — ancien site ───────────────────────────────────────────
-  { source: '/nos-realisations',         destination: '/realisations', permanent: true },
-  { source: '/nos-realisations/:slug',   destination: '/realisations', permanent: true },
+  { source: '/nos-realisations',         destination: '/', permanent: true },
+  { source: '/nos-realisations/:slug',   destination: '/', permanent: true },
 
 ]

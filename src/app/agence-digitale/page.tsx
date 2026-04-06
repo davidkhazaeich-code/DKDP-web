@@ -136,7 +136,7 @@ export default function AgenceDigitalePage() {
             </div>
           </div>
         </section>
-      </VideoHeroBg>
+      </HeroBg>
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">

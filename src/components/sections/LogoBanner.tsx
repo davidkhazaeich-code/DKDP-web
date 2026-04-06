@@ -23,8 +23,8 @@ interface LogoBannerProps {
 
 export function LogoBanner({ label = 'Ils nous font confiance' }: LogoBannerProps) {
   return (
-    <section className="py-[84px] border-y border-border">
-      <div className="max-w-[1200px] mx-auto px-6 mb-10 text-center">
+    <section className="py-10 sm:py-14 md:py-16 border-y border-border">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-6 mb-6 sm:mb-8 text-center">
         <p className="text-text-muted text-xs uppercase tracking-[0.12em] font-semibold">
           {label}
         </p>

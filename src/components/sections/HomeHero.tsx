@@ -26,7 +26,7 @@ export function HomeHero() {
   const scrollIndicator = (
     <div
       aria-hidden="true"
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
+      className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
     >
       <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-text-muted">
         Défiler

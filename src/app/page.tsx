@@ -48,7 +48,7 @@ export default function HomePage() {
         <ProblemBlock />
         <AllServices />
         <ProcessSteps />
-<ProofStack />
+        <ProofStack />
         <Testimonials />
         <TeamSection />
         <FAQSection />

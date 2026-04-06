@@ -100,7 +100,7 @@ export function ProblemBlock() {
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 sm:mb-12">
             {PROBLEMS.map((problem, i) => (
               <SectionReveal key={problem.title} delay={i * 0.15}>
                 <div className="bg-bg-card/80 backdrop-blur-sm border border-border rounded-[12px] p-5 sm:p-8 hover-grad h-full flex flex-col">

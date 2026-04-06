@@ -95,7 +95,7 @@ const BADGE_STYLES: Record<string, React.CSSProperties> = {
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export function AllServices() {
-  const [active, setActive] = useState<PillarKey | null>(null)
+  const [active, setActive] = useState<PillarKey>('agence')
 
   const activePillar = PILLARS.find((p) => p.key === active)
   // Default grid config when nothing selected

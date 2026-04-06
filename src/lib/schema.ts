@@ -19,8 +19,8 @@ export function buildLocalBusiness() {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 46.2044,
-      longitude: 6.1432,
+      latitude: 46.20440,
+      longitude: 6.14320,
     },
     openingHoursSpecification: [
       {
@@ -39,7 +39,16 @@ export function buildLocalBusiness() {
     },
     priceRange: '$$',
     currenciesAccepted: 'CHF',
-    areaServed: ['Genève', 'Suisse romande', 'Lausanne', 'Nyon', 'Morges'],
+    areaServed: [
+      { '@type': 'City', name: 'Genève' },
+      { '@type': 'City', name: 'Lausanne' },
+      { '@type': 'City', name: 'Nyon' },
+      { '@type': 'City', name: 'Morges' },
+      { '@type': 'City', name: 'Fribourg' },
+      { '@type': 'City', name: 'Neuchâtel' },
+      { '@type': 'City', name: 'Sion' },
+      { '@type': 'AdministrativeArea', name: 'Suisse romande' },
+    ],
     logo: {
       '@type': 'ImageObject',
       url: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
@@ -208,5 +217,108 @@ export function buildArticle(data: {
       },
     },
     ...(data.image ? { image: data.image } : {}),
+  }
+}
+
+export function buildOrganization() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://dkdp.ch/#organization',
+    name: 'DKDP',
+    legalName: 'DKDP',
+    url: BASE_URL,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
+      width: 512,
+      height: 512,
+    },
+    image: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
+    description: 'Agence digitale a Geneve specialisee en creation de sites web, SEO, intelligence artificielle et formation entreprise pour PME suisses.',
+    foundingDate: '2015',
+    founder: {
+      '@type': 'Person',
+      name: 'David Khazaei',
+      jobTitle: 'Fondateur et Directeur',
+      url: `${BASE_URL}/a-propos`,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Rue du 31 Decembre 36',
+      addressLocality: 'Geneve',
+      postalCode: '1207',
+      addressRegion: 'Geneve',
+      addressCountry: 'CH',
+    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: '+41799407969',
+        email: 'dk@dkdp.ch',
+        availableLanguage: ['French', 'English'],
+        areaServed: 'CH',
+      },
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '18',
+      bestRating: '5',
+      worstRating: '1',
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/dkdp',
+      'https://www.instagram.com/davidkhazaei',
+      'https://maps.google.com/?cid=13230766909416496931',
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services DKDP',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: 'Creation site web', description: 'Sites web sur mesure pour PME suisses' },
+          priceCurrency: 'CHF',
+          price: '2500',
+          priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: '2500', description: 'A partir de CHF 2500' },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: 'Formation IA entreprise', description: 'Formations IA appliquees pour equipes' },
+          priceCurrency: 'CHF',
+          price: '1500',
+          priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: '1500', description: 'A partir de CHF 1500 par session' },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: 'SEO et referencement', description: 'Referencement naturel Google pour PME' },
+          priceCurrency: 'CHF',
+          price: '500',
+          priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: '500', description: 'A partir de CHF 500/mois' },
+        },
+      ],
+    },
+  }
+}
+
+export function buildWebPageWithSpeakable({ name, url, description }: { name: string; url: string; description: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name,
+    url: `${BASE_URL}${url}`,
+    description,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '[data-speakable]', '.hero-copy'],
+    },
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': 'https://dkdp.ch/#website',
+      name: 'DKDP',
+      url: BASE_URL,
+    },
   }
 }

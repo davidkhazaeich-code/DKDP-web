@@ -4,7 +4,7 @@ import { RevealDisabledProvider } from '@/components/ui/SectionReveal'
 import { HomeHero } from '@/components/sections/HomeHero'
 import { FAQ_ITEMS } from '@/data/faq'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildLocalBusiness, buildFAQPage, buildWebSite } from '@/lib/schema'
+import { buildLocalBusiness, buildFAQPage, buildWebSite, buildOrganization, buildWebPageWithSpeakable } from '@/lib/schema'
 
 // Tout ce qui est sous le fold — lazy-loadé pour ne pas bloquer le bundle initial (LCP/TTI)
 const LogoBanner     = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
@@ -39,8 +39,10 @@ export default function HomePage() {
   return (
     <>
       <SchemaOrg schema={buildLocalBusiness()} />
+      <SchemaOrg schema={buildOrganization()} />
       <SchemaOrg schema={buildFAQPage(FAQ_ITEMS.map(({ question, answer }) => ({ question, answer })))} />
       <SchemaOrg schema={buildWebSite()} />
+      <SchemaOrg schema={buildWebPageWithSpeakable({ name: 'Agence Digitale Geneve', url: '/', description: 'Agence digitale a Geneve specialisee en creation de sites web, SEO, intelligence artificielle et formation entreprise.' })} />
       <RevealDisabledProvider>
         <HomeHero />
         <LogoBanner />

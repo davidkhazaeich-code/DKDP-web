@@ -37,20 +37,14 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
-        if: steps.detect.outputs.has_new == 'true'
-        run: pip install -r tools/requirements-gmb.txt
-
-      - name: Publish GMB posts
+      - name: Parse and send to n8n
         if: steps.detect.outputs.has_new == 'true'
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          GOOGLE_GMB_CREDENTIALS: ${{ secrets.GOOGLE_GMB_CREDENTIALS }}
-          GOOGLE_GMB_ACCOUNT_ID: ${{ secrets.GOOGLE_GMB_ACCOUNT_ID }}
-          GOOGLE_GMB_LOCATION_ID: ${{ secrets.GOOGLE_GMB_LOCATION_ID }}
+          N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL }}
         run: |
+          pip install -q requests
           while IFS= read -r article_file; do
             echo "---"
             echo "Processing: $article_file"
-            python tools/publish_gmb_post.py "$article_file"
+            python tools/send_to_n8n.py "$article_file"
           done < /tmp/new_articles.txt

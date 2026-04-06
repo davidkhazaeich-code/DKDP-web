@@ -175,7 +175,7 @@ export function AllServices() {
                     }}
                   >
                     {/* Image — visible on desktop */}
-                    <div className="hidden md:block relative w-full h-28 overflow-hidden">
+                    <div className="hidden md:block relative w-full h-44 overflow-hidden">
                       <Image
                         src={pillar.heroImage}
                         alt=""
@@ -318,19 +318,7 @@ export function AllServices() {
                     </Link>
                   </div>
                 </m.div>
-              ) : (
-                <m.div
-                  key="empty"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="py-8 sm:py-12 text-center"
-                >
-                  <p className="text-text-muted text-sm">
-                    Cliquez sur un pilier ci-dessus pour découvrir nos services.
-                  </p>
-                </m.div>
-              )}
+              ) : null}
             </AnimatePresence>
           </div>
         </div>

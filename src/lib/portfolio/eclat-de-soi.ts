@@ -21,7 +21,7 @@ const project: PortfolioProject = {
     'Temoignages clients avec photos',
     'Bouton reservation et carte du lieu',
   ],
-  liveUrl: 'https://spa.dkdp.ch',
+  liveUrl: 'https://dkdp-eclat-de-soi.vercel.app',
   heroScreenshot: {
     src: '/images/portfolio/eclat-de-soi/hero.webp',
     alt: 'Site web Eclat de Soi spa bien-etre Geneve',

@@ -21,7 +21,7 @@ const project: PortfolioProject = {
     'Temoignages de clients fideles',
     'Plan d\'acces et commande par telephone',
   ],
-  liveUrl: 'https://boulangerie.dkdp.ch',
+  liveUrl: 'https://dkdp-la-mie-doree.vercel.app',
   heroScreenshot: {
     src: '/images/portfolio/la-mie-doree/hero.webp',
     alt: 'Site web La Mie Doree boulangerie artisanale Carouge Geneve',

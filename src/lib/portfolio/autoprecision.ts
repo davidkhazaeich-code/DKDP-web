@@ -21,7 +21,7 @@ const project: PortfolioProject = {
     'Temoignages de proprietaires de vehicules',
     'Prise de rendez-vous et localisation',
   ],
-  liveUrl: 'https://garage.dkdp.ch',
+  liveUrl: 'https://dkdp-autoprecision.vercel.app',
   heroScreenshot: {
     src: '/images/portfolio/autoprecision/hero.webp',
     alt: 'Site web AutoPrecision garage automobile Geneve',

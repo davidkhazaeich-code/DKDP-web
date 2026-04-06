@@ -21,7 +21,7 @@ const project: PortfolioProject = {
     'Presentation de l\'equipe et expertise',
     'Contact et localisation du bureau',
   ],
-  liveUrl: 'https://immobilier.dkdp.ch',
+  liveUrl: 'https://dkdp-regie-du-leman.vercel.app',
   heroScreenshot: {
     src: '/images/portfolio/regie-du-leman/hero.webp',
     alt: 'Site web Regie du Leman immobilier prestige Geneve',

@@ -21,7 +21,7 @@ const project: PortfolioProject = {
     'Formulaire de reservation (decoratif)',
     'Carte Google Maps integree',
   ],
-  liveUrl: 'https://restaurant.dkdp.ch',
+  liveUrl: 'https://dkdp-le-comptoir-du-lac.vercel.app',
   heroScreenshot: {
     src: '/images/portfolio/le-comptoir-du-lac/hero.webp',
     alt: 'Site web Le Comptoir du Lac restaurant gastronomique Geneve',

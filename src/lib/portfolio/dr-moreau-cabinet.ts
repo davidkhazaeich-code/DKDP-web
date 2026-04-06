@@ -21,7 +21,7 @@ const project: PortfolioProject = {
     'Temoignages patients avec etoiles Google',
     'Prise de rendez-vous en ligne (decoratif)',
   ],
-  liveUrl: 'https://dentiste.dkdp.ch',
+  liveUrl: 'https://dkdp-dr-moreau-cabinet.vercel.app',
   heroScreenshot: {
     src: '/images/portfolio/dr-moreau-cabinet/hero.webp',
     alt: 'Site web Dr Moreau cabinet dentaire Geneve',

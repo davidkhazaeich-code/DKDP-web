@@ -21,7 +21,7 @@ const project: PortfolioProject = {
     'Bouton reservation proéminent',
     'Carte de localisation premium',
   ],
-  liveUrl: 'https://hotel.dkdp.ch',
+  liveUrl: 'https://dkdp-hotel-beau-rivage.vercel.app',
   heroScreenshot: {
     src: '/images/portfolio/hotel-beau-rivage/hero.webp',
     alt: 'Site web Hotel Beau-Rivage hotel luxe 5 etoiles Geneve',

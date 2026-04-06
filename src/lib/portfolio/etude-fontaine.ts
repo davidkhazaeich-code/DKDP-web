@@ -21,7 +21,7 @@ const project: PortfolioProject = {
     'Formulaire de premier contact',
     'Adresse et plan d\'acces au cabinet',
   ],
-  liveUrl: 'https://avocat.dkdp.ch',
+  liveUrl: 'https://dkdp-etude-fontaine.vercel.app',
   heroScreenshot: {
     src: '/images/portfolio/etude-fontaine/hero.webp',
     alt: 'Site web Etude Fontaine cabinet avocats Geneve',

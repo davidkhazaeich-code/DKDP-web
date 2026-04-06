@@ -21,7 +21,7 @@ const project: PortfolioProject = {
     'Logos de clients (fictifs) et social proof',
     'FAQ et support',
   ],
-  liveUrl: 'https://startup.dkdp.ch',
+  liveUrl: 'https://dkdp-nexflow-analytics.vercel.app',
   heroScreenshot: {
     src: '/images/portfolio/nexflow-analytics/hero.webp',
     alt: 'Site web NexFlow Analytics startup SaaS Geneve',

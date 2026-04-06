@@ -21,7 +21,7 @@ const project: PortfolioProject = {
     'Avis clients avec notes',
     'Reservation en ligne et adresse',
   ],
-  liveUrl: 'https://coiffure.dkdp.ch',
+  liveUrl: 'https://dkdp-atelier-capillaire.vercel.app',
   heroScreenshot: {
     src: '/images/portfolio/atelier-capillaire/hero.webp',
     alt: 'Site web Atelier Capillaire salon coiffure Geneve',

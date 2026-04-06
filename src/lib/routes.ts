@@ -58,6 +58,16 @@ export const ROUTES: Route[] = [
   { url: '/agence-digitale/seo/audit-seo',                  priority: 0.75, changeFrequency: 'monthly' },
   { url: '/agence-digitale/creation-site-web/audit-site',   priority: 0.75, changeFrequency: 'monthly' },
 
+  // ─── Pages Ville (SEO local) ───────────────────────────────────────────────
+  { url: '/agence-digitale/geneve',    priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/lausanne',  priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/nyon',      priority: 0.80, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/fribourg',  priority: 0.80, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/sion',      priority: 0.80, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/neuchatel', priority: 0.80, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/morges',    priority: 0.75, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/montreux',  priority: 0.75, changeFrequency: 'monthly' },
+
   // ─── Intelligence Artificielle ────────────────────────────────────────────
   { url: '/intelligence-artificielle/agents-ia',    priority: 0.85, changeFrequency: 'monthly' },
   { url: '/intelligence-artificielle/automatisation', priority: 0.85, changeFrequency: 'monthly' },

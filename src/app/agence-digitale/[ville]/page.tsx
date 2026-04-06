@@ -157,7 +157,7 @@ export default async function CityPage({ params }: Props) {
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
-                  <p className="text-xl md:text-2xl font-bold text-white">{s.v}</p>
+                  <p className="text-xl md:text-2xl font-bold" style={{ color: V }}>{s.v}</p>
                   <p className="text-xs md:text-sm text-text-muted mt-1">{s.l}</p>
                 </div>
               </SectionReveal>
@@ -171,7 +171,7 @@ export default async function CityPage({ params }: Props) {
         <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Expertise locale</p>
+              <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: V }}>Expertise locale</p>
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-white">
                 Pourquoi les entreprises de {city.name} nous font confiance
               </h2>
@@ -185,8 +185,8 @@ export default async function CityPage({ params }: Props) {
                   { Icon: Globe2, title: 'Proximite', text: city.distance },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 border border-border bg-white/[0.03]">
-                      <item.Icon size={14} className="text-text-secondary" />
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ border: `1px solid ${VD}`, background: VB }}>
+                      <item.Icon size={14} style={{ color: V }} />
                     </div>
                     <div>
                       <p className="text-white text-sm font-medium">{item.title}</p>
@@ -198,13 +198,13 @@ export default async function CityPage({ params }: Props) {
             </div>
 
             {/* Services card */}
-            <div className="p-5 md:p-6 rounded-2xl border border-border bg-white/[0.02]">
+            <div className="p-5 md:p-6 rounded-2xl border border-violet-500/20 bg-white/[0.02]">
               <h3 className="text-base md:text-lg font-semibold text-white mb-5">Ce qu'on fait pour vous a {city.name}</h3>
               <ul className="space-y-4">
                 {SERVICES.slice(0, 4).map(s => (
                   <li key={s.href}>
                     <Link href={s.href} className="group flex items-start gap-3">
-                      <CheckCircle2 size={15} className="mt-0.5 flex-shrink-0 text-text-secondary group-hover:text-white transition-colors" />
+                      <CheckCircle2 size={15} className="mt-0.5 flex-shrink-0 transition-colors" style={{ color: V }} />
                       <div>
                         <p className="text-white text-sm font-medium group-hover:opacity-80 transition-opacity">{s.label}</p>
                         <p className="text-text-muted text-xs mt-0.5 leading-relaxed">{s.desc}</p>
@@ -221,7 +221,7 @@ export default async function CityPage({ params }: Props) {
       {/* ── Services complets ── */}
       <SectionReveal>
         <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border">
-          <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Nos services</p>
+          <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: V }}>Nos services</p>
           <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">
             Tout ce qu'il vous faut a {city.name}
           </h2>
@@ -233,11 +233,11 @@ export default async function CityPage({ params }: Props) {
               <Link
                 key={s.href}
                 href={s.href}
-                className="group p-4 md:p-5 rounded-xl border border-border bg-white/[0.02] transition-all hover:-translate-y-0.5 duration-200"
+                className="group p-4 md:p-5 rounded-xl border border-border bg-white/[0.02] transition-all hover:-translate-y-0.5 hover:border-violet-500/40 duration-200"
               >
                 <p className="text-white font-semibold text-sm mb-1.5 group-hover:opacity-80 transition-opacity">{s.label}</p>
                 <p className="text-text-muted text-xs leading-relaxed">{s.desc}</p>
-                <span className="inline-flex items-center gap-1 text-[11px] font-semibold mt-3 text-text-secondary group-hover:text-white transition-colors">
+                <span className="inline-flex items-center gap-1 text-[11px] font-semibold mt-3 text-text-secondary group-hover:text-violet-400 transition-colors">
                   En savoir plus <ChevronRight size={10} />
                 </span>
               </Link>
@@ -260,7 +260,7 @@ export default async function CityPage({ params }: Props) {
               <LiquidMetalButton href="/contact" size="lg">Reservez un appel gratuit →</LiquidMetalButton>
               <a
                 href="tel:+41799407969"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-medium text-text-secondary border border-border hover:border-white/20 hover:text-white transition-all min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-medium text-text-secondary border border-border hover:border-violet-500/40 hover:text-white transition-all min-h-[44px]"
               >
                 <Phone size={14} /> +41 79 940 79 69
               </a>
@@ -277,13 +277,13 @@ export default async function CityPage({ params }: Props) {
 
       {/* ── Autres villes ── */}
       <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-12 md:py-16 border-t border-border">
-        <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-4">Nous intervenons aussi a</p>
+        <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: V }}>Nous intervenons aussi a</p>
         <div className="flex flex-wrap gap-2">
           {CITIES.filter(c => c.slug !== city.slug).map(c => (
             <Link
               key={c.slug}
               href={`/agence-digitale/${c.slug}`}
-              className="px-3.5 py-2 rounded-lg border border-border bg-white/[0.02] text-sm text-text-secondary hover:text-white hover:border-white/20 transition-all"
+              className="px-3.5 py-2 rounded-lg border border-border bg-white/[0.02] text-sm text-text-secondary hover:text-white hover:border-violet-500/40 transition-all"
             >
               {c.name}
             </Link>

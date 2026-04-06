@@ -8,6 +8,7 @@ export type City = {
   distance: string
   population: string
   economicProfile: string
+  videoSrc: string
 }
 
 export const CITIES: City[] = [
@@ -21,6 +22,7 @@ export const CITIES: City[] = [
     distance: 'Sur place',
     population: '200 000+ habitants',
     economicProfile: 'Organisations internationales, banques, horlogerie, negoce de matieres premieres, startups tech',
+    videoSrc: '/videos/hero-geneve.mp4',
   },
   {
     slug: 'lausanne',
@@ -32,6 +34,7 @@ export const CITIES: City[] = [
     distance: '60 km de Geneve (45 min)',
     population: '140 000+ habitants',
     economicProfile: 'EPFL, startups tech, hospitality, sport international, pharma',
+    videoSrc: '/videos/hero-lausanne.mp4',
   },
   {
     slug: 'nyon',
@@ -43,6 +46,7 @@ export const CITIES: City[] = [
     distance: '27 km de Geneve (25 min)',
     population: '22 000+ habitants',
     economicProfile: 'Sieges de multinationales, PME, commerce local, tourisme du lac',
+    videoSrc: '/videos/hero-nyon.mp4',
   },
   {
     slug: 'fribourg',
@@ -54,6 +58,7 @@ export const CITIES: City[] = [
     distance: '140 km de Geneve (1h30)',
     population: '42 000+ habitants',
     economicProfile: 'Universite, agroalimentaire, industrie, services, tourisme',
+    videoSrc: '/videos/hero-fribourg.mp4',
   },
   {
     slug: 'sion',
@@ -65,6 +70,7 @@ export const CITIES: City[] = [
     distance: '155 km de Geneve (1h45)',
     population: '35 000+ habitants',
     economicProfile: 'Tourisme, energie, viticulture, construction, services publics',
+    videoSrc: '/videos/hero-sion.mp4',
   },
   {
     slug: 'neuchatel',
@@ -76,6 +82,7 @@ export const CITIES: City[] = [
     distance: '155 km de Geneve (1h30)',
     population: '34 000+ habitants',
     economicProfile: 'Horlogerie, microtechnique, CSEM, startups deeptech, universite',
+    videoSrc: '/videos/hero-neuchatel.mp4',
   },
   {
     slug: 'morges',
@@ -87,6 +94,7 @@ export const CITIES: City[] = [
     distance: '47 km de Geneve (35 min)',
     population: '16 000+ habitants',
     economicProfile: 'PME, commerce, viticulture, tourisme, industrie legere',
+    videoSrc: '/videos/hero-morges.mp4',
   },
   {
     slug: 'montreux',
@@ -98,6 +106,7 @@ export const CITIES: City[] = [
     distance: '95 km de Geneve (1h)',
     population: '27 000+ habitants',
     economicProfile: 'Tourisme, hotellerie, evenementiel, Nestle (Vevey), services',
+    videoSrc: '/videos/hero-montreux.mp4',
   },
 ]
 

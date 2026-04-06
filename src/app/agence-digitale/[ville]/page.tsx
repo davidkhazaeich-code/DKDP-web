@@ -5,7 +5,7 @@ import { MapPin, ChevronRight, Globe2, Users, Building2, Phone, CheckCircle2, St
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
-import { HeroBg } from '@/components/ui/HeroBg'
+import { VideoHeroBg } from '@/components/ui/VideoHeroBg'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildBreadcrumbList, buildFAQPage, buildWebPageWithSpeakable } from '@/lib/schema'
@@ -96,7 +96,7 @@ export default async function CityPage({ params }: Props) {
       })} />
 
       {/* ── Hero ── */}
-      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(255,107,0,0.07)">
+      <VideoHeroBg videoSrc={city.videoSrc} overlayOpacity={0.7} blob1="rgba(124,58,237,0.14)" blob2="rgba(255,107,0,0.07)">
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             {/* Breadcrumb */}
@@ -128,7 +128,7 @@ export default async function CityPage({ params }: Props) {
             </div>
           </div>
         </section>
-      </HeroBg>
+      </VideoHeroBg>
 
       {/* ── Stats bar ── */}
       <section className="py-12 border-b border-border">

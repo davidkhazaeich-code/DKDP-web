@@ -112,15 +112,15 @@ const STEPS = [
 export function ProcessSteps({ accentRgb }: { accentRgb?: string } = {}) {
   return (
     <HeroBg blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.08)" accentRgb={accentRgb}>
-    <section aria-labelledby="process-heading" className="py-32">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section aria-labelledby="process-heading" className="py-14 sm:py-24 md:py-32">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <SectionReveal>
-          <div className="text-center mb-20">
-            <GradTag className="mb-6">Notre méthode</GradTag>
-            <h2 id="process-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-5">
+          <div className="text-center mb-12 sm:mb-20">
+            <GradTag className="mb-4 sm:mb-6">Notre méthode</GradTag>
+            <h2 id="process-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-4 sm:mb-5">
               Comment ça marche
             </h2>
-            <p className="text-text-secondary text-xl max-w-xl mx-auto">
+            <p className="text-text-secondary text-base sm:text-lg md:text-xl max-w-xl mx-auto">
               5 étapes claires, un processus éprouvé sur 150+ projets.
             </p>
           </div>

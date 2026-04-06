@@ -64,12 +64,12 @@ const PILLARS = [
 
 export function PillarCards() {
   return (
-    <section id="nos-expertises" aria-labelledby="pillars-heading" className="py-24 bg-bg-card border-y border-border">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section id="nos-expertises" aria-labelledby="pillars-heading" className="py-14 sm:py-20 md:py-24 bg-bg-card border-y border-border">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <SectionReveal>
-          <div className="text-center mb-16">
-            <GradTag className="mb-6">Nos 3 piliers</GradTag>
-            <h2 id="pillars-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em]">
+          <div className="text-center mb-10 sm:mb-16">
+            <GradTag className="mb-4 sm:mb-6">Nos 3 piliers</GradTag>
+            <h2 id="pillars-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em]">
               Création de sites web, SEO et formation IA à Genève. Un seul interlocuteur.
             </h2>
           </div>
@@ -113,7 +113,7 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg opacity-90" />
       </Link>
 
-      <div className="p-8 flex flex-col flex-1">
+      <div className="p-5 sm:p-8 flex flex-col flex-1">
         <div className="flex items-center gap-3 mb-4">
           <div
             className="flex h-9 w-9 items-center justify-center rounded-[8px] flex-shrink-0"

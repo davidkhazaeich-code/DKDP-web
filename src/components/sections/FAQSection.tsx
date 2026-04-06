@@ -61,12 +61,12 @@ export function FAQSection({
   title?: string
 }) {
   return (
-    <section aria-labelledby="faq-heading" className="py-24">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section aria-labelledby="faq-heading" className="py-14 sm:py-20 md:py-24">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <SectionReveal>
-          <div className="text-center mb-16">
-            <GradTag className="mb-6">Questions fréquentes</GradTag>
-            <h2 id="faq-heading" className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+          <div className="text-center mb-10 sm:mb-16">
+            <GradTag className="mb-4 sm:mb-6">Questions fréquentes</GradTag>
+            <h2 id="faq-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em]">
               {title}
             </h2>
           </div>

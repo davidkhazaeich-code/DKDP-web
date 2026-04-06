@@ -86,15 +86,15 @@ const PROBLEMS = [
 export function ProblemBlock() {
   return (
     <HeroBg>
-      <section id="problem-section" aria-labelledby="problem-heading" className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section id="problem-section" aria-labelledby="problem-heading" className="py-14 sm:py-20 md:py-24">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
           <SectionReveal>
-            <div className="text-center mb-16">
-              <GradTag className="mb-6">Le problème</GradTag>
-              <h2 id="problem-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-6">
+            <div className="text-center mb-10 sm:mb-16">
+              <GradTag className="mb-4 sm:mb-6">Le problème</GradTag>
+              <h2 id="problem-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-4 sm:mb-6">
                 Ça vous ressemble ?
               </h2>
-              <p className="text-text-secondary text-lg max-w-xl mx-auto">
+              <p className="text-text-secondary text-base sm:text-lg max-w-xl mx-auto">
                 Si vous vous reconnaissez dans au moins un de ces trois scénarios, vous êtes au bon endroit.
               </p>
             </div>
@@ -103,7 +103,7 @@ export function ProblemBlock() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {PROBLEMS.map((problem, i) => (
               <SectionReveal key={problem.title} delay={i * 0.15}>
-                <div className="bg-bg-card/80 backdrop-blur-sm border border-border rounded-[12px] p-8 hover-grad h-full flex flex-col">
+                <div className="bg-bg-card/80 backdrop-blur-sm border border-border rounded-[12px] p-5 sm:p-8 hover-grad h-full flex flex-col">
                   <div className="mb-5">
                     <problem.Icon />
                   </div>

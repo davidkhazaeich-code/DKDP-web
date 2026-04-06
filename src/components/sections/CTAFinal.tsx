@@ -13,24 +13,24 @@ export function CTAFinal({ accentRgb }: { accentRgb?: string } = {}) {
           <Watermark />
         </div>
 
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 text-center">
           <SectionReveal>
-            <h2 id="cta-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-6">
+            <h2 id="cta-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 sm:mb-6">
               Parlons de{' '}
               <GradText as="span">votre projet</GradText>
             </h2>
 
-            <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-text-secondary text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
               15 minutes, c&apos;est gratuit, et on vous dit honnêtement si on peut vous aider - et comment.
             </p>
 
-            <div className="flex justify-center mb-10">
+            <div className="flex justify-center mb-8 sm:mb-10">
               <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                 Réservez votre appel gratuit<span aria-hidden="true"> →</span>
               </LiquidMetalButton>
             </div>
 
-            <div className="grid grid-cols-2 gap-px max-w-sm mx-auto mb-12 border border-border rounded-full overflow-hidden">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px max-w-sm mx-auto mb-8 sm:mb-12 border border-border rounded-2xl sm:rounded-full overflow-hidden">
               <a
                 href="tel:+41799407969"
                 className="flex items-center justify-center gap-2 px-6 py-3 text-sm text-text-muted hover:text-white hover:bg-bg-card transition-all duration-150"

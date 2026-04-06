@@ -47,12 +47,12 @@ const FEATURED = [
 
 export function FeaturedServices() {
   return (
-    <section className="py-24">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section className="py-14 sm:py-20 md:py-24">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <SectionReveal>
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 sm:mb-14">
             <GradTag className="mb-4">Services phares</GradTag>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em]">
               Nos 3 services les plus demandés.
             </h2>
           </div>

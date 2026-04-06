@@ -9,6 +9,7 @@ import { buildLocalBusiness, buildFAQPage, buildWebSite, buildOrganization, buil
 // Tout ce qui est sous le fold — lazy-loadé pour ne pas bloquer le bundle initial (LCP/TTI)
 const LogoBanner     = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
 const PillarCards    = dynamic(() => import('@/components/sections/PillarCards').then(m => ({ default: m.PillarCards })))
+const AllServices    = dynamic(() => import('@/components/sections/AllServices').then(m => ({ default: m.AllServices })))
 const FeaturedServices = dynamic(() => import('@/components/sections/FeaturedServices').then(m => ({ default: m.FeaturedServices })))
 const ProblemBlock   = dynamic(() => import('@/components/sections/ProblemBlock').then(m => ({ default: m.ProblemBlock })))
 const ProcessSteps   = dynamic(() => import('@/components/sections/ProcessSteps').then(m => ({ default: m.ProcessSteps })))
@@ -48,6 +49,7 @@ export default function HomePage() {
         <LogoBanner />
         <ProblemBlock />
         <PillarCards />
+        <AllServices />
         <FeaturedServices />
         <ProcessSteps />
 <ProofStack />

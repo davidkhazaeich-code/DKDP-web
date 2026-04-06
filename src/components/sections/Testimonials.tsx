@@ -84,18 +84,18 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
     <HeroBg className="bg-bg-card border-y border-border" blob1="rgba(124,58,237,0.09)" blob2="rgba(255,107,0,0.06)" accentRgb={accentRgb}>
     <section
       aria-labelledby="testimonials-heading"
-      className={className ?? 'py-24'}
+      className={className ?? 'py-14 sm:py-20 md:py-24'}
       onMouseDown={(e) => onDragStart(e.clientX)}
       onMouseUp={(e) => onDragEnd(e.clientX)}
       onMouseLeave={() => { dragStartX.current = null }}
       onTouchStart={(e) => onDragStart(e.touches[0].clientX)}
       onTouchEnd={(e) => onDragEnd(e.changedTouches[0].clientX)}
     >
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <SectionReveal>
-          <div className="text-center mb-16">
-            <GradTag className="mb-6">Témoignages</GradTag>
-            <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+          <div className="text-center mb-10 sm:mb-16">
+            <GradTag className="mb-4 sm:mb-6">Témoignages</GradTag>
+            <h2 id="testimonials-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em]">
               Ce que disent nos clients
             </h2>
           </div>
@@ -109,7 +109,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-bg border border-border rounded-[16px] p-8 md:p-10"
+              className="bg-bg border border-border rounded-[16px] p-5 sm:p-8 md:p-10"
             >
               <svg
                 className="w-8 h-8 text-violet mb-6 opacity-50"

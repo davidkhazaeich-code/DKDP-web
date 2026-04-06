@@ -62,9 +62,9 @@ type TabKey = 'tout' | 'agence' | 'formation' | 'ia'
 
 const TABS: { key: TabKey; label: string; shortLabel: string; Icon: React.ElementType; color: string; bg: string; border: string; count: number; accentRgb: string; blob1: string; blob2: string }[] = [
   { key: 'tout', label: 'Tout voir', shortLabel: 'Tout', Icon: LayoutGrid, color: '#e4e4e7', bg: 'rgba(255,255,255,0.06)', border: 'rgba(255,255,255,0.12)', count: ALL_SERVICES.length, accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.10)', blob2: 'rgba(255,107,0,0.07)' },
-  { key: 'agence', label: 'Services digitaux', shortLabel: 'Agence', Icon: Globe, color: violet.color, bg: violet.bg, border: violet.border, count: AGENCE_SERVICES.length, accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.14)', blob2: 'rgba(124,58,237,0.06)' },
-  { key: 'formation', label: 'Formations', shortLabel: 'Formation', Icon: GraduationCap, color: orange.color, bg: orange.bg, border: orange.border, count: FORMATION_SERVICES.length, accentRgb: '255,140,0', blob1: 'rgba(255,140,0,0.12)', blob2: 'rgba(255,107,0,0.06)' },
-  { key: 'ia', label: 'Intelligence artificielle', shortLabel: 'IA', Icon: Sparkles, color: chrome.color, bg: chrome.bg, border: chrome.border, count: IA_SERVICES.length, accentRgb: '212,212,216', blob1: 'rgba(212,212,216,0.10)', blob2: 'rgba(212,212,216,0.05)' },
+  { key: 'agence', label: 'Marketing digital', shortLabel: 'Marketing', Icon: Globe, color: violet.color, bg: violet.bg, border: violet.border, count: AGENCE_SERVICES.length, accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.14)', blob2: 'rgba(124,58,237,0.06)' },
+  { key: 'formation', label: 'Formation entreprise', shortLabel: 'Formation', Icon: GraduationCap, color: orange.color, bg: orange.bg, border: orange.border, count: FORMATION_SERVICES.length, accentRgb: '255,140,0', blob1: 'rgba(255,140,0,0.12)', blob2: 'rgba(255,107,0,0.06)' },
+  { key: 'ia', label: 'IA et automatisation', shortLabel: 'IA', Icon: Sparkles, color: chrome.color, bg: chrome.bg, border: chrome.border, count: IA_SERVICES.length, accentRgb: '212,212,216', blob1: 'rgba(212,212,216,0.10)', blob2: 'rgba(212,212,216,0.05)' },
 ]
 
 function getPillarTokens(pillar: 'agence' | 'formation' | 'ia') {
@@ -190,7 +190,7 @@ export function AllServices() {
                   className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-70"
                   style={{ color: getPillarTokens(active).color }}
                 >
-                  Voir la page {active === 'agence' ? 'Agence digitale' : active === 'formation' ? 'Formation' : 'Intelligence artificielle'}
+                  Voir la page {active === 'agence' ? 'Marketing digital' : active === 'formation' ? 'Formation entreprise' : 'IA et automatisation'}
                   <ChevronRight size={14} />
                 </Link>
               </div>

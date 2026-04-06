@@ -342,7 +342,7 @@ export default function ReseauxSociauxPage() {
           <div className="relative">
             <div
               aria-hidden="true"
-              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] pointer-events-none"
+              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] z-0 pointer-events-none"
               style={{ background: 'linear-gradient(to right, transparent, rgba(124,58,237,0.20) 5%, #A78BFA 50%, rgba(124,58,237,0.20) 95%, transparent)' }}
             />
             <div className="relative z-[1] grid grid-cols-1 md:grid-cols-3 gap-6">

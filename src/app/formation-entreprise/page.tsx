@@ -471,7 +471,7 @@ export default function FormationEntreprisePage() {
             {/* Ligne directrice horizontale - orange */}
             <div
               aria-hidden="true"
-              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] pointer-events-none"
+              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] z-0 pointer-events-none"
               style={{
                 background: 'linear-gradient(to right, transparent, rgba(255,140,0,0.20) 5%, rgba(255,140,0,0.70) 25%, #FF8C00 50%, rgba(255,140,0,0.70) 75%, rgba(255,140,0,0.20) 95%, transparent)',
               }}

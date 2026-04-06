@@ -374,7 +374,7 @@ export default function AuditConseilPage() {
             {/* Connector line */}
             <div
               aria-hidden="true"
-              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] pointer-events-none"
+              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] z-0 pointer-events-none"
               style={{
                 background: 'linear-gradient(to right, transparent, rgba(212,212,216,0.20) 5%, #c0c0c0 25%, #D4D4D8 50%, #c0c0c0 75%, rgba(212,212,216,0.20) 95%, transparent)',
               }}

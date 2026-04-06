@@ -47,10 +47,10 @@ export default function HomePage() {
       <RevealDisabledProvider>
         <HomeHero />
         <LogoBanner />
+        <ProblemBlock />
         <PillarCards />
         <AllServices />
         <FeaturedServices />
-        <ProblemBlock />
         <ProcessSteps />
 <ProofStack />
         <Testimonials />

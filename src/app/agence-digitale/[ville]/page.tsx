@@ -98,9 +98,9 @@ export default async function CityPage({ params }: Props) {
       {/* ── Hero ── */}
       <VideoHeroBg videoSrc={city.videoSrc} overlayOpacity={0.65} blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.05)">
         <section className="pt-28 pb-24 md:pt-36 md:pb-32 lg:pt-40 lg:pb-36 min-h-[70vh] md:min-h-[75vh] flex flex-col justify-center">
-          <div className="max-w-[1200px] mx-auto px-5 md:px-6">
+          <div className="max-w-[1200px] mx-auto px-5 md:px-6 flex flex-col items-center text-center">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-1.5 mb-5 md:mb-6" aria-label="Fil d'Ariane">
+            <nav className="flex items-center justify-center gap-1.5 mb-5 md:mb-6" aria-label="Fil d'Ariane">
               <Link href="/agence-digitale" className="text-text-muted text-xs md:text-sm hover:text-white transition-colors">
                 Service Digital
               </Link>
@@ -119,7 +119,7 @@ export default async function CityPage({ params }: Props) {
               <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-8" data-speakable="true">
                 Sites web, SEO, intelligence artificielle et formation. DKDP, agence basee a Geneve, accompagne 700+ entreprises en Suisse romande.
               </p>
-              <div className="flex flex-wrap gap-3 items-center">
+              <div className="flex flex-wrap gap-3 items-center justify-center">
                 <LiquidMetalButton href="/contact" size="lg">Demarrer un projet →</LiquidMetalButton>
                 <Link href="/tarifs" className="text-sm text-text-muted hover:text-white transition-colors px-2 py-1">
                   Voir les tarifs

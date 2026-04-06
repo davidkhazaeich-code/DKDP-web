@@ -6,6 +6,7 @@ import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { VideoHeroBg } from '@/components/ui/VideoHeroBg'
+import { ImageHeroBg } from '@/components/ui/ImageHeroBg'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildBreadcrumbList, buildFAQPage, buildWebPageWithSpeakable } from '@/lib/schema'
@@ -96,39 +97,53 @@ export default async function CityPage({ params }: Props) {
       })} />
 
       {/* ── Hero ── */}
-      <VideoHeroBg videoSrc={city.videoSrc} overlayOpacity={0.65} blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.05)">
-        <section className="pt-28 pb-24 md:pt-36 md:pb-32 lg:pt-40 lg:pb-36 min-h-[70vh] md:min-h-[75vh] flex flex-col justify-center">
-          <div className="max-w-[1200px] mx-auto px-5 md:px-6 flex flex-col items-center text-center">
-            {/* Breadcrumb */}
-            <nav className="flex items-center justify-center gap-1.5 mb-5 md:mb-6" aria-label="Fil d'Ariane">
-              <Link href="/agence-digitale" className="text-text-muted text-xs md:text-sm hover:text-white transition-colors">
-                Service Digital
-              </Link>
-              <ChevronRight size={12} className="text-text-muted" />
-              <span className="text-white text-xs md:text-sm font-medium">{city.name}</span>
-            </nav>
-
-            <div className="max-w-2xl">
-              <GradTag className="mb-5">
-                <MapPin size={11} className="mr-1" /> {city.name}, {city.canton}
-              </GradTag>
-              <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
-                Agence digitale pour les entreprises de{' '}
-                <GradText as="span">{city.name}</GradText>
-              </h1>
-              <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-8" data-speakable="true">
-                Sites web, SEO, intelligence artificielle et formation. DKDP, agence basee a Geneve, accompagne 700+ entreprises en Suisse romande.
-              </p>
-              <div className="flex flex-wrap gap-3 items-center justify-center">
-                <LiquidMetalButton href="/contact" size="lg">Demarrer un projet →</LiquidMetalButton>
-                <Link href="/tarifs" className="text-sm text-text-muted hover:text-white transition-colors px-2 py-1">
-                  Voir les tarifs
+      {(() => {
+        const heroContent = (
+          <section className="pt-28 pb-24 md:pt-36 md:pb-32 lg:pt-40 lg:pb-36 min-h-[70vh] md:min-h-[75vh] flex flex-col justify-center">
+            <div className="max-w-[1200px] mx-auto px-5 md:px-6 flex flex-col items-center text-center">
+              <nav className="flex items-center justify-center gap-1.5 mb-5 md:mb-6" aria-label="Fil d'Ariane">
+                <Link href="/agence-digitale" className="text-text-muted text-xs md:text-sm hover:text-white transition-colors">
+                  Service Digital
                 </Link>
+                <ChevronRight size={12} className="text-text-muted" />
+                <span className="text-white text-xs md:text-sm font-medium">{city.name}</span>
+              </nav>
+              <div className="max-w-2xl">
+                <GradTag className="mb-5">
+                  <MapPin size={11} className="mr-1" /> {city.name}, {city.canton}
+                </GradTag>
+                <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
+                  Agence digitale pour les entreprises de{' '}
+                  <GradText as="span">{city.name}</GradText>
+                </h1>
+                <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-8" data-speakable="true">
+                  Sites web, SEO, intelligence artificielle et formation. DKDP, agence basee a Geneve, accompagne 700+ entreprises en Suisse romande.
+                </p>
+                <div className="flex flex-wrap gap-3 items-center justify-center">
+                  <LiquidMetalButton href="/contact" size="lg">Demarrer un projet →</LiquidMetalButton>
+                  <Link href="/tarifs" className="text-sm text-text-muted hover:text-white transition-colors px-2 py-1">
+                    Voir les tarifs
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </VideoHeroBg>
+          </section>
+        )
+
+        if (city.videoSrc) {
+          return (
+            <VideoHeroBg videoSrc={city.videoSrc} overlayOpacity={0.65} blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.05)">
+              {heroContent}
+            </VideoHeroBg>
+          )
+        }
+
+        return (
+          <ImageHeroBg imageSrc={city.imageSrc!} overlayOpacity={0.55} blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.05)">
+            {heroContent}
+          </ImageHeroBg>
+        )
+      })()}
 
       {/* ── Stats bar ── */}
       <section className="py-10 md:py-12 border-b border-border">

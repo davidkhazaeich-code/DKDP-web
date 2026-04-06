@@ -8,7 +8,10 @@ export type City = {
   distance: string
   population: string
   economicProfile: string
-  videoSrc: string
+  /** MP4 video for hero background (used if set) */
+  videoSrc?: string
+  /** Static image for hero background (used if no videoSrc) */
+  imageSrc?: string
 }
 
 export const CITIES: City[] = [
@@ -34,7 +37,7 @@ export const CITIES: City[] = [
     distance: '60 km de Geneve (45 min)',
     population: '140 000+ habitants',
     economicProfile: 'EPFL, startups tech, hospitality, sport international, pharma',
-    videoSrc: '/videos/hero-lausanne.mp4',
+    imageSrc: '/images/cities/hero-lausanne.jpg',
   },
   {
     slug: 'nyon',
@@ -46,7 +49,7 @@ export const CITIES: City[] = [
     distance: '27 km de Geneve (25 min)',
     population: '22 000+ habitants',
     economicProfile: 'Sieges de multinationales, PME, commerce local, tourisme du lac',
-    videoSrc: '/videos/hero-nyon.mp4',
+    imageSrc: '/images/cities/hero-nyon.jpg',
   },
   {
     slug: 'fribourg',
@@ -58,7 +61,7 @@ export const CITIES: City[] = [
     distance: '140 km de Geneve (1h30)',
     population: '42 000+ habitants',
     economicProfile: 'Universite, agroalimentaire, industrie, services, tourisme',
-    videoSrc: '/videos/hero-fribourg.mp4',
+    imageSrc: '/images/cities/hero-fribourg.jpg',
   },
   {
     slug: 'sion',
@@ -70,7 +73,7 @@ export const CITIES: City[] = [
     distance: '155 km de Geneve (1h45)',
     population: '35 000+ habitants',
     economicProfile: 'Tourisme, energie, viticulture, construction, services publics',
-    videoSrc: '/videos/hero-sion.mp4',
+    imageSrc: '/images/cities/hero-sion.jpg',
   },
   {
     slug: 'neuchatel',
@@ -94,7 +97,7 @@ export const CITIES: City[] = [
     distance: '47 km de Geneve (35 min)',
     population: '16 000+ habitants',
     economicProfile: 'PME, commerce, viticulture, tourisme, industrie legere',
-    videoSrc: '/videos/hero-morges.mp4',
+    imageSrc: '/images/cities/hero-morges.jpg',
   },
   {
     slug: 'montreux',

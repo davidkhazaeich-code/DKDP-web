@@ -8,7 +8,7 @@ import {
   Globe, Search, Megaphone, Share2, Film, Presentation, Shield,
   BrainCircuit, BookOpen, Palette, Cpu,
   Bot, Workflow,
-  ChevronRight, LayoutGrid, GraduationCap, Sparkles,
+  ChevronRight, GraduationCap, Sparkles,
 } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
@@ -56,18 +56,30 @@ const IA_SERVICES: ServiceItem[] = [
   { icon: Cpu, title: 'Mise en place IA', href: '/intelligence-artificielle/mise-en-place', description: 'Intégration de ChatGPT, Claude et LLMs dans votre stack existant.', badge: null, image: '/images/services/dkdp-ia-mise-en-place.webp', pillar: 'ia' },
 ]
 
-const ALL_SERVICES = [...AGENCE_SERVICES, ...FORMATION_SERVICES, ...IA_SERVICES]
+type PillarKey = 'agence' | 'formation' | 'ia'
 
-type TabKey = 'tout' | 'agence' | 'formation' | 'ia'
-
-const TABS: { key: TabKey; label: string; shortLabel: string; Icon: React.ElementType; color: string; bg: string; border: string; count: number; accentRgb: string; blob1: string; blob2: string }[] = [
-  { key: 'tout', label: 'Tout voir', shortLabel: 'Tout', Icon: LayoutGrid, color: '#e4e4e7', bg: 'rgba(255,255,255,0.06)', border: 'rgba(255,255,255,0.12)', count: ALL_SERVICES.length, accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.10)', blob2: 'rgba(255,107,0,0.07)' },
-  { key: 'agence', label: 'Marketing digital', shortLabel: 'Marketing', Icon: Globe, color: violet.color, bg: violet.bg, border: violet.border, count: AGENCE_SERVICES.length, accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.14)', blob2: 'rgba(124,58,237,0.06)' },
-  { key: 'formation', label: 'Formation entreprise', shortLabel: 'Formation', Icon: GraduationCap, color: orange.color, bg: orange.bg, border: orange.border, count: FORMATION_SERVICES.length, accentRgb: '255,140,0', blob1: 'rgba(255,140,0,0.12)', blob2: 'rgba(255,107,0,0.06)' },
-  { key: 'ia', label: 'IA et automatisation', shortLabel: 'IA', Icon: Sparkles, color: chrome.color, bg: chrome.bg, border: chrome.border, count: IA_SERVICES.length, accentRgb: '212,212,216', blob1: 'rgba(212,212,216,0.10)', blob2: 'rgba(212,212,216,0.05)' },
+const PILLARS: { key: PillarKey; label: string; shortLabel: string; subtitle: string; Icon: React.ElementType; color: string; bg: string; border: string; items: ServiceItem[]; accentRgb: string; blob1: string; blob2: string; hubHref: string }[] = [
+  {
+    key: 'agence', label: 'Marketing digital', shortLabel: 'Marketing', subtitle: '7 services', Icon: Globe,
+    color: violet.color, bg: violet.bg, border: violet.border, items: AGENCE_SERVICES,
+    accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.14)', blob2: 'rgba(124,58,237,0.06)',
+    hubHref: '/agence-digitale',
+  },
+  {
+    key: 'formation', label: 'Formation entreprise', shortLabel: 'Formation', subtitle: '8 programmes', Icon: GraduationCap,
+    color: orange.color, bg: orange.bg, border: orange.border, items: FORMATION_SERVICES,
+    accentRgb: '255,140,0', blob1: 'rgba(255,140,0,0.12)', blob2: 'rgba(255,107,0,0.06)',
+    hubHref: '/formation-entreprise',
+  },
+  {
+    key: 'ia', label: 'IA et automatisation', shortLabel: 'IA', subtitle: '4 solutions', Icon: Sparkles,
+    color: chrome.color, bg: chrome.bg, border: chrome.border, items: IA_SERVICES,
+    accentRgb: '212,212,216', blob1: 'rgba(212,212,216,0.10)', blob2: 'rgba(212,212,216,0.05)',
+    hubHref: '/intelligence-artificielle',
+  },
 ]
 
-function getPillarTokens(pillar: 'agence' | 'formation' | 'ia') {
+function getPillarTokens(pillar: PillarKey) {
   if (pillar === 'agence') return violet
   if (pillar === 'formation') return orange
   return chrome
@@ -83,20 +95,20 @@ const BADGE_STYLES: Record<string, React.CSSProperties> = {
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export function AllServices() {
-  const [active, setActive] = useState<TabKey>('tout')
+  const [active, setActive] = useState<PillarKey | null>(null)
 
-  const activeTab = TABS.find((t) => t.key === active)!
-  const items = active === 'tout' ? ALL_SERVICES
-    : active === 'agence' ? AGENCE_SERVICES
-    : active === 'formation' ? FORMATION_SERVICES
-    : IA_SERVICES
+  const activePillar = PILLARS.find((p) => p.key === active)
+  // Default grid config when nothing selected
+  const gridAccent = activePillar?.accentRgb ?? '167,139,250'
+  const gridBlob1 = activePillar?.blob1 ?? 'rgba(124,58,237,0.08)'
+  const gridBlob2 = activePillar?.blob2 ?? 'rgba(255,107,0,0.05)'
 
   return (
     <HeroBg
       className="bg-bg-card border-y border-border"
-      accentRgb={activeTab.accentRgb}
-      blob1={activeTab.blob1}
-      blob2={activeTab.blob2}
+      accentRgb={gridAccent}
+      blob1={gridBlob1}
+      blob2={gridBlob2}
     >
       <section id="tous-les-services" aria-labelledby="all-services-heading" className="py-14 sm:py-20 md:py-24">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
@@ -107,95 +119,134 @@ export function AllServices() {
                 19 services, 3 piliers, un seul interlocuteur.
               </h2>
               <p className="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto">
-                Filtrez par expertise pour trouver exactement ce dont vous avez besoin.
+                Sélectionnez un pilier pour explorer nos offres.
               </p>
             </div>
           </SectionReveal>
 
-          {/* Tabs */}
+          {/* ── Pillar selector cards ── */}
           <SectionReveal delay={0.1}>
-            <div className="relative mb-8 sm:mb-12">
-              <div
-                role="tablist"
-                aria-label="Filtrer par pilier"
-                className="flex gap-1 sm:gap-2 justify-center overflow-x-auto no-scrollbar pb-px"
-              >
-                {TABS.map((tab) => {
-                  const isActive = active === tab.key
-                  return (
-                    <button
-                      key={tab.key}
-                      role="tab"
-                      aria-selected={isActive}
-                      aria-controls="services-panel"
-                      onClick={() => setActive(tab.key)}
-                      className="relative flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0"
+            <div
+              role="tablist"
+              aria-label="Choisir un pilier"
+              className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12"
+            >
+              {PILLARS.map((pillar) => {
+                const isActive = active === pillar.key
+                return (
+                  <button
+                    key={pillar.key}
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-controls="services-panel"
+                    onClick={() => setActive(isActive ? null : pillar.key)}
+                    className="group relative flex flex-col items-center gap-2 sm:gap-3 px-3 sm:px-6 py-4 sm:py-6 rounded-[12px] sm:rounded-[16px] transition-all duration-300 cursor-pointer"
+                    style={{
+                      background: isActive ? pillar.bg : 'rgba(255,255,255,0.02)',
+                      border: isActive ? `2px solid ${pillar.color}` : '2px solid rgba(255,255,255,0.08)',
+                      boxShadow: isActive ? `0 0 30px ${pillar.color}15, inset 0 1px 0 ${pillar.color}20` : 'none',
+                    }}
+                  >
+                    {/* Icon circle */}
+                    <div
+                      className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full transition-all duration-300"
                       style={{
-                        color: isActive ? tab.color : '#9CA3AF',
-                        background: isActive ? tab.bg : 'transparent',
-                        border: isActive ? `1px solid ${tab.border}` : '1px solid transparent',
+                        background: isActive ? `${pillar.color}20` : 'rgba(255,255,255,0.04)',
+                        border: `1.5px solid ${isActive ? pillar.color : 'rgba(255,255,255,0.10)'}`,
                       }}
                     >
-                      <tab.Icon size={14} className="flex-shrink-0" />
-                      <span className="hidden sm:inline">{tab.label}</span>
-                      <span className="sm:hidden">{tab.shortLabel}</span>
-                      <span
-                        className="text-[10px] sm:text-[11px] font-bold px-1.5 py-0.5 rounded-full"
-                        style={{
-                          background: isActive ? `${tab.color}15` : 'rgba(255,255,255,0.06)',
-                          color: isActive ? tab.color : '#71717a',
-                        }}
+                      <pillar.Icon
+                        size={18}
+                        className="sm:hidden transition-colors duration-300"
+                        style={{ color: isActive ? pillar.color : '#71717a' }}
+                      />
+                      <pillar.Icon
+                        size={22}
+                        className="hidden sm:block transition-colors duration-300"
+                        style={{ color: isActive ? pillar.color : '#71717a' }}
+                      />
+                    </div>
+
+                    {/* Label */}
+                    <div className="text-center">
+                      <p
+                        className="text-xs sm:text-sm font-semibold transition-colors duration-300 leading-tight"
+                        style={{ color: isActive ? pillar.color : '#e4e4e7' }}
                       >
-                        {tab.count}
-                      </span>
-                    </button>
-                  )
-                })}
-              </div>
+                        <span className="hidden sm:inline">{pillar.label}</span>
+                        <span className="sm:hidden">{pillar.shortLabel}</span>
+                      </p>
+                      <p
+                        className="text-[10px] sm:text-xs mt-0.5 sm:mt-1 transition-colors duration-300"
+                        style={{ color: isActive ? `${pillar.color}aa` : '#71717a' }}
+                      >
+                        {pillar.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Active indicator dot */}
+                    <div
+                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-1 rounded-full transition-all duration-300"
+                      style={{
+                        width: isActive ? '32px' : '0px',
+                        background: pillar.color,
+                        opacity: isActive ? 1 : 0,
+                      }}
+                    />
+                  </button>
+                )
+              })}
             </div>
           </SectionReveal>
 
-          {/* Grid */}
+          {/* ── Services grid ── */}
           <div
             id="services-panel"
             role="tabpanel"
-            aria-label={`Services ${active}`}
+            aria-label={active ? `Services ${active}` : 'Sélectionnez un pilier'}
           >
             <AnimatePresence mode="wait">
-              <m.div
-                key={active}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
-              >
-                {items.map((service, i) => (
-                  <ServiceCard key={service.href} service={service} index={i} />
-                ))}
-              </m.div>
+              {activePillar ? (
+                <m.div
+                  key={active}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                    {activePillar.items.map((service, i) => (
+                      <ServiceCard key={service.href} service={service} index={i} />
+                    ))}
+                  </div>
+
+                  {/* Hub link */}
+                  <div className="mt-8 sm:mt-10 text-center">
+                    <Link
+                      href={activePillar.hubHref}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-70"
+                      style={{ color: activePillar.color }}
+                    >
+                      Voir la page {activePillar.label}
+                      <ChevronRight size={14} />
+                    </Link>
+                  </div>
+                </m.div>
+              ) : (
+                <m.div
+                  key="empty"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="py-8 sm:py-12 text-center"
+                >
+                  <p className="text-text-muted text-sm">
+                    Cliquez sur un pilier ci-dessus pour découvrir nos services.
+                  </p>
+                </m.div>
+              )}
             </AnimatePresence>
           </div>
-
-          {/* See all link per pillar */}
-          {active !== 'tout' && (
-            <SectionReveal delay={0.15}>
-              <div className="mt-8 sm:mt-10 text-center">
-                <Link
-                  href={
-                    active === 'agence' ? '/agence-digitale'
-                      : active === 'formation' ? '/formation-entreprise'
-                      : '/intelligence-artificielle'
-                  }
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-70"
-                  style={{ color: getPillarTokens(active).color }}
-                >
-                  Voir la page {active === 'agence' ? 'Marketing digital' : active === 'formation' ? 'Formation entreprise' : 'IA et automatisation'}
-                  <ChevronRight size={14} />
-                </Link>
-              </div>
-            </SectionReveal>
-          )}
         </div>
       </section>
     </HeroBg>
@@ -237,13 +288,6 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
               {service.badge}
             </span>
           )}
-          {/* Pillar indicator */}
-          <span
-            className="absolute top-3 left-3 text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full backdrop-blur-sm"
-            style={{ background: bg, color, border: `1px solid ${border}` }}
-          >
-            {service.pillar === 'agence' ? 'Agence' : service.pillar === 'formation' ? 'Formation' : 'IA'}
-          </span>
         </div>
 
         {/* Content */}

@@ -260,6 +260,22 @@ export default async function CityPage({ params }: Props) {
       {/* ── FAQ ── */}
       <FAQSection items={faq} />
 
+      {/* ── Autres villes ── */}
+      <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-12 md:py-16 border-t border-border">
+        <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-4">Nous intervenons aussi a</p>
+        <div className="flex flex-wrap gap-2">
+          {CITIES.filter(c => c.slug !== city.slug).map(c => (
+            <Link
+              key={c.slug}
+              href={`/agence-digitale/${c.slug}`}
+              className="px-3.5 py-2 rounded-lg border border-border bg-white/[0.02] text-sm text-text-secondary hover:text-white hover:border-white/20 transition-all"
+            >
+              {c.name}
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* ── CTA Final ── */}
       <CTAFinal />
     </main>

@@ -79,7 +79,18 @@ const LEGAL_LINKS = [
   { label: 'Plan du site', href: '/plan-du-site' },
 ]
 
-const FOOTER_HEIGHT = 520
+const CITY_LINKS = [
+  { label: 'Genève', href: '/agence-digitale/geneve' },
+  { label: 'Lausanne', href: '/agence-digitale/lausanne' },
+  { label: 'Nyon', href: '/agence-digitale/nyon' },
+  { label: 'Fribourg', href: '/agence-digitale/fribourg' },
+  { label: 'Sion', href: '/agence-digitale/sion' },
+  { label: 'Neuchâtel', href: '/agence-digitale/neuchatel' },
+  { label: 'Morges', href: '/agence-digitale/morges' },
+  { label: 'Montreux', href: '/agence-digitale/montreux' },
+]
+
+const FOOTER_HEIGHT = 540
 
 // ─── Shared inner content ─────────────────────────────────────────────────────
 
@@ -258,6 +269,23 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
           </Link>
         </div>
       </div>}
+
+      {/* ── City links ── */}
+      <div className="relative z-10 border-t border-border">
+        <div className="max-w-[1200px] mx-auto px-6 py-3">
+          <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+            <span className="text-text-muted text-[11px] mr-1">Nos implantations :</span>
+            {CITY_LINKS.map(({ label, href }, i) => (
+              <span key={href} className="inline-flex items-center">
+                <Link href={href} className="text-text-muted hover:text-white text-[11px] transition-colors">
+                  {label}
+                </Link>
+                {i < CITY_LINKS.length - 1 && <span className="text-text-muted text-[11px] ml-1.5">·</span>}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* ── Bottom bar ── */}
       <div className="relative z-10 border-t border-border" style={{ background: 'rgba(0,0,0,0.3)' }}>

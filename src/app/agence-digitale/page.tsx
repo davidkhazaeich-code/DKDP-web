@@ -4,7 +4,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import {
   Globe, Search, Megaphone, Share2, Film, Presentation, Shield,
-  ChevronRight, Zap, Users, BarChart2,
+  ChevronRight, Zap, Users, BarChart2, MapPin,
   EyeOff, AlertTriangle, TrendingDown, Target, Rocket,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
@@ -15,6 +15,7 @@ import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_AGENCE } from '@/data/faq-agence'
+import { CITIES } from '@/lib/cities'
 import { FunnelDiagram } from './_components/FunnelDiagram'
 import { violet } from '@/lib/tokens'
 
@@ -567,6 +568,36 @@ export default function AgenceDigitalePage() {
 
       {/* ── FAQ ── */}
       <FAQSection items={FAQ_AGENCE} title="Vos questions sur l'service digital" />
+
+      {/* ── Villes ── */}
+      <section className="py-16 border-t border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="mb-8">
+              <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Suisse romande</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-white">
+                Nous accompagnons les entreprises de toute la region.
+              </h2>
+            </div>
+          </SectionReveal>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            {CITIES.map((city, i) => (
+              <SectionReveal key={city.slug} delay={i * 0.04}>
+                <Link
+                  href={`/agence-digitale/${city.slug}`}
+                  className="group flex items-center gap-2.5 p-3.5 rounded-xl border border-border bg-white/[0.02] hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  <MapPin size={13} className="flex-shrink-0 text-text-muted group-hover:text-white transition-colors" />
+                  <div className="min-w-0">
+                    <p className="text-white text-sm font-medium truncate">{city.name}</p>
+                    <p className="text-text-muted text-[11px]">{city.canton} · {city.distance}</p>
+                  </div>
+                </Link>
+              </SectionReveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── Ponts ── */}
       <section className="py-16 border-t border-border">

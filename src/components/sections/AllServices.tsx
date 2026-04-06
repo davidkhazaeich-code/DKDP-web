@@ -151,102 +151,114 @@ export function AllServices() {
                     aria-selected={isActive}
                     aria-controls="services-panel"
                     onClick={() => { setHasInteracted(true); setActive(isActive ? null : pillar.key) }}
-                    className={`group relative flex flex-col items-center gap-2 sm:gap-3 px-3 sm:px-6 py-4 sm:py-6 md:py-8 rounded-[12px] sm:rounded-[16px] transition-all duration-300 cursor-pointer backdrop-blur-md overflow-hidden ${isActive ? '' : 'hover:scale-[1.03] active:scale-[0.98]'}`}
+                    className={`group relative flex flex-col overflow-hidden rounded-[12px] sm:rounded-[16px] transition-all duration-300 cursor-pointer ${isActive ? '' : 'hover:scale-[1.02] active:scale-[0.98]'}`}
                     style={{
-                      background: isActive ? pillar.bg : 'rgba(9,9,11,0.60)',
-                      border: isActive ? `2px solid ${pillar.color}` : shouldAnimate ? `2px solid ${pillar.color}30` : `2px solid rgba(255,255,255,0.08)`,
-                      boxShadow: isActive ? `0 0 30px ${pillar.color}15, inset 0 1px 0 ${pillar.color}20` : shouldAnimate ? `0 0 12px ${pillar.color}08` : 'none',
+                      background: `${pillar.color}${isActive ? '18' : '0a'}`,
+                      border: `2px solid ${pillar.color}${isActive ? '' : shouldAnimate ? '40' : '25'}`,
+                      boxShadow: isActive ? `0 0 30px ${pillar.color}20, inset 0 1px 0 ${pillar.color}20` : shouldAnimate ? `0 0 16px ${pillar.color}12` : 'none',
                       animation: shouldAnimate ? `pillarNudge 2.8s ease-in-out infinite` : 'none',
                       animationDelay: shouldAnimate ? `${idx * 0.35}s` : '0s',
                     }}
                     onMouseEnter={(e) => {
                       if (isActive) return
                       const el = e.currentTarget
-                      el.style.borderColor = `${pillar.color}60`
-                      el.style.background = `${pillar.color}08`
-                      el.style.boxShadow = `0 0 20px ${pillar.color}10`
+                      el.style.borderColor = `${pillar.color}80`
+                      el.style.background = `${pillar.color}15`
+                      el.style.boxShadow = `0 0 24px ${pillar.color}18`
                     }}
                     onMouseLeave={(e) => {
                       if (isActive) return
                       const el = e.currentTarget
-                      el.style.borderColor = shouldAnimate ? `${pillar.color}30` : 'rgba(255,255,255,0.08)'
-                      el.style.background = 'rgba(9,9,11,0.60)'
-                      el.style.boxShadow = shouldAnimate ? `0 0 12px ${pillar.color}08` : 'none'
+                      el.style.borderColor = `${pillar.color}${shouldAnimate ? '40' : '25'}`
+                      el.style.background = `${pillar.color}0a`
+                      el.style.boxShadow = shouldAnimate ? `0 0 16px ${pillar.color}12` : 'none'
                     }}
                   >
-                    {/* Background image — desktop only */}
-                    <div className="hidden md:block absolute inset-0 z-0">
+                    {/* Image — visible on desktop */}
+                    <div className="hidden md:block relative w-full h-28 overflow-hidden">
                       <Image
                         src={pillar.heroImage}
                         alt=""
                         fill
                         sizes="400px"
-                        className={`object-cover transition-all duration-500 ${isActive ? 'opacity-25 scale-105' : 'opacity-15 group-hover:opacity-20 group-hover:scale-105'}`}
+                        className={`object-cover transition-all duration-500 ${isActive ? 'opacity-60 scale-105' : 'opacity-40 group-hover:opacity-55 group-hover:scale-105'}`}
                       />
-                      <div className="absolute inset-0" style={{ background: `linear-gradient(to top, rgba(9,9,11,0.95) 30%, rgba(9,9,11,0.6) 100%)` }} />
-                    </div>
-
-                    {/* Icon circle */}
-                    <div
-                      className="relative z-[1] flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full transition-all duration-300"
-                      style={{
-                        background: isActive ? `${pillar.color}20` : 'rgba(255,255,255,0.04)',
-                        border: `1.5px solid ${isActive ? pillar.color : 'rgba(255,255,255,0.10)'}`,
-                      }}
-                    >
-                      <pillar.Icon
-                        size={18}
-                        className="sm:hidden transition-colors duration-300"
-                        style={{ color: isActive ? pillar.color : '#9CA3AF' }}
-                      />
-                      <pillar.Icon
-                        size={22}
-                        className="hidden sm:block transition-colors duration-300"
-                        style={{ color: isActive ? pillar.color : '#9CA3AF' }}
+                      <div
+                        className="absolute inset-0"
+                        style={{ background: `linear-gradient(to top, ${pillar.color}30 0%, transparent 60%), linear-gradient(to top, rgba(9,9,11,0.8) 0%, rgba(9,9,11,0.2) 100%)` }}
                       />
                     </div>
 
-                    {/* Label */}
-                    <div className="relative z-[1] text-center">
-                      <p
-                        className="text-xs sm:text-sm font-semibold transition-colors duration-300 leading-tight"
-                        style={{ color: isActive ? pillar.color : '#e4e4e7' }}
+                    {/* Content */}
+                    <div className="flex flex-col items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-3 sm:py-4 md:py-5">
+                      {/* Colored top bar on mobile */}
+                      <div
+                        className="md:hidden absolute top-0 left-0 right-0 h-[3px] transition-all duration-300"
+                        style={{ background: pillar.color, opacity: isActive ? 1 : 0.5 }}
+                      />
+
+                      {/* Icon */}
+                      <div
+                        className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full transition-all duration-300"
+                        style={{
+                          background: `${pillar.color}${isActive ? '25' : '15'}`,
+                          border: `1.5px solid ${pillar.color}${isActive ? '' : '50'}`,
+                        }}
                       >
-                        <span className="hidden sm:inline">{pillar.label}</span>
-                        <span className="sm:hidden">{pillar.shortLabel}</span>
-                      </p>
-                      <p
-                        className="text-[10px] sm:text-xs mt-0.5 sm:mt-1 transition-colors duration-300"
-                        style={{ color: isActive ? `${pillar.color}aa` : '#71717a' }}
-                      >
-                        {pillar.subtitle}
-                      </p>
-                    </div>
-
-                    {/* Preview service tags — visible only before first interaction */}
-                    {shouldAnimate && (
-                      <div className="relative z-[1] hidden sm:flex flex-wrap justify-center gap-1.5 mt-1">
-                        {pillar.preview.map((name) => (
-                          <span
-                            key={name}
-                            className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full"
-                            style={{
-                              background: `${pillar.color}10`,
-                              color: `${pillar.color}99`,
-                              border: `1px solid ${pillar.color}18`,
-                            }}
-                          >
-                            {name}
-                          </span>
-                        ))}
+                        <pillar.Icon
+                          size={18}
+                          className="sm:hidden transition-colors duration-300"
+                          style={{ color: pillar.color }}
+                        />
+                        <pillar.Icon
+                          size={20}
+                          className="hidden sm:block transition-colors duration-300"
+                          style={{ color: pillar.color }}
+                        />
                       </div>
-                    )}
 
-                    {/* Active indicator dot */}
+                      {/* Label */}
+                      <div className="text-center">
+                        <p
+                          className="text-[11px] sm:text-sm font-semibold transition-colors duration-300 leading-tight"
+                          style={{ color: isActive ? pillar.color : '#e4e4e7' }}
+                        >
+                          <span className="hidden sm:inline">{pillar.label}</span>
+                          <span className="sm:hidden">{pillar.shortLabel}</span>
+                        </p>
+                        <p
+                          className="text-[9px] sm:text-xs mt-0.5 transition-colors duration-300"
+                          style={{ color: `${pillar.color}${isActive ? 'cc' : '80'}` }}
+                        >
+                          {pillar.subtitle}
+                        </p>
+                      </div>
+
+                      {/* Preview service tags — before first interaction */}
+                      {shouldAnimate && (
+                        <div className="hidden sm:flex flex-wrap justify-center gap-1 mt-0.5">
+                          {pillar.preview.map((name) => (
+                            <span
+                              key={name}
+                              className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full"
+                              style={{
+                                background: `${pillar.color}15`,
+                                color: `${pillar.color}aa`,
+                                border: `1px solid ${pillar.color}25`,
+                              }}
+                            >
+                              {name}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Active indicator bar */}
                     <div
-                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-1 rounded-full transition-all duration-300"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[3px] rounded-t-full transition-all duration-300"
                       style={{
-                        width: isActive ? '32px' : '0px',
+                        width: isActive ? '48px' : '0px',
                         background: pillar.color,
                         opacity: isActive ? 1 : 0,
                       }}
@@ -256,6 +268,22 @@ export function AllServices() {
               })}
             </div>
           </SectionReveal>
+
+          {/* ── Animated cursor hint — before first interaction ── */}
+          {!hasInteracted && (
+            <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8" aria-hidden="true">
+              <svg
+                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                className="text-text-muted"
+                style={{ animation: 'cursorSlide 3s ease-in-out infinite' }}
+              >
+                <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.86a.5.5 0 0 0-.85.35Z" fill="currentColor" />
+              </svg>
+              <span className="text-text-muted text-xs sm:text-sm" style={{ animation: 'cursorSlide 3s ease-in-out infinite' }}>
+                Choisissez un pilier
+              </span>
+            </div>
+          )}
 
           {/* ── Services grid ── */}
           <div

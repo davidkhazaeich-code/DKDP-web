@@ -114,7 +114,7 @@ export function AllServices() {
 
   return (
     <HeroBg
-      className="bg-bg-card border-y border-border"
+      className="border-y border-border"
       accentRgb={gridAccent}
       blob1={gridBlob1}
       blob2={gridBlob2}
@@ -153,7 +153,7 @@ export function AllServices() {
                     onClick={() => { setHasInteracted(true); setActive(isActive ? null : pillar.key) }}
                     className={`group relative flex flex-col overflow-hidden rounded-[12px] sm:rounded-[16px] transition-all duration-300 cursor-pointer backdrop-blur-lg ${isActive ? '' : 'hover:scale-[1.02] active:scale-[0.98]'}`}
                     style={{
-                      background: isActive ? `${pillar.color}18` : 'rgba(9,9,11,0.6)',
+                      background: isActive ? `${pillar.color}18` : 'rgba(9,9,11,0.45)',
                       border: `2px solid ${pillar.color}${isActive ? '' : shouldAnimate ? '40' : '25'}`,
                       boxShadow: isActive ? `0 0 30px ${pillar.color}20, inset 0 1px 0 ${pillar.color}20` : shouldAnimate ? `0 0 16px ${pillar.color}12` : 'none',
                       animation: shouldAnimate ? `pillarNudge 2.8s ease-in-out infinite` : 'none',
@@ -163,14 +163,14 @@ export function AllServices() {
                       if (isActive) return
                       const el = e.currentTarget
                       el.style.borderColor = `${pillar.color}70`
-                      el.style.background = `rgba(9,9,11,0.5)`
+                      el.style.background = `rgba(9,9,11,0.35)`
                       el.style.boxShadow = `0 0 20px ${pillar.color}15`
                     }}
                     onMouseLeave={(e) => {
                       if (isActive) return
                       const el = e.currentTarget
                       el.style.borderColor = `${pillar.color}${shouldAnimate ? '40' : '25'}`
-                      el.style.background = 'rgba(9,9,11,0.6)'
+                      el.style.background = 'rgba(9,9,11,0.45)'
                       el.style.boxShadow = shouldAnimate ? `0 0 16px ${pillar.color}12` : 'none'
                     }}
                   >
@@ -386,7 +386,7 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
       <Link
         href={service.href}
         className="group flex flex-col h-full rounded-[14px] border overflow-hidden hover:-translate-y-0.5 transition-transform duration-200 backdrop-blur-lg"
-        style={{ background: 'rgba(9,9,11,0.6)', borderColor: service.badge ? `${color}40` : border, boxShadow: service.badge ? `0 0 28px ${color}10` : undefined }}
+        style={{ background: 'rgba(9,9,11,0.45)', borderColor: service.badge ? `${color}40` : border, boxShadow: service.badge ? `0 0 28px ${color}10` : undefined }}
       >
         {/* Image */}
         <div className="relative h-36 sm:h-40 overflow-hidden">

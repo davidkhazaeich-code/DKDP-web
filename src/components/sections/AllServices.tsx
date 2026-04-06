@@ -1,17 +1,18 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { m, AnimatePresence } from 'framer-motion'
 import {
   Globe, Search, Megaphone, Share2, Film, Presentation, Shield,
-  BrainCircuit, Sparkles, BookOpen, Palette, Cpu,
+  BrainCircuit, BookOpen, Palette, Cpu,
   Bot, Workflow,
-  ChevronRight,
+  ChevronRight, LayoutGrid, GraduationCap, Sparkles,
 } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
+import { HeroBg } from '@/components/ui/HeroBg'
 import { ClaudeIcon } from '@/components/icons/ClaudeIcon'
 import { violet, orange, chrome } from '@/lib/tokens'
 
@@ -59,11 +60,11 @@ const ALL_SERVICES = [...AGENCE_SERVICES, ...FORMATION_SERVICES, ...IA_SERVICES]
 
 type TabKey = 'tout' | 'agence' | 'formation' | 'ia'
 
-const TABS: { key: TabKey; label: string; shortLabel: string; color: string; bg: string; border: string; count: number }[] = [
-  { key: 'tout', label: 'Tout voir', shortLabel: 'Tout', color: '#e4e4e7', bg: 'rgba(255,255,255,0.06)', border: 'rgba(255,255,255,0.12)', count: ALL_SERVICES.length },
-  { key: 'agence', label: 'Services digitaux', shortLabel: 'Agence', color: violet.color, bg: violet.bg, border: violet.border, count: AGENCE_SERVICES.length },
-  { key: 'formation', label: 'Formations', shortLabel: 'Formation', color: orange.color, bg: orange.bg, border: orange.border, count: FORMATION_SERVICES.length },
-  { key: 'ia', label: 'Intelligence artificielle', shortLabel: 'IA', color: chrome.color, bg: chrome.bg, border: chrome.border, count: IA_SERVICES.length },
+const TABS: { key: TabKey; label: string; shortLabel: string; Icon: React.ElementType; color: string; bg: string; border: string; count: number; accentRgb: string; blob1: string; blob2: string }[] = [
+  { key: 'tout', label: 'Tout voir', shortLabel: 'Tout', Icon: LayoutGrid, color: '#e4e4e7', bg: 'rgba(255,255,255,0.06)', border: 'rgba(255,255,255,0.12)', count: ALL_SERVICES.length, accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.10)', blob2: 'rgba(255,107,0,0.07)' },
+  { key: 'agence', label: 'Services digitaux', shortLabel: 'Agence', Icon: Globe, color: violet.color, bg: violet.bg, border: violet.border, count: AGENCE_SERVICES.length, accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.14)', blob2: 'rgba(124,58,237,0.06)' },
+  { key: 'formation', label: 'Formations', shortLabel: 'Formation', Icon: GraduationCap, color: orange.color, bg: orange.bg, border: orange.border, count: FORMATION_SERVICES.length, accentRgb: '255,140,0', blob1: 'rgba(255,140,0,0.12)', blob2: 'rgba(255,107,0,0.06)' },
+  { key: 'ia', label: 'Intelligence artificielle', shortLabel: 'IA', Icon: Sparkles, color: chrome.color, bg: chrome.bg, border: chrome.border, count: IA_SERVICES.length, accentRgb: '212,212,216', blob1: 'rgba(212,212,216,0.10)', blob2: 'rgba(212,212,216,0.05)' },
 ]
 
 function getPillarTokens(pillar: 'agence' | 'formation' | 'ia') {
@@ -83,127 +84,121 @@ const BADGE_STYLES: Record<string, React.CSSProperties> = {
 
 export function AllServices() {
   const [active, setActive] = useState<TabKey>('tout')
-  const indicatorRef = useRef<HTMLDivElement>(null)
-  const tabsRef = useRef<Map<TabKey, HTMLButtonElement>>(new Map())
 
+  const activeTab = TABS.find((t) => t.key === active)!
   const items = active === 'tout' ? ALL_SERVICES
     : active === 'agence' ? AGENCE_SERVICES
     : active === 'formation' ? FORMATION_SERVICES
     : IA_SERVICES
 
-  // Animate the underline indicator
-  useEffect(() => {
-    const btn = tabsRef.current.get(active)
-    const indicator = indicatorRef.current
-    if (!btn || !indicator) return
-    const parent = btn.parentElement!
-    const parentRect = parent.getBoundingClientRect()
-    const btnRect = btn.getBoundingClientRect()
-    indicator.style.left = `${btnRect.left - parentRect.left}px`
-    indicator.style.width = `${btnRect.width}px`
-  }, [active])
-
   return (
-    <section id="tous-les-services" aria-labelledby="all-services-heading" className="py-14 sm:py-20 md:py-24">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
-        <SectionReveal>
-          <div className="text-center mb-10 sm:mb-14">
-            <GradTag className="mb-4 sm:mb-6">Tous nos services</GradTag>
-            <h2 id="all-services-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3 sm:mb-4">
-              19 services, 3 piliers, un seul interlocuteur.
-            </h2>
-            <p className="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto">
-              Filtrez par expertise pour trouver exactement ce dont vous avez besoin.
-            </p>
-          </div>
-        </SectionReveal>
-
-        {/* Tabs */}
-        <SectionReveal delay={0.1}>
-          <div className="relative mb-8 sm:mb-12">
-            <div
-              role="tablist"
-              aria-label="Filtrer par pilier"
-              className="flex gap-1 sm:gap-2 justify-center overflow-x-auto no-scrollbar pb-px"
-            >
-              {TABS.map((tab) => {
-                const isActive = active === tab.key
-                return (
-                  <button
-                    key={tab.key}
-                    ref={(el) => { if (el) tabsRef.current.set(tab.key, el) }}
-                    role="tab"
-                    aria-selected={isActive}
-                    aria-controls="services-panel"
-                    onClick={() => setActive(tab.key)}
-                    className="relative flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0"
-                    style={{
-                      color: isActive ? tab.color : '#9CA3AF',
-                      background: isActive ? tab.bg : 'transparent',
-                      border: isActive ? `1px solid ${tab.border}` : '1px solid transparent',
-                    }}
-                  >
-                    <span className="hidden sm:inline">{tab.label}</span>
-                    <span className="sm:hidden">{tab.shortLabel}</span>
-                    <span
-                      className="text-[10px] sm:text-[11px] font-bold px-1.5 py-0.5 rounded-full"
-                      style={{
-                        background: isActive ? `${tab.color}15` : 'rgba(255,255,255,0.06)',
-                        color: isActive ? tab.color : '#71717a',
-                      }}
-                    >
-                      {tab.count}
-                    </span>
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-        </SectionReveal>
-
-        {/* Grid */}
-        <div
-          id="services-panel"
-          role="tabpanel"
-          aria-label={`Services ${active}`}
-        >
-          <AnimatePresence mode="wait">
-            <m.div
-              key={active}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
-            >
-              {items.map((service, i) => (
-                <ServiceCard key={service.href} service={service} index={i} />
-              ))}
-            </m.div>
-          </AnimatePresence>
-        </div>
-
-        {/* See all link per pillar */}
-        {active !== 'tout' && (
-          <SectionReveal delay={0.15}>
-            <div className="mt-8 sm:mt-10 text-center">
-              <Link
-                href={
-                  active === 'agence' ? '/agence-digitale'
-                    : active === 'formation' ? '/formation-entreprise'
-                    : '/intelligence-artificielle'
-                }
-                className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-70"
-                style={{ color: getPillarTokens(active).color }}
-              >
-                Voir la page {active === 'agence' ? 'Agence digitale' : active === 'formation' ? 'Formation' : 'Intelligence artificielle'}
-                <ChevronRight size={14} />
-              </Link>
+    <HeroBg
+      className="bg-bg-card border-y border-border"
+      accentRgb={activeTab.accentRgb}
+      blob1={activeTab.blob1}
+      blob2={activeTab.blob2}
+    >
+      <section id="tous-les-services" aria-labelledby="all-services-heading" className="py-14 sm:py-20 md:py-24">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
+          <SectionReveal>
+            <div className="text-center mb-10 sm:mb-14">
+              <GradTag className="mb-4 sm:mb-6">Tous nos services</GradTag>
+              <h2 id="all-services-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3 sm:mb-4">
+                19 services, 3 piliers, un seul interlocuteur.
+              </h2>
+              <p className="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto">
+                Filtrez par expertise pour trouver exactement ce dont vous avez besoin.
+              </p>
             </div>
           </SectionReveal>
-        )}
-      </div>
-    </section>
+
+          {/* Tabs */}
+          <SectionReveal delay={0.1}>
+            <div className="relative mb-8 sm:mb-12">
+              <div
+                role="tablist"
+                aria-label="Filtrer par pilier"
+                className="flex gap-1 sm:gap-2 justify-center overflow-x-auto no-scrollbar pb-px"
+              >
+                {TABS.map((tab) => {
+                  const isActive = active === tab.key
+                  return (
+                    <button
+                      key={tab.key}
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-controls="services-panel"
+                      onClick={() => setActive(tab.key)}
+                      className="relative flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0"
+                      style={{
+                        color: isActive ? tab.color : '#9CA3AF',
+                        background: isActive ? tab.bg : 'transparent',
+                        border: isActive ? `1px solid ${tab.border}` : '1px solid transparent',
+                      }}
+                    >
+                      <tab.Icon size={14} className="flex-shrink-0" />
+                      <span className="hidden sm:inline">{tab.label}</span>
+                      <span className="sm:hidden">{tab.shortLabel}</span>
+                      <span
+                        className="text-[10px] sm:text-[11px] font-bold px-1.5 py-0.5 rounded-full"
+                        style={{
+                          background: isActive ? `${tab.color}15` : 'rgba(255,255,255,0.06)',
+                          color: isActive ? tab.color : '#71717a',
+                        }}
+                      >
+                        {tab.count}
+                      </span>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          </SectionReveal>
+
+          {/* Grid */}
+          <div
+            id="services-panel"
+            role="tabpanel"
+            aria-label={`Services ${active}`}
+          >
+            <AnimatePresence mode="wait">
+              <m.div
+                key={active}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+              >
+                {items.map((service, i) => (
+                  <ServiceCard key={service.href} service={service} index={i} />
+                ))}
+              </m.div>
+            </AnimatePresence>
+          </div>
+
+          {/* See all link per pillar */}
+          {active !== 'tout' && (
+            <SectionReveal delay={0.15}>
+              <div className="mt-8 sm:mt-10 text-center">
+                <Link
+                  href={
+                    active === 'agence' ? '/agence-digitale'
+                      : active === 'formation' ? '/formation-entreprise'
+                      : '/intelligence-artificielle'
+                  }
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-70"
+                  style={{ color: getPillarTokens(active).color }}
+                >
+                  Voir la page {active === 'agence' ? 'Agence digitale' : active === 'formation' ? 'Formation' : 'Intelligence artificielle'}
+                  <ChevronRight size={14} />
+                </Link>
+              </div>
+            </SectionReveal>
+          )}
+        </div>
+      </section>
+    </HeroBg>
   )
 }
 
@@ -245,7 +240,7 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
           {/* Pillar indicator */}
           <span
             className="absolute top-3 left-3 text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full backdrop-blur-sm"
-            style={{ background: `${bg}`, color, border: `1px solid ${border}` }}
+            style={{ background: bg, color, border: `1px solid ${border}` }}
           >
             {service.pillar === 'agence' ? 'Agence' : service.pillar === 'formation' ? 'Formation' : 'IA'}
           </span>

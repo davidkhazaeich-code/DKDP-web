@@ -140,11 +140,28 @@ export function AllServices() {
                     aria-selected={isActive}
                     aria-controls="services-panel"
                     onClick={() => setActive(isActive ? null : pillar.key)}
-                    className="group relative flex flex-col items-center gap-2 sm:gap-3 px-3 sm:px-6 py-4 sm:py-6 rounded-[12px] sm:rounded-[16px] transition-all duration-300 cursor-pointer"
+                    className={`group relative flex flex-col items-center gap-2 sm:gap-3 px-3 sm:px-6 py-4 sm:py-6 rounded-[12px] sm:rounded-[16px] transition-all duration-300 cursor-pointer backdrop-blur-md ${isActive ? '' : 'hover:scale-[1.03] active:scale-[0.98]'}`}
                     style={{
-                      background: isActive ? pillar.bg : 'rgba(255,255,255,0.02)',
-                      border: isActive ? `2px solid ${pillar.color}` : '2px solid rgba(255,255,255,0.08)',
+                      background: isActive ? pillar.bg : 'rgba(9,9,11,0.60)',
+                      border: isActive ? `2px solid ${pillar.color}` : `2px solid rgba(255,255,255,0.08)`,
                       boxShadow: isActive ? `0 0 30px ${pillar.color}15, inset 0 1px 0 ${pillar.color}20` : 'none',
+                      // Hover styles applied via onMouseEnter/Leave would be complex, using CSS var trick
+                      ['--hover-border' as string]: `${pillar.color}60`,
+                      ['--hover-bg' as string]: `${pillar.color}08`,
+                    }}
+                    onMouseEnter={(e) => {
+                      if (isActive) return
+                      const el = e.currentTarget
+                      el.style.borderColor = `${pillar.color}60`
+                      el.style.background = `${pillar.color}08`
+                      el.style.boxShadow = `0 0 20px ${pillar.color}10`
+                    }}
+                    onMouseLeave={(e) => {
+                      if (isActive) return
+                      const el = e.currentTarget
+                      el.style.borderColor = 'rgba(255,255,255,0.08)'
+                      el.style.background = 'rgba(9,9,11,0.60)'
+                      el.style.boxShadow = 'none'
                     }}
                   >
                     {/* Icon circle */}
@@ -158,12 +175,12 @@ export function AllServices() {
                       <pillar.Icon
                         size={18}
                         className="sm:hidden transition-colors duration-300"
-                        style={{ color: isActive ? pillar.color : '#71717a' }}
+                        style={{ color: isActive ? pillar.color : '#9CA3AF' }}
                       />
                       <pillar.Icon
                         size={22}
                         className="hidden sm:block transition-colors duration-300"
-                        style={{ color: isActive ? pillar.color : '#71717a' }}
+                        style={{ color: isActive ? pillar.color : '#9CA3AF' }}
                       />
                     </div>
 
@@ -267,7 +284,7 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
     >
       <Link
         href={service.href}
-        className="group flex flex-col h-full bg-bg rounded-[14px] border overflow-hidden hover:-translate-y-0.5 transition-transform duration-200"
+        className="group flex flex-col h-full bg-bg/80 backdrop-blur-md rounded-[14px] border overflow-hidden hover:-translate-y-0.5 transition-transform duration-200"
         style={{ borderColor: service.badge ? `${color}40` : border, boxShadow: service.badge ? `0 0 28px ${color}10` : undefined }}
       >
         {/* Image */}

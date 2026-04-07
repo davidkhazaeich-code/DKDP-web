@@ -8,6 +8,10 @@ export type City = {
   distance: string
   population: string
   economicProfile: string
+  /** IA use cases relevant to the city's economic profile */
+  iaUseCases: string[]
+  /** Formation context specific to the city */
+  formationContext: string
   /** MP4 video for hero background (used if set) */
   videoSrc?: string
   /** Static image for hero background (used if no videoSrc) */
@@ -25,6 +29,13 @@ export const CITIES: City[] = [
     distance: 'Sur place',
     population: '200 000+ habitants',
     economicProfile: 'Organisations internationales, banques, horlogerie, negoce de matieres premieres, startups tech',
+    iaUseCases: [
+      'Agents IA pour le compliance bancaire et KYC automatise',
+      'Automatisation du reporting pour organisations internationales',
+      'Chatbots multilingues pour l\'hotellerie et le luxe',
+      'IA generative pour la communication corporate',
+    ],
+    formationContext: 'Les equipes genevoises, souvent multilingues et dans des secteurs regulementes (finance, ONG, negoce), ont besoin de maitriser l\'IA dans un cadre structure. Nos formations sur site a Geneve couvrent Claude AI, ChatGPT et l\'automatisation des workflows.',
     videoSrc: '/videos/hero-geneve.mp4',
   },
   {
@@ -37,6 +48,13 @@ export const CITIES: City[] = [
     distance: '60 km de Geneve (45 min)',
     population: '140 000+ habitants',
     economicProfile: 'EPFL, startups tech, hospitality, sport international, pharma',
+    iaUseCases: [
+      'Agents IA pour startups tech et scale-ups de l\'EPFL',
+      'Automatisation de la gestion hoteliere et du revenue management',
+      'IA appliquee a la recherche pharmaceutique et biotech',
+      'Chatbots intelligents pour le sport et l\'evenementiel',
+    ],
+    formationContext: 'L\'ecosysteme tech lausannois (EPFL, Swiss Tech, startups IA) exige des competences IA avancees. Nos formations a Lausanne sont adaptees aux equipes techniques comme aux managers qui veulent integrer l\'IA dans leurs processus.',
     imageSrc: '/images/cities/hero-lausanne.jpg',
   },
   {
@@ -49,6 +67,13 @@ export const CITIES: City[] = [
     distance: '27 km de Geneve (25 min)',
     population: '22 000+ habitants',
     economicProfile: 'Sieges de multinationales, PME, commerce local, tourisme du lac',
+    iaUseCases: [
+      'Automatisation des workflows pour sieges de multinationales',
+      'Agents IA pour la gestion documentaire et le reporting',
+      'IA generative pour le marketing des PME locales',
+      'Chatbots service client pour le commerce de La Cote',
+    ],
+    formationContext: 'Les multinationales et PME de Nyon et La Cote recherchent des formations IA pratiques et applicables immediatement. Nos sessions sur site a Nyon permettent aux equipes de maitriser Claude AI et les outils d\'automatisation.',
     imageSrc: '/images/cities/hero-nyon.jpg',
   },
   {
@@ -61,6 +86,13 @@ export const CITIES: City[] = [
     distance: '140 km de Geneve (1h30)',
     population: '42 000+ habitants',
     economicProfile: 'Universite, agroalimentaire, industrie, services, tourisme',
+    iaUseCases: [
+      'IA pour l\'optimisation de la chaine agroalimentaire',
+      'Agents IA bilingues (FR/DE) pour le service client',
+      'Automatisation des processus industriels et qualite',
+      'IA generative pour le marketing touristique',
+    ],
+    formationContext: 'Fribourg, ville bilingue, a besoin de formations IA adaptees a un contexte multiculturel. Nos formations couvrent les outils IA en francais et peuvent etre adaptees pour des equipes bilingues FR/DE.',
     imageSrc: '/images/cities/hero-fribourg.jpg',
   },
   {
@@ -73,6 +105,13 @@ export const CITIES: City[] = [
     distance: '155 km de Geneve (1h45)',
     population: '35 000+ habitants',
     economicProfile: 'Tourisme, energie, viticulture, construction, services publics',
+    iaUseCases: [
+      'IA pour l\'optimisation energetique et la gestion des barrages',
+      'Agents IA pour la reservation touristique et le yield management',
+      'Automatisation de la gestion viticole et de la tracabilite',
+      'Chatbots pour les services publics cantonaux',
+    ],
+    formationContext: 'Le Valais est en pleine transformation digitale. Nos formations IA a Sion aident les entreprises valaisannes du tourisme, de l\'energie et de l\'agroalimentaire a adopter l\'IA de maniere pragmatique et rentable.',
     imageSrc: '/images/cities/hero-sion.jpg',
   },
   {
@@ -85,6 +124,13 @@ export const CITIES: City[] = [
     distance: '155 km de Geneve (1h30)',
     population: '34 000+ habitants',
     economicProfile: 'Horlogerie, microtechnique, CSEM, startups deeptech, universite',
+    iaUseCases: [
+      'IA pour le controle qualite en horlogerie et microtechnique',
+      'Agents IA pour la R&D et l\'analyse de donnees scientifiques',
+      'Automatisation des processus de production deeptech',
+      'IA generative pour la documentation technique et brevets',
+    ],
+    formationContext: 'L\'ecosysteme deeptech neuchatelois (CSEM, horlogerie, microtechnique) requiert des formations IA pointues. Nos sessions a Neuchatel couvrent l\'IA appliquee a l\'industrie, au controle qualite et a l\'innovation.',
     videoSrc: '/videos/hero-neuchatel.mp4',
   },
   {
@@ -97,6 +143,13 @@ export const CITIES: City[] = [
     distance: '47 km de Geneve (35 min)',
     population: '16 000+ habitants',
     economicProfile: 'PME, commerce, viticulture, tourisme, industrie legere',
+    iaUseCases: [
+      'Agents IA pour la gestion des PME et l\'automatisation administrative',
+      'IA pour le e-commerce et la fidelisation client',
+      'Automatisation du marketing digital pour commerces locaux',
+      'Chatbots de recommandation pour le tourisme et la viticulture',
+    ],
+    formationContext: 'Les PME de Morges et de la region ont besoin de formations IA concretes et directement applicables. Nos sessions pratiques permettent aux petites equipes de tirer parti de Claude AI, ChatGPT et des outils d\'automatisation.',
     imageSrc: '/images/cities/hero-morges.jpg',
   },
   {
@@ -109,6 +162,13 @@ export const CITIES: City[] = [
     distance: '95 km de Geneve (1h)',
     population: '27 000+ habitants',
     economicProfile: 'Tourisme, hotellerie, evenementiel, Nestle (Vevey), services',
+    iaUseCases: [
+      'IA pour l\'hotellerie : revenue management et experience client',
+      'Agents IA pour la gestion evenementielle et la billetterie',
+      'Automatisation du marketing touristique et des campagnes saisonnieres',
+      'Chatbots multilingues pour l\'accueil et la conciergerie',
+    ],
+    formationContext: 'Montreux et la Riviera vaudoise vivent du tourisme et de l\'evenementiel. Nos formations IA sur site aident les hotels, restaurants et organisateurs d\'evenements a automatiser leurs operations et ameliorer l\'experience client.',
     videoSrc: '/videos/hero-montreux.mp4',
   },
 ]

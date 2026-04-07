@@ -51,8 +51,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const SERVICES = [
   { label: 'Intelligence artificielle', href: '/intelligence-artificielle', desc: 'Agents IA, automatisation et audit pour gagner en productivite.' },
-  { label: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia', desc: 'Deploiement d\'agents IA autonomes pour vos processus metier.' },
   { label: 'Formation IA entreprise', href: '/formation-entreprise/ia', desc: 'Formations pratiques IA generative, Claude AI et prompt engineering.' },
+  { label: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia', desc: 'Deploiement d\'agents IA autonomes pour vos processus metier.' },
   { label: 'Creation de site web', href: '/agence-digitale/creation-site-web', desc: 'Sites vitrines, e-commerce et applications web sur mesure.' },
   { label: 'Referencement SEO', href: '/agence-digitale/seo', desc: 'SEO local et national pour dominer Google dans votre region.' },
   { label: 'Publicite Google Ads', href: '/agence-digitale/publicite-sea', desc: 'Campagnes Search et Performance Max, leads qualifies.' },

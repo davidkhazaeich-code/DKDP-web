@@ -73,7 +73,7 @@ export function GoogleMapSection() {
             </div>
 
             <a
-              href={`https://www.google.com/maps/dir/?api=1&destination=${LAT},${LNG}`}
+              href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+Décembre,1207+Genève"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[12px] text-sm font-semibold transition-all duration-200 hover:scale-[1.02] hover:shadow-lg w-full"

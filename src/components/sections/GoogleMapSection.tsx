@@ -102,7 +102,7 @@ export function GoogleMapSection() {
               aria-hidden="true"
               className="absolute inset-0 z-10 pointer-events-none"
               style={{
-                background: 'rgba(9,9,11,0.15)',
+                background: 'rgba(9,9,11,0.05)',
                 mixBlendMode: 'multiply',
               }}
             />
@@ -113,7 +113,7 @@ export function GoogleMapSection() {
               className="absolute inset-0 w-full h-full"
               style={{
                 border: 0,
-                filter: 'saturate(0.3) brightness(0.55) contrast(1.3)',
+                filter: 'saturate(0.35) brightness(0.75) contrast(1.15)',
                 opacity: iframeLoaded ? 1 : 0,
                 transition: 'opacity 0.6s ease',
               }}

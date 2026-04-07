@@ -113,7 +113,7 @@ export function GoogleMapSection() {
               className="absolute inset-0 w-full h-full"
               style={{
                 border: 0,
-                filter: 'saturate(0.35) brightness(0.75) contrast(1.15)',
+                filter: 'invert(0.92) hue-rotate(180deg) saturate(0.3) brightness(1.1) contrast(1.05)',
                 opacity: iframeLoaded ? 1 : 0,
                 transition: 'opacity 0.6s ease',
               }}

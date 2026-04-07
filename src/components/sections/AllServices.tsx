@@ -181,11 +181,11 @@ export function AllServices() {
                         alt=""
                         fill
                         sizes="400px"
-                        className={`object-cover transition-all duration-500 ${isActive ? 'opacity-60 scale-105' : 'opacity-40 group-hover:opacity-55 group-hover:scale-105'}`}
+                        className={`object-cover transition-all duration-500 ${isActive ? 'opacity-80 scale-105' : 'opacity-60 group-hover:opacity-75 group-hover:scale-105'}`}
                       />
                       <div
                         className="absolute inset-0"
-                        style={{ background: `linear-gradient(to top, rgba(9,9,11,0.75) 0%, rgba(9,9,11,0.15) 50%), linear-gradient(to top, ${pillar.color}20 0%, transparent 50%)` }}
+                        style={{ background: `linear-gradient(to top, rgba(9,9,11,0.6) 0%, rgba(9,9,11,0.05) 60%), linear-gradient(to top, ${pillar.color}15 0%, transparent 40%)` }}
                       />
                     </div>
 

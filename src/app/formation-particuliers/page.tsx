@@ -23,7 +23,7 @@ import { orange } from '@/lib/tokens'
 export const metadata: Metadata = {
   title: 'Formation Informatique Particuliers Genève · DKDP',
   description:
-    "Cours d'informatique à domicile pour particuliers à Genève. 463+ clients satisfaits, 4.6/5 étoiles. Excel, IA, smartphone, cybersécurité. CHF 140/h, sans engagement.",
+    "Cours d'informatique à domicile pour particuliers à Genève. 463+ clients satisfaits, 4.6/5 étoiles. Excel, IA, smartphone, cybersécurité. CHF 150/h, sans engagement.",
   alternates: { canonical: 'https://dkdp.ch/formation-particuliers' },
 }
 
@@ -145,7 +145,7 @@ const FAQ_ITEMS = [
   {
     question: "Quel est le tarif exact ?",
     answer:
-      "CHF 140 par heure, sans frais cachés. Les frais de déplacement s'appliquent uniquement hors Eaux-Vives (20 à 100 CHF selon la distance). Paiement par virement bancaire, cash ou QR facture suisse.",
+      "CHF 150 par heure, sans frais cachés. Les frais de déplacement s'appliquent uniquement hors Eaux-Vives (20 à 100 CHF selon la distance). Paiement par virement bancaire, cash ou QR facture suisse.",
   },
   {
     question: "Y a-t-il un engagement sur le nombre de cours ?",
@@ -174,7 +174,7 @@ export default function FormationParticuliersPage() {
           name: 'Formation Informatique pour Particuliers · cours-informatique.ch',
           url: '/formation-particuliers',
           description:
-            "Cours d'informatique à domicile pour particuliers à Genève. 463+ clients satisfaits. Excel, IA, smartphone, cybersécurité. CHF 140/h, sans engagement.",
+            "Cours d'informatique à domicile pour particuliers à Genève. 463+ clients satisfaits. Excel, IA, smartphone, cybersécurité. CHF 150/h, sans engagement.",
         })}
       />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Formation Particuliers', url: '/formation-particuliers' }])} />
@@ -269,7 +269,7 @@ export default function FormationParticuliersPage() {
                     {[
                       { val: '463+',    lbl: 'clients satisfaits' },
                       { val: '4.6/5',   lbl: 'note moyenne' },
-                      { val: '140 CHF', lbl: 'par heure' },
+                      { val: '150 CHF', lbl: 'par heure' },
                       { val: 'Lun–Sam', lbl: '8h00 – 19h00' },
                     ].map(({ val, lbl }) => (
                       <div key={lbl}>
@@ -306,7 +306,7 @@ export default function FormationParticuliersPage() {
             {[
               { value: '463+',    label: 'Clients satisfaits',   sub: 'à Genève et en Suisse romande' },
               { value: '4.6/5',   label: 'Note moyenne',          sub: 'sur Trustindex' },
-              { value: '140 CHF', label: 'Par heure',             sub: 'sans frais cachés' },
+              { value: '150 CHF', label: 'Par heure',             sub: 'sans frais cachés' },
               { value: 'Lun–Sam', label: '8h – 19h',              sub: 'disponibles 6 jours sur 7' },
             ].map((s) => (
               <SectionReveal key={s.label}>
@@ -446,7 +446,7 @@ export default function FormationParticuliersPage() {
             <SectionReveal>
               <GradTag className="mb-4">Tarif</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                CHF 140 de l&apos;heure,<br />sans surprise.
+                CHF 150 de l&apos;heure,<br />sans surprise.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-8">
                 Un tarif unique et transparent. Le déplacement est gratuit aux Eaux-Vives,

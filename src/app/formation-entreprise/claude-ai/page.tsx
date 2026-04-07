@@ -18,6 +18,7 @@ import dynamic from 'next/dynamic'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => m.Testimonials))
 const CircularTestimonialsLazy = dynamic(() => import('@/components/ui/circular-testimonials').then(m => m.CircularTestimonials))
+const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet, orange, chrome } from '@/lib/tokens'
@@ -77,7 +78,7 @@ const FAQ = [
   {
     question: 'Quels sont les tarifs de la formation Claude IA ?',
     answer:
-      'La journée de formation (Claude.ai + Projects, jusqu\'à 10 participants) est à CHF 2\'800. Le module Claude Code (demi-journée, jusqu\'à 6 devs) est à CHF 1\'500. Un devis précis est établi après le brief selon la taille de l\'équipe et les besoins spécifiques.',
+      'La formation Claude IA est facturée à l\'heure selon la taille du groupe : CHF 150/h pour 1 personne, CHF 200/h pour 2 personnes, CHF 250/h pour 3 à 6 personnes et CHF 300/h pour 6 à 10 personnes. La demi-journée (4h) ou la journée entière (8h) incluent la préparation sur mesure.',
   },
   {
     question: 'Est-ce que Claude.ai est disponible en français ?',
@@ -1005,108 +1006,15 @@ export default function FormationClaudeAIPage() {
                 Tarifs
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
-                Forfait groupe, prix transparent
+                Un tarif horaire adapté à votre groupe.
               </h2>
               <p className="text-text-secondary text-lg max-w-xl mx-auto">
-                Les tarifs s&apos;entendent par groupe, pas par personne. Contactez-nous pour un devis adapté à votre équipe.
+                Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).
               </p>
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                name: 'Claude.ai · Demi-journée',
-                price: 'CHF 1\'500',
-                dur: '3h30',
-                participants: 'Jusqu\'à 10 participants',
-                color: OR, bg: ORB, border: ORD,
-                features: [
-                  'Prompting avancé',
-                  'Analyse de vos documents réels',
-                  'Extended Thinking en pratique',
-                  'Attestation individuelle',
-                  'Guide de démarrage DKDP',
-                ],
-              },
-              {
-                name: 'Claude.ai + Projects · Journée',
-                price: 'CHF 2\'800',
-                dur: '7h',
-                participants: 'Jusqu\'à 10 participants',
-                color: OR, bg: ORB, border: ORD,
-                featured: true,
-                features: [
-                  'Tout le module demi-journée',
-                  'Claude Projects : espace équipe en live',
-                  'Mémoire partagée et base de connaissance',
-                  'Confidentialité et RGPD suisse',
-                  'Prompt library personnalisée',
-                  'Suivi 30 jours par email',
-                ],
-              },
-              {
-                name: 'Module Claude Code',
-                price: 'CHF 1\'500',
-                dur: '5h',
-                participants: 'Jusqu\'à 6 développeurs',
-                color: '#4ade80', bg: 'rgba(74,222,128,0.08)', border: 'rgba(74,222,128,0.22)',
-                features: [
-                  'Installation et config CLI',
-                  'Navigation de codebase',
-                  'Tests et debugging automatisés',
-                  'Workflow GitHub complet',
-                  'MCP et extensions',
-                  'Ajout à la journée complète : +CHF 1\'200',
-                ],
-              },
-            ].map((plan) => (
-              <SectionReveal key={plan.name}>
-                <div
-                  className="relative flex flex-col gap-6 p-6 rounded-[18px] h-full"
-                  style={{
-                    background: plan.featured ? ORB : 'rgba(255,255,255,0.02)',
-                    border: `1px solid ${plan.featured ? plan.border : 'rgba(255,255,255,0.07)'}`,
-                    boxShadow: plan.featured ? `0 0 30px rgba(255,107,0,0.15)` : 'none',
-                  }}
-                >
-                  {plan.featured && (
-                    <div
-                      className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-bold"
-                      style={{ background: OR, color: '#09090B' }}
-                    >
-                      Recommandé
-                    </div>
-                  )}
-                  <div>
-                    <p className="text-text-muted text-xs font-semibold mb-2">{plan.name}</p>
-                    <div className="flex items-end gap-2 mb-1">
-                      <p className="text-3xl font-bold text-white">{plan.price}</p>
-                    </div>
-                    <p className="text-text-muted text-xs">{plan.dur} · {plan.participants}</p>
-                  </div>
-                  <ul className="space-y-2.5 flex-1">
-                    {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-xs text-text-secondary">
-                        <CheckCircle2 size={12} style={{ color: plan.color }} className="flex-shrink-0 mt-0.5" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/contact?service=formation-claude"
-                    className="block w-full text-center py-2.5 px-4 rounded-[10px] text-sm font-bold transition-opacity hover:opacity-80"
-                    style={plan.featured
-                      ? { background: OR, color: '#09090B' }
-                      : { background: plan.bg, color: plan.color, border: `1px solid ${plan.border}` }
-                    }
-                  >
-                    Demander un devis
-                  </Link>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
+          <FormationPricing />
 
           <SectionReveal>
             <p className="text-center text-text-muted text-sm mt-8">

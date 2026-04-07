@@ -91,7 +91,7 @@ const STATS = [
 const FORMATS = [
   {
     Icon: Users, title: 'En présentiel chez vous',
-    desc: "On se déplace dans vos locaux. Format idéal pour les équipes de 4 à 15 personnes, avec exercices pratiques sur vos propres outils.",
+    desc: "On se déplace dans vos locaux. Format idéal pour les équipes de 1 à 10 personnes, avec exercices pratiques sur vos propres outils.",
   },
   {
     Icon: CalendarCheck, title: 'En ligne & hybride',

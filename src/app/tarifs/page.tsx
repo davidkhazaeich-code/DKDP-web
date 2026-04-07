@@ -35,32 +35,17 @@ const orangeBg    = orange.bg
 const orangeBd    = orange.border
 const greenColor  = green.color
 
-/* ── Formation table data ── */
-const FORMATION_TOPICS = [
-  {
-    Icon: BrainCircuit,
-    name: 'Intelligence Artificielle',
-    demi: 'CHF 1\'500',
-    journee: 'CHF 3\'000',
-    deux: 'CHF 6\'000',
-    badge: 'Tendance',
-  },
-  {
-    Icon: BookOpen,
-    name: 'Bureautique et Pack Office',
-    demi: 'CHF 700',
-    journee: 'CHF 1\'200',
-    deux: 'CHF 2\'200',
-    badge: null,
-  },
-  {
-    Icon: Shield,
-    name: 'Cybersécurité',
-    demi: 'CHF 800',
-    journee: 'CHF 1\'500',
-    deux: 'CHF 3\'500',
-    badge: null,
-  },
+/* ── Formation pricing ── */
+const HOURLY_RATES = [
+  { label: '1 personne', rate: 150 },
+  { label: '2 personnes', rate: 200 },
+  { label: '3-6 personnes', rate: 250 },
+  { label: '6-10 personnes', rate: 300 },
+]
+
+const FORMATION_FORMATS = [
+  { label: 'Demi-journée', hours: 4, detail: '3h de formation + 1h de préparation' },
+  { label: 'Journée entière', hours: 8, detail: '6h de formation + 2h de préparation' },
 ]
 
 /* ── IA service cards ── */
@@ -236,96 +221,88 @@ export default function TarifsPage() {
                 Formation Entreprise
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-xl">
-                Formations en entreprise.{' '}
-                <span style={{ color: orangeColor }}>Groupe jusqu&apos;à 10 personnes.</span>
+                Un tarif horaire{' '}
+                <span style={{ color: orangeColor }}>adapté à la taille du groupe.</span>
               </h2>
               <p className="text-text-muted text-[15px] mt-3 max-w-xl">
-                Tarif forfaitaire par groupe. Le programme est conçu sur mesure pour chaque entreprise.
+                Le prix dépend du nombre de participants. Le programme est conçu sur mesure pour chaque entreprise.
               </p>
             </div>
           </SectionReveal>
 
-          {/* Pricing table */}
+          {/* Hourly rate table */}
           <SectionReveal delay={0.1}>
             <div className="rounded-[16px] border overflow-hidden" style={{ borderColor: orangeBd }}>
-              {/* Table header */}
               <div
-                className="grid grid-cols-4 gap-0 text-center"
+                className="px-6 py-4"
                 style={{ background: orangeBg, borderBottom: `1px solid ${orangeBd}` }}
               >
-                <div className="px-4 py-4 text-left">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-text-muted">
-                    Formation
-                  </span>
-                </div>
-                {[
-                  { label: 'Demi-journée', sub: '3h · max 10 pers.' },
-                  { label: 'Journée complète', sub: '6h · max 10 pers.' },
-                  { label: '2 Jours', sub: '12h · max 10 pers.' },
-                ].map((col) => (
-                  <div key={col.label} className="px-4 py-4 text-center">
-                    <p className="text-white text-[13px] font-bold">{col.label}</p>
-                    <p className="text-text-muted text-[11px] mt-0.5">{col.sub}</p>
+                <p className="text-white text-sm font-bold">Tarif horaire selon le groupe</p>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4">
+                {HOURLY_RATES.map((r, i) => (
+                  <div
+                    key={r.label}
+                    className="flex flex-col items-center justify-center px-4 py-6 text-center"
+                    style={{
+                      borderRight: i < 3 ? `1px solid ${orangeBd}` : undefined,
+                      borderBottom: i < 2 ? `1px solid ${orangeBd}` : undefined,
+                    }}
+                  >
+                    <p className="text-text-muted text-xs font-medium mb-2">{r.label}</p>
+                    <p className="text-2xl font-bold" style={{ color: orangeColor }}>
+                      CHF {r.rate}
+                    </p>
+                    <p className="text-text-muted text-[11px] mt-1">par heure</p>
                   </div>
                 ))}
               </div>
+            </div>
+          </SectionReveal>
 
-              {/* Rows */}
-              {FORMATION_TOPICS.map((row, i) => (
+          {/* Format cards */}
+          <SectionReveal delay={0.15}>
+            <div className="grid sm:grid-cols-2 gap-4 mt-6">
+              {FORMATION_FORMATS.map((f) => (
                 <div
-                  key={row.name}
-                  className="grid grid-cols-4 gap-0"
-                  style={{
-                    background: i % 2 === 0 ? 'transparent' : 'rgba(255,107,0,0.03)',
-                    borderTop: i > 0 ? `1px solid ${orangeBd}` : undefined,
-                  }}
+                  key={f.label}
+                  className="rounded-[16px] border p-6"
+                  style={{ background: orangeBg, borderColor: orangeBd }}
                 >
-                  {/* Topic name */}
-                  <div className="flex items-center gap-3 px-5 py-5">
-                    <div
-                      className="flex h-9 w-9 items-center justify-center rounded-[8px] flex-shrink-0"
-                      style={{ background: orangeBg, border: `1px solid ${orangeBd}` }}
-                    >
-                      <row.Icon size={16} style={{ color: orangeColor }} />
-                    </div>
-                    <div>
-                      <p className="text-white text-[13px] font-semibold leading-tight">{row.name}</p>
-                      {row.badge && (
-                        <span
-                          className="inline-block text-[10px] font-bold px-1.5 py-0.5 rounded mt-1"
-                          style={{ background: orangeBg, color: orangeColor, border: `1px solid ${orangeBd}` }}
-                        >
-                          {row.badge}
+                  <p className="text-white font-bold text-lg mb-1">{f.label}</p>
+                  <p className="text-text-muted text-xs mb-4">{f.detail}</p>
+                  <div className="space-y-2">
+                    {HOURLY_RATES.map((r) => (
+                      <div key={r.label} className="flex items-center justify-between">
+                        <span className="text-text-secondary text-sm">{r.label}</span>
+                        <span className="font-bold text-sm" style={{ color: orangeColor }}>
+                          CHF {r.rate * f.hours}
                         </span>
-                      )}
-                    </div>
+                      </div>
+                    ))}
                   </div>
-                  {/* Price cells */}
-                  {[row.demi, row.journee, row.deux].map((price, j) => (
-                    <div key={j} className="flex items-center justify-center px-4 py-5">
-                      <span className="text-[15px] font-bold" style={{ color: orangeColor }}>{price}</span>
-                    </div>
-                  ))}
                 </div>
               ))}
+            </div>
+          </SectionReveal>
 
-              {/* Table footer */}
-              <div
-                className="px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
-                style={{ background: orangeBg, borderTop: `1px solid ${orangeBd}` }}
+          {/* Footer */}
+          <SectionReveal delay={0.2}>
+            <div
+              className="mt-6 rounded-[14px] border px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+              style={{ background: orangeBg, borderColor: orangeBd }}
+            >
+              <p className="text-text-muted text-[12.5px] leading-relaxed">
+                Programme personnalisé pour chaque entreprise. Devis gratuit sous 48h.
+              </p>
+              <Link
+                href="/formation-entreprise"
+                className="flex-shrink-0 inline-flex items-center gap-1.5 text-[12px] font-semibold px-4 py-2 rounded-[8px] transition-opacity hover:opacity-80 whitespace-nowrap"
+                style={{ background: orangeBg, color: orangeColor, border: `1px solid ${orangeBd}` }}
               >
-                <p className="text-text-muted text-[12.5px] leading-relaxed">
-                  Tarif forfaitaire par groupe, max 10 personnes.
-                  Programme personnalisé pour chaque entreprise.
-                </p>
-                <Link
-                  href="/formation-entreprise"
-                  className="flex-shrink-0 inline-flex items-center gap-1.5 text-[12px] font-semibold px-4 py-2 rounded-[8px] transition-opacity hover:opacity-80 whitespace-nowrap"
-                  style={{ background: orangeBg, color: orangeColor, border: `1px solid ${orangeBd}` }}
-                >
-                  Voir les programmes <ChevronRight size={12} />
-                </Link>
-              </div>
+                Voir les programmes <ChevronRight size={12} />
+              </Link>
             </div>
           </SectionReveal>
         </div>

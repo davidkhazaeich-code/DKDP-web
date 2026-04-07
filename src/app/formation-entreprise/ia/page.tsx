@@ -14,6 +14,7 @@ const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m =
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const ROICalculatorFormation = dynamic(() => import('@/components/sections/ROICalculatorFormation').then(m => m.ROICalculatorFormation))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => m.Testimonials))
+const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
 import { ToolComparison } from './_components/ToolComparison'
@@ -55,7 +56,7 @@ const FAQ = [
   {
     question: 'Combien coûte une journée de formation IA pour mon équipe ?',
     answer:
-      'La formation IA est facturée à un tarif forfaitaire par groupe : CHF 1\'500 pour la demi-journée, CHF 3\'000 pour la journée complète et CHF 6\'000 pour le format sur 2 jours. Un devis précis est établi après le brief.',
+      'La formation IA est facturée à l\'heure selon la taille du groupe : CHF 150/h pour 1 personne, CHF 200/h pour 2 personnes, CHF 250/h pour 3 à 6 personnes et CHF 300/h pour 6 à 10 personnes. La demi-journée (4h) ou la journée entière (8h) incluent la préparation sur mesure.',
   },
   {
     question: 'Les participants repartent-ils avec des outils utilisables le soir même ?',
@@ -500,108 +501,14 @@ export default function FormationIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Un tarif forfaitaire par groupe, transparent.
+                Un tarif horaire adapté à votre groupe.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                Pas de tarif par personne. Un prix fixe par groupe, quel que soit le nombre de participants (dans la limite indiquée).
+                Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).
               </p>
             </div>
           </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                label: 'Demi-journée',
-                price: "CHF 1'500",
-                duration: '3h',
-                max: "Jusqu'à 10 personnes",
-                features: [
-                  'Introduction aux outils IA',
-                  'Techniques de prompting de base',
-                  "Cas d'usage concrets par poste",
-                  'Guide de démarrage inclus',
-                ],
-                highlight: false,
-                cta: 'Demander un devis',
-              },
-              {
-                label: 'Journée complète',
-                price: "CHF 3'000",
-                duration: '6h',
-                max: "Jusqu'à 10 personnes",
-                features: [
-                  'Programme complet (voir agenda)',
-                  'Automatisations Make / Zapier',
-                  'Templates de prompts personnels',
-                  'Attestation de formation',
-                  'Suivi Q&R 30 jours inclus',
-                ],
-                highlight: true,
-                cta: 'Demander un devis',
-              },
-              {
-                label: '2 jours',
-                price: "CHF 6'000",
-                duration: '12h',
-                max: "Jusqu'à 10 personnes",
-                features: [
-                  'Maîtrise avancée des outils IA',
-                  'Agents IA et automatisations complexes',
-                  'Mise en oeuvre dans vos process',
-                  'Suivi mensuel 3 mois inclus',
-                  'Format idéal équipes techniques',
-                ],
-                highlight: false,
-                cta: 'Demander un devis',
-              },
-            ].map((offer, i) => (
-              <SectionReveal key={offer.label} delay={i * 0.1}>
-                <div
-                  className="relative flex flex-col h-full rounded-[16px] border overflow-hidden"
-                  style={{
-                    borderColor: offer.highlight ? color : border,
-                    boxShadow: offer.highlight ? '0 0 40px rgba(255,107,0,0.14)' : 'none',
-                  }}
-                >
-                  {offer.highlight && (
-                    <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: color }} />
-                  )}
-                  <div className="p-7 flex flex-col flex-1" style={{ background: offer.highlight ? bg : 'transparent' }}>
-                    {offer.highlight && (
-                      <span
-                        className="inline-flex w-fit text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mb-4"
-                        style={{ background: bg, color, border: `1px solid ${border}` }}
-                      >
-                        Le plus populaire
-                      </span>
-                    )}
-                    <p className="text-white font-bold text-xl mb-1">{offer.label}</p>
-                    <p className="text-2xl font-bold mb-0.5" style={{ color }}>{offer.price}</p>
-                    <p className="text-text-muted text-xs mb-1">{offer.duration}</p>
-                    <p className="text-text-muted text-xs mb-6">{offer.max}</p>
-                    <div className="space-y-2.5 flex-1">
-                      {offer.features.map((f) => (
-                        <div key={f} className="flex items-start gap-2.5">
-                          <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
-                          <span className="text-text-secondary text-sm">{f}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <Link
-                      href="/contact?service=formation"
-                      className="mt-8 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-semibold transition-all hover:opacity-80"
-                      style={{
-                        background: offer.highlight ? color : bg,
-                        color: offer.highlight ? '#000' : color,
-                        border: `1px solid ${border}`,
-                      }}
-                    >
-                      {offer.cta} <ChevronRight size={14} />
-                    </Link>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
+          <FormationPricing />
         </div>
       </section>
 

@@ -135,10 +135,10 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
               IA · Formation · Web
             </p>
             <address className="not-italic space-y-2 flex-1">
-              <p className="flex items-start gap-2 text-text-muted text-xs">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+D%C3%A9cembre,1207+Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-text-muted hover:text-white text-xs transition-colors">
                 <MapPin size={12} className="mt-0.5 flex-shrink-0 text-violet-light" />
                 <span>36 Rue du 31 Décembre<br />Quartier des Eaux-Vives<br />1207 Genève, Suisse</span>
-              </p>
+              </a>
               <p className="flex items-center gap-2 text-text-muted text-xs">
                 <Clock size={12} className="flex-shrink-0 text-violet-light" />
                 Lun–Ven 09:00–18:00
@@ -212,10 +212,10 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
             </p>
           </div>
           <address className="not-italic space-y-2 sm:text-right">
-            <p className="flex items-start gap-2 sm:justify-end text-text-muted text-xs">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+D%C3%A9cembre,1207+Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 sm:justify-end text-text-muted hover:text-white text-xs transition-colors">
               <MapPin size={12} className="mt-0.5 flex-shrink-0 text-violet-light sm:order-last sm:ml-0" />
               <span>36 Rue du 31 Décembre · Eaux-Vives · 1207 Genève</span>
-            </p>
+            </a>
             <a href="tel:+41799407969" className="flex items-center gap-2 sm:justify-end text-text-muted hover:text-white text-xs transition-colors">
               <Phone size={12} className="flex-shrink-0 text-violet-light" />
               +41 79 940 79 69

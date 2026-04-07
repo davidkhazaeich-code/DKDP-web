@@ -113,7 +113,7 @@ export function GoogleMapSection() {
               className="absolute inset-0 w-full h-full"
               style={{
                 border: 0,
-                filter: 'invert(0.92) hue-rotate(180deg) brightness(1.1) contrast(1.05)',
+                filter: 'invert(0.92) hue-rotate(200deg) saturate(0.15) brightness(1.05) contrast(1.1) sepia(0.15) hue-rotate(-20deg)',
                 opacity: iframeLoaded ? 1 : 0,
                 transition: 'opacity 0.6s ease',
               }}
@@ -138,7 +138,7 @@ export function GoogleMapSection() {
               aria-hidden="true"
               className="absolute inset-0 z-10 pointer-events-none"
               style={{
-                background: 'linear-gradient(135deg, rgba(124,58,237,0.08) 0%, transparent 50%, rgba(167,139,250,0.05) 100%)',
+                background: 'linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(167,139,250,0.04) 50%, rgba(124,58,237,0.08) 100%)',
               }}
             />
           </div>

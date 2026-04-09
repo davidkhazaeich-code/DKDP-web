@@ -469,7 +469,7 @@ export function ChatWidget() {
             animate={{
               opacity: 1,
               y: 0,
-              width: barFocused ? 'min(595px, calc(100vw - 32px))' : 'min(360px, calc(100vw - 24px))',
+              width: barFocused ? 'min(625px, calc(100vw - 32px))' : 'min(360px, calc(100vw - 24px))',
             }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
@@ -566,7 +566,7 @@ export function ChatWidget() {
         {isOpen && (
           <div
             className="fixed z-40 left-1/2 -translate-x-1/2 bottom-2"
-            style={{ width: 'min(595px, calc(100vw - 16px))' }}
+            style={{ width: 'min(625px, calc(100vw - 16px))' }}
           >
           <motion.div
             initial={{ opacity: 0, y: 60, scale: 0.92 }}

@@ -43,21 +43,29 @@ const INLINE_CTAS = [
 function AnimatedOrb({ size = 32 }: { size?: number }) {
   return (
     <div className="relative flex-shrink-0" style={{ width: size, height: size }}>
+      {/* Glow pulse */}
       <motion.div
         className="absolute inset-0 rounded-full"
         style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.4) 0%, transparent 70%)' }}
         animate={{ scale: [1, 1.5, 1], opacity: [0.6, 0.3, 0.6] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
       />
+      {/* Spinning gradient */}
       <motion.div
         className="absolute inset-1 rounded-full"
-        style={{ background: 'linear-gradient(135deg, #A78BFA, #D4D4D8, #7C3AED)', backgroundSize: '200% 200%' }}
-        animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ background: 'conic-gradient(from 0deg, #A78BFA, #D4D4D8, #7C3AED, #D4D4D8, #A78BFA)' }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
       />
+      {/* Inner core */}
+      <div
+        className="absolute rounded-full"
+        style={{ inset: '25%', background: 'radial-gradient(circle, rgba(167,139,250,0.5) 0%, rgba(124,58,237,0.3) 60%, transparent 100%)' }}
+      />
+      {/* Specular highlight */}
       <motion.div
         className="absolute rounded-full"
-        style={{ inset: '30%', background: 'radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%)' }}
+        style={{ inset: '30%', background: 'radial-gradient(circle at 35% 35%, rgba(255,255,255,0.45) 0%, transparent 60%)' }}
         animate={{ opacity: [0.5, 0.9, 0.5] }}
         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
       />

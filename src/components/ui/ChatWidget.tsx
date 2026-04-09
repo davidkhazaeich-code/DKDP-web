@@ -534,7 +534,7 @@ export function ChatWidget() {
               <div className="flex items-center gap-3">
                 <AnimatedOrb size={32} />
                 <div>
-                  <Image src="/images/logo/dkdp_blanc-croped.png" alt="DKDP" width={36} height={12} className="h-2.5 w-auto" />
+                  <Image src="/images/logo/dkdp_blanc-croped.png" alt="DKDP" width={36} height={12} className="h-2.5 w-auto -ml-[3px]" />
                   <p className="text-[11px] text-[#71717a]">Assistant IA</p>
                 </div>
               </div>

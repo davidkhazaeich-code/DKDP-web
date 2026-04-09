@@ -33,8 +33,8 @@ const PLACEHOLDERS = [
 
 const INLINE_CTAS = [
   { href: '/intelligence-artificielle/chatbot-ia', label: 'Chatbot pour mon site web' },
+  { href: '/#nos-expertises', label: 'Nos services' },
   { href: '/contact', label: 'Nous contacter' },
-  { href: '/tarifs', label: 'Voir les tarifs' },
 ]
 
 // ── Animated orb ────────────────────────────────────────────────────────────
@@ -211,16 +211,6 @@ function ChatCTABar() {
           <ArrowRight size={10} />
         </Link>
       ))}
-      <button
-        data-cal-link="david-khazaei/planifier-un-appel"
-        data-cal-namespace="planifier-un-appel"
-        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-medium cursor-pointer transition-all duration-200
-          text-white border border-[rgba(124,58,237,0.35)]"
-        style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.2), rgba(255,107,0,0.15))' }}
-      >
-        <CalendarCheck size={11} />
-        Prendre RDV
-      </button>
     </motion.div>
   )
 }

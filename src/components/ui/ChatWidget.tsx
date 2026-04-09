@@ -439,7 +439,8 @@ export function ChatWidget() {
           >
             <form
               onSubmit={handleBarSubmit}
-              className="relative flex items-center gap-3 rounded-full px-3 py-2 transition-shadow duration-300"
+              onClick={() => { if (messages.length > 0) setIsOpen(true) }}
+              className="relative flex items-center gap-3 rounded-full px-3 py-2 transition-shadow duration-300 cursor-text"
               style={{
                 background: '#111111',
                 border: '1px solid rgba(124,58,237,0.15)',
@@ -470,7 +471,13 @@ export function ChatWidget() {
                   onChange={(e) => {
                     if (e.target.value.length <= MAX_CHAR_LENGTH) setInputValue(e.target.value)
                   }}
-                  onFocus={() => setBarFocused(true)}
+                  onFocus={() => {
+                    if (messages.length > 0) {
+                      setIsOpen(true)
+                      return
+                    }
+                    setBarFocused(true)
+                  }}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                       e.preventDefault()

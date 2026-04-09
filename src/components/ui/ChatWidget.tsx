@@ -24,7 +24,7 @@ const QUICK_SUGGESTIONS = [
 ]
 
 const PLACEHOLDERS = [
-  'Besoin d\u2019une information ? Demandez-moi !',
+  'Besoin d\u2019une information ?',
   'Un projet de site web en tete ?',
   'Combien coute un site web ?',
   'Parlez-moi de vos formations IA',

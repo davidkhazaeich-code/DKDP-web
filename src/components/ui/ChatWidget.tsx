@@ -375,6 +375,29 @@ export function ChatWidget() {
     }
   }, [pathname])
 
+  // Lock body scroll when chat is open (prevents background scroll on mobile)
+  const scrollYRef = useRef(0)
+  useEffect(() => {
+    const html = document.documentElement
+    if (isOpen) {
+      scrollYRef.current = window.scrollY
+      document.body.classList.add('chat-open')
+      document.body.style.top = `-${scrollYRef.current}px`
+      // Pause Lenis smooth scroll to prevent scroll accumulation
+      html.classList.add('lenis-stopped')
+    } else {
+      document.body.classList.remove('chat-open')
+      document.body.style.top = ''
+      html.classList.remove('lenis-stopped')
+      window.scrollTo(0, scrollYRef.current)
+    }
+    return () => {
+      document.body.classList.remove('chat-open')
+      document.body.style.top = ''
+      html.classList.remove('lenis-stopped')
+    }
+  }, [isOpen])
+
   const hasConversation = messages.length > 0
   const userMessageCount = messages.filter((m) => m.role === 'user').length
   const isLimitReached = userMessageCount >= MESSAGE_LIMIT
@@ -437,6 +460,23 @@ export function ChatWidget() {
     document.addEventListener('keydown', handleKey)
     return () => document.removeEventListener('keydown', handleKey)
   }, [])
+
+  // Close chat when any internal link inside the chat window is clicked
+  const chatWindowRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = chatWindowRef.current
+    if (!el || !isOpen) return
+    function handleClick(e: MouseEvent) {
+      const anchor = (e.target as Element).closest('a')
+      if (!anchor) return
+      const href = anchor.getAttribute('href')
+      if (href && (href.startsWith('/') || href.startsWith('#'))) {
+        setIsOpen(false)
+      }
+    }
+    el.addEventListener('click', handleClick)
+    return () => el.removeEventListener('click', handleClick)
+  }, [isOpen])
 
   const handleBarSubmit = useCallback((e?: FormEvent) => {
     e?.preventDefault()
@@ -592,20 +632,27 @@ export function ChatWidget() {
       <AnimatePresence>
         {isOpen && (
           <div
-            className="fixed z-40 left-1/2 -translate-x-1/2 bottom-2 md:bottom-4"
-            style={{ width: 'min(580px, calc(100vw - 16px))' }}
+            ref={chatWindowRef}
+            className="fixed z-40 left-1/2 -translate-x-1/2"
+            style={{
+              width: 'min(580px, calc(100vw - 16px))',
+              bottom: 'max(8px, env(safe-area-inset-bottom, 8px))',
+            }}
           >
           <m.div
             initial={{ opacity: 0, y: 60, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
             transition={{ type: 'spring' as const, damping: 22, stiffness: 260 }}
-            className="flex flex-col overflow-hidden rounded-2xl w-full
-              h-[min(480px,calc(100svh-80px))] md:h-[min(640px,calc(100vh-32px))]"
+            className="flex flex-col overflow-hidden rounded-2xl w-full"
             style={{
+              height: 'min(480px, 65dvh)',
               background: '#0A0A0A',
               border: '1px solid rgba(124,58,237,0.15)',
               boxShadow: '0 16px 70px rgba(0,0,0,0.8), 0 0 80px rgba(124,58,237,0.08)',
+              overscrollBehavior: 'contain',
+              touchAction: 'auto',
+              WebkitOverflowScrolling: 'touch',
             }}
           >
             {/* ── Header ── */}
@@ -637,7 +684,14 @@ export function ChatWidget() {
             </div>
 
             {/* ── Messages area ── */}
-            <div className="flex-1 overflow-y-auto px-5 py-5 space-y-4">
+            <div
+              className="flex-1 overflow-y-auto px-5 py-5 space-y-4"
+              data-lenis-prevent
+              style={{
+                overscrollBehavior: 'contain',
+                WebkitOverflowScrolling: 'touch',
+              }}
+            >
               {/* Welcome */}
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0 mt-0.5">
@@ -717,7 +771,10 @@ export function ChatWidget() {
 
             {/* ── Input bar (inside chat) ── */}
             {!isLimitReached && (
-              <div className="flex-shrink-0 px-4 pb-3 pt-2">
+              <div
+                className="flex-shrink-0 px-4 pt-2"
+                style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom, 12px))' }}
+              >
                 <form
                   onSubmit={handleChatSubmit}
                   className="flex items-end gap-2 rounded-2xl px-3 py-2"

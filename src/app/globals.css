@@ -95,7 +95,22 @@ html {
   background-color: #0A0A0A;
   color: #fff;
   font-family: var(--font-sans);
+  overflow-x: hidden;
   /* scroll-behavior géré par Lenis — pas de conflit avec scroll-behavior CSS natif */
+}
+
+body {
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
+/* Chat open — lock body scroll on all platforms */
+body.chat-open {
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  overscroll-behavior: none;
+  touch-action: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

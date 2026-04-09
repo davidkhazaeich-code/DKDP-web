@@ -465,15 +465,15 @@ export default function GlossairePage() {
       {/* ------------------------------------------------------------------ */}
       {/* STICKY SEARCH + ALPHABETIC NAV                                      */}
       {/* ------------------------------------------------------------------ */}
-      <div className="sticky top-[66px] z-40 px-6 pt-1.5">
-        <div
-          className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-4"
-          style={{
-            background: 'rgba(10,10,10,0.90)',
-            backdropFilter: 'blur(24px)',
-            WebkitBackdropFilter: 'blur(24px)',
-          }}
-        >
+      <div
+        className="sticky top-[66px] z-40 w-full border-b border-white/[0.06]"
+        style={{
+          background: 'rgba(10,10,10,0.85)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+        }}
+      >
+        <div className="max-w-[1200px] mx-auto px-4">
 
           {/* ── Desktop (md+): search + separator + letters in one row ── */}
           <div className="hidden md:flex items-center gap-3 py-2">

@@ -88,8 +88,8 @@ export default function BlogPage() {
       </HeroBg>
 
       {/* ══ 2. Filtres catégories ══ */}
-      <div className="sticky top-[66px] z-30 px-6 pt-1.5">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+      <div className="sticky top-[66px] z-30 border-b border-white/[0.06] bg-[#0A0A0A]/85 backdrop-blur-2xl">
+        <div className="max-w-[1200px] mx-auto px-6">
           <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Filtres categories">
             <a href="#articles" className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold transition-colors"
               style={{ background: violetBg, color: violetColor, border: `1px solid ${violetBd}` }}>

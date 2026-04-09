@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback, type FormEvent, type Keyboard
 import { useChat } from '@ai-sdk/react'
 import { DefaultChatTransport } from 'ai'
 import Link from 'next/link'
+import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, Send, CalendarCheck, RotateCcw, Globe, Sparkles, ArrowRight, MessageCircle } from 'lucide-react'
 import Markdown from 'react-markdown'
@@ -533,7 +534,7 @@ export function ChatWidget() {
               <div className="flex items-center gap-3">
                 <AnimatedOrb size={32} />
                 <div>
-                  <p className="text-sm font-semibold text-white leading-tight">DKDP</p>
+                  <Image src="/images/logo/dkdp_blanc-croped.png" alt="DKDP" width={72} height={24} className="h-5 w-auto" />
                   <p className="text-[11px] text-[#71717a]">Assistant IA</p>
                 </div>
               </div>

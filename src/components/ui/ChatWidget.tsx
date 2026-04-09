@@ -309,6 +309,7 @@ function LimitReachedCTA() {
 // ── Main ChatWidget ─────────────────────────────────────────────────────────
 
 export function ChatWidget() {
+  const [isEurope, setIsEurope] = useState(true)
   const [isOpen, setIsOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const [placeholderIndex, setPlaceholderIndex] = useState(0)
@@ -321,6 +322,12 @@ export function ChatWidget() {
   const inputRef = useRef<HTMLInputElement>(null)
   const chatInputRef = useRef<HTMLTextAreaElement>(null)
   const barRef = useRef<HTMLDivElement>(null)
+
+  // Hide chat outside Europe
+  useEffect(() => {
+    const match = document.cookie.match(/(?:^|; )geo-eu=([^;]*)/)
+    if (match && match[1] === '0') setIsEurope(false)
+  }, [])
 
   const [chatTransport] = useState(() => new DefaultChatTransport({
     body: () => ({ _hp: honeypotRef.current }),
@@ -467,6 +474,8 @@ export function ChatWidget() {
     setInputValue('')
     try { sessionStorage.removeItem('dkdp-chat') } catch { /* ignore */ }
   }
+
+  if (!isEurope) return null
 
   return (
     <>

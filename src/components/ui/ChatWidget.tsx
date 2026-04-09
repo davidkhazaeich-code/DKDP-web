@@ -252,7 +252,7 @@ function LimitReachedCTA() {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
-      className="mx-5 mb-[max(12px,env(safe-area-inset-bottom,12px))] p-5 rounded-2xl text-center"
+      className="mx-5 mb-3 p-5 rounded-2xl text-center"
       style={{
         background: 'linear-gradient(135deg, rgba(124,58,237,0.08), rgba(255,107,0,0.06))',
         border: '1px solid rgba(124,58,237,0.2)',
@@ -451,7 +451,7 @@ export function ChatWidget() {
             animate={{
               opacity: 1,
               y: 0,
-              width: barFocused ? 'min(580px, calc(100vw - 32px))' : 'min(320px, calc(100vw - 48px))',
+              width: barFocused ? 'min(580px, calc(100vw - 32px))' : 'min(345px, calc(100vw - 48px))',
             }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
@@ -547,21 +547,22 @@ export function ChatWidget() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.96 }}
+            initial={{ opacity: 0, y: 60, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.96 }}
-            transition={{ duration: 0.35, ease: DKDP_BOUNCE }}
-            className="fixed z-40 flex flex-col overflow-hidden
-              inset-0 rounded-none
-              md:inset-auto md:left-1/2 md:-translate-x-1/2 md:bottom-4 md:w-[580px] md:h-[min(640px,calc(100vh-32px))] md:rounded-2xl"
+            exit={{ opacity: 0, y: 40, scale: 0.95 }}
+            transition={{ type: 'spring' as const, damping: 22, stiffness: 260 }}
+            className="fixed z-40 flex flex-col overflow-hidden rounded-2xl
+              left-2 right-2 bottom-2
+              md:left-auto md:right-auto md:left-1/2 md:-translate-x-1/2 md:bottom-4 md:w-[580px]"
             style={{
+              height: 'min(480px, calc(100svh - 80px))',
               background: '#0A0A0A',
-              border: '1px solid rgba(124,58,237,0.12)',
-              boxShadow: '0 12px 60px rgba(0,0,0,0.7), 0 0 80px rgba(124,58,237,0.06)',
+              border: '1px solid rgba(124,58,237,0.15)',
+              boxShadow: '0 16px 70px rgba(0,0,0,0.8), 0 0 80px rgba(124,58,237,0.08)',
             }}
           >
             {/* ── Header ── */}
-            <div className="flex items-center justify-between px-5 py-3.5 pt-[max(14px,env(safe-area-inset-top,14px))] border-b border-[#1E1E1E] flex-shrink-0">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-[#1E1E1E] flex-shrink-0">
               <div className="flex items-center gap-3">
                 <AnimatedOrb size={32} />
                 <div>
@@ -669,7 +670,7 @@ export function ChatWidget() {
 
             {/* ── Input bar (inside chat) ── */}
             {!isLimitReached && (
-              <div className="flex-shrink-0 px-4 pb-[max(12px,env(safe-area-inset-bottom,12px))] pt-2">
+              <div className="flex-shrink-0 px-4 pb-3 pt-2">
                 <form
                   onSubmit={handleChatSubmit}
                   className="flex items-end gap-2 rounded-2xl px-3 py-2"

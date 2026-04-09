@@ -9,7 +9,7 @@ import React, {
 } from 'react'
 import Image from 'next/image'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 
 export interface CircularItem {
   quote: string
@@ -211,7 +211,7 @@ export function CircularTestimonials({
         {/* Content */}
         <div className="flex flex-col justify-between min-h-[260px]">
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={activeIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -232,7 +232,7 @@ export function CircularTestimonials({
               </p>
               <p className="leading-relaxed" style={{ color: colorQuote, fontSize: fsQuote }}>
                 {active.quote.split(' ').map((word, i) => (
-                  <motion.span
+                  <m.span
                     key={i}
                     initial={{ filter: 'blur(8px)', opacity: 0, y: 4 }}
                     animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
@@ -240,7 +240,7 @@ export function CircularTestimonials({
                     style={{ display: 'inline-block' }}
                   >
                     {word}&nbsp;
-                  </motion.span>
+                  </m.span>
                 ))}
               </p>
 
@@ -263,7 +263,7 @@ export function CircularTestimonials({
                   LinkedIn
                 </a>
               )}
-            </motion.div>
+            </m.div>
           </AnimatePresence>
 
           {/* Arrows */}

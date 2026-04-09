@@ -116,7 +116,7 @@ export function DottedSurface({
       )
       camera.position.set(0, 500, 900)
 
-      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false })
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
       renderer.setSize(container.offsetWidth || window.innerWidth, container.offsetHeight || window.innerHeight)
       renderer.setClearColor(0x000000, 0)

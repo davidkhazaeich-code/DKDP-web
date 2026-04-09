@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
@@ -34,7 +34,7 @@ function FAQItem({ item, index }: { item: FAQItemType; index: number }) {
 
         <AnimatePresence initial={false}>
           {open && (
-            <motion.div
+            <m.div
               key="answer"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
@@ -45,7 +45,7 @@ function FAQItem({ item, index }: { item: FAQItemType; index: number }) {
               <p className="text-text-secondary text-sm leading-relaxed pb-6 max-w-3xl">
                 {item.answer}
               </p>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </div>

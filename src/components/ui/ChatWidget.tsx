@@ -6,7 +6,7 @@ import { DefaultChatTransport } from 'ai'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m } from 'framer-motion'
 import { X, Send, CalendarCheck, RotateCcw, Globe, Sparkles, ArrowRight, MessageCircle, Mail } from 'lucide-react'
 import Markdown from 'react-markdown'
 
@@ -54,7 +54,7 @@ function AnimatedOrb({ size = 32, animated = false }: { size?: number; animated?
   return (
     <div className="relative flex-shrink-0 rounded-full overflow-hidden" style={{ width: size, height: size }}>
       {/* Glow pulse */}
-      <motion.div
+      <m.div
         className="absolute inset-0 rounded-full"
         style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.35) 0%, transparent 70%)' }}
         animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0.25, 0.5] }}
@@ -63,28 +63,28 @@ function AnimatedOrb({ size = 32, animated = false }: { size?: number; animated?
       {/* Base gradient */}
       <div className="absolute inset-0.5 rounded-full" style={{ background: 'linear-gradient(135deg, #A78BFA, #7C3AED)' }} />
       {/* Blob 1 */}
-      <motion.div
+      <m.div
         className="absolute rounded-full"
         style={{ width: '120%', height: '120%', background: 'radial-gradient(circle, rgba(212,212,216,0.6) 0%, transparent 60%)', filter: 'blur(3px)' }}
         animate={{ x: ['-10%', '30%', '10%', '-20%', '-10%'], y: ['10%', '-15%', '25%', '-10%', '10%'] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       />
       {/* Blob 2 */}
-      <motion.div
+      <m.div
         className="absolute rounded-full"
         style={{ width: '100%', height: '100%', background: 'radial-gradient(circle, rgba(124,58,237,0.7) 0%, transparent 55%)', filter: 'blur(2px)' }}
         animate={{ x: ['20%', '-15%', '-25%', '15%', '20%'], y: ['-15%', '20%', '-10%', '25%', '-15%'] }}
         transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
       />
       {/* Blob 3 */}
-      <motion.div
+      <m.div
         className="absolute rounded-full"
         style={{ width: '80%', height: '80%', background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 50%)', filter: 'blur(2px)' }}
         animate={{ x: ['-5%', '25%', '-20%', '10%', '-5%'], y: ['20%', '-10%', '15%', '-20%', '20%'], scale: [1, 1.2, 0.9, 1.1, 1] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       />
       {/* Specular highlight */}
-      <motion.div
+      <m.div
         className="absolute rounded-full"
         style={{ inset: '20%', background: 'radial-gradient(circle at 35% 35%, rgba(255,255,255,0.35) 0%, transparent 55%)' }}
         animate={{ opacity: [0.4, 0.8, 0.4] }}
@@ -102,7 +102,7 @@ function AnimatedPlaceholder({ index, visible }: { index: number; visible: boole
   return (
     <AnimatePresence mode="wait">
       {visible && (
-        <motion.span
+        <m.span
           key={index}
           className="absolute inset-0 flex items-center text-[#71717a] text-sm select-none pointer-events-none whitespace-nowrap overflow-hidden"
           initial="initial"
@@ -115,7 +115,7 @@ function AnimatedPlaceholder({ index, visible }: { index: number; visible: boole
           }}
         >
           {text.split('').map((char, i) => (
-            <motion.span
+            <m.span
               key={i}
               style={{ display: 'inline-block' }}
               variants={{
@@ -139,9 +139,9 @@ function AnimatedPlaceholder({ index, visible }: { index: number; visible: boole
               }}
             >
               {char === ' ' ? '\u00A0' : char}
-            </motion.span>
+            </m.span>
           ))}
-        </motion.span>
+        </m.span>
       )}
     </AnimatePresence>
   )
@@ -151,14 +151,14 @@ function AnimatedPlaceholder({ index, visible }: { index: number; visible: boole
 
 function TypingIndicator() {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 4 }}
       animate={{ opacity: 1, y: 0 }}
       className="flex items-center gap-1.5 px-4 py-2"
     >
       <AnimatedOrb size={20} />
       <span className="text-xs text-[#71717a]">en train d&apos;ecrire</span>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -168,7 +168,7 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
   const isUser = role === 'user'
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: DKDP_BOUNCE }}
@@ -215,7 +215,7 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
           </Markdown>
         )}
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -223,7 +223,7 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
 
 function ChatCTABar() {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 4 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.15 }}
@@ -259,7 +259,7 @@ function ChatCTABar() {
         <Mail size={11} />
         Nous contacter
       </Link>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -267,7 +267,7 @@ function ChatCTABar() {
 
 function LimitReachedCTA() {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
@@ -302,7 +302,7 @@ function LimitReachedCTA() {
           Nos services
         </Link>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -484,7 +484,7 @@ export function ChatWidget() {
          ════════════════════════════════════════════════════════════════════════ */}
       <AnimatePresence>
         {!isOpen && (
-          <motion.div
+          <m.div
             ref={barRef}
             initial={{ opacity: 0, y: 30 }}
             animate={{
@@ -567,7 +567,7 @@ export function ChatWidget() {
                 )}
               </div>
 
-              <motion.button
+              <m.button
                 type="submit"
                 disabled={!inputValue.trim()}
                 className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default"
@@ -580,9 +580,9 @@ export function ChatWidget() {
                 whileTap={inputValue.trim() ? { scale: 0.94 } : {}}
               >
                 <Send size={15} className="text-white" />
-              </motion.button>
+              </m.button>
             </form>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
 
@@ -595,7 +595,7 @@ export function ChatWidget() {
             className="fixed z-40 left-1/2 -translate-x-1/2 bottom-2 md:bottom-4"
             style={{ width: 'min(580px, calc(100vw - 16px))' }}
           >
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 60, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -644,20 +644,20 @@ export function ChatWidget() {
                   <AnimatedOrb size={24} />
                 </div>
                 <div>
-                  <motion.p
+                  <m.p
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 }}
                     className="text-[13.5px] text-[#d4d4d8] leading-relaxed"
                   >
                     {WELCOME_MESSAGE}
-                  </motion.p>
+                  </m.p>
                 </div>
               </div>
 
               {/* Suggestion buttons (visible if no messages) */}
               {messages.length === 0 && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.25 }}
@@ -675,7 +675,7 @@ export function ChatWidget() {
                       <span className="text-[#9CA3AF] group-hover:text-white transition-colors">{label}</span>
                     </button>
                   ))}
-                </motion.div>
+                </m.div>
               )}
 
               {/* Chat messages */}
@@ -700,13 +700,13 @@ export function ChatWidget() {
 
               {/* Error */}
               {error && (
-                <motion.p
+                <m.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   className="text-xs text-center text-red-400/80 py-2"
                 >
                   Une erreur est survenue. Veuillez reessayer.
-                </motion.p>
+                </m.p>
               )}
 
               <div ref={messagesEndRef} />
@@ -747,7 +747,7 @@ export function ChatWidget() {
                       style={{ minHeight: '28px', maxHeight: '100px' }}
                     />
                   </div>
-                  <motion.button
+                  <m.button
                     type="submit"
                     disabled={!inputValue.trim() || isLoading}
                     className="flex-shrink-0 w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default mb-0.5"
@@ -760,11 +760,11 @@ export function ChatWidget() {
                     whileTap={inputValue.trim() ? { scale: 0.94 } : {}}
                   >
                     <Send size={14} className="text-white" />
-                  </motion.button>
+                  </m.button>
                 </form>
               </div>
             )}
-          </motion.div>
+          </m.div>
           </div>
         )}
       </AnimatePresence>

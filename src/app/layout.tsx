@@ -6,7 +6,7 @@ import { CalProvider } from '@/components/providers/CalProvider'
 import { MotionProvider } from '@/components/providers/MotionProvider'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { ChatWidget } from '@/components/ui/ChatWidget'
+import { LazyChatWidget } from '@/components/ui/LazyChatWidget'
 import './globals.css'
 
 const inter = Inter({
@@ -86,7 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           {children}
           <Footer />
-          <ChatWidget />
+          <LazyChatWidget />
         </SmoothScrollProvider>
         </MotionProvider>
         <Analytics />

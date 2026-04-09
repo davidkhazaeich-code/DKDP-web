@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -103,7 +103,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
 
         <div className="max-w-3xl mx-auto">
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={current}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -122,7 +122,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
 
               <blockquote>
                 <div className="mb-8">
-                  <motion.div
+                  <m.div
                     key={`quote-${current}`}
                     initial={{ height: '5.5rem' }}
                     animate={{ height: expanded ? 'auto' : '5.5rem' }}
@@ -132,7 +132,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
                     <p className="text-white text-lg leading-relaxed italic">
                       &ldquo;{testimonial.quote}&rdquo;
                     </p>
-                  </motion.div>
+                  </m.div>
                   <button
                     type="button"
                     onClick={() => setExpanded((v) => !v)}
@@ -158,7 +158,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
                   </div>
                 </footer>
               </blockquote>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
 
           {/* Navigation controls */}

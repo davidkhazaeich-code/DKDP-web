@@ -466,11 +466,11 @@ export default function GlossairePage() {
       {/* STICKY SEARCH + ALPHABETIC NAV                                      */}
       {/* ------------------------------------------------------------------ */}
       <div
-        className="sticky top-14 z-40 w-full border-b border-border"
+        className="sticky top-[66px] z-40 w-full border-b border-white/[0.06]"
         style={{
-          background: 'rgba(14,14,14,0.90)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
+          background: 'rgba(10,10,10,0.85)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
         }}
       >
         <div className="max-w-[1200px] mx-auto px-4">

@@ -61,7 +61,7 @@ export function ContactSection() {
             </div>
 
             {/* Info sidebar */}
-            <div className="space-y-4 lg:sticky lg:top-24">
+            <div className="space-y-4 lg:sticky lg:top-[106px]">
 
               {/* Direct contact */}
               <div className="bg-bg-card border border-border rounded-[16px] p-6">

@@ -157,7 +157,7 @@ export default function FormationCybersecuritePage() {
       </section>
 
       {/* ── Subnav ── */}
-      <div className="sticky top-14 z-30 border-b border-zinc-800 bg-[rgba(9,9,11,0.92)] backdrop-blur-md">
+      <div className="sticky top-[66px] z-30 border-b border-white/[0.06] bg-[#0A0A0A]/85 backdrop-blur-2xl">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex items-center justify-between gap-2">
             <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">

@@ -489,7 +489,7 @@ export default async function ArticlePage(
 
           {/* Sidebar sticky */}
           <aside className="hidden lg:block">
-            <div className="sticky top-24 space-y-5">
+            <div className="sticky top-[106px] space-y-5">
 
               {/* Sommaire rapide (tags) */}
               <div className="bg-zinc-900/60 border border-zinc-800 rounded-[16px] p-5">

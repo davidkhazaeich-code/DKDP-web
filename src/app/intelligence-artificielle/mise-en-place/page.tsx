@@ -203,7 +203,7 @@ export default function MiseEnPlacePage() {
       </div>
 
       {/* ── Le probleme ───────────────────────────────────────── */}
-      <section id="complexite" className="py-24 bg-bg-card border-b border-border scroll-mt-[112px]">
+      <section id="complexite" className="py-24 bg-bg-card border-b border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
@@ -249,7 +249,7 @@ export default function MiseEnPlacePage() {
 
       {/* ── Cas d'usage ────────────────────────────────────────── */}
       <HeroBg className="bg-bg-card border-y border-border" accentRgb="212,212,216" blob1="rgba(212,212,216,0.08)" blob2="rgba(124,58,237,0.06)">
-      <section id="applications" className="py-24 scroll-mt-[112px]">
+      <section id="applications" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -336,7 +336,7 @@ export default function MiseEnPlacePage() {
       </HeroBg>
 
       {/* ── LLMs ──────────────────────────────────────────────── */}
-      <section id="llms" className="py-24 scroll-mt-[112px]">
+      <section id="llms" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -465,7 +465,7 @@ export default function MiseEnPlacePage() {
 
       {/* ── Process ────────────────────────────────────────── */}
       <HeroBg accentRgb="212,212,216" blob1="rgba(212,212,216,0.08)" blob2="rgba(124,58,237,0.06)">
-      <section id="methode" className="py-24 scroll-mt-[112px]">
+      <section id="methode" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -542,7 +542,7 @@ export default function MiseEnPlacePage() {
       </HeroBg>
 
       {/* ── Pricing ───────────────────────────────────────────── */}
-      <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
+      <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">

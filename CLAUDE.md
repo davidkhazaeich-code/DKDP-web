@@ -142,7 +142,7 @@ InfiniteGrid (hero avec blobs + grille animee)
 
 Stats bar (py-12, border-b)
 
-Subnav sticky (top-14, z-30, backdrop-blur)
+Subnav sticky (top-[66px], z-30, backdrop-blur-2xl, bg-[#0A0A0A]/85)
 
 Sections contenu (SectionReveal autour de chaque bloc)
   └── Titre h2, paragraphe intro, composants visuels
@@ -176,10 +176,13 @@ CTAFinal (composant partage, toujours en dernier)
 
 ## Scroll et navigation
 
+- **Header flottant** : `fixed top-0` avec inner container `max-w-[1200px] mt-2 h-14 rounded-2xl` = **66px** total du haut.
 - **Lenis** gere le smooth scroll global.
 - Changement de page → `lenis.scrollTo(0, { immediate: true })` (pas d'animation).
-- Liens ancres `href="#section"` → interceptes par Lenis avec `offset: -80`.
-- Le subnav sticky est a `top-14` (hauteur du Header) et `z-30`.
+- Liens ancres `href="#section"` → interceptes par Lenis avec `offset: -124` (header 66px + subnav ~58px).
+- Le subnav sticky est a `top-[66px]` et `z-30` avec `bg-[#0A0A0A]/85 backdrop-blur-2xl`.
+- Sections avec ancres utilisent `scroll-mt-[124px]`.
+- **Important** : `globals.css` utilise `overflow-x: clip` (pas `hidden`) sur html/body pour ne pas casser `position: sticky` sur mobile.
 
 ---
 

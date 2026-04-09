@@ -190,7 +190,7 @@ export default function FormationCybersecuritePage() {
       </div>
 
       {/* ── Pourquoi maintenant ── */}
-      <section id="pourquoi" className="scroll-mt-[112px] py-24">
+      <section id="pourquoi" className="scroll-mt-[124px] py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
@@ -230,7 +230,7 @@ export default function FormationCybersecuritePage() {
       </section>
 
       {/* ── Programme ── */}
-      <section id="programme" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
+      <section id="programme" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
@@ -260,7 +260,7 @@ export default function FormationCybersecuritePage() {
       </section>
 
       {/* ── Pour qui ── */}
-      <section id="profils" className="scroll-mt-[112px] py-24">
+      <section id="profils" className="scroll-mt-[124px] py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -295,7 +295,7 @@ export default function FormationCybersecuritePage() {
       </section>
 
       {/* ── Déroulement ── */}
-      <section id="deroulement" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
+      <section id="deroulement" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -382,7 +382,7 @@ export default function FormationCybersecuritePage() {
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
-        <section id="tarifs" className="scroll-mt-[112px] py-24 border-y border-border">
+        <section id="tarifs" className="scroll-mt-[124px] py-24 border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -401,7 +401,7 @@ export default function FormationCybersecuritePage() {
       </HeroBg>
 
       {/* ── FAQ ── */}
-      <div id="faq" className="scroll-mt-[112px]">
+      <div id="faq" className="scroll-mt-[124px]">
         <FAQSection items={FAQ} title="Vos questions sur la formation cybersécurité" />
       </div>
 

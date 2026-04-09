@@ -95,12 +95,12 @@ html {
   background-color: #0A0A0A;
   color: #fff;
   font-family: var(--font-sans);
-  overflow-x: hidden;
-  /* scroll-behavior géré par Lenis — pas de conflit avec scroll-behavior CSS natif */
+  overflow-x: clip;
+  /* clip instead of hidden — hidden breaks position:sticky on mobile browsers */
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   overscroll-behavior-x: none;
 }
 

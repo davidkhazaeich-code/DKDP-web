@@ -227,7 +227,7 @@ export default function CreationVideoPage() {
       </div>
 
       {/* ── Notre approche ── */}
-      <section id="approche" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
+      <section id="approche" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
@@ -313,7 +313,7 @@ export default function CreationVideoPage() {
       </section>
 
       {/* ── Bénéfices ── */}
-      <section id="resultats" className="py-24 scroll-mt-[112px]">
+      <section id="resultats" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -345,7 +345,7 @@ export default function CreationVideoPage() {
 
       {/* ── Offres ── */}
       <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
-        <section id="tarifs" className="py-24 border-y border-border scroll-mt-[112px]">
+        <section id="tarifs" className="py-24 border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -455,7 +455,7 @@ export default function CreationVideoPage() {
       </HeroBg>
 
       {/* ── Process ── */}
-      <section id="process" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
+      <section id="process" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -532,7 +532,7 @@ export default function CreationVideoPage() {
       </HeroBg>
 
       {/* ── Réalisations + Garanties ── */}
-      <section id="realisations" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
+      <section id="realisations" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -635,7 +635,7 @@ export default function CreationVideoPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <div id="faq" className="scroll-mt-[112px]">
+      <div id="faq" className="scroll-mt-[124px]">
         <FAQSection items={FAQ} title="Vos questions sur la création vidéo" />
       </div>
 

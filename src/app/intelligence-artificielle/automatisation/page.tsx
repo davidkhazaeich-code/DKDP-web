@@ -290,7 +290,7 @@ export default function AutomationPage() {
       </div>
 
       {/* ── Pourquoi automatiser ── */}
-      <section id="pourquoi" className="py-24 scroll-mt-[112px]">
+      <section id="pourquoi" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
@@ -335,7 +335,7 @@ export default function AutomationPage() {
       </section>
 
       {/* ── Outils connectés ── */}
-      <section id="outils" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
+      <section id="outils" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -374,7 +374,7 @@ export default function AutomationPage() {
       </section>
 
       {/* ── Process ── */}
-      <section id="comment-ca-marche" className="py-24 scroll-mt-[112px]">
+      <section id="comment-ca-marche" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -423,7 +423,7 @@ export default function AutomationPage() {
       </section>
 
       {/* ── Pricing ── */}
-      <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
+      <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -580,7 +580,7 @@ export default function AutomationPage() {
       </HeroBg>
 
       {/* ── FAQ ── */}
-      <div id="faq" className="scroll-mt-[112px]">
+      <div id="faq" className="scroll-mt-[124px]">
         <FAQSection
           items={FAQ}
           title="Vos questions sur l'automatisation métier"

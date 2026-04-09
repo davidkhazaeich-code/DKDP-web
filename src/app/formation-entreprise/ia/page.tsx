@@ -208,7 +208,7 @@ export default function FormationIAPage() {
       </div>
 
       {/* ── Contexte IA ── */}
-      <section id="pourquoi" className="scroll-mt-[112px] py-24">
+      <section id="pourquoi" className="scroll-mt-[124px] py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
@@ -254,7 +254,7 @@ export default function FormationIAPage() {
       </section>
 
       {/* ── Programme ── */}
-      <section id="programme" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
+      <section id="programme" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
@@ -284,7 +284,7 @@ export default function FormationIAPage() {
       </section>
 
       {/* ── ROI par poste ── */}
-      <section id="roi" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
+      <section id="roi" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -409,7 +409,7 @@ export default function FormationIAPage() {
       </section>
 
       {/* ── Formats ── */}
-      <section id="format" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
+      <section id="format" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -495,7 +495,7 @@ export default function FormationIAPage() {
       </HeroBg>
 
       {/* ── Tarifs ── */}
-      <section id="tarifs" className="scroll-mt-[112px] py-24 bg-bg-card border-y border-border">
+      <section id="tarifs" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -519,7 +519,7 @@ export default function FormationIAPage() {
       <Testimonials accentRgb="255,140,0" />
 
       {/* ── FAQ ── */}
-      <div id="faq" className="scroll-mt-[112px]">
+      <div id="faq" className="scroll-mt-[124px]">
         <FAQSection items={FAQ} title="Vos questions sur la formation IA" />
       </div>
 

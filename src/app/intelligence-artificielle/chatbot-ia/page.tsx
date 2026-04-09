@@ -516,7 +516,7 @@ export default function ChatbotIAPage() {
       </div>
 
       {/* ── Problemes / Benefices ── */}
-      <section id="benefices" className="py-24 scroll-mt-[112px]">
+      <section id="benefices" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -641,7 +641,7 @@ export default function ChatbotIAPage() {
       {/* ── Comment ca marche ── */}
       <section
         id="comment-ca-marche"
-        className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]"
+        className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]"
       >
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -730,7 +730,7 @@ export default function ChatbotIAPage() {
       </section>
 
       {/* ── Cas d'usage / Industries ── */}
-      <section id="cas-usage" className="py-24 scroll-mt-[112px]">
+      <section id="cas-usage" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -784,7 +784,7 @@ export default function ChatbotIAPage() {
       {/* ── Offres / Pricing ── */}
       <section
         id="offres"
-        className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]"
+        className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]"
       >
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -870,7 +870,7 @@ export default function ChatbotIAPage() {
       <Testimonials />
 
       {/* ── FAQ ── */}
-      <div id="faq" className="scroll-mt-[112px]">
+      <div id="faq" className="scroll-mt-[124px]">
         <FAQSection items={FAQ} title="Questions sur nos chatbots IA" />
       </div>
 

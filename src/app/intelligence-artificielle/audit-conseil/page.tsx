@@ -203,7 +203,7 @@ export default function AuditConseilPage() {
       </div>
 
       {/* ── Ce qu'on analyse ──────────────────────────────────────────────── */}
-      <section id="approche" className="py-24 scroll-mt-[112px]">
+      <section id="approche" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -267,7 +267,7 @@ export default function AuditConseilPage() {
       </section>
 
       {/* ── Votre livrable ────────────────────────────────────────────────── */}
-      <section id="livrables" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
+      <section id="livrables" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -359,7 +359,7 @@ export default function AuditConseilPage() {
       </section>
 
       {/* ── Process ───────────────────────────────────────────────────────── */}
-      <section id="process" className="py-24 scroll-mt-[112px]">
+      <section id="process" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -446,7 +446,7 @@ export default function AuditConseilPage() {
       </section>
 
       {/* ── Pricing ───────────────────────────────────────────────────────── */}
-      <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
+      <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -595,7 +595,7 @@ export default function AuditConseilPage() {
       </HeroBg>
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
-      <div id="faq" className="scroll-mt-[112px]">
+      <div id="faq" className="scroll-mt-[124px]">
         <FAQSection items={FAQ_ITEMS} title="Vos questions sur l'audit IA." />
       </div>
 

@@ -204,7 +204,7 @@ export default function AgentsIAPage() {
       </div>
 
       {/* ── Comment ca fonctionne ── */}
-      <section id="fonctionnement" className="py-24 scroll-mt-[112px]">
+      <section id="fonctionnement" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
@@ -248,7 +248,7 @@ export default function AgentsIAPage() {
       </section>
 
       {/* ── Types d'agents ── */}
-      <section id="types-agents" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
+      <section id="types-agents" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -344,7 +344,7 @@ export default function AgentsIAPage() {
       </section>
 
       {/* ── Processus ── */}
-      <section id="comment-ca-marche" className="py-24 scroll-mt-[112px]">
+      <section id="comment-ca-marche" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -419,7 +419,7 @@ export default function AgentsIAPage() {
       </section>
 
       {/* ── Pricing ── */}
-      <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[112px]">
+      <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -578,7 +578,7 @@ export default function AgentsIAPage() {
       </HeroBg>
 
       {/* ── FAQ ── */}
-      <div id="faq" className="scroll-mt-[112px]">
+      <div id="faq" className="scroll-mt-[124px]">
         <FAQSection items={FAQ_ITEMS} title="Vos questions sur les agents IA." />
       </div>
 

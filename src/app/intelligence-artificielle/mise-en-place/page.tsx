@@ -91,7 +91,7 @@ export default function MiseEnPlacePage() {
         accentRgb="212,212,216"
       >
         <section className="pt-28 pb-24">
-          <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+          <div className="max-w-[1200px] mx-auto px-6">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 mb-6">
               <Link
@@ -151,7 +151,7 @@ export default function MiseEnPlacePage() {
 
       {/* ── Stats ─────────────────────────────────────────────── */}
       <section className="py-12 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-3 gap-6 md:gap-12">
             {[
               { value: '3', label: 'LLMs supportes en production', sub: 'ChatGPT, Claude, Mistral' },
@@ -172,7 +172,7 @@ export default function MiseEnPlacePage() {
 
       {/* ── Subnav ── */}
       <div className="sticky top-[66px] z-30 px-6 pt-1.5">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto rounded-2xl bg-[#0A0A0A]/90 backdrop-blur-2xl px-5">
           <div className="flex items-center justify-between gap-2">
             <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
               {[
@@ -204,7 +204,7 @@ export default function MiseEnPlacePage() {
 
       {/* ── Le probleme ───────────────────────────────────────── */}
       <section id="complexite" className="py-24 bg-bg-card border-b border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi c&apos;est complexe</GradTag>
@@ -250,7 +250,7 @@ export default function MiseEnPlacePage() {
       {/* ── Cas d'usage ────────────────────────────────────────── */}
       <HeroBg className="bg-bg-card border-y border-border" accentRgb="212,212,216" blob1="rgba(212,212,216,0.08)" blob2="rgba(124,58,237,0.06)">
       <section id="applications" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Applications concretes</GradTag>
@@ -337,7 +337,7 @@ export default function MiseEnPlacePage() {
 
       {/* ── LLMs ──────────────────────────────────────────────── */}
       <section id="llms" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Modeles de langage</GradTag>
@@ -466,7 +466,7 @@ export default function MiseEnPlacePage() {
       {/* ── Process ────────────────────────────────────────── */}
       <HeroBg accentRgb="212,212,216" blob1="rgba(212,212,216,0.08)" blob2="rgba(124,58,237,0.06)">
       <section id="methode" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Notre methode</GradTag>
@@ -543,7 +543,7 @@ export default function MiseEnPlacePage() {
 
       {/* ── Pricing ───────────────────────────────────────────── */}
       <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
@@ -642,7 +642,7 @@ export default function MiseEnPlacePage() {
       {/* ── Testimonials ──────────────────────────────────────── */}
       <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)" accentRgb="212,212,216">
         <section className="py-24">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ils nous font confiance</GradTag>
@@ -709,7 +709,7 @@ export default function MiseEnPlacePage() {
 
       {/* ── Bridge ────────────────────────────────────────────── */}
       <section className="py-16 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <p className="text-center text-text-muted text-xs font-semibold uppercase tracking-widest mb-8">
               Completer votre demarche IA

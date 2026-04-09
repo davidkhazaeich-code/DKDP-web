@@ -155,7 +155,7 @@ export default function FormationClaudeAIPage() {
       {/* ══ 1. Hero ══ */}
       <HeroBg blob1="rgba(124,58,237,0.15)" blob2="rgba(167,139,250,0.06)" accentRgb="167,139,250">
         <section className="pt-28 pb-24">
-          <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+          <div className="max-w-[1200px] mx-auto px-6">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 mb-6">
               <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-white transition-colors">
@@ -284,7 +284,7 @@ export default function FormationClaudeAIPage() {
 
       {/* ══ 2. Stats ══ */}
       <section className="py-12 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: '2h30', l: 'Gagnées / jour / pers.', sub: 'Moyenne post-formation' },
@@ -306,7 +306,7 @@ export default function FormationClaudeAIPage() {
 
       {/* ══ 3. Subnav sticky ══ */}
       <div className="sticky top-[66px] z-30 px-6 pt-1.5">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto rounded-2xl bg-[#0A0A0A]/90 backdrop-blur-2xl px-5">
           <div className="flex items-center justify-between gap-2">
             <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Sections de la page">
               {[
@@ -340,7 +340,7 @@ export default function FormationClaudeAIPage() {
 
       {/* ══ 4. Pourquoi Claude maintenant ══ */}
       <section id="pourquoi" className="py-24 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
@@ -535,7 +535,7 @@ export default function FormationClaudeAIPage() {
 
       {/* ══ 5. Produits Claude ══ */}
       <section id="produits" className="py-24 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 mb-3">
@@ -618,7 +618,7 @@ export default function FormationClaudeAIPage() {
 
       {/* ══ 6. Programme ══ */}
       <section id="programme" className="py-24 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
@@ -738,7 +738,7 @@ export default function FormationClaudeAIPage() {
 
       {/* ══ 7. Capacités clés ══ */}
       <section id="capacites" className="py-24 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
@@ -819,7 +819,7 @@ export default function FormationClaudeAIPage() {
         className="border-b border-border"
       >
       <section id="metiers" className="py-24">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
@@ -946,7 +946,7 @@ export default function FormationClaudeAIPage() {
 
       {/* ══ 9. Formats ══ */}
       <section className="py-24 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
@@ -999,7 +999,7 @@ export default function FormationClaudeAIPage() {
 
       {/* ══ 10. Tarifs ══ */}
       <section id="tarifs" className="py-24 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
@@ -1029,7 +1029,7 @@ export default function FormationClaudeAIPage() {
 
       {/* ══ 11. Pourquoi DKDP ══ */}
       <section className="py-24 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <SectionReveal>
               <div>
@@ -1097,7 +1097,7 @@ export default function FormationClaudeAIPage() {
         className="border-b border-border"
       >
         <section className="py-24">
-          <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+          <div className="max-w-[1200px] mx-auto px-6">
             <SectionReveal>
               <div className="text-center mb-16">
                 <GradTag className="mb-6">Vos formateurs</GradTag>

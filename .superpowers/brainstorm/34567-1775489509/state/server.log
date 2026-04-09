@@ -1,0 +1,5 @@
+{"type":"server-started","port":52711,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:52711","screen_dir":"/Users/davidkhazaei/Documents/Client/DKDP.ch/CLAUDE RESSOURCES/DEV SPACE/clients Claude/DKDP/DKDP refonte/dkdp/.superpowers/brainstorm/34567-1775489509/content","state_dir":"/Users/davidkhazaei/Documents/Client/DKDP.ch/CLAUDE RESSOURCES/DEV SPACE/clients Claude/DKDP/DKDP refonte/dkdp/.superpowers/brainstorm/34567-1775489509/state"}
+{"type":"screen-added","file":"/Users/davidkhazaei/Documents/Client/DKDP.ch/CLAUDE RESSOURCES/DEV SPACE/clients Claude/DKDP/DKDP refonte/dkdp/.superpowers/brainstorm/34567-1775489509/content/architecture-overview.html"}
+{"type":"screen-added","file":"/Users/davidkhazaei/Documents/Client/DKDP.ch/CLAUDE RESSOURCES/DEV SPACE/clients Claude/DKDP/DKDP refonte/dkdp/.superpowers/brainstorm/34567-1775489509/content/styles-par-secteur.html"}
+{"type":"screen-added","file":"/Users/davidkhazaei/Documents/Client/DKDP.ch/CLAUDE RESSOURCES/DEV SPACE/clients Claude/DKDP/DKDP refonte/dkdp/.superpowers/brainstorm/34567-1775489509/content/waiting.html"}
+{"type":"server-stopped","reason":"idle timeout"}

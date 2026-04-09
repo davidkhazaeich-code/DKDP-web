@@ -91,7 +91,7 @@ export default function FormationCybersecuritePage() {
       {/* ── Hero ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
         <section className="pt-28 pb-24">
-          <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+          <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
               <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-white transition-colors">
                 Formation Entreprise
@@ -136,7 +136,7 @@ export default function FormationCybersecuritePage() {
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: '90%', l: 'Failles humaines', sub: 'Phishing et social engineering' },
@@ -158,7 +158,7 @@ export default function FormationCybersecuritePage() {
 
       {/* ── Subnav ── */}
       <div className="sticky top-[66px] z-30 px-6 pt-1.5">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto rounded-2xl bg-[#0A0A0A]/90 backdrop-blur-2xl px-5">
           <div className="flex items-center justify-between gap-2">
             <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
               {[
@@ -191,7 +191,7 @@ export default function FormationCybersecuritePage() {
 
       {/* ── Pourquoi maintenant ── */}
       <section id="pourquoi" className="scroll-mt-[124px] py-24">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi maintenant</GradTag>
@@ -231,7 +231,7 @@ export default function FormationCybersecuritePage() {
 
       {/* ── Programme ── */}
       <section id="programme" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
@@ -261,7 +261,7 @@ export default function FormationCybersecuritePage() {
 
       {/* ── Pour qui ── */}
       <section id="profils" className="scroll-mt-[124px] py-24">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Profils</GradTag>
@@ -296,7 +296,7 @@ export default function FormationCybersecuritePage() {
 
       {/* ── Déroulement ── */}
       <section id="deroulement" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Déroulement</GradTag>
@@ -328,7 +328,7 @@ export default function FormationCybersecuritePage() {
 
       {/* ── Témoignages ── */}
       <section className="py-24">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
@@ -383,7 +383,7 @@ export default function FormationCybersecuritePage() {
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
         <section id="tarifs" className="scroll-mt-[124px] py-24 border-y border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
@@ -407,7 +407,7 @@ export default function FormationCybersecuritePage() {
 
       {/* ── Bridge ── */}
       <section className="py-16 border-t border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <Link
               href="/formation-entreprise/informatique"

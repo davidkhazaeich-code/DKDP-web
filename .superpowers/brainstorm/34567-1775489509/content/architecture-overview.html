@@ -1,0 +1,91 @@
+<h2>Architecture : Sites Demo DKDP</h2>
+<p class="subtitle">Comment organiser 8-10 landing pages de showcase par secteur</p>
+
+<div class="section">
+  <h3>Recap du projet</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px;">
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:16px;">
+      <div class="label">Secteurs (8-10 sites)</div>
+      <ul style="margin:8px 0 0;padding-left:18px;font-size:14px;line-height:1.8;">
+        <li>Restauration & Hotellerie (2-3)</li>
+        <li>Sante & Bien-etre (2)</li>
+        <li>Services pro & juridique (2)</li>
+        <li>Commerce & artisanat (2)</li>
+        <li>Tech & creatif (1-2)</li>
+      </ul>
+    </div>
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:16px;">
+      <div class="label">Decisions prises</div>
+      <ul style="margin:8px 0 0;padding-left:18px;font-size:14px;line-height:1.8;">
+        <li><strong>Format :</strong> Landing page unique</li>
+        <li><strong>Stack :</strong> Astro SSG + Tailwind</li>
+        <li><strong>Deploy :</strong> Sous-domaines Vercel</li>
+        <li><strong>Identites :</strong> Fictives, Suisse romande</li>
+        <li><strong>Style :</strong> Varie par secteur</li>
+        <li><strong>Visuels :</strong> Pexels (priorite) + Nanobanana</li>
+        <li><strong>Portfolio :</strong> Galerie + case studies</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px;">
+  <h3>Architecture proposee</h3>
+  <div style="background:rgba(167,139,250,0.05);border:1px solid rgba(167,139,250,0.2);border-radius:12px;padding:24px;margin-top:12px;font-family:monospace;font-size:13px;line-height:2;">
+    <div style="color:#A78BFA;font-weight:bold;margin-bottom:8px;">dkdp.ch (site principal - Next.js)</div>
+    <div style="padding-left:24px;">
+      <div>/realisations <span style="color:#9CA3AF;">........... Galerie portfolio (cards + filtres)</span></div>
+      <div>/realisations/[slug] <span style="color:#9CA3AF;">... Case study detaillee</span></div>
+    </div>
+    <div style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.06);padding-top:16px;">
+      <div style="color:#4ade80;font-weight:bold;margin-bottom:8px;">Sous-domaines (Astro SSG - projets Vercel separes)</div>
+      <div style="padding-left:24px;">
+        <div>restaurant.dkdp.ch <span style="color:#9CA3AF;">... Le Comptoir du Lac</span></div>
+        <div>dentiste.dkdp.ch <span style="color:#9CA3AF;">.... Dr. Moreau Cabinet</span></div>
+        <div>avocat.dkdp.ch <span style="color:#9CA3AF;">...... Etude Fontaine & Associes</span></div>
+        <div>spa.dkdp.ch <span style="color:#9CA3AF;">.......... Eclat de Soi</span></div>
+        <div>boulangerie.dkdp.ch <span style="color:#9CA3AF;"> La Mie Doree</span></div>
+        <div>garage.dkdp.ch <span style="color:#9CA3AF;">...... AutoPrecision Geneve</span></div>
+        <div>startup.dkdp.ch <span style="color:#9CA3AF;">..... NexFlow Analytics</span></div>
+        <div>hotel.dkdp.ch <span style="color:#9CA3AF;">....... Hotel Beau-Rivage Palace</span></div>
+        <div>coiffure.dkdp.ch <span style="color:#9CA3AF;">.... Atelier Capillaire</span></div>
+        <div>immobilier.dkdp.ch <span style="color:#9CA3AF;">.. Regie du Leman</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px;">
+  <h3>Flux de travail par site</h3>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+    <div style="background:rgba(167,139,250,0.1);border-radius:8px;padding:12px 16px;font-size:13px;text-align:center;flex:1;min-width:120px;">
+      <div style="font-size:20px;margin-bottom:4px;">1</div>
+      <div><strong>Identite</strong></div>
+      <div style="color:#9CA3AF;font-size:12px;">Nom, logo, couleurs, ton</div>
+    </div>
+    <div style="color:#9CA3AF;display:flex;align-items:center;font-size:20px;">→</div>
+    <div style="background:rgba(74,222,128,0.1);border-radius:8px;padding:12px 16px;font-size:13px;text-align:center;flex:1;min-width:120px;">
+      <div style="font-size:20px;margin-bottom:4px;">2</div>
+      <div><strong>Visuels</strong></div>
+      <div style="color:#9CA3AF;font-size:12px;">Pexels photos/videos</div>
+    </div>
+    <div style="color:#9CA3AF;display:flex;align-items:center;font-size:20px;">→</div>
+    <div style="background:rgba(96,165,250,0.1);border-radius:8px;padding:12px 16px;font-size:13px;text-align:center;flex:1;min-width:120px;">
+      <div style="font-size:20px;margin-bottom:4px;">3</div>
+      <div><strong>Landing page</strong></div>
+      <div style="color:#9CA3AF;font-size:12px;">Astro + Tailwind + anims</div>
+    </div>
+    <div style="color:#9CA3AF;display:flex;align-items:center;font-size:20px;">→</div>
+    <div style="background:rgba(244,114,182,0.1);border-radius:8px;padding:12px 16px;font-size:13px;text-align:center;flex:1;min-width:120px;">
+      <div style="font-size:20px;margin-bottom:4px;">4</div>
+      <div><strong>Deploy</strong></div>
+      <div style="color:#9CA3AF;font-size:12px;">Vercel + sous-domaine</div>
+    </div>
+    <div style="color:#9CA3AF;display:flex;align-items:center;font-size:20px;">→</div>
+    <div style="background:rgba(251,191,36,0.1);border-radius:8px;padding:12px 16px;font-size:13px;text-align:center;flex:1;min-width:120px;">
+      <div style="font-size:20px;margin-bottom:4px;">5</div>
+      <div><strong>Portfolio</strong></div>
+      <div style="color:#9CA3AF;font-size:12px;">Card + case study sur dkdp.ch</div>
+    </div>
+  </div>
+</div>

@@ -315,7 +315,7 @@ export default function ChatbotIAPage() {
       {/* ── Hero ── */}
       <HeroBg blob1="rgba(212,212,216,0.12)" blob2="rgba(212,212,216,0.06)">
         <section className="pt-28 pb-24">
-          <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+          <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
               <Link
                 href="/intelligence-artificielle"
@@ -454,7 +454,7 @@ export default function ChatbotIAPage() {
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: '24/7', l: 'Disponibilite', sub: 'Sans cout supplementaire' },
@@ -478,7 +478,7 @@ export default function ChatbotIAPage() {
 
       {/* ── Subnav ── */}
       <div className="sticky top-[66px] z-30 px-6 pt-1.5">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto rounded-2xl bg-[#0A0A0A]/90 backdrop-blur-2xl px-5">
           <div className="flex items-center justify-between gap-2">
             <nav
               className="flex gap-1 overflow-x-auto py-3 scrollbar-none"
@@ -517,7 +517,7 @@ export default function ChatbotIAPage() {
 
       {/* ── Problemes / Benefices ── */}
       <section id="benefices" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Le probleme que vous connaissez</GradTag>
@@ -557,7 +557,7 @@ export default function ChatbotIAPage() {
 
       {/* ── ROI Visual ── */}
       <section className="py-24 bg-bg-card border-y border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-12">
               <GradTag className="mb-4">Impact mesurable</GradTag>
@@ -643,7 +643,7 @@ export default function ChatbotIAPage() {
         id="comment-ca-marche"
         className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]"
       >
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Notre methode</GradTag>
@@ -731,7 +731,7 @@ export default function ChatbotIAPage() {
 
       {/* ── Cas d'usage / Industries ── */}
       <section id="cas-usage" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Cas d&apos;usage concrets</GradTag>
@@ -786,7 +786,7 @@ export default function ChatbotIAPage() {
         id="offres"
         className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]"
       >
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Nos formules</GradTag>

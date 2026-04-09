@@ -102,7 +102,7 @@ export default function AuditConseilPage() {
         accentRgb="212,212,216"
       >
         <section className="pt-28 pb-24">
-          <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+          <div className="max-w-[1200px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -152,7 +152,7 @@ export default function AuditConseilPage() {
 
       {/* ── Stats ─────────────────────────────────────────────────────────── */}
       <section className="py-12 border-b border-border">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-3 gap-6 md:gap-12">
             {[
               { value: '1h',   label: 'Durée de la session d\'audit' },
@@ -172,7 +172,7 @@ export default function AuditConseilPage() {
 
       {/* ── Subnav ── */}
       <div className="sticky top-[66px] z-30 px-6 pt-1.5">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto rounded-2xl bg-[#0A0A0A]/90 backdrop-blur-2xl px-5">
           <div className="flex items-center justify-between gap-2">
             <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
               {[
@@ -204,7 +204,7 @@ export default function AuditConseilPage() {
 
       {/* ── Ce qu'on analyse ──────────────────────────────────────────────── */}
       <section id="approche" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             {/* Left: text */}
@@ -268,7 +268,7 @@ export default function AuditConseilPage() {
 
       {/* ── Votre livrable ────────────────────────────────────────────────── */}
       <section id="livrables" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce que vous recevez</GradTag>
@@ -360,7 +360,7 @@ export default function AuditConseilPage() {
 
       {/* ── Process ───────────────────────────────────────────────────────── */}
       <section id="process" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Comment ça se passe</GradTag>
@@ -447,7 +447,7 @@ export default function AuditConseilPage() {
 
       {/* ── Pricing ───────────────────────────────────────────────────────── */}
       <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
@@ -544,7 +544,7 @@ export default function AuditConseilPage() {
       {/* ── Testimonials ──────────────────────────────────────────────────── */}
       <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)" accentRgb="212,212,216">
         <section className="py-24">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Témoignages</GradTag>
@@ -601,7 +601,7 @@ export default function AuditConseilPage() {
 
       {/* ── Bridge to other IA services ───────────────────────────────────── */}
       <section className="py-24">
-        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
+        <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-12">
               <p className="text-text-muted text-xs font-semibold uppercase tracking-widest mb-3">

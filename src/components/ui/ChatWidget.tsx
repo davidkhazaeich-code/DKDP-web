@@ -451,7 +451,7 @@ export function ChatWidget() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
-            className="fixed z-40 left-1/2 -translate-x-1/2 max-md:bottom-20 md:bottom-6"
+            className="fixed z-40 left-1/2 -translate-x-1/2 bottom-6"
             style={{
               width: 'min(580px, calc(100vw - 32px))',
             }}

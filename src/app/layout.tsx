@@ -6,7 +6,6 @@ import { CalProvider } from '@/components/providers/CalProvider'
 import { MotionProvider } from '@/components/providers/MotionProvider'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { MobileRDV } from '@/components/ui/MobileRDV'
 import { ChatWidget } from '@/components/ui/ChatWidget'
 import './globals.css'
 
@@ -87,7 +86,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           {children}
           <Footer />
-          <MobileRDV />
           <ChatWidget />
         </SmoothScrollProvider>
         </MotionProvider>

@@ -32,6 +32,7 @@ const PLACEHOLDERS = [
 // ── CTA quick links shown after assistant messages ──────────────────────────
 
 const INLINE_CTAS = [
+  { href: '/intelligence-artificielle/chatbot-ia', label: 'Je veux mon chatbot' },
   { href: '/contact', label: 'Nous contacter' },
   { href: '/tarifs', label: 'Voir les tarifs' },
 ]

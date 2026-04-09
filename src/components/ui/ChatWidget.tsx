@@ -613,7 +613,7 @@ export function ChatWidget() {
                 className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default"
                 style={{
                   background: inputValue.trim()
-                    ? 'linear-gradient(135deg, #7C3AED, #FF6B00)'
+                    ? '#7C3AED'
                     : 'rgba(255,255,255,0.06)',
                 }}
                 whileHover={inputValue.trim() ? { scale: 1.08 } : {}}
@@ -676,9 +676,9 @@ export function ChatWidget() {
                 )}
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-3 sm:p-2.5 rounded-full hover:bg-[rgba(255,255,255,0.05)] active:bg-[rgba(255,255,255,0.08)] transition-colors cursor-pointer"
+                  className="p-3 sm:p-2.5 rounded-full hover:bg-[rgba(255,255,255,0.08)] active:bg-[rgba(255,255,255,0.12)] transition-colors cursor-pointer"
                 >
-                  <X size={18} className="text-[#71717a] sm:w-4 sm:h-4" />
+                  <X size={20} className="text-white sm:w-[18px] sm:h-[18px]" />
                 </button>
               </div>
             </div>
@@ -810,7 +810,7 @@ export function ChatWidget() {
                     className="flex-shrink-0 w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default mb-0.5"
                     style={{
                       background: inputValue.trim()
-                        ? 'linear-gradient(135deg, #7C3AED, #FF6B00)'
+                        ? '#7C3AED'
                         : 'rgba(255,255,255,0.06)',
                     }}
                     whileHover={inputValue.trim() ? { scale: 1.08 } : {}}

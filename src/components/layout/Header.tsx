@@ -99,12 +99,15 @@ type MegaItem = { title: string; href: string; icon: React.ElementType; descript
 type MegaSecondary = { title: string; href: string; icon: React.ElementType }
 type PillarKey = 'agence' | 'ia' | 'formation' | 'apropos'
 
+type TagLink = { text: string; href: string }
+
 function MegaPanel({
-  pillar, label, tagline, main, secondary, hubHref, hubLabel,
+  pillar, label, labelHref, tags, main, secondary, hubHref, hubLabel,
 }: {
   pillar: PillarKey
   label: string
-  tagline: string
+  labelHref: string
+  tags: TagLink[]
   main: MegaItem[]
   secondary: MegaSecondary[]
   hubHref: string
@@ -117,13 +120,25 @@ function MegaPanel({
       <div>
         {/* Pillar header */}
         <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
-          <span
-            className="inline-block px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase"
-            style={{ color, background: bg, border: `1px solid ${border}` }}
-          >
-            {label}
+          <NavigationMenuLink asChild>
+            <Link
+              href={labelHref}
+              className="inline-block px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase transition-opacity hover:opacity-80"
+              style={{ color, background: bg, border: `1px solid ${border}` }}
+            >
+              {label}
+            </Link>
+          </NavigationMenuLink>
+          <span className="text-text-muted text-xs flex items-center gap-1">
+            {tags.map((tag, i) => (
+              <span key={tag.href} className="inline-flex items-center gap-1">
+                {i > 0 && <span className="opacity-40">·</span>}
+                <NavigationMenuLink asChild>
+                  <Link href={tag.href} className="hover:text-white transition-colors">{tag.text}</Link>
+                </NavigationMenuLink>
+              </span>
+            ))}
           </span>
-          <span className="text-text-muted text-xs">{tagline}</span>
         </div>
         <ul className="grid grid-cols-2 gap-1.5">
           {main.map((item) => (
@@ -218,13 +233,14 @@ const MOBILE_TABS: {
   border: string
   items: MegaItem[]
   secondary: MegaSecondary[]
+  tags: TagLink[]
   hubHref?: string
   hubLabel?: string
 }[] = [
-  { key: 'agence',    label: 'Services',  tabIcon: Globe,       ...PILLAR_ACCENT.agence,    items: AGENCE_MAIN,    secondary: AGENCE_SECONDARY,    hubHref: '/agence-digitale',         hubLabel: 'Voir tous les services' },
-  { key: 'formation', label: 'Formation', tabIcon: GraduationCap, ...PILLAR_ACCENT.formation, items: FORMATION_MAIN, secondary: FORMATION_SECONDARY, hubHref: '/formation-entreprise',    hubLabel: 'Voir toutes les formations' },
-  { key: 'ia',        label: 'IA',        tabIcon: Bot,         ...PILLAR_ACCENT.ia,        items: IA_MAIN,        secondary: IA_SECONDARY,        hubHref: '/intelligence-artificielle', hubLabel: 'Voir toutes nos solutions IA' },
-  { key: 'apropos',   label: 'Agence',    tabIcon: LayoutGrid,  ...PILLAR_ACCENT.apropos,   items: APROPOS_MAIN,   secondary: APROPOS_SECONDARY,   hubHref: '/a-propos',                hubLabel: 'À propos de DKDP' },
+  { key: 'agence',    label: 'Services',  tabIcon: Globe,       ...PILLAR_ACCENT.agence,    items: AGENCE_MAIN,    secondary: AGENCE_SECONDARY,    tags: [{ text: 'Sites', href: '/agence-digitale/creation-site-web' }, { text: 'SEO', href: '/agence-digitale/seo' }, { text: 'Ads', href: '/agence-digitale/publicite-sea' }, { text: 'Vidéo', href: '/agence-digitale/creation-video' }], hubHref: '/agence-digitale',         hubLabel: 'Voir tous les services' },
+  { key: 'formation', label: 'Formation', tabIcon: GraduationCap, ...PILLAR_ACCENT.formation, items: FORMATION_MAIN, secondary: FORMATION_SECONDARY, tags: [{ text: 'IA', href: '/formation-entreprise/ia' }, { text: 'Bureautique', href: '/formation-entreprise/bureautique' }, { text: 'Vidéo', href: '/formation-entreprise/montage-video' }, { text: 'Cyber', href: '/formation-entreprise/cybersecurite' }], hubHref: '/formation-entreprise',    hubLabel: 'Voir toutes les formations' },
+  { key: 'ia',        label: 'IA',        tabIcon: Bot,         ...PILLAR_ACCENT.ia,        items: IA_MAIN,        secondary: IA_SECONDARY,        tags: [{ text: 'Agents', href: '/intelligence-artificielle/agents-ia' }, { text: 'Automatisation', href: '/intelligence-artificielle/automatisation' }, { text: 'Conseil', href: '/intelligence-artificielle/audit-conseil' }], hubHref: '/intelligence-artificielle', hubLabel: 'Voir toutes nos solutions IA' },
+  { key: 'apropos',   label: 'Agence',    tabIcon: LayoutGrid,  ...PILLAR_ACCENT.apropos,   items: APROPOS_MAIN,   secondary: APROPOS_SECONDARY,   tags: [{ text: 'Réalisations', href: '/a-propos' }, { text: 'Tarifs', href: '/tarifs' }, { text: 'Blog', href: '/blog' }, { text: 'Ressources', href: '/glossaire' }], hubHref: '/a-propos',                hubLabel: 'À propos de DKDP' },
 ]
 
 const TAB_ORDER: TabKey[] = ['agence', 'formation', 'ia', 'apropos']
@@ -321,8 +337,32 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                 transition={{ duration: 0.16, ease: [0.4, 0, 0.2, 1] }}
                 className="px-4 pb-4"
               >
+                {/* Clickable tags */}
+                <div className="flex flex-wrap items-center gap-1.5 mt-1 mb-3">
+                  <Link
+                    href={tab.hubHref || '/'}
+                    onClick={onClose}
+                    className="inline-block px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase transition-opacity hover:opacity-80"
+                    style={{ color: tab.color, background: tab.bg, border: `1px solid ${tab.border}` }}
+                  >
+                    {tab.label}
+                  </Link>
+                  {tab.tags.map((tag, i) => (
+                    <span key={tag.href} className="inline-flex items-center gap-1">
+                      {i > 0 && <span className="text-text-muted opacity-40 text-xs">·</span>}
+                      <Link
+                        href={tag.href}
+                        onClick={onClose}
+                        className="text-xs text-text-muted hover:text-white transition-colors"
+                      >
+                        {tag.text}
+                      </Link>
+                    </span>
+                  ))}
+                </div>
+
                 {/* Cards grid */}
-                <div className="grid grid-cols-2 gap-2 mt-1">
+                <div className="grid grid-cols-2 gap-2">
                   {tab.items.map((item, i) => (
                     <m.div
                       key={item.href}
@@ -488,7 +528,13 @@ export function Header() {
                     <MegaPanel
                       pillar="agence"
                       label="Agence"
-                      tagline="Sites · SEO · Ads · Vidéo"
+                      labelHref="/agence-digitale"
+                      tags={[
+                        { text: 'Sites', href: '/agence-digitale/creation-site-web' },
+                        { text: 'SEO', href: '/agence-digitale/seo' },
+                        { text: 'Ads', href: '/agence-digitale/publicite-sea' },
+                        { text: 'Vidéo', href: '/agence-digitale/creation-video' },
+                      ]}
                       main={AGENCE_MAIN}
                       secondary={AGENCE_SECONDARY}
                       hubHref="/agence-digitale"
@@ -504,7 +550,13 @@ export function Header() {
                     <MegaPanel
                       pillar="formation"
                       label="Formation"
-                      tagline="IA · Bureautique · Vidéo · Cyber"
+                      labelHref="/formation-entreprise"
+                      tags={[
+                        { text: 'IA', href: '/formation-entreprise/ia' },
+                        { text: 'Bureautique', href: '/formation-entreprise/bureautique' },
+                        { text: 'Vidéo', href: '/formation-entreprise/montage-video' },
+                        { text: 'Cyber', href: '/formation-entreprise/cybersecurite' },
+                      ]}
                       main={FORMATION_MAIN}
                       secondary={FORMATION_SECONDARY}
                       hubHref="/formation-entreprise"
@@ -520,7 +572,12 @@ export function Header() {
                     <MegaPanel
                       pillar="ia"
                       label="IA"
-                      tagline="Agents · Automatisation · Conseil"
+                      labelHref="/intelligence-artificielle"
+                      tags={[
+                        { text: 'Agents', href: '/intelligence-artificielle/agents-ia' },
+                        { text: 'Automatisation', href: '/intelligence-artificielle/automatisation' },
+                        { text: 'Conseil', href: '/intelligence-artificielle/audit-conseil' },
+                      ]}
                       main={IA_MAIN}
                       secondary={IA_SECONDARY}
                       hubHref="/intelligence-artificielle"
@@ -536,7 +593,13 @@ export function Header() {
                     <MegaPanel
                       pillar="apropos"
                       label="Agence"
-                      tagline="Réalisations · Tarifs · Blog · Ressources"
+                      labelHref="/a-propos"
+                      tags={[
+                        { text: 'Réalisations', href: '/a-propos' },
+                        { text: 'Tarifs', href: '/tarifs' },
+                        { text: 'Blog', href: '/blog' },
+                        { text: 'Ressources', href: '/glossaire' },
+                      ]}
                       main={APROPOS_MAIN}
                       secondary={APROPOS_SECONDARY}
                       hubHref="/a-propos"
@@ -576,7 +639,13 @@ export function Header() {
                     <MegaPanel
                       pillar="agence"
                       label="Agence"
-                      tagline="Sites · SEO · Ads · Vidéo"
+                      labelHref="/agence-digitale"
+                      tags={[
+                        { text: 'Sites', href: '/agence-digitale/creation-site-web' },
+                        { text: 'SEO', href: '/agence-digitale/seo' },
+                        { text: 'Ads', href: '/agence-digitale/publicite-sea' },
+                        { text: 'Vidéo', href: '/agence-digitale/creation-video' },
+                      ]}
                       main={AGENCE_MAIN}
                       secondary={AGENCE_SECONDARY}
                       hubHref="/agence-digitale"
@@ -590,7 +659,13 @@ export function Header() {
                     <MegaPanel
                       pillar="formation"
                       label="Formation"
-                      tagline="IA · Bureautique · Vidéo · Cyber"
+                      labelHref="/formation-entreprise"
+                      tags={[
+                        { text: 'IA', href: '/formation-entreprise/ia' },
+                        { text: 'Bureautique', href: '/formation-entreprise/bureautique' },
+                        { text: 'Vidéo', href: '/formation-entreprise/montage-video' },
+                        { text: 'Cyber', href: '/formation-entreprise/cybersecurite' },
+                      ]}
                       main={FORMATION_MAIN}
                       secondary={FORMATION_SECONDARY}
                       hubHref="/formation-entreprise"
@@ -604,7 +679,12 @@ export function Header() {
                     <MegaPanel
                       pillar="ia"
                       label="IA"
-                      tagline="Agents · Automatisation · Conseil"
+                      labelHref="/intelligence-artificielle"
+                      tags={[
+                        { text: 'Agents', href: '/intelligence-artificielle/agents-ia' },
+                        { text: 'Automatisation', href: '/intelligence-artificielle/automatisation' },
+                        { text: 'Conseil', href: '/intelligence-artificielle/audit-conseil' },
+                      ]}
                       main={IA_MAIN}
                       secondary={IA_SECONDARY}
                       hubHref="/intelligence-artificielle"
@@ -618,7 +698,13 @@ export function Header() {
                     <MegaPanel
                       pillar="apropos"
                       label="Agence"
-                      tagline="Réalisations · Tarifs · Blog · Ressources"
+                      labelHref="/a-propos"
+                      tags={[
+                        { text: 'Réalisations', href: '/a-propos' },
+                        { text: 'Tarifs', href: '/tarifs' },
+                        { text: 'Blog', href: '/blog' },
+                        { text: 'Ressources', href: '/glossaire' },
+                      ]}
                       main={APROPOS_MAIN}
                       secondary={APROPOS_SECONDARY}
                       hubHref="/a-propos"

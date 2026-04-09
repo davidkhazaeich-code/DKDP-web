@@ -252,7 +252,7 @@ function LimitReachedCTA() {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
-      className="mx-5 mb-3 p-5 rounded-2xl text-center"
+      className="mx-5 mb-[max(12px,env(safe-area-inset-bottom,12px))] p-5 rounded-2xl text-center"
       style={{
         background: 'linear-gradient(135deg, rgba(124,58,237,0.08), rgba(255,107,0,0.06))',
         border: '1px solid rgba(124,58,237,0.2)',
@@ -451,8 +451,9 @@ export function ChatWidget() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
-            className="fixed z-40 left-1/2 -translate-x-1/2 bottom-6"
+            className="fixed z-40 left-1/2 -translate-x-1/2"
             style={{
+              bottom: 'max(24px, env(safe-area-inset-bottom, 24px))',
               width: 'min(580px, calc(100vw - 32px))',
             }}
           >
@@ -546,19 +547,18 @@ export function ChatWidget() {
             initial={{ opacity: 0, y: 40, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.96 }}
-            transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
+            transition={{ duration: 0.35, ease: DKDP_BOUNCE }}
             className="fixed z-40 flex flex-col overflow-hidden
-              max-md:inset-0 max-md:rounded-none
-              md:left-1/2 md:-translate-x-1/2 md:bottom-4 md:w-[580px] md:rounded-2xl"
+              inset-0 rounded-none
+              md:inset-auto md:left-1/2 md:-translate-x-1/2 md:bottom-4 md:w-[580px] md:h-[min(640px,calc(100vh-32px))] md:rounded-2xl"
             style={{
-              height: 'min(640px, calc(100vh - 32px))',
               background: '#0A0A0A',
               border: '1px solid rgba(124,58,237,0.12)',
               boxShadow: '0 12px 60px rgba(0,0,0,0.7), 0 0 80px rgba(124,58,237,0.06)',
             }}
           >
             {/* ── Header ── */}
-            <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#1E1E1E] flex-shrink-0">
+            <div className="flex items-center justify-between px-5 py-3.5 pt-[max(14px,env(safe-area-inset-top,14px))] border-b border-[#1E1E1E] flex-shrink-0">
               <div className="flex items-center gap-3">
                 <AnimatedOrb size={32} />
                 <div>
@@ -578,9 +578,9 @@ export function ChatWidget() {
                 )}
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2.5 rounded-full hover:bg-[rgba(255,255,255,0.05)] transition-colors cursor-pointer"
+                  className="p-3 sm:p-2.5 rounded-full hover:bg-[rgba(255,255,255,0.05)] active:bg-[rgba(255,255,255,0.08)] transition-colors cursor-pointer"
                 >
-                  <X size={16} className="text-[#71717a]" />
+                  <X size={18} className="text-[#71717a] sm:w-4 sm:h-4" />
                 </button>
               </div>
             </div>
@@ -610,13 +610,13 @@ export function ChatWidget() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.25 }}
-                  className="flex flex-col gap-2 pl-9"
+                  className="flex flex-col gap-2 pl-0 sm:pl-9"
                 >
                   {QUICK_SUGGESTIONS.map(({ icon, label }) => (
                     <button
                       key={label}
                       onClick={() => handleSuggestionClick(label)}
-                      className="group flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-left text-[13px] cursor-pointer transition-all duration-200
+                      className="group flex items-center gap-2.5 px-4 py-3 sm:py-2.5 rounded-xl text-left text-[13px] cursor-pointer transition-all duration-200 active:scale-[0.98]
                         bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)]
                         hover:bg-[rgba(124,58,237,0.08)] hover:border-[rgba(124,58,237,0.25)]"
                     >
@@ -666,7 +666,7 @@ export function ChatWidget() {
 
             {/* ── Input bar (inside chat) ── */}
             {!isLimitReached && (
-              <div className="flex-shrink-0 px-4 pb-3 max-md:pb-[max(12px,env(safe-area-inset-bottom))] pt-2">
+              <div className="flex-shrink-0 px-4 pb-[max(12px,env(safe-area-inset-bottom,12px))] pt-2">
                 <form
                   onSubmit={handleChatSubmit}
                   className="flex items-end gap-2 rounded-2xl px-3 py-2"
@@ -699,7 +699,7 @@ export function ChatWidget() {
                   <motion.button
                     type="submit"
                     disabled={!inputValue.trim() || isLoading}
-                    className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default mb-0.5"
+                    className="flex-shrink-0 w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default mb-0.5"
                     style={{
                       background: inputValue.trim()
                         ? 'linear-gradient(135deg, #7C3AED, #FF6B00)'

@@ -11,6 +11,8 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.68",
+    "@ai-sdk/react": "^3.0.156",
     "@calcom/embed-react": "^1.5.3",
     "@paper-design/shaders": "^0.0.72",
     "@paper-design/shaders-react": "^0.0.72",
@@ -20,6 +22,7 @@
     "@react-email/components": "^1.0.10",
     "@types/three": "^0.183.1",
     "@vercel/analytics": "^2.0.1",
+    "ai": "^6.0.154",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
@@ -29,6 +32,7 @@
     "next-mdx-remote": "^6.0.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0",
     "resend": "^6.10.0",
     "schema-dts": "^2.0.0",
     "tailwind-merge": "^3.5.0",

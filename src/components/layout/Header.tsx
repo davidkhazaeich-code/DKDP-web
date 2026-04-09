@@ -11,7 +11,7 @@ import {
   Bot, Workflow, BrainCircuit, BookOpen, Users2, Presentation,
   Phone, FileText, Star, ChevronRight, X, Menu,
   Film, Shield, Share2, Palette, LayoutGrid,
-  Sparkles, CalendarCheck, Monitor,
+  Sparkles, CalendarCheck, Monitor, MessageCircle,
 } from 'lucide-react'
 import {
   NavigationMenu, NavigationMenuContent, NavigationMenuItem,
@@ -45,6 +45,7 @@ const IA_MAIN = [
   { title: 'Automatisation métier', href: '/intelligence-artificielle/automatisation', icon: Workflow, description: 'Workflows sans code, zéro friction.' },
   { title: 'Audit & Conseil IA', href: '/intelligence-artificielle/audit-conseil', icon: BrainCircuit, description: 'Diagnostiquez votre potentiel d\'automatisation.' },
   { title: 'Mise en place IA', href: '/intelligence-artificielle/mise-en-place', icon: Cpu, description: 'Déployez l\'IA dans votre stack existant.' },
+  { title: 'Chatbot IA', href: '/intelligence-artificielle/chatbot-ia', icon: MessageCircle, description: 'Un assistant 24/7 conçu pour votre métier.' },
 ]
 
 const IA_SECONDARY = [

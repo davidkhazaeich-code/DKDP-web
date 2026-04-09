@@ -1,10 +1,22 @@
 /**
- * Simple in-memory rate limiter per IP.
+ * In-memory rate limiter per IP with per-minute and per-day caps.
  * Resets per serverless instance cold start — sufficient for dkdp.ch traffic.
  * For high-volume production, replace with Upstash Redis.
  */
 
-const store = new Map<string, { count: number; resetAt: number }>()
+const minuteStore = new Map<string, { count: number; resetAt: number }>()
+const dailyStore = new Map<string, { count: number; resetAt: number }>()
+
+// Clean up stale entries every 10 minutes to avoid memory leaks
+setInterval(() => {
+  const now = Date.now()
+  for (const [key, entry] of minuteStore) {
+    if (now > entry.resetAt) minuteStore.delete(key)
+  }
+  for (const [key, entry] of dailyStore) {
+    if (now > entry.resetAt) dailyStore.delete(key)
+  }
+}, 10 * 60 * 1000)
 
 interface RateLimitOptions {
   /** Max requests in the window */
@@ -15,10 +27,10 @@ interface RateLimitOptions {
 
 export function rateLimit(ip: string, opts: RateLimitOptions): { allowed: boolean; remaining: number } {
   const now = Date.now()
-  const entry = store.get(ip)
+  const entry = minuteStore.get(ip)
 
   if (!entry || now > entry.resetAt) {
-    store.set(ip, { count: 1, resetAt: now + opts.windowMs })
+    minuteStore.set(ip, { count: 1, resetAt: now + opts.windowMs })
     return { allowed: true, remaining: opts.limit - 1 }
   }
 
@@ -29,6 +41,26 @@ export function rateLimit(ip: string, opts: RateLimitOptions): { allowed: boolea
   }
 
   return { allowed: true, remaining: opts.limit - entry.count }
+}
+
+/** Daily rate limit: cap total messages per IP per day */
+export function rateLimitDaily(ip: string, dailyLimit: number): { allowed: boolean; remaining: number } {
+  const now = Date.now()
+  const DAY_MS = 24 * 60 * 60 * 1000
+  const entry = dailyStore.get(ip)
+
+  if (!entry || now > entry.resetAt) {
+    dailyStore.set(ip, { count: 1, resetAt: now + DAY_MS })
+    return { allowed: true, remaining: dailyLimit - 1 }
+  }
+
+  entry.count += 1
+
+  if (entry.count > dailyLimit) {
+    return { allowed: false, remaining: 0 }
+  }
+
+  return { allowed: true, remaining: dailyLimit - entry.count }
 }
 
 /** Extract a best-effort IP from Next.js request headers */

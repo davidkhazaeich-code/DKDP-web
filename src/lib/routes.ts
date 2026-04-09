@@ -73,6 +73,7 @@ export const ROUTES: Route[] = [
   { url: '/intelligence-artificielle/automatisation', priority: 0.85, changeFrequency: 'monthly' },
   { url: '/intelligence-artificielle/audit-conseil', priority: 0.80, changeFrequency: 'monthly' },
   { url: '/intelligence-artificielle/mise-en-place', priority: 0.80, changeFrequency: 'monthly' },
+  { url: '/intelligence-artificielle/chatbot-ia',   priority: 0.85, changeFrequency: 'monthly' },
 
   // ─── Formation Entreprise ─────────────────────────────────────────────────
   { url: '/formation-entreprise/claude-ai',       priority: 0.85, changeFrequency: 'monthly' },

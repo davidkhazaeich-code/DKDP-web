@@ -448,13 +448,16 @@ export function ChatWidget() {
           <motion.div
             ref={barRef}
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              width: barFocused ? 'min(580px, calc(100vw - 32px))' : 'min(320px, calc(100vw - 48px))',
+            }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
             className="fixed z-40 left-1/2 -translate-x-1/2"
             style={{
               bottom: 'max(24px, env(safe-area-inset-bottom, 24px))',
-              width: 'min(580px, calc(100vw - 32px))',
             }}
           >
             <form

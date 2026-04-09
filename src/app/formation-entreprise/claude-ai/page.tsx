@@ -93,9 +93,9 @@ const FAQ = [
 const FORMATEURS = [
   {
     name: 'Romane',
-    designation: 'Formatrice · Claude.ai & Réseaux sociaux',
+    designation: 'Experte IA, SEO/GEO & UX · Formatrice',
     quote:
-      "Spécialiste de l'intégration IA en environnement professionnel, j'anime les sessions Claude.ai et Projects pour les équipes non-techniques. Mon objectif : que chaque collaborateur reparte avec des outils qu'il maîtrise vraiment.",
+      "Spécialiste en intelligence artificielle, SEO/GEO et UX, j'anime les sessions Claude.ai et Projects en alliant vision stratégique et pédagogie. Mon objectif : que chaque collaborateur reparte avec des outils qu'il maîtrise vraiment.",
     src: '/images/team/romane.png',
     cardBg: 'linear-gradient(160deg, rgba(255,107,0,0.20) 0%, rgba(255,107,0,0.05) 100%)',
     cardBorder: 'rgba(255,107,0,0.28)',

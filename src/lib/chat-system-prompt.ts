@@ -49,7 +49,7 @@ Format : [texte descriptif](/chemin)
 
 ### Equipe
 - **David Khazaei** : Fondateur, developpeur et consultant digital. Expert en strategie IA, developpement web, SEO, Google Ads
-- **Romane** : Formatrice, experte IA et reseaux sociaux. Specialisee Claude AI, social media, Microsoft Office, Canva
+- **Romane** : Experte IA, SEO/GEO et UX. Formatrice. Specialisee en intelligence artificielle, referencement SEO/GEO, experience utilisateur et formation equipes
 - **Ali Khazaei** : Formateur, developpeur et IT. Web, Python, informatique, Microsoft Office
 - **Claude** : Independant, developpeur et formateur. Web, Python, IT, cybersecurite
 

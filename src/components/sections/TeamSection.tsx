@@ -15,9 +15,9 @@ const TEAM = [
   },
   {
     name: 'Romane',
-    designation: 'Formatrice · Experte IA & Réseaux sociaux',
+    designation: 'Experte IA, SEO/GEO & UX · Formatrice',
     quote:
-      "Formatrice passionnée, experte en intelligence artificielle et réseaux sociaux. Je transforme des sujets complexes en compétences concrètes pour vos équipes. Mon objectif : que chaque collaborateur reparte avec des outils qu'il maîtrise vraiment.",
+      "Spécialiste en intelligence artificielle, SEO/GEO et expérience utilisateur. J'optimise la visibilité et la performance digitale de nos clients, et je forme les équipes pour qu'elles maîtrisent ces outils au quotidien.",
     src: '/images/team/romane.png',
     cardBg: 'linear-gradient(160deg, rgba(255,107,0,0.20) 0%, rgba(255,107,0,0.05) 100%)',
     cardBorder: 'rgba(255,107,0,0.28)',

@@ -7,7 +7,26 @@ import { DKDP_SYSTEM_PROMPT } from '@/lib/chat-system-prompt'
 const MAX_MESSAGE_LENGTH = 500
 const MAX_MESSAGES_PER_CONVERSATION = 12
 
+// European country codes (EU + EEA + CH + UK)
+const ALLOWED_COUNTRIES = new Set([
+  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR',
+  'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL',
+  'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', // EU
+  'IS', 'LI', 'NO', // EEA
+  'CH', // Switzerland
+  'GB', // UK
+])
+
 export async function POST(req: NextRequest) {
+  // Geo-blocking: only allow European countries
+  const country = req.headers.get('x-vercel-ip-country') ?? ''
+  if (country && !ALLOWED_COUNTRIES.has(country)) {
+    return new Response(JSON.stringify({ error: 'This service is only available in Europe.' }), {
+      status: 403,
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
+
   const ip = getIp(req)
 
   // Rate limit: 10 messages per IP per minute

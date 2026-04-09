@@ -5,6 +5,7 @@ import { useChat } from '@ai-sdk/react'
 import { DefaultChatTransport } from 'ai'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, Send, CalendarCheck, RotateCcw, Globe, Sparkles, ArrowRight, MessageCircle, Mail } from 'lucide-react'
 import Markdown from 'react-markdown'
@@ -313,6 +314,8 @@ export function ChatWidget() {
   const [placeholderIndex, setPlaceholderIndex] = useState(0)
   const [showPlaceholder, setShowPlaceholder] = useState(true)
   const [barFocused, setBarFocused] = useState(false)
+  const pathname = usePathname()
+  const prevPathnameRef = useRef(pathname)
   const honeypotRef = useRef('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -357,6 +360,15 @@ export function ChatWidget() {
     } catch { /* ignore */ }
   }, [messages])
 
+  // Close chat on route change
+  useEffect(() => {
+    if (pathname !== prevPathnameRef.current) {
+      prevPathnameRef.current = pathname
+      setIsOpen(false)
+    }
+  }, [pathname])
+
+  const hasConversation = messages.length > 0
   const userMessageCount = messages.filter((m) => m.role === 'user').length
   const isLimitReached = userMessageCount >= MESSAGE_LIMIT
   const isLoading = status === 'submitted' || status === 'streaming'
@@ -529,12 +541,18 @@ export function ChatWidget() {
                 />
                 {!inputValue && (
                   <div className="absolute inset-0 flex items-center pointer-events-none">
-                    <AnimatedPlaceholder
-                      index={placeholderIndex}
-                      visible={showPlaceholder && !barFocused}
-                    />
-                    {barFocused && (
-                      <span className="text-sm text-[#71717a]">Posez votre question...</span>
+                    {hasConversation ? (
+                      <span className="text-sm text-[#A78BFA] font-medium">Reprendre notre conversation.</span>
+                    ) : (
+                      <>
+                        <AnimatedPlaceholder
+                          index={placeholderIndex}
+                          visible={showPlaceholder && !barFocused}
+                        />
+                        {barFocused && (
+                          <span className="text-sm text-[#71717a]">Posez votre question...</span>
+                        )}
+                      </>
                     )}
                   </div>
                 )}

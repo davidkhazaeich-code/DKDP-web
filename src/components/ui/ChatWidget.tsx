@@ -451,7 +451,7 @@ export function ChatWidget() {
             animate={{
               opacity: 1,
               y: 0,
-              width: barFocused ? 'min(580px, calc(100vw - 32px))' : 'min(345px, calc(100vw - 48px))',
+              width: barFocused ? 'min(580px, calc(100vw - 32px))' : 'min(360px, calc(100vw - 48px))',
             }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4, ease: DKDP_BOUNCE }}

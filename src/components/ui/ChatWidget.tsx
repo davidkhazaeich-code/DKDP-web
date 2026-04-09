@@ -6,7 +6,7 @@ import { DefaultChatTransport } from 'ai'
 import Link from 'next/link'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
-import { X, Send, CalendarCheck, RotateCcw, Globe, Sparkles, ArrowRight, MessageCircle } from 'lucide-react'
+import { X, Send, CalendarCheck, RotateCcw, Globe, Sparkles, ArrowRight, MessageCircle, Mail } from 'lucide-react'
 import Markdown from 'react-markdown'
 
 const MESSAGE_LIMIT = 10
@@ -226,20 +226,38 @@ function ChatCTABar() {
       initial={{ opacity: 0, y: 4 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.15 }}
-      className="flex flex-wrap gap-1.5 mt-1"
+      className="flex flex-wrap gap-2 mt-4"
     >
-      {INLINE_CTAS.map(({ href, label }) => (
-        <Link
-          key={href}
-          href={href}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-medium cursor-pointer transition-all duration-200
-            bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] text-[#9CA3AF]
-            hover:bg-[rgba(124,58,237,0.08)] hover:border-[rgba(124,58,237,0.25)] hover:text-white"
-        >
-          {label}
-          <ArrowRight size={10} />
-        </Link>
-      ))}
+      <Link
+        href="/intelligence-artificielle/chatbot-ia"
+        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-medium cursor-pointer transition-all duration-200
+          bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] text-[#9CA3AF]
+          hover:bg-[rgba(124,58,237,0.08)] hover:border-[rgba(124,58,237,0.25)] hover:text-white"
+      >
+        <MessageCircle size={11} />
+        Chatbot pour mon site web
+        <ArrowRight size={10} />
+      </Link>
+      <Link
+        href="/#nos-expertises"
+        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-medium cursor-pointer transition-all duration-200
+          bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] text-[#9CA3AF]
+          hover:bg-[rgba(124,58,237,0.08)] hover:border-[rgba(124,58,237,0.25)] hover:text-white"
+      >
+        <Sparkles size={11} />
+        Nos services
+        <ArrowRight size={10} />
+      </Link>
+      <Link
+        href="/contact"
+        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-semibold cursor-pointer transition-all duration-200
+          text-white border border-[rgba(124,58,237,0.35)]
+          hover:border-[rgba(124,58,237,0.5)] hover:brightness-110"
+        style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.25), rgba(167,139,250,0.15))' }}
+      >
+        <Mail size={11} />
+        Nous contacter
+      </Link>
     </motion.div>
   )
 }
@@ -451,7 +469,7 @@ export function ChatWidget() {
             animate={{
               opacity: 1,
               y: 0,
-              width: barFocused ? 'min(580px, calc(100vw - 32px))' : 'min(360px, calc(100vw - 24px))',
+              width: barFocused ? 'min(595px, calc(100vw - 32px))' : 'min(360px, calc(100vw - 24px))',
             }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
@@ -548,7 +566,7 @@ export function ChatWidget() {
         {isOpen && (
           <div
             className="fixed z-40 left-1/2 -translate-x-1/2 bottom-2"
-            style={{ width: 'min(580px, calc(100vw - 16px))' }}
+            style={{ width: 'min(595px, calc(100vw - 16px))' }}
           >
           <motion.div
             initial={{ opacity: 0, y: 60, scale: 0.92 }}

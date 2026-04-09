@@ -240,7 +240,7 @@ const MOBILE_TABS: {
   { key: 'agence',    label: 'Services',  tabIcon: Globe,       ...PILLAR_ACCENT.agence,    items: AGENCE_MAIN,    secondary: AGENCE_SECONDARY,    tags: [{ text: 'Sites', href: '/agence-digitale/creation-site-web' }, { text: 'SEO', href: '/agence-digitale/seo' }, { text: 'Ads', href: '/agence-digitale/publicite-sea' }, { text: 'Vidéo', href: '/agence-digitale/creation-video' }], hubHref: '/agence-digitale',         hubLabel: 'Voir tous les services' },
   { key: 'formation', label: 'Formation', tabIcon: GraduationCap, ...PILLAR_ACCENT.formation, items: FORMATION_MAIN, secondary: FORMATION_SECONDARY, tags: [{ text: 'IA', href: '/formation-entreprise/ia' }, { text: 'Bureautique', href: '/formation-entreprise/bureautique' }, { text: 'Vidéo', href: '/formation-entreprise/montage-video' }, { text: 'Cyber', href: '/formation-entreprise/cybersecurite' }], hubHref: '/formation-entreprise',    hubLabel: 'Voir toutes les formations' },
   { key: 'ia',        label: 'IA',        tabIcon: Bot,         ...PILLAR_ACCENT.ia,        items: IA_MAIN,        secondary: IA_SECONDARY,        tags: [{ text: 'Agents', href: '/intelligence-artificielle/agents-ia' }, { text: 'Automatisation', href: '/intelligence-artificielle/automatisation' }, { text: 'Conseil', href: '/intelligence-artificielle/audit-conseil' }], hubHref: '/intelligence-artificielle', hubLabel: 'Voir toutes nos solutions IA' },
-  { key: 'apropos',   label: 'Agence',    tabIcon: LayoutGrid,  ...PILLAR_ACCENT.apropos,   items: APROPOS_MAIN,   secondary: APROPOS_SECONDARY,   tags: [{ text: 'Réalisations', href: '/a-propos' }, { text: 'Tarifs', href: '/tarifs' }, { text: 'Blog', href: '/blog' }, { text: 'Ressources', href: '/glossaire' }], hubHref: '/a-propos',                hubLabel: 'À propos de DKDP' },
+  { key: 'apropos',   label: 'À propos',   tabIcon: LayoutGrid,  ...PILLAR_ACCENT.apropos,   items: APROPOS_MAIN,   secondary: APROPOS_SECONDARY,   tags: [{ text: 'Réalisations', href: '/a-propos' }, { text: 'Tarifs', href: '/tarifs' }, { text: 'Blog', href: '/blog' }, { text: 'Ressources', href: '/glossaire' }], hubHref: '/a-propos',                hubLabel: 'À propos de DKDP' },
 ]
 
 const TAB_ORDER: TabKey[] = ['agence', 'formation', 'ia', 'apropos']
@@ -502,13 +502,21 @@ export function Header() {
 
   return (
     <>
+      {/* Scroll progress bar — fixed at very top of page */}
+      <div
+        ref={progressBarRef}
+        aria-hidden="true"
+        className="fixed top-0 left-0 right-0 h-[2px] origin-left z-[60]"
+        style={{ background: progressGradient, transform: 'scaleX(0)', opacity: 0, transition: 'opacity 0.3s' }}
+      />
+
       <header
         role="banner"
-        className="fixed top-0 left-0 right-0 z-50 pointer-events-none"
+        className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-6"
       >
         <div
           className={cn(
-            'pointer-events-auto max-w-[1200px] mx-auto mt-3 mx-3 sm:mx-4 md:mx-6 lg:mx-auto rounded-2xl border transition-all duration-300',
+            'pointer-events-auto max-w-[1200px] mx-auto mt-3 rounded-2xl border transition-all duration-300',
             scrolled || mobileOpen
               ? 'bg-[#0A0A0A]/90 backdrop-blur-2xl border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)]'
               : 'bg-[#0A0A0A]/50 backdrop-blur-xl border-white/[0.05] shadow-[0_4px_20px_rgba(0,0,0,0.2)]'
@@ -748,13 +756,6 @@ export function Header() {
           </button>
         </div>
 
-        {/* Scroll progress bar — at bottom of floating bar */}
-        <div
-          ref={progressBarRef}
-          aria-hidden="true"
-          className="absolute bottom-0 left-4 right-4 h-[2px] origin-left rounded-full"
-          style={{ background: progressGradient, transform: 'scaleX(0)', opacity: 0, transition: 'opacity 0.3s' }}
-        />
         </div>
       </header>
 

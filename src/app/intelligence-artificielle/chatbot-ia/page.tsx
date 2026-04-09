@@ -488,82 +488,81 @@ export default function ChatbotIAPage() {
       {/* ── ROI Visual ── */}
       <section className="py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <SectionReveal>
+          <SectionReveal>
+            <div className="text-center mb-12">
               <GradTag className="mb-4">Impact mesurable</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-4">
                 Le retour sur investissement se mesure des le premier mois.
               </h2>
-              <p className="text-text-secondary leading-relaxed mb-8">
+              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
                 Un chatbot bien concu ne remplace pas votre equipe. Il absorbe le volume de
                 demandes repetitives pour que vos collaborateurs se concentrent sur les
                 interactions a forte valeur ajoutee.
               </p>
+            </div>
+          </SectionReveal>
 
-              {/* Inline HTML bar chart: before/after */}
-              <div
-                className="rounded-xl p-5"
-                style={{ background: 'rgba(212,212,216,0.04)', border: `1px solid ${bd}` }}
+          {/* Inline HTML bar chart: before/after */}
+          <SectionReveal delay={0.1}>
+            <div
+              className="rounded-xl p-6 md:p-8 max-w-3xl mx-auto"
+              style={{ background: violet.bg, border: `1px solid ${violet.border}` }}
+            >
+              <p
+                className="text-[10px] font-bold uppercase tracking-[0.12em] mb-6"
+                style={{ color: violet.color }}
               >
-                <p
-                  className="text-[10px] font-bold uppercase tracking-[0.12em] mb-4"
-                  style={{ color }}
-                >
-                  Avant / Apres chatbot
-                </p>
-                <div className="space-y-4">
-                  {[
-                    { label: 'Questions repetitives traitees manuellement', before: 100, after: 20, unit: '%' },
-                    { label: 'Temps de reponse moyen', before: 4, after: 0.5, unit: 'h', beforeLabel: '4h', afterLabel: '< 30 min' },
-                    { label: 'Leads perdus hors horaires', before: 35, after: 5, unit: '%' },
-                  ].map((row) => (
-                    <div key={row.label}>
-                      <p className="text-text-secondary text-xs mb-1.5">{row.label}</p>
-                      <div className="flex gap-2 items-center">
-                        <div className="flex-1">
-                          {/* Before bar */}
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="text-text-muted text-[10px] w-10 flex-shrink-0">Avant</span>
-                            <div className="flex-1 h-3 rounded-full bg-white/[0.04] overflow-hidden">
-                              <div
-                                className="h-full rounded-full"
-                                style={{
-                                  width: `${(row.before / 100) * 100}%`,
-                                  background: 'rgba(239,68,68,0.35)',
-                                  minWidth: '8%',
-                                }}
-                              />
-                            </div>
-                            <span className="text-text-muted text-[10px] w-14 text-right flex-shrink-0">
-                              {row.beforeLabel ?? `${row.before}${row.unit}`}
-                            </span>
-                          </div>
-                          {/* After bar */}
-                          <div className="flex items-center gap-2">
-                            <span className="text-text-muted text-[10px] w-10 flex-shrink-0">Apres</span>
-                            <div className="flex-1 h-3 rounded-full bg-white/[0.04] overflow-hidden">
-                              <div
-                                className="h-full rounded-full"
-                                style={{
-                                  width: `${(row.after / 100) * 100}%`,
-                                  background: 'rgba(74,222,128,0.45)',
-                                  minWidth: '4%',
-                                }}
-                              />
-                            </div>
-                            <span className="text-[10px] w-14 text-right flex-shrink-0" style={{ color: '#4ade80' }}>
-                              {row.afterLabel ?? `${row.after}${row.unit}`}
-                            </span>
-                          </div>
+                Avant / Apres chatbot
+              </p>
+              <div className="space-y-6">
+                {[
+                  { label: 'Questions repetitives traitees manuellement', before: 100, after: 20, unit: '%' },
+                  { label: 'Temps de reponse moyen', before: 100, after: 12, unit: '', beforeLabel: '4h', afterLabel: '< 30 min' },
+                  { label: 'Leads perdus hors horaires', before: 35, after: 5, unit: '%' },
+                ].map((row) => (
+                  <div key={row.label}>
+                    <p className="text-text-secondary text-sm mb-2">{row.label}</p>
+                    <div className="space-y-1.5">
+                      {/* Before bar */}
+                      <div className="flex items-center gap-3">
+                        <span className="text-text-muted text-xs w-12 flex-shrink-0">Avant</span>
+                        <div className="flex-1 h-4 rounded-full bg-white/[0.04] overflow-hidden">
+                          <div
+                            className="h-full rounded-full"
+                            style={{
+                              width: `${row.before}%`,
+                              background: 'rgba(239,68,68,0.4)',
+                              minWidth: '8%',
+                            }}
+                          />
                         </div>
+                        <span className="text-text-muted text-xs w-16 text-right flex-shrink-0">
+                          {row.beforeLabel ?? `${row.before}${row.unit}`}
+                        </span>
+                      </div>
+                      {/* After bar */}
+                      <div className="flex items-center gap-3">
+                        <span className="text-text-muted text-xs w-12 flex-shrink-0">Apres</span>
+                        <div className="flex-1 h-4 rounded-full bg-white/[0.04] overflow-hidden">
+                          <div
+                            className="h-full rounded-full"
+                            style={{
+                              width: `${row.after}%`,
+                              background: 'rgba(124,58,237,0.6)',
+                              minWidth: '4%',
+                            }}
+                          />
+                        </div>
+                        <span className="text-xs w-16 text-right flex-shrink-0" style={{ color: violet.color }}>
+                          {row.afterLabel ?? `${row.after}${row.unit}`}
+                        </span>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-            </SectionReveal>
-
-          </div>
+            </div>
+          </SectionReveal>
         </div>
       </section>
 
@@ -619,11 +618,11 @@ export default function ChatbotIAPage() {
           <SectionReveal delay={0.4}>
             <div
               className="mt-12 rounded-xl p-6"
-              style={{ background: 'rgba(212,212,216,0.04)', border: `1px solid ${bd}` }}
+              style={{ background: violet.bg, border: `1px solid ${violet.border}` }}
             >
               <p
                 className="text-[10px] font-bold uppercase tracking-[0.12em] mb-5"
-                style={{ color }}
+                style={{ color: violet.color }}
               >
                 Timeline type d&apos;un projet chatbot
               </p>

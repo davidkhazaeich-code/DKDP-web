@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Bot, Workflow, BrainCircuit, Cpu, ChevronRight, Clock, TrendingUp, ShieldCheck, GraduationCap, CheckCircle2, Layers, GitMerge, Zap } from 'lucide-react'
+import { Bot, Workflow, BrainCircuit, Cpu, ChevronRight, Clock, TrendingUp, ShieldCheck, GraduationCap, CheckCircle2, Layers, GitMerge, Zap, MessageCircle } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -50,6 +50,12 @@ const SERVICES = [
     description: "Intégration de ChatGPT, Claude et autres LLMs dans votre stack existant. Sans tout reconstruire.",
     badge: null,
     image: '/images/services/dkdp-ia-mise-en-place.webp',
+  },
+  {
+    Icon: MessageCircle, title: 'Chatbot IA sur mesure', href: '/intelligence-artificielle/chatbot-ia',
+    description: "Un assistant 24/7 conçu pour votre métier. Répondez à vos clients, qualifiez vos leads et prenez des rendez-vous automatiquement.",
+    badge: 'Nouveau',
+    image: '/images/services/dkdp-ia-agents-ia.webp',
   },
 ]
 

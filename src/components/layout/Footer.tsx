@@ -49,6 +49,7 @@ const PILLARS = [
     Icon: Sparkles,
     links: [
       { label: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia' },
+      { label: 'Chatbot IA', href: '/intelligence-artificielle/chatbot-ia' },
       { label: 'Automatisation métier', href: '/intelligence-artificielle/automatisation' },
       { label: 'Audit & Conseil IA', href: '/intelligence-artificielle/audit-conseil' },
       { label: 'Mise en place IA', href: '/intelligence-artificielle/mise-en-place' },

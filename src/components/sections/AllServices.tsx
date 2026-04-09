@@ -7,7 +7,7 @@ import { m, AnimatePresence } from 'framer-motion'
 import {
   Globe, Search, Megaphone, Share2, Film, Presentation, Shield,
   BrainCircuit, BookOpen, Palette, Cpu,
-  Bot, Workflow,
+  Bot, Workflow, MessageCircle,
   ChevronRight, GraduationCap, Sparkles,
 } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -54,6 +54,7 @@ const IA_SERVICES: ServiceItem[] = [
   { icon: Workflow, title: 'Automatisation métier', href: '/intelligence-artificielle/automatisation', description: 'Workflows sans code qui connectent vos outils et éliminent le manuel.', badge: null, image: '/images/services/dkdp-ia-automatisation.webp', pillar: 'ia' },
   { icon: BrainCircuit, title: 'Audit & Conseil IA', href: '/intelligence-artificielle/audit-conseil', description: 'Identifiez les 3 actions à fort ROI dans votre entreprise.', badge: 'Best seller', image: '/images/services/dkdp-ia-audit-conseil.webp', pillar: 'ia' },
   { icon: Cpu, title: 'Mise en place IA', href: '/intelligence-artificielle/mise-en-place', description: 'Intégration de ChatGPT, Claude et LLMs dans votre stack existant.', badge: null, image: '/images/services/dkdp-ia-mise-en-place.webp', pillar: 'ia' },
+  { icon: MessageCircle, title: 'Chatbot IA sur mesure', href: '/intelligence-artificielle/chatbot-ia', description: 'Un assistant 24/7 pour votre site : FAQ, prise de RDV, qualification de leads.', badge: 'Nouveau', image: '/images/services/dkdp-ia-agents-ia.webp', pillar: 'ia' },
 ]
 
 type PillarKey = 'agence' | 'formation' | 'ia'
@@ -78,8 +79,8 @@ const PILLARS: PillarData[] = [
     hubHref: '/formation-entreprise',
   },
   {
-    key: 'ia', label: 'IA et automatisation', shortLabel: 'IA', subtitle: '4 solutions',
-    preview: ['Agents IA', 'Automatisation', 'Audit IA', 'Mise en place'],
+    key: 'ia', label: 'IA et automatisation', shortLabel: 'IA', subtitle: '5 solutions',
+    preview: ['Agents IA', 'Chatbot IA', 'Automatisation', 'Audit IA'],
     heroImage: '/images/services/dkdp-ia-agents-ia.webp',
     Icon: Sparkles, color: chrome.color, bg: chrome.bg, border: chrome.border, items: IA_SERVICES,
     accentRgb: '212,212,216', blob1: 'rgba(212,212,216,0.10)', blob2: 'rgba(212,212,216,0.05)',

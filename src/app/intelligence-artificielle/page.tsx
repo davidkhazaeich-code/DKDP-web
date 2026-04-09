@@ -87,6 +87,7 @@ const badgeColors: Record<string, { background: string; color: string; border: s
   'Best seller': { background: 'rgba(10,10,10,0.84)', color: '#86efac', border: '1px solid rgba(74,222,128,0.68)' },
   'Populaire':   { background: 'rgba(10,10,10,0.84)', color: '#C4B5FD', border: '1px solid rgba(124,58,237,0.65)' },
   'Gratuit':     { background: 'rgba(10,10,10,0.84)', color: '#86efac', border: '1px solid rgba(74,222,128,0.60)' },
+  'Nouveau':     { background: 'rgba(10,10,10,0.84)', color: '#4ade80', border: '1px solid rgba(34,197,94,0.60)' },
 }
 
 export default function IntelligenceArtificiellePage() {
@@ -208,12 +209,12 @@ export default function IntelligenceArtificiellePage() {
             <div className="mb-14">
               <GradTag className="mb-4">Nos solutions</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-xl">
-                Quatre façons de déployer l&apos;IA chez vous.
+                Cinq façons de déployer l&apos;IA chez vous.
               </h2>
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((s, i) => (
               <SectionReveal key={s.href} delay={i * 0.08}>
                 <Link
@@ -225,13 +226,13 @@ export default function IntelligenceArtificiellePage() {
                   }}
                 >
                   {/* Image */}
-                  <div className="relative h-44 overflow-hidden">
+                  <div className="relative h-40 overflow-hidden">
                     <Image
                       src={s.image}
                       alt={s.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg/80" />
                     {s.badge && (
@@ -244,19 +245,17 @@ export default function IntelligenceArtificiellePage() {
                     )}
                   </div>
                   {/* Content */}
-                  <div className="p-6 flex flex-col flex-1">
-                    <div className="flex items-start gap-3 mb-3">
-                      <div
-                        className="flex h-9 w-9 items-center justify-center rounded-[7px] flex-shrink-0"
-                        style={{ background: bg, border: `1px solid ${border}` }}
-                      >
-                        <s.Icon size={16} style={{ color }} />
-                      </div>
+                  <div className="p-5 flex flex-col flex-1">
+                    <div
+                      className="flex h-9 w-9 items-center justify-center rounded-[7px] flex-shrink-0 mb-3"
+                      style={{ background: bg, border: `1px solid ${border}` }}
+                    >
+                      <s.Icon size={16} style={{ color }} />
                     </div>
-                    <h3 className="text-white font-semibold text-lg mb-2">{s.title}</h3>
+                    <h3 className="text-white font-semibold text-[16px] mb-2">{s.title}</h3>
                     <p className="text-text-secondary text-sm leading-relaxed flex-1">{s.description}</p>
                     <span
-                      className="mt-5 inline-flex items-center gap-1 text-[12px] font-semibold transition-opacity group-hover:opacity-70"
+                      className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold transition-opacity group-hover:opacity-70"
                       style={{ color }}
                     >
                       En savoir plus <ChevronRight size={12} />

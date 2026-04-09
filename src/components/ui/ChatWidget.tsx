@@ -42,32 +42,68 @@ const INLINE_CTAS = [
 
 function AnimatedOrb({ size = 32 }: { size?: number }) {
   return (
-    <div className="relative flex-shrink-0" style={{ width: size, height: size }}>
+    <div className="relative flex-shrink-0 rounded-full overflow-hidden" style={{ width: size, height: size }}>
       {/* Glow pulse */}
       <motion.div
         className="absolute inset-0 rounded-full"
-        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.4) 0%, transparent 70%)' }}
-        animate={{ scale: [1, 1.5, 1], opacity: [0.6, 0.3, 0.6] }}
-        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.35) 0%, transparent 70%)' }}
+        animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0.25, 0.5] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
       />
-      {/* Spinning gradient */}
-      <motion.div
-        className="absolute inset-1 rounded-full"
-        style={{ background: 'conic-gradient(from 0deg, #A78BFA, #D4D4D8, #7C3AED, #D4D4D8, #A78BFA)' }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-      />
-      {/* Inner core */}
+      {/* Base gradient */}
       <div
+        className="absolute inset-0.5 rounded-full"
+        style={{ background: 'linear-gradient(135deg, #A78BFA, #7C3AED)' }}
+      />
+      {/* Blob 1: violet clair, mouvement lent */}
+      <motion.div
         className="absolute rounded-full"
-        style={{ inset: '25%', background: 'radial-gradient(circle, rgba(167,139,250,0.5) 0%, rgba(124,58,237,0.3) 60%, transparent 100%)' }}
+        style={{
+          width: '120%', height: '120%',
+          background: 'radial-gradient(circle, rgba(212,212,216,0.6) 0%, transparent 60%)',
+          filter: 'blur(3px)',
+        }}
+        animate={{
+          x: ['-10%', '30%', '10%', '-20%', '-10%'],
+          y: ['10%', '-15%', '25%', '-10%', '10%'],
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      {/* Blob 2: violet fonce, mouvement oppose */}
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          width: '100%', height: '100%',
+          background: 'radial-gradient(circle, rgba(124,58,237,0.7) 0%, transparent 55%)',
+          filter: 'blur(2px)',
+        }}
+        animate={{
+          x: ['20%', '-15%', '-25%', '15%', '20%'],
+          y: ['-15%', '20%', '-10%', '25%', '-15%'],
+        }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      {/* Blob 3: chrome clair, accent */}
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          width: '80%', height: '80%',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 50%)',
+          filter: 'blur(2px)',
+        }}
+        animate={{
+          x: ['-5%', '25%', '-20%', '10%', '-5%'],
+          y: ['20%', '-10%', '15%', '-20%', '20%'],
+          scale: [1, 1.2, 0.9, 1.1, 1],
+        }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       />
       {/* Specular highlight */}
       <motion.div
         className="absolute rounded-full"
-        style={{ inset: '30%', background: 'radial-gradient(circle at 35% 35%, rgba(255,255,255,0.45) 0%, transparent 60%)' }}
-        animate={{ opacity: [0.5, 0.9, 0.5] }}
-        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ inset: '20%', background: 'radial-gradient(circle at 35% 35%, rgba(255,255,255,0.35) 0%, transparent 55%)' }}
+        animate={{ opacity: [0.4, 0.8, 0.4] }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
       />
     </div>
   )

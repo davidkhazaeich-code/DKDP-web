@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
-import { ChevronDown } from 'lucide-react'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { GradText } from '@/components/ui/GradText'
 import { TrustBadge } from '@/components/ui/TrustBadge'
@@ -22,25 +21,6 @@ export function HomeHero() {
   useEffect(() => {
     setIsDesktop(window.matchMedia('(min-width: 768px)').matches)
   }, [])
-
-  const scrollIndicator = (
-    <div
-      aria-hidden="true"
-      className="flex flex-col items-center gap-2 mt-8 sm:mt-10"
-    >
-      <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-text-muted">
-        Défiler
-      </span>
-      <div className="flex flex-col items-center -space-y-3">
-        <div style={{ animation: 'chevronBounce 1.5s ease-in-out infinite' }}>
-          <ChevronDown size={20} className="text-text-secondary" />
-        </div>
-        <div style={{ animation: 'chevronBounce2 1.5s ease-in-out infinite 0.18s' }}>
-          <ChevronDown size={20} className="text-text-muted" />
-        </div>
-      </div>
-    </div>
-  )
 
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-14 pb-16 md:pb-0">
@@ -81,7 +61,6 @@ export function HomeHero() {
             Découvrez nos services →
           </LiquidMetalButton>
         </div>
-        {scrollIndicator}
       </div>
     </section>
   )

@@ -180,7 +180,7 @@ export default function AutomationPage() {
         accentRgb="212,212,216"
       >
         <section className="pt-28 pb-24">
-          <div className="max-w-[1200px] mx-auto px-6">
+          <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 mb-6">
               <Link
@@ -239,7 +239,7 @@ export default function AutomationPage() {
 
       {/* ── Stats bar ── */}
       <section className="py-12 border-b border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <div className="grid grid-cols-3 gap-6 md:gap-12">
             {[
               { value: '70%', label: 'Tâches répétitives automatisables en moyenne' },
@@ -258,8 +258,8 @@ export default function AutomationPage() {
       </section>
 
       {/* ── Subnav ── */}
-      <div className="sticky top-[66px] z-30 border-b border-white/[0.06] bg-[#0A0A0A]/85 backdrop-blur-2xl">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <div className="sticky top-[66px] z-30 px-6 pt-1.5">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <div className="flex items-center justify-between gap-2">
             <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
               {[
@@ -291,7 +291,7 @@ export default function AutomationPage() {
 
       {/* ── Pourquoi automatiser ── */}
       <section id="pourquoi" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi automatiser</GradTag>
@@ -336,7 +336,7 @@ export default function AutomationPage() {
 
       {/* ── Outils connectés ── */}
       <section id="outils" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Outils connectés</GradTag>
@@ -375,7 +375,7 @@ export default function AutomationPage() {
 
       {/* ── Process ── */}
       <section id="comment-ca-marche" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Notre méthode</GradTag>
@@ -424,7 +424,7 @@ export default function AutomationPage() {
 
       {/* ── Pricing ── */}
       <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
@@ -541,7 +541,7 @@ export default function AutomationPage() {
       {/* ── Témoignages ── */}
       <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)" accentRgb="212,212,216">
         <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Témoignages</GradTag>
@@ -589,7 +589,7 @@ export default function AutomationPage() {
 
       {/* ── Bridge ── */}
       <section className="py-16 border-t border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <p className="text-center text-text-muted text-xs font-semibold uppercase tracking-widest mb-8">
               Aller plus loin avec l&apos;IA

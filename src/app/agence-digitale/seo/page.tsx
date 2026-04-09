@@ -134,7 +134,7 @@ export default function SEOPage() {
       {/* ── Hero ── */}
       <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
         <section className="pt-28 pb-24">
-          <div className="max-w-[1200px] mx-auto px-6">
+          <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
             <div className="flex items-center gap-2 mb-6">
               <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-white transition-colors">
                 Service Digital
@@ -179,7 +179,7 @@ export default function SEOPage() {
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: '+340%', l: 'Trafic organique', sub: 'Gain moyen à 12 mois' },
@@ -200,8 +200,8 @@ export default function SEOPage() {
       </section>
 
       {/* ── Subnav ── */}
-      <div className="sticky top-[66px] z-30 border-b border-white/[0.06] bg-[#0A0A0A]/85 backdrop-blur-2xl">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <div className="sticky top-[66px] z-30 px-6 pt-1.5">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <div className="flex items-center justify-between gap-2">
             <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
               {[
@@ -234,7 +234,7 @@ export default function SEOPage() {
 
       {/* ── Notre approche ── */}
       <section id="approche" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
               <GradTag className="mb-4">Notre approche</GradTag>
@@ -274,7 +274,7 @@ export default function SEOPage() {
 
       {/* ── GEO - Visibilité IA ── */}
       <section className="py-24 border-b border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
               <span
@@ -353,7 +353,7 @@ export default function SEOPage() {
 
       {/* ── Insight / Problème ── */}
       <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
               <GradTag className="mb-4">Le vrai problème</GradTag>
@@ -400,7 +400,7 @@ export default function SEOPage() {
 
       {/* ── Bénéfices ── */}
       <section id="resultats" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Résultats</GradTag>
@@ -432,7 +432,7 @@ export default function SEOPage() {
       {/* ── Offres ── */}
       <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
         <section id="tarifs" className="py-24 border-y border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
@@ -543,7 +543,7 @@ export default function SEOPage() {
 
       {/* ── Process ── */}
       <section id="process" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Méthode</GradTag>
@@ -569,7 +569,7 @@ export default function SEOPage() {
       {/* ── Témoignages ── */}
       <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
         <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Témoignages</GradTag>
@@ -620,7 +620,7 @@ export default function SEOPage() {
 
       {/* ── Réalisations + Garanties ── */}
       <section id="realisations" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Réalisations</GradTag>
@@ -731,7 +731,7 @@ export default function SEOPage() {
 
       {/* ── Bridge ── */}
       <section className="py-16 border-t border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <Link
               href="/agence-digitale/publicite-sea"

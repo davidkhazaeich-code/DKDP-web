@@ -66,7 +66,7 @@ export default function BlogPage() {
         blob2="rgba(255,107,0,0.07)"
       >
         <section className="pt-28 pb-24">
-          <div className="max-w-[1200px] mx-auto px-6">
+          <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
             <div className="max-w-2xl">
               <GradTag className="mb-6">Blog &amp; Ressources</GradTag>
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
@@ -88,8 +88,8 @@ export default function BlogPage() {
       </HeroBg>
 
       {/* ══ 2. Filtres catégories ══ */}
-      <div className="sticky top-[66px] z-30 border-b border-white/[0.06] bg-[#0A0A0A]/85 backdrop-blur-2xl">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <div className="sticky top-[66px] z-30 px-6 pt-1.5">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Filtres categories">
             <a href="#articles" className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold transition-colors"
               style={{ background: violetBg, color: violetColor, border: `1px solid ${violetBd}` }}>
@@ -117,7 +117,7 @@ export default function BlogPage() {
 
       {/* ══ 3. Article mis en avant ══ */}
       <section className="py-24 scroll-mt-[120px]" id="articles">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-8">
               A la une
@@ -186,7 +186,7 @@ export default function BlogPage() {
 
       {/* ══ 4. Grille articles par catégorie ══ */}
       <section className="pb-24 scroll-mt-[120px]" id="cat-ia">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
 
           {/* Intelligence Artificielle */}
           {GRID_ARTICLES.filter(a => a.category === 'ia').length > 0 && (
@@ -279,7 +279,7 @@ export default function BlogPage() {
 
       {/* ══ 5. Newsletter ══ */}
       <section className="py-24 border-t border-zinc-800">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto rounded-2xl border border-white/[0.08] bg-[#0A0A0A]/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)] px-5">
           <SectionReveal>
             <div
               className="max-w-xl mx-auto rounded-[20px] border p-10 text-center"

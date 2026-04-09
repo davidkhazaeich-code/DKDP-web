@@ -297,7 +297,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
           transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
           id="mobile-menu"
           className="fixed left-0 right-0 bottom-0 z-40 xl:hidden flex flex-col"
-          style={{ top: '70px', background: 'rgba(8,8,8,0.97)', backdropFilter: 'blur(24px)' }}
+          style={{ top: '66px', background: 'rgba(8,8,8,0.97)', backdropFilter: 'blur(24px)' }}
         >
           {/* ── Tab bar ── */}
           <div className="flex-shrink-0 px-4 pt-4 pb-3">
@@ -516,10 +516,10 @@ export function Header() {
       >
         <div
           className={cn(
-            'pointer-events-auto max-w-[1200px] mx-auto mt-3 rounded-2xl border transition-all duration-300',
+            'pointer-events-auto max-w-[1200px] mx-auto mt-2 rounded-2xl border transition-all duration-300',
             scrolled || mobileOpen
               ? 'bg-[#0A0A0A]/90 backdrop-blur-2xl border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)]'
-              : 'bg-[#0A0A0A]/50 backdrop-blur-xl border-white/[0.05] shadow-[0_4px_20px_rgba(0,0,0,0.2)]'
+              : 'bg-transparent border-transparent'
           )}
         >
         <div className="px-4 sm:px-5 h-14 flex items-center justify-between">

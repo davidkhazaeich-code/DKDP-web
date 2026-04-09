@@ -40,7 +40,16 @@ const INLINE_CTAS = [
 
 // ── Animated orb ────────────────────────────────────────────────────────────
 
-function AnimatedOrb({ size = 32 }: { size?: number }) {
+function AnimatedOrb({ size = 32, animated = false }: { size?: number; animated?: boolean }) {
+  if (!animated) {
+    return (
+      <div className="relative flex-shrink-0 rounded-full overflow-hidden" style={{ width: size, height: size }}>
+        <div className="absolute inset-0.5 rounded-full" style={{ background: 'linear-gradient(135deg, #A78BFA, #D4D4D8, #7C3AED)' }} />
+        <div className="absolute rounded-full" style={{ inset: '28%', background: 'radial-gradient(circle at 35% 35%, rgba(255,255,255,0.3) 0%, transparent 55%)' }} />
+      </div>
+    )
+  }
+
   return (
     <div className="relative flex-shrink-0 rounded-full overflow-hidden" style={{ width: size, height: size }}>
       {/* Glow pulse */}
@@ -51,51 +60,26 @@ function AnimatedOrb({ size = 32 }: { size?: number }) {
         transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
       />
       {/* Base gradient */}
-      <div
-        className="absolute inset-0.5 rounded-full"
-        style={{ background: 'linear-gradient(135deg, #A78BFA, #7C3AED)' }}
-      />
-      {/* Blob 1: violet clair, mouvement lent */}
+      <div className="absolute inset-0.5 rounded-full" style={{ background: 'linear-gradient(135deg, #A78BFA, #7C3AED)' }} />
+      {/* Blob 1 */}
       <motion.div
         className="absolute rounded-full"
-        style={{
-          width: '120%', height: '120%',
-          background: 'radial-gradient(circle, rgba(212,212,216,0.6) 0%, transparent 60%)',
-          filter: 'blur(3px)',
-        }}
-        animate={{
-          x: ['-10%', '30%', '10%', '-20%', '-10%'],
-          y: ['10%', '-15%', '25%', '-10%', '10%'],
-        }}
+        style={{ width: '120%', height: '120%', background: 'radial-gradient(circle, rgba(212,212,216,0.6) 0%, transparent 60%)', filter: 'blur(3px)' }}
+        animate={{ x: ['-10%', '30%', '10%', '-20%', '-10%'], y: ['10%', '-15%', '25%', '-10%', '10%'] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       />
-      {/* Blob 2: violet fonce, mouvement oppose */}
+      {/* Blob 2 */}
       <motion.div
         className="absolute rounded-full"
-        style={{
-          width: '100%', height: '100%',
-          background: 'radial-gradient(circle, rgba(124,58,237,0.7) 0%, transparent 55%)',
-          filter: 'blur(2px)',
-        }}
-        animate={{
-          x: ['20%', '-15%', '-25%', '15%', '20%'],
-          y: ['-15%', '20%', '-10%', '25%', '-15%'],
-        }}
+        style={{ width: '100%', height: '100%', background: 'radial-gradient(circle, rgba(124,58,237,0.7) 0%, transparent 55%)', filter: 'blur(2px)' }}
+        animate={{ x: ['20%', '-15%', '-25%', '15%', '20%'], y: ['-15%', '20%', '-10%', '25%', '-15%'] }}
         transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
       />
-      {/* Blob 3: chrome clair, accent */}
+      {/* Blob 3 */}
       <motion.div
         className="absolute rounded-full"
-        style={{
-          width: '80%', height: '80%',
-          background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 50%)',
-          filter: 'blur(2px)',
-        }}
-        animate={{
-          x: ['-5%', '25%', '-20%', '10%', '-5%'],
-          y: ['20%', '-10%', '15%', '-20%', '20%'],
-          scale: [1, 1.2, 0.9, 1.1, 1],
-        }}
+        style={{ width: '80%', height: '80%', background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 50%)', filter: 'blur(2px)' }}
+        animate={{ x: ['-5%', '25%', '-20%', '10%', '-5%'], y: ['20%', '-10%', '15%', '-20%', '20%'], scale: [1, 1.2, 0.9, 1.1, 1] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       />
       {/* Specular highlight */}
@@ -484,7 +468,7 @@ export function ChatWidget() {
                   : '0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04)',
               }}
             >
-              <AnimatedOrb size={28} />
+              <AnimatedOrb size={28} animated />
 
               {/* Honeypot: invisible to humans, bots fill it */}
               <input

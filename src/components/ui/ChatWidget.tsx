@@ -546,14 +546,16 @@ export function ChatWidget() {
          ════════════════════════════════════════════════════════════════════════ */}
       <AnimatePresence>
         {isOpen && (
+          <div
+            className="fixed z-40 left-1/2 -translate-x-1/2 bottom-2"
+            style={{ width: 'min(580px, calc(100vw - 16px))' }}
+          >
           <motion.div
             initial={{ opacity: 0, y: 60, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
             transition={{ type: 'spring' as const, damping: 22, stiffness: 260 }}
-            className="fixed z-40 flex flex-col overflow-hidden rounded-2xl
-              left-2 right-2 bottom-2
-              md:left-auto md:right-auto md:left-1/2 md:-translate-x-1/2 md:bottom-4 md:w-[580px]"
+            className="flex flex-col overflow-hidden rounded-2xl w-full"
             style={{
               height: 'min(480px, calc(100svh - 80px))',
               background: '#0A0A0A',
@@ -718,6 +720,7 @@ export function ChatWidget() {
               </div>
             )}
           </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </>

@@ -227,7 +227,7 @@ export default function FormationClaudeAIPage() {
               </div>
 
               {/* Right - visual */}
-              <div className="relative hidden lg:flex flex-col gap-4">
+              <div className="relative flex flex-col gap-4">
                 {/* Terminal Claude Code */}
                 <div
                   className="rounded-[14px] p-5"

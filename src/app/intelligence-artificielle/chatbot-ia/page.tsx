@@ -354,7 +354,7 @@ export default function ChatbotIAPage() {
               </div>
 
               {/* Chat mockup */}
-              <div className="relative hidden lg:block">
+              <div className="relative">
                 <div
                   className="relative w-full rounded-2xl p-6 space-y-4"
                   style={{

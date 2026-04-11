@@ -5,7 +5,7 @@ const OD = orange.border
 
 export function HeroVisual() {
   return (
-    <div className="relative hidden lg:flex flex-col gap-4">
+    <div className="relative flex flex-col gap-4">
       {/* Training Programs Dashboard */}
       <div
         className="rounded-[14px] overflow-hidden"
@@ -88,7 +88,7 @@ export function HeroVisual() {
       </div>
 
       {/* Floating participants counter */}
-      <div className="absolute -right-2 top-8 rotate-1">
+      <div className="absolute -right-2 top-8 rotate-1 hidden lg:block">
         <div
           className="rounded-lg p-3 text-center"
           style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(255,140,0,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
@@ -100,7 +100,7 @@ export function HeroVisual() {
       </div>
 
       {/* Floating formats */}
-      <div className="absolute -left-3 bottom-16 -rotate-2">
+      <div className="absolute -left-3 bottom-16 -rotate-2 hidden lg:block">
         <div
           className="rounded-lg p-2.5"
           style={{ background: 'rgba(0,0,0,0.9)', border: `1px solid ${OD}`, boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}

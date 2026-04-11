@@ -5,7 +5,7 @@ const VD = violet.border
 
 export function HeroVisual() {
   return (
-    <div className="relative hidden lg:flex flex-col gap-4">
+    <div className="relative flex flex-col gap-4">
       {/* Browser mockup */}
       <div
         className="rounded-[14px] overflow-hidden"
@@ -86,7 +86,7 @@ export function HeroVisual() {
       </div>
 
       {/* Floating code snippet */}
-      <div className="absolute -right-3 top-16 rotate-2">
+      <div className="hidden lg:block absolute -right-3 top-16 rotate-2">
         <div
           className="rounded-lg p-3 font-mono text-[10px] leading-relaxed"
           style={{ background: 'rgba(0,0,0,0.85)', border: `1px solid ${VD}`, boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
@@ -100,7 +100,7 @@ export function HeroVisual() {
       </div>
 
       {/* Floating badges stack */}
-      <div className="absolute -left-4 top-8 flex flex-col gap-2.5">
+      <div className="hidden lg:flex absolute -left-4 top-8 flex-col gap-2.5">
         {/* PageSpeed */}
         <div className="-rotate-3">
           <div

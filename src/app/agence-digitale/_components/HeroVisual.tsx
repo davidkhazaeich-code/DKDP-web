@@ -5,7 +5,7 @@ const VD = violet.border
 
 export function HeroVisual() {
   return (
-    <div className="relative hidden lg:flex flex-col gap-4">
+    <div className="relative flex flex-col gap-4">
       {/* Services overview */}
       <div
         className="rounded-[14px] overflow-hidden"
@@ -75,7 +75,7 @@ export function HeroVisual() {
       </div>
 
       {/* Floating badge */}
-      <div className="absolute -right-3 top-12 rotate-2">
+      <div className="absolute -right-3 top-12 rotate-2 hidden lg:block">
         <div
           className="rounded-lg px-3 py-2 flex items-center gap-2"
           style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}

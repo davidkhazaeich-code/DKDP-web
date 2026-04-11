@@ -5,7 +5,7 @@ const VD = violet.border
 
 export function HeroVisual() {
   return (
-    <div className="relative hidden lg:flex flex-col gap-4">
+    <div className="relative flex flex-col gap-4">
       {/* Social Feed mockup */}
       <div
         className="rounded-[14px] overflow-hidden"
@@ -100,7 +100,7 @@ export function HeroVisual() {
       </div>
 
       {/* Floating growth chart */}
-      <div className="absolute -right-2 top-6 rotate-1">
+      <div className="absolute -right-2 top-6 rotate-1 hidden lg:block">
         <div
           className="rounded-lg p-2.5"
           style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}

@@ -136,7 +136,7 @@ export default function FormationIAPage() {
                   </Link>
                 </div>
               </div>
-              <div className="relative hidden lg:block">
+              <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
                   <Image
                     src="/images/services/dkdp-formation-ia-conference-geneve.webp"

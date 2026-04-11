@@ -129,7 +129,7 @@ export default function AuditConseilPage() {
                 </div>
               </div>
 
-              <div className="relative hidden lg:block">
+              <div className="relative">
                 <div
                   className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden"
                   style={{ boxShadow: '0 0 60px rgba(212,212,216,0.10)' }}

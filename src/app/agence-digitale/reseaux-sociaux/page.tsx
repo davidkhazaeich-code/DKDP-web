@@ -20,7 +20,6 @@ import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { PlatformGrid } from './_components/PlatformGrid'
-import { HeroVisual } from './_components/HeroVisual'
 import { violet } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
@@ -164,7 +163,19 @@ export default function ReseauxSociauxPage() {
                   </Link>
                 </div>
               </div>
-              <HeroVisual />
+              <div className="relative">
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}>
+                  <Image
+                    src="/images/services/dkdp-gestion-reseaux-sociaux-geneve.webp"
+                    alt="Gestion reseaux sociaux a Geneve, deux professionnels analysant les performances social media"
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
+                </div>
+              </div>
             </div>
           </div>
         </section>

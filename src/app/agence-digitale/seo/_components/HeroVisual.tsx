@@ -31,9 +31,9 @@ export function HeroVisual() {
             <p className="text-[9px] text-zinc-500 uppercase tracking-widest mb-2">Mots-cles en progression</p>
             <div className="space-y-2">
               {[
-                { kw: 'votre service + ville', before: 34, after: 3, change: '+31' },
-                { kw: 'votre secteur + region', before: 52, after: 7, change: '+45' },
-                { kw: 'votre expertise principale', before: 28, after: 1, change: '+27' },
+                { kw: 'votre service + Geneve', before: 34, after: 3, change: '+31' },
+                { kw: 'votre secteur + Suisse romande', before: 52, after: 7, change: '+45' },
+                { kw: 'votre expertise + Geneve', before: 28, after: 1, change: '+27' },
               ].map((k) => (
                 <div key={k.kw} className="flex items-center gap-3 text-[10px]">
                   <span className="text-zinc-400 flex-1 truncate">{k.kw}</span>

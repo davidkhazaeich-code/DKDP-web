@@ -71,7 +71,7 @@ const FAQ_ITEMS = [
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function AgentsIAPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg
         schema={buildService({
           name: 'Agents IA sur mesure Genève',

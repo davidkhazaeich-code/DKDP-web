@@ -92,7 +92,7 @@ const badgeColors: Record<string, { background: string; color: string; border: s
 
 export default function IntelligenceArtificiellePage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildService({ name: 'Intelligence Artificielle pour PME Genève', url: '/intelligence-artificielle', description: 'Agents IA sur mesure, automatisation des processus et conseil IA pour PME en Suisse romande.' })} />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Intelligence Artificielle', url: '/intelligence-artificielle' }])} />
 

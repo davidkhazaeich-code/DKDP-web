@@ -79,7 +79,7 @@ const steps = [
 
 export default function FormationInformatiquePage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildCourse({ name: 'Formation Informatique Entreprise Genève', url: '/formation-entreprise/informatique', description: 'Formation informatique pour PME à Genève. Windows, emails, réseau, outils collaboratifs. Tous niveaux, en présentiel.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

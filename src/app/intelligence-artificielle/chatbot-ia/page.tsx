@@ -248,7 +248,7 @@ const bd = chrome.border
 
 export default function ChatbotIAPage() {
   return (
-    <main className="pt-14">
+    <main>
       {/* ── Schema.org ── */}
       <SchemaOrg
         schema={buildService({

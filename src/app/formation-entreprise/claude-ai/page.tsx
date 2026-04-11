@@ -139,7 +139,7 @@ const FORMATEURS = [
 ───────────────────────────────────────────── */
 export default function FormationClaudeAIPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildCourse({
         name: 'Formation Claude IA en entreprise Genève',
         url: '/formation-entreprise/claude-ai',

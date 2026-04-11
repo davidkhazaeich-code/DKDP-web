@@ -88,7 +88,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 
 export default function FormationMontageVideoPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildCourse({ name: 'Formation Montage Vidéo Entreprise Genève', url: '/formation-entreprise/montage-video', description: 'Formation montage vidéo pour équipes d\'entreprise à Genève. CapCut, DaVinci Resolve et Premiere Pro. Produisez vos vidéos professionnelles en interne.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

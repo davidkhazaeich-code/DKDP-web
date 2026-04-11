@@ -95,7 +95,7 @@ const steps = [
 
 export default function FormationWebDesignPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildCourse({ name: 'Formation Web Design Canva Entreprise Genève', url: '/formation-entreprise/web-design', description: "Formation Canva et web design pour équipes d'entreprise à Genève. Créez des visuels professionnels sans être graphiste." })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

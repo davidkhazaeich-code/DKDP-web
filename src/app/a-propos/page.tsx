@@ -176,7 +176,7 @@ const REASONS = [
 // ── Page ─────────────────────────────────────────────────────────
 export default function AProposPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildLocalBusiness()} />
       <SchemaOrg schema={buildPerson()} />
 

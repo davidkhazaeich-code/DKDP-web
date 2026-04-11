@@ -99,7 +99,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 
 export default function FormationIAPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildCourse({ name: 'Formation Intelligence Artificielle en entreprise Genève', url: '/formation-entreprise/ia', description: 'Formation IA pratique pour équipes d\'entreprise à Genève. ChatGPT, Claude, Copilot. Programme sur mesure, 1 journée.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

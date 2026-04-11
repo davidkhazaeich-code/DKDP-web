@@ -155,7 +155,7 @@ const TESTIMONIALS = [
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export default function AutomationPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg
         schema={buildService({
           name: 'Automatisation métier IA Genève',

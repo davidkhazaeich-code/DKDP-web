@@ -168,7 +168,7 @@ const FAQ_ITEMS = [
 
 export default function FormationParticuliersPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg
         schema={buildCourse({
           name: 'Formation Informatique pour Particuliers · cours-informatique.ch',

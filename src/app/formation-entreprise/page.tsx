@@ -113,7 +113,7 @@ const badgeColors: Record<string, { background: string; color: string; border: s
 
 export default function FormationEntreprisePage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildCourse({ name: 'Formation IA et Digital en Entreprise', url: '/formation-entreprise', description: 'Formations professionnelles en IA, bureautique, cybersécurité et réseaux sociaux pour entreprises à Genève et en Suisse romande.' })} />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Formation Entreprise', url: '/formation-entreprise' }])} />
 

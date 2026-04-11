@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <HeroBg className="min-h-screen">
-      <main className="pt-14">
+      <main>
         <SchemaOrg schema={buildLocalBusiness()} />
         <SchemaOrg schema={buildBreadcrumbList([
           { name: 'Accueil', url: '/' },

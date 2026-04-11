@@ -90,7 +90,7 @@ export default function AuditConseilPage() {
   ])
 
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={schemaService} />
       <SchemaOrg schema={schemaFaq} />
       <SchemaOrg schema={schemaBreadcrumb} />

@@ -95,7 +95,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 
 export default function FormationBureautiquePage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildCourse({ name: 'Formation Bureautique Excel Microsoft 365 Genève', url: '/formation-entreprise/bureautique', description: 'Formation bureautique professionnelle à Genève. Excel, Word, PowerPoint, Outlook et Microsoft 365 pour équipes d\'entreprise.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

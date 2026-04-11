@@ -146,7 +146,7 @@ const FAQ = [
 
 export default function TarifsPage() {
   return (
-    <main className="pt-14">
+    <main>
 
       {/* ── Hero ── */}
       <HeroBg

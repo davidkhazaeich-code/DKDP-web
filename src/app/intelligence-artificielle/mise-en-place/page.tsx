@@ -74,7 +74,7 @@ const FAQ_ITEMS = [
 // ── Page ───────────────────────────────────────────────────────
 export default function MiseEnPlacePage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg
         schema={buildService({
           name: 'Mise en place IA Geneve : Integration ChatGPT Claude LLM',

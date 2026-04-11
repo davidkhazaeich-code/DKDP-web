@@ -45,7 +45,7 @@ const GRID_ARTICLES = SORTED_ARTICLES.filter(a => a.slug !== FEATURED_SLUG)
 /* ── Page ── */
 export default function BlogPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg
         schema={buildService({
           name: 'Blog DKDP',

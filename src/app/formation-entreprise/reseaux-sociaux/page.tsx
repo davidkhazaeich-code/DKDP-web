@@ -91,7 +91,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 
 export default function FormationReseauxSociauxPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildCourse({ name: 'Formation Réseaux Sociaux Entreprise Genève', url: '/formation-entreprise/reseaux-sociaux', description: 'Formation réseaux sociaux professionnels à Genève. Instagram, LinkedIn, TikTok, Facebook. Stratégie, Canva, calendrier éditorial. Autonomie dès le lendemain.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

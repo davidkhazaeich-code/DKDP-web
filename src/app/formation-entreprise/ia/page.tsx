@@ -20,6 +20,7 @@ import { orange } from '@/lib/tokens'
 import { ToolComparison } from './_components/ToolComparison'
 import { DayAgenda } from './_components/DayAgenda'
 import { GalleryFormation } from './_components/GalleryFormation'
+import { SkillsBento } from './_components/SkillsBento'
 
 export const metadata: Metadata = {
   title: 'Formation IA Entreprise Genève · ChatGPT, Claude · DKDP',
@@ -183,6 +184,7 @@ export default function FormationIAPage() {
               {[
                 { label: 'Pourquoi maintenant', href: '#pourquoi' },
                 { label: 'Programme', href: '#programme' },
+                { label: 'Competences', href: '#competences' },
                 { label: 'ROI', href: '#roi' },
                 { label: 'Format', href: '#format' },
                 { label: 'Galerie', href: '#galerie' },
@@ -282,6 +284,26 @@ export default function FormationIAPage() {
               </div>
             </SectionReveal>
           </div>
+        </div>
+      </section>
+
+      {/* ── Competences acquises (Bento) ── */}
+      <section id="competences" className="scroll-mt-[124px] py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <GradTag className="mb-4">Ce que vous maitriserez</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                6 competences concretes, utilisables des le lendemain.
+              </h2>
+              <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
+                Pas de theorie abstraite. Chaque competence est travaillee sur vos vrais documents et vos vrais cas d&apos;usage.
+              </p>
+            </div>
+          </SectionReveal>
+          <SectionReveal delay={0.1}>
+            <SkillsBento />
+          </SectionReveal>
         </div>
       </section>
 

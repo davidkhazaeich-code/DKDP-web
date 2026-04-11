@@ -17,6 +17,7 @@ import { buildService, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_AGENCE } from '@/data/faq-agence'
 import { CITIES } from '@/lib/cities'
 import { FunnelDiagram } from './_components/FunnelDiagram'
+import { HeroVisual } from './_components/HeroVisual'
 import { violet } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
@@ -119,21 +120,24 @@ export default function AgenceDigitalePage() {
       >
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="max-w-3xl">
-              <GradTag className="mb-6">Service Digital</GradTag>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                Votre présence digitale,{' '}
-                <GradText as="span">optimisée de A à Z.</GradText>
-              </h1>
-              <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                De la création de site au référencement, en passant par les campagnes payantes : on construit une stratégie cohérente qui génère de vrais résultats.
-              </p>
-              <div className="flex flex-wrap gap-4 items-center">
-                <LiquidMetalButton href="/contact?service=service-digital" size="lg">Devis gratuit →</LiquidMetalButton>
-                <Link href="#services" className="text-sm text-text-muted hover:text-white transition-colors">
-                  Voir nos services ↓
-                </Link>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div>
+                <GradTag className="mb-6">Service Digital</GradTag>
+                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
+                  Votre présence digitale,{' '}
+                  <GradText as="span">optimisée de A à Z.</GradText>
+                </h1>
+                <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
+                  De la création de site au référencement, en passant par les campagnes payantes : on construit une stratégie cohérente qui génère de vrais résultats.
+                </p>
+                <div className="flex flex-wrap gap-4 items-center">
+                  <LiquidMetalButton href="/contact?service=service-digital" size="lg">Devis gratuit →</LiquidMetalButton>
+                  <Link href="#services" className="text-sm text-text-muted hover:text-white transition-colors">
+                    Voir nos services ↓
+                  </Link>
+                </div>
               </div>
+              <HeroVisual />
             </div>
           </div>
         </section>

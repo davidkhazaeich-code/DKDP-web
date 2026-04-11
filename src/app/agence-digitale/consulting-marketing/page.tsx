@@ -113,7 +113,7 @@ const border = violet.border
 
 export default function ConsultingMarketingPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildService({ name: 'Consulting Marketing Digital Genève', url: '/agence-digitale/consulting-marketing', description: 'Audit de présence digitale et consulting stratégique pour PME à Genève. Plan d\'actions priorisé et accompagnement.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

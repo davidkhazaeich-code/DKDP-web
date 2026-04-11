@@ -127,7 +127,7 @@ const border = violet.border
 
 export default function ReseauxSociauxPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildService({ name: 'Gestion réseaux sociaux Genève', url: '/agence-digitale/reseaux-sociaux', description: 'Gestion des réseaux sociaux pour PME à Genève. Stratégie, contenu, community management et Social Ads.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

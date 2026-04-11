@@ -87,8 +87,8 @@ export function HeroVisual() {
           style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
           {[
-            { label: 'Perf', score: 100 },
-            { label: 'SEO', score: 100 },
+            { label: 'Perf', score: 99 },
+            { label: 'SEO', score: 98 },
             { label: 'A11y', score: 100 },
           ].map((s) => (
             <div key={s.label} className="text-center">

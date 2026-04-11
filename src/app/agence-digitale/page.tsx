@@ -109,7 +109,7 @@ const badgeColors: Record<string, { background: string; color: string; border: s
 
 export default function AgenceDigitalePage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildService({ name: 'Agence Digitale Genève', url: '/agence-digitale', description: 'Création de sites web, SEO, Google Ads et réseaux sociaux pour entreprises à Genève et en Suisse romande.' })} />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Agence Digitale', url: '/agence-digitale' }])} />
 

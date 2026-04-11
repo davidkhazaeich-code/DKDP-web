@@ -108,7 +108,7 @@ export function HeroVisual() {
             style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
           >
             <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
-              <span className="text-[10px] font-bold text-green-400">100</span>
+              <span className="text-[10px] font-bold text-green-400">99</span>
             </div>
             <div>
               <p className="text-[10px] font-semibold text-white">PageSpeed</p>
@@ -123,7 +123,7 @@ export function HeroVisual() {
             style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
           >
             <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
-              <span className="text-[10px] font-bold text-green-400">100</span>
+              <span className="text-[10px] font-bold text-green-400">98</span>
             </div>
             <div>
               <p className="text-[10px] font-semibold text-white">SEO</p>

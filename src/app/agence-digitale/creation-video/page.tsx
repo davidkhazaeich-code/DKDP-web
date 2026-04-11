@@ -116,7 +116,7 @@ const PROCESS = [
 
 export default function CreationVideoPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildService({ name: 'Création vidéo d\'entreprise Genève', url: '/agence-digitale/creation-video', description: 'Production vidéo professionnelle à Genève. Institutionnel, témoignages clients, Reels et contenus courts.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

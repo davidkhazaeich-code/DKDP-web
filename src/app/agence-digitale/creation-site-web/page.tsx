@@ -151,7 +151,7 @@ const border = violet.border
 
 export default function CreationSiteWebPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildService({ name: 'Création de site web à Genève', url: '/agence-digitale/creation-site-web', description: 'Création de sites web professionnels sur mesure pour PME à Genève. Site vitrine, e-commerce, Next.js, Astro, WordPress.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

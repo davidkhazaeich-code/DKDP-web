@@ -117,7 +117,7 @@ const border = violet.border
 
 export default function RGPDCookiesPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildService({ name: 'Mise en conformité RGPD et LPD Genève', url: '/agence-digitale/rgpd-cookies', description: 'Conformité RGPD et revLPD pour PME à Genève. Audit 48h, banner cookies, politique de confidentialité, registre des traitements, certificat de conformité.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

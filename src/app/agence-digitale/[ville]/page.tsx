@@ -98,7 +98,7 @@ export default async function CityPage({ params }: Props) {
   ]
 
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildLocalBusiness()} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

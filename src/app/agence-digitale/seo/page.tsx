@@ -123,7 +123,7 @@ const PROCESS = [
 
 export default function SEOPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildService({ name: 'Référencement SEO Genève', url: '/agence-digitale/seo', description: 'Stratégie SEO complète pour PME à Genève. Audit technique, contenu et backlinks pour dominer les résultats Google.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

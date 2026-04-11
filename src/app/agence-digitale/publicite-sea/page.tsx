@@ -192,7 +192,7 @@ const border = violet.border
 
 export default function PubliciteSEAPage() {
   return (
-    <main className="pt-14">
+    <main>
       <SchemaOrg schema={buildService({ name: 'Publicité Google Ads Genève', url: '/agence-digitale/publicite-sea', description: 'Gestion de campagnes Google Ads pour PME à Genève. Search, Display et remarketing avec suivi ROI précis.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

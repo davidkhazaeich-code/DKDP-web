@@ -19,6 +19,7 @@ import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
 import { ToolComparison } from './_components/ToolComparison'
 import { DayAgenda } from './_components/DayAgenda'
+import { GalleryFormation } from './_components/GalleryFormation'
 
 export const metadata: Metadata = {
   title: 'Formation IA Entreprise Genève · ChatGPT, Claude · DKDP',
@@ -184,6 +185,7 @@ export default function FormationIAPage() {
                 { label: 'Programme', href: '#programme' },
                 { label: 'ROI', href: '#roi' },
                 { label: 'Format', href: '#format' },
+                { label: 'Galerie', href: '#galerie' },
                 { label: 'Tarifs', href: '#tarifs' },
                 { label: 'FAQ', href: '#faq' },
               ].map(({ label, href }) => (
@@ -493,6 +495,26 @@ export default function FormationIAPage() {
         </div>
       </section>
       </HeroBg>
+
+      {/* ── Galerie ── */}
+      <section id="galerie" className="scroll-mt-[124px] py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <GradTag className="mb-4">En images</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                Nos formations en action.
+              </h2>
+              <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
+                Des sessions pratiques dans un cadre professionnel. Chaque formation est adaptee a votre equipe et vos outils.
+              </p>
+            </div>
+          </SectionReveal>
+          <SectionReveal delay={0.15}>
+            <GalleryFormation />
+          </SectionReveal>
+        </div>
+      </section>
 
       {/* ── Tarifs ── */}
       <section id="tarifs" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">

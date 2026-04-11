@@ -13,6 +13,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { PerformanceComparison } from './_components/PerformanceComparison'
 import { TechStack } from './_components/TechStack'
+import { HeroVisual } from './_components/HeroVisual'
 import { violet } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
@@ -187,19 +188,7 @@ export default function CreationSiteWebPage() {
                   </Link>
                 </div>
               </div>
-              <div className="relative hidden lg:block">
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}>
-                  <Image
-                    src="/images/services/dkdp-agence-creation-web.webp"
-                    alt="Création de site web professionnel à Genève par DKDP"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
-                </div>
-              </div>
+              <HeroVisual />
             </div>
           </div>
         </section>

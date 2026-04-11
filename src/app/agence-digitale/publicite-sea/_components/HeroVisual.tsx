@@ -6,102 +6,107 @@ const VD = violet.border
 export function HeroVisual() {
   return (
     <div className="relative hidden lg:flex flex-col gap-4">
-      {/* Google Ads Dashboard mockup */}
+      {/* Google Ads Live Campaign */}
       <div
         className="rounded-[14px] overflow-hidden"
         style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${VD}`, boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}
       >
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
-          <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-          <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-          <span className="text-[10px] text-zinc-500 font-mono ml-2">Google Ads · Campagnes actives</span>
+        <div className="flex items-center justify-between px-4 py-3 border-b border-white/5">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-[10px] text-zinc-400 font-mono">Campagne active</span>
+          </div>
+          <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-green-400/10 text-green-400">LIVE</span>
         </div>
 
-        <div className="p-5 space-y-4">
-          {/* Campaign metrics */}
-          <div className="grid grid-cols-4 gap-3">
-            {[
-              { label: 'Impressions', value: '24.8K', change: '+18%' },
-              { label: 'Clics', value: '1,247', change: '+32%' },
-              { label: 'CPC moyen', value: 'CHF 1.20', change: '-15%' },
-              { label: 'Conversions', value: '89', change: '+45%' },
-            ].map((m) => (
-              <div key={m.label} className="text-center">
-                <p className="text-[9px] text-zinc-500 mb-1">{m.label}</p>
-                <p className="text-sm font-bold text-white">{m.value}</p>
-                <p className="text-[9px] font-bold" style={{ color: m.change.startsWith('-') ? '#4ade80' : '#4ade80' }}>{m.change}</p>
+        <div className="p-5 space-y-5">
+          {/* Budget dial */}
+          <div className="flex items-start gap-5">
+            <div className="flex-1">
+              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Budget mensuel</p>
+              <div className="flex items-baseline gap-1">
+                <span className="text-2xl font-bold text-white">CHF 2,400</span>
+                <span className="text-[10px] text-zinc-500">/ mois</span>
               </div>
-            ))}
+              <div className="mt-2 h-2 rounded-full bg-white/5 overflow-hidden">
+                <div className="h-full rounded-full w-[68%]" style={{ background: 'linear-gradient(90deg, #7C3AED, #A78BFA)' }} />
+              </div>
+              <p className="text-[9px] text-zinc-500 mt-1">68% consomme · 12 jours restants</p>
+            </div>
+            <div className="text-right">
+              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Revenue genere</p>
+              <p className="text-2xl font-bold text-green-400">CHF 19,680</p>
+              <p className="text-[9px] text-green-400 font-bold">ROAS 8.2x</p>
+            </div>
           </div>
 
           <div className="h-px bg-white/5" />
 
-          {/* Active campaigns */}
-          <div className="space-y-2">
+          {/* Live metrics ticker */}
+          <div className="grid grid-cols-4 gap-3">
             {[
-              { name: 'Search · Mots-cles marque', status: 'Active', roas: '8.2x', spend: 'CHF 450' },
-              { name: 'Search · Generiques Geneve', status: 'Active', roas: '4.7x', spend: 'CHF 1,200' },
-              { name: 'Remarketing · Visiteurs site', status: 'Active', roas: '12.1x', spend: 'CHF 320' },
-            ].map((c) => (
-              <div key={c.name} className="flex items-center justify-between text-[11px]">
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                  <span className="text-zinc-300">{c.name}</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-zinc-500 text-[10px]">{c.spend}</span>
-                  <span
-                    className="text-[10px] font-bold px-2 py-0.5 rounded"
-                    style={{ background: 'rgba(124,58,237,0.15)', color: V }}
-                  >
-                    ROAS {c.roas}
-                  </span>
-                </div>
+              { label: 'Clics auj.', value: '47', trend: '+12' },
+              { label: 'CPC moyen', value: '1.18', trend: '-0.22' },
+              { label: 'Conv. auj.', value: '6', trend: '+3' },
+              { label: 'Cout/conv.', value: '18.40', trend: '-4.60' },
+            ].map((m) => (
+              <div key={m.label}>
+                <p className="text-[8px] text-zinc-600 uppercase">{m.label}</p>
+                <p className="text-sm font-bold text-white">{m.label.includes('CPC') || m.label.includes('Cout') ? `CHF ${m.value}` : m.value}</p>
+                <p className="text-[9px] font-bold" style={{ color: m.trend.startsWith('-') ? '#4ade80' : '#4ade80' }}>{m.trend}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Floating ROAS badge */}
-      <div className="absolute -right-3 top-14 rotate-2">
+      {/* Floating conversion funnel */}
+      <div className="absolute -right-2 top-8 rotate-1">
         <div
-          className="rounded-lg px-3 py-2 flex items-center gap-2"
-          style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
+          className="rounded-lg p-3"
+          style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
-            <span className="text-[10px] font-bold text-green-400">8.2x</span>
-          </div>
-          <div>
-            <p className="text-[10px] font-semibold text-white">ROAS moyen</p>
-            <p className="text-[8px] text-zinc-500">Retour sur investissement</p>
-          </div>
+          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-2">Funnel du jour</p>
+          {[
+            { step: 'Impressions', val: '1,842', w: '100%' },
+            { step: 'Clics', val: '47', w: '60%' },
+            { step: 'Conversions', val: '6', w: '25%' },
+          ].map((f) => (
+            <div key={f.step} className="flex items-center gap-2 mb-1">
+              <div className="h-3 rounded-sm" style={{ width: f.w, minWidth: '20px', background: 'linear-gradient(90deg, rgba(124,58,237,0.4), rgba(124,58,237,0.15))' }} />
+              <span className="text-[8px] text-zinc-400 whitespace-nowrap">{f.val}</span>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Floating conversion badge */}
-      <div className="absolute -left-4 bottom-20 -rotate-3">
+      {/* Floating Lighthouse */}
+      <div className="absolute -left-3 bottom-16 -rotate-2">
         <div
-          className="rounded-lg px-3 py-2 flex items-center gap-2"
-          style={{ background: 'rgba(0,0,0,0.85)', border: `1px solid ${VD}`, boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
+          className="rounded-lg p-2.5 grid grid-cols-3 gap-2"
+          style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <div className="w-8 h-8 rounded-full border-2 flex items-center justify-center" style={{ borderColor: 'rgba(167,139,250,0.6)' }}>
-            <span className="text-[9px] font-bold" style={{ color: V }}>+45%</span>
-          </div>
-          <div>
-            <p className="text-[10px] font-semibold text-white">Conversions</p>
-            <p className="text-[8px] text-zinc-500">vs trimestre precedent</p>
-          </div>
+          {[
+            { label: 'Perf', score: 100 },
+            { label: 'SEO', score: 100 },
+            { label: 'A11y', score: 100 },
+          ].map((s) => (
+            <div key={s.label} className="text-center">
+              <div className="w-8 h-8 mx-auto rounded-full border-2 border-green-400/60 flex items-center justify-center">
+                <span className="text-[9px] font-bold text-green-400">{s.score}</span>
+              </div>
+              <span className="text-[7px] text-zinc-500 mt-0.5 block">{s.label}</span>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Mini stats */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { v: '-15%', l: 'Cout par clic', c: '#4ade80' },
-          { v: '8.2x', l: 'ROAS moyen', c: V },
-          { v: 'CHF 0', l: 'Frais de gestion caches', c: '#FF8C00' },
+          { v: '8.2x', l: 'ROAS moyen', c: '#4ade80' },
+          { v: '-22%', l: 'Cout par clic', c: V },
+          { v: 'CHF 0', l: 'Frais caches', c: '#FF8C00' },
         ].map((s) => (
           <div
             key={s.l}

@@ -1,101 +1,115 @@
 import { violet } from '@/lib/tokens'
 
-const V = violet.color
 const VD = violet.border
 
 export function HeroVisual() {
   return (
     <div className="relative hidden lg:flex flex-col gap-4">
-      {/* Compliance Dashboard mockup */}
+      {/* Compliance Scanner */}
       <div
         className="rounded-[14px] overflow-hidden"
         style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${VD}`, boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}
       >
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
-          <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-          <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-          <span className="text-[10px] text-zinc-500 font-mono ml-2">Audit RGPD / revLPD · Conformite</span>
+        <div className="flex items-center justify-between px-4 py-3 border-b border-white/5">
+          <div className="flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-green-400">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="1.5" />
+              <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span className="text-[10px] text-zinc-400 font-mono">Audit de conformite</span>
+          </div>
+          <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-green-400/10 text-green-400">Conforme</span>
         </div>
 
         <div className="p-5 space-y-4">
-          {/* Compliance score */}
+          {/* Big score */}
           <div className="flex items-center gap-5">
-            <div className="relative w-20 h-20 flex-shrink-0">
-              <svg viewBox="0 0 80 80" className="w-full h-full -rotate-90">
-                <circle cx="40" cy="40" r="34" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="6" />
+            <div className="relative w-24 h-24 flex-shrink-0">
+              <svg viewBox="0 0 96 96" className="w-full h-full -rotate-90">
+                <circle cx="48" cy="48" r="40" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="8" />
                 <circle
-                  cx="40" cy="40" r="34" fill="none"
-                  stroke="#4ade80" strokeWidth="6" strokeLinecap="round"
-                  strokeDasharray={`${2 * Math.PI * 34 * 0.94} ${2 * Math.PI * 34 * 0.06}`}
+                  cx="48" cy="48" r="40" fill="none"
+                  stroke="#4ade80" strokeWidth="8" strokeLinecap="round"
+                  strokeDasharray={`${2 * Math.PI * 40 * 0.97} ${2 * Math.PI * 40 * 0.03}`}
                 />
               </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-lg font-bold text-green-400">94%</span>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span className="text-2xl font-bold text-green-400">97%</span>
+                <span className="text-[8px] text-zinc-500">conforme</span>
               </div>
             </div>
-            <div>
-              <p className="text-white font-bold text-sm">Score de conformite</p>
-              <p className="text-zinc-500 text-[10px] mt-0.5">RGPD + revLPD Suisse</p>
-              <p className="text-green-400 text-[10px] font-bold mt-1">2 points restants</p>
+            <div className="space-y-1.5 flex-1">
+              {[
+                { cat: 'RGPD (UE)', score: 100, color: '#4ade80' },
+                { cat: 'revLPD (Suisse)', score: 100, color: '#4ade80' },
+                { cat: 'Cookies (ePrivacy)', score: 92, color: '#fbbf24' },
+              ].map((c) => (
+                <div key={c.cat}>
+                  <div className="flex justify-between text-[10px] mb-0.5">
+                    <span className="text-zinc-400">{c.cat}</span>
+                    <span className="font-bold" style={{ color: c.color }}>{c.score}%</span>
+                  </div>
+                  <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                    <div className="h-full rounded-full" style={{ width: `${c.score}%`, background: c.color }} />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Checklist */}
-          <div className="space-y-2">
+          <div className="h-px bg-white/5" />
+
+          {/* Checklist items */}
+          <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
             {[
-              { item: 'Banniere cookies conforme', done: true },
-              { item: 'Politique de confidentialite', done: true },
-              { item: 'Registre des traitements', done: true },
-              { item: 'Contrats sous-traitants (DPA)', done: true },
-              { item: 'Formulaires avec consentement', done: true },
-              { item: 'Procedure de violation', done: false },
+              { item: 'Banniere cookies', done: true },
+              { item: 'Politique confidentialite', done: true },
+              { item: 'Registre traitements', done: true },
+              { item: 'Contrats DPA', done: true },
+              { item: 'Consentement formulaires', done: true },
+              { item: 'Procedure violation', done: false },
             ].map((c) => (
-              <div key={c.item} className="flex items-center gap-2.5 text-[11px]">
-                <div
-                  className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0"
-                  style={{
-                    background: c.done ? 'rgba(74,222,128,0.15)' : 'rgba(255,255,255,0.04)',
-                    border: c.done ? '1px solid rgba(74,222,128,0.3)' : '1px solid rgba(255,255,255,0.08)',
-                  }}
-                >
-                  {c.done && <span className="text-green-400 text-[8px]">&#10003;</span>}
-                </div>
-                <span className={c.done ? 'text-zinc-300' : 'text-zinc-500'}>{c.item}</span>
+              <div key={c.item} className="flex items-center gap-1.5 text-[10px]">
+                {c.done ? (
+                  <span className="text-green-400 text-[8px]">&#10003;</span>
+                ) : (
+                  <span className="text-amber-400 text-[8px]">&#9679;</span>
+                )}
+                <span className={c.done ? 'text-zinc-400' : 'text-amber-300'}>{c.item}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Floating shield badge */}
-      <div className="absolute -right-3 top-14 rotate-2">
+      {/* Floating risk meter */}
+      <div className="absolute -right-2 top-8 rotate-1">
         <div
-          className="rounded-lg px-3 py-2 flex items-center gap-2"
-          style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
+          className="rounded-lg p-3 text-center"
+          style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
-            <span className="text-[10px]">&#128274;</span>
-          </div>
-          <div>
-            <p className="text-[10px] font-semibold text-white">revLPD Suisse</p>
-            <p className="text-[8px] text-zinc-500">Conforme depuis sept. 2023</p>
-          </div>
+          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1">Risque amende</p>
+          <p className="text-xl font-bold text-green-400">Faible</p>
+          <p className="text-[8px] text-zinc-500 mt-0.5">Apres mise en conformite</p>
         </div>
       </div>
 
-      {/* Floating RGPD badge */}
-      <div className="absolute -left-4 bottom-20 -rotate-3">
+      {/* Floating before/after */}
+      <div className="absolute -left-3 bottom-16 -rotate-2">
         <div
-          className="rounded-lg px-3 py-2 flex items-center gap-2"
-          style={{ background: 'rgba(0,0,0,0.85)', border: `1px solid ${VD}`, boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
+          className="rounded-lg p-2.5"
+          style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(252,165,165,0.15)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <div className="w-8 h-8 rounded-full border-2 flex items-center justify-center" style={{ borderColor: 'rgba(167,139,250,0.6)' }}>
-            <span className="text-[9px] font-bold" style={{ color: V }}>EU</span>
-          </div>
-          <div>
-            <p className="text-[10px] font-semibold text-white">RGPD</p>
-            <p className="text-[8px] text-zinc-500">Certification delivree</p>
+          <div className="flex gap-3">
+            <div className="text-center">
+              <p className="text-[7px] text-zinc-600 uppercase">Avant</p>
+              <p className="text-sm font-bold text-red-400">23%</p>
+            </div>
+            <div className="text-zinc-600 self-center">&#8594;</div>
+            <div className="text-center">
+              <p className="text-[7px] text-zinc-600 uppercase">Apres</p>
+              <p className="text-sm font-bold text-green-400">97%</p>
+            </div>
           </div>
         </div>
       </div>
@@ -103,9 +117,9 @@ export function HeroVisual() {
       {/* Mini stats */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { v: '94%', l: 'Score conformite', c: '#4ade80' },
-          { v: '48h', l: 'Delai de mise en place', c: V },
-          { v: 'CHF 0', l: "D'amende risquee", c: '#FF8C00' },
+          { v: '97%', l: 'Score conformite', c: '#4ade80' },
+          { v: '48h', l: 'Mise en place', c: violet.color },
+          { v: 'Inclus', l: 'Certificat delivre', c: '#FF8C00' },
         ].map((s) => (
           <div
             key={s.l}

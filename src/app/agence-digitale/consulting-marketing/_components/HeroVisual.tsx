@@ -6,107 +6,105 @@ const VD = violet.border
 export function HeroVisual() {
   return (
     <div className="relative hidden lg:flex flex-col gap-4">
-      {/* Marketing Strategy mockup */}
+      {/* Audit Radar + Before/After */}
       <div
         className="rounded-[14px] overflow-hidden"
         style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${VD}`, boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}
       >
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
-          <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-          <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-          <span className="text-[10px] text-zinc-500 font-mono ml-2">Audit Marketing · Strategie 360</span>
+        <div className="flex items-center justify-between px-4 py-3 border-b border-white/5">
+          <span className="text-[10px] text-zinc-400 font-mono">Audit Marketing 360 · Resultat</span>
+          <div className="flex items-center gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-amber-400" />
+            <span className="text-[9px] text-amber-400 font-bold">Avant DKDP</span>
+            <div className="w-2 h-2 rounded-full bg-green-400 ml-2" />
+            <span className="text-[9px] text-green-400 font-bold">Apres 6 mois</span>
+          </div>
         </div>
 
-        <div className="p-5 space-y-4">
-          {/* Funnel visualization */}
-          <div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Funnel de conversion</span>
-            <div className="mt-3 space-y-1.5">
-              {[
-                { stage: 'Visiteurs', value: '12,400', width: '100%', color: 'rgba(124,58,237,0.2)' },
-                { stage: 'Leads qualifies', value: '860', width: '70%', color: 'rgba(124,58,237,0.3)' },
-                { stage: 'Opportunites', value: '210', width: '42%', color: 'rgba(124,58,237,0.45)' },
-                { stage: 'Clients signes', value: '48', width: '22%', color: 'rgba(124,58,237,0.6)' },
-              ].map((s) => (
-                <div key={s.stage} className="flex items-center gap-3">
-                  <div
-                    className="h-6 rounded-md flex items-center px-2.5 transition-all"
-                    style={{ width: s.width, background: s.color }}
-                  >
-                    <span className="text-[10px] text-zinc-300 whitespace-nowrap">{s.stage}</span>
-                  </div>
-                  <span className="text-[10px] font-bold text-white whitespace-nowrap">{s.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="h-px bg-white/5" />
-
-          {/* Audit scores */}
-          <div className="grid grid-cols-3 gap-3">
+        <div className="p-5">
+          {/* Radar-style bars */}
+          <div className="space-y-3">
             {[
-              { label: 'SEO', score: 72, max: 100 },
-              { label: 'Contenu', score: 45, max: 100 },
-              { label: 'Conversion', score: 38, max: 100 },
+              { axis: 'Strategie digitale', before: 25, after: 85 },
+              { axis: 'SEO technique', before: 18, after: 92 },
+              { axis: 'Contenu & copywriting', before: 35, after: 78 },
+              { axis: 'Conversion (UX/CRO)', before: 22, after: 71 },
+              { axis: 'Analytics & tracking', before: 12, after: 88 },
+              { axis: 'Publicite payante', before: 40, after: 82 },
             ].map((a) => (
-              <div key={a.label} className="text-center">
-                <p className="text-[9px] text-zinc-500 mb-1">{a.label}</p>
-                <div className="h-2 rounded-full bg-white/5 overflow-hidden">
+              <div key={a.axis}>
+                <div className="flex justify-between text-[10px] mb-1">
+                  <span className="text-zinc-400">{a.axis}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-400/60 text-[9px] line-through">{a.before}%</span>
+                    <span className="text-green-400 font-bold text-[9px]">{a.after}%</span>
+                  </div>
+                </div>
+                <div className="relative h-2 rounded-full bg-white/5 overflow-hidden">
+                  {/* Before bar (faded) */}
                   <div
-                    className="h-full rounded-full"
-                    style={{
-                      width: `${a.score}%`,
-                      background: a.score > 60
-                        ? 'linear-gradient(90deg, rgba(74,222,128,0.6), rgba(74,222,128,0.3))'
-                        : 'linear-gradient(90deg, rgba(255,107,0,0.6), rgba(255,107,0,0.3))',
-                    }}
+                    className="absolute inset-y-0 left-0 rounded-full opacity-30"
+                    style={{ width: `${a.before}%`, background: '#fbbf24' }}
+                  />
+                  {/* After bar */}
+                  <div
+                    className="absolute inset-y-0 left-0 rounded-full"
+                    style={{ width: `${a.after}%`, background: 'linear-gradient(90deg, rgba(74,222,128,0.7), rgba(74,222,128,0.3))' }}
                   />
                 </div>
-                <p className="text-[10px] font-bold text-white mt-1">{a.score}/100</p>
               </div>
             ))}
           </div>
+
+          {/* Summary */}
+          <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
+            <div>
+              <p className="text-[9px] text-zinc-500 uppercase">Score global</p>
+              <div className="flex items-baseline gap-2">
+                <span className="text-amber-400/50 text-sm line-through">25/100</span>
+                <span className="text-green-400 text-xl font-bold">83/100</span>
+              </div>
+            </div>
+            <div className="text-right">
+              <p className="text-[9px] text-zinc-500 uppercase">Amelioration</p>
+              <p className="text-xl font-bold" style={{ color: V }}>+232%</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Floating ROI badge */}
-      <div className="absolute -right-3 top-14 rotate-2">
+      {/* Floating ROI card */}
+      <div className="absolute -right-2 top-8 rotate-1">
         <div
-          className="rounded-lg px-3 py-2 flex items-center gap-2"
-          style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
+          className="rounded-lg p-3"
+          style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
-            <span className="text-[9px] font-bold text-green-400">+65%</span>
-          </div>
-          <div>
-            <p className="text-[10px] font-semibold text-white">ROI Marketing</p>
-            <p className="text-[8px] text-zinc-500">Apres 6 mois</p>
-          </div>
+          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1">ROI a 6 mois</p>
+          <p className="text-xl font-bold text-green-400">+340%</p>
+          <p className="text-[8px] text-zinc-500">sur le budget marketing</p>
         </div>
       </div>
 
-      {/* Floating audit badge */}
-      <div className="absolute -left-4 bottom-20 -rotate-3">
+      {/* Floating quick wins */}
+      <div className="absolute -left-3 bottom-16 -rotate-2">
         <div
-          className="rounded-lg px-3 py-2 flex items-center gap-2"
-          style={{ background: 'rgba(0,0,0,0.85)', border: `1px solid ${VD}`, boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
+          className="rounded-lg p-2.5"
+          style={{ background: 'rgba(0,0,0,0.9)', border: `1px solid ${VD}`, boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <div className="w-8 h-8 rounded-full border-2 flex items-center justify-center" style={{ borderColor: 'rgba(167,139,250,0.6)' }}>
-            <span className="text-[9px] font-bold" style={{ color: V }}>360</span>
-          </div>
-          <div>
-            <p className="text-[10px] font-semibold text-white">Audit complet</p>
-            <p className="text-[8px] text-zinc-500">SEO + Ads + Contenu + UX</p>
-          </div>
+          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1.5">Quick wins identifies</p>
+          {['SEO technique', 'Tracking GA4', 'Landing pages'].map((w) => (
+            <div key={w} className="flex items-center gap-1.5 text-[9px]">
+              <span className="text-green-400">&#10003;</span>
+              <span className="text-zinc-400">{w}</span>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Mini stats */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { v: '65%', l: 'ROI moyen', c: '#4ade80' },
+          { v: '+232%', l: 'Score marketing', c: '#4ade80' },
           { v: '360°', l: 'Audit complet', c: V },
           { v: '3 mois', l: 'Premiers resultats', c: '#FF8C00' },
         ].map((s) => (

@@ -6,117 +6,121 @@ const VD = violet.border
 export function HeroVisual() {
   return (
     <div className="relative hidden lg:flex flex-col gap-4">
-      {/* Social Dashboard mockup */}
+      {/* Social Feed mockup */}
       <div
         className="rounded-[14px] overflow-hidden"
         style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${VD}`, boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}
       >
         <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
-          <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-          <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-          <span className="text-[10px] text-zinc-500 font-mono ml-2">Social Media · Vue d&apos;ensemble</span>
-        </div>
-
-        <div className="p-5 space-y-4">
-          {/* Platform cards */}
-          <div className="grid grid-cols-4 gap-2">
+          <div className="flex gap-1.5">
             {[
-              { name: 'Instagram', followers: '12.4K', growth: '+340', color: '#E4405F' },
-              { name: 'LinkedIn', followers: '8.1K', growth: '+180', color: '#0A66C2' },
-              { name: 'TikTok', followers: '5.6K', growth: '+890', color: '#ffffff' },
-              { name: 'YouTube', followers: '2.3K', growth: '+120', color: '#FF0000' },
+              { name: 'IG', color: '#E4405F', active: true },
+              { name: 'LI', color: '#0A66C2', active: false },
+              { name: 'TK', color: '#fff', active: false },
+              { name: 'YT', color: '#FF0000', active: false },
             ].map((p) => (
               <div
                 key={p.name}
-                className="rounded-lg p-2.5 text-center"
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                className="px-2.5 py-1 rounded-full text-[9px] font-bold"
+                style={{
+                  background: p.active ? `${p.color}20` : 'rgba(255,255,255,0.03)',
+                  color: p.active ? p.color : '#71717a',
+                  border: `1px solid ${p.active ? `${p.color}40` : 'rgba(255,255,255,0.06)'}`,
+                }}
               >
-                <div className="w-5 h-5 rounded-md mx-auto mb-1.5 flex items-center justify-center" style={{ background: `${p.color}20` }}>
-                  <div className="w-2 h-2 rounded-sm" style={{ background: p.color }} />
-                </div>
-                <p className="text-[10px] text-zinc-500">{p.name}</p>
-                <p className="text-xs font-bold text-white">{p.followers}</p>
-                <p className="text-[9px] font-bold text-green-400">{p.growth}/mois</p>
+                {p.name}
               </div>
             ))}
           </div>
+          <span className="text-[9px] text-zinc-500 ml-auto">Calendrier editorial</span>
+        </div>
 
-          {/* Engagement preview */}
-          <div className="space-y-2">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Derniers posts</span>
-            {[
-              { type: 'Carousel', platform: 'IG', reach: '4.2K', engagement: '8.3%' },
-              { type: 'Article thought leadership', platform: 'LI', reach: '12.1K', engagement: '5.7%' },
-              { type: 'Reel behind the scenes', platform: 'TK', reach: '18.5K', engagement: '12.1%' },
-            ].map((p) => (
-              <div key={p.type} className="flex items-center justify-between text-[11px]">
-                <div className="flex items-center gap-2">
-                  <span
-                    className="text-[8px] font-bold px-1.5 py-0.5 rounded"
-                    style={{ background: 'rgba(124,58,237,0.15)', color: V }}
-                  >
-                    {p.platform}
-                  </span>
-                  <span className="text-zinc-400">{p.type}</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-zinc-500 text-[10px]">{p.reach} reach</span>
-                  <span className="text-[10px] font-bold text-green-400">{p.engagement}</span>
+        <div className="p-4 space-y-3">
+          {/* Post preview cards */}
+          {[
+            {
+              type: 'Carousel',
+              caption: '5 erreurs SEO que font 90% des PME...',
+              likes: '847',
+              comments: '63',
+              shares: '124',
+              time: 'Publie il y a 2h',
+              engagement: '8.7%',
+            },
+            {
+              type: 'Reel',
+              caption: 'Comment on a triple le trafic de ce client en 3 mois',
+              likes: '2.1K',
+              comments: '89',
+              shares: '340',
+              time: 'Publie hier',
+              engagement: '12.4%',
+            },
+          ].map((post) => (
+            <div
+              key={post.caption}
+              className="rounded-lg p-3 flex gap-3"
+              style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}
+            >
+              <div className="w-14 h-14 rounded-lg flex-shrink-0 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.2), rgba(255,107,0,0.15))' }}>
+                <span className="text-[9px] font-bold text-zinc-400">{post.type}</span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[11px] text-zinc-300 leading-tight line-clamp-2">{post.caption}</p>
+                <div className="flex items-center gap-3 mt-1.5">
+                  <span className="text-[9px] text-zinc-500">{post.likes} likes</span>
+                  <span className="text-[9px] text-zinc-500">{post.comments} com.</span>
+                  <span className="text-[9px] text-zinc-500">{post.shares} partages</span>
                 </div>
               </div>
-            ))}
+              <div className="text-right flex-shrink-0">
+                <span className="text-[10px] font-bold text-green-400">{post.engagement}</span>
+                <p className="text-[8px] text-zinc-600">{post.time}</p>
+              </div>
+            </div>
+          ))}
+
+          {/* Upcoming scheduled */}
+          <div className="pt-1">
+            <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-500 mb-2">A venir cette semaine</p>
+            <div className="flex gap-2">
+              {[
+                { day: 'Mar', type: 'Story', color: '#E4405F' },
+                { day: 'Mer', type: 'Article', color: '#0A66C2' },
+                { day: 'Ven', type: 'Reel', color: '#E4405F' },
+              ].map((s) => (
+                <div key={s.day} className="flex-1 rounded-md p-2 text-center" style={{ background: `${s.color}08`, border: `1px solid ${s.color}20` }}>
+                  <p className="text-[8px] text-zinc-500">{s.day}</p>
+                  <p className="text-[10px] font-bold" style={{ color: s.color }}>{s.type}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Floating engagement badge */}
-      <div className="absolute -right-3 top-14 rotate-2">
+      {/* Floating growth chart */}
+      <div className="absolute -right-2 top-6 rotate-1">
         <div
-          className="rounded-lg px-3 py-2 flex items-center gap-2"
-          style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
+          className="rounded-lg p-2.5"
+          style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
-            <span className="text-[9px] font-bold text-green-400">8.3%</span>
-          </div>
-          <div>
-            <p className="text-[10px] font-semibold text-white">Engagement</p>
-            <p className="text-[8px] text-zinc-500">3x la moyenne secteur</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Floating content calendar */}
-      <div className="absolute -left-4 bottom-20 -rotate-3">
-        <div
-          className="rounded-lg px-3 py-2"
-          style={{ background: 'rgba(0,0,0,0.85)', border: `1px solid ${VD}`, boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
-        >
-          <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-500 mb-1.5">Calendrier</p>
-          <div className="grid grid-cols-5 gap-1">
-            {['L', 'M', 'M', 'J', 'V'].map((d, i) => (
-              <div key={`${d}-${i}`} className="text-center">
-                <span className="text-[7px] text-zinc-600">{d}</span>
-                <div
-                  className="w-4 h-4 rounded-sm mx-auto mt-0.5"
-                  style={{
-                    background: [0, 2, 4].includes(i)
-                      ? 'rgba(124,58,237,0.35)'
-                      : 'rgba(255,255,255,0.04)',
-                  }}
-                />
-              </div>
+          <p className="text-[8px] font-bold text-zinc-500 mb-1">Followers 6 mois</p>
+          <div className="flex items-end gap-[2px] h-8">
+            {[25, 30, 35, 42, 55, 72].map((h, i) => (
+              <div key={i} className="w-[6px] rounded-t-sm" style={{ height: `${h}%`, background: i === 5 ? '#4ade80' : 'rgba(124,58,237,0.3)' }} />
             ))}
           </div>
+          <p className="text-[8px] font-bold text-green-400 mt-1">+340%</p>
         </div>
       </div>
 
       {/* Mini stats */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { v: '4 plateformes', l: 'Gerees', c: V },
-          { v: '+340%', l: 'Croissance annuelle', c: '#4ade80' },
-          { v: '12 posts', l: 'Par mois', c: '#FF8C00' },
+          { v: '12.4%', l: 'Engagement moyen', c: '#4ade80' },
+          { v: '4', l: 'Plateformes gerees', c: V },
+          { v: '12/mois', l: 'Publications', c: '#FF8C00' },
         ].map((s) => (
           <div
             key={s.l}

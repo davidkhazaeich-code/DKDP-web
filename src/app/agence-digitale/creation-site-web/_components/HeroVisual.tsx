@@ -100,7 +100,7 @@ export function HeroVisual() {
       </div>
 
       {/* Floating badges stack */}
-      <div className="absolute -left-4 bottom-14 flex flex-col gap-2.5">
+      <div className="absolute -left-4 top-8 flex flex-col gap-2.5">
         {/* PageSpeed */}
         <div className="-rotate-3">
           <div
@@ -108,7 +108,7 @@ export function HeroVisual() {
             style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
           >
             <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
-              <span className="text-[10px] font-bold text-green-400">98</span>
+              <span className="text-[10px] font-bold text-green-400">100</span>
             </div>
             <div>
               <p className="text-[10px] font-semibold text-white">PageSpeed</p>
@@ -120,10 +120,10 @@ export function HeroVisual() {
         <div className="-rotate-2">
           <div
             className="rounded-lg px-3 py-2 flex items-center gap-2"
-            style={{ background: 'rgba(0,0,0,0.85)', border: `1px solid ${VD}`, boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
+            style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
           >
-            <div className="w-8 h-8 rounded-full border-2 flex items-center justify-center" style={{ borderColor: 'rgba(167,139,250,0.6)' }}>
-              <span className="text-[10px] font-bold" style={{ color: V }}>100</span>
+            <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
+              <span className="text-[10px] font-bold text-green-400">100</span>
             </div>
             <div>
               <p className="text-[10px] font-semibold text-white">SEO</p>
@@ -135,10 +135,10 @@ export function HeroVisual() {
         <div className="-rotate-1">
           <div
             className="rounded-lg px-3 py-2 flex items-center gap-2"
-            style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(255,140,0,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
+            style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
           >
-            <div className="w-8 h-8 rounded-full border-2 border-orange-400/60 flex items-center justify-center">
-              <span className="text-[10px] font-bold text-orange-400">100</span>
+            <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
+              <span className="text-[10px] font-bold text-green-400">100</span>
             </div>
             <div>
               <p className="text-[10px] font-semibold text-white">Lisibilite</p>

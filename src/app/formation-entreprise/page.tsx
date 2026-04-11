@@ -24,6 +24,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildBreadcrumbList } from '@/lib/schema'
 import { FAQ_FORMATION } from '@/data/faq-formation'
 import { orange } from '@/lib/tokens'
+import { HeroVisual } from './_components/HeroVisual'
 
 export const metadata: Metadata = {
   title: 'Formation Entreprise Genève · IA, Bureautique, Cybersécurité · DKDP',
@@ -141,19 +142,7 @@ export default function FormationEntreprisePage() {
                   </Link>
                 </div>
               </div>
-              <div className="relative hidden lg:block">
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
-                  <Image
-                    src="/images/pillars/formation-entreprise.webp"
-                    alt="Formation IA et digitale en entreprise à Genève"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
-                </div>
-              </div>
+              <HeroVisual />
             </div>
           </div>
         </section>

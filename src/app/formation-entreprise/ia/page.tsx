@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import Image from 'next/image'
+import { HeroVisual } from './_components/HeroVisual'
 import { CheckCircle2, Clock, Users, Award, ChevronRight, TrendingUp, BarChart2, Zap, BrainCircuit } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
@@ -136,19 +136,7 @@ export default function FormationIAPage() {
                   </Link>
                 </div>
               </div>
-              <div className="relative hidden lg:block">
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
-                  <Image
-                    src="/images/services/dkdp-formation-ia.webp"
-                    alt="Formation Intelligence Artificielle en entreprise à Genève"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
-                </div>
-              </div>
+              <HeroVisual />
             </div>
           </div>
         </section>

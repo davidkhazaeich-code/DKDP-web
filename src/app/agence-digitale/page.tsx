@@ -340,6 +340,53 @@ export default function AgenceDigitalePage() {
         </div>
       </section>
 
+      {/* ── Estimation ── */}
+      <section className="py-24 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <Link
+              href="/agence-digitale/creation-site-web/estimation"
+              className="group relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-[22px] p-8 md:p-10 border overflow-hidden transition-all hover:-translate-y-0.5 duration-200"
+              style={{
+                background: 'linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(124,58,237,0.04) 100%)',
+                borderColor: 'rgba(167,139,250,0.35)',
+                boxShadow: '0 0 40px rgba(124,58,237,0.10)',
+              }}
+            >
+              <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: color }} />
+              <div className="flex items-start gap-5">
+                <div
+                  className="flex h-14 w-14 items-center justify-center rounded-[12px] flex-shrink-0"
+                  style={{ background: bg, border: `1px solid ${border}` }}
+                >
+                  <Rocket size={24} style={{ color }} />
+                </div>
+                <div>
+                  <span
+                    className="inline-flex items-center text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
+                    style={{ background: 'rgba(124,58,237,0.12)', color, border: `1px solid ${border}` }}
+                  >
+                    Simulateur gratuit
+                  </span>
+                  <h3 className="text-white text-2xl md:text-[1.75rem] font-bold mb-2 leading-[1.15]">
+                    Estimez le cout de votre site web en 2 minutes
+                  </h3>
+                  <p className="text-text-secondary text-base leading-relaxed max-w-xl">
+                    Configurez votre projet, choisissez vos options et recevez une estimation personnalisee avec un devis detaille sous 48h. Prix transparents.
+                  </p>
+                </div>
+              </div>
+              <span
+                className="flex-shrink-0 inline-flex items-center gap-2 text-sm font-bold px-6 py-3 rounded-xl transition-opacity group-hover:opacity-80"
+                style={{ background: color, color: '#000' }}
+              >
+                Estimer mon projet <ChevronRight size={16} />
+              </span>
+            </Link>
+          </SectionReveal>
+        </div>
+      </section>
+
       {/* ── Why us ── */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">

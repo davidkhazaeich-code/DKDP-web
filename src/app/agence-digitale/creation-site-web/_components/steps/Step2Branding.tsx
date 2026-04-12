@@ -1,5 +1,9 @@
 'use client'
 
+import {
+  CheckCircle2, Palette, RefreshCw, Paintbrush,
+  Target, BarChart3, FileText,
+} from 'lucide-react'
 import { useEstimator } from '../EstimatorContext'
 import { SelectionCard } from '../ui/SelectionCard'
 import { MultiSelectCard } from '../ui/MultiSelectCard'
@@ -19,6 +23,7 @@ export function Step2Branding() {
             title="J'ai deja mon logo"
             price="Inclus"
             priceColor="text-emerald-400"
+            icon={<CheckCircle2 size={18} />}
             selected={state.logo === 'existing'}
             onClick={() =>
               dispatch({ type: 'SET_LOGO', value: state.logo === 'existing' ? null : 'existing' })
@@ -27,6 +32,7 @@ export function Step2Branding() {
           <SelectionCard
             title="Creer un logo"
             price="CHF 800-1'500"
+            icon={<Palette size={18} />}
             selected={state.logo === 'create'}
             onClick={() =>
               dispatch({ type: 'SET_LOGO', value: state.logo === 'create' ? null : 'create' })
@@ -35,6 +41,7 @@ export function Step2Branding() {
           <SelectionCard
             title="Moderniser mon logo"
             price="CHF 500-1'000"
+            icon={<RefreshCw size={18} />}
             selected={state.logo === 'modernize'}
             onClick={() =>
               dispatch({ type: 'SET_LOGO', value: state.logo === 'modernize' ? null : 'modernize' })
@@ -53,6 +60,7 @@ export function Step2Branding() {
             title="J'ai deja ma charte"
             price="Inclus"
             priceColor="text-emerald-400"
+            icon={<CheckCircle2 size={18} />}
             selected={state.branding === 'existing'}
             onClick={() =>
               dispatch({
@@ -64,6 +72,7 @@ export function Step2Branding() {
           <SelectionCard
             title="Creer une identite"
             price="CHF 1'000-2'000"
+            icon={<Paintbrush size={18} />}
             selected={state.branding === 'create'}
             onClick={() =>
               dispatch({
@@ -88,6 +97,7 @@ export function Step2Branding() {
           <SelectionCard
             title="Moderniser mon branding"
             price="CHF 600-1'200"
+            icon={<RefreshCw size={18} />}
             selected={state.branding === 'modernize'}
             onClick={() =>
               dispatch({
@@ -109,6 +119,7 @@ export function Step2Branding() {
             title="Positionnement"
             description="Definir votre proposition de valeur unique"
             price="CHF 800"
+            icon={<Target size={18} />}
             selected={state.strategy.includes('positioning')}
             onToggle={() => dispatch({ type: 'TOGGLE_STRATEGY', value: 'positioning' })}
           />
@@ -116,6 +127,7 @@ export function Step2Branding() {
             title="Etude de marche"
             description="Analyse de la concurrence et opportunites"
             price="CHF 600"
+            icon={<BarChart3 size={18} />}
             selected={state.strategy.includes('market-study')}
             onToggle={() => dispatch({ type: 'TOGGLE_STRATEGY', value: 'market-study' })}
           />
@@ -123,6 +135,7 @@ export function Step2Branding() {
             title="Strategie de contenu"
             description="Planification editoriale et mots-cles"
             price="CHF 1'200"
+            icon={<FileText size={18} />}
             selected={state.strategy.includes('content-strategy')}
             onToggle={() => dispatch({ type: 'TOGGLE_STRATEGY', value: 'content-strategy' })}
           />

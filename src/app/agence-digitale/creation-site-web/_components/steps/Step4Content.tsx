@@ -1,5 +1,6 @@
 'use client'
 
+import { Upload, FileText, PenTool, Image as ImageIcon, Sparkles, Camera } from 'lucide-react'
 import { useEstimator } from '../EstimatorContext'
 import { SelectionCard } from '../ui/SelectionCard'
 import { PAGE_MIDPOINTS } from '@/lib/estimation/pricing'
@@ -28,6 +29,7 @@ export function Step4Content() {
             title="Je fournis le contenu"
             price="Inclus"
             priceColor="text-emerald-400"
+            icon={<Upload size={18} />}
             selected={state.copywriting === 'provided'}
             onClick={() =>
               dispatch({
@@ -40,6 +42,7 @@ export function Step4Content() {
             title="Redaction basique"
             description="Mise en forme et optimisation"
             price={`CHF ${formatChf(basicPrice)}`}
+            icon={<FileText size={18} />}
             selected={state.copywriting === 'basic'}
             onClick={() =>
               dispatch({
@@ -52,6 +55,7 @@ export function Step4Content() {
             title="Redaction professionnelle"
             description="Copywriting SEO avance"
             price={`CHF ${formatChf(professionalPrice)}`}
+            icon={<PenTool size={18} />}
             selected={state.copywriting === 'professional'}
             onClick={() =>
               dispatch({
@@ -73,6 +77,7 @@ export function Step4Content() {
             title="Je fournis les visuels"
             price="Inclus"
             priceColor="text-emerald-400"
+            icon={<Upload size={18} />}
             selected={state.visuals === 'provided'}
             onClick={() =>
               dispatch({
@@ -85,6 +90,7 @@ export function Step4Content() {
             title="Banque d'images"
             description="Photos HD professionnelles"
             price="CHF 300-600"
+            icon={<ImageIcon size={18} />}
             selected={state.visuals === 'stock'}
             onClick={() =>
               dispatch({
@@ -97,6 +103,7 @@ export function Step4Content() {
             title="Generation IA"
             description="Visuels crees par intelligence artificielle"
             price="CHF 400-800"
+            icon={<Sparkles size={18} />}
             selected={state.visuals === 'ai'}
             onClick={() =>
               dispatch({
@@ -109,6 +116,7 @@ export function Step4Content() {
             title="Shooting professionnel"
             description="Seance photo sur site"
             price="CHF 800-2'500"
+            icon={<Camera size={18} />}
             selected={state.visuals === 'shooting'}
             onClick={() =>
               dispatch({

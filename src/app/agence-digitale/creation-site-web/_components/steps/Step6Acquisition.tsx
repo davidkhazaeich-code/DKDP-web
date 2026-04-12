@@ -1,5 +1,9 @@
 'use client'
 
+import {
+  Search, TrendingUp, Target, Share2, Filter,
+  Database, Mail, Zap, BarChart3,
+} from 'lucide-react'
 import { useEstimator } from '../EstimatorContext'
 import { MultiSelectCard } from '../ui/MultiSelectCard'
 import { CollapsibleSection } from '../ui/CollapsibleSection'
@@ -42,6 +46,7 @@ export function Step6Acquisition() {
             title="SEO avance"
             description="Audit complet, optimisation semantique, strategie mots-cles"
             price="CHF 1'500"
+            icon={<Search size={18} />}
             selected={state.seo.includes('advanced-oneshot')}
             onToggle={() => dispatch({ type: 'TOGGLE_SEO', value: 'advanced-oneshot' })}
           />
@@ -52,6 +57,7 @@ export function Step6Acquisition() {
             description="Suivi, rapports, optimisation continue"
             price="CHF 600"
             priceLabel="/mois"
+            icon={<TrendingUp size={18} />}
             selected={state.seo.includes('monthly')}
             onToggle={() => dispatch({ type: 'TOGGLE_SEO', value: 'monthly' })}
           />
@@ -72,6 +78,7 @@ export function Step6Acquisition() {
             description="Campagnes publicitaires Search et Display"
             price="CHF 400"
             priceLabel="/mois"
+            icon={<Target size={18} />}
             selected={state.acquisition.includes('sea')}
             onToggle={() => dispatch({ type: 'TOGGLE_ACQUISITION', value: 'sea' })}
           />
@@ -80,6 +87,7 @@ export function Step6Acquisition() {
             description="Gestion et animation de vos profils"
             price="CHF 600"
             priceLabel="/mois"
+            icon={<Share2 size={18} />}
             selected={state.acquisition.includes('social')}
             onToggle={() => dispatch({ type: 'TOGGLE_ACQUISITION', value: 'social' })}
           />
@@ -87,6 +95,7 @@ export function Step6Acquisition() {
             title="Funnel de conversion"
             description="Tunnel de vente et landing pages"
             price="CHF 2'000-4'000"
+            icon={<Filter size={18} />}
             selected={state.acquisition.includes('funnel')}
             onToggle={() => dispatch({ type: 'TOGGLE_ACQUISITION', value: 'funnel' })}
           />
@@ -106,6 +115,7 @@ export function Step6Acquisition() {
             title="Integration CRM"
             description="Gestion centralisee de vos contacts"
             price="CHF 800-1'500"
+            icon={<Database size={18} />}
             selected={state.automation.includes('crm')}
             onToggle={() => dispatch({ type: 'TOGGLE_AUTOMATION', value: 'crm' })}
           />
@@ -113,6 +123,7 @@ export function Step6Acquisition() {
             title="Email marketing"
             description="Sequences automatisees et campagnes"
             price="CHF 1'200-2'500"
+            icon={<Mail size={18} />}
             selected={state.automation.includes('email-marketing')}
             onToggle={() => dispatch({ type: 'TOGGLE_AUTOMATION', value: 'email-marketing' })}
           />
@@ -120,6 +131,7 @@ export function Step6Acquisition() {
             title="Workflows automatises"
             description="Automatisation des taches repetitives"
             price="CHF 500-2'000"
+            icon={<Zap size={18} />}
             selected={state.automation.includes('workflows')}
             onToggle={() => dispatch({ type: 'TOGGLE_AUTOMATION', value: 'workflows' })}
           />
@@ -127,6 +139,7 @@ export function Step6Acquisition() {
             title="Dashboard analytics"
             description="Tableaux de bord personnalises"
             price="CHF 600-1'200"
+            icon={<BarChart3 size={18} />}
             selected={state.automation.includes('dashboard')}
             onToggle={() => dispatch({ type: 'TOGGLE_AUTOMATION', value: 'dashboard' })}
           />

@@ -12,6 +12,7 @@ interface SelectionCardProps {
   selected: boolean
   onClick: () => void
   children?: ReactNode
+  icon?: ReactNode
 }
 
 export function SelectionCard({
@@ -22,6 +23,7 @@ export function SelectionCard({
   selected,
   onClick,
   children,
+  icon,
 }: SelectionCardProps) {
   return (
     <motion.div
@@ -43,20 +45,30 @@ export function SelectionCard({
       )}
 
       {/* Header */}
-      <div className="pr-6">
-        <span className="text-sm font-medium text-zinc-100 leading-snug">{title}</span>
-        {description && (
-          <p className="mt-1 text-xs text-zinc-500 leading-relaxed">{description}</p>
+      <div className="pr-6 flex items-start gap-3">
+        {icon && (
+          <span className={[
+            'mt-0.5 flex-shrink-0 transition-colors duration-200',
+            selected ? 'text-violet-400' : 'text-zinc-500',
+          ].join(' ')}>
+            {icon}
+          </span>
         )}
-        {price && (
-          <p
-            className={['mt-1.5 text-xs font-medium', priceColor ?? 'text-zinc-400'].join(
-              ' '
-            )}
-          >
-            {price}
-          </p>
-        )}
+        <div className="min-w-0">
+          <span className="text-sm font-medium text-zinc-100 leading-snug">{title}</span>
+          {description && (
+            <p className="mt-1 text-xs text-zinc-500 leading-relaxed">{description}</p>
+          )}
+          {price && (
+            <p
+              className={['mt-1.5 text-xs font-medium', priceColor ?? 'text-zinc-400'].join(
+                ' '
+              )}
+            >
+              {price}
+            </p>
+          )}
+        </div>
       </div>
 
       {/* Expanded content */}

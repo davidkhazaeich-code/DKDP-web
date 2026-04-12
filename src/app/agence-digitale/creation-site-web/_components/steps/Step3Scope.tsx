@@ -1,5 +1,6 @@
 'use client'
 
+import { LayoutTemplate, Paintbrush, Crown } from 'lucide-react'
 import { useEstimator } from '../EstimatorContext'
 import { SelectionCard } from '../ui/SelectionCard'
 import { OptionChip } from '../ui/OptionChip'
@@ -114,6 +115,7 @@ export function Step3Scope() {
             title="Template adapte"
             description="Base professionnelle personnalisee"
             price="x1.0"
+            icon={<LayoutTemplate size={18} />}
             selected={state.designLevel === 'template'}
             onClick={() => dispatch({ type: 'SET_DESIGN_LEVEL', value: 'template' })}
           />
@@ -121,6 +123,7 @@ export function Step3Scope() {
             title="Sur mesure"
             description="Design unique a votre image"
             price="x1.4"
+            icon={<Paintbrush size={18} />}
             selected={state.designLevel === 'custom'}
             onClick={() => dispatch({ type: 'SET_DESIGN_LEVEL', value: 'custom' })}
           />
@@ -128,6 +131,7 @@ export function Step3Scope() {
             title="Premium"
             description="Design haut de gamme, animations avancees"
             price="x1.7"
+            icon={<Crown size={18} />}
             selected={state.designLevel === 'premium'}
             onClick={() => dispatch({ type: 'SET_DESIGN_LEVEL', value: 'premium' })}
           />

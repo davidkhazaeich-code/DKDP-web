@@ -1,5 +1,6 @@
 'use client'
 
+import { ReactNode } from 'react'
 import { Check } from 'lucide-react'
 
 interface MultiSelectCardProps {
@@ -10,6 +11,7 @@ interface MultiSelectCardProps {
   selected: boolean
   onToggle: () => void
   recommended?: boolean
+  icon?: ReactNode
 }
 
 export function MultiSelectCard({
@@ -20,6 +22,7 @@ export function MultiSelectCard({
   selected,
   onToggle,
   recommended,
+  icon,
 }: MultiSelectCardProps) {
   return (
     <div
@@ -39,26 +42,36 @@ export function MultiSelectCard({
       )}
 
       {/* Header */}
-      <div className={selected ? 'pr-6' : ''}>
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-sm font-medium text-zinc-100 leading-snug">{title}</span>
-          {recommended && (
-            <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded border border-orange-500/20 bg-orange-500/10 text-orange-400">
-              Recommande
-            </span>
+      <div className={[selected ? 'pr-6' : '', 'flex items-start gap-3'].join(' ')}>
+        {icon && (
+          <span className={[
+            'mt-0.5 flex-shrink-0 transition-colors duration-200',
+            selected ? 'text-violet-400' : 'text-zinc-500',
+          ].join(' ')}>
+            {icon}
+          </span>
+        )}
+        <div className="min-w-0">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-sm font-medium text-zinc-100 leading-snug">{title}</span>
+            {recommended && (
+              <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded border border-orange-500/20 bg-orange-500/10 text-orange-400">
+                Recommande
+              </span>
+            )}
+          </div>
+          {description && (
+            <p className="mt-1 text-xs text-zinc-500 leading-relaxed">{description}</p>
+          )}
+          {price && (
+            <p className="mt-1.5 text-xs font-medium text-zinc-400">
+              {price}
+              {priceLabel && (
+                <span className="text-xs text-zinc-500 font-normal">{priceLabel}</span>
+              )}
+            </p>
           )}
         </div>
-        {description && (
-          <p className="mt-1 text-xs text-zinc-500 leading-relaxed">{description}</p>
-        )}
-        {price && (
-          <p className="mt-1.5 text-xs font-medium text-zinc-400">
-            {price}
-            {priceLabel && (
-              <span className="text-xs text-zinc-500 font-normal">{priceLabel}</span>
-            )}
-          </p>
-        )}
       </div>
     </div>
   )

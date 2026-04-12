@@ -1,8 +1,8 @@
 'use client'
 
+import { Wrench, GraduationCap, Shield, Video, Timer, Check } from 'lucide-react'
 import { useEstimator } from '../EstimatorContext'
 import { MultiSelectCard } from '../ui/MultiSelectCard'
-import { Check } from 'lucide-react'
 
 export function Step7Services() {
   const { state, dispatch } = useEstimator()
@@ -17,6 +17,7 @@ export function Step7Services() {
         description="Mises a jour, securite, modifications mineures incluses"
         price="CHF 150"
         priceLabel="/mois"
+        icon={<Wrench size={18} />}
         selected={state.services.includes('maintenance')}
         onToggle={() => dispatch({ type: 'TOGGLE_SERVICE', value: 'maintenance' })}
       />
@@ -26,6 +27,7 @@ export function Step7Services() {
         title="Formation"
         description="Formation a la gestion de votre site"
         price="CHF 200"
+        icon={<GraduationCap size={18} />}
         selected={state.services.includes('training')}
         onToggle={() => dispatch({ type: 'TOGGLE_SERVICE', value: 'training' })}
       />
@@ -35,6 +37,7 @@ export function Step7Services() {
         title="Conformite RGPD"
         description="Politique de confidentialite, cookies, consentement"
         price="CHF 500"
+        icon={<Shield size={18} />}
         selected={state.services.includes('rgpd')}
         onToggle={() => dispatch({ type: 'TOGGLE_SERVICE', value: 'rgpd' })}
       />
@@ -44,6 +47,7 @@ export function Step7Services() {
         title="Production video"
         description="Video de presentation ou promotionnelle"
         price="CHF 1'500-4'000"
+        icon={<Video size={18} />}
         selected={state.services.includes('video')}
         onToggle={() => dispatch({ type: 'TOGGLE_SERVICE', value: 'video' })}
       />
@@ -68,6 +72,7 @@ export function Step7Services() {
         {/* Header */}
         <div className={['flex items-start justify-between gap-3', isRushSelected ? 'pr-6' : ''].join(' ')}>
           <div className="flex items-center gap-2 flex-wrap">
+            <Timer size={18} className={isRushSelected ? 'text-orange-400' : 'text-zinc-500'} />
             <span className="text-sm font-medium text-zinc-100 leading-snug">
               Livraison express
             </span>

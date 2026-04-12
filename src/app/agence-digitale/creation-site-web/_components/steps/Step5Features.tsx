@@ -102,7 +102,9 @@ export function Step5Features() {
       : []
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div className="space-y-4">
+      <p className="text-xs text-zinc-500 italic">Optionnel : ajoutez des fonctionnalités ou passez cette étape</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {FEATURES.map((feature) => (
         <MultiSelectCard
           key={feature.id}
@@ -116,6 +118,7 @@ export function Step5Features() {
           recommended={recommended.includes(feature.id)}
         />
       ))}
+      </div>
     </div>
   )
 }

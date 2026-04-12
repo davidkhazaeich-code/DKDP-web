@@ -4,15 +4,15 @@ import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { useEstimator } from './EstimatorContext'
 
-const STEP_LABELS = [
-  'Projet',
-  'Branding',
-  'Envergure',
-  'Contenu',
-  'Fonctions',
-  'Acquisition',
-  'Services',
-  'Devis',
+const STEPS = [
+  { label: 'Projet', optional: false },
+  { label: 'Branding', optional: true },
+  { label: 'Envergure', optional: false },
+  { label: 'Contenu', optional: true },
+  { label: 'Fonctions', optional: true },
+  { label: 'Acquisition', optional: true },
+  { label: 'Services', optional: true },
+  { label: 'Devis', optional: false },
 ]
 
 export function EstimatorProgress() {
@@ -26,13 +26,13 @@ export function EstimatorProgress() {
     <div className="w-full">
       {/* Desktop: segments with labels */}
       <div className="hidden sm:flex items-center gap-0 w-full">
-        {STEP_LABELS.map((label, index) => {
+        {STEPS.map((step, index) => {
           const isCompleted = index < currentIndex
           const isActive = index === currentIndex
           const isFuture = index > currentIndex
 
           return (
-            <div key={label} className="flex-1 flex flex-col items-center gap-1.5">
+            <div key={step.label} className="flex-1 flex flex-col items-center gap-1.5">
               {/* Segment bar + connector */}
               <div className="flex items-center w-full">
                 {/* Left connector line */}
@@ -68,7 +68,7 @@ export function EstimatorProgress() {
                         ? 'bg-violet-600 text-white cursor-default'
                         : 'bg-zinc-800 text-zinc-500 cursor-default',
                   ].join(' ')}
-                  aria-label={`${label} (etape ${index + 1})`}
+                  aria-label={`${step.label} (etape ${index + 1})`}
                 >
                   {isCompleted ? (
                     <Check className="w-3.5 h-3.5" strokeWidth={2.5} />
@@ -86,7 +86,7 @@ export function EstimatorProgress() {
                 </button>
 
                 {/* Right connector line */}
-                {index < STEP_LABELS.length - 1 && (
+                {index < STEPS.length - 1 && (
                   <div
                     className="h-[2px] flex-1"
                     style={{
@@ -100,14 +100,19 @@ export function EstimatorProgress() {
               </div>
 
               {/* Label */}
-              <span
-                className={[
-                  'text-[10px] font-medium text-center leading-tight',
-                  isCompleted ? 'text-emerald-400' : isActive ? 'text-violet-300' : 'text-zinc-600',
-                ].join(' ')}
-              >
-                {label}
-              </span>
+              <div className="flex flex-col items-center">
+                <span
+                  className={[
+                    'text-[10px] font-medium text-center leading-tight',
+                    isCompleted ? 'text-emerald-400' : isActive ? 'text-violet-300' : 'text-zinc-600',
+                  ].join(' ')}
+                >
+                  {step.label}
+                </span>
+                {step.optional && !isCompleted && (
+                  <span className="text-[8px] text-zinc-600 mt-0.5">optionnel</span>
+                )}
+              </div>
             </div>
           )
         })}
@@ -115,13 +120,13 @@ export function EstimatorProgress() {
 
       {/* Mobile: dots only */}
       <div className="flex sm:hidden items-center justify-center gap-1.5 py-2">
-        {STEP_LABELS.map((label, index) => {
+        {STEPS.map((step, index) => {
           const isCompleted = index < currentIndex
           const isActive = index === currentIndex
 
           return (
             <button
-              key={label}
+              key={step.label}
               type="button"
               disabled={index > currentIndex}
               onClick={() => {
@@ -129,7 +134,7 @@ export function EstimatorProgress() {
                   dispatch({ type: 'SET_STEP', step: index + 1 })
                 }
               }}
-              aria-label={`${label} (etape ${index + 1})`}
+              aria-label={`${step.label} (etape ${index + 1})`}
               className="relative flex items-center justify-center"
             >
               {isCompleted ? (

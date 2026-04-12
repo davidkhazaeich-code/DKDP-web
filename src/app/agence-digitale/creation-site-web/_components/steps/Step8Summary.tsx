@@ -172,12 +172,14 @@ function InputField({
   label,
   id,
   required = false,
+  optional = false,
   icon,
   children,
 }: {
   label: string
   id: string
   required?: boolean
+  optional?: boolean
   icon?: ReactNode
   children: React.ReactNode
 }) {
@@ -187,6 +189,7 @@ function InputField({
         {icon && <span className="text-zinc-500">{icon}</span>}
         {label}
         {required && <span className="text-violet-400 ml-1">*</span>}
+        {optional && <span className="text-zinc-600 ml-1 font-normal text-xs">(optionnel)</span>}
       </label>
       {children}
     </div>
@@ -528,6 +531,9 @@ export function Step8Summary() {
 
       {/* ── Contact form ── */}
       <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+        <p className="text-xs text-zinc-500">
+          <span className="text-violet-400">*</span> Champs obligatoires
+        </p>
         {/* Honeypot */}
         <input
           type="text"
@@ -565,7 +571,7 @@ export function Step8Summary() {
         </div>
 
         {/* Company */}
-        <InputField label="Entreprise" id="company" icon={<Building2 size={14} />}>
+        <InputField label="Entreprise" id="company" optional icon={<Building2 size={14} />}>
           <input
             id="company"
             type="text"
@@ -590,7 +596,7 @@ export function Step8Summary() {
         </InputField>
 
         {/* Phone */}
-        <InputField label="Téléphone" id="phone" icon={<Phone size={14} />}>
+        <InputField label="Téléphone" id="phone" optional icon={<Phone size={14} />}>
           <input
             id="phone"
             type="tel"
@@ -603,7 +609,7 @@ export function Step8Summary() {
 
         {/* Dynamic: redesign → current URL */}
         {state.situation === 'redesign' && (
-          <InputField label="URL du site actuel" id="currentSiteUrl" icon={<Link size={14} />}>
+          <InputField label="URL du site actuel" id="currentSiteUrl" optional icon={<Link size={14} />}>
             <input
               id="currentSiteUrl"
               type="url"
@@ -617,7 +623,7 @@ export function Step8Summary() {
 
         {/* Dynamic: ecommerce → product count */}
         {state.siteType === 'ecommerce' && (
-          <InputField label="Nombre de produits" id="productCount" icon={<Package size={14} />}>
+          <InputField label="Nombre de produits" id="productCount" optional icon={<Package size={14} />}>
             <select
               id="productCount"
               value={state.contact.productCount}
@@ -635,7 +641,7 @@ export function Step8Summary() {
 
         {/* Dynamic: branding create → business description */}
         {state.branding === 'create' && (
-          <InputField label="Description de votre activité" id="businessDescription" icon={<FileText size={14} />}>
+          <InputField label="Description de votre activité" id="businessDescription" optional icon={<FileText size={14} />}>
             <textarea
               id="businessDescription"
               rows={3}
@@ -649,7 +655,7 @@ export function Step8Summary() {
 
         {/* Dynamic: rush → launch date */}
         {state.services.includes('rush') && (
-          <InputField label="Date de lancement souhaitée" id="launchDate" icon={<Calendar size={14} />}>
+          <InputField label="Date de lancement souhaitée" id="launchDate" optional icon={<Calendar size={14} />}>
             <input
               id="launchDate"
               type="date"
@@ -662,7 +668,7 @@ export function Step8Summary() {
 
         {/* Dynamic: restaurant → location count */}
         {state.sector === 'restaurant' && (
-          <InputField label="Nombre d'établissements" id="locationCount" icon={<MapPin size={14} />}>
+          <InputField label="Nombre d'établissements" id="locationCount" optional icon={<MapPin size={14} />}>
             <input
               id="locationCount"
               type="number"
@@ -677,7 +683,7 @@ export function Step8Summary() {
 
         {/* Dynamic: webapp → app description */}
         {state.siteType === 'webapp' && (
-          <InputField label="Description des fonctionnalités" id="appDescription" icon={<Code2 size={14} />}>
+          <InputField label="Description des fonctionnalités" id="appDescription" optional icon={<Code2 size={14} />}>
             <textarea
               id="appDescription"
               rows={4}
@@ -690,7 +696,7 @@ export function Step8Summary() {
         )}
 
         {/* Budget */}
-        <InputField label="Budget" id="budget" icon={<Wallet size={14} />}>
+        <InputField label="Budget" id="budget" optional icon={<Wallet size={14} />}>
           <select
             id="budget"
             value={state.contact.budget}
@@ -706,7 +712,7 @@ export function Step8Summary() {
         </InputField>
 
         {/* Timeline */}
-        <InputField label="Délai souhaité" id="timeline" icon={<Clock size={14} />}>
+        <InputField label="Délai souhaité" id="timeline" optional icon={<Clock size={14} />}>
           <select
             id="timeline"
             value={state.contact.timeline}

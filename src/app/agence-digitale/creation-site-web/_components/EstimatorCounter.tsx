@@ -76,7 +76,7 @@ function StickyBottomBar() {
             <button
               type="button"
               onClick={() => dispatch({ type: 'SKIP_STEP' })}
-              className="text-zinc-500 hover:text-zinc-300 transition-colors text-[10px] sm:text-xs lg:text-sm font-medium"
+              className="text-zinc-400 hover:text-zinc-200 transition-colors text-[10px] sm:text-xs lg:text-sm font-medium border border-white/10 rounded-lg px-3 py-1.5 sm:py-2 hover:border-white/20"
             >
               Passer
             </button>

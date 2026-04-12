@@ -11,6 +11,7 @@ export function Step7Services() {
 
   return (
     <div className="space-y-3">
+      <p className="text-xs text-zinc-500 italic">Optionnel : ajoutez des services ou passez cette étape</p>
       {/* Maintenance */}
       <MultiSelectCard
         title="Maintenance"

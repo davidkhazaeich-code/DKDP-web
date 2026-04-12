@@ -17,6 +17,7 @@ export function Step6Acquisition() {
 
   return (
     <div className="space-y-2">
+      <p className="text-xs text-zinc-500 italic mb-2">Optionnel : ajoutez des services marketing ou passez cette étape</p>
       {/* Section 1 - SEO */}
       <CollapsibleSection
         title="SEO"

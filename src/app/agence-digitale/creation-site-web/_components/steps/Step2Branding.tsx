@@ -13,6 +13,7 @@ export function Step2Branding() {
 
   return (
     <div className="space-y-8">
+      <p className="text-xs text-zinc-500 italic">Optionnel : personnalisez ou passez cette étape</p>
       {/* Section 1 - Logo */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">

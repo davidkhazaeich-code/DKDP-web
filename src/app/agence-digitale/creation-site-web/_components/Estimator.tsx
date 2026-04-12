@@ -14,6 +14,7 @@ import { Step4Content } from './steps/Step4Content'
 import { Step5Features } from './steps/Step5Features'
 import { Step6Acquisition } from './steps/Step6Acquisition'
 import { Step7Services } from './steps/Step7Services'
+import { Step8Summary } from './steps/Step8Summary'
 
 function EstimatorInner() {
   const { state, dispatch } = useEstimator()
@@ -52,7 +53,7 @@ function EstimatorInner() {
       case 7:
         return <Step7Services />
       case 8:
-        return null // Step8Summary will be added when created
+        return <Step8Summary />
       default:
         return null
     }

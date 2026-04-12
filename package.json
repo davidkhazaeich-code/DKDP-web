@@ -14,6 +14,7 @@
     "@ai-sdk/anthropic": "^3.0.68",
     "@ai-sdk/react": "^3.0.156",
     "@calcom/embed-react": "^1.5.3",
+    "@notionhq/client": "^5.17.0",
     "@paper-design/shaders": "^0.0.72",
     "@paper-design/shaders-react": "^0.0.72",
     "@playwright/test": "^1.59.1",

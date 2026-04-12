@@ -8,10 +8,7 @@ const contactSchema = z.object({
   phone: z.string().max(30).default(''),
   message: z.string().max(2000).optional().default(''),
   currentSiteUrl: z.string().url().max(500).optional().or(z.literal('')).default(''),
-  productCount: z.string().max(20).optional().default(''),
-  businessDescription: z.string().max(1000).optional().default(''),
   launchDate: z.string().max(20).optional().default(''),
-  locationCount: z.string().max(10).optional().default(''),
   appDescription: z.string().max(2000).optional().default(''),
 })
 

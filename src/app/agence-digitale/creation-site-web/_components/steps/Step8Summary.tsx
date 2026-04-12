@@ -4,8 +4,8 @@ import { useState, FormEvent, ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import {
   Pencil, CheckCircle, Loader2,
-  User, Building2, Mail, Phone, Link, Package,
-  FileText, Calendar, MapPin, Code2, MessageSquare,
+  User, Building2, Mail, Phone, Link,
+  Calendar, Code2, MessageSquare,
 } from 'lucide-react'
 import { useEstimator } from '../EstimatorContext'
 import { AnimatedCounter } from '../ui/AnimatedCounter'
@@ -625,38 +625,6 @@ export function Step8Summary() {
           </InputField>
         )}
 
-        {/* Dynamic: ecommerce → product count */}
-        {state.siteType === 'ecommerce' && (
-          <InputField label="Nombre de produits" id="productCount" optional icon={<Package size={14} />}>
-            <select
-              id="productCount"
-              value={state.contact.productCount}
-              onChange={setField('productCount')}
-              className={inputClass}
-            >
-              <option value="" className="bg-zinc-900">Sélectionnez...</option>
-              <option value="1-50" className="bg-zinc-900">1-50</option>
-              <option value="51-200" className="bg-zinc-900">51-200</option>
-              <option value="201-1000" className="bg-zinc-900">201-1000</option>
-              <option value="1000+" className="bg-zinc-900">1000+</option>
-            </select>
-          </InputField>
-        )}
-
-        {/* Dynamic: branding create → business description */}
-        {state.branding === 'create' && (
-          <InputField label="Description de votre activité" id="businessDescription" optional icon={<FileText size={14} />}>
-            <textarea
-              id="businessDescription"
-              rows={3}
-              placeholder="Décrivez votre activité, votre cible, vos valeurs..."
-              value={state.contact.businessDescription}
-              onChange={setField('businessDescription')}
-              className={inputClass}
-            />
-          </InputField>
-        )}
-
         {/* Dynamic: rush → launch date */}
         {state.services.includes('rush') && (
           <InputField label="Date de lancement souhaitée" id="launchDate" optional icon={<Calendar size={14} />}>
@@ -665,21 +633,6 @@ export function Step8Summary() {
               type="date"
               value={state.contact.launchDate}
               onChange={setField('launchDate')}
-              className={inputClass}
-            />
-          </InputField>
-        )}
-
-        {/* Dynamic: restaurant → location count */}
-        {state.sector === 'restaurant' && (
-          <InputField label="Nombre d'établissements" id="locationCount" optional icon={<MapPin size={14} />}>
-            <input
-              id="locationCount"
-              type="number"
-              min="1"
-              placeholder="1"
-              value={state.contact.locationCount}
-              onChange={setField('locationCount')}
               className={inputClass}
             />
           </InputField>

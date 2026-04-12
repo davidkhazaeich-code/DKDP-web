@@ -77,10 +77,7 @@ export interface ContactInfo {
   phone: string
   message: string
   currentSiteUrl: string
-  productCount: string
-  businessDescription: string
   launchDate: string
-  locationCount: string
   appDescription: string
 }
 

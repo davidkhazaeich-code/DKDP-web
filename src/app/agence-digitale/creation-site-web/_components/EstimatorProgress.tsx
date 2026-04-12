@@ -57,10 +57,13 @@ export function EstimatorProgress() {
           const isCompleted = index < currentIndex
           const isActive = index === currentIndex
           const isFuture = index > currentIndex
+          const isFirst = index === 0
+          const isLast = index === STEPS.length - 1
 
           return (
             <div key={step.label} className="flex-1 flex flex-col items-center gap-1">
               <div className="flex items-center w-full">
+                {isFirst && <div className="flex-1" />}
                 {index > 0 && (
                   <div
                     className="h-[2px] flex-1 transition-colors duration-300"
@@ -111,6 +114,7 @@ export function EstimatorProgress() {
                     }}
                   />
                 )}
+                {isLast && <div className="flex-1" />}
               </div>
               {/* Label row - fixed height for alignment */}
               <div className="h-6 flex flex-col items-center justify-start">
@@ -137,10 +141,13 @@ export function EstimatorProgress() {
           const isCompleted = index < currentIndex
           const isActive = index === currentIndex
           const isFuture = index > currentIndex
+          const isFirst = index === 0
+          const isLast = index === STEPS.length - 1
 
           return (
             <div key={step.label} className="flex-1 flex flex-col items-center gap-2">
               <div className="flex items-center w-full">
+                {isFirst && <div className="flex-1" />}
                 {index > 0 && (
                   <div
                     className="h-[2px] flex-1 transition-colors duration-300"
@@ -191,6 +198,7 @@ export function EstimatorProgress() {
                     }}
                   />
                 )}
+                {isLast && <div className="flex-1" />}
               </div>
               {/* Label row - fixed height for alignment */}
               <div className="h-7 flex flex-col items-center justify-start">

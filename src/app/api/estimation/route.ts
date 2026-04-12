@@ -192,10 +192,7 @@ export async function POST(req: NextRequest) {
       phone: contact.phone,
       message: contact.message,
       currentSiteUrl: contact.currentSiteUrl,
-      productCount: contact.productCount,
-      businessDescription: contact.businessDescription,
       launchDate: contact.launchDate,
-      locationCount: contact.locationCount,
       appDescription: contact.appDescription,
     },
     isSubmitting: false,
@@ -319,10 +316,7 @@ export async function POST(req: NextRequest) {
             ${tableRow('Telephone', sanitize(contact.phone))}
             ${contact.message ? tableRow('Message', sanitize(contact.message).replace(/\n/g, '<br>')) : ''}
             ${contact.currentSiteUrl ? tableRow('Site actuel', `<a href="${sanitize(contact.currentSiteUrl)}" style="color:#A78BFA">${sanitize(contact.currentSiteUrl)}</a>`) : ''}
-            ${contact.businessDescription ? tableRow('Description', sanitize(contact.businessDescription).replace(/\n/g, '<br>')) : ''}
             ${contact.appDescription ? tableRow('Description app', sanitize(contact.appDescription).replace(/\n/g, '<br>')) : ''}
-            ${contact.productCount ? tableRow('Nb produits', sanitize(contact.productCount)) : ''}
-            ${contact.locationCount ? tableRow('Nb emplacements', sanitize(contact.locationCount)) : ''}
             ${contact.launchDate ? tableRow('Date lancement', sanitize(contact.launchDate)) : ''}
           </table>
 

@@ -1,0 +1,22 @@
+'use client'
+
+import { Clock, ShieldCheck, Star } from 'lucide-react'
+
+const ITEMS = [
+  { icon: Clock, label: 'Devis gratuit sous 48h' },
+  { icon: ShieldCheck, label: 'Prix fixes, sans surprises' },
+  { icon: Star, label: '+120 projets livres' },
+]
+
+export function TrustBanner() {
+  return (
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+      {ITEMS.map(({ icon: Icon, label }) => (
+        <div key={label} className="flex items-center gap-2 text-sm text-zinc-500">
+          <Icon size={16} className="flex-shrink-0" />
+          <span>{label}</span>
+        </div>
+      ))}
+    </div>
+  )
+}

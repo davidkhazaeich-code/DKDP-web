@@ -131,7 +131,7 @@ export function HeroVisual() {
             </div>
           </div>
         </div>
-        {/* Lisibilite */}
+        {/* Lisibilité */}
         <div className="-rotate-1">
           <div
             className="rounded-lg px-3 py-2 flex items-center gap-2"
@@ -141,8 +141,8 @@ export function HeroVisual() {
               <span className="text-[10px] font-bold text-green-400">100</span>
             </div>
             <div>
-              <p className="text-[10px] font-semibold text-white">Lisibilite</p>
-              <p className="text-[8px] text-zinc-500">Accessibilite A+</p>
+              <p className="text-[10px] font-semibold text-white">Lisibilité</p>
+              <p className="text-[8px] text-zinc-500">Accessibilité A+</p>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { Clock, ShieldCheck, Star } from 'lucide-react'
 const ITEMS = [
   { icon: Clock, label: 'Devis gratuit sous 48h' },
   { icon: ShieldCheck, label: 'Prix fixes, sans surprises' },
-  { icon: Star, label: '+120 projets livres' },
+  { icon: Star, label: '+120 projets livrés' },
 ]
 
 export function TrustBanner() {

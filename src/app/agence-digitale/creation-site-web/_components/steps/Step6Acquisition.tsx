@@ -43,8 +43,8 @@ export function Step6Acquisition() {
 
           {/* SEO avance */}
           <MultiSelectCard
-            title="SEO avance"
-            description="Audit complet, optimisation semantique, strategie mots-cles"
+            title="SEO avancé"
+            description="Audit complet, optimisation sémantique, stratégie mots-clés"
             price="CHF 1'500"
             icon={<Search size={18} />}
             selected={state.seo.includes('advanced-oneshot')}
@@ -83,7 +83,7 @@ export function Step6Acquisition() {
             onToggle={() => dispatch({ type: 'TOGGLE_ACQUISITION', value: 'sea' })}
           />
           <MultiSelectCard
-            title="Reseaux sociaux"
+            title="Réseaux sociaux"
             description="Gestion et animation de vos profils"
             price="CHF 600"
             priceLabel="/mois"
@@ -112,8 +112,8 @@ export function Step6Acquisition() {
       >
         <div className="space-y-3">
           <MultiSelectCard
-            title="Integration CRM"
-            description="Gestion centralisee de vos contacts"
+            title="Intégration CRM"
+            description="Gestion centralisée de vos contacts"
             price="CHF 800-1'500"
             icon={<Database size={18} />}
             selected={state.automation.includes('crm')}
@@ -121,15 +121,15 @@ export function Step6Acquisition() {
           />
           <MultiSelectCard
             title="Email marketing"
-            description="Sequences automatisees et campagnes"
+            description="Séquences automatisées et campagnes"
             price="CHF 1'200-2'500"
             icon={<Mail size={18} />}
             selected={state.automation.includes('email-marketing')}
             onToggle={() => dispatch({ type: 'TOGGLE_AUTOMATION', value: 'email-marketing' })}
           />
           <MultiSelectCard
-            title="Workflows automatises"
-            description="Automatisation des taches repetitives"
+            title="Workflows automatisés"
+            description="Automatisation des tâches répétitives"
             price="CHF 500-2'000"
             icon={<Zap size={18} />}
             selected={state.automation.includes('workflows')}
@@ -137,7 +137,7 @@ export function Step6Acquisition() {
           />
           <MultiSelectCard
             title="Dashboard analytics"
-            description="Tableaux de bord personnalises"
+            description="Tableaux de bord personnalisés"
             price="CHF 600-1'200"
             icon={<BarChart3 size={18} />}
             selected={state.automation.includes('dashboard')}

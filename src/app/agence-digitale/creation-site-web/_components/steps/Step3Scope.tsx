@@ -112,8 +112,8 @@ export function Step3Scope() {
         </p>
         <div className="grid grid-cols-1 gap-3">
           <SelectionCard
-            title="Template adapte"
-            description="Base professionnelle personnalisee"
+            title="Template adapté"
+            description="Base professionnelle personnalisée"
             price="x1.0"
             icon={<LayoutTemplate size={18} />}
             selected={state.designLevel === 'template'}
@@ -121,7 +121,7 @@ export function Step3Scope() {
           />
           <SelectionCard
             title="Sur mesure"
-            description="Design unique a votre image"
+            description="Design unique à votre image"
             price="x1.4"
             icon={<Paintbrush size={18} />}
             selected={state.designLevel === 'custom'}
@@ -129,7 +129,7 @@ export function Step3Scope() {
           />
           <SelectionCard
             title="Premium"
-            description="Design haut de gamme, animations avancees"
+            description="Design haut de gamme, animations avancées"
             price="x1.7"
             icon={<Crown size={18} />}
             selected={state.designLevel === 'premium'}
@@ -150,7 +150,7 @@ export function Step3Scope() {
             </p>
           ) : (
             <p className="text-sm text-zinc-500">
-              Selectionnez le type de site, les pages, les langues et le design pour voir
+              Sélectionnez le type de site, les pages, les langues et le design pour voir
               l&apos;estimation.
             </p>
           )}

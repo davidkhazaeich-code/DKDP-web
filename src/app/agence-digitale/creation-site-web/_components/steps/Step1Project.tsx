@@ -19,7 +19,7 @@ export function Step1Project() {
         <div className="grid grid-cols-2 gap-3">
           <SelectionCard
             title="Nouveau site"
-            description="Creer votre premier site web"
+            description="Créer votre premier site web"
             icon={<PlusCircle size={18} />}
             selected={state.situation === 'new'}
             onClick={() => dispatch({ type: 'SET_SITUATION', value: 'new' })}
@@ -43,7 +43,7 @@ export function Step1Project() {
         <div className="grid grid-cols-2 gap-3">
           <SelectionCard
             title="Site vitrine"
-            description="Presentation de votre activite"
+            description="Présentation de votre activité"
             price="des CHF 2'500"
             icon={<Globe size={18} />}
             selected={state.siteType === 'vitrine'}
@@ -79,7 +79,7 @@ export function Step1Project() {
       {/* Section 3 - Secteur d'activite */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Secteur d&apos;activite
+          Secteur d&apos;activité
         </p>
         <div className="flex flex-wrap gap-2">
           {SECTORS.map((sector) => (

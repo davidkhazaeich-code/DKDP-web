@@ -22,8 +22,8 @@ interface FeatureItem {
 const FEATURES: FeatureItem[] = [
   {
     id: 'blog-setup',
-    title: 'Creation de blog',
-    description: 'Structure, categories, articles',
+    title: 'Création de blog',
+    description: 'Structure, catégories, articles',
     price: 'CHF 800',
     icon: <BookOpen size={18} />,
   },
@@ -37,14 +37,14 @@ const FEATURES: FeatureItem[] = [
   },
   {
     id: 'form',
-    title: 'Formulaire sur mesure',
+    title: 'Formulaire sur-mesure',
     description: 'Contact, devis, inscription',
     price: 'CHF 400',
     icon: <ClipboardList size={18} />,
   },
   {
     id: 'booking',
-    title: 'Systeme de reservation',
+    title: 'Système de réservation',
     description: 'Prise de rendez-vous en ligne',
     price: 'CHF 1\'200',
     icon: <CalendarCheck size={18} />,
@@ -52,7 +52,7 @@ const FEATURES: FeatureItem[] = [
   {
     id: 'members',
     title: 'Espace membres',
-    description: 'Comptes utilisateurs et acces restreint',
+    description: 'Comptes utilisateurs et accès restreint',
     price: 'CHF 2\'000',
     icon: <Users size={18} />,
   },
@@ -79,14 +79,14 @@ const FEATURES: FeatureItem[] = [
   },
   {
     id: 'gallery',
-    title: 'Galerie photo/video',
+    title: 'Galerie photo/vidéo',
     description: 'Portfolio ou showcase visuel',
     price: 'CHF 500',
     icon: <ImageIcon size={18} />,
   },
   {
     id: 'extra-pages',
-    title: 'Pages supplementaires',
+    title: 'Pages supplémentaires',
     description: 'Contenu additionnel',
     price: 'CHF 200/page',
     icon: <FilePlus size={18} />,

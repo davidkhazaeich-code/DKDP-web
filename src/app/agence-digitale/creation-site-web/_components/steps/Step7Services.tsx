@@ -14,7 +14,7 @@ export function Step7Services() {
       {/* Maintenance */}
       <MultiSelectCard
         title="Maintenance"
-        description="Mises a jour, securite, modifications mineures incluses"
+        description="Mises à jour, sécurité, modifications mineures incluses"
         price="CHF 150"
         priceLabel="/mois"
         icon={<Wrench size={18} />}
@@ -25,7 +25,7 @@ export function Step7Services() {
       {/* Formation */}
       <MultiSelectCard
         title="Formation"
-        description="Formation a la gestion de votre site"
+        description="Formation à la gestion de votre site"
         price="CHF 200"
         icon={<GraduationCap size={18} />}
         selected={state.services.includes('training')}
@@ -34,8 +34,8 @@ export function Step7Services() {
 
       {/* Conformite RGPD */}
       <MultiSelectCard
-        title="Conformite RGPD"
-        description="Politique de confidentialite, cookies, consentement"
+        title="Conformité RGPD"
+        description="Politique de confidentialité, cookies, consentement"
         price="CHF 500"
         icon={<Shield size={18} />}
         selected={state.services.includes('rgpd')}
@@ -44,8 +44,8 @@ export function Step7Services() {
 
       {/* Production video */}
       <MultiSelectCard
-        title="Production video"
-        description="Video de presentation ou promotionnelle"
+        title="Production vidéo"
+        description="Vidéo de présentation ou promotionnelle"
         price="CHF 1'500-4'000"
         icon={<Video size={18} />}
         selected={state.services.includes('video')}

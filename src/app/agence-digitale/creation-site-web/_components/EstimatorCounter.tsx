@@ -65,7 +65,7 @@ function StickyBottomBar() {
               <span className="text-emerald-400">~{weeksMin}-{weeksMax} sem.</span>
             )}
             {monthlyMin === 0 && weeksMin === 0 && (
-              <span>Etape {currentStep}/8</span>
+              <span>Étape {currentStep}/8</span>
             )}
           </div>
         </div>
@@ -159,7 +159,7 @@ export function EstimatorCounter() {
           {/* Step indicator */}
           <div className="flex flex-col gap-2">
             <p className="text-xs text-zinc-500">
-              Etape <span className="text-zinc-300 font-medium">{currentStep}</span> / 8
+              Étape <span className="text-zinc-300 font-medium">{currentStep}</span> / 8
             </p>
             <div className="flex gap-1">
               {dots.map((dot) => (

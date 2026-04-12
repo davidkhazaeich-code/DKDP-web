@@ -6,7 +6,7 @@ import { Estimator } from '../_components/Estimator'
 export const metadata: Metadata = {
   title: 'Estimation gratuite site web · Simulateur de prix en ligne · DKDP',
   description:
-    'Estimez le cout de votre site web en quelques clics. Simulateur interactif avec prix transparents. Site vitrine, e-commerce ou sur mesure. Devis detaille sous 48h.',
+    'Estimez le coût de votre site web en quelques clics. Simulateur interactif avec prix transparents. Site vitrine, e-commerce ou sur mesure. Devis détaillé sous 48h.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-site-web/estimation' },
 }
 
@@ -16,7 +16,7 @@ export default function EstimationPage() {
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
         { name: 'Agence Digitale', url: 'https://dkdp.ch/agence-digitale' },
-        { name: 'Creation de site web', url: 'https://dkdp.ch/agence-digitale/creation-site-web' },
+        { name: 'Création de site web', url: 'https://dkdp.ch/agence-digitale/creation-site-web' },
         { name: 'Estimation', url: 'https://dkdp.ch/agence-digitale/creation-site-web/estimation' },
       ])} />
 

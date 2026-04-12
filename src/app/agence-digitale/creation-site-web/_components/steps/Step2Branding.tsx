@@ -20,7 +20,7 @@ export function Step2Branding() {
         </p>
         <div className="grid grid-cols-1 gap-3">
           <SelectionCard
-            title="J'ai deja mon logo"
+            title="J'ai déjà mon logo"
             price="Inclus"
             priceColor="text-emerald-400"
             icon={<CheckCircle2 size={18} />}
@@ -30,7 +30,7 @@ export function Step2Branding() {
             }
           />
           <SelectionCard
-            title="Creer un logo"
+            title="Créer un logo"
             price="CHF 800-1'500"
             icon={<Palette size={18} />}
             selected={state.logo === 'create'}
@@ -53,11 +53,11 @@ export function Step2Branding() {
       {/* Section 2 - Identite visuelle */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Identite visuelle
+          Identité visuelle
         </p>
         <div className="grid grid-cols-1 gap-3">
           <SelectionCard
-            title="J'ai deja ma charte"
+            title="J'ai déjà ma charte"
             price="Inclus"
             priceColor="text-emerald-400"
             icon={<CheckCircle2 size={18} />}
@@ -70,7 +70,7 @@ export function Step2Branding() {
             }
           />
           <SelectionCard
-            title="Creer une identite"
+            title="Créer une identité"
             price="CHF 1'000-2'000"
             icon={<Paintbrush size={18} />}
             selected={state.branding === 'create'}
@@ -112,28 +112,28 @@ export function Step2Branding() {
       {/* Section 3 - Strategie marketing */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Strategie marketing
+          Stratégie marketing
         </p>
         <div className="grid grid-cols-1 gap-3">
           <MultiSelectCard
             title="Positionnement"
-            description="Definir votre proposition de valeur unique"
+            description="Définir votre proposition de valeur unique"
             price="CHF 800"
             icon={<Target size={18} />}
             selected={state.strategy.includes('positioning')}
             onToggle={() => dispatch({ type: 'TOGGLE_STRATEGY', value: 'positioning' })}
           />
           <MultiSelectCard
-            title="Etude de marche"
-            description="Analyse de la concurrence et opportunites"
+            title="Étude de marché"
+            description="Analyse de la concurrence et opportunités"
             price="CHF 600"
             icon={<BarChart3 size={18} />}
             selected={state.strategy.includes('market-study')}
             onToggle={() => dispatch({ type: 'TOGGLE_STRATEGY', value: 'market-study' })}
           />
           <MultiSelectCard
-            title="Strategie de contenu"
-            description="Planification editoriale et mots-cles"
+            title="Stratégie de contenu"
+            description="Planification éditoriale et mots-clés"
             price="CHF 1'200"
             icon={<FileText size={18} />}
             selected={state.strategy.includes('content-strategy')}

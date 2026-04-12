@@ -56,7 +56,7 @@ export function MultiSelectCard({
             <span className="text-sm font-medium text-zinc-100 leading-snug">{title}</span>
             {recommended && (
               <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded border border-orange-500/20 bg-orange-500/10 text-orange-400">
-                Recommande
+                Recommandé
               </span>
             )}
           </div>

@@ -29,77 +29,77 @@ const SITE_TYPE_LABELS: Record<string, string> = {
 
 const LOGO_LABELS: Record<string, string> = {
   existing: 'Logo existant',
-  create: 'Creation de logo',
+  create: 'Création de logo',
   modernize: 'Modernisation du logo',
 }
 
 const BRANDING_LABELS: Record<string, string> = {
   existing: 'Charte existante',
-  create: 'Creation identite visuelle',
-  modernize: 'Modernisation identite',
+  create: 'Création identité visuelle',
+  modernize: 'Modernisation identité',
 }
 
 const STRATEGY_LABELS: Record<string, string> = {
   positioning: 'Positionnement',
-  'market-study': 'Etude de marche',
-  'content-strategy': 'Strategie de contenu',
+  'market-study': 'Étude de marché',
+  'content-strategy': 'Stratégie de contenu',
 }
 
 const DESIGN_LEVEL_LABELS: Record<string, string> = {
-  template: 'Template adapte',
+  template: 'Template adapté',
   custom: 'Sur mesure',
   premium: 'Premium',
 }
 
 const COPYWRITING_LABELS: Record<string, string> = {
   provided: 'Contenu fourni',
-  basic: 'Redaction basique',
-  professional: 'Redaction professionnelle',
+  basic: 'Rédaction basique',
+  professional: 'Rédaction professionnelle',
 }
 
 const VISUALS_LABELS: Record<string, string> = {
   provided: 'Visuels fournis',
   stock: "Banque d'images",
-  ai: 'Generation IA',
+  ai: 'Génération IA',
   shooting: 'Shooting professionnel',
 }
 
 const FEATURE_LABELS: Record<string, string> = {
-  'blog-setup': 'Creation de blog',
+  'blog-setup': 'Création de blog',
   'blog-management': 'Gestion de blog',
   form: 'Formulaire',
-  booking: 'Reservations',
+  booking: 'Réservations',
   members: 'Espace membres',
   chatbot: 'Chatbot IA',
   payment: 'Paiement en ligne',
   newsletter: 'Newsletter',
   gallery: 'Galerie',
-  'extra-pages': 'Pages supplementaires',
+  'extra-pages': 'Pages supplémentaires',
 }
 
 const SEO_LABELS: Record<string, string> = {
-  'advanced-oneshot': 'SEO avance',
+  'advanced-oneshot': 'SEO avancé',
   monthly: 'SEO mensuel',
 }
 
 const ACQUISITION_LABELS: Record<string, string> = {
   sea: 'Google Ads',
-  social: 'Reseaux sociaux',
+  social: 'Réseaux sociaux',
   funnel: 'Funnel de conversion',
 }
 
 const AUTOMATION_LABELS: Record<string, string> = {
   crm: 'CRM',
   'email-marketing': 'Email marketing',
-  workflows: 'Workflows automatises',
+  workflows: 'Workflows automatisés',
   dashboard: 'Dashboard analytics',
 }
 
 const SERVICE_LABELS: Record<string, string> = {
   maintenance: 'Maintenance',
   training: 'Formation',
-  rgpd: 'Conformite RGPD',
-  video: 'Production video',
+  rgpd: 'Conformité RGPD',
+  video: 'Production vidéo',
   rush: 'Livraison express (+30%)',
 }
 
@@ -306,7 +306,7 @@ export function Step8Summary() {
     })
   }
 
-  // Category 5: Fonctionnalites
+  // Category 5: Fonctionnalités
   const featuresItems: LineItem[] = []
   const featurePricesDisplay: Record<string, string> = {
     'blog-setup': 'CHF 800',
@@ -435,7 +435,7 @@ export function Step8Summary() {
     } catch (err) {
       dispatch({ type: 'SET_SUBMITTING', value: false })
       setErrorMessage(
-        err instanceof Error ? err.message : 'Une erreur est survenue. Veuillez reessayer.'
+        err instanceof Error ? err.message : 'Une erreur est survenue. Veuillez réessayer.'
       )
     }
   }
@@ -457,7 +457,7 @@ export function Step8Summary() {
             Merci, {state.contact.firstName || 'vous'}&nbsp;!
           </h3>
           <p className="text-zinc-400 max-w-sm leading-relaxed">
-            Votre estimation a ete envoyee avec succes. Vous recevrez un devis detaille sous 48h.
+            Votre estimation a été envoyée avec succès. Vous recevrez un devis détaillé sous 48h.
           </p>
         </div>
       </motion.div>
@@ -472,7 +472,7 @@ export function Step8Summary() {
         <CategoryBlock title="Branding" step={2} items={brandingItems} />
         <CategoryBlock title="Envergure" step={3} items={envergureItems} />
         <CategoryBlock title="Contenu" step={4} items={contenuItems} />
-        <CategoryBlock title="Fonctionnalites" step={5} items={featuresItems} />
+        <CategoryBlock title="Fonctionnalités" step={5} items={featuresItems} />
         <CategoryBlock title="Acquisition" step={6} items={acquisitionItems} />
         <CategoryBlock title="Services" step={7} items={servicesItems} />
       </div>
@@ -482,7 +482,7 @@ export function Step8Summary() {
         {/* One-time investment */}
         <div>
           <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-1">
-            Investissement unique
+            Investissement unique (estimé)
           </p>
           <p className="text-3xl font-bold text-white">
             <AnimatedCounter value={estimate.totalMin} prefix="CHF" />
@@ -499,7 +499,7 @@ export function Step8Summary() {
         {estimate.monthlyMin > 0 && (
           <div>
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-1">
-              Couts recurrents
+              Coûts récurrents
             </p>
             <p className="text-lg font-semibold text-violet-400">
               +{formatCHF(estimate.monthlyMin, estimate.monthlyMax)} /mois
@@ -511,7 +511,7 @@ export function Step8Summary() {
         {estimate.weeksMin > 0 && (
           <div>
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-1">
-              Delai estime
+              Délai estimé
             </p>
             <p className="text-lg font-semibold text-emerald-400">
               ~{estimate.weeksMin}
@@ -522,7 +522,7 @@ export function Step8Summary() {
         )}
 
         <p className="text-xs text-zinc-500 border-t border-white/5 pt-3">
-          Estimation indicative. Devis personnalise sous 48h.
+          Estimation indicative. Devis personnalisé sous 48h.
         </p>
       </div>
 
@@ -540,7 +540,7 @@ export function Step8Summary() {
 
         {/* Name row */}
         <div className="grid grid-cols-2 gap-4">
-          <InputField label="Prenom" id="firstName" required icon={<User size={14} />}>
+          <InputField label="Prénom" id="firstName" required icon={<User size={14} />}>
             <input
               id="firstName"
               type="text"
@@ -590,7 +590,7 @@ export function Step8Summary() {
         </InputField>
 
         {/* Phone */}
-        <InputField label="Telephone" id="phone" icon={<Phone size={14} />}>
+        <InputField label="Téléphone" id="phone" icon={<Phone size={14} />}>
           <input
             id="phone"
             type="tel"
@@ -624,7 +624,7 @@ export function Step8Summary() {
               onChange={setField('productCount')}
               className={inputClass}
             >
-              <option value="" className="bg-zinc-900">Selectionnez...</option>
+              <option value="" className="bg-zinc-900">Sélectionnez...</option>
               <option value="1-50" className="bg-zinc-900">1-50</option>
               <option value="51-200" className="bg-zinc-900">51-200</option>
               <option value="201-1000" className="bg-zinc-900">201-1000</option>
@@ -635,11 +635,11 @@ export function Step8Summary() {
 
         {/* Dynamic: branding create → business description */}
         {state.branding === 'create' && (
-          <InputField label="Description de votre activite" id="businessDescription" icon={<FileText size={14} />}>
+          <InputField label="Description de votre activité" id="businessDescription" icon={<FileText size={14} />}>
             <textarea
               id="businessDescription"
               rows={3}
-              placeholder="Decrivez votre activite, votre cible, vos valeurs..."
+              placeholder="Décrivez votre activité, votre cible, vos valeurs..."
               value={state.contact.businessDescription}
               onChange={setField('businessDescription')}
               className={inputClass}
@@ -649,7 +649,7 @@ export function Step8Summary() {
 
         {/* Dynamic: rush → launch date */}
         {state.services.includes('rush') && (
-          <InputField label="Date de lancement souhaitee" id="launchDate" icon={<Calendar size={14} />}>
+          <InputField label="Date de lancement souhaitée" id="launchDate" icon={<Calendar size={14} />}>
             <input
               id="launchDate"
               type="date"
@@ -662,7 +662,7 @@ export function Step8Summary() {
 
         {/* Dynamic: restaurant → location count */}
         {state.sector === 'restaurant' && (
-          <InputField label="Nombre d'etablissements" id="locationCount" icon={<MapPin size={14} />}>
+          <InputField label="Nombre d'établissements" id="locationCount" icon={<MapPin size={14} />}>
             <input
               id="locationCount"
               type="number"
@@ -677,11 +677,11 @@ export function Step8Summary() {
 
         {/* Dynamic: webapp → app description */}
         {state.siteType === 'webapp' && (
-          <InputField label="Description des fonctionnalites" id="appDescription" icon={<Code2 size={14} />}>
+          <InputField label="Description des fonctionnalités" id="appDescription" icon={<Code2 size={14} />}>
             <textarea
               id="appDescription"
               rows={4}
-              placeholder="Decrivez les fonctionnalites principales de votre application..."
+              placeholder="Décrivez les fonctionnalités principales de votre application..."
               value={state.contact.appDescription}
               onChange={setField('appDescription')}
               className={inputClass}
@@ -697,7 +697,7 @@ export function Step8Summary() {
             onChange={setField('budget')}
             className={inputClass}
           >
-            <option value="" className="bg-zinc-900">Pas de budget defini</option>
+            <option value="" className="bg-zinc-900">Pas de budget défini</option>
             <option value="&lt;5000" className="bg-zinc-900">Moins de CHF 5&apos;000</option>
             <option value="5000-10000" className="bg-zinc-900">CHF 5&apos;000-10&apos;000</option>
             <option value="10000-20000" className="bg-zinc-900">CHF 10&apos;000-20&apos;000</option>
@@ -706,7 +706,7 @@ export function Step8Summary() {
         </InputField>
 
         {/* Timeline */}
-        <InputField label="Delai souhaite" id="timeline" icon={<Clock size={14} />}>
+        <InputField label="Délai souhaité" id="timeline" icon={<Clock size={14} />}>
           <select
             id="timeline"
             value={state.contact.timeline}
@@ -726,7 +726,7 @@ export function Step8Summary() {
           <textarea
             id="message"
             rows={4}
-            placeholder="Informations complementaires, questions..."
+            placeholder="Informations complémentaires, questions..."
             value={state.contact.message}
             onChange={setField('message')}
             className={inputClass}
@@ -755,7 +755,7 @@ export function Step8Summary() {
               Envoi en cours...
             </span>
           ) : (
-            'Recevoir mon estimation detaillee'
+            'Recevoir mon estimation détaillée'
           )}
         </button>
       </form>

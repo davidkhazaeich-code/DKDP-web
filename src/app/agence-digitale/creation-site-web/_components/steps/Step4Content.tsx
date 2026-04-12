@@ -22,7 +22,7 @@ export function Step4Content() {
       {/* Section 1 - Redaction & copywriting */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Redaction &amp; copywriting
+          Rédaction &amp; copywriting
         </p>
         <div className="grid grid-cols-1 gap-3">
           <SelectionCard
@@ -39,7 +39,7 @@ export function Step4Content() {
             }
           />
           <SelectionCard
-            title="Redaction basique"
+            title="Rédaction basique"
             description="Mise en forme et optimisation"
             price={`CHF ${formatChf(basicPrice)}`}
             icon={<FileText size={18} />}
@@ -52,8 +52,8 @@ export function Step4Content() {
             }
           />
           <SelectionCard
-            title="Redaction professionnelle"
-            description="Copywriting SEO avance"
+            title="Rédaction professionnelle"
+            description="Copywriting SEO avancé"
             price={`CHF ${formatChf(professionalPrice)}`}
             icon={<PenTool size={18} />}
             selected={state.copywriting === 'professional'}
@@ -100,8 +100,8 @@ export function Step4Content() {
             }
           />
           <SelectionCard
-            title="Generation IA"
-            description="Visuels crees par intelligence artificielle"
+            title="Génération IA"
+            description="Visuels créés par intelligence artificielle"
             price="CHF 400-800"
             icon={<Sparkles size={18} />}
             selected={state.visuals === 'ai'}

@@ -52,7 +52,7 @@ function EstimatorInner() {
           Estimez votre <GradText>projet web</GradText>
         </h2>
         <p className="text-zinc-400 max-w-2xl mx-auto text-sm sm:text-base hidden sm:block">
-          Configurez votre projet en quelques etapes et recevez une estimation personnalisee
+          Configurez votre projet en quelques étapes et recevez une estimation personnalisée
         </p>
       </div>
 

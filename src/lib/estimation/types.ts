@@ -10,7 +10,7 @@ export type LogoOption = 'existing' | 'create' | 'modernize'
 export type BrandingOption = 'existing' | 'create' | 'modernize'
 export type StrategyOption = 'positioning' | 'market-study' | 'content-strategy'
 
-export type PageRange = '1-5' | '6-10' | '11-20' | '20+'
+export type PageRange = '1-5' | '6-10' | '11-20' | '20+' | 'unsure'
 export type LanguageOption = '1' | '2' | '3+'
 export type DesignLevel = 'template' | 'custom' | 'premium'
 

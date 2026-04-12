@@ -218,7 +218,7 @@ export async function POST(req: NextRequest) {
     ${data.branding ? tableRow('Charte graphique', BRANDING_LABELS[data.branding] ?? data.branding) : ''}
     ${data.strategy.length > 0 ? tableRow('Strategie', data.strategy.map(s => STRATEGY_LABELS[s] ?? s).join(', ')) : ''}
     ${sectionTitle('Structure')}
-    ${tableRow('Pages', data.pages)}
+    ${tableRow('Pages', data.pages === 'unsure' ? 'À définir' : data.pages)}
     ${tableRow('Langues', data.languages)}
     ${tableRow('Design', DESIGN_LABELS[data.designLevel] ?? data.designLevel)}
     ${sectionTitle('Contenu')}

@@ -35,6 +35,7 @@ export const PAGE_MULTIPLIERS: Record<PageRange, number> = {
   '6-10': 1.3,
   '11-20': 1.6,
   '20+': 2,
+  unsure: 1,
 }
 
 export const LANG_MULTIPLIERS: Record<LanguageOption, number> = {
@@ -54,6 +55,7 @@ export const PAGE_MIDPOINTS: Record<PageRange, number> = {
   '6-10': 8,
   '11-20': 15,
   '20+': 25,
+  unsure: 3,
 }
 
 // ── Logo & Branding prices ──

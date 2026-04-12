@@ -1,6 +1,6 @@
 'use client'
 
-import { LayoutTemplate, Paintbrush, Crown } from 'lucide-react'
+import { LayoutTemplate, Paintbrush, Crown, HelpCircle } from 'lucide-react'
 import { useEstimator } from '../EstimatorContext'
 import { SelectionCard } from '../ui/SelectionCard'
 import { OptionChip } from '../ui/OptionChip'
@@ -16,11 +16,32 @@ function formatChf(value: number): string {
   return value.toLocaleString('de-CH').replace(/,/g, "'")
 }
 
-const PAGE_RANGES: { value: PageRange; label: string }[] = [
-  { value: '1-5', label: '1-5 pages' },
-  { value: '6-10', label: '6-10 pages' },
-  { value: '11-20', label: '11-20 pages' },
-  { value: '20+', label: '20+ pages' },
+const PAGE_OPTIONS: { value: PageRange; label: string; hint: string }[] = [
+  {
+    value: '1-5',
+    label: '1-5 pages',
+    hint: 'Accueil, services, à propos, contact',
+  },
+  {
+    value: '6-10',
+    label: '6-10 pages',
+    hint: 'Services détaillés, portfolio, blog, FAQ',
+  },
+  {
+    value: '11-20',
+    label: '11-20 pages',
+    hint: 'Multi-services, études de cas, blog actif',
+  },
+  {
+    value: '20+',
+    label: '20+ pages',
+    hint: 'Catalogue produits, portail, contenu riche',
+  },
+  {
+    value: 'unsure',
+    label: 'Je ne sais pas encore',
+    hint: 'On évaluera ensemble lors du devis',
+  },
 ]
 
 const LANGUAGE_OPTIONS: { value: LanguageOption; label: string }[] = [
@@ -76,14 +97,37 @@ export function Step3Scope() {
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
           Nombre de pages
         </p>
-        <div className="flex flex-wrap gap-2">
-          {PAGE_RANGES.map((opt) => (
-            <OptionChip
+        <div className="grid grid-cols-1 gap-2">
+          {PAGE_OPTIONS.map((opt) => (
+            <button
               key={opt.value}
-              label={opt.label}
-              selected={state.pages === opt.value}
+              type="button"
               onClick={() => dispatch({ type: 'SET_PAGES', value: opt.value })}
-            />
+              className={[
+                'w-full text-left rounded-xl px-4 py-3 transition-all duration-200 border',
+                state.pages === opt.value
+                  ? 'border-violet-500/50 bg-violet-500/10'
+                  : 'border-white/[0.06] bg-white/[0.02] hover:border-white/10',
+              ].join(' ')}
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div className="min-w-0">
+                  <span className={[
+                    'text-sm font-medium',
+                    opt.value === 'unsure' ? 'text-zinc-400' : 'text-zinc-100',
+                  ].join(' ')}>
+                    {opt.value === 'unsure' && <HelpCircle size={14} className="inline mr-1.5 -mt-0.5 text-zinc-500" />}
+                    {opt.label}
+                  </span>
+                  <p className="text-xs text-zinc-500 mt-0.5">{opt.hint}</p>
+                </div>
+                {opt.value !== 'unsure' && (
+                  <span className="text-xs text-zinc-500 whitespace-nowrap">
+                    x{PAGE_MULTIPLIERS[opt.value]}
+                  </span>
+                )}
+              </div>
+            </button>
           ))}
         </div>
       </div>

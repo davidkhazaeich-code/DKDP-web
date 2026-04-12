@@ -75,15 +75,15 @@ export function Step7Services() {
           <div className="flex items-center gap-2 flex-wrap">
             <Timer size={18} className={isRushSelected ? 'text-orange-400' : 'text-zinc-500'} />
             <span className="text-sm font-medium text-zinc-100 leading-snug">
-              Livraison express
+              Livraison express (-1 mois)
             </span>
           </div>
-          <span className="text-sm font-medium text-zinc-400 whitespace-nowrap">+30%</span>
+          <span className="text-sm font-medium text-orange-400 whitespace-nowrap">+30%</span>
         </div>
 
         {/* Orange warning */}
         <p className="mt-1 text-xs text-orange-400/80 leading-relaxed">
-          Applique +30% sur le coût total du projet
+          Votre projet livré en moins d&apos;un mois, +30% sur le coût total
         </p>
       </div>
     </div>

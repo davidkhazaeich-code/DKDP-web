@@ -265,6 +265,7 @@ export function Step8Summary() {
       '6-10': '6-10 pages',
       '11-20': '11-20 pages',
       '20+': '20+ pages',
+      unsure: 'À définir ensemble',
     }
     envergureItems.push({ label: pagesLabel[state.pages] ?? state.pages, price: 'Inclus' })
   }
@@ -467,27 +468,24 @@ export function Step8Summary() {
     )
   }
 
-  return (
-    <div className="space-y-8">
-      {/* ── Recap section ── */}
-      <div className="space-y-4">
-        <CategoryBlock title="Projet" step={1} items={projetItems} />
-        <CategoryBlock title="Branding" step={2} items={brandingItems} />
-        <CategoryBlock title="Envergure" step={3} items={envergureItems} />
-        <CategoryBlock title="Contenu" step={4} items={contenuItems} />
-        <CategoryBlock title="Fonctionnalités" step={5} items={featuresItems} />
-        <CategoryBlock title="Acquisition" step={6} items={acquisitionItems} />
-        <CategoryBlock title="Services" step={7} items={servicesItems} />
-      </div>
+  // Recap + totals sidebar content (reused in both layouts)
+  const recapContent = (
+    <div className="space-y-4">
+      <CategoryBlock title="Projet" step={1} items={projetItems} />
+      <CategoryBlock title="Branding" step={2} items={brandingItems} />
+      <CategoryBlock title="Envergure" step={3} items={envergureItems} />
+      <CategoryBlock title="Contenu" step={4} items={contenuItems} />
+      <CategoryBlock title="Fonctionnalités" step={5} items={featuresItems} />
+      <CategoryBlock title="Acquisition" step={6} items={acquisitionItems} />
+      <CategoryBlock title="Services" step={7} items={servicesItems} />
 
-      {/* ── Totals block ── */}
-      <div className="rounded-2xl border border-violet-500/30 bg-violet-500/5 p-6 space-y-4">
-        {/* One-time investment */}
+      {/* Totals */}
+      <div className="rounded-2xl border border-violet-500/30 bg-violet-500/5 p-5 space-y-3">
         <div>
           <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-1">
-            Investissement unique (estimé)
+            Investissement unique
           </p>
-          <p className="text-3xl font-bold text-white">
+          <p className="text-2xl lg:text-xl font-bold text-white">
             <AnimatedCounter value={estimate.totalMin} prefix="CHF" />
             {estimate.totalMin !== estimate.totalMax && (
               <>
@@ -497,40 +495,46 @@ export function Step8Summary() {
             )}
           </p>
         </div>
-
-        {/* Monthly costs — only if > 0 */}
         {estimate.monthlyMin > 0 && (
           <div>
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-1">
               Coûts récurrents
             </p>
-            <p className="text-lg font-semibold text-violet-400">
+            <p className="text-base font-semibold text-violet-400">
               +{formatCHF(estimate.monthlyMin, estimate.monthlyMax)} /mois
             </p>
           </div>
         )}
-
-        {/* Estimated delay */}
         {estimate.weeksMin > 0 && (
           <div>
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-1">
               Délai estimé
             </p>
-            <p className="text-lg font-semibold text-emerald-400">
+            <p className="text-base font-semibold text-emerald-400">
               ~{estimate.weeksMin}
               {estimate.weeksMin !== estimate.weeksMax && `-${estimate.weeksMax}`}{' '}
               semaines
             </p>
           </div>
         )}
-
         <p className="text-xs text-zinc-500 border-t border-white/5 pt-3">
           Estimation indicative. Devis personnalisé sous 48h.
         </p>
       </div>
+    </div>
+  )
 
-      {/* ── Contact form ── */}
-      <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+  return (
+    <div className="lg:grid lg:grid-cols-[1fr_300px] lg:gap-8">
+      {/* ── Left: form (desktop) / stacked (mobile) ── */}
+      <div className="space-y-8">
+        {/* Recap visible only on mobile/tablet */}
+        <div className="lg:hidden">
+          {recapContent}
+        </div>
+
+        {/* ── Contact form ── */}
+        <form onSubmit={handleSubmit} className="space-y-5" noValidate>
         <p className="text-xs text-zinc-500">
           <span className="text-violet-400">*</span> Champs obligatoires
         </p>
@@ -765,6 +769,14 @@ export function Step8Summary() {
           )}
         </button>
       </form>
+      </div>
+
+      {/* ── Right: sticky recap (desktop only) ── */}
+      <div className="hidden lg:block">
+        <div className="sticky top-[140px]">
+          {recapContent}
+        </div>
+      </div>
     </div>
   )
 }

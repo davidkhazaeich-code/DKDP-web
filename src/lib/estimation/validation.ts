@@ -27,7 +27,7 @@ export const estimationRequestSchema = z.object({
   logo: z.enum(['existing', 'create', 'modernize']).nullable(),
   branding: z.enum(['existing', 'create', 'modernize']).nullable(),
   strategy: z.array(z.enum(['positioning', 'market-study', 'content-strategy'])),
-  pages: z.enum(['1-5', '6-10', '11-20', '20+']),
+  pages: z.enum(['1-5', '6-10', '11-20', '20+', 'unsure']),
   languages: z.enum(['1', '2', '3+']),
   designLevel: z.enum(['template', 'custom', 'premium']),
   copywriting: z.enum(['provided', 'basic', 'professional']).nullable(),

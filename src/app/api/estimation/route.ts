@@ -433,7 +433,7 @@ export async function POST(req: NextRequest) {
             email: contact.email,
           },
           Telephone: {
-            rich_text: [{ text: { content: contact.phone } }],
+            phone_number: contact.phone || null,
           },
           Type: {
             select: { name: data.siteType },

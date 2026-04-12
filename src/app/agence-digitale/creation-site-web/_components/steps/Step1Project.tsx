@@ -9,7 +9,7 @@ export function Step1Project() {
   const { state, dispatch } = useEstimator()
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-5 sm:space-y-8">
       {/* Section 1 - Votre situation */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">

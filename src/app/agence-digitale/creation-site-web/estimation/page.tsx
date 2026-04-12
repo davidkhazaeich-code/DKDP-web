@@ -36,7 +36,7 @@ export default function EstimationPage() {
       </div>
 
       {/* ── Estimateur ── */}
-      <section className="relative pt-28 pb-16">
+      <section className="relative pt-20 sm:pt-28 pb-16">
         <Estimator />
       </section>
     </main>

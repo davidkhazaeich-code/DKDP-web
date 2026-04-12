@@ -60,44 +60,61 @@ function EstimatorInner() {
   }
 
   return (
-    <div className="max-w-[1200px] mx-auto px-4">
+    <div className="max-w-[1200px] mx-auto px-4 pb-28 lg:pb-0">
       {/* Title */}
-      <div className="text-center mb-8">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+      <div className="text-center mb-4 sm:mb-6">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1.5 sm:mb-3">
           Estimez votre <GradText>projet web</GradText>
         </h2>
-        <p className="text-zinc-400 max-w-2xl mx-auto">
+        <p className="text-zinc-400 max-w-2xl mx-auto text-sm sm:text-base hidden sm:block">
           Configurez votre projet en quelques etapes et recevez une estimation personnalisee
         </p>
       </div>
 
       <TrustBanner />
 
-      <div className="mt-8 lg:grid lg:grid-cols-[1fr_320px] lg:gap-8">
+      <div className="mt-4 sm:mt-6 lg:mt-8 lg:grid lg:grid-cols-[1fr_320px] lg:gap-8">
         {/* Left column - main wizard */}
-        <div>
-          <EstimatorProgress />
-
-          <div className="mt-6 min-h-[400px]">
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={currentStep}
-                initial={{ opacity: 0, x: direction * 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction * -50 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-              >
-                {renderStep()}
-              </motion.div>
-            </AnimatePresence>
+        <div className="relative">
+          {/* Grid background */}
+          <div className="absolute -inset-4 sm:-inset-6 rounded-3xl overflow-hidden pointer-events-none" aria-hidden="true">
+            <div
+              className="absolute inset-0 opacity-[0.04]"
+              style={{
+                backgroundImage: `
+                  linear-gradient(rgba(167,139,250,0.5) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(167,139,250,0.5) 1px, transparent 1px)
+                `,
+                backgroundSize: '40px 40px',
+              }}
+            />
           </div>
 
-          <EstimatorNav
-            canGoBack={canGoBack}
-            canSkip={canSkip}
-            canProceed={canProceed}
-            isLastStep={isLastStep}
-          />
+          {/* Frosted glass content panel */}
+          <div className="relative rounded-2xl border border-white/[0.06] bg-[#0A0A0A]/80 backdrop-blur-xl p-3 sm:p-5 lg:p-6">
+            <EstimatorProgress />
+
+            <div className="mt-4 sm:mt-6 min-h-[300px] sm:min-h-[400px]">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={currentStep}
+                  initial={{ opacity: 0, x: direction * 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: direction * -50 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                >
+                  {renderStep()}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            <EstimatorNav
+              canGoBack={canGoBack}
+              canSkip={canSkip}
+              canProceed={canProceed}
+              isLastStep={isLastStep}
+            />
+          </div>
         </div>
 
         {/* Right column - sticky counter (desktop) */}

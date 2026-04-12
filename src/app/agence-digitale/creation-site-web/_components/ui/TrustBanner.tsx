@@ -10,10 +10,10 @@ const ITEMS = [
 
 export function TrustBanner() {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+    <div className="flex items-center justify-center gap-3 sm:gap-6 flex-wrap">
       {ITEMS.map(({ icon: Icon, label }) => (
-        <div key={label} className="flex items-center gap-2 text-sm text-zinc-500">
-          <Icon size={16} className="flex-shrink-0" />
+        <div key={label} className="flex items-center gap-1.5 text-xs sm:text-sm text-zinc-500">
+          <Icon size={14} className="flex-shrink-0" />
           <span>{label}</span>
         </div>
       ))}

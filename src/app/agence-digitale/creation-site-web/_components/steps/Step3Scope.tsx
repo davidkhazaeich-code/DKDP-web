@@ -1,0 +1,157 @@
+'use client'
+
+import { useEstimator } from '../EstimatorContext'
+import { SelectionCard } from '../ui/SelectionCard'
+import { OptionChip } from '../ui/OptionChip'
+import {
+  BASE_PRICES,
+  PAGE_MULTIPLIERS,
+  LANG_MULTIPLIERS,
+  DESIGN_MULTIPLIERS,
+} from '@/lib/estimation/pricing'
+import type { PageRange, LanguageOption } from '@/lib/estimation/types'
+
+function formatChf(value: number): string {
+  return value.toLocaleString('de-CH').replace(/,/g, "'")
+}
+
+const PAGE_RANGES: { value: PageRange; label: string }[] = [
+  { value: '1-5', label: '1-5 pages' },
+  { value: '6-10', label: '6-10 pages' },
+  { value: '11-20', label: '11-20 pages' },
+  { value: '20+', label: '20+ pages' },
+]
+
+const LANGUAGE_OPTIONS: { value: LanguageOption; label: string }[] = [
+  { value: '1', label: '1 langue' },
+  { value: '2', label: '2 langues (x1.3)' },
+  { value: '3+', label: '3+ langues (x1.5)' },
+]
+
+export function Step3Scope() {
+  const { state, dispatch } = useEstimator()
+
+  // Real-time calculation preview
+  const showPreview =
+    state.siteType !== null &&
+    state.pages !== null &&
+    state.languages !== null &&
+    state.designLevel !== null
+
+  const previewResult = (() => {
+    if (!showPreview || !state.siteType || !state.pages || !state.languages || !state.designLevel) {
+      return null
+    }
+
+    const base = BASE_PRICES[state.siteType]
+    const pagesMult = PAGE_MULTIPLIERS[state.pages]
+    const langMult = LANG_MULTIPLIERS[state.languages]
+    const designMult = DESIGN_MULTIPLIERS[state.designLevel]
+    const totalMultiplier = 1 + (pagesMult - 1) + (langMult - 1) + (designMult - 1)
+
+    const resultMin = Math.round(base.min * totalMultiplier)
+    const resultMax = Math.round(base.max * totalMultiplier)
+
+    const siteTypeLabel: Record<string, string> = {
+      vitrine: 'vitrine',
+      ecommerce: 'e-commerce',
+      landing: 'landing page',
+      webapp: 'application web',
+    }
+
+    return {
+      type: siteTypeLabel[state.siteType] ?? state.siteType,
+      base: `CHF ${formatChf(base.min)}-${formatChf(base.max)}`,
+      mult: totalMultiplier.toFixed(2),
+      resultMin,
+      resultMax,
+    }
+  })()
+
+  return (
+    <div className="space-y-8">
+      {/* Section 1 - Nombre de pages */}
+      <div>
+        <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
+          Nombre de pages
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {PAGE_RANGES.map((opt) => (
+            <OptionChip
+              key={opt.value}
+              label={opt.label}
+              selected={state.pages === opt.value}
+              onClick={() => dispatch({ type: 'SET_PAGES', value: opt.value })}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Section 2 - Langues */}
+      <div>
+        <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
+          Langues
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {LANGUAGE_OPTIONS.map((opt) => (
+            <OptionChip
+              key={opt.value}
+              label={opt.label}
+              selected={state.languages === opt.value}
+              onClick={() => dispatch({ type: 'SET_LANGUAGES', value: opt.value })}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Section 3 - Niveau de design */}
+      <div>
+        <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
+          Niveau de design
+        </p>
+        <div className="grid grid-cols-1 gap-3">
+          <SelectionCard
+            title="Template adapte"
+            description="Base professionnelle personnalisee"
+            price="x1.0"
+            selected={state.designLevel === 'template'}
+            onClick={() => dispatch({ type: 'SET_DESIGN_LEVEL', value: 'template' })}
+          />
+          <SelectionCard
+            title="Sur mesure"
+            description="Design unique a votre image"
+            price="x1.4"
+            selected={state.designLevel === 'custom'}
+            onClick={() => dispatch({ type: 'SET_DESIGN_LEVEL', value: 'custom' })}
+          />
+          <SelectionCard
+            title="Premium"
+            description="Design haut de gamme, animations avancees"
+            price="x1.7"
+            selected={state.designLevel === 'premium'}
+            onClick={() => dispatch({ type: 'SET_DESIGN_LEVEL', value: 'premium' })}
+          />
+        </div>
+
+        {/* Real-time calculation preview */}
+        <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4 mt-4">
+          {previewResult ? (
+            <p className="text-sm text-zinc-400 leading-relaxed">
+              Site{' '}
+              <span className="text-zinc-200 font-medium">{previewResult.type}</span>
+              {' '}({previewResult.base}) x Multiplicateur ({previewResult.mult}) ={' '}
+              <span className="text-zinc-100 font-semibold">
+                CHF {formatChf(previewResult.resultMin)}-{formatChf(previewResult.resultMax)}
+              </span>
+            </p>
+          ) : (
+            <p className="text-sm text-zinc-500">
+              Selectionnez le type de site, les pages, les langues et le design pour voir
+              l&apos;estimation.
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}

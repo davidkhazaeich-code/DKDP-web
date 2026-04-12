@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import {
   Pencil, CheckCircle, Loader2,
   User, Building2, Mail, Phone, Link, Package,
-  FileText, Calendar, MapPin, Code2, Wallet, Clock, MessageSquare,
+  FileText, Calendar, MapPin, Code2, MessageSquare,
 } from 'lucide-react'
 import { useEstimator } from '../EstimatorContext'
 import { AnimatedCounter } from '../ui/AnimatedCounter'
@@ -397,7 +397,7 @@ export function Step8Summary() {
     e.preventDefault()
     setErrorMessage(null)
 
-    if (!state.situation || !state.siteType || !state.sector) return
+    if (!state.situation || !state.siteType) return
 
     dispatch({ type: 'SET_SUBMITTING', value: true })
 
@@ -698,38 +698,6 @@ export function Step8Summary() {
             />
           </InputField>
         )}
-
-        {/* Budget */}
-        <InputField label="Budget" id="budget" optional icon={<Wallet size={14} />}>
-          <select
-            id="budget"
-            value={state.contact.budget}
-            onChange={setField('budget')}
-            className={inputClass}
-          >
-            <option value="" className="bg-zinc-900">Pas de budget défini</option>
-            <option value="&lt;5000" className="bg-zinc-900">Moins de CHF 5&apos;000</option>
-            <option value="5000-10000" className="bg-zinc-900">CHF 5&apos;000-10&apos;000</option>
-            <option value="10000-20000" className="bg-zinc-900">CHF 10&apos;000-20&apos;000</option>
-            <option value="&gt;20000" className="bg-zinc-900">Plus de CHF 20&apos;000</option>
-          </select>
-        </InputField>
-
-        {/* Timeline */}
-        <InputField label="Délai souhaité" id="timeline" optional icon={<Clock size={14} />}>
-          <select
-            id="timeline"
-            value={state.contact.timeline}
-            onChange={setField('timeline')}
-            className={inputClass}
-          >
-            <option value="" className="bg-zinc-900">Flexible</option>
-            <option value="urgent" className="bg-zinc-900">Urgent (&lt; 1 mois)</option>
-            <option value="1-2" className="bg-zinc-900">1-2 mois</option>
-            <option value="2-3" className="bg-zinc-900">2-3 mois</option>
-            <option value="3+" className="bg-zinc-900">Plus de 3 mois</option>
-          </select>
-        </InputField>
 
         {/* Message */}
         <InputField label="Message (optionnel)" id="message" icon={<MessageSquare size={14} />}>

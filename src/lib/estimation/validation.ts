@@ -7,8 +7,6 @@ const contactSchema = z.object({
   email: z.string().email(),
   phone: z.string().max(30).default(''),
   message: z.string().max(2000).optional().default(''),
-  budget: z.string().max(50).optional().default(''),
-  timeline: z.string().max(50).optional().default(''),
   currentSiteUrl: z.string().url().max(500).optional().or(z.literal('')).default(''),
   productCount: z.string().max(20).optional().default(''),
   businessDescription: z.string().max(1000).optional().default(''),
@@ -23,7 +21,7 @@ export const estimationRequestSchema = z.object({
   sector: z.enum([
     'restaurant', 'health', 'legal', 'real-estate', 'retail',
     'services', 'tech', 'artisan', 'training', 'other',
-  ]),
+  ]).nullable(),
   logo: z.enum(['existing', 'create', 'modernize']).nullable(),
   branding: z.enum(['existing', 'create', 'modernize']).nullable(),
   strategy: z.array(z.enum(['positioning', 'market-study', 'content-strategy'])),

@@ -21,7 +21,7 @@ const article: Article = {
         caption: "Le cycle d'automatisation en 6 étapes : identifier, modéliser, configurer, tester, déployer, mesurer",
       },
       {
-        src: '/images/blog/automatiser-taches-pme-gains-productivité.png',
+        src: '/images/blog/automatiser-taches-pme-gains-productivite.png',
         alt: 'Automatisation PME Suisse 2026 : cycle de productivité avec engrenages connectes et flux de données automatises',
         caption: 'Le cycle d\'automatisation PME : des engrenages connectés pour un gain de productivité mesurable',
       },
@@ -180,7 +180,7 @@ ___IMG:automatiser-taches-workflow.png___
 </div>
 </div>
 
-___IMG:automatiser-taches-pme-gains-productivité.png___
+___IMG:automatiser-taches-pme-gains-productivite.png___
 
 ## Par où commencer : la méthode en 3 étapes
 

@@ -191,8 +191,6 @@ export async function POST(req: NextRequest) {
       email: contact.email,
       phone: contact.phone,
       message: contact.message,
-      budget: contact.budget,
-      timeline: contact.timeline,
       currentSiteUrl: contact.currentSiteUrl,
       productCount: contact.productCount,
       businessDescription: contact.businessDescription,
@@ -212,7 +210,7 @@ export async function POST(req: NextRequest) {
     ${sectionTitle('Projet')}
     ${tableRow('Situation', SITUATION_LABELS[data.situation] ?? data.situation)}
     ${tableRow('Type de site', SITE_TYPE_LABELS[data.siteType] ?? data.siteType)}
-    ${tableRow('Secteur', SECTOR_LABELS[data.sector] ?? data.sector)}
+    ${data.sector ? tableRow('Secteur', SECTOR_LABELS[data.sector] ?? data.sector) : ''}
     ${sectionTitle('Conception')}
     ${data.logo ? tableRow('Logo', LOGO_LABELS[data.logo] ?? data.logo) : ''}
     ${data.branding ? tableRow('Charte graphique', BRANDING_LABELS[data.branding] ?? data.branding) : ''}
@@ -320,8 +318,6 @@ export async function POST(req: NextRequest) {
             ${tableRow('Email', `<a href="mailto:${sanitize(contact.email)}" style="color:#A78BFA">${sanitize(contact.email)}</a>`)}
             ${tableRow('Telephone', sanitize(contact.phone))}
             ${contact.message ? tableRow('Message', sanitize(contact.message).replace(/\n/g, '<br>')) : ''}
-            ${contact.budget ? tableRow('Budget indique', sanitize(contact.budget)) : ''}
-            ${contact.timeline ? tableRow('Delai souhaite', sanitize(contact.timeline)) : ''}
             ${contact.currentSiteUrl ? tableRow('Site actuel', `<a href="${sanitize(contact.currentSiteUrl)}" style="color:#A78BFA">${sanitize(contact.currentSiteUrl)}</a>`) : ''}
             ${contact.businessDescription ? tableRow('Description', sanitize(contact.businessDescription).replace(/\n/g, '<br>')) : ''}
             ${contact.appDescription ? tableRow('Description app', sanitize(contact.appDescription).replace(/\n/g, '<br>')) : ''}
@@ -438,9 +434,7 @@ export async function POST(req: NextRequest) {
           Type: {
             select: { name: data.siteType },
           },
-          Secteur: {
-            select: { name: data.sector },
-          },
+          ...(data.sector ? { Secteur: { select: { name: data.sector } } } : {}),
           'Prix min': {
             number: serverPrice.totalMin,
           },

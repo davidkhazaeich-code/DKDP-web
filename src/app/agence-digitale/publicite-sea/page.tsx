@@ -135,7 +135,7 @@ const REALISATIONS = [
   {
     client: 'Clinique spécialisée',
     type: 'Search + Display',
-    image: '/images/services/dkdp-agence-création-web.webp',
+    image: '/images/services/dkdp-agence-creation-web.webp',
     results: ['0 à 40 patients/mois via Ads', 'CTR 5.8% (moyenne secteur: 1.4%)', 'Budget CHF 1\'200/mois, CA +220k'],
     tech: 'Google Ads · Display · Call Tracking',
   },

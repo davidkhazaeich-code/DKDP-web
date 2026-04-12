@@ -29,8 +29,6 @@ function makeState(overrides: Partial<EstimationState> = {}): EstimationState {
       email: 'test@dkdp.ch',
       phone: '+41 00 000 00 00',
       message: '',
-      budget: '',
-      timeline: '',
       currentSiteUrl: '',
       productCount: '',
       businessDescription: '',

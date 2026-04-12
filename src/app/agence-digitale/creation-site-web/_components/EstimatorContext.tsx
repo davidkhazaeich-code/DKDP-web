@@ -50,8 +50,6 @@ const initialState: EstimationState = {
     email: '',
     phone: '',
     message: '',
-    budget: '',
-    timeline: '',
     currentSiteUrl: '',
     productCount: '',
     businessDescription: '',

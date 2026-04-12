@@ -37,7 +37,7 @@ const SERVICES = [
     Icon: Globe, title: 'Création de site web', href: '/agence-digitale/creation-site-web',
     description: 'Sites sur mesure, rapides et optimisés pour la conversion. De la landing page au site e-commerce complexe.',
     badge: 'Best seller',
-    image: '/images/services/dkdp-agence-création-web.webp',
+    image: '/images/services/dkdp-agence-creation-web.webp',
   },
   {
     Icon: Search, title: 'Référencement SEO', href: '/agence-digitale/seo',
@@ -131,7 +131,7 @@ export default function AgenceDigitalePage() {
                   De la création de site au référencement, en passant par les campagnes payantes : on construit une stratégie cohérente qui génère de vrais résultats.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
-                  <LiquidMetalButton href="/contact?service=service-digital" size="lg">Devis gratuit →</LiquidMetalButton>
+                  <LiquidMetalButton href="/agence-digitale/creation-site-web/estimation" size="lg">Estimer mon projet →</LiquidMetalButton>
                   <Link href="#services" className="text-sm text-text-muted hover:text-white transition-colors">
                     Voir nos services ↓
                   </Link>

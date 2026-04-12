@@ -16,7 +16,7 @@ const article: Article = {
     },
     images: [
       {
-        src: '/images/blog/gestion-tokens-coût-exponentiel.png',
+        src: '/images/blog/gestion-tokens-cout-exponentiel.png',
         alt: 'Courbe exponentielle coût tokens IA : augmentation du prix par reponse selon longueur de conversation Claude',
         caption: 'Le coût par reponse augmente de maniere exponentielle avec la longueur de la conversation',
       },
@@ -70,7 +70,7 @@ Les consequences sont directes :
 
 Ce fonctionnement explique pourquoi une session longue peut consommer beaucoup plus qu\'une serie de sessions courtes, meme pour un volume de travail identique.
 
-___IMG:gestion-tokens-coût-exponentiel.png___
+___IMG:gestion-tokens-cout-exponentiel.png___
 
 ## Impact sur la performance et la qualité
 

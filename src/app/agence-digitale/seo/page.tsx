@@ -630,7 +630,7 @@ export default function SEOPage() {
               {
                 client: 'PME e-commerce',
                 type: 'SEO national',
-                image: '/images/services/dkdp-agence-création-web.webp',
+                image: '/images/services/dkdp-agence-creation-web.webp',
                 results: ['Page 1 sur 42 mots-clés cibles', 'Trafic x4.2 en 18 mois', 'CA online +280%'],
                 tech: 'SEO · Blog · Netlinking',
               },

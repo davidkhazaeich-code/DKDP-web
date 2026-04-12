@@ -182,7 +182,7 @@ export default function CreationSiteWebPage() {
                   DKDP crée des sites web professionnels à Genève : vitrine, e-commerce ou sur mesure. Chaque projet est pensé pour être rapide, visible sur Google et facile à gérer en autonomie. Les tarifs démarrent à CHF 2&apos;500, avec un devis fixe et sans surprise.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
-                  <LiquidMetalButton href="/contact?service=service-digital" size="lg">Devis gratuit →</LiquidMetalButton>
+                  <LiquidMetalButton href="/agence-digitale/creation-site-web/estimation" size="lg">Estimer mon projet →</LiquidMetalButton>
                   <Link href="#process" className="text-sm text-text-muted hover:text-white transition-colors">
                     Notre méthode ↓
                   </Link>
@@ -239,11 +239,11 @@ export default function CreationSiteWebPage() {
               ))}
             </nav>
             <Link
-              href="/contact?service=service-digital"
+              href="/agence-digitale/creation-site-web/estimation"
               className="flex-shrink-0 hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-bold transition-opacity hover:opacity-80"
               style={{ background: 'rgba(124,58,237,0.18)', color: '#A78BFA', border: '1px solid rgba(124,58,237,0.30)' }}
             >
-              Prendre contact
+              Estimer mon projet
             </Link>
           </div>
         </div>
@@ -464,7 +464,7 @@ export default function CreationSiteWebPage() {
                       ))}
                     </div>
                     <Link
-                      href="/contact?service=service-digital"
+                      href="/agence-digitale/creation-site-web/estimation"
                       className="mt-8 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-semibold transition-all hover:opacity-80"
                       style={{
                         background: offer.highlight ? color : bg,
@@ -532,7 +532,7 @@ export default function CreationSiteWebPage() {
               {
                 client: 'Cabinet de conseil B2B',
                 type: 'Refonte site vitrine',
-                image: '/images/services/dkdp-agence-création-web.webp',
+                image: '/images/services/dkdp-agence-creation-web.webp',
                 results: ['+340% trafic organique', '15 leads qualifiés / mois', 'Livré en 4 semaines'],
                 tech: 'Next.js · Sanity · Vercel',
               },

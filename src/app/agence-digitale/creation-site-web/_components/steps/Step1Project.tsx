@@ -79,7 +79,7 @@ export function Step1Project() {
       {/* Section 3 - Secteur d'activite */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Secteur d&apos;activité
+          Secteur d&apos;activité <span className="text-zinc-600 font-normal normal-case text-xs tracking-normal">(optionnel)</span>
         </p>
         <div className="flex flex-wrap gap-2">
           {SECTORS.map((sector) => (

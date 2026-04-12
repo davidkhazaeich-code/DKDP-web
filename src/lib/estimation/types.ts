@@ -76,8 +76,6 @@ export interface ContactInfo {
   email: string
   phone: string
   message: string
-  budget: string
-  timeline: string
   currentSiteUrl: string
   productCount: string
   businessDescription: string
@@ -102,7 +100,7 @@ export interface PriceEstimate {
 export interface EstimationRequest {
   situation: Situation
   siteType: SiteType
-  sector: Sector
+  sector: Sector | null
   logo: LogoOption | null
   branding: BrandingOption | null
   strategy: StrategyOption[]

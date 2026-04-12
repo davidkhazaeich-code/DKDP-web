@@ -16,7 +16,7 @@ function StickyBottomBar() {
   const canProceed = (() => {
     switch (currentStep) {
       case 1:
-        return !!state.situation && !!state.siteType && !!state.sector
+        return !!state.situation && !!state.siteType
       case 3:
         return !!state.pages && !!state.languages && !!state.designLevel
       default:

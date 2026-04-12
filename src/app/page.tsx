@@ -15,6 +15,7 @@ const ProofStack     = dynamic(() => import('@/components/sections/ProofStack').
 const Testimonials   = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 const TeamSection    = dynamic(() => import('@/components/sections/TeamSection').then(m => ({ default: m.TeamSection })))
 const FAQSection     = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
+const EstimationBanner = dynamic(() => import('@/components/sections/EstimationBanner').then(m => ({ default: m.EstimationBanner })))
 const CTAFinal       = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 
 export const metadata: Metadata = {
@@ -52,6 +53,7 @@ export default function HomePage() {
         <Testimonials />
         <TeamSection />
         <FAQSection />
+        <EstimationBanner />
         <CTAFinal />
       </RevealDisabledProvider>
     </>

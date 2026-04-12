@@ -20,6 +20,7 @@ const PILLARS = [
       { label: 'Réseaux sociaux', href: '/agence-digitale/reseaux-sociaux' },
       { label: 'Création vidéo', href: '/agence-digitale/creation-video' },
       { label: 'Consulting marketing', href: '/agence-digitale/consulting-marketing' },
+      { label: 'Estimation gratuite', href: '/agence-digitale/creation-site-web/estimation' },
     ],
     hub: { label: 'Voir tous les services', href: '/agence-digitale' },
   },

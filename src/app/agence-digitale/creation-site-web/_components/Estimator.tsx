@@ -76,22 +76,8 @@ function EstimatorInner() {
       <div className="mt-4 sm:mt-6 lg:mt-8 lg:grid lg:grid-cols-[1fr_320px] lg:gap-8">
         {/* Left column - main wizard */}
         <div className="relative">
-          {/* Grid background */}
-          <div className="absolute -inset-4 sm:-inset-6 rounded-3xl overflow-hidden pointer-events-none" aria-hidden="true">
-            <div
-              className="absolute inset-0 opacity-[0.04]"
-              style={{
-                backgroundImage: `
-                  linear-gradient(rgba(167,139,250,0.5) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(167,139,250,0.5) 1px, transparent 1px)
-                `,
-                backgroundSize: '40px 40px',
-              }}
-            />
-          </div>
-
           {/* Frosted glass content panel */}
-          <div className="relative rounded-2xl border border-white/[0.06] bg-[#0A0A0A]/80 backdrop-blur-xl p-3 sm:p-5 lg:p-6">
+          <div className="relative rounded-2xl border border-white/[0.06] bg-[#0A0A0A]/70 backdrop-blur-md p-3 sm:p-5 lg:p-6">
             <EstimatorProgress />
 
             <div className="mt-4 sm:mt-6 min-h-[300px] sm:min-h-[400px]">

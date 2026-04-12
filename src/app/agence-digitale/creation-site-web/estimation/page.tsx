@@ -23,16 +23,16 @@ export default function EstimationPage() {
       {/* ── Fond grille ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(167,139,250,0.5) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(167,139,250,0.5) 1px, transparent 1px)
+              linear-gradient(rgba(167,139,250,0.12) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(167,139,250,0.12) 1px, transparent 1px)
             `,
             backgroundSize: '60px 60px',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#09090B]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#09090B]/40 via-transparent to-[#09090B]" />
       </div>
 
       {/* ── Estimateur ── */}

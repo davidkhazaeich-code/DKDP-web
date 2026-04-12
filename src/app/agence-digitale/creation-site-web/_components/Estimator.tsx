@@ -5,7 +5,7 @@ import { GradText } from '@/components/ui/GradText'
 import { EstimatorProvider, useEstimator } from './EstimatorContext'
 import { EstimatorProgress } from './EstimatorProgress'
 import { EstimatorCounter } from './EstimatorCounter'
-import { EstimatorNav } from './EstimatorNav'
+// EstimatorNav removed — StickyBottomBar in EstimatorCounter handles nav on all breakpoints
 import { TrustBanner } from './ui/TrustBanner'
 import { Step1Project } from './steps/Step1Project'
 import { Step2Branding } from './steps/Step2Branding'
@@ -19,21 +19,6 @@ import { Step8Summary } from './steps/Step8Summary'
 function EstimatorInner() {
   const { state, dispatch } = useEstimator()
   const { currentStep, direction } = state
-
-  // Step validation logic
-  const canGoBack = currentStep > 1
-  const canSkip = [2, 4, 5, 6, 7].includes(currentStep)
-  const canProceed = (() => {
-    switch (currentStep) {
-      case 1:
-        return !!state.situation && !!state.siteType && !!state.sector
-      case 3:
-        return !!state.pages && !!state.languages && !!state.designLevel
-      default:
-        return true // optional steps always allow proceeding
-    }
-  })()
-  const isLastStep = currentStep === 7
 
   // Step rendering
   const renderStep = () => {
@@ -60,7 +45,7 @@ function EstimatorInner() {
   }
 
   return (
-    <div className="max-w-[1200px] mx-auto px-4 pb-20 lg:pb-0">
+    <div className="max-w-[1200px] mx-auto px-4 pb-20">
       {/* Title */}
       <div className="text-center mb-4 sm:mb-6">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1.5 sm:mb-3">
@@ -94,12 +79,7 @@ function EstimatorInner() {
               </AnimatePresence>
             </div>
 
-            <EstimatorNav
-              canGoBack={canGoBack}
-              canSkip={canSkip}
-              canProceed={canProceed}
-              isLastStep={isLastStep}
-            />
+            {/* Nav handled by StickyBottomBar in EstimatorCounter */}
           </div>
         </div>
 

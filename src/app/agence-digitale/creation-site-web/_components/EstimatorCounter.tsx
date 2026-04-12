@@ -5,7 +5,7 @@ import { useEstimator } from './EstimatorContext'
 import { AnimatedCounter } from './ui/AnimatedCounter'
 import { calculateEstimate } from '@/lib/estimation/pricing'
 
-function MobileBottomBar() {
+function StickyBottomBar() {
   const { state, dispatch } = useEstimator()
   const { currentStep } = state
   const estimate = calculateEstimate(state)
@@ -28,7 +28,7 @@ function MobileBottomBar() {
 
   return (
     <div
-      className="lg:hidden fixed bottom-0 left-0 right-0 z-50"
+      className="fixed bottom-0 left-0 right-0 z-50"
       style={{
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
@@ -36,17 +36,16 @@ function MobileBottomBar() {
         borderTop: '1px solid rgba(255,255,255,0.10)',
       }}
     >
-      {/* Main row: back + price + continue */}
-      <div className="flex items-center justify-between px-3 py-2.5 gap-2">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between px-3 sm:px-6 lg:px-8 py-2.5 lg:py-3 gap-2 sm:gap-4">
         {/* Left: back button */}
-        <div className="w-16 flex-shrink-0">
+        <div className="w-16 sm:w-20 flex-shrink-0">
           {canGoBack && !isStep8 && (
             <button
               type="button"
               onClick={() => dispatch({ type: 'PREV_STEP' })}
-              className="flex items-center gap-0.5 text-zinc-400 hover:text-white transition-colors text-xs font-medium"
+              className="flex items-center gap-0.5 sm:gap-1 text-zinc-400 hover:text-white transition-colors text-xs sm:text-sm font-medium"
             >
-              <ChevronLeft className="w-3.5 h-3.5" />
+              <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               Retour
             </button>
           )}
@@ -54,11 +53,11 @@ function MobileBottomBar() {
 
         {/* Center: price + details */}
         <div className="flex-1 text-center min-w-0">
-          <p className="text-sm font-bold text-white truncate">
+          <p className="text-sm sm:text-base lg:text-lg font-bold text-white truncate">
             CHF {totalMin.toLocaleString('fr-CH')}
             {totalMax > 0 ? ` - ${totalMax.toLocaleString('fr-CH')}` : ''}
           </p>
-          <div className="flex items-center justify-center gap-2 text-[10px] text-zinc-500">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 text-[10px] sm:text-xs text-zinc-500">
             {monthlyMin > 0 && (
               <span className="text-violet-400">+{monthlyMin.toLocaleString('fr-CH')}/mo</span>
             )}
@@ -71,13 +70,13 @@ function MobileBottomBar() {
           </div>
         </div>
 
-        {/* Right: continue / skip */}
-        <div className="w-28 flex-shrink-0 flex items-center justify-end gap-2">
+        {/* Right: skip + continue */}
+        <div className="flex-shrink-0 flex items-center justify-end gap-2 sm:gap-3">
           {canSkip && !isStep8 && (
             <button
               type="button"
               onClick={() => dispatch({ type: 'SKIP_STEP' })}
-              className="text-zinc-500 hover:text-zinc-300 transition-colors text-[10px] font-medium"
+              className="text-zinc-500 hover:text-zinc-300 transition-colors text-[10px] sm:text-xs lg:text-sm font-medium"
             >
               Passer
             </button>
@@ -90,14 +89,14 @@ function MobileBottomBar() {
                 if (canProceed) dispatch({ type: 'NEXT_STEP' })
               }}
               className={[
-                'flex items-center gap-1 px-4 py-2 rounded-lg font-semibold text-xs transition-all duration-200',
+                'flex items-center gap-1 sm:gap-1.5 px-4 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200',
                 canProceed
-                  ? 'bg-violet-600 hover:bg-violet-500 text-white'
+                  ? 'bg-violet-600 hover:bg-violet-500 text-white cursor-pointer'
                   : 'bg-zinc-800 text-zinc-500 cursor-not-allowed',
               ].join(' ')}
             >
               {isLastStep ? 'Estimer' : 'Suivant'}
-              <ChevronRight className="w-3.5 h-3.5" />
+              <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
           )}
         </div>
@@ -187,8 +186,8 @@ export function EstimatorCounter() {
         </div>
       </div>
 
-      {/* ── Mobile: fixed bottom bar (price + nav merged) ── */}
-      <MobileBottomBar />
+      {/* ── Sticky bottom bar (all breakpoints) ── */}
+      <StickyBottomBar />
     </>
   )
 }

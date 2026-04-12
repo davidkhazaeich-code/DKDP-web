@@ -12,7 +12,6 @@ import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { PerformanceComparison } from './_components/PerformanceComparison'
-import { Estimator } from './_components/Estimator'
 import { TechStack } from './_components/TechStack'
 import { HeroVisual } from './_components/HeroVisual'
 import { violet } from '@/lib/tokens'
@@ -226,7 +225,7 @@ export default function CreationSiteWebPage() {
                 { label: 'Notre approche', href: '#approche' },
                 { label: 'Tarifs', href: '#tarifs' },
                 { label: 'Processus', href: '#process' },
-                { label: 'Estimation', href: '#estimation' },
+                { label: 'Estimation', href: '/agence-digitale/creation-site-web/estimation' },
                 { label: 'Réalisations', href: '#realisations' },
                 { label: 'FAQ', href: '#faq' },
               ].map(({ label, href }) => (
@@ -516,11 +515,6 @@ export default function CreationSiteWebPage() {
           </div>
         </section>
       </HeroBg>
-
-      {/* ── Estimateur ── */}
-      <section id="estimation" className="py-24 border-y border-border scroll-mt-[124px]">
-        <Estimator />
-      </section>
 
       {/* ── Réalisations ── */}
       <section id="realisations" className="py-24 scroll-mt-[124px]">

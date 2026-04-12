@@ -54,9 +54,10 @@ export const ROUTES: Route[] = [
   { url: '/agence-digitale/consulting-marketing', priority: 0.80, changeFrequency: 'monthly' },
   { url: '/agence-digitale/rgpd-cookies',         priority: 0.70, changeFrequency: 'monthly' },
 
-  // ─── Agence Digitale — Audits (lead gen haute valeur) ─────────────────────
+  // ─── Agence Digitale — Audits & outils (lead gen haute valeur) ─────────────
   { url: '/agence-digitale/seo/audit-seo',                  priority: 0.75, changeFrequency: 'monthly' },
   { url: '/agence-digitale/creation-site-web/audit-site',   priority: 0.75, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/creation-site-web/estimation',   priority: 0.80, changeFrequency: 'monthly' },
 
   // ─── Pages Ville (SEO local) ───────────────────────────────────────────────
   { url: '/agence-digitale/geneve',    priority: 0.85, changeFrequency: 'monthly' },

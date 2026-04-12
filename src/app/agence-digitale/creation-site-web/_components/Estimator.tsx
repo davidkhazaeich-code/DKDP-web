@@ -60,7 +60,7 @@ function EstimatorInner() {
   }
 
   return (
-    <div className="max-w-[1200px] mx-auto px-4 pb-28 lg:pb-0">
+    <div className="max-w-[1200px] mx-auto px-4 pb-20 lg:pb-0">
       {/* Title */}
       <div className="text-center mb-4 sm:mb-6">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1.5 sm:mb-3">

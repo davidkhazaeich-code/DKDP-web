@@ -5,7 +5,7 @@ import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvide
 import { CalProvider } from '@/components/providers/CalProvider'
 import { MotionProvider } from '@/components/providers/MotionProvider'
 import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
+import { FooterWrapper } from '@/components/layout/FooterWrapper'
 import { LazyChatWidget } from '@/components/ui/LazyChatWidget'
 import './globals.css'
 
@@ -85,7 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <CalProvider />
           <Header />
           {children}
-          <Footer />
+          <FooterWrapper />
           <LazyChatWidget />
         </SmoothScrollProvider>
         </MotionProvider>

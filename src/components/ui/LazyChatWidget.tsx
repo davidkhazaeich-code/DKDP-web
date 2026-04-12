@@ -8,7 +8,7 @@ const ChatWidget = dynamic(
   { ssr: false },
 )
 
-const HIDDEN_PATHS = ['/agence-digitale/creation-site-web/estimation']
+export const HIDDEN_PATHS = ['/agence-digitale/creation-site-web/estimation']
 
 export function LazyChatWidget() {
   const pathname = usePathname()

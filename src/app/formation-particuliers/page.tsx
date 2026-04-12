@@ -91,7 +91,7 @@ const TOPICS = [
     title: 'Web & Développement',
     desc: "WordPress, Figma, Elementor. Python, HTML/CSS, JavaScript pour aller plus loin dans le numérique.",
     tags: ['WordPress', 'Python', 'HTML/CSS'],
-    href: 'https://cours-informatique.ch/cours-informatique/formation-developpement-web/',
+    href: 'https://cours-informatique.ch/cours-informatique/formation-développement-web/',
   },
 ]
 

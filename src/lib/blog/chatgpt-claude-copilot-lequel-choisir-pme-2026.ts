@@ -17,8 +17,8 @@ const article: Article = {
     images: [
       {
         src: '/images/blog/chatgpt-claude-copilot-comparison.png',
-        alt: 'Radar comparatif ChatGPT vs Claude vs Copilot selon 6 criteres : vitesse, precision, cout, confidentialite, creativite, integrations',
-        caption: 'Comparatif radar : vitesse, precision, cout, confidentialite, creativite, integrations',
+        alt: 'Radar comparatif ChatGPT vs Claude vs Copilot selon 6 criteres : vitesse, precision, coût, confidentialite, creativite, integrations',
+        caption: 'Comparatif radar : vitesse, precision, coût, confidentialite, creativite, integrations',
       },
       {
         src: '/images/blog/chatgpt-claude-copilot-decision-arbre.png',
@@ -54,14 +54,14 @@ Ce guide compare les trois assistants sur les critères qui comptent vraiment po
 <div style="padding:1.25rem;border-radius:12px;background:rgba(96,165,250,0.06);border:1px solid rgba(96,165,250,0.15)">
 <div style="font-size:1.3rem;margin-bottom:0.5rem">&#128187;</div>
 <div style="font-size:0.9rem;font-weight:700;color:#60a5fa;margin-bottom:0.3rem">Copilot</div>
-<div style="font-size:0.78rem;color:#9CA3AF;line-height:1.5">L'integre Office. Directement dans Word, Excel, Teams. Zero friction pour les equipes M365.</div>
+<div style="font-size:0.78rem;color:#9CA3AF;line-height:1.5">L'intégré Office. Directement dans Word, Excel, Teams. Zero friction pour les équipes M365.</div>
 </div>
 </div>
 </div>
 
 ## ChatGPT (OpenAI) : le vétéran polyvalent
 
-ChatGPT reste la référence grand public et professionnelle. La version GPT-4o, incluse dans ChatGPT Plus à 20 $/mois, offre un équilibre remarquable entre vitesse et qualité. Son atout principal : la polyvalence. Rédaction marketing, analyse de données, génération de code, résumés de réunion, traduction, brainstorming... ChatGPT s'adapte à presque tous les cas d'usage sans friction.
+ChatGPT reste la référence grand public et professionnelle. La version GPT-4o, incluse dans ChatGPT Plus à 20 $/mois, offre un équilibre remarquable entre vitesse et qualité. Son atout principal : la polyvalence. Rédaction marketing, analyse de données, génération de code, résumés de réunion, traduction, brainstorming... ChatGPT s'adapté à presque tous les cas d'usage sans friction.
 
 **Points forts :** Interface intuitive, mémoire conversationnelle, plugins et GPTs personnalisables, API bien documentée, support image et audio natif.
 
@@ -109,7 +109,7 @@ Microsoft Copilot n'est pas un assistant IA parmi d'autres : c'est l'IA directem
 | Génération image | Oui (DALL-E) | Non natif | Oui (Designer) |
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(124,58,237,0.2);background:rgba(124,58,237,0.04)">
-<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1.2rem">Cout mensuel par utilisateur</div>
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1.2rem">Coût mensuel par utilisateur</div>
 <div style="display:flex;flex-direction:column;gap:0.75rem">
 <div style="display:flex;align-items:center;gap:1rem">
 <div style="width:5rem;font-size:0.8rem;font-weight:600;color:#4ade80">ChatGPT</div>
@@ -136,7 +136,7 @@ Le choix n'est pas binaire. La stratégie la plus efficace pour une PME suisse e
 <div style="display:flex;flex-direction:column;gap:0.75rem">
 <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem;border-radius:10px;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.12)">
 <div style="min-width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(96,165,250,0.2);display:flex;align-items:center;justify-content:center;font-size:1rem">&#128187;</div>
-<div style="flex:1"><span style="color:#60a5fa;font-weight:600;font-size:0.85rem">Votre equipe vit dans Microsoft 365</span><br/><span style="color:#9CA3AF;font-size:0.78rem">Copilot. ROI immediat, zero changement d'habitude.</span></div>
+<div style="flex:1"><span style="color:#60a5fa;font-weight:600;font-size:0.85rem">Votre équipe vit dans Microsoft 365</span><br/><span style="color:#9CA3AF;font-size:0.78rem">Copilot. ROI immediat, zero changement d'habitude.</span></div>
 </div>
 <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem;border-radius:10px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.12)">
 <div style="min-width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(124,58,237,0.2);display:flex;align-items:center;justify-content:center;font-size:1rem">&#9998;</div>
@@ -148,7 +148,7 @@ Le choix n'est pas binaire. La stratégie la plus efficace pour une PME suisse e
 </div>
 <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem;border-radius:10px;background:rgba(255,107,0,0.08);border:1px solid rgba(255,107,0,0.12)">
 <div style="min-width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(255,107,0,0.2);display:flex;align-items:center;justify-content:center;font-size:1rem">&#128200;</div>
-<div style="flex:1"><span style="color:#FF8C00;font-weight:600;font-size:0.85rem">Vous voulez le meilleur des deux mondes</span><br/><span style="color:#9CA3AF;font-size:0.78rem">ChatGPT + Claude (40 $/mois). Creatif + strategique. ROI maximal.</span></div>
+<div style="flex:1"><span style="color:#FF8C00;font-weight:600;font-size:0.85rem">Vous voulez le meilleur des deux mondes</span><br/><span style="color:#9CA3AF;font-size:0.78rem">ChatGPT + Claude (40 $/mois). Creatif + stratégique. ROI maximal.</span></div>
 </div>
 </div>
 </div>

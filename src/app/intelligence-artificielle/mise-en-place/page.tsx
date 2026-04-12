@@ -45,29 +45,29 @@ const green  = greenToken.color
 // ── Inline FAQ accordion ───────────────────────────────────────
 const FAQ_ITEMS = [
   {
-    question: 'Nos donnees sont-elles en securite avec un LLM externe ?',
+    question: 'Nos données sont-elles en sécurité avec un LLM externe ?',
     answer:
-      'La securite des donnees est notre priorite. On travaille avec des accords de confidentialite stricts et on configure les API OpenAI/Anthropic en mode "no training" pour que vos donnees ne soient jamais utilisees pour entrainer les modeles. Pour les donnees tres sensibles, on propose une integration avec des modeles heberges localement (Mistral auto-heberge, LLaMA via Ollama) qui ne quittent jamais votre infrastructure.',
+      'La sécurité des données est notre priorité. On travaille avec des accords de confidentialite stricts et on configure les API OpenAI/Anthropic en mode "no training" pour que vos données ne soient jamais utilisees pour entraîner les modèles. Pour les données tres sensibles, on propose une intégration avec des modèles hébergés localement (Mistral auto-heberge, LLaMA via Ollama) qui ne quittent jamais votre infrastructure.',
   },
   {
     question: 'Comment choisir le bon LLM pour notre projet ?',
     answer:
-      'Le choix du LLM depend de votre cas d\'usage : GPT-4o excelle sur les taches complexes, multilingues et avec vision. Claude est optimal pour les longs documents, l\'analyse et le code. Mistral est le meilleur choix si la conformite RGPD europeenne et l\'auto-hebergement sont des contraintes fortes. On realise toujours un benchmark comparatif sur vos donnees reelles avant de valider le choix final.',
+      'Le choix du LLM depend de votre cas d\'usage : GPT-4o excelle sur les taches complexes, multilingues et avec vision. Claude est optimal pour les longs documents, l\'analyse et le code. Mistral est le meilleur choix si la conformite RGPD européenne et l\'auto-hébergement sont des contraintes fortes. On réalise toujours un benchmark comparatif sur vos données reelles avant de valider le choix final.',
   },
   {
     question: 'Peut-on heberger le LLM sur nos propres serveurs ?',
     answer:
-      'Oui. Pour les cas necessitant une confidentialite maximale ou une independance vis-a-vis des fournisseurs cloud, on deploie des modeles open-source (Mistral, LLaMA) sur votre infrastructure via Ollama ou vLLM. Les performances sont inferieures aux modeles propriétaires en frontal, mais largement suffisantes pour la plupart des cas metier.',
+      'Oui. Pour les cas nécessitant une confidentialite maximale ou une independance vis-a-vis des fournisseurs cloud, on déploie des modèles open-source (Mistral, LLaMA) sur votre infrastructure via Ollama ou vLLM. Les performances sont inferieures aux modèles propriétaires en frontal, mais largement suffisantes pour la plupart des cas métier.',
   },
   {
     question: 'Que se passe-t-il si OpenAI change son modele ou ses tarifs ?',
     answer:
-      'C\'est un risque reel qu\'on anticipe. Notre couche d\'orchestration est construite avec une abstraction qui permet de changer de fournisseur LLM sans modifier votre code applicatif. On utilise des librairies comme LangChain ou LiteLLM qui gerent cette portabilite. En pratique, basculer de GPT-4o a Claude ne demande que quelques heures de configuration.',
+      'C\'est un risque reel qu\'on anticipe. Notre couche d\'orchestration est construite avec une abstraction qui permet de changer de fournisseur LLM sans modifier votre code applicatif. On utilise des librairies comme LangChain ou LiteLLM qui gèrent cette portabilité. En pratique, basculer de GPT-4o a Claude ne demande que quelques heures de configuration.',
   },
   {
-    question: 'Quel est le cout des appels API LLM en production ?',
+    question: 'Quel est le coût des appels API LLM en production ?',
     answer:
-      'Les couts varient selon le volume et le modele. A titre indicatif : GPT-4o coute environ $2.50 pour 1 million de tokens en entree. Pour un assistant interne traite 500 requetes par jour, le cout tourne autour de $30 a $80 par mois selon la longueur des echanges. On met en place un monitoring des couts et des optimisations (cache, compression de prompts) pour maitriser la facture en production.',
+      'Les coûts varient selon le volume et le modele. A titre indicatif : GPT-4o coute environ $2.50 pour 1 million de tokens en entree. Pour un assistant interne traite 500 requetes par jour, le coût tourne autour de $30 a $80 par mois selon la longueur des echanges. On met en place un monitoring des coûts et des optimisations (cache, compression de prompts) pour maîtriser la facture en production.',
   },
 ]
 
@@ -77,10 +77,10 @@ export default function MiseEnPlacePage() {
     <main>
       <SchemaOrg
         schema={buildService({
-          name: 'Mise en place IA Geneve : Integration ChatGPT Claude LLM',
+          name: 'Mise en place IA Geneve : Intégration ChatGPT Claude LLM',
           url: '/intelligence-artificielle/mise-en-place',
           description:
-            'Integration de ChatGPT, Claude et autres LLMs dans votre stack existant. Couche d\'orchestration sur mesure, prompt engineering, connexion a vos donnees. Sans tout reconstruire.',
+            'Intégration de ChatGPT, Claude et autres LLMs dans votre stack existant. Couche d\'orchestration sur mesure, prompt engineering, connexion a vos données. Sans tout reconstruire.',
         })}
       />
 
@@ -112,8 +112,8 @@ export default function MiseEnPlacePage() {
                   <GradText as="span">sans tout reconstruire.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  On integre ChatGPT, Claude et les meilleurs LLMs directement dans vos outils existants.
-                  Votre base de code reste intacte. Vous gagnez les capacites de l&apos;IA en quelques semaines.
+                  On intégré ChatGPT, Claude et les meilleurs LLMs directement dans vos outils existants.
+                  Votre base de code reste intacte. Vous gagnez les capacités de l&apos;IA en quelques semaines.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
@@ -135,7 +135,7 @@ export default function MiseEnPlacePage() {
                 >
                   <Image
                     src="/images/services/dkdp-ia-mise-en-place.webp"
-                    alt="Integration LLM et mise en place IA sur mesure a Geneve"
+                    alt="Intégration LLM et mise en place IA sur mesure a Geneve"
                     fill
                     className="object-cover"
                     priority
@@ -155,7 +155,7 @@ export default function MiseEnPlacePage() {
           <div className="grid grid-cols-3 gap-6 md:gap-12">
             {[
               { value: '3', label: 'LLMs supportes en production', sub: 'ChatGPT, Claude, Mistral' },
-              { value: '4 sem.', label: 'Delai moyen d\'integration', sub: 'Du kickoff a la mise en prod' },
+              { value: '4 sem.', label: 'Delai moyen d\'intégration', sub: 'Du kickoff a la mise en prod' },
               { value: '0', label: 'Reconstruction de stack', sub: 'Votre code existant est preserve' },
             ].map((s) => (
               <SectionReveal key={s.label}>
@@ -202,7 +202,7 @@ export default function MiseEnPlacePage() {
         </div>
       </div>
 
-      {/* ── Le probleme ───────────────────────────────────────── */}
+      {/* ── Le problème ───────────────────────────────────────── */}
       <section id="complexite" className="py-24 bg-bg-card border-b border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -212,19 +212,19 @@ export default function MiseEnPlacePage() {
                 L&apos;IA hors de la boite, ce n&apos;est pas suffisant.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
-                ChatGPT en mode generique ne connait pas vos procedures internes, vos clients, ni vos contraintes metier.
-                Pour qu&apos;un LLM soit utile dans votre entreprise, il faut l&apos;ancrer dans votre contexte : vos donnees, vos outils, vos processus.
-                C&apos;est precisement cette ingenierie que DKDP realise.
+                ChatGPT en mode generique ne connait pas vos procedures internes, vos clients, ni vos contraintes métier.
+                Pour qu&apos;un LLM soit utile dans votre entreprise, il faut l&apos;ancrer dans votre contexte : vos données, vos outils, vos processus.
+                C&apos;est precisement cette ingenierie que DKDP réalise.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
-                Connecter un LLM a votre stack sans une architecture solide produit des reponses inexactes, des problemes de confidentialite et des couts API incontroles.
-                On construit la couche d&apos;orchestration qui rend l&apos;integration fiable et maintenable.
+                Connecter un LLM a votre stack sans une architecture solide produit des reponses inexactes, des problèmes de confidentialite et des coûts API incontroles.
+                On construit la couche d&apos;orchestration qui rend l&apos;intégration fiable et maintenable.
               </p>
               <div className="space-y-3">
                 {[
-                  'Acces a vos donnees proprietaires et documents internes',
-                  'Maintien du contexte metier sur toute la conversation',
-                  'Securite et confidentialite des donnees sensibles',
+                  'Acces a vos données proprietaires et documents internes',
+                  'Maintien du contexte métier sur toute la conversation',
+                  'Sécurité et confidentialite des données sensibles',
                   'Fiabilite en production : monitoring, alertes, fallbacks',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -265,21 +265,21 @@ export default function MiseEnPlacePage() {
               {
                 Icon: MessageSquare,
                 title: 'Assistant interne',
-                desc: 'Un chatbot qui repond sur vos docs, procedures internes et base de connaissance. Vos equipes trouvent l\'information en secondes, pas en minutes.',
+                desc: 'Un chatbot qui repond sur vos docs, procedures internes et base de connaissance. Vos équipes trouvent l\'information en secondes, pas en minutes.',
                 tag: 'Tres demande',
                 tagColor: violet,
               },
               {
                 Icon: MailOpen,
                 title: 'Generation de contenu',
-                desc: 'Emails, rapports, fiches produits generes depuis vos templates et donnees. Coherence de ton garantie, temps de production divise par 5.',
+                desc: 'Emails, rapports, fiches produits generes depuis vos templates et données. Coherence de ton garantie, temps de production divise par 5.',
                 tag: null,
                 tagColor: '',
               },
               {
                 Icon: FileSearch,
                 title: 'Analyse de documents',
-                desc: 'Lecture automatique de PDFs, contrats, factures. Extraction de donnees cles et synthese structuree en quelques secondes par document.',
+                desc: 'Lecture automatique de PDFs, contrats, factures. Extraction de données clés et synthese structuree en quelques secondes par document.',
                 tag: null,
                 tagColor: '',
               },
@@ -293,7 +293,7 @@ export default function MiseEnPlacePage() {
               {
                 Icon: Code2,
                 title: 'Code et automatisation',
-                desc: 'Generateur de scripts, aide aux developpeurs, revue de code automatisee. Productivite technique multipliee sans recruter.',
+                desc: 'Generateur de scripts, aide aux developpeurs, revue de code automatisée. Productivite technique multipliee sans recruter.',
                 tag: null,
                 tagColor: '',
               },
@@ -340,9 +340,9 @@ export default function MiseEnPlacePage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
-              <GradTag className="mb-4">Modeles de langage</GradTag>
+              <GradTag className="mb-4">Modèles de langage</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Les LLMs que l&apos;on integre en production.
+                Les LLMs que l&apos;on intégré en production.
               </h2>
             </div>
           </SectionReveal>
@@ -368,7 +368,7 @@ export default function MiseEnPlacePage() {
                 </div>
                 <p className="text-text-secondary text-sm leading-relaxed mb-5">
                   Le modele le plus polyvalent. Ideal pour les taches complexes, le multilingue et l&apos;analyse d&apos;images.
-                  Meilleure performance globale sur les cas metier varies.
+                  Meilleure performance globale sur les cas métier varies.
                 </p>
                 <div className="mt-auto space-y-2">
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color }}>Points forts</p>
@@ -445,12 +445,12 @@ export default function MiseEnPlacePage() {
                   </div>
                 </div>
                 <p className="text-text-secondary text-sm leading-relaxed mb-5">
-                  Modele europeen, RGPD-friendly. Peut etre auto-heberge sur votre infrastructure pour une confidentialite maximale.
-                  Excellent rapport performance / cout.
+                  Modele européen, RGPD-friendly. Peut etre auto-heberge sur votre infrastructure pour une confidentialite maximale.
+                  Excellent rapport performance / coût.
                 </p>
                 <div className="mt-auto space-y-2">
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color }}>Points forts</p>
-                  {['Conforme RGPD europeen', 'Auto-hebergement possible', 'Couts inferieurs aux modeles US', 'Tres bon sur le francais et l\'allemand'].map((s) => (
+                  {['Conforme RGPD européen', 'Auto-hébergement possible', 'Couts inferieurs aux modèles US', 'Tres bon sur le francais et l\'allemand'].map((s) => (
                     <div key={s} className="flex items-center gap-2">
                       <CheckCircle2 size={12} style={{ color: '#ff7832' }} />
                       <span className="text-text-muted text-[12px]">{s}</span>
@@ -492,25 +492,25 @@ export default function MiseEnPlacePage() {
                   Icon: Layers,
                   n: '01',
                   title: 'Audit technique',
-                  desc: 'On analyse votre stack, vos donnees disponibles, vos contraintes de securite et vos cas d\'usage prioritaires. Livrable : feuille de route d\'integration.',
+                  desc: 'On analyse votre stack, vos données disponibles, vos contraintes de sécurité et vos cas d\'usage prioritaires. Livrable : feuille de route d\'intégration.',
                 },
                 {
                   Icon: GitMerge,
                   n: '02',
                   title: 'Architecture',
-                  desc: 'Choix du LLM adapte, design de la couche d\'orchestration, strategie de prompting et de gestion du contexte. Aucune ligne de code avant validation.',
+                  desc: 'Choix du LLM adapté, design de la couche d\'orchestration, strategie de prompting et de gestion du contexte. Aucune ligne de code avant validation.',
                 },
                 {
                   Icon: Code2,
                   n: '03',
-                  title: 'Developpement et tests',
-                  desc: 'Integration API, gestion du contexte et de la memoire, tests de fiabilite sur vos donnees reelles. Iterations rapides jusqu\'a la qualite cible.',
+                  title: 'Développement et tests',
+                  desc: 'Intégration API, gestion du contexte et de la memoire, tests de fiabilite sur vos données reelles. Iterations rapides jusqu\'a la qualité cible.',
                 },
                 {
                   Icon: BarChart2,
                   n: '04',
-                  title: 'Deploiement et monitoring',
-                  desc: 'Mise en production, alertes sur les erreurs et les couts API, tableau de bord de performance. Optimisation continue du prompt et du modele.',
+                  title: 'Déploiement et monitoring',
+                  desc: 'Mise en production, alertes sur les erreurs et les coûts API, tableau de bord de performance. Optimisation continue du prompt et du modele.',
                 },
               ].map((step, i) => (
                 <SectionReveal key={step.n} delay={i * 0.1}>
@@ -548,10 +548,10 @@ export default function MiseEnPlacePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Deux formules d&apos;integration.
+                Deux formules d&apos;intégration.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto">
-                Un appel de decouverte gratuit pour identifier la formule adaptee a votre projet.
+                Un appel de decouverte gratuit pour identifier la formule adaptée a votre projet.
               </p>
             </div>
           </SectionReveal>
@@ -564,7 +564,7 @@ export default function MiseEnPlacePage() {
                 style={{ background: bg, borderColor: border }}
               >
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color }}>
-                  Integration Standard
+                  Intégration Standard
                 </p>
                 <p className="text-4xl font-bold text-white mb-1">
                   CHF 3&apos;500
@@ -572,9 +572,9 @@ export default function MiseEnPlacePage() {
                 <p className="text-text-muted text-sm mb-6">paiement unique</p>
                 <div className="space-y-3 flex-1 mb-8">
                   {[
-                    '1 LLM integre (GPT-4o, Claude ou Mistral)',
+                    '1 LLM intégré (GPT-4o, Claude ou Mistral)',
                     '1 cas d\'usage cible',
-                    'Connexion a 1 source de donnees',
+                    'Connexion a 1 source de données',
                     'Prompt engineering et tests',
                     'Livraison sous 3 semaines',
                     'Documentation technique',
@@ -608,7 +608,7 @@ export default function MiseEnPlacePage() {
                   Recommande
                 </span>
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: violet }}>
-                  Integration Avancee
+                  Intégration Avancee
                 </p>
                 <p className="text-4xl font-bold text-white mb-1">
                   CHF 6&apos;500
@@ -622,7 +622,7 @@ export default function MiseEnPlacePage() {
                     'RAG : retrieval-augmented generation',
                     'Livraison 5 a 6 semaines',
                     'Monitoring et alertes 3 mois inclus',
-                    'Documentation et formation equipe',
+                    'Documentation et formation équipe',
                   ].map((f) => (
                     <div key={f} className="flex items-start gap-3">
                       <CheckCircle2 size={15} className="mt-0.5 flex-shrink-0" style={{ color: violet }} />
@@ -647,7 +647,7 @@ export default function MiseEnPlacePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ils nous font confiance</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce qu&apos;ils disent de leur integration IA.
+                Ce qu&apos;ils disent de leur intégration IA.
               </h2>
             </div>
           </SectionReveal>
@@ -656,14 +656,14 @@ export default function MiseEnPlacePage() {
             {[
               {
                 quote:
-                  'On avait peur de devoir tout reconstruire pour integrer l\'IA. DKDP a connecte Claude a notre base documentaire en 3 semaines. Nos equipes gagnent 2h par jour sur la recherche d\'information.',
+                  'On avait peur de devoir tout reconstruire pour intégrer l\'IA. DKDP a connecte Claude a notre base documentaire en 3 semaines. Nos équipes gagnent 2h par jour sur la recherche d\'information.',
                 author: 'Responsable Operations',
                 company: 'Cabinet de conseil, Geneve',
                 initial: 'RC',
               },
               {
                 quote:
-                  'Le prompt engineering fait toute la difference. Avant nos tests internes donnaient des reponses generiques. Avec la couche d\'orchestration DKDP, le modele connait notre metier et nos clients. Les resultats sont sans commune mesure.',
+                  'Le prompt engineering fait toute la difference. Avant nos tests internes donnaient des reponses generiques. Avec la couche d\'orchestration DKDP, le modele connait notre métier et nos clients. Les résultats sont sans commune mesure.',
                 author: 'CTO',
                 company: 'Scale-up SaaS B2B, Lausanne',
                 initial: 'CT',
@@ -738,7 +738,7 @@ export default function MiseEnPlacePage() {
               >
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color }}>Automatisation</p>
-                  <p className="text-white font-semibold">Automatisation metier</p>
+                  <p className="text-white font-semibold">Automatisation métier</p>
                   <p className="text-text-muted text-xs mt-1">Workflows sans code qui connectent vos outils existants.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 transition-transform group-hover:translate-x-1" style={{ color }} />

@@ -73,7 +73,7 @@ const FEATURES: FeatureItem[] = [
   {
     id: 'newsletter',
     title: 'Newsletter',
-    description: 'Integration Mailchimp ou similaire',
+    description: 'Intégration Mailchimp ou similaire',
     price: 'CHF 300',
     icon: <Mail size={18} />,
   },

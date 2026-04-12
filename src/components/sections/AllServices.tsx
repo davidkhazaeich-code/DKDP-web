@@ -65,7 +65,7 @@ const PILLARS: PillarData[] = [
   {
     key: 'agence', label: 'Marketing digital', shortLabel: 'Marketing', subtitle: '7 services',
     preview: ['Sites web', 'SEO', 'Google Ads', 'Réseaux sociaux'],
-    heroImage: '/images/services/dkdp-agence-creation-web.webp',
+    heroImage: '/images/services/dkdp-agence-création-web.webp',
     Icon: Globe, color: violet.color, bg: violet.bg, border: violet.border, items: AGENCE_SERVICES,
     accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.14)', blob2: 'rgba(124,58,237,0.06)',
     hubHref: '/agence-digitale',

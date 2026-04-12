@@ -5,7 +5,7 @@ const article: Article = {
     category: 'ia',
     title: 'IA ou consultant humain pour votre PME : ce que l\'un fait mieux que l\'autre',
     excerpt:
-      'Face a un probleme strategique ou operationnel, faut-il appeler un consultant ou demander a l\'IA ? La question se pose de plus en plus dans les PME. La reponse honnete : les deux ont des forces irremplacables, et des limites reelles.',
+      'Face a un problème stratégique ou operationnel, faut-il appeler un consultant ou demander a l\'IA ? La question se pose de plus en plus dans les PME. La reponse honnete : les deux ont des forces irremplacables, et des limites reelles.',
     date: '26 mars 2026',
     dateISO: '2026-03-26',
     readTime: '5 min',
@@ -17,13 +17,13 @@ const article: Article = {
     images: [
       {
         src: '/images/blog/ia-ou-consultant-humain-tableau.png',
-        alt: 'Tableau comparatif IA vs consultant humain PME : cout, rapidite, expertise, creativite sur 10 dimensions',
+        alt: 'Tableau comparatif IA vs consultant humain PME : coût, rapidite, expertise, creativite sur 10 dimensions',
         caption: 'IA vs consultant humain : forces et limites respectives pour les PME',
       },
       {
         src: '/images/blog/ia-consultant-humain-modele-hybride.png',
         alt: 'Modele hybride IA consultant humain PME : intelligence artificielle et expertise humaine combinees pour decision entreprise Geneve',
-        caption: 'Le modele hybride : combiner IA et expertise humaine pour des resultats superieurs',
+        caption: 'Le modele hybride : combiner IA et expertise humaine pour des résultats superieurs',
       },
     ],
     tags: ['IA', 'consultant', 'PME', 'stratégie', 'productivité', 'Genève', 'décision'],
@@ -56,7 +56,7 @@ L'IA et le conseil humain ont des anatomies de valeur radicalement différentes.
 
 **La gestion des parties prenantes.** Un consultant peut animer un comité de direction, gérer les résistances au changement, faciliter des conflits internes. L'IA peut vous préparer un argumentaire, mais elle ne peut pas être dans la salle.
 
-**La connaissance du tissu local.** À Genève, connaître les bons avocats, les bons banquiers, les bonnes ressources institutionnelles (CCIG, DéveloppementPME, etc.) est une valeur qui ne s'automatise pas.
+**La connaissance du tissu local.** À Genève, connaître les bons avocats, les bons banquiers, les bonnes ressources institutionnelles (CCIG, DéveloppementPME, etc.) est une valeur qui ne s'automatisé pas.
 
 **Le jugement sur l'information incomplète.** En affaires, on décide rarement avec toutes les données. Un consultant expérimenté sait quand il a assez d'information pour agir. L'IA, face à l'ambiguïté, produit une réponse qui peut sembler confiante mais qui est statistiquement interpolée.
 
@@ -78,14 +78,14 @@ L'IA et le conseil humain ont des anatomies de valeur radicalement différentes.
 </div>
 </div>
 <div style="display:flex;align-items:center;gap:0.75rem">
-<div style="width:9rem;font-size:0.78rem;color:#e4e4e7;text-align:right">Cout par usage</div>
+<div style="width:9rem;font-size:0.78rem;color:#e4e4e7;text-align:right">Coût par usage</div>
 <div style="flex:1;display:flex;gap:4px;align-items:center">
 <div style="flex:1;height:1.4rem;border-radius:6px;background:rgba(167,139,250,0.08);overflow:hidden"><div style="width:90%;height:100%;background:rgba(167,139,250,0.3);border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:0.5rem"><span style="font-size:0.65rem;font-weight:700;color:#A78BFA">IA</span></div></div>
 <div style="flex:1;height:1.4rem;border-radius:6px;background:rgba(255,140,0,0.08);overflow:hidden"><div style="width:20%;height:100%;background:rgba(255,140,0,0.3);border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:0.5rem"><span style="font-size:0.65rem;font-weight:700;color:#FF8C00">H</span></div></div>
 </div>
 </div>
 <div style="display:flex;align-items:center;gap:0.75rem">
-<div style="width:9rem;font-size:0.78rem;color:#e4e4e7;text-align:right">Jugement strategique</div>
+<div style="width:9rem;font-size:0.78rem;color:#e4e4e7;text-align:right">Jugement stratégique</div>
 <div style="flex:1;display:flex;gap:4px;align-items:center">
 <div style="flex:1;height:1.4rem;border-radius:6px;background:rgba(167,139,250,0.08);overflow:hidden"><div style="width:30%;height:100%;background:rgba(167,139,250,0.3);border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:0.5rem"><span style="font-size:0.65rem;font-weight:700;color:#A78BFA">IA</span></div></div>
 <div style="flex:1;height:1.4rem;border-radius:6px;background:rgba(255,140,0,0.08);overflow:hidden"><div style="width:90%;height:100%;background:rgba(255,140,0,0.3);border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:0.5rem"><span style="font-size:0.65rem;font-weight:700;color:#FF8C00">H</span></div></div>
@@ -150,7 +150,7 @@ Ce modèle réduit les coûts de consulting de 30 à 50 % tout en augmentant la 
 </div>
 <div style="flex:1;padding:0.75rem 1rem;border-radius:10px;background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.12)">
 <div style="font-size:0.8rem;font-weight:600;color:#A78BFA;margin-bottom:0.25rem">Avant : preparation IA</div>
-<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Brief structure, analyse des donnees existantes, 5 hypotheses generees, benchmark sectoriel. Cout : ~0 CHF. Temps : 30 min.</div>
+<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Brief structure, analyse des données existantes, 5 hypotheses generees, benchmark sectoriel. Coût : ~0 CHF. Temps : 30 min.</div>
 </div>
 </div>
 <div style="display:flex;align-items:stretch;gap:0.75rem">
@@ -160,7 +160,7 @@ Ce modèle réduit les coûts de consulting de 30 à 50 % tout en augmentant la 
 </div>
 <div style="flex:1;padding:0.75rem 1rem;border-radius:10px;background:rgba(255,140,0,0.06);border:1px solid rgba(255,140,0,0.12)">
 <div style="font-size:0.8rem;font-weight:600;color:#FF8C00;margin-bottom:0.25rem">Pendant : session consultant</div>
-<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Decisions strategiques, validation des hypotheses, ajustements bases sur l'experience terrain, gestion des parties prenantes. Cout : 200-400 CHF/h. Duree optimisee.</div>
+<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Decisions stratégiques, validation des hypotheses, ajustements bases sur l'expérience terrain, gestion des parties prenantes. Coût : 200-400 CHF/h. Duree optimisée.</div>
 </div>
 </div>
 <div style="display:flex;align-items:stretch;gap:0.75rem">
@@ -170,7 +170,7 @@ Ce modèle réduit les coûts de consulting de 30 à 50 % tout en augmentant la 
 </div>
 <div style="flex:1;padding:0.75rem 1rem;border-radius:10px;background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.12)">
 <div style="font-size:0.8rem;font-weight:600;color:#A78BFA;margin-bottom:0.25rem">Apres : execution IA</div>
-<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Redaction des livrables, mise en forme, tableaux de bord automatises, suivi des KPIs. Cout : ~0 CHF. Le consultant n'intervient que sur les alertes.</div>
+<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Redaction des livrables, mise en forme, tableaux de bord automatises, suivi des KPIs. Coût : ~0 CHF. Le consultant n'intervient que sur les alertes.</div>
 </div>
 </div>
 <div style="display:flex;align-items:stretch;gap:0.75rem">
@@ -178,8 +178,8 @@ Ce modèle réduit les coûts de consulting de 30 à 50 % tout en augmentant la 
 <div style="width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(74,222,128,0.2);border:1px solid rgba(74,222,128,0.3);display:flex;align-items:center;justify-content:center;font-size:0.85rem">&#10003;</div>
 </div>
 <div style="flex:1;padding:0.75rem 1rem;border-radius:10px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.15)">
-<div style="font-size:0.8rem;font-weight:600;color:#4ade80;margin-bottom:0.25rem">Resultat : -30 a -50 % sur les couts de consulting</div>
-<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Le consultant se concentre sur sa valeur ajoutee reelle. L'IA gere tout le reste.</div>
+<div style="font-size:0.8rem;font-weight:600;color:#4ade80;margin-bottom:0.25rem">Resultat : -30 a -50 % sur les coûts de consulting</div>
+<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Le consultant se concentre sur sa valeur ajoutee reelle. L'IA gère tout le reste.</div>
 </div>
 </div>
 </div>
@@ -219,7 +219,7 @@ ___IMG:ia-consultant-humain-modele-hybride.png___
 <div style="padding:1.25rem;border-radius:12px;background:rgba(252,165,165,0.06);border:1px solid rgba(252,165,165,0.15)">
 <div style="font-size:1.1rem;margin-bottom:0.4rem">&#9888;&#65039;</div>
 <div style="font-size:0.8rem;font-weight:700;color:#fca5a5;margin-bottom:0.3rem">Ni l'un ni l'autre seul</div>
-<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Decisions a fort enjeu avec donnees incompletes. L'IA risque d'halluciner, le consultant seul risque de manquer des donnees. Les deux ensemble = filet de securite.</div>
+<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Decisions a fort enjeu avec données incompletes. L'IA risque d'halluciner, le consultant seul risque de manquer des données. Les deux ensemble = filet de sécurité.</div>
 </div>
 </div>
 </div>

@@ -135,7 +135,7 @@ const REALISATIONS = [
   {
     client: 'Clinique spécialisée',
     type: 'Search + Display',
-    image: '/images/services/dkdp-agence-creation-web.webp',
+    image: '/images/services/dkdp-agence-création-web.webp',
     results: ['0 à 40 patients/mois via Ads', 'CTR 5.8% (moyenne secteur: 1.4%)', 'Budget CHF 1\'200/mois, CA +220k'],
     tech: 'Google Ads · Display · Call Tracking',
   },
@@ -264,7 +264,7 @@ export default function PubliciteSEAPage() {
             <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
               {[
                 { label: 'Notre approche', href: '#approche' },
-                { label: 'Résultats', href: '#resultats' },
+                { label: 'Résultats', href: '#résultats' },
                 { label: 'Tarifs', href: '#tarifs' },
                 { label: 'Processus', href: '#process' },
                 { label: 'Réalisations', href: '#realisations' },
@@ -383,7 +383,7 @@ export default function PubliciteSEAPage() {
       </section>
 
       {/* ── Bénéfices ── */}
-      <section id="resultats" className="py-24 scroll-mt-[124px]">
+      <section id="résultats" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">

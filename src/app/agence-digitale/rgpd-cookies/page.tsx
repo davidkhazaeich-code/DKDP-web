@@ -526,7 +526,7 @@ export default function RGPDCookiesPage() {
               {
                 client: 'Startup SaaS B2B',
                 type: 'RGPD + Sous-traitants',
-                image: '/images/services/dkdp-agence-creation-web.webp',
+                image: '/images/services/dkdp-agence-création-web.webp',
                 results: ['12 contrats DPA sous-traitants', 'Politique vie privée EN + FR', 'Mention cookies conforme CNIL'],
                 tech: 'RGPD · DPA · Cookiebot · Multi-langue',
               },

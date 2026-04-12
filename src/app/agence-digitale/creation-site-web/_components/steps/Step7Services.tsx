@@ -82,7 +82,7 @@ export function Step7Services() {
 
         {/* Orange warning */}
         <p className="mt-1 text-xs text-orange-400/80 leading-relaxed">
-          Applique +30% sur le cout total du projet
+          Applique +30% sur le coût total du projet
         </p>
       </div>
     </div>

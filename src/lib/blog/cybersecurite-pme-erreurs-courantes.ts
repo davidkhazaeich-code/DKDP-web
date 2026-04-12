@@ -22,7 +22,7 @@ const article: Article = {
       },
       {
         src: '/images/blog/cybersecurite-pme-checklist-protection.png',
-        alt: 'Cybersecurite PME Suisse 2026 : bouclier de protection numerique contre phishing, malware et violations de donnees',
+        alt: 'Cybersecurite PME Suisse 2026 : bouclier de protection numerique contre phishing, malware et violations de données',
         caption: 'Bouclier cybersécurité : les couches de protection essentielles pour une PME suisse',
       },
     ],
@@ -148,7 +148,7 @@ ___IMG:cybersecurite-pme-risques.png___
 <div style="font-size:0.85rem;font-weight:700;color:#A78BFA">Niveau 3 : Avance</div>
 <div style="font-size:0.7rem;color:#71717a;background:rgba(167,139,250,0.1);padding:0.2rem 0.5rem;border-radius:4px">Semaine 4+</div>
 </div>
-<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.6">Formation phishing equipe + audit des acces par role + monitoring des endpoints + scan de vulnerabilites</div>
+<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.6">Formation phishing équipe + audit des acces par role + monitoring des endpoints + scan de vulnerabilites</div>
 </div>
 </div>
 </div>
@@ -190,7 +190,7 @@ ___IMG:cybersecurite-pme-risques.png___
 </div>
 <div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
 <div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>
-<div style="font-size:0.8rem;color:#e4e4e7">Formation phishing realisee</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Formation phishing réalisée</div>
 </div>
 <div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
 <div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>

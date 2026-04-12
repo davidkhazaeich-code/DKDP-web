@@ -245,7 +245,7 @@ export function buildOrganization() {
       height: 512,
     },
     image: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
-    description: 'Agence digitale a Geneve specialisee en creation de sites web, SEO, intelligence artificielle et formation entreprise pour PME suisses.',
+    description: 'Agence digitale a Geneve spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME suisses.',
     foundingDate: '2015',
     founder: {
       '@type': 'Person',
@@ -289,14 +289,14 @@ export function buildOrganization() {
       itemListElement: [
         {
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Creation site web', description: 'Sites web sur mesure pour PME suisses' },
+          itemOffered: { '@type': 'Service', name: 'Création site web', description: 'Sites web sur mesure pour PME suisses' },
           priceCurrency: 'CHF',
           price: '2500',
           priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: '2500', description: 'A partir de CHF 2500' },
         },
         {
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Formation IA entreprise', description: 'Formations IA appliquees pour equipes' },
+          itemOffered: { '@type': 'Service', name: 'Formation IA entreprise', description: 'Formations IA appliquees pour équipes' },
           priceCurrency: 'CHF',
           price: '1500',
           priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: '1500', description: 'A partir de CHF 1500 par session' },

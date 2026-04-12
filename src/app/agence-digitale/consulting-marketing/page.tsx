@@ -49,7 +49,7 @@ const FAQ = [
   {
     question: 'Travaillez-vous avec des équipes marketing internes ?',
     answer:
-      'Oui. DKDP intervient souvent en complément d\'une équipe interne : audit de la situation, formation aux bonnes pratiques, cadrage stratégique ou soutien ponctuel sur des projets spécifiques. On s\'adapte à votre organisation.',
+      'Oui. DKDP intervient souvent en complément d\'une équipe interne : audit de la situation, formation aux bonnes pratiques, cadrage stratégique ou soutien ponctuel sur des projets spécifiques. On s\'adapté à votre organisation.',
   },
   {
     question: 'Quels livrables reçoit-on d\'une mission de consulting ?',
@@ -185,7 +185,7 @@ export default function ConsultingMarketingPage() {
             <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
               {[
                 { label: 'Notre approche', href: '#approche' },
-                { label: 'Résultats', href: '#resultats' },
+                { label: 'Résultats', href: '#résultats' },
                 { label: 'Tarifs', href: '#tarifs' },
                 { label: 'Processus', href: '#process' },
                 { label: 'Témoignages', href: '#temoignages' },
@@ -304,7 +304,7 @@ export default function ConsultingMarketingPage() {
       </section>
 
       {/* ── Bénéfices ── */}
-      <section id="resultats" className="py-24 scroll-mt-[124px]">
+      <section id="résultats" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">

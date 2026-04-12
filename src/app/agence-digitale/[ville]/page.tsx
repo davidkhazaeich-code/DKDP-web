@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!city) return {}
 
   const title = `Intelligence artificielle & Agent IA a ${city.name} | Agence digitale DKDP`
-  const description = `Agence IA a ${city.name} (${city.canton}) : agents IA, automatisation, formation IA entreprise et creation de sites web. DKDP accompagne les PME de ${city.name} dans leur transformation digitale. Devis gratuit.`
+  const description = `Agence IA a ${city.name} (${city.canton}) : agents IA, automatisation, formation IA entreprise et création de sites web. DKDP accompagne les PME de ${city.name} dans leur transformation digitale. Devis gratuit.`
 
   return {
     title,
@@ -50,9 +50,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const SERVICES = [
-  { label: 'Intelligence artificielle', href: '/intelligence-artificielle', desc: 'Agents IA, automatisation et audit pour gagner en productivite.' },
+  { label: 'Intelligence artificielle', href: '/intelligence-artificielle', desc: 'Agents IA, automatisation et audit pour gagner en productivité.' },
   { label: 'Formation IA entreprise', href: '/formation-entreprise/ia', desc: 'Formations pratiques IA generative, Claude AI et prompt engineering.' },
-  { label: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia', desc: 'Deploiement d\'agents IA autonomes pour vos processus metier.' },
+  { label: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia', desc: 'Déploiement d\'agents IA autonomes pour vos processus métier.' },
   { label: 'Creation de site web', href: '/agence-digitale/creation-site-web', desc: 'Sites vitrines, e-commerce et applications web sur mesure.' },
   { label: 'Referencement SEO', href: '/agence-digitale/seo', desc: 'SEO local et national pour dominer Google dans votre region.' },
   { label: 'Publicite Google Ads', href: '/agence-digitale/publicite-sea', desc: 'Campagnes Search et Performance Max, leads qualifies.' },
@@ -61,8 +61,8 @@ const SERVICES = [
 const IA_CAPABILITIES = [
   { Icon: Bot, title: 'Agents IA autonomes', desc: 'Des agents intelligents qui executent des taches complexes : tri d\'emails, generation de rapports, qualification de leads, service client 24/7.' },
   { Icon: Workflow, title: 'Automatisation des processus', desc: 'Connexion de vos outils (CRM, ERP, email, comptabilite) avec des workflows IA qui eliminent les taches repetitives.' },
-  { Icon: BrainCircuit, title: 'IA generative sur mesure', desc: 'Solutions personnalisees de generation de contenu, d\'analyse de documents et de prise de decision assistee par IA.' },
-  { Icon: Sparkles, title: 'Audit & strategie IA', desc: 'Identification des opportunites d\'automatisation dans votre entreprise. ROI mesurable des la premiere semaine.' },
+  { Icon: BrainCircuit, title: 'IA generative sur mesure', desc: 'Solutions personnalisées de generation de contenu, d\'analyse de documents et de prise de decision assistee par IA.' },
+  { Icon: Sparkles, title: 'Audit & strategie IA', desc: 'Identification des opportunités d\'automatisation dans votre entreprise. ROI mesurable des la première semaine.' },
 ]
 
 export default async function CityPage({ params }: Props) {
@@ -73,11 +73,11 @@ export default async function CityPage({ params }: Props) {
   const faq = [
     {
       question: `Comment l'intelligence artificielle peut aider mon entreprise a ${city.name} ?`,
-      answer: `L'IA permet aux entreprises de ${city.name} d'automatiser les taches repetitives, d'ameliorer le service client avec des chatbots intelligents, de generer du contenu marketing et d'analyser des donnees complexes. DKDP deploie des agents IA sur mesure adaptes au tissu economique de ${city.name} (${city.economicProfile}).`,
+      answer: `L'IA permet aux entreprises de ${city.name} d'automatiser les taches repetitives, d'améliorer le service client avec des chatbots intelligents, de générer du contenu marketing et d'analyser des données complexes. DKDP déploie des agents IA sur mesure adaptés au tissu economique de ${city.name} (${city.economicProfile}).`,
     },
     {
-      question: `Qu'est-ce qu'un agent IA et comment le deployer a ${city.name} ?`,
-      answer: `Un agent IA est un programme autonome capable d'executer des taches complexes : repondre aux clients, trier des emails, generer des rapports, qualifier des leads. DKDP deploie des agents IA pour les entreprises de ${city.name}, avec une integration complete dans vos outils existants (CRM, ERP, email). Mise en place en 2 a 4 semaines.`,
+      question: `Qu'est-ce qu'un agent IA et comment le déployer a ${city.name} ?`,
+      answer: `Un agent IA est un programme autonome capable d'executer des taches complexes : répondre aux clients, trier des emails, générer des rapports, qualifier des leads. DKDP déploie des agents IA pour les entreprises de ${city.name}, avec une intégration complete dans vos outils existants (CRM, ERP, email). Mise en place en 2 a 4 semaines.`,
     },
     {
       question: `Proposez-vous des formations IA a ${city.name} ?`,
@@ -93,7 +93,7 @@ export default async function CityPage({ params }: Props) {
     },
     {
       question: `Pourquoi choisir DKDP comme agence IA a ${city.name} ?`,
-      answer: `DKDP combine expertise technique (web, IA, automatisation) et 10+ ans d'experience avec 700+ clients en Suisse romande. Contrairement aux pure players IA, nous integrons l'intelligence artificielle dans une strategie digitale globale (site web, SEO, formation). Notre proximite avec ${city.name} permet un accompagnement regulier.`,
+      answer: `DKDP combine expertise technique (web, IA, automatisation) et 10+ ans d'expérience avec 700+ clients en Suisse romande. Contrairement aux pure players IA, nous integrons l'intelligence artificielle dans une strategie digitale globale (site web, SEO, formation). Notre proximite avec ${city.name} permet un accompagnement regulier.`,
     },
   ]
 
@@ -114,7 +114,7 @@ export default async function CityPage({ params }: Props) {
       <SchemaOrg schema={buildService({
         name: `Agent IA & Automatisation a ${city.name}`,
         url: `/agence-digitale/${city.slug}`,
-        description: `Deploiement d'agents IA et automatisation des processus pour les entreprises de ${city.name}. Chatbots, workflows intelligents, IA generative.`,
+        description: `Déploiement d'agents IA et automatisation des processus pour les entreprises de ${city.name}. Chatbots, workflows intelligents, IA generative.`,
       })} />
       <SchemaOrg schema={buildCourse({
         name: `Formation IA entreprise a ${city.name}`,
@@ -177,7 +177,7 @@ export default async function CityPage({ params }: Props) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
               { v: '700+', l: 'Clients accompagnes' },
-              { v: '10+ ans', l: "D'experience" },
+              { v: '10+ ans', l: "D'expérience" },
               { v: '5/5', l: 'Note Google' },
               { v: city.distance, l: `De ${city.name}` },
             ].map((s) => (
@@ -200,7 +200,7 @@ export default async function CityPage({ params }: Props) {
             Agents IA et automatisation pour {city.name}
           </h2>
           <p className="text-text-secondary text-sm md:text-base mb-10 max-w-2xl">
-            DKDP deploie des agents IA et des solutions d'automatisation pour les entreprises de {city.name}. Du chatbot intelligent a l'automatisation complete de vos workflows, nous transformons vos processus metier.
+            DKDP déploie des agents IA et des solutions d'automatisation pour les entreprises de {city.name}. Du chatbot intelligent a l'automatisation complete de vos workflows, nous transformons vos processus métier.
           </p>
 
           {/* IA capabilities grid */}
@@ -271,7 +271,7 @@ export default async function CityPage({ params }: Props) {
                   { Icon: GraduationCap, text: 'Claude AI, ChatGPT, Gemini, GitHub Copilot' },
                   { Icon: Zap, text: 'Prompt engineering et automatisation' },
                   { Icon: Users, text: 'De 1 a 10 personnes, sur site ou en visio' },
-                  { Icon: Building2, text: 'Programme personnalise par entreprise' },
+                  { Icon: Building2, text: 'Programme personnalisé par entreprise' },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-3">
                     <div className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0" style={{ border: `1px solid ${ORD}`, background: ORB }}>
@@ -306,7 +306,7 @@ export default async function CityPage({ params }: Props) {
             Solutions digitales completes a {city.name}
           </h2>
           <p className="text-text-secondary text-sm md:text-base mb-10 max-w-xl">
-            De l'agent IA a la creation de site web, DKDP couvre l'ensemble de vos besoins digitaux pour les entreprises de {city.name} et du canton de {city.canton}.
+            De l'agent IA a la création de site web, DKDP couvre l'ensemble de vos besoins digitaux pour les entreprises de {city.name} et du canton de {city.canton}.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {SERVICES.map(s => (
@@ -386,7 +386,7 @@ export default async function CityPage({ params }: Props) {
               Pret a automatiser votre entreprise a {city.name} ?
             </h2>
             <p className="text-text-secondary text-sm md:text-base mb-6 max-w-md mx-auto">
-              15 minutes d'audit IA gratuit. On identifie vos opportunites d'automatisation et le ROI potentiel.
+              15 minutes d'audit IA gratuit. On identifie vos opportunités d'automatisation et le ROI potentiel.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <LiquidMetalButton href="/contact" size="lg">Audit IA gratuit →</LiquidMetalButton>

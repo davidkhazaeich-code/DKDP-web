@@ -1,6 +1,6 @@
 // Required env vars:
 // RESEND_API_KEY       - Resend API key for sending emails
-// NOTION_API_KEY       - Notion integration token
+// NOTION_API_KEY       - Notion intégration token
 // NOTION_ESTIMATION_DB_ID - Notion database ID for storing estimations
 
 import { Resend } from 'resend'
@@ -40,25 +40,25 @@ const SECTOR_LABELS: Record<string, string> = {
 }
 
 const DESIGN_LABELS: Record<string, string> = {
-  template: 'Template adapte',
+  template: 'Template adapté',
   custom: 'Design sur mesure',
   premium: 'Design premium',
 }
 
 const LOGO_LABELS: Record<string, string> = {
   existing: 'Logo existant',
-  create: 'Creation logo',
+  create: 'Création logo',
   modernize: 'Modernisation logo',
 }
 
 const BRANDING_LABELS: Record<string, string> = {
   existing: 'Charte existante',
-  create: 'Creation charte',
+  create: 'Création charte',
   modernize: 'Modernisation charte',
 }
 
 const STRATEGY_LABELS: Record<string, string> = {
-  positioning: 'Positionnement strategique',
+  positioning: 'Positionnement stratégique',
   'market-study': 'Etude de marche',
   'content-strategy': 'Strategie de contenu',
 }
@@ -80,7 +80,7 @@ const FEATURE_LABELS: Record<string, string> = {
   'blog-setup': 'Blog (mise en place)',
   'blog-management': 'Gestion blog (mensuel)',
   form: 'Formulaire de contact',
-  booking: 'Systeme de reservation',
+  booking: 'Système de reservation',
   members: 'Espace membres',
   chatbot: 'Chatbot IA',
   payment: 'Paiement en ligne',
@@ -274,7 +274,7 @@ export async function POST(req: NextRequest) {
           <!-- CTA message -->
           <div style="margin-top:28px;padding:20px 24px;background:#1e2a3d;border-radius:12px;border-left:3px solid #A78BFA">
             <p style="margin:0;color:#e4e4e7;font-size:14px;line-height:1.7">
-              Notre equipe vous contactera sous 48h pour discuter de votre projet en detail et affiner cette estimation selon vos besoins specifiques.
+              Notre équipe vous contactera sous 48h pour discuter de votre projet en detail et affiner cette estimation selon vos besoins spécifiques.
             </p>
           </div>
 

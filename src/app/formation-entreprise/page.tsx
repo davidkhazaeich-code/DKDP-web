@@ -405,7 +405,7 @@ export default function FormationEntreprisePage() {
                 <div className="mb-10">
                   <GradTag className="mb-4">Comment ça se passe</GradTag>
                   <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                    Une formation qui s&apos;adapte à vous.
+                    Une formation qui s&apos;adapté à vous.
                   </h2>
                 </div>
               </SectionReveal>

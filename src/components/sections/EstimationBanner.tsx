@@ -40,7 +40,7 @@ export function EstimationBanner() {
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl font-bold text-zinc-100 mb-3">
-                  Estimez le cout de votre site web
+                  Estimez le coût de votre site web
                 </h3>
                 <p className="text-zinc-400 text-base leading-relaxed max-w-xl mb-5">
                   Configurez votre projet en quelques clics et recevez une estimation transparente.

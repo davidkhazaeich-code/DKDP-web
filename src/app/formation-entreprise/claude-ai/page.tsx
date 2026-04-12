@@ -48,7 +48,7 @@ const FAQ = [
   {
     question: 'Faut-il déjà connaître Claude pour suivre cette formation ?',
     answer:
-      'Non. La formation est conçue pour tous les niveaux, du débutant complet au professionnel qui utilise déjà Claude de façon basique. Le programme s\'adapte au niveau du groupe lors du briefing préalable.',
+      'Non. La formation est conçue pour tous les niveaux, du débutant complet au professionnel qui utilise déjà Claude de façon basique. Le programme s\'adapté au niveau du groupe lors du briefing préalable.',
   },
   {
     question: 'Quelle est la différence entre la formation Claude et la formation IA générale ?',
@@ -313,8 +313,8 @@ export default function FormationClaudeAIPage() {
                 { label: 'Pourquoi Claude', href: '#pourquoi' },
                 { label: 'Produits', href: '#produits' },
                 { label: 'Programme', href: '#programme' },
-                { label: 'Capacités', href: '#capacites' },
-                { label: 'Métiers', href: '#metiers' },
+                { label: 'Capacités', href: '#capacités' },
+                { label: 'Métiers', href: '#métiers' },
                 { label: 'Tarifs', href: '#tarifs' },
                 { label: 'FAQ', href: '#faq' },
               ].map(({ label, href }) => (
@@ -737,7 +737,7 @@ export default function FormationClaudeAIPage() {
       </section>
 
       {/* ══ 7. Capacités clés ══ */}
-      <section id="capacites" className="py-24 border-b border-border">
+      <section id="capacités" className="py-24 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
@@ -818,7 +818,7 @@ export default function FormationClaudeAIPage() {
         accentRgb="167,139,250"
         className="border-b border-border"
       >
-      <section id="metiers" className="py-24">
+      <section id="métiers" className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">

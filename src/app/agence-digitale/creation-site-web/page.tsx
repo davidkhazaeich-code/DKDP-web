@@ -532,7 +532,7 @@ export default function CreationSiteWebPage() {
               {
                 client: 'Cabinet de conseil B2B',
                 type: 'Refonte site vitrine',
-                image: '/images/services/dkdp-agence-creation-web.webp',
+                image: '/images/services/dkdp-agence-création-web.webp',
                 results: ['+340% trafic organique', '15 leads qualifiés / mois', 'Livré en 4 semaines'],
                 tech: 'Next.js · Sanity · Vercel',
               },

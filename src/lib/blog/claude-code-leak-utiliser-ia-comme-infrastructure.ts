@@ -12,7 +12,7 @@ const article: Article = {
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/claude-code-leak-hero.png',
-      alt: 'Claude Code leak 2026 : architecture interne agent IA revelee avec couches de code et connexions systeme',
+      alt: 'Claude Code leak 2026 : architecture interne agent IA revelee avec couches de code et connexions système',
     },
     images: [
       {
@@ -23,7 +23,7 @@ const article: Article = {
       {
         src: '/images/blog/claude-code-leak-workflow-multi-agents.png',
         alt: 'Workflow multi-agents Claude Code : pipeline analyse, planification, execution et verification pour automatisation IA entreprise',
-        caption: 'Le pipeline multi-agents : analyser, planifier, executer, verifier',
+        caption: 'Le pipeline multi-agents : analyser, planifier, executer, vérifier',
       },
     ],
     tags: ['IA', 'Claude Code', 'Agent IA', 'Automatisation', 'Productivité', 'PME'],
@@ -55,7 +55,7 @@ Utiliser Claude Code comme un chatbot classique, c\'est comme utiliser un ERP co
 </div>
 <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem;border-radius:10px;background:rgba(124,58,237,0.07);border:1px solid rgba(124,58,237,0.12)">
 <div style="min-width:2.5rem;font-size:0.75rem;font-weight:800;color:#A78BFA;text-align:center">3</div>
-<div style="flex:1"><span style="color:#e4e4e7;font-weight:600;font-size:0.85rem">Connexion d'outils externes</span><br/><span style="color:#9CA3AF;font-size:0.75rem">API, fichiers, bases de donnees, CRM integres au pipeline</span></div>
+<div style="flex:1"><span style="color:#e4e4e7;font-weight:600;font-size:0.85rem">Connexion d'outils externes</span><br/><span style="color:#9CA3AF;font-size:0.75rem">API, fichiers, bases de données, CRM integres au pipeline</span></div>
 </div>
 <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem;border-radius:10px;background:rgba(124,58,237,0.05);border:1px solid rgba(124,58,237,0.1)">
 <div style="min-width:2.5rem;font-size:0.75rem;font-weight:800;color:#A78BFA;text-align:center">2</div>
@@ -85,7 +85,7 @@ C\'est exactement ce qu\'on observe chez nos clients avant qu\'on intervienne. L
 - Questions au fil de l'eau<br/>
 - Pas de contexte persistant<br/>
 - Reformulations constantes<br/>
-- Resultats generiques<br/>
+- Résultats generiques<br/>
 - Tokens gaspilles
 </div>
 </div>
@@ -95,8 +95,8 @@ C\'est exactement ce qu\'on observe chez nos clients avant qu\'on intervienne. L
 - Instructions structurees<br/>
 - Memoire projet permanente<br/>
 - Workflows definis<br/>
-- Resultats precis des la 1re tentative<br/>
-- Cout maitrise
+- Résultats precis des la 1re tentative<br/>
+- Coût maîtrise
 </div>
 </div>
 </div>
@@ -112,7 +112,7 @@ Ce sont ceux qui construisent un **système** autour de l\'IA.
 Concrètement, ça passe par quatre piliers :
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(74,222,128,0.2);background:rgba(74,222,128,0.03)">
-<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#4ade80;margin-bottom:1.2rem">Les 4 piliers d'un systeme IA performant</div>
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#4ade80;margin-bottom:1.2rem">Les 4 piliers d'un système IA performant</div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
 <div style="padding:1.25rem;border-radius:12px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12)">
 <div style="font-size:1.1rem;font-weight:800;color:#4ade80;margin-bottom:0.4rem">01</div>
@@ -132,7 +132,7 @@ Concrètement, ça passe par quatre piliers :
 <div style="padding:1.25rem;border-radius:12px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12)">
 <div style="font-size:1.1rem;font-weight:800;color:#4ade80;margin-bottom:0.4rem">04</div>
 <div style="font-size:0.85rem;font-weight:700;color:#e4e4e7;margin-bottom:0.3rem">Gestion du contexte</div>
-<div style="font-size:0.78rem;color:#9CA3AF;line-height:1.5">Optimiser les tokens charges. Compresser les conversations. Reduire les couts x3.</div>
+<div style="font-size:0.78rem;color:#9CA3AF;line-height:1.5">Optimiser les tokens charges. Compresser les conversations. Reduire les coûts x3.</div>
 </div>
 </div>
 </div>
@@ -154,7 +154,7 @@ Pendant deux ans, tout le monde s\'est focalisé sur le "prompt engineering". Co
 Avec les agents IA comme Claude Code, le prompt n\'est qu\'un maillon de la chaîne. Ce qui compte vraiment, c\'est l\'architecture dans laquelle il s\'insère : la mémoire projet, les outils connectés, les workflows définis, les permissions configurées.
 
 <div style="margin:2rem 0;padding:1.5rem;border-radius:14px;border:1px solid rgba(63,63,70,0.4);background:rgba(24,24,27,0.6)">
-<div style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#71717a;margin-bottom:1rem">Impact relatif sur la qualite des resultats</div>
+<div style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#71717a;margin-bottom:1rem">Impact relatif sur la qualité des résultats</div>
 <div style="display:flex;flex-direction:column;gap:0.75rem">
 <div style="display:flex;align-items:center;gap:0.75rem">
 <div style="width:7rem;font-size:0.75rem;color:#71717a;text-align:right">Prompt seul</div>
@@ -172,7 +172,7 @@ Avec les agents IA comme Claude Code, le prompt n\'est qu\'un maillon de la cha�
 <div style="width:2.5rem;font-size:0.7rem;color:#A78BFA;font-weight:600">70 %</div>
 </div>
 <div style="display:flex;align-items:center;gap:0.75rem">
-<div style="width:7rem;font-size:0.75rem;color:#e4e4e7;text-align:right">Systeme complet</div>
+<div style="width:7rem;font-size:0.75rem;color:#e4e4e7;text-align:right">Système complet</div>
 <div style="flex:1;height:1.5rem;border-radius:6px;background:rgba(63,63,70,0.3);overflow:hidden"><div style="width:95%;height:100%;background:rgba(74,222,128,0.3);border-radius:6px"></div></div>
 <div style="width:2.5rem;font-size:0.7rem;color:#4ade80;font-weight:600">95 %</div>
 </div>
@@ -222,11 +222,11 @@ Si la réponse est "non" à plus d\'une de ces questions, vous laissez probablem
 </div>
 <div style="display:flex;align-items:center;gap:0.75rem;padding:0.5rem 0.75rem;border-radius:8px;background:rgba(63,63,70,0.15)">
 <div style="min-width:1.5rem;height:1.5rem;border-radius:4px;border:2px solid rgba(255,107,0,0.3);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#FF8C00">?</div>
-<div style="font-size:0.8rem;color:#d4d4d8">Cout reel de consommation tokens mesure</div>
+<div style="font-size:0.8rem;color:#d4d4d8">Coût reel de consommation tokens mesure</div>
 </div>
 <div style="display:flex;align-items:center;gap:0.75rem;padding:0.5rem 0.75rem;border-radius:8px;background:rgba(63,63,70,0.15)">
 <div style="min-width:1.5rem;height:1.5rem;border-radius:4px;border:2px solid rgba(255,107,0,0.3);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#FF8C00">?</div>
-<div style="font-size:0.8rem;color:#d4d4d8">IA connectee aux outils metier (CRM, docs, email)</div>
+<div style="font-size:0.8rem;color:#d4d4d8">IA connectee aux outils métier (CRM, docs, email)</div>
 </div>
 </div>
 <div style="margin-top:1rem;font-size:0.75rem;color:#71717a;text-align:center">Plus de 2 reponses negatives = vous sous-exploitez massivement votre investissement IA</div>

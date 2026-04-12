@@ -32,8 +32,8 @@ export function LLMStackDiagram() {
       textColor: color,
     },
     {
-      label: 'Vos donnees',
-      sublabel: 'CRM, docs, base de donnees',
+      label: 'Vos données',
+      sublabel: 'CRM, docs, base de données',
       icon: <Database size={15} style={{ color: '#6b7280' }} />,
       bg: 'rgba(107,114,128,0.10)',
       border: 'rgba(107,114,128,0.22)',
@@ -44,7 +44,7 @@ export function LLMStackDiagram() {
   return (
     <div className="flex flex-col gap-0 w-full">
       <p className="text-[11px] font-bold uppercase tracking-widest mb-5 text-center" style={{ color }}>
-        Architecture d&apos;integration IA
+        Architecture d&apos;intégration IA
       </p>
       {layers.map((layer, i) => (
         <div key={layer.label}>

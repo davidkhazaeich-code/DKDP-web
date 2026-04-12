@@ -33,7 +33,7 @@ const FAQ = [
   {
     question: 'La formation couvre-t-elle Windows et Mac ?',
     answer:
-      'Oui. DKDP adapte la formation à votre environnement informatique : Windows 10/11, macOS, ou les deux si votre équipe est mixte. On part toujours de ce que vos collaborateurs utilisent réellement.',
+      'Oui. DKDP adapté la formation à votre environnement informatique : Windows 10/11, macOS, ou les deux si votre équipe est mixte. On part toujours de ce que vos collaborateurs utilisent réellement.',
   },
   {
     question: 'Peut-on former des collaborateurs avec des niveaux très différents ?',

@@ -210,7 +210,7 @@ export default function FormationWebDesignPage() {
                 </p>
                 <DesignToolCards />
                 <p className="text-text-muted text-[11px] text-center mt-4">
-                  On adapte la profondeur selon votre niveau et vos besoins. Canva est toujours le point de départ.
+                  On adapté la profondeur selon votre niveau et vos besoins. Canva est toujours le point de départ.
                 </p>
               </div>
             </SectionReveal>

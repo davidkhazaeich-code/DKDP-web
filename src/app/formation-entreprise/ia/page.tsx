@@ -184,7 +184,7 @@ export default function FormationIAPage() {
               {[
                 { label: 'Pourquoi maintenant', href: '#pourquoi' },
                 { label: 'Programme', href: '#programme' },
-                { label: 'Competences', href: '#competences' },
+                { label: 'Competences', href: '#compétences' },
                 { label: 'ROI', href: '#roi' },
                 { label: 'Format', href: '#format' },
                 { label: 'Galerie', href: '#galerie' },
@@ -288,16 +288,16 @@ export default function FormationIAPage() {
       </section>
 
       {/* ── Competences acquises (Bento) ── */}
-      <section id="competences" className="scroll-mt-[124px] py-24">
+      <section id="compétences" className="scroll-mt-[124px] py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-12">
               <GradTag className="mb-4">Ce que vous maitriserez</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                6 competences concretes, utilisables des le lendemain.
+                6 compétences concretes, utilisables des le lendemain.
               </h2>
               <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
-                Pas de theorie abstraite. Chaque competence est travaillee sur vos vrais documents et vos vrais cas d&apos;usage.
+                Pas de theorie abstraite. Chaque compétence est travaillee sur vos vrais documents et vos vrais cas d&apos;usage.
               </p>
             </div>
           </SectionReveal>
@@ -439,7 +439,7 @@ export default function FormationIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Format</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Une formation qui s&apos;adapte à vous.
+                Une formation qui s&apos;adapté à vous.
               </h2>
             </div>
           </SectionReveal>
@@ -528,7 +528,7 @@ export default function FormationIAPage() {
                 Nos formations en action.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                Des sessions pratiques dans un cadre professionnel. Chaque formation est adaptee a votre equipe et vos outils.
+                Des sessions pratiques dans un cadre professionnel. Chaque formation est adaptée a votre équipe et vos outils.
               </p>
             </div>
           </SectionReveal>

@@ -195,7 +195,7 @@ export default function SEOPage() {
             <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
               {[
                 { label: 'Notre approche', href: '#approche' },
-                { label: 'Résultats', href: '#resultats' },
+                { label: 'Résultats', href: '#résultats' },
                 { label: 'Tarifs', href: '#tarifs' },
                 { label: 'Processus', href: '#process' },
                 { label: 'Réalisations', href: '#realisations' },
@@ -279,7 +279,7 @@ export default function SEOPage() {
                 ChatGPT, Perplexity, Google AI Overviews et Copilot répondent directement aux questions de vos prospects, sans clic Google. Si votre contenu n&apos;est pas citable par ces IA, vous êtes absent là où une part croissante des décisions d&apos;achat se forme.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
-                Le <span className="text-white font-semibold">GEO (Generative Engine Optimization)</span>, aussi appelé AEO (Answer Engine Optimization), optimise votre contenu pour être cité comme source de référence. DKDP intègre cette dimension à chaque mission SEO.
+                Le <span className="text-white font-semibold">GEO (Generative Engine Optimization)</span>, aussi appelé AEO (Answer Engine Optimization), optimisé votre contenu pour être cité comme source de référence. DKDP intègre cette dimension à chaque mission SEO.
               </p>
               <div className="space-y-3">
                 {[
@@ -388,7 +388,7 @@ export default function SEOPage() {
       </section>
 
       {/* ── Bénéfices ── */}
-      <section id="resultats" className="py-24 scroll-mt-[124px]">
+      <section id="résultats" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -630,7 +630,7 @@ export default function SEOPage() {
               {
                 client: 'PME e-commerce',
                 type: 'SEO national',
-                image: '/images/services/dkdp-agence-creation-web.webp',
+                image: '/images/services/dkdp-agence-création-web.webp',
                 results: ['Page 1 sur 42 mots-clés cibles', 'Trafic x4.2 en 18 mois', 'CA online +280%'],
                 tech: 'SEO · Blog · Netlinking',
               },

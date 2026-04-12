@@ -37,12 +37,12 @@ const Testimonials = dynamic(() =>
 export const metadata: Metadata = {
   title: 'Chatbot IA sur mesure pour entreprises a Geneve | DKDP',
   description:
-    'DKDP concoit et deploie des chatbots IA sur mesure pour PME a Geneve et en Suisse romande. Repondez a vos clients 24h/24, qualifiez vos leads, automatisez la prise de rendez-vous. Des CHF 2\'900, deploye en 2 a 5 semaines.',
+    'DKDP concoit et déploie des chatbots IA sur mesure pour PME a Geneve et en Suisse romande. Repondez a vos clients 24h/24, qualifiez vos leads, automatisez la prise de rendez-vous. Des CHF 2\'900, deploye en 2 a 5 semaines.',
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia' },
   openGraph: {
     title: 'Chatbot IA sur mesure pour entreprises a Geneve | DKDP',
     description:
-      'Chatbot IA concu pour votre metier : support client 24/7, qualification de leads, prise de rendez-vous automatique. Agence DKDP, Geneve.',
+      'Chatbot IA concu pour votre métier : support client 24/7, qualification de leads, prise de rendez-vous automatique. Agence DKDP, Geneve.',
     url: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
     type: 'website',
     locale: 'fr_CH',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Chatbot IA sur mesure pour entreprises a Geneve | DKDP',
     description:
-      'Chatbot IA concu pour votre metier : support 24/7, leads qualifies, RDV automatiques. Des CHF 2\'900. Agence DKDP Geneve.',
+      'Chatbot IA concu pour votre métier : support 24/7, leads qualifies, RDV automatiques. Des CHF 2\'900. Agence DKDP Geneve.',
   },
   keywords: [
     'chatbot IA Geneve',
@@ -71,37 +71,37 @@ const FAQ = [
   {
     question: 'Combien coute un chatbot IA sur mesure ?',
     answer:
-      'Un chatbot essentiel demarre a CHF 2\'900. Les formules plus avancees avec connexion a vos outils metier se situent entre CHF 5\'500 et CHF 12\'000. DKDP fournit un devis fixe avant demarrage, sans surprises.',
+      'Un chatbot essentiel demarre a CHF 2\'900. Les formules plus avancees avec connexion a vos outils métier se situent entre CHF 5\'500 et CHF 12\'000. DKDP fournit un devis fixe avant demarrage, sans surprises.',
   },
   {
-    question: 'Combien de temps faut-il pour deployer un chatbot ?',
+    question: 'Combien de temps faut-il pour déployer un chatbot ?',
     answer:
-      'Entre 2 et 5 semaines selon la complexite. Un chatbot qui repond aux questions frequentes peut etre operationnel en 2 semaines. Un assistant connecte a votre CRM ou systeme de reservation prend 4 a 5 semaines.',
+      'Entre 2 et 5 semaines selon la complexite. Un chatbot qui repond aux questions frequentes peut etre operationnel en 2 semaines. Un assistant connecte a votre CRM ou système de reservation prend 4 a 5 semaines.',
   },
   {
-    question: 'Est-ce que mes donnees restent confidentielles ?',
+    question: 'Est-ce que mes données restent confidentielles ?',
     answer:
-      'Oui. DKDP heberge les chatbots sur des infrastructures europeennes conformes au RGPD. Vos donnees ne sont jamais utilisees pour entrainer des modeles tiers. On vous explique exactement ou vos donnees transitent avant le deploiement.',
+      'Oui. DKDP heberge les chatbots sur des infrastructures européennes conformes au RGPD. Vos données ne sont jamais utilisees pour entraîner des modèles tiers. On vous explique exactement ou vos données transitent avant le déploiement.',
   },
   {
     question: 'Est-ce que le chatbot peut se tromper ou inventer des reponses ?',
     answer:
-      'Tout systeme IA a des limites. C\'est pourquoi DKDP configure chaque chatbot avec des garde-fous : il repond uniquement a partir de vos contenus valides, et transfere vers un humain quand la question depasse son perimetre. On teste rigoureusement avant la mise en ligne.',
+      'Tout système IA a des limites. C\'est pourquoi DKDP configure chaque chatbot avec des garde-fous : il repond uniquement a partir de vos contenus valides, et transfere vers un humain quand la question depasse son perimetre. On teste rigoureusement avant la mise en ligne.',
   },
   {
     question: 'Qui maintient le chatbot apres la mise en ligne ?',
     answer:
-      'DKDP propose un suivi mensuel inclus dans les formules Pro et Sur mesure. On analyse les conversations, on ajuste les reponses et on ajoute de nouveaux contenus selon vos retours. Vous n\'avez rien de technique a gerer.',
+      'DKDP propose un suivi mensuel inclus dans les formules Pro et Sur mesure. On analyse les conversations, on ajuste les reponses et on ajoute de nouveaux contenus selon vos retours. Vous n\'avez rien de technique a gérer.',
   },
   {
     question: 'Le chatbot peut-il etre connecte a mes outils existants ?',
     answer:
-      'Oui. Calendriers de reservation (Cal.com, Calendly), CRM (HubSpot, Pipedrive), systemes de ticketing, bases de donnees internes. On s\'adapte a votre stack existant sans tout reconstruire.',
+      'Oui. Calendriers de reservation (Cal.com, Calendly), CRM (HubSpot, Pipedrive), systèmes de ticketing, bases de données internes. On s\'adapté a votre stack existant sans tout reconstruire.',
   },
   {
-    question: 'Est-ce que le chatbot remplace mon equipe ?',
+    question: 'Est-ce que le chatbot remplace mon équipe ?',
     answer:
-      'Non, et ce n\'est pas l\'objectif. Le chatbot prend en charge les demandes repetitives et les horaires ou personne n\'est disponible. Votre equipe se concentre sur les echanges a forte valeur ajoutee. C\'est un outil, pas un remplacement.',
+      'Non, et ce n\'est pas l\'objectif. Le chatbot prend en charge les demandes repetitives et les horaires ou personne n\'est disponible. Votre équipe se concentre sur les echanges a forte valeur ajoutee. C\'est un outil, pas un remplacement.',
   },
 ]
 
@@ -109,7 +109,7 @@ const PROBLEMS = [
   {
     Icon: MessageCircle,
     problem: 'Les memes questions reviennent chaque jour',
-    solution: 'Votre chatbot repond instantanement aux demandes courantes : horaires, tarifs, disponibilites, procedures. Votre equipe ne repete plus les memes reponses.',
+    solution: 'Votre chatbot repond instantanement aux demandes courantes : horaires, tarifs, disponibilites, procedures. Votre équipe ne repete plus les memes reponses.',
     metric: '80%',
     metricLabel: 'des questions courantes traitees automatiquement',
   },
@@ -118,7 +118,7 @@ const PROBLEMS = [
     problem: 'Vous perdez des clients en dehors des heures de bureau',
     solution: 'Un prospect qui pose une question a 22h obtient une reponse immediate. Il ne va pas voir ailleurs. Le chatbot qualifie le lead et vous le transmet le lendemain matin, pret a etre contacte.',
     metric: '24/7',
-    metricLabel: 'disponibilite sans cout supplementaire',
+    metricLabel: 'disponibilite sans coût supplementaire',
   },
   {
     Icon: Users,
@@ -129,7 +129,7 @@ const PROBLEMS = [
   },
   {
     Icon: CalendarCheck,
-    problem: 'La prise de rendez-vous genere des allers-retours',
+    problem: 'La prise de rendez-vous généré des allers-retours',
     solution: 'Le chatbot propose directement vos creneaux disponibles et confirme la reservation. Plus d\'emails de coordination, plus de "Quand etes-vous disponible ?".',
     metric: '3x',
     metricLabel: 'plus de rendez-vous pris hors heures',
@@ -139,7 +139,7 @@ const PROBLEMS = [
 const STEPS = [
   {
     num: 1,
-    title: 'Decouverte de votre metier',
+    title: 'Decouverte de votre métier',
     desc: 'On analyse vos interactions clients actuelles : quelles questions reviennent, quels processus prennent du temps, ou un chatbot aurait le plus d\'impact. Vous n\'avez rien a preparer.',
     duration: '1 a 2 jours',
   },
@@ -151,13 +151,13 @@ const STEPS = [
   },
   {
     num: 3,
-    title: 'Developpement et tests',
-    desc: 'On construit le chatbot, on le connecte a vos outils si necessaire, et on le teste avec des scenarios reels. Vous avez acces a une version de test pour valider.',
+    title: 'Développement et tests',
+    desc: 'On construit le chatbot, on le connecte a vos outils si nécessaire, et on le teste avec des scenarios reels. Vous avez acces a une version de test pour valider.',
     duration: '1 a 3 semaines',
   },
   {
     num: 4,
-    title: 'Deploiement et suivi',
+    title: 'Déploiement et suivi',
     desc: 'Mise en ligne sur votre site ou vos canaux. On surveille les premieres conversations, on ajuste ce qui doit l\'etre, et on vous forme a la lecture des statistiques.',
     duration: '2 a 3 jours',
   },
@@ -167,19 +167,19 @@ const INDUSTRIES = [
   {
     Icon: Scale,
     title: 'Fiduciaires et cabinets juridiques',
-    scenario: 'Vos clients demandent regulierement les documents necessaires pour une creation de societe, les delais de depot ou le statut de leur dossier. Le chatbot repond instantanement et envoie les formulaires adequats.',
+    scenario: 'Vos clients demandent regulierement les documents nécessaires pour une création de société, les delais de depot ou le statut de leur dossier. Le chatbot repond instantanement et envoie les formulaires adequats.',
     example: '"Quels documents faut-il pour creer une Sarl ?" → Reponse + lien vers le formulaire de demarrage',
   },
   {
     Icon: Stethoscope,
     title: 'Cabinets medicaux et dentaires',
-    scenario: 'Les patients appellent pour prendre rendez-vous, verifier les horaires ou poser des questions pre-consultation. Le chatbot gere la prise de rendez-vous et les informations pratiques, meme le week-end.',
+    scenario: 'Les patients appellent pour prendre rendez-vous, vérifier les horaires ou poser des questions pre-consultation. Le chatbot gère la prise de rendez-vous et les informations pratiques, meme le week-end.',
     example: '"Je voudrais un rendez-vous pour un detartrage" → Proposition de creneaux + confirmation automatique',
   },
   {
     Icon: Home,
     title: 'Agences immobilieres',
-    scenario: 'Les prospects veulent des informations sur un bien, verifier les disponibilites ou planifier une visite. Le chatbot qualifie le lead (budget, quartier, surface) et propose un creneau au bon agent.',
+    scenario: 'Les prospects veulent des informations sur un bien, vérifier les disponibilites ou planifier une visite. Le chatbot qualifie le lead (budget, quartier, surface) et propose un creneau au bon agent.',
     example: '"Avez-vous des 3 pieces aux Eaux-Vives ?" → Filtrage + presentation des biens + prise de rendez-vous',
   },
   {
@@ -200,11 +200,11 @@ const OFFERS = [
   {
     name: 'Essentiel',
     price: '2\'900',
-    desc: 'Pour les entreprises qui veulent repondre aux questions frequentes sans mobiliser leur equipe.',
+    desc: 'Pour les entreprises qui veulent répondre aux questions frequentes sans mobiliser leur équipe.',
     features: [
       'Chatbot sur votre site web',
       'Jusqu\'a 50 questions-reponses configurees',
-      'Design integre a votre charte graphique',
+      'Design intégré a votre charte graphique',
       'Transfert vers email si question complexe',
       '1 mois de suivi inclus',
     ],
@@ -227,13 +227,13 @@ const OFFERS = [
   {
     name: 'Sur mesure',
     price: 'Sur devis',
-    desc: 'Pour les entreprises avec des besoins specifiques : CRM, base de donnees, multi-canal, multi-langue.',
+    desc: 'Pour les entreprises avec des besoins spécifiques : CRM, base de données, multi-canal, multi-langue.',
     features: [
       'Tout ce qui est inclus dans Pro',
       'Connecte a vos outils existants (CRM, ERP, ticketing)',
-      'Deploiement multi-canal (site, WhatsApp, Instagram)',
+      'Déploiement multi-canal (site, WhatsApp, Instagram)',
       'Chatbot multilingue (FR, EN, DE)',
-      'Logique metier avancee et workflows personnalises',
+      'Logique métier avancee et workflows personnalisés',
       'Suivi continu et evolution mensuelle',
     ],
     recommended: false,
@@ -255,7 +255,7 @@ export default function ChatbotIAPage() {
           name: 'Chatbot IA sur mesure pour entreprises a Geneve',
           url: '/intelligence-artificielle/chatbot-ia',
           description:
-            'Conception, developpement et deploiement de chatbots IA sur mesure pour PME a Geneve et en Suisse romande. Support client 24/7, qualification de leads, prise de rendez-vous automatisee. Des CHF 2900.',
+            'Conception, développement et déploiement de chatbots IA sur mesure pour PME a Geneve et en Suisse romande. Support client 24/7, qualification de leads, prise de rendez-vous automatisée. Des CHF 2900.',
         })}
       />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
@@ -270,7 +270,7 @@ export default function ChatbotIAPage() {
         schema={buildWebPageWithSpeakable({
           name: 'Chatbot IA sur mesure pour entreprises a Geneve',
           url: '/intelligence-artificielle/chatbot-ia',
-          description: 'DKDP concoit et deploie des chatbots IA sur mesure pour PME a Geneve. Support client 24/7, qualification de leads, prise de rendez-vous automatique. Des CHF 2900, deploye en 2 a 5 semaines.',
+          description: 'DKDP concoit et déploie des chatbots IA sur mesure pour PME a Geneve. Support client 24/7, qualification de leads, prise de rendez-vous automatique. Des CHF 2900, deploye en 2 a 5 semaines.',
         })}
       />
       {/* Structured pricing for rich snippets */}
@@ -337,7 +337,7 @@ export default function ChatbotIAPage() {
                 </h1>
                 <p data-speakable className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP concoit des chatbots IA sur mesure pour les PME a Geneve et en Suisse romande.
-                  Pas un widget generique : un assistant intelligent concu pour votre metier, vos questions
+                  Pas un widget generique : un assistant intelligent concu pour votre métier, vos questions
                   et vos clients. Deploye sur votre site en 2 a 5 semaines, a partir de CHF 2&apos;900.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
@@ -457,9 +457,9 @@ export default function ChatbotIAPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '24/7', l: 'Disponibilite', sub: 'Sans cout supplementaire' },
-              { v: '2-5 sem.', l: 'Delai de deploiement', sub: 'Cle en main' },
-              { v: '80%', l: 'Questions automatisees', sub: 'Des le premier mois' },
+              { v: '24/7', l: 'Disponibilite', sub: 'Sans coût supplementaire' },
+              { v: '2-5 sem.', l: 'Delai de déploiement', sub: 'Cle en main' },
+              { v: '80%', l: 'Questions automatisées', sub: 'Des le premier mois' },
               { v: 'CHF 2\'900', l: 'A partir de', sub: 'Devis fixe, sans surprise' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -520,7 +520,7 @@ export default function ChatbotIAPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
-              <GradTag className="mb-4">Le probleme que vous connaissez</GradTag>
+              <GradTag className="mb-4">Le problème que vous connaissez</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
                 Chaque question sans reponse est un client qui hesite, puis qui part.
               </h2>
@@ -565,11 +565,11 @@ export default function ChatbotIAPage() {
                 Le retour sur investissement se mesure des le premier mois.
               </h2>
               <p data-speakable className="text-text-secondary text-lg max-w-2xl mx-auto">
-                Un chatbot IA bien concu ne remplace pas votre equipe. Il absorbe 80% des
+                Un chatbot IA bien concu ne remplace pas votre équipe. Il absorbe 80% des
                 demandes repetitives pour que vos collaborateurs se concentrent sur les
                 interactions a forte valeur ajoutee. Les PME genevoises qui deploient un
                 chatbot DKDP constatent en moyenne 60% de reduction du temps d&apos;onboarding
-                et une disponibilite client 24h/24 sans cout supplementaire.
+                et une disponibilite client 24h/24 sans coût supplementaire.
               </p>
             </div>
           </SectionReveal>
@@ -651,7 +651,7 @@ export default function ChatbotIAPage() {
                 Vous n&apos;avez rien de technique a faire.
               </h2>
               <p data-speakable className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto">
-                De la decouverte de votre metier jusqu&apos;a la mise en ligne, DKDP gere
+                De la decouverte de votre métier jusqu&apos;a la mise en ligne, DKDP gère
                 l&apos;ensemble du projet depuis nos bureaux de Geneve. Vous validez a chaque
                 etape, on execute. Delai moyen : 2 a 5 semaines.
               </p>
@@ -703,8 +703,8 @@ export default function ChatbotIAPage() {
                 {[
                   { label: 'Decouverte', weeks: 'Sem. 1', opacity: 0.3 },
                   { label: 'Conception', weeks: 'Sem. 1-2', opacity: 0.45 },
-                  { label: 'Developpement', weeks: 'Sem. 2-4', opacity: 0.65 },
-                  { label: 'Deploiement', weeks: 'Sem. 4-5', opacity: 0.85 },
+                  { label: 'Développement', weeks: 'Sem. 2-4', opacity: 0.65 },
+                  { label: 'Déploiement', weeks: 'Sem. 4-5', opacity: 0.85 },
                 ].map((phase, i) => (
                   <div key={phase.label} className="flex-1 relative">
                     <div
@@ -736,12 +736,12 @@ export default function ChatbotIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Cas d&apos;usage concrets</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
-                Un chatbot adapte a votre secteur, pas un template universel.
+                Un chatbot adapté a votre secteur, pas un template universel.
               </h2>
               <p data-speakable className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto">
-                Chaque chatbot DKDP est concu pour un metier specifique : fiduciaires, cabinets
+                Chaque chatbot DKDP est concu pour un métier spécifique : fiduciaires, cabinets
                 medicaux, agences immobilieres, commerces et PME de services a Geneve. Voici
-                comment il s&apos;integre concretement dans ces secteurs.
+                comment il s&apos;intégré concretement dans ces secteurs.
               </p>
             </div>
           </SectionReveal>
@@ -795,7 +795,7 @@ export default function ChatbotIAPage() {
               </h2>
               <p data-speakable className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto">
                 Devis fixe en CHF, sans surprise. Chaque formule inclut la conception, le
-                developpement et le deploiement par notre equipe a Geneve. Paiement en 3 fois possible.
+                développement et le déploiement par notre équipe a Geneve. Paiement en 3 fois possible.
               </p>
             </div>
           </SectionReveal>
@@ -860,7 +860,7 @@ export default function ChatbotIAPage() {
           <SectionReveal delay={0.3}>
             <p className="text-text-muted text-sm text-center mt-8">
               Tous les prix sont en CHF et hors TVA. Paiement en 3 fois possible. Devis
-              personnalise sous 48h.
+              personnalisé sous 48h.
             </p>
           </SectionReveal>
         </div>

@@ -106,7 +106,7 @@ export function HeroVisual() {
         {[
           { v: '+232%', l: 'Score marketing', c: '#4ade80' },
           { v: '360°', l: 'Audit complet', c: V },
-          { v: '3 mois', l: 'Premiers resultats', c: '#FF8C00' },
+          { v: '3 mois', l: 'Premiers résultats', c: '#FF8C00' },
         ].map((s) => (
           <div
             key={s.l}

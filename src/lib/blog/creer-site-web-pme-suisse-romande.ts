@@ -12,17 +12,17 @@ const article: Article = {
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/creer-site-web-pme-suisse-romande-hero.png',
-      alt: 'Creer site web PME Suisse romande : equipe genevoise concevant un site web autour de maquettes et wireframes',
+      alt: 'Creer site web PME Suisse romande : équipe genevoise concevant un site web autour de maquettes et wireframes',
     },
     images: [
       {
         src: '/images/blog/creer-site-web-pme-suisse-romande-etapes.png',
-        alt: '5 etapes creation site web PME Suisse romande : cahier des charges, maquette, developpement, SEO, mise en ligne',
+        alt: '5 etapes création site web PME Suisse romande : cahier des charges, maquette, développement, SEO, mise en ligne',
         caption: 'Les 5 étapes d\'un projet web réussi pour les PME de Suisse romande',
       },
       {
         src: '/images/blog/creer-site-web-pme-stack-technologique.png',
-        alt: 'Creation site web PME Geneve 2026 : parcours technologique des 5 etapes de developpement web pour entreprises suisses',
+        alt: 'Création site web PME Geneve 2026 : parcours technologique des 5 etapes de développement web pour entreprises suisses',
         caption: 'Le parcours technologique d\'un projet web PME, de la stratégie au lancement',
       },
     ],

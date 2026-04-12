@@ -54,7 +54,7 @@ En pratique, la frontière est floue. La plupart des outils se positionnent quel
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;text-align:center">
 <div>
 <div style="font-size:0.85rem;font-weight:600;color:#4ade80;margin-bottom:0.25rem">No-code</div>
-<div style="font-size:0.75rem;color:#9CA3AF">Zero competence technique. Interface 100% visuelle.</div>
+<div style="font-size:0.75rem;color:#9CA3AF">Zero compétence technique. Interface 100% visuelle.</div>
 <div style="font-size:0.75rem;color:#71717a;margin-top:0.25rem">Webflow, Airtable, Zapier, Glide</div>
 </div>
 <div>
@@ -119,7 +119,7 @@ En pratique, la frontière est floue. La plupart des outils se positionnent quel
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#4ade80">Webflow, Framer</div>
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#71717a">-</div>
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#71717a">Next.js, Astro</div>
-<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#e4e4e7">App metier</div>
+<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#e4e4e7">App métier</div>
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#4ade80">Glide</div>
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#FF8C00">Bubble, Retool</div>
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#71717a">React, Flutter</div>
@@ -127,7 +127,7 @@ En pratique, la frontière est floue. La plupart des outils se positionnent quel
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#4ade80">Zapier</div>
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#FF8C00">Make, n8n</div>
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#71717a">Python, Node.js</div>
-<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#e4e4e7">Base de donnees</div>
+<div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#e4e4e7">Base de données</div>
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#4ade80">Airtable, Notion</div>
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#FF8C00">Supabase</div>
 <div style="padding:0.5rem 0.75rem;font-size:0.8rem;color:#71717a">PostgreSQL</div>
@@ -165,11 +165,11 @@ Le no-code a des limites réelles qu'il faut reconnaître pour ne pas se retrouv
 </div>
 <div style="display:flex;align-items:flex-start;gap:0.75rem">
 <div style="min-width:24px;height:24px;border-radius:6px;background:rgba(167,139,250,0.15);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:#A78BFA;font-weight:700">LC</div>
-<div><div style="font-size:0.85rem;color:#e4e4e7">Logique metier complexe avec quelques exceptions</div><div style="font-size:0.75rem;color:#71717a">App interne, portail client, workflow avance</div></div>
+<div><div style="font-size:0.85rem;color:#e4e4e7">Logique métier complexe avec quelques exceptions</div><div style="font-size:0.75rem;color:#71717a">App interne, portail client, workflow avance</div></div>
 </div>
 <div style="display:flex;align-items:flex-start;gap:0.75rem">
 <div style="min-width:24px;height:24px;border-radius:6px;background:rgba(255,140,0,0.15);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:#FF8C00;font-weight:700">CD</div>
-<div><div style="font-size:0.85rem;color:#e4e4e7">Performance critique, UX unique, ou conformite stricte</div><div style="font-size:0.75rem;color:#71717a">App a fort trafic, algo proprietaire, donnees sensibles</div></div>
+<div><div style="font-size:0.85rem;color:#e4e4e7">Performance critique, UX unique, ou conformite stricte</div><div style="font-size:0.75rem;color:#71717a">App a fort trafic, algo proprietaire, données sensibles</div></div>
 </div>
 </div>
 <div style="margin-top:0.75rem;font-size:0.7rem;color:#71717a">NC = No-code, LC = Low-code, CD = Code sur mesure</div>

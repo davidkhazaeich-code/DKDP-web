@@ -9,7 +9,7 @@ const SKILLS = [
   {
     Icon: MessageSquare,
     title: 'Prompting avance',
-    desc: 'Techniques de chain-of-thought, few-shot, role-playing et meta-prompting. Vos instructions deviennent precises, vos resultats fiables.',
+    desc: 'Techniques de chain-of-thought, few-shot, role-playing et meta-prompting. Vos instructions deviennent precises, vos résultats fiables.',
     span: 'md:col-span-2',
     visual: (
       <div className="mt-4 space-y-2 font-mono text-[11px]">
@@ -97,7 +97,7 @@ const SKILLS = [
   {
     Icon: Shield,
     title: 'Confidentialite et bonnes pratiques',
-    desc: 'Ce qu\'on peut envoyer, ce qu\'on ne doit jamais partager. Configuration securisee des espaces d\'equipe.',
+    desc: 'Ce qu\'on peut envoyer, ce qu\'on ne doit jamais partager. Configuration securisee des espaces d\'équipe.',
     span: '',
     visual: (
       <div className="mt-4 flex gap-2">
@@ -113,11 +113,11 @@ const SKILLS = [
   {
     Icon: BarChart2,
     title: 'Templates personnels',
-    desc: 'Chaque participant repart avec une bibliotheque de prompts testes et valides, adaptes a son poste et ses taches quotidiennes.',
+    desc: 'Chaque participant repart avec une bibliotheque de prompts testes et valides, adaptés a son poste et ses taches quotidiennes.',
     span: 'md:col-span-2',
     visual: (
       <div className="mt-4 flex flex-wrap gap-2">
-        {['Email formel', 'Synthese PDF', 'Analyse donnees', 'Brief creatif', 'Compte-rendu', 'Traduction pro'].map((t) => (
+        {['Email formel', 'Synthese PDF', 'Analyse données', 'Brief creatif', 'Compte-rendu', 'Traduction pro'].map((t) => (
           <span
             key={t}
             className="text-[10px] font-medium px-2.5 py-1 rounded-full"

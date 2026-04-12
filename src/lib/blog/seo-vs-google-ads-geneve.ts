@@ -12,12 +12,12 @@ const article: Article = {
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/seo-vs-google-ads-geneve-hero.png',
-      alt: 'SEO vs Google Ads Geneve 2026 : comparaison resultats organiques et annonces payantes sur page de recherche Google',
+      alt: 'SEO vs Google Ads Geneve 2026 : comparaison résultats organiques et annonces payantes sur page de recherche Google',
     },
     images: [
       {
         src: '/images/blog/seo-vs-google-ads-geneve-tableau.png',
-        alt: 'Tableau comparatif SEO vs Google Ads Geneve : cout, delai, ROI, durabilite et 8 criteres pour PME suisses',
+        alt: 'Tableau comparatif SEO vs Google Ads Geneve : coût, delai, ROI, durabilite et 8 criteres pour PME suisses',
         caption: 'SEO vs Google Ads : comparatif sur 8 dimensions pour les PME de Suisse romande',
       },
       {

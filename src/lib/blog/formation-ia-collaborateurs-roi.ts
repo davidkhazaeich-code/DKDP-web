@@ -12,17 +12,17 @@ const article: Article = {
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/formation-ia-roi-hero.png',
-      alt: 'Formation IA entreprise ROI 2026 : equipe en formation devant des interfaces IA dans un bureau moderne',
+      alt: 'Formation IA entreprise ROI 2026 : équipe en formation devant des interfaces IA dans un bureau moderne',
     },
     images: [
       {
         src: '/images/blog/formation-ia-roi-curve.png',
-        alt: 'Courbe ROI formation IA entreprise : progression productivite sur 12 mois apres formation collaborateurs',
+        alt: 'Courbe ROI formation IA entreprise : progression productivité sur 12 mois apres formation collaborateurs',
         caption: 'Courbe ROI type : plateau initial, puis gain exponentiel à partir du 3e mois',
       },
       {
-        src: '/images/blog/formation-ia-roi-progression-equipe.png',
-        alt: 'Formation IA ROI progression equipe : visualisation avant et apres formation IA avec gains de productivite en entreprise',
+        src: '/images/blog/formation-ia-roi-progression-équipe.png',
+        alt: 'Formation IA ROI progression équipe : visualisation avant et apres formation IA avec gains de productivité en entreprise',
         caption: "Progression de la productivité d'une équipe avant et après formation IA structurée",
       },
     ],
@@ -223,7 +223,7 @@ Une journée de formation sans suivi produit des résultats décevants. Les comp
 </div>
 </div>
 
-___IMG:formation-ia-roi-progression-equipe.png___
+___IMG:formation-ia-roi-progression-équipe.png___
 
 ## Comment convaincre la direction
 

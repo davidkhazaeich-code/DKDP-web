@@ -12,17 +12,17 @@ const article: Article = {
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/audit-digital-hero.png',
-      alt: 'Audit digital 360 pour PME : salle de commande avec ecrans analytiques SEO, performance, UX et securite',
+      alt: 'Audit digital 360 pour PME : salle de commande avec ecrans analytiques SEO, performance, UX et sécurité',
     },
     images: [
       {
         src: '/images/blog/audit-digital-radar.png',
-        alt: 'Radar audit digital DKDP : 6 dimensions SEO, performance, UX, securite, contenu, analytics pour evaluer votre site',
+        alt: 'Radar audit digital DKDP : 6 dimensions SEO, performance, UX, sécurité, contenu, analytics pour evaluer votre site',
         caption: "Le radar d'audit digital DKDP : 6 dimensions pour une vue complète de votre présence en ligne",
       },
       {
         src: '/images/blog/audit-digital-360-processus.png',
-        alt: 'Audit digital 360 PME Suisse 2026 : radar hexagonal avec 6 dimensions SEO, performance, UX, securite, contenu et analytics',
+        alt: 'Audit digital 360 PME Suisse 2026 : radar hexagonal avec 6 dimensions SEO, performance, UX, sécurité, contenu et analytics',
         caption: 'Le processus d\'audit digital 360 : une analyse complète avant chaque refonte de site',
       },
     ],
@@ -58,7 +58,7 @@ Un audit digital 360 effectué avant toute refonte change radicalement ce résul
 </div>
 <div style="padding:1.25rem;border-radius:12px;background:rgba(252,165,165,0.08);border:1px solid rgba(252,165,165,0.15);text-align:center">
 <div style="font-size:1.5rem;margin-bottom:0.5rem">&#128274;</div>
-<div style="font-size:0.85rem;font-weight:600;color:#fca5a5;margin-bottom:0.25rem">Securite</div>
+<div style="font-size:0.85rem;font-weight:600;color:#fca5a5;margin-bottom:0.25rem">Sécurité</div>
 <div style="font-size:0.75rem;color:#9CA3AF">SSL, CMS, headers, vulnerabilites</div>
 </div>
 <div style="padding:1.25rem;border-radius:12px;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.15);text-align:center">
@@ -126,7 +126,7 @@ ___IMG:audit-digital-radar.png___
 <div style="display:flex;align-items:flex-start;gap:1rem">
 <div style="min-width:36px;height:36px;border-radius:50%;background:rgba(167,139,250,0.15);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:#A78BFA">1</div>
 <div style="flex:1;padding-top:0.25rem">
-<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Collecte de donnees</div>
+<div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Collecte de données</div>
 <div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.15rem">Configuration des outils d'analyse (GA4, Hotjar, Screaming Frog, Semrush)</div>
 </div>
 <div style="font-size:0.7rem;color:#71717a;padding-top:0.3rem">Jour 1</div>
@@ -136,7 +136,7 @@ ___IMG:audit-digital-radar.png___
 <div style="min-width:36px;height:36px;border-radius:50%;background:rgba(167,139,250,0.15);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:#A78BFA">2</div>
 <div style="flex:1;padding-top:0.25rem">
 <div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Analyse des 6 dimensions</div>
-<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.15rem">SEO, performance, UX, securite, contenu, analytics : audit complet</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.15rem">SEO, performance, UX, sécurité, contenu, analytics : audit complet</div>
 </div>
 <div style="font-size:0.7rem;color:#71717a;padding-top:0.3rem">Jours 2-3</div>
 </div>
@@ -200,10 +200,10 @@ ___IMG:audit-digital-radar.png___
 <div>
 <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">UX</span><span style="font-size:0.85rem;font-weight:700;color:#FF8C00">5/10</span></div>
 <div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:50%;height:100%;border-radius:4px;background:#FF8C00"></div></div>
-<div style="font-size:0.7rem;color:#71717a;margin-top:0.15rem">Probleme typique : CTA absent ou generique sur les pages cles</div>
+<div style="font-size:0.7rem;color:#71717a;margin-top:0.15rem">Probleme typique : CTA absent ou generique sur les pages clés</div>
 </div>
 <div>
-<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">Securite</span><span style="font-size:0.85rem;font-weight:700;color:#4ade80">7/10</span></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">Sécurité</span><span style="font-size:0.85rem;font-weight:700;color:#4ade80">7/10</span></div>
 <div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:70%;height:100%;border-radius:4px;background:#4ade80"></div></div>
 <div style="font-size:0.7rem;color:#71717a;margin-top:0.15rem">Generalement bon : SSL present, CMS a jour</div>
 </div>

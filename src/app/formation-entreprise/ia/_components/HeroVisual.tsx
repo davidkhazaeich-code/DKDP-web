@@ -30,7 +30,7 @@ export function HeroVisual() {
             <p className="text-[9px] text-zinc-500 uppercase tracking-widest mb-2">Prompt du participant</p>
             <div className="rounded-lg p-3" style={{ background: 'rgba(255,140,0,0.04)', border: '1px solid rgba(255,140,0,0.12)' }}>
               <p className="text-[11px] text-zinc-300 leading-relaxed">
-                &quot;Analyse ce rapport trimestriel et donne-moi les 3 indicateurs cles avec recommandations pour le comite de direction&quot;
+                &quot;Analyse ce rapport trimestriel et donne-moi les 3 indicateurs clés avec recommandations pour le comite de direction&quot;
               </p>
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-green-400/10 text-green-400 font-bold">Contexte OK</span>

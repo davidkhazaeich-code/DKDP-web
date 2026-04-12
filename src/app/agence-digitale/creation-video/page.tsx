@@ -51,7 +51,7 @@ const FAQ = [
   {
     question: 'Les vidéos sont-elles adaptées pour les réseaux sociaux ?',
     answer:
-      'Oui. Chaque vidéo est livrable en plusieurs formats selon les plateformes : format carré (Instagram), vertical 9:16 (Reels, TikTok, Stories) et horizontal 16:9 (YouTube, site web). On adapte le montage à chaque format.',
+      'Oui. Chaque vidéo est livrable en plusieurs formats selon les plateformes : format carré (Instagram), vertical 9:16 (Reels, TikTok, Stories) et horizontal 16:9 (YouTube, site web). On adapté le montage à chaque format.',
   },
   {
     question: 'Proposez-vous des sous-titres et du texte animé ?',
@@ -200,7 +200,7 @@ export default function CreationVideoPage() {
             <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
               {[
                 { label: 'Notre approche', href: '#approche' },
-                { label: 'Résultats', href: '#resultats' },
+                { label: 'Résultats', href: '#résultats' },
                 { label: 'Tarifs', href: '#tarifs' },
                 { label: 'Processus', href: '#process' },
                 { label: 'Réalisations', href: '#realisations' },
@@ -313,7 +313,7 @@ export default function CreationVideoPage() {
       </section>
 
       {/* ── Bénéfices ── */}
-      <section id="resultats" className="py-24 scroll-mt-[124px]">
+      <section id="résultats" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">

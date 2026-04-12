@@ -12,17 +12,17 @@ const article: Article = {
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/automatiser-taches-hero.png',
-      alt: 'Automatiser taches repetitives PME : workflow automatise avec noeuds connectes et flux de donnees pour gagner en productivite',
+      alt: 'Automatiser taches repetitives PME : workflow automatisé avec noeuds connectes et flux de données pour gagner en productivité',
     },
     images: [
       {
         src: '/images/blog/automatiser-taches-workflow.png',
-        alt: 'Cycle automatisation PME en 6 etapes : identifier, modeliser, configurer, tester, deployer, mesurer',
+        alt: 'Cycle automatisation PME en 6 etapes : identifier, modeliser, configurer, tester, déployer, mesurer',
         caption: "Le cycle d'automatisation en 6 étapes : identifier, modéliser, configurer, tester, déployer, mesurer",
       },
       {
-        src: '/images/blog/automatiser-taches-pme-gains-productivite.png',
-        alt: 'Automatisation PME Suisse 2026 : cycle de productivite avec engrenages connectes et flux de donnees automatises',
+        src: '/images/blog/automatiser-taches-pme-gains-productivité.png',
+        alt: 'Automatisation PME Suisse 2026 : cycle de productivité avec engrenages connectes et flux de données automatises',
         caption: 'Le cycle d\'automatisation PME : des engrenages connectés pour un gain de productivité mesurable',
       },
     ],
@@ -34,7 +34,7 @@ const article: Article = {
 
 Il y a cinq ans, automatiser des processus métier demandait des développeurs, des budgets conséquents et des mois d'intégration. En 2026, des outils no-code comme Make, Zapier ou n8n permettent à n'importe quelle PME de connecter ses applications et d'automatiser des workflows complexes en quelques heures, sans écrire une seule ligne de code.
 
-Le gain est réel et mesurable. Une PME de 10 personnes qui automatise ses processus les plus chronophages peut récupérer entre 5 et 15 heures de travail hebdomadaire, soit l'équivalent d'un mi-temps. Ce n'est pas de la théorie : c'est ce que nos clients constatent régulièrement dans les trois premiers mois.
+Le gain est réel et mesurable. Une PME de 10 personnes qui automatisé ses processus les plus chronophages peut récupérer entre 5 et 15 heures de travail hebdomadaire, soit l'équivalent d'un mi-temps. Ce n'est pas de la théorie : c'est ce que nos clients constatent régulièrement dans les trois premiers mois.
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(167,139,250,0.2);background:rgba(167,139,250,0.05)">
 <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1rem">CYCLE D'AUTOMATISATION EN 6 ETAPES</div>
@@ -42,7 +42,7 @@ Le gain est réel et mesurable. Une PME de 10 personnes qui automatise ses proce
 <div style="padding:1rem;border-radius:12px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.15);text-align:center">
 <div style="font-size:1.5rem;font-weight:700;color:#A78BFA;margin-bottom:0.25rem">1</div>
 <div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Identifier</div>
-<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Lister les taches repetitives de chaque equipe</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Lister les taches repetitives de chaque équipe</div>
 </div>
 <div style="padding:1rem;border-radius:12px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.15);text-align:center">
 <div style="font-size:1.5rem;font-weight:700;color:#A78BFA;margin-bottom:0.25rem">2</div>
@@ -57,12 +57,12 @@ Le gain est réel et mesurable. Une PME de 10 personnes qui automatise ses proce
 <div style="padding:1rem;border-radius:12px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.15);text-align:center">
 <div style="font-size:1.5rem;font-weight:700;color:#FF8C00;margin-bottom:0.25rem">4</div>
 <div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Tester</div>
-<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Valider avec des donnees reelles en mode test</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Valider avec des données reelles en mode test</div>
 </div>
 <div style="padding:1rem;border-radius:12px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.15);text-align:center">
 <div style="font-size:1.5rem;font-weight:700;color:#FF8C00;margin-bottom:0.25rem">5</div>
 <div style="font-size:0.85rem;font-weight:600;color:#e4e4e7">Deployer</div>
-<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Activer en production et former l'equipe</div>
+<div style="font-size:0.75rem;color:#9CA3AF;margin-top:0.25rem">Activer en production et former l'équipe</div>
 </div>
 <div style="padding:1rem;border-radius:12px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.15);text-align:center">
 <div style="font-size:1.5rem;font-weight:700;color:#FF8C00;margin-bottom:0.25rem">6</div>
@@ -180,7 +180,7 @@ ___IMG:automatiser-taches-workflow.png___
 </div>
 </div>
 
-___IMG:automatiser-taches-pme-gains-productivite.png___
+___IMG:automatiser-taches-pme-gains-productivité.png___
 
 ## Par où commencer : la méthode en 3 étapes
 

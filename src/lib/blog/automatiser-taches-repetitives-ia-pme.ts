@@ -12,7 +12,7 @@ const article: Article = {
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/automatiser-taches-ia-hero.png',
-      alt: 'Automatiser taches IA PME : workflow automatise connectant emails, CRM et documents via intelligence artificielle',
+      alt: 'Automatiser taches IA PME : workflow automatisé connectant emails, CRM et documents via intelligence artificielle',
     },
     images: [
       {
@@ -22,7 +22,7 @@ const article: Article = {
       },
       {
         src: '/images/blog/automatiser-taches-ia-pme-pipeline.png',
-        alt: 'Pipeline automatisation IA PME Suisse 2026 : flux de donnees intelligent avec noeuds de traitement IA pour emails, documents et CRM',
+        alt: 'Pipeline automatisation IA PME Suisse 2026 : flux de données intelligent avec noeuds de traitement IA pour emails, documents et CRM',
         caption: 'Pipeline d\'automatisation IA : les données traversent des noeuds intelligents qui trient, analysent et agissent',
       },
     ],
@@ -43,7 +43,7 @@ L'automatisation IA ne signifie pas remplacer des postes. Elle signifie libérer
 <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;color:#D4D4D8;margin-bottom:0.75rem">Automatisation classique</div>
 <div style="display:flex;flex-direction:column;gap:0.5rem">
 <div style="font-size:0.8rem;color:#9CA3AF">Regles fixes : SI condition ALORS action</div>
-<div style="font-size:0.8rem;color:#9CA3AF">Donnees structurees uniquement</div>
+<div style="font-size:0.8rem;color:#9CA3AF">Données structurees uniquement</div>
 <div style="font-size:0.8rem;color:#9CA3AF">Pas d'adaptation au contexte</div>
 <div style="font-size:0.8rem;color:#9CA3AF">Maintenance manuelle des regles</div>
 <div style="font-size:0.8rem;color:#fca5a5">Limite aux taches previsibles</div>
@@ -53,7 +53,7 @@ L'automatisation IA ne signifie pas remplacer des postes. Elle signifie libérer
 <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;color:#A78BFA;margin-bottom:0.75rem">Automatisation IA</div>
 <div style="display:flex;flex-direction:column;gap:0.5rem">
 <div style="font-size:0.8rem;color:#9CA3AF">Comprehension du langage naturel</div>
-<div style="font-size:0.8rem;color:#9CA3AF">Donnees structurees ET non-structurees</div>
+<div style="font-size:0.8rem;color:#9CA3AF">Données structurees ET non-structurees</div>
 <div style="font-size:0.8rem;color:#9CA3AF">Adaptation au contexte et au ton</div>
 <div style="font-size:0.8rem;color:#9CA3AF">Apprentissage continu</div>
 <div style="font-size:0.8rem;color:#4ade80">Gere l'ambigu et le variable</div>
@@ -85,11 +85,11 @@ L'automatisation IA ne signifie pas remplacer des postes. Elle signifie libérer
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
 <div style="padding:1rem;border-radius:12px;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.15)">
 <div style="font-size:0.85rem;font-weight:600;color:#60a5fa;margin-bottom:0.5rem">Commercial</div>
-<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.5">Qualification de leads, emails de relance personnalises, resume de calls, scoring prospects</div>
+<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.5">Qualification de leads, emails de relance personnalisés, resume de calls, scoring prospects</div>
 </div>
 <div style="padding:1rem;border-radius:12px;background:rgba(244,114,182,0.08);border:1px solid rgba(244,114,182,0.15)">
 <div style="font-size:0.85rem;font-weight:600;color:#f472b6;margin-bottom:0.5rem">RH</div>
-<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.5">Tri de CVs, reponses aux candidats, onboarding automatise, FAQ interne</div>
+<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.5">Tri de CVs, reponses aux candidats, onboarding automatisé, FAQ interne</div>
 </div>
 <div style="padding:1rem;border-radius:12px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.15)">
 <div style="font-size:0.85rem;font-weight:600;color:#4ade80;margin-bottom:0.5rem">Finance</div>
@@ -154,7 +154,7 @@ Une fois le premier workflow stable, documentez-le (inputs, outputs, cas d'erreu
 </div>
 <div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.25rem">
-<span style="font-size:0.85rem;color:#e4e4e7">Extraction de donnees PDF</span>
+<span style="font-size:0.85rem;color:#e4e4e7">Extraction de données PDF</span>
 <span style="font-size:0.85rem;font-weight:700;color:#4ade80">ROI 6x en 6 mois</span>
 </div>
 <div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:75%;height:100%;border-radius:4px;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
@@ -181,7 +181,7 @@ Une fois le premier workflow stable, documentez-le (inputs, outputs, cas d'erreu
 <div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:45%;height:100%;border-radius:4px;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
 </div>
 </div>
-<div style="margin-top:1rem;padding-top:0.75rem;border-top:1px solid rgba(74,222,128,0.15);font-size:0.75rem;color:#71717a;text-align:center">Base : PME de 10-20 personnes, cout implementation 1'500-3'000 CHF par workflow</div>
+<div style="margin-top:1rem;padding-top:0.75rem;border-top:1px solid rgba(74,222,128,0.15);font-size:0.75rem;color:#71717a;text-align:center">Base : PME de 10-20 personnes, coût implementation 1'500-3'000 CHF par workflow</div>
 </div>
 
 ___IMG:automatiser-taches-ia-pme-pipeline.png___

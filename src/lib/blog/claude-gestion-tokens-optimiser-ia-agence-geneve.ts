@@ -5,7 +5,7 @@ const article: Article = {
     category: 'ia',
     title: 'Claude et gestion des tokens : optimiser l\'usage de l\'IA en agence a Geneve',
     excerpt:
-      'Les limites d\'utilisation de Claude sont atteintes trop vite ? Le probleme n\'est pas l\'outil, c\'est la methode. Voici comment comprendre les tokens et structurer vos sessions pour reduire les couts et ameliorer la qualite des resultats.',
+      'Les limites d\'utilisation de Claude sont atteintes trop vite ? Le problème n\'est pas l\'outil, c\'est la methode. Voici comment comprendre les tokens et structurer vos sessions pour reduire les coûts et améliorer la qualité des résultats.',
     date: '5 avril 2026',
     dateISO: '2026-04-05',
     readTime: '7 min',
@@ -16,9 +16,9 @@ const article: Article = {
     },
     images: [
       {
-        src: '/images/blog/gestion-tokens-cout-exponentiel.png',
-        alt: 'Courbe exponentielle cout tokens IA : augmentation du prix par reponse selon longueur de conversation Claude',
-        caption: 'Le cout par reponse augmente de maniere exponentielle avec la longueur de la conversation',
+        src: '/images/blog/gestion-tokens-coût-exponentiel.png',
+        alt: 'Courbe exponentielle coût tokens IA : augmentation du prix par reponse selon longueur de conversation Claude',
+        caption: 'Le coût par reponse augmente de maniere exponentielle avec la longueur de la conversation',
       },
       {
         src: '/images/blog/gestion-tokens-lost-middle.png',
@@ -32,17 +32,17 @@ const article: Article = {
       'Comment optimiser votre consommation de tokens avec Claude en 2026. Bonnes pratiques, erreurs courantes et approche systemique pour les agences et PME a Geneve.',
     content: `## Pourquoi vos limites sont atteintes trop vite
 
-A Geneve, les agences digitales et equipes tech adoptent massivement les outils d\'intelligence artificielle comme Claude pour accelerer production, developpement et automatisation.
+A Geneve, les agences digitales et équipes tech adoptent massivement les outils d\'intelligence artificielle comme Claude pour accelerer production, développement et automatisation.
 
-Mais un probleme revient systematiquement : les limites sont atteintes trop rapidement, meme avec des abonnements eleves.
+Mais un problème revient systematiquement : les limites sont atteintes trop rapidement, meme avec des abonnements eleves.
 
-Ce phenomene est souvent mal compris. Il ne s\'agit pas d\'un manque de puissance du modele, mais d\'un mauvais usage du systeme. La difference entre un utilisateur qui epuise ses credits en deux heures et un autre qui tient toute la semaine tient rarement a la quantite de travail accompli. Elle tient a la structure des interactions.
+Ce phenomene est souvent mal compris. Il ne s\'agit pas d\'un manque de puissance du modele, mais d\'un mauvais usage du système. La difference entre un utilisateur qui epuise ses credits en deux heures et un autre qui tient toute la semaine tient rarement a la quantite de travail accompli. Elle tient a la structure des interactions.
 
 ## Comprendre le fonctionnement des tokens
 
 Un token correspond a une unite de texte. En pratique, cela equivaut approximativement a un mot, parfois moins pour les mots longs ou les caracteres speciaux.
 
-Le point critique est le suivant : a chaque nouvelle interaction, l\'IA relit l\'integralite de la conversation. Ce n\'est pas un detail technique. C\'est le mecanisme fondamental qui determine vos couts et la qualite des reponses.
+Le point critique est le suivant : a chaque nouvelle interaction, l\'IA relit l\'integralite de la conversation. Ce n\'est pas un detail technique. C\'est le mecanisme fondamental qui determine vos coûts et la qualité des reponses.
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(124,58,237,0.2);background:rgba(124,58,237,0.04)">
 <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1rem">Comment fonctionne la consommation de tokens</div>
@@ -64,19 +64,19 @@ Le point critique est le suivant : a chaque nouvelle interaction, l\'IA relit l\
 
 Les consequences sont directes :
 
-- Le cout augmente de maniere exponentielle a mesure que la conversation s\'allonge
-- Les longues conversations deviennent extremement inefficaces en termes de rapport qualite/cout
+- Le coût augmente de maniere exponentielle a mesure que la conversation s\'allonge
+- Les longues conversations deviennent extremement inefficaces en termes de rapport qualité/coût
 - Une grande partie des ressources est utilisee pour relire l\'historique, pas pour produire de nouvelles reponses
 
 Ce fonctionnement explique pourquoi une session longue peut consommer beaucoup plus qu\'une serie de sessions courtes, meme pour un volume de travail identique.
 
-___IMG:gestion-tokens-cout-exponentiel.png___
+___IMG:gestion-tokens-coût-exponentiel.png___
 
-## Impact sur la performance et la qualite
+## Impact sur la performance et la qualité
 
-Un exces de contexte n\'a pas seulement un impact financier. Il degrade aussi la qualite des reponses de maniere mesurable.
+Un exces de contexte n\'a pas seulement un impact financier. Il degrade aussi la qualité des reponses de maniere mesurable.
 
-Les modeles de langage ont tendance a mieux traiter le debut de la conversation (les instructions initiales) et la fin (les dernieres interactions). Le contenu situe au milieu est souvent moins bien exploite. C\'est ce qu\'on appelle le "lost in the middle" dans la recherche en IA.
+Les modèles de langage ont tendance a mieux traiter le debut de la conversation (les instructions initiales) et la fin (les dernieres interactions). Le contenu situe au milieu est souvent moins bien exploite. C\'est ce qu\'on appelle le "lost in the middle" dans la recherche en IA.
 
 ___IMG:gestion-tokens-lost-middle.png___
 
@@ -87,14 +87,14 @@ ___IMG:gestion-tokens-lost-middle.png___
 <div style="flex:2;background:rgba(63,63,70,0.2);display:flex;align-items:center;justify-content:center;flex-direction:column;border-left:1px solid rgba(63,63,70,0.3);border-right:1px solid rgba(63,63,70,0.3)"><span style="font-size:0.65rem;font-weight:700;color:#52525b;text-transform:uppercase">Milieu</span><span style="font-size:0.55rem;color:#71717a">Attention faible</span></div>
 <div style="flex:1;background:linear-gradient(90deg,rgba(212,212,216,0.3),rgba(212,212,216,0.5));display:flex;align-items:center;justify-content:center;flex-direction:column"><span style="font-size:0.65rem;font-weight:700;color:#D4D4D8;text-transform:uppercase">Fin</span><span style="font-size:0.55rem;color:#d4d4d8">Attention forte</span></div>
 </div>
-<div style="margin-top:0.75rem;font-size:0.75rem;color:#71717a;text-align:center">Les instructions donnees au milieu de la conversation sont les plus susceptibles d\'etre ignorees ou mal interpretees.</div>
+<div style="margin-top:0.75rem;font-size:0.75rem;color:#71717a;text-align:center">Les instructions données au milieu de la conversation sont les plus susceptibles d\'etre ignorees ou mal interpretees.</div>
 </div>
 
 En pratique, cela entraine :
 
-- Des reponses moins pertinentes qui ignorent des instructions donnees plus tot
+- Des reponses moins pertinentes qui ignorent des instructions données plus tot
 - Des erreurs ou oublis sur des details mentionnes au milieu de l\'echange
-- Une perte globale d\'efficacite qui pousse a reformuler, ce qui consomme encore plus de tokens
+- Une perte globale d\'efficacité qui pousse a reformuler, ce qui consomme encore plus de tokens
 
 C\'est un cercle vicieux : plus la conversation est longue, moins l\'IA est performante, plus on doit corriger, plus on consomme.
 
@@ -104,7 +104,7 @@ C\'est un cercle vicieux : plus la conversation est longue, moins l\'IA est perf
 <div style="padding:1.5rem;border-radius:14px;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.04)">
 <div style="font-size:1.5rem;margin-bottom:0.5rem">1</div>
 <div style="font-size:0.9rem;font-weight:700;color:#fca5a5;margin-bottom:0.5rem">Conversations trop longues</div>
-<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.6">50 messages dans un meme chat = cout exponentiel par reponse. Chaque message relit tout l\'historique.</div>
+<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.6">50 messages dans un meme chat = coût exponentiel par reponse. Chaque message relit tout l\'historique.</div>
 </div>
 <div style="padding:1.5rem;border-radius:14px;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.04)">
 <div style="font-size:1.5rem;margin-bottom:0.5rem">2</div>
@@ -119,13 +119,13 @@ C\'est un cercle vicieux : plus la conversation est longue, moins l\'IA est perf
 <div style="padding:1.5rem;border-radius:14px;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.04)">
 <div style="font-size:1.5rem;margin-bottom:0.5rem">4</div>
 <div style="font-size:0.9rem;font-weight:700;color:#fca5a5;margin-bottom:0.5rem">Instructions vagues</div>
-<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.6">"Fais-moi un truc" oblige l\'IA a explorer tout le contexte. Une demande precise = moins de tokens, meilleur resultat.</div>
+<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.6">"Fais-moi un truc" oblige l\'IA a explorer tout le contexte. Une demande precise = moins de tokens, meilleur résultat.</div>
 </div>
 </div>
 
 ### 1. Conserver des conversations trop longues
 
-C\'est l\'erreur numero un. Accumuler des messages dans un meme chat augmente fortement le cout a chaque interaction. Un echange de 50 messages coute exponentiellement plus cher par reponse qu\'un echange de 5 messages.
+C\'est l\'erreur numéro un. Accumuler des messages dans un meme chat augmente fortement le coût a chaque interaction. Un echange de 50 messages coute exponentiellement plus cher par reponse qu\'un echange de 5 messages.
 
 ### 2. Fournir trop d\'informations inutiles
 
@@ -173,7 +173,7 @@ La regle est simple : une tache correspond a une conversation. Changer de sujet 
 
 ### Reduire le contexte
 
-Ciblez uniquement les informations necessaires. Evitez les contenus volumineux non essentiels. Si vous travaillez sur un fichier, n\'envoyez que la section concernee, pas le fichier entier.
+Ciblez uniquement les informations nécessaires. Evitez les contenus volumineux non essentiels. Si vous travaillez sur un fichier, n\'envoyez que la section concernee, pas le fichier entier.
 
 ### Optimiser les prompts
 
@@ -185,12 +185,12 @@ Regroupez plusieurs instructions dans un seul message. Formulez des demandes cla
 <div style="padding:1rem;border-radius:10px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15)">
 <div style="font-size:0.65rem;font-weight:700;color:#fca5a5;margin-bottom:0.5rem">AVANT</div>
 <div style="font-size:0.8rem;color:#a1a1aa;font-style:italic;line-height:1.5">"Ecris-moi un texte pour la page du site"</div>
-<div style="margin-top:0.5rem;font-size:0.7rem;color:#71717a">~500 tokens de reponse exploratoire, resultat generique, 2-3 iterations necessaires</div>
+<div style="margin-top:0.5rem;font-size:0.7rem;color:#71717a">~500 tokens de reponse exploratoire, résultat generique, 2-3 iterations nécessaires</div>
 </div>
 <div style="padding:1rem;border-radius:10px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.15)">
 <div style="font-size:0.65rem;font-weight:700;color:#4ade80;margin-bottom:0.5rem">APRES</div>
 <div style="font-size:0.8rem;color:#d4d4d8;font-style:italic;line-height:1.5">"Redige un H1 pour la page services, ton professionnel, max 10 mots, incluant Geneve. Puis 3 bullet points de 15 mots max."</div>
-<div style="margin-top:0.5rem;font-size:0.7rem;color:#71717a">~80 tokens, resultat precis, utilisable directement</div>
+<div style="margin-top:0.5rem;font-size:0.7rem;color:#71717a">~80 tokens, résultat precis, utilisable directement</div>
 </div>
 </div>
 </div>
@@ -201,7 +201,7 @@ Suivez l\'evolution des reponses. Interrompez les processus inefficaces. Ajustez
 
 ## Approche avancee : de l\'usage conversationnel a l\'usage systemique
 
-Les equipes les plus performantes ne considerent plus l\'IA comme un simple outil de dialogue. Elles mettent en place une logique structuree qui change fondamentalement le rapport cout/qualite.
+Les équipes les plus performantes ne considerent plus l\'IA comme un simple outil de dialogue. Elles mettent en place une logique structuree qui change fondamentalement le rapport coût/qualité.
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(124,58,237,0.2);background:rgba(124,58,237,0.04)">
 <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1.2rem">Evolution de la maturite IA</div>
@@ -220,30 +220,30 @@ Les equipes les plus performantes ne considerent plus l\'IA comme un simple outi
 <div style="width:2rem;text-align:center;color:#52525b;font-size:1.2rem">&#8594;</div>
 <div style="flex:1;text-align:center;padding:1rem 0.5rem;border-radius:0 10px 10px 0;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.15)">
 <div style="font-size:0.7rem;font-weight:700;color:#4ade80">Niveau 3</div>
-<div style="font-size:0.75rem;color:#d4d4d8;margin-top:0.3rem">Systeme</div>
+<div style="font-size:0.75rem;color:#d4d4d8;margin-top:0.3rem">Système</div>
 <div style="font-size:0.65rem;color:#71717a;margin-top:0.2rem">Docs + workflows + agents</div>
 </div>
 </div>
 </div>
 
-**Documentation synthetique et ciblee.** Au lieu de tout expliquer a chaque session, elles maintiennent des fichiers de reference que l\'IA peut consulter. Le contexte est charge une seule fois, pas repete a chaque echange.
+**Documentation synthetique et ciblee.** Au lieu de tout expliquer a chaque session, elles maintiennent des fichiers de référence que l\'IA peut consulter. Le contexte est charge une seule fois, pas repete a chaque echange.
 
-**Instructions reutilisables.** Des templates de prompts standardises par type de tache (redaction, analyse, code, email) qui garantissent des resultats coherents sans avoir a reformuler a chaque fois.
+**Instructions reutilisables.** Des templates de prompts standardises par type de tache (redaction, analyse, code, email) qui garantissent des résultats coherents sans avoir a reformuler a chaque fois.
 
-**Separation des taches selon leur complexite.** Les taches simples sont traitees avec des modeles rapides et economiques. Les taches complexes sont reservees aux modeles avances. Cette stratification evite de gaspiller des ressources premium sur des operations basiques.
+**Separation des taches selon leur complexite.** Les taches simples sont traitees avec des modèles rapides et economiques. Les taches complexes sont reservees aux modèles avances. Cette stratification evite de gaspiller des ressources premium sur des operations basiques.
 
-C\'est exactement l\'approche qu\'on deploie chez DKDP quand on accompagne des equipes dans leur adoption de l\'IA. Le gain n\'est pas incremental : il est souvent de l\'ordre de 3x a 5x en termes de productivite par franc depense.
+C\'est exactement l\'approche qu\'on déploie chez DKDP quand on accompagne des équipes dans leur adoption de l\'IA. Le gain n\'est pas incremental : il est souvent de l\'ordre de 3x a 5x en termes de productivité par franc depense.
 
 ## Enjeux pour les entreprises a Geneve
 
-Dans un environnement ou les couts operationnels sont parmi les plus eleves d\'Europe, optimiser l\'usage de l\'IA devient un levier strategique significatif.
+Dans un environnement ou les coûts operationnels sont parmi les plus eleves d\'Europe, optimiser l\'usage de l\'IA devient un levier stratégique significatif.
 
 <div style="margin:2rem 0;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
 <div style="padding:1.5rem;border-radius:14px;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.04)">
 <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#fca5a5;margin-bottom:0.75rem">Mauvaise utilisation</div>
 <div style="font-size:0.8rem;color:#a1a1aa;line-height:1.7">
 - Couts qui explosent chaque mois<br/>
-- Equipes frustrées, resultats decevants<br/>
+- Equipes frustrées, résultats decevants<br/>
 - ROI remis en question<br/>
 - Retour aux methodes manuelles
 </div>
@@ -261,23 +261,23 @@ Dans un environnement ou les couts operationnels sont parmi les plus eleves d\'E
 
 Une mauvaise utilisation entraine :
 
-- Une augmentation rapide des couts d\'abonnement et d\'API
-- Une perte de productivite (temps passe a corriger des reponses inadequates)
+- Une augmentation rapide des coûts d\'abonnement et d\'API
+- Une perte de productivité (temps passe a corriger des reponses inadequates)
 - Un retour sur investissement limite qui remet en question l\'adoption meme de l\'outil
 
 A l\'inverse, une utilisation maitrisee permet :
 
-- D\'augmenter significativement la productivite des equipes
+- D\'augmenter significativement la productivité des équipes
 - De reduire les depenses liees aux outils IA de 50 % ou plus
 - De gagner un avantage concurrentiel reel sur des concurrents qui utilisent les memes outils moins efficacement
 
 ## Passer de la consommation a l\'optimisation
 
-L\'efficacite avec l\'intelligence artificielle ne depend pas du volume d\'utilisation, mais de la qualite des pratiques. Dans un contexte ou les outils sont accessibles a tous, la difference se joue dans la rigueur, la structuration et la comprehension des mecanismes sous-jacents.
+L\'efficacité avec l\'intelligence artificielle ne depend pas du volume d\'utilisation, mais de la qualité des pratiques. Dans un contexte ou les outils sont accessibles a tous, la difference se joue dans la rigueur, la structuration et la comprehension des mecanismes sous-jacents.
 
 La veritable optimisation ne consiste pas a consommer plus de ressources, mais a en consommer moins, de maniere plus intelligente.
 
-C\'est un changement de mentalite qui separe les equipes qui "utilisent l\'IA" de celles qui en tirent un avantage reel. Chez DKDP, on accompagne les entreprises genevoises dans cette transition : structurer l\'usage, former les equipes, et mettre en place les systemes qui transforment chaque franc investi en IA en valeur mesurable.`,
+C\'est un changement de mentalite qui separe les équipes qui "utilisent l\'IA" de celles qui en tirent un avantage reel. Chez DKDP, on accompagne les entreprises genevoises dans cette transition : structurer l\'usage, former les équipes, et mettre en place les systèmes qui transforment chaque franc investi en IA en valeur mesurable.`,
 }
 
 export default article

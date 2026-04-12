@@ -5,7 +5,7 @@ const article: Article = {
   category: 'ia',
   title: 'Claude Mythos : une rupture majeure pour la cybersecurite mondiale',
   excerpt:
-    'Avec Claude Mythos, Anthropic introduit un changement structurel dans la securite informatique. Une IA capable de detecter des vulnerabilites invisibles, de raisonner en chaine et de redefinir les regles du jeu en cybersecurite.',
+    'Avec Claude Mythos, Anthropic introduit un changement structurel dans la sécurité informatique. Une IA capable de detecter des vulnerabilites invisibles, de raisonner en chaine et de redefinir les regles du jeu en cybersecurite.',
   date: '8 avril 2026',
   dateISO: '2026-04-08',
   readTime: '10 min',
@@ -27,7 +27,7 @@ const article: Article = {
     'Cybersecurite',
     'Claude Mythos',
     'Anthropic',
-    'Securite informatique',
+    'Sécurité informatique',
     'PME',
     'Geneve',
   ],
@@ -38,25 +38,25 @@ const article: Article = {
 
   content: `## L'emergence d'une IA qui change les regles de la cybersecurite
 
-L'emergence de nouveaux modeles d'intelligence artificielle marque un tournant decisif dans l'histoire du numerique. Avec Claude Mythos, developpe par Anthropic, nous assistons a une avancee qui depasse le simple cadre de l'innovation technologique. Cette IA introduit un changement structurel dans la maniere dont les systemes informatiques peuvent etre securises... ou compromis.
+L'emergence de nouveaux modèles d'intelligence artificielle marque un tournant decisif dans l'histoire du numerique. Avec Claude Mythos, developpe par Anthropic, nous assistons a une avancee qui depasse le simple cadre de l'innovation technologique. Cette IA introduit un changement structurel dans la maniere dont les systèmes informatiques peuvent etre securises... ou compromis.
 
 Pour les entreprises, et en particulier les [PME qui sous-estiment encore les risques cyber](/blog/cybersecurite-pme-erreurs-courantes), cette evolution n'est pas abstraite. Elle redefinit concretement le rapport de force entre attaquants et defenseurs.
 
-## Une capacite inedite : comprendre le code pour mieux le briser
+## Une capacité inedite : comprendre le code pour mieux le briser
 
-Contrairement a ce que l'on pourrait imaginer, Claude Mythos n'a pas ete entraine pour attaquer des systemes. Sa specialite est ailleurs : la maitrise avancee du developpement logiciel.
+Contrairement a ce que l'on pourrait imaginer, Claude Mythos n'a pas ete entraine pour attaquer des systèmes. Sa specialite est ailleurs : la maîtrise avancee du développement logiciel.
 
 Mais cette expertise produit un effet secondaire majeur.
 
-En comprenant en profondeur les architectures logicielles, les dependances entre systemes et les comportements inattendus du code, l'IA devient capable de :
+En comprenant en profondeur les architectures logicielles, les dependances entre systèmes et les comportements inattendus du code, l'IA devient capable de :
 
 - Detecter des vulnerabilites invisibles pour les humains
 - Identifier des failles anciennes restees inexploitees pendant des decennies
 - Combiner plusieurs faiblesses pour construire des scenarios d'attaque complets
 
-Ce phenomene illustre une realite cle : **la frontiere entre competence technique et capacite offensive disparait**.
+Ce phenomene illustre une realite clé : **la frontiere entre compétence technique et capacité offensive disparait**.
 
-C'est une realite que chaque entreprise doit integrer : la meme intelligence qui optimise un systeme est celle qui peut en exposer les failles.
+C'est une realite que chaque entreprise doit intégrer : la meme intelligence qui optimisé un système est celle qui peut en exposer les failles.
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(212,212,216,0.16);background:rgba(212,212,216,0.04)">
 <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:1.2rem">Ce que Claude Mythos sait faire</div>
@@ -71,7 +71,7 @@ C'est une realite que chaque entreprise doit integrer : la meme intelligence qui
 </div>
 <div style="padding:1rem;border-radius:10px;background:rgba(252,165,165,0.08);border:1px solid rgba(252,165,165,0.18)">
 <div style="font-size:0.75rem;font-weight:700;color:#fca5a5;margin-bottom:0.5rem">Raisonnement en chaine</div>
-<div style="color:#9CA3AF;font-size:0.8rem;line-height:1.5">Relie plusieurs vulnerabilites mineures pour generer une faille majeure exploitable</div>
+<div style="color:#9CA3AF;font-size:0.8rem;line-height:1.5">Relie plusieurs vulnerabilites mineures pour générer une faille majeure exploitable</div>
 </div>
 <div style="padding:1rem;border-radius:10px;background:rgba(252,165,165,0.08);border:1px solid rgba(252,165,165,0.18)">
 <div style="font-size:0.75rem;font-weight:700;color:#fca5a5;margin-bottom:0.5rem">Scenarios d'attaque</div>
@@ -82,17 +82,17 @@ C'est une realite que chaque entreprise doit integrer : la meme intelligence qui
 
 ## Des performances qui redefinissent les standards
 
-Les resultats observes avec Claude Mythos ne relevent pas d'une amelioration incrementale, mais d'un saut generationnel.
+Les résultats observes avec Claude Mythos ne relevent pas d'une amelioration incrementale, mais d'un saut generationnel.
 
 L'IA a notamment :
 
-- Identifie des failles critiques dans des systemes largement utilises
-- Surpasse des benchmarks de reference en correction et exploitation de bugs
+- Identifie des failles critiques dans des systèmes largement utilises
+- Surpasse des benchmarks de référence en correction et exploitation de bugs
 - Reproduit des comportements jusqu'ici reserves a des experts en cybersecurite
 
-Plus significatif encore, elle est capable de **raisonner en chaine**, c'est-a-dire relier plusieurs vulnerabilites mineures pour generer une faille majeure exploitable. Une capacite qui correspond precisement aux techniques utilisees dans les cyberattaques les plus sophistiquees.
+Plus significatif encore, elle est capable de **raisonner en chaine**, c'est-a-dire relier plusieurs vulnerabilites mineures pour générer une faille majeure exploitable. Une capacité qui correspond precisement aux techniques utilisees dans les cyberattaques les plus sophistiquees.
 
-Pour mettre cela en perspective : le [leak de Claude Code](/blog/claude-code-leak-utiliser-ia-comme-infrastructure) avait deja revele la profondeur architecturale des outils Anthropic. Avec Mythos, on passe a un niveau superieur en termes de capacite de raisonnement.
+Pour mettre cela en perspective : le [leak de Claude Code](/blog/claude-code-leak-utiliser-ia-comme-infrastructure) avait deja revele la profondeur architecturale des outils Anthropic. Avec Mythos, on passe a un niveau superieur en termes de capacité de raisonnement.
 
 ## Une technologie a double tranchant
 
@@ -107,7 +107,7 @@ ___IMG:claude-mythos-cybersecurite-double-tranchant.png___
 <div style="font-size:0.75rem;font-weight:700;color:#4ade80;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem"><span style="width:8px;height:8px;border-radius:50%;background:#4ade80;display:inline-block"></span> Opportunites</div>
 <div style="display:flex;flex-direction:column;gap:0.5rem">
 <div style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12);color:#e4e4e7;font-size:0.8rem">Detection proactive des vulnerabilites</div>
-<div style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12);color:#e4e4e7;font-size:0.8rem">Amelioration rapide de la securite</div>
+<div style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12);color:#e4e4e7;font-size:0.8rem">Amelioration rapide de la sécurité</div>
 <div style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.12);color:#e4e4e7;font-size:0.8rem">Automatisation de taches complexes</div>
 </div>
 </div>
@@ -124,19 +124,19 @@ ___IMG:claude-mythos-cybersecurite-double-tranchant.png___
 
 Nous entrons dans une logique ou chaque progres defensif peut devenir une arme offensive. C'est pourquoi l'automatisation IA doit toujours etre pensee avec un cadre de gouvernance solide.
 
-## Project Glasswing : une decision strategique inhabituelle
+## Project Glasswing : une decision stratégique inhabituelle
 
 Face a ces enjeux, Anthropic a choisi une approche prudente et structuree.
 
 Plutot que de rendre le modele public, l'entreprise a :
 
 - **Limite son acces** a un cercle restreint d'acteurs majeurs
-- **Collabore avec des entreprises cles** de l'infrastructure numerique
+- **Collabore avec des entreprises clés** de l'infrastructure numerique
 - **Oriente son utilisation** vers la detection et la correction des failles
 
-Cette initiative, connue sous le nom de **Project Glasswing**, vise a donner une avance aux defenseurs, securiser les systemes critiques avant toute exploitation malveillante, et instaurer un cadre de deploiement responsable.
+Cette initiative, connue sous le nom de **Project Glasswing**, vise a donner une avance aux defenseurs, securiser les systèmes critiques avant toute exploitation malveillante, et instaurer un cadre de déploiement responsable.
 
-Il s'agit d'un precedent important dans la gouvernance des modeles d'IA avances.
+Il s'agit d'un precedent important dans la gouvernance des modèles d'IA avances.
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(167,139,250,0.2);background:rgba(167,139,250,0.04)">
 <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1.2rem">Project Glasswing : la strategie Anthropic</div>
@@ -155,42 +155,42 @@ Il s'agit d'un precedent important dans la gouvernance des modeles d'IA avances.
 </div>
 <div style="display:flex;align-items:flex-start;gap:1rem">
 <div style="min-width:2rem;height:2rem;border-radius:50%;background:rgba(167,139,250,0.15);border:1px solid rgba(167,139,250,0.3);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#A78BFA">4</div>
-<div><span style="color:#e4e4e7;font-weight:600;font-size:0.85rem">Gouvernance responsable</span><br/><span style="color:#9CA3AF;font-size:0.8rem">Un cadre qui definit comment deployer des modeles IA a capacites offensives</span></div>
+<div><span style="color:#e4e4e7;font-weight:600;font-size:0.85rem">Gouvernance responsable</span><br/><span style="color:#9CA3AF;font-size:0.8rem">Un cadre qui definit comment déployer des modèles IA a capacités offensives</span></div>
 </div>
 </div>
 </div>
 
 ## Un impact concret pour les entreprises et les PME
 
-Pour le grand public, les effets seront discrets mais significatifs : des mises a jour logicielles plus frequentes et plus efficaces, une reduction des vulnerabilites critiques, une amelioration globale de la securite des applications.
+Pour le grand public, les effets seront discrets mais significatifs : des mises a jour logicielles plus frequentes et plus efficaces, une reduction des vulnerabilites critiques, une amelioration globale de la sécurité des applications.
 
 Pour les entreprises, et notamment les PME :
 
-- Un acces indirect a des niveaux de securite auparavant reserves aux grandes organisations
+- Un acces indirect a des niveaux de sécurité auparavant reserves aux grandes organisations
 - Une reduction du risque operationnel lie aux cyberattaques
 - Une dependance accrue a des infrastructures securisees par l'IA
 
-L'IA devient ainsi un acteur central de la securite numerique quotidienne.
+L'IA devient ainsi un acteur central de la sécurité numerique quotidienne.
 
 ## Une dynamique irreversible
 
-Il est essentiel de comprendre que Claude Mythos n'est pas un cas isole. L'ensemble des grands acteurs technologiques investit massivement dans des modeles de plus en plus performants, des capacites accrues en programmation et des outils capables d'interagir avec des systemes complexes.
+Il est essentiel de comprendre que Claude Mythos n'est pas un cas isole. L'ensemble des grands acteurs technologiques investit massivement dans des modèles de plus en plus performants, des capacités accrues en programmation et des outils capables d'interagir avec des systèmes complexes.
 
 Dans ce contexte :
 
 - Les performances vont continuer a croitre rapidement
-- Les capacites offensives emergeront naturellement
+- Les capacités offensives emergeront naturellement
 - La competition entre acteurs s'intensifiera
 
-Nous sommes face a une course technologique mondiale, dont l'issue reste incertaine. Ceux qui veulent comprendre le paysage actuel des outils IA peuvent consulter notre [comparatif des modeles IA pour les entreprises](/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026).
+Nous sommes face a une course technologique mondiale, dont l'issue reste incertaine. Ceux qui veulent comprendre le paysage actuel des outils IA peuvent consulter notre [comparatif des modèles IA pour les entreprises](/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026).
 
 ## Ce que cela signifie concretement pour votre organisation
 
-Pour les entreprises et decideurs, plusieurs implications cles se degagent :
+Pour les entreprises et decideurs, plusieurs implications clés se degagent :
 
 **La cybersecurite devient un sujet de gouvernance.** Elle ne peut plus etre releguee a un simple enjeu technique.
 
-**L'IA doit etre integree dans les strategies de defense.** Les outils traditionnels ne suffiront plus. L'integration de l'IA dans les processus de securite est devenue une necessite.
+**L'IA doit etre intégrée dans les strategies de defense.** Les outils traditionnels ne suffiront plus. L'intégration de l'IA dans les processus de sécurité est devenue une necessite.
 
 **L'anticipation devient un avantage concurrentiel.** Les organisations capables d'adopter rapidement ces technologies seront mieux protegees.
 
@@ -200,9 +200,9 @@ Pour les entreprises et decideurs, plusieurs implications cles se degagent :
 
 Claude Mythos illustre une transformation profonde : l'intelligence artificielle ne se contente plus d'assister les humains, elle redefinit les regles du jeu.
 
-Dans ce nouveau paradigme, la question n'est plus seulement technologique, mais strategique et ethique. A mesure que les systemes deviennent plus intelligents, la veritable responsabilite ne reside plus dans leur creation, mais dans la maniere dont nous choisissons de les deployer.
+Dans ce nouveau paradigme, la question n'est plus seulement technologique, mais stratégique et ethique. A mesure que les systèmes deviennent plus intelligents, la veritable responsabilite ne reside plus dans leur création, mais dans la maniere dont nous choisissons de les déployer.
 
-Chez DKDP, nous aidons les entreprises a naviguer dans cette transformation. Si vous souhaitez comprendre comment l'IA peut renforcer la securite et la performance de votre organisation, [parlons-en](/intelligence-artificielle/audit-conseil).`,
+Chez DKDP, nous aidons les entreprises a naviguer dans cette transformation. Si vous souhaitez comprendre comment l'IA peut renforcer la sécurité et la performance de votre organisation, [parlons-en](/intelligence-artificielle/audit-conseil).`,
 }
 
 export default article

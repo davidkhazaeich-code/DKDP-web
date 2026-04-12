@@ -15,7 +15,7 @@ const MAX_CHAR_LENGTH = 500
 const DKDP_BOUNCE = [0.34, 1.56, 0.64, 1] as const
 
 const WELCOME_MESSAGE =
-  'Bienvenue chez DKDP. Nous accompagnons les entreprises a se demarquer en ligne avec des sites modernes et bien references. Comment puis-je vous aider aujourd\u2019hui ?'
+  'Bienvenue chez DKDP. Nous accompagnons les entreprises a se demarquer en ligne avec des sites modernes et bien références. Comment puis-je vous aider aujourd\u2019hui ?'
 
 const QUICK_SUGGESTIONS = [
   { icon: <Globe size={14} />, label: 'Creer un site web' },

@@ -34,7 +34,7 @@ export function HeroVisual() {
               <p className="text-[9px] text-zinc-500 mt-1">68% consomme · 12 jours restants</p>
             </div>
             <div className="text-right">
-              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Revenue genere</p>
+              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Revenue généré</p>
               <p className="text-2xl font-bold text-green-400">CHF 19,680</p>
               <p className="text-[9px] text-green-400 font-bold">ROAS 8.2x</p>
             </div>
@@ -48,7 +48,7 @@ export function HeroVisual() {
               { label: 'Clics auj.', value: '47', trend: '+12' },
               { label: 'CPC moyen', value: '1.18', trend: '-0.22' },
               { label: 'Conv. auj.', value: '6', trend: '+3' },
-              { label: 'Cout/conv.', value: '18.40', trend: '-4.60' },
+              { label: 'Coût/conv.', value: '18.40', trend: '-4.60' },
             ].map((m) => (
               <div key={m.label}>
                 <p className="text-[8px] text-zinc-600 uppercase">{m.label}</p>
@@ -105,7 +105,7 @@ export function HeroVisual() {
       <div className="grid grid-cols-3 gap-3">
         {[
           { v: '8.2x', l: 'ROAS moyen', c: '#4ade80' },
-          { v: '-22%', l: 'Cout par clic', c: V },
+          { v: '-22%', l: 'Coût par clic', c: V },
           { v: 'CHF 0', l: 'Frais caches', c: '#FF8C00' },
         ].map((s) => (
           <div

@@ -37,7 +37,7 @@ const SERVICES = [
     Icon: Globe, title: 'Création de site web', href: '/agence-digitale/creation-site-web',
     description: 'Sites sur mesure, rapides et optimisés pour la conversion. De la landing page au site e-commerce complexe.',
     badge: 'Best seller',
-    image: '/images/services/dkdp-agence-creation-web.webp',
+    image: '/images/services/dkdp-agence-création-web.webp',
   },
   {
     Icon: Search, title: 'Référencement SEO', href: '/agence-digitale/seo',
@@ -369,10 +369,10 @@ export default function AgenceDigitalePage() {
                     Simulateur gratuit
                   </span>
                   <h3 className="text-white text-2xl md:text-[1.75rem] font-bold mb-2 leading-[1.15]">
-                    Estimez le cout de votre site web en 2 minutes
+                    Estimez le coût de votre site web en 2 minutes
                   </h3>
                   <p className="text-text-secondary text-base leading-relaxed max-w-xl">
-                    Configurez votre projet, choisissez vos options et recevez une estimation personnalisee avec un devis detaille sous 48h. Prix transparents.
+                    Configurez votre projet, choisissez vos options et recevez une estimation personnalisée avec un devis détaillé sous 48h. Prix transparents.
                   </p>
                 </div>
               </div>

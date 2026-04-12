@@ -33,7 +33,7 @@ const IMAGES = [
   },
   {
     src: '/images/gallery/formation-ia-participant-aha-moment.webp',
-    alt: 'Participant decouvrant les capacites de l IA avec expression de comprehension lors d une formation DKDP',
+    alt: 'Participant decouvrant les capacités de l IA avec expression de comprehension lors d une formation DKDP',
     caption: 'Le moment "aha"',
   },
 ]

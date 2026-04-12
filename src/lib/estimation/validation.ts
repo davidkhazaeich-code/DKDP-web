@@ -3,9 +3,9 @@ import { z } from 'zod'
 const contactSchema = z.object({
   firstName: z.string().min(1).max(100),
   lastName: z.string().min(1).max(100),
-  company: z.string().min(1).max(200),
+  company: z.string().max(200).default(''),
   email: z.string().email(),
-  phone: z.string().min(5).max(30),
+  phone: z.string().max(30).default(''),
   message: z.string().max(2000).optional().default(''),
   budget: z.string().max(50).optional().default(''),
   timeline: z.string().max(50).optional().default(''),

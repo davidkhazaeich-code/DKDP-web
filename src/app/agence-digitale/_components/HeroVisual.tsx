@@ -22,7 +22,7 @@ export function HeroVisual() {
           {/* Service cards grid */}
           <div className="grid grid-cols-2 gap-2.5">
             {[
-              { icon: '&#9678;', name: 'Creation web', kpi: '100+ sites', color: V },
+              { icon: '&#9678;', name: 'Création web', kpi: '100+ sites', color: V },
               { icon: '&#9650;', name: 'SEO / GEO', kpi: 'Top 3 Google', color: '#4ade80' },
               { icon: '&#9670;', name: 'Google Ads', kpi: 'ROAS 8.2x', color: '#FF8C00' },
               { icon: '&#9733;', name: 'Reseaux sociaux', kpi: '+340% croissance', color: '#60a5fa' },
@@ -94,7 +94,7 @@ export function HeroVisual() {
       <div className="grid grid-cols-3 gap-3">
         {[
           { v: '100+', l: 'Sites livres', c: V },
-          { v: '10+ ans', l: "D'experience", c: '#4ade80' },
+          { v: '10+ ans', l: "D'expérience", c: '#4ade80' },
           { v: 'Geneve', l: 'Base locale', c: '#FF8C00' },
         ].map((s) => (
           <div

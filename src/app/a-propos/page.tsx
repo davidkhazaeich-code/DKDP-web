@@ -275,7 +275,7 @@ export default function AProposPage() {
                     <p className="text-text-muted text-[10px] mt-0.5">Clients</p>
                   </div>
 
-                  {/* Floating stat : experience */}
+                  {/* Floating stat : expérience */}
                   <div
                     className="absolute -bottom-5 -left-8 px-4 py-2.5 rounded-[14px] text-center"
                     style={{ background: 'rgba(9,9,11,0.88)', border: `1px solid ${orangeBd}`, backdropFilter: 'blur(12px)' }}

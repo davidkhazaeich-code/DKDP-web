@@ -11,17 +11,17 @@ const article: Article = {
     readTime: '7 min',
     author: 'David Khazaei',
     heroImage: {
-      src: '/images/blog/cout-site-web-geneve-hero.png',
-      alt: 'Cout creation site web Geneve 2026 : tableau de bord budgetaire avec prix et options pour PME suisses',
+      src: '/images/blog/coût-site-web-geneve-hero.png',
+      alt: 'Coût création site web Geneve 2026 : tableau de bord budgetaire avec prix et options pour PME suisses',
     },
     images: [
       {
-        src: '/images/blog/cout-site-web-geneve-tableau.png',
+        src: '/images/blog/coût-site-web-geneve-tableau.png',
         alt: 'Tableau comparatif prix site web Geneve 2026 : vitrine, e-commerce, sur-mesure avec fourchettes de budget',
         caption: 'Fourchettes de prix pour les principaux types de sites web en Suisse romande (2026)',
       },
       {
-        src: '/images/blog/cout-site-web-geneve-budget-comparatif.png',
+        src: '/images/blog/coût-site-web-geneve-budget-comparatif.png',
         alt: 'Prix site web Geneve 2026 : visualisation comparative des fourchettes de budget par type de projet pour PME suisses',
         caption: 'Comparatif visuel des budgets selon le type de site web en Suisse romande',
       },
@@ -90,7 +90,7 @@ Ces fourchettes incluent le design, le développement et le lancement. Elles n\'
 <div style="margin-top:1rem;font-size:0.75rem;color:#71717a">Fourchettes indicatives pour le marché genevois en 2026, hors hébergement et maintenance</div>
 </div>
 
-___IMG:cout-site-web-geneve-budget-comparatif.png___
+___IMG:coût-site-web-geneve-budget-comparatif.png___
 
 ## Ce qui compose réellement un devis
 
@@ -190,7 +190,7 @@ Ce n\'est pas nécessairement une escroquerie. Mais c\'est un produit différent
 
 Le vrai coût d\'un site low-cost à 12 mois : 990 CHF initiaux + 300 CHF d\'hébergement + 1\'500 CHF de corrections + zéro clients via Google = bilan négatif.
 
-___IMG:cout-site-web-geneve-tableau.png___
+___IMG:coût-site-web-geneve-tableau.png___
 
 ## Les 5 questions à poser avant de signer
 

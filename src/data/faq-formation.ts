@@ -2,7 +2,7 @@ export const FAQ_FORMATION = [
   {
     question: "Quelle est la durée d'une formation en entreprise ?",
     answer:
-      "Les formations DKDP durent de 3 heures (atelier de sensibilisation) à 2 jours complets selon le sujet et le niveau. La formation IA standard dure une journée (7h). Les formations bureautique et cybersécurité se font généralement en demi-journée. On adapte la durée à vos contraintes opérationnelles.",
+      "Les formations DKDP durent de 3 heures (atelier de sensibilisation) à 2 jours complets selon le sujet et le niveau. La formation IA standard dure une journée (7h). Les formations bureautique et cybersécurité se font généralement en demi-journée. On adapté la durée à vos contraintes opérationnelles.",
   },
   {
     question: "Combien coûte une formation pour une équipe en Suisse ?",

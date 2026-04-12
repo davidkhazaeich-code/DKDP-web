@@ -42,10 +42,10 @@ export function MultiSelectCard({
       )}
 
       {/* Header */}
-      <div className={[selected ? 'pr-6' : '', 'flex items-start gap-3'].join(' ')}>
+      <div className={[selected ? 'pr-6' : '', 'flex items-start gap-2.5 sm:gap-3'].join(' ')}>
         {icon && (
           <span className={[
-            'mt-0.5 flex-shrink-0 transition-colors duration-200',
+            'mt-0.5 flex-shrink-0 transition-colors duration-200 hidden sm:block',
             selected ? 'text-violet-400' : 'text-zinc-500',
           ].join(' ')}>
             {icon}

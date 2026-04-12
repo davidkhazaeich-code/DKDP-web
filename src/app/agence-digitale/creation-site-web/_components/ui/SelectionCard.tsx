@@ -45,10 +45,10 @@ export function SelectionCard({
       )}
 
       {/* Header */}
-      <div className="pr-6 flex items-start gap-3">
+      <div className="pr-6 flex items-start gap-2.5 sm:gap-3">
         {icon && (
           <span className={[
-            'mt-0.5 flex-shrink-0 transition-colors duration-200',
+            'mt-0.5 flex-shrink-0 transition-colors duration-200 hidden sm:block',
             selected ? 'text-violet-400' : 'text-zinc-500',
           ].join(' ')}>
             {icon}

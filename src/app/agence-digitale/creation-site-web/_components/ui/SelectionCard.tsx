@@ -43,22 +43,21 @@ export function SelectionCard({
       )}
 
       {/* Header */}
-      <div className="flex items-start justify-between gap-3 pr-6">
+      <div className="pr-6">
         <span className="text-sm font-medium text-zinc-100 leading-snug">{title}</span>
+        {description && (
+          <p className="mt-1 text-xs text-zinc-500 leading-relaxed">{description}</p>
+        )}
         {price && (
-          <span
-            className={['text-sm font-medium whitespace-nowrap', priceColor ?? 'text-zinc-400'].join(
+          <p
+            className={['mt-1.5 text-xs font-medium', priceColor ?? 'text-zinc-400'].join(
               ' '
             )}
           >
             {price}
-          </span>
+          </p>
         )}
       </div>
-
-      {description && (
-        <p className="mt-1 text-xs text-zinc-500 leading-relaxed">{description}</p>
-      )}
 
       {/* Expanded content */}
       <AnimatePresence>

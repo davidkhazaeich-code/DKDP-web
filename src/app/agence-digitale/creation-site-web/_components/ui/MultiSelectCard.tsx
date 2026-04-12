@@ -39,7 +39,7 @@ export function MultiSelectCard({
       )}
 
       {/* Header */}
-      <div className={['flex items-start justify-between gap-3', selected ? 'pr-6' : ''].join(' ')}>
+      <div className={selected ? 'pr-6' : ''}>
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-sm font-medium text-zinc-100 leading-snug">{title}</span>
           {recommended && (
@@ -48,19 +48,18 @@ export function MultiSelectCard({
             </span>
           )}
         </div>
+        {description && (
+          <p className="mt-1 text-xs text-zinc-500 leading-relaxed">{description}</p>
+        )}
         {price && (
-          <span className="text-sm font-medium text-zinc-400 whitespace-nowrap">
+          <p className="mt-1.5 text-xs font-medium text-zinc-400">
             {price}
             {priceLabel && (
               <span className="text-xs text-zinc-500 font-normal">{priceLabel}</span>
             )}
-          </span>
+          </p>
         )}
       </div>
-
-      {description && (
-        <p className="mt-1 text-xs text-zinc-500 leading-relaxed">{description}</p>
-      )}
     </div>
   )
 }

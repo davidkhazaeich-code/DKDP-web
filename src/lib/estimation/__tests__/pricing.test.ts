@@ -65,22 +65,23 @@ describe('calculateEstimate', () => {
     expect(result.weeksMax).toBe(0)
   })
 
-  it('returns zeros when pages is null', () => {
+  it('uses defaults when pages is null (defaults to 1-5)', () => {
     const result = calculateEstimate(makeState({ pages: null }))
-    expect(result.totalMin).toBe(0)
-    expect(result.totalMax).toBe(0)
+    // Same as base vitrine with 1-5 pages (default)
+    expect(result.totalMin).toBe(2500)
+    expect(result.totalMax).toBe(4000)
   })
 
-  it('returns zeros when languages is null', () => {
+  it('uses defaults when languages is null (defaults to 1)', () => {
     const result = calculateEstimate(makeState({ languages: null }))
-    expect(result.totalMin).toBe(0)
-    expect(result.totalMax).toBe(0)
+    expect(result.totalMin).toBe(2500)
+    expect(result.totalMax).toBe(4000)
   })
 
-  it('returns zeros when designLevel is null', () => {
+  it('uses defaults when designLevel is null (defaults to template)', () => {
     const result = calculateEstimate(makeState({ designLevel: null }))
-    expect(result.totalMin).toBe(0)
-    expect(result.totalMax).toBe(0)
+    expect(result.totalMin).toBe(2500)
+    expect(result.totalMax).toBe(4000)
   })
 
   // Test 3: Additive multipliers vitrine + 6-10 pages + 2 lang + custom

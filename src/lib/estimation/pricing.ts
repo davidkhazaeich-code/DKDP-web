@@ -156,10 +156,10 @@ export const DELAY_BASE: Record<SiteType, [number, number]> = {
 // ── Main calculation function ──
 
 export function calculateEstimate(state: EstimationState): PriceEstimate {
-  const { siteType, pages, languages, designLevel } = state
+  const { siteType } = state
 
-  // Return zeros if required fields are missing
-  if (!siteType || !pages || !languages || !designLevel) {
+  // Need at least siteType to start calculating
+  if (!siteType) {
     return {
       totalMin: 0,
       totalMax: 0,
@@ -169,6 +169,11 @@ export function calculateEstimate(state: EstimationState): PriceEstimate {
       weeksMax: 0,
     }
   }
+
+  // Use defaults for fields not yet selected
+  const pages = state.pages ?? '1-5'
+  const languages = state.languages ?? '1'
+  const designLevel = state.designLevel ?? 'template'
 
   // ── 1. Base price ──
   const base = BASE_PRICES[siteType]

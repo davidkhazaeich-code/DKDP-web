@@ -23,15 +23,15 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import dynamic from 'next/dynamic'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildService } from '@/lib/schema'
+import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const LLMStackDiagram = dynamic(() => import('./_components/LLMStackDiagram').then(m => m.LLMStackDiagram))
 
 export const metadata: Metadata = {
-  title: 'Mise en place IA Genève · Intégration ChatGPT Claude LLM · DKDP',
-  description: "Intégration de ChatGPT, Claude et autres LLMs dans votre stack existant. Couche d'orchestration sur mesure, prompt engineering, connexion à vos données. Sans tout reconstruire.",
+  title: 'Mise en place IA en Entreprise Genève | Intégration ChatGPT Claude | DKDP',
+  description: "Intégration IA sur mesure pour entreprises et PME à Genève. ChatGPT, Claude, Mistral connectés à vos outils existants. Déploiement rapide, sans tout reconstruire. Devis gratuit.",
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/mise-en-place' },
 }
 
@@ -83,6 +83,14 @@ export default function MiseEnPlacePage() {
             'Intégration de ChatGPT, Claude et autres LLMs dans votre stack existant. Couche d\'orchestration sur mesure, prompt engineering, connexion a vos données. Sans tout reconstruire.',
         })}
       />
+      <SchemaOrg schema={buildFAQPage(FAQ_ITEMS)} />
+      <SchemaOrg
+        schema={buildBreadcrumbList([
+          { name: 'Accueil', url: '/' },
+          { name: 'Intelligence Artificielle', url: '/intelligence-artificielle' },
+          { name: 'Mise en place IA', url: '/intelligence-artificielle/mise-en-place' },
+        ])}
+      />
 
       {/* ── Hero ──────────────────────────────────────────────── */}
       <HeroBg
@@ -108,12 +116,12 @@ export default function MiseEnPlacePage() {
               <div>
                 <GradTag className="mb-6">Mise en place IA</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  L&apos;IA dans votre stack,{' '}
+                  Mise en place de l&apos;IA en entreprise,{' '}
                   <GradText as="span">sans tout reconstruire.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  On intégré ChatGPT, Claude et les meilleurs LLMs directement dans vos outils existants.
-                  Votre base de code reste intacte. Vous gagnez les capacités de l&apos;IA en quelques semaines.
+                  On intègre ChatGPT, Claude et les meilleurs LLMs directement dans vos outils existants.
+                  Déploiement adapté aux PME en Suisse romande : votre base de code reste intacte, vous gagnez les capacités de l&apos;IA en quelques semaines.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
@@ -209,7 +217,7 @@ export default function MiseEnPlacePage() {
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi c&apos;est complexe</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                L&apos;IA hors de la boite, ce n&apos;est pas suffisant.
+                Pourquoi déployer l&apos;IA nécessite une intégration sur mesure.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 ChatGPT en mode generique ne connait pas vos procedures internes, vos clients, ni vos contraintes métier.
@@ -255,7 +263,7 @@ export default function MiseEnPlacePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Applications concretes</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce qu&apos;on peut connecter pour vous.
+                Applications concrètes de l&apos;IA en entreprise.
               </h2>
             </div>
           </SectionReveal>
@@ -342,7 +350,7 @@ export default function MiseEnPlacePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Modèles de langage</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Les LLMs que l&apos;on intégré en production.
+                Les modèles de langage que l&apos;on déploie pour les PME.
               </h2>
             </div>
           </SectionReveal>
@@ -471,7 +479,7 @@ export default function MiseEnPlacePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Notre methode</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                De l&apos;analyse a la mise en production en 4 etapes.
+                Notre méthode d&apos;intégration IA en 4 étapes.
               </h2>
             </div>
           </SectionReveal>
@@ -548,7 +556,7 @@ export default function MiseEnPlacePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Deux formules d&apos;intégration.
+                Tarifs d&apos;intégration IA pour entreprises.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto">
                 Un appel de decouverte gratuit pour identifier la formule adaptée a votre projet.

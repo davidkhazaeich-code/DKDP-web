@@ -16,13 +16,13 @@ const ROICalculator = dynamic(() => import('@/components/sections/ROICalculator'
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 const AutomationDiagram = dynamic(() => import('./_components/AutomationDiagram').then(m => ({ default: m.AutomationDiagram })))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildService, buildBreadcrumbList } from '@/lib/schema'
+import { buildService, buildBreadcrumbList, buildFAQPage } from '@/lib/schema'
 import { FAQ_IA } from '@/data/faq-ia'
 import { chrome } from '@/lib/tokens'
 
 export const metadata: Metadata = {
-  title: 'Intelligence Artificielle Genève · Agents IA · DKDP',
-  description: 'Déployez l\'IA dans votre entreprise. Agents IA sur mesure, automatisation des processus, audit et conseil. Genève et Suisse romande.',
+  title: 'Agence IA Genève | Intelligence Artificielle pour PME | DKDP',
+  description: 'Agence IA à Genève pour PME et entreprises. Agents IA sur mesure, automatisation des processus, audit et conseil. 700+ entreprises accompagnées en Suisse romande. Audit gratuit.',
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle' },
 }
 
@@ -95,6 +95,7 @@ export default function IntelligenceArtificiellePage() {
     <main>
       <SchemaOrg schema={buildService({ name: 'Intelligence Artificielle pour PME Genève', url: '/intelligence-artificielle', description: 'Agents IA sur mesure, automatisation des processus et conseil IA pour PME en Suisse romande.' })} />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Intelligence Artificielle', url: '/intelligence-artificielle' }])} />
+      <SchemaOrg schema={buildFAQPage(FAQ_IA)} />
 
       {/* ── Hero ── */}
       <HeroBg
@@ -108,11 +109,11 @@ export default function IntelligenceArtificiellePage() {
               <div>
                 <GradTag className="mb-6">Intelligence Artificielle</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  L&apos;IA au service des entreprises de{' '}
-                  <GradText as="span">Genève et Suisse romande.</GradText>
+                  Intelligence artificielle pour{' '}
+                  <GradText as="span">PME à Genève.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  Automatisez ce qui vous ralentit. Déployez l&apos;IA là où ça compte vraiment. On s&apos;occupe de tout, de l&apos;audit à la mise en production.
+                  PME en Suisse romande : automatisez ce qui vous ralentit. Déployez l&apos;IA là où ça compte vraiment. On s&apos;occupe de tout, de l&apos;audit à la mise en production.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton href="/intelligence-artificielle/audit-conseil" size="lg">
@@ -164,10 +165,10 @@ export default function IntelligenceArtificiellePage() {
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi maintenant</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                L&apos;IA n&apos;est plus réservée aux grandes entreprises.
+                Pourquoi les PME suisses adoptent l&apos;IA en 2026.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
-                En 2025, les PME qui n&apos;intègrent pas l&apos;IA dans leurs processus prennent du retard. Pas parce que c&apos;est une mode : parce que leurs concurrents répondent plus vite, produisent plus avec moins, et capturent les mêmes clients à moindre coût.
+                En 2026, les PME qui n&apos;intègrent pas l&apos;IA dans leurs processus prennent du retard. Pas parce que c&apos;est une mode : parce que leurs concurrents répondent plus vite, produisent plus avec moins, et capturent les mêmes clients à moindre coût.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
                 DKDP identifie les 3 processus dans votre entreprise qui se prêtent le mieux à l&apos;automatisation par l&apos;IA. En moins d&apos;une heure, vous savez exactement où agir en premier.
@@ -209,7 +210,7 @@ export default function IntelligenceArtificiellePage() {
             <div className="mb-14">
               <GradTag className="mb-4">Nos solutions</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-xl">
-                Cinq façons de déployer l&apos;IA chez vous.
+                Nos services d&apos;intelligence artificielle.
               </h2>
             </div>
           </SectionReveal>
@@ -329,7 +330,7 @@ export default function IntelligenceArtificiellePage() {
                 <div className="mb-10">
                   <GradTag className="mb-4">Pourquoi l&apos;IA maintenant</GradTag>
                   <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                    Ce que ça change concrètement.
+                    Les bénéfices concrets de l&apos;IA pour votre entreprise.
                   </h2>
                 </div>
               </SectionReveal>
@@ -366,7 +367,7 @@ export default function IntelligenceArtificiellePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Notre méthode</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                De l&apos;audit à la production en 4 étapes.
+                Notre méthode : de l&apos;audit IA à la production en 4 étapes.
               </h2>
             </div>
           </SectionReveal>
@@ -437,7 +438,7 @@ export default function IntelligenceArtificiellePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">ROI mesurable</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que nos clients obtiennent en chiffres.
+                Résultats clients : ROI mesurable de nos projets IA.
               </h2>
             </div>
           </SectionReveal>

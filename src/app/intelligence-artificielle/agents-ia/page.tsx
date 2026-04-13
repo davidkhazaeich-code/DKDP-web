@@ -27,8 +27,8 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const AgentTypesGrid = dynamic(() => import('./_components/AgentTypesGrid').then(m => m.AgentTypesGrid))
 
 export const metadata: Metadata = {
-  title: 'Agents IA sur mesure Genève · Automatisation intelligente · DKDP',
-  description: "Des agents intelligents qui automatisent vos tâches répétitives, répondent à vos clients ou analysent vos données. Conçus pour votre métier. Genève, Suisse.",
+  title: 'Agents IA sur mesure pour entreprises à Genève | DKDP',
+  description: "Développement d'agents IA sur mesure pour PME à Genève et en Suisse romande. Automatisation, support client, analyse de données. Opérationnel en 2 semaines.",
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/agents-ia' },
 }
 
@@ -110,12 +110,12 @@ export default function AgentsIAPage() {
               <div>
                 <GradTag className="mb-6">Agents IA</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Un agent qui travaille{' '}
-                  <GradText as="span">24h/24 pour vous.</GradText>
+                  Agents IA sur mesure{' '}
+                  <GradText as="span">pour votre entreprise à Genève.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   Vos tâches répétitives automatisées, vos clients répondus, vos données analysées.
-                  Concu pour votre métier, opérationnel en 2 semaines.
+                  Concu pour les PME en Suisse romande, opérationnel en 2 semaines.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
@@ -210,7 +210,7 @@ export default function AgentsIAPage() {
             <SectionReveal>
               <GradTag className="mb-4">Comment ca fonctionne</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Un agent IA n&apos;est pas un simple chatbot.
+                Agent IA vs chatbot : pourquoi les entreprises passent aux agents intelligents.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Un chatbot suit un script fixe et répond par mots-clés. Un vrai agent IA perçoit le contexte
@@ -254,7 +254,7 @@ export default function AgentsIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Nos agents</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-2xl mx-auto">
-                Trois agents. Trois métiers. Un seul résultat.
+                Nos agents IA pour entreprises : qualification, support et analyse.
               </h2>
             </div>
           </SectionReveal>
@@ -350,7 +350,7 @@ export default function AgentsIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Notre processus</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                De l&apos;idée à l&apos;agent opérationnel en 4 étapes.
+                Développement de votre agent IA en 4 étapes.
               </h2>
             </div>
           </SectionReveal>
@@ -425,7 +425,7 @@ export default function AgentsIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Un investissement. Un ROI mesurable.
+                Tarifs des agents IA pour PME.
               </h2>
             </div>
           </SectionReveal>
@@ -521,7 +521,7 @@ export default function AgentsIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Témoignages</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que disent nos clients.
+                Témoignages clients : agents IA déployés à Genève.
               </h2>
             </div>
           </SectionReveal>

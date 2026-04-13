@@ -31,8 +31,8 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const AuditScoreCard = dynamic(() => import('./_components/AuditScoreCard').then(m => m.AuditScoreCard))
 
 export const metadata: Metadata = {
-  title: 'Audit IA Genève · Identifiez vos 3 actions à fort ROI · DKDP',
-  description: "Audit de votre potentiel d'automatisation par l'IA. On identifie les 3 actions à fort ROI pour votre entreprise. Sans engagement. Genève, Suisse romande.",
+  title: 'Audit et Conseil IA pour Entreprises à Genève | DKDP',
+  description: "Conseil en intelligence artificielle pour PME en Suisse romande. Audit IA structuré : 3 actions à fort ROI identifiées. Dès CHF 490, rapport complet sous 48h.",
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/audit-conseil' },
 }
 
@@ -115,11 +115,11 @@ export default function AuditConseilPage() {
                   </span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Découvrez exactement{' '}
-                  <GradText as="span">où l&apos;IA peut vous aider.</GradText>
+                  Audit IA pour votre entreprise :{' '}
+                  <GradText as="span">identifiez vos 3 actions à fort ROI</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-8">
-                  On identifie les 3 opportunités d&apos;automatisation à fort ROI dans votre entreprise. Résultats concrets en une session, rapport complet sous 48h.
+                  Notre conseil IA identifie les 3 opportunités d&apos;automatisation à fort ROI pour votre PME en Suisse romande. Résultats concrets en une session, rapport complet sous 48h.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
@@ -211,7 +211,7 @@ export default function AuditConseilPage() {
             <SectionReveal>
               <GradTag className="mb-4">Notre approche</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Un audit structuré, pas une promesse vague.
+                Notre méthode de conseil IA : un diagnostic structuré.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-10">
                 Avant de parler d&apos;IA, on comprend votre métier. Notre audit couvre quatre dimensions clés pour poser un diagnostic solide et vous donner des recommandations actionnables.
@@ -273,7 +273,7 @@ export default function AuditConseilPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce que vous recevez</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Votre livrable complet.
+                Ce que vous recevez après l&apos;audit IA.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto">
                 Pas un simple compte rendu. Un plan d&apos;action précis, prêt à être mis en oeuvre.
@@ -365,7 +365,7 @@ export default function AuditConseilPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Comment ça se passe</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                4 étapes, de l&apos;appel au rapport.
+                4 étapes de votre audit, de l&apos;appel au plan d&apos;action.
               </h2>
             </div>
           </SectionReveal>
@@ -452,7 +452,7 @@ export default function AuditConseilPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Un investissement, un plan concret.
+                Tarifs audit IA pour PME.
               </h2>
               <p className="text-text-secondary mt-4 max-w-lg mx-auto text-[15px]">
                 Offert pour les entreprises qui engagent DKDP pour la mise en place qui suit.
@@ -549,7 +549,7 @@ export default function AuditConseilPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Témoignages</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que nos clients ont découvert.
+                Ce que nos clients PME ont découvert grâce à l&apos;audit.
               </h2>
             </div>
           </SectionReveal>
@@ -608,7 +608,7 @@ export default function AuditConseilPage() {
                 Après votre audit
               </p>
               <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.02em]">
-                Passez à la mise en oeuvre.
+                Après l&apos;audit : nos services de déploiement IA.
               </h2>
               <p className="text-text-secondary mt-3 max-w-lg mx-auto text-[15px]">
                 L&apos;audit pose le diagnostic. Ces trois services déploient les solutions identifiées.

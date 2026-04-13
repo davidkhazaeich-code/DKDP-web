@@ -37,7 +37,7 @@ const Testimonials = dynamic(() =>
 export const metadata: Metadata = {
   title: 'Chatbot IA sur mesure pour entreprises a Geneve | DKDP',
   description:
-    'DKDP concoit et déploie des chatbots IA sur mesure pour PME a Geneve et en Suisse romande. Repondez a vos clients 24h/24, qualifiez vos leads, automatisez la prise de rendez-vous. Des CHF 2\'900, deploye en 2 a 5 semaines.',
+    'Chatbot IA sur mesure pour PME a Geneve. Support client 24/7, qualification de leads, prise de RDV automatique. Des CHF 2 900. Deploye en 2-5 semaines.',
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia' },
   openGraph: {
     title: 'Chatbot IA sur mesure pour entreprises a Geneve | DKDP',
@@ -332,12 +332,12 @@ export default function ChatbotIAPage() {
               <div>
                 <GradTag className="mb-6">Chatbot IA sur mesure · Geneve</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Vos clients obtiennent des reponses.{' '}
-                  <GradText as="span">Meme quand vous dormez.</GradText>
+                  Chatbot IA sur mesure{' '}
+                  <GradText as="span">pour votre entreprise a Geneve</GradText>
                 </h1>
                 <p data-speakable className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP concoit des chatbots IA sur mesure pour les PME a Geneve et en Suisse romande.
-                  Pas un widget generique : un assistant intelligent concu pour votre métier, vos questions
+                  Pas un widget generique : un assistant virtuel intelligent concu pour votre métier, vos questions
                   et vos clients. Deploye sur votre site en 2 a 5 semaines, a partir de CHF 2&apos;900.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
@@ -522,7 +522,7 @@ export default function ChatbotIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Le problème que vous connaissez</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
-                Chaque question sans reponse est un client qui hesite, puis qui part.
+                Pourquoi un chatbot IA change tout pour votre site web
               </h2>
             </div>
           </SectionReveal>
@@ -562,7 +562,7 @@ export default function ChatbotIAPage() {
             <div className="text-center mb-12">
               <GradTag className="mb-4">Impact mesurable</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-4">
-                Le retour sur investissement se mesure des le premier mois.
+                ROI d&apos;un chatbot intelligent : resultats des le premier mois
               </h2>
               <p data-speakable className="text-text-secondary text-lg max-w-2xl mx-auto">
                 Un chatbot IA bien concu ne remplace pas votre équipe. Il absorbe 80% des
@@ -736,7 +736,7 @@ export default function ChatbotIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Cas d&apos;usage concrets</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
-                Un chatbot adapté a votre secteur, pas un template universel.
+                Chatbot IA par secteur : fiduciaire, medical, immobilier
               </h2>
               <p data-speakable className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto">
                 Chaque chatbot DKDP est concu pour un métier spécifique : fiduciaires, cabinets
@@ -791,7 +791,7 @@ export default function ChatbotIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Nos formules</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Un chatbot pour chaque niveau de besoin.
+                Tarifs chatbot IA entreprise : 3 formules
               </h2>
               <p data-speakable className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto">
                 Devis fixe en CHF, sans surprise. Chaque formule inclut la conception, le

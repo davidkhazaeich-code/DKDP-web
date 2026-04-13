@@ -35,9 +35,9 @@ const WorkflowDiagram = dynamic(() => import('./_components/WorkflowDiagram').th
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: 'Automatisation Métier IA Genève · Workflows sans code · DKDP',
+  title: 'Automatisation IA pour PME Genève | Workflows sans code | DKDP',
   description:
-    'Connectez votre CRM, email et ERP avec des workflows IA sans code. Zéro saisie manuelle, zéro friction. Livraison en 2 semaines. PME Genève et Suisse romande.',
+    'Automatisation IA pour PME avec Make, Zapier et n8n. Connectez CRM, email et ERP sans code. Livraison en 2 semaines. Genève et Suisse romande.',
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/automatisation' },
 }
 
@@ -197,11 +197,11 @@ export default function AutomationPage() {
               <div>
                 <GradTag className="mb-6">Automatisation IA</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Vos outils parlent enfin{' '}
-                  <GradText as="span">entre eux.</GradText>
+                  Automatisez vos processus métier{' '}
+                  <GradText as="span">avec l&apos;IA, sans code.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  Workflows sans code qui connectent votre CRM, vos emails et votre ERP. Fini la saisie manuelle, les relances oubliées et les données perdues entre les outils. Zéro friction, zéro ligne de code.
+                  On connecte votre CRM, vos emails et votre ERP avec des workflows IA sur Make, Zapier ou n8n. Fini la saisie manuelle, les relances oubliées et les données perdues entre les outils. Pour les PME en Suisse romande qui veulent gagner du temps sans toucher une ligne de code.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
@@ -296,7 +296,7 @@ export default function AutomationPage() {
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi automatiser</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Chaque minute perdue sur du copier-coller est une minute de moins pour votre vrai travail.
+                Pourquoi automatiser les tâches répétitives de votre PME
               </h2>
               <p className="text-text-secondary leading-relaxed mb-8">
                 Les PME perdent en moyenne 5 heures par semaine et par collaborateur sur des tâches de transfert de données entre outils. Ce n&apos;est pas un problème d&apos;organisation : c&apos;est un problème de connexion entre systèmes.
@@ -341,7 +341,7 @@ export default function AutomationPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Outils connectés</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Vos outils actuels restent en place.
+                Intégrations IA : CRM, ERP et outils connectés sans migration
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
                 On connecte ce que vous avez déjà. Pas besoin de changer d&apos;outil, pas de migration, pas de formation complète. Vos équipes continuent de travailler comme avant, sans les frictions.
@@ -380,7 +380,7 @@ export default function AutomationPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Notre méthode</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                De l&apos;idée au workflow en production.
+                Notre méthode : de l&apos;audit à l&apos;automatisation en 2 semaines
               </h2>
             </div>
           </SectionReveal>
@@ -429,7 +429,7 @@ export default function AutomationPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Des forfaits clairs, sans surprise.
+                Tarifs automatisation IA pour PME
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
                 Chaque projet est cadré et validé avant démarrage. Vous savez exactement ce que vous obtenez et quand.
@@ -546,7 +546,7 @@ export default function AutomationPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Témoignages</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que disent nos clients.
+                Témoignages : PME qui ont automatisé avec DKDP
               </h2>
             </div>
           </SectionReveal>

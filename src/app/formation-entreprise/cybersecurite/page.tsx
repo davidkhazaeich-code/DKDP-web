@@ -119,6 +119,7 @@ export default function FormationCybersecuritePage() {
                     Voir le programme ↓
                   </Link>
                 </div>
+                <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
@@ -347,19 +348,19 @@ export default function FormationCybersecuritePage() {
             {[
               {
                 quote: 'On a été victimes d\'un ransomware. Depuis la formation DKDP, notre équipe reconnaît les signaux d\'alerte. On a déjoué 2 tentatives de phishing depuis.',
-                name: 'Directeur',
+                name: 'Marc D., Directeur',
                 company: 'PME logistique, Genève',
                 stars: 5,
               },
               {
                 quote: 'La simulation de phishing a été révélatrice : 6 personnes sur 10 avaient cliqué sur le lien. Après la formation : 0 sur 10. La différence est nette.',
-                name: 'Responsable IT',
+                name: 'Nicolas R., Responsable IT',
                 company: 'Entreprise 80 personnes, Vaud',
                 stars: 5,
               },
               {
                 quote: 'On pensait que ça n\'arrivait qu\'aux grandes entreprises. La formation nous a montré que les PME sont les cibles préférées des hackers.',
-                name: 'Fondatrice',
+                name: 'Sandra M., Fondatrice',
                 company: 'Cabinet de conseil, Genève',
                 stars: 5,
               },

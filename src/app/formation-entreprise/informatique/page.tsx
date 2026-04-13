@@ -160,6 +160,15 @@ export default function FormationInformatiquePage() {
         </div>
       </section>
 
+      {/* ── Intro definition ── */}
+      <section className="py-8">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-center">
+            La formation informatique entreprise de DKDP s&apos;adresse aux PME de Genève et Suisse romande qui veulent renforcer les compétences numériques de leurs collaborateurs. Windows, emails professionnels, cloud, outils collaboratifs : vos équipes gagnent en autonomie et en efficacité en une journée. Tous les niveaux sont acceptés, du débutant complet au collaborateur qui souhaite structurer ses pratiques.
+          </p>
+        </div>
+      </section>
+
       {/* ── Pourquoi maintenant ── */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -312,19 +321,19 @@ export default function FormationInformatiquePage() {
             {[
               {
                 quote: 'Nos employés appelaient le support IT 15 fois par semaine pour des problèmes basiques. Après la formation, c\'est 4 fois. Et ce sont de vrais problèmes.',
-                name: 'Responsable IT',
+                name: 'Jean-Pierre L., Responsable IT',
                 company: 'PME 60 personnes, Genève',
                 stars: 5,
               },
               {
                 quote: 'On a formé nos 8 assistantes administratives. Elles gèrent maintenant leurs sauvegardes, leur réseau et leurs emails en autonomie complète.',
-                name: 'DRH',
+                name: 'Isabelle C., DRH',
                 company: 'Cabinet médical, Lausanne',
                 stars: 5,
               },
               {
                 quote: 'À 58 ans, j\'avais honte de poser des questions basiques à mes collègues. La formation de DKDP m\'a rendu autonome sans me juger.',
-                name: 'Participant',
+                name: 'Patrick S., Collaborateur',
                 company: 'Secteur public, Genève',
                 stars: 5,
               },

@@ -176,6 +176,15 @@ export default function FormationWebDesignPage() {
         </div>
       </section>
 
+      {/* ── Intro definition ── */}
+      <section className="py-8">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-center">
+            DKDP forme les PME et entreprises de Genève et Suisse romande à la création de visuels professionnels avec Canva et les bases du web design. Vos collaborateurs apprennent à produire des supports de communication (posts, présentations, brochures) sans dépendre d&apos;un graphiste. Formation pratique en une journée.
+          </p>
+        </div>
+      </section>
+
       {/* ── Pourquoi maintenant ── */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -344,19 +353,19 @@ export default function FormationWebDesignPage() {
             {[
               {
                 quote: "Avant la formation, je payais une graphiste pour chaque post Instagram. Maintenant je crée mes visuels en 15 minutes avec Canva. Rentabilisé en 2 semaines.",
-                name: 'Fondatrice',
+                name: 'Nathalie F., Fondatrice',
                 company: 'Boutique artisanale, Genève',
                 stars: 5,
               },
               {
                 quote: "On a formé toute notre équipe communication à Canva. La cohérence visuelle de notre marque s'est améliorée du jour au lendemain. Fini les visuels disparates.",
-                name: 'Responsable marketing',
+                name: 'Thomas L., Responsable marketing',
                 company: 'PME 40 personnes, Vaud',
                 stars: 5,
               },
               {
                 quote: "La partie Figma était une révélation. Je peux maintenant concevoir les interfaces de mes apps moi-même et les expliquer à mes développeurs.",
-                name: 'Fondateur',
+                name: 'Julien K., Fondateur',
                 company: 'Startup tech, Genève',
                 stars: 5,
               },

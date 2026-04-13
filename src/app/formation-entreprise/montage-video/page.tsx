@@ -169,6 +169,15 @@ export default function FormationMontageVideoPage() {
         </div>
       </section>
 
+      {/* ── Intro definition ── */}
+      <section className="py-8">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-center">
+            DKDP forme les équipes de PME en Suisse romande au montage vidéo professionnel avec CapCut, DaVinci Resolve et Premiere Pro. Vos collaborateurs apprennent à produire des Reels, vidéos YouTube et contenus d&apos;entreprise en interne, du tournage smartphone à l&apos;export final. Formation pratique en une journée à Genève.
+          </p>
+        </div>
+      </section>
+
       {/* ── Pourquoi maintenant ── */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -320,19 +329,19 @@ export default function FormationMontageVideoPage() {
             {[
               {
                 quote: 'Avant la formation, on externalisait nos vidéos Instagram à CHF 300 la pièce. Maintenant on les fait en interne en 45 minutes. ROI immédiat.',
-                name: 'Responsable marketing',
+                name: 'Camille R., Responsable marketing',
                 company: 'Marque lifestyle, Genève',
                 stars: 5,
               },
               {
                 quote: 'En une journée, j\'ai appris à monter, étalonner et exporter mes vidéos YouTube. DKDP m\'a donné les bases et la méthode pour être autonome.',
-                name: 'Fondateur',
+                name: 'Alexandre M., Fondateur',
                 company: 'Coach sportif, Lausanne',
                 stars: 5,
               },
               {
                 quote: 'Notre équipe RH crée maintenant ses propres vidéos pour les offres d\'emploi. L\'engagement de nos posts est 4× supérieur depuis qu\'on utilise la vidéo.',
-                name: 'DRH',
+                name: 'Sandrine W., DRH',
                 company: 'PME tech, Genève',
                 stars: 5,
               },

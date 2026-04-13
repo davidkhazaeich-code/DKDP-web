@@ -135,6 +135,7 @@ export default function FormationBureautiquePage() {
                     Voir le programme ↓
                   </Link>
                 </div>
+                <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
@@ -173,6 +174,15 @@ export default function FormationBureautiquePage() {
               </SectionReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Intro definition ── */}
+      <section className="py-8">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-center">
+            La formation bureautique DKDP s&apos;adresse aux PME et entreprises de Genève et Suisse romande qui souhaitent renforcer la maîtrise d&apos;Excel, Word et Microsoft 365 de leurs équipes. En une demi-journée ou une journée, vos collaborateurs apprennent à gagner du temps sur les tâches quotidiennes, des formules Excel aux présentations PowerPoint. Tous les niveaux sont acceptés.
+          </p>
         </div>
       </section>
 
@@ -377,19 +387,19 @@ export default function FormationBureautiquePage() {
             {[
               {
                 quote: 'Après la formation Excel de DKDP, j\'ai automatisé 4 tâches hebdomadaires. Ce que je faisais en 3 heures se fait maintenant en 20 minutes. Magique.',
-                name: 'Comptable',
+                name: 'Sophie B., Comptable',
                 company: 'PME financière, Genève',
                 stars: 5,
               },
               {
                 quote: 'Toute notre équipe administrative a suivi la formation. On utilise maintenant Teams et SharePoint efficacement. La collaboration s\'est transformée.',
-                name: 'DRH',
+                name: 'Marie D., DRH',
                 company: 'Entreprise 120 personnes, Lausanne',
                 stars: 5,
               },
               {
                 quote: 'J\'utilisais Excel depuis 15 ans mais je ne savais pas ce que c\'était vraiment. La formation m\'a ouvert les yeux sur ce que je ratais.',
-                name: 'Chargée de projet',
+                name: 'Isabelle T., Chargée de projet',
                 company: 'Secteur public, Genève',
                 stars: 5,
               },

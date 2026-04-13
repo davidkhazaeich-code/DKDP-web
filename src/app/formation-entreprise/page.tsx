@@ -146,6 +146,7 @@ export default function FormationEntreprisePage() {
                     Voir les programmes ↓
                   </Link>
                 </div>
+                <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <HeroVisual />
             </div>

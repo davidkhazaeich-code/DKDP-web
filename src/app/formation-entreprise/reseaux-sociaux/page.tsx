@@ -172,6 +172,15 @@ export default function FormationReseauxSociauxPage() {
         </div>
       </section>
 
+      {/* ── Intro definition ── */}
+      <section className="py-8">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-center">
+            DKDP forme les PME et indépendants de Genève et Suisse romande à la gestion professionnelle de leurs réseaux sociaux. Instagram, LinkedIn, TikTok, Facebook : vos équipes apprennent à créer du contenu engageant, planifier un calendrier éditorial et analyser les performances. Formation pratique en une journée, sur vos propres comptes.
+          </p>
+        </div>
+      </section>
+
       {/* ── Pourquoi maintenant ── */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -323,19 +332,19 @@ export default function FormationReseauxSociauxPage() {
             {[
               {
                 quote: 'J\'avais un compte Instagram inactif depuis des mois. Après la formation, je poste 3 fois par semaine avec un vrai calendrier. Mes abonnés ont doublé en 6 semaines.',
-                name: 'Thérapeute indépendante',
+                name: 'Caroline P., Thérapeute indépendante',
                 company: 'Genève',
                 stars: 5,
               },
               {
                 quote: 'DKDP nous a appris à utiliser Canva et Meta Business Suite. Notre équipe gère maintenant nos 3 comptes en 2 heures par semaine.',
-                name: 'Responsable communication',
+                name: 'Laurent G., Responsable communication',
                 company: 'Association culturelle, Lausanne',
                 stars: 5,
               },
               {
                 quote: 'La partie LinkedIn m\'a particulièrement aidé. J\'ai maintenant une vraie stratégie B2B et je génère des leads directement depuis mes posts.',
-                name: 'Consultant indépendant',
+                name: 'Philippe V., Consultant indépendant',
                 company: 'Genève',
                 stars: 5,
               },

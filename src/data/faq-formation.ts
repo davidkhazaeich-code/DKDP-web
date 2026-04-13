@@ -7,7 +7,7 @@ export const FAQ_FORMATION = [
   {
     question: "Combien coûte une formation pour une équipe en Suisse ?",
     answer:
-      "Une demi-journée de formation en entreprise (jusqu'à 12 personnes) démarre à CHF 900. Une journée complète se situe entre CHF 1'500 et CHF 2'500 selon la thématique et la personnalisation du contenu. Le tarif est forfaitaire par groupe, sans coût à la tête.",
+      "Le tarif horaire est de CHF 200/h pour 1 personne et CHF 300/h pour 2 personnes. Pour les groupes plus importants (3 à 10 personnes), les demi-journées et les journées entières, le prix est établi sur devis. Contactez-nous pour recevoir un chiffrage adapté à votre équipe.",
   },
   {
     question: "Les formations sont-elles éligibles à des subventions en Suisse ?",
@@ -43,5 +43,15 @@ export const FAQ_FORMATION = [
     question: "Est-ce que les formations DKDP sont adaptées aux non-techniciens ?",
     answer:
       "Absolument. La majorité de nos participants n'ont aucun background technique. Les formations sont conçues pour être accessibles à tous les profils : assistantes de direction, comptables, commerciaux, managers. On part toujours du niveau du groupe, pas d'un niveau supposé.",
+  },
+  {
+    question: "Proposez-vous des formations informatiques adaptées aux PME ?",
+    answer:
+      "Oui, la formation informatique pour PME est notre spécialité. Nous comprenons les contraintes des petites et moyennes entreprises : budget limité, équipes réduites, peu de temps à consacrer. Nos programmes sont conçus pour former vos collaborateurs en une demi-journée ou une journée, sans perturber votre activité. Le tarif est forfaitaire par groupe, pas par personne.",
+  },
+  {
+    question: "Comment convaincre ma direction de former les collaborateurs en informatique ?",
+    answer:
+      "Former vos collaborateurs en informatique est un investissement mesurable. En moyenne, une équipe formée gagne 1h30 par jour et par personne sur les tâches numériques. Sur une équipe de 10 personnes, cela représente plus de 300 heures récupérées par mois. Nous fournissons un rapport d'impact post-formation que vous pouvez présenter à votre direction.",
   },
 ]

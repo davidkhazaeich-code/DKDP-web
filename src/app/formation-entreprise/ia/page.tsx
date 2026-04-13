@@ -58,7 +58,7 @@ const FAQ = [
   {
     question: 'Combien coûte une journée de formation IA pour mon équipe ?',
     answer:
-      'La formation IA est facturée à l\'heure selon la taille du groupe : CHF 150/h pour 1 personne, CHF 200/h pour 2 personnes, CHF 250/h pour 3 à 6 personnes et CHF 300/h pour 6 à 10 personnes. La demi-journée (4h) ou la journée entière (8h) incluent la préparation sur mesure.',
+      'La formation IA est facturée à l\'heure selon la taille du groupe : CHF 200/h pour 1 personne, CHF 300/h pour 2 personnes. Pour les groupes de 3 à 10 personnes ainsi que les formules demi-journée et journée entière, le tarif est établi sur devis. Contactez-nous pour un chiffrage personnalisé.',
   },
   {
     question: 'Les participants repartent-ils avec des outils utilisables le soir même ?',

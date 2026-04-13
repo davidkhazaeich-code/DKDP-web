@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { orange } from '@/lib/tokens'
 import { Users, Clock, CalendarDays } from 'lucide-react'
 
@@ -5,16 +6,16 @@ const OR = orange.color
 const ORB = orange.bg
 const ORD = orange.border
 
-const HOURLY_RATES = [
-  { label: '1 personne', rate: 150, icon: '1' },
-  { label: '2 personnes', rate: 200, icon: '2' },
-  { label: '3-6 personnes', rate: 250, icon: '3-6' },
-  { label: '6-10 personnes', rate: 300, icon: '6-10' },
+const HOURLY_RATES: { label: string; rate: number | null }[] = [
+  { label: '1 personne', rate: 200 },
+  { label: '2 personnes', rate: 300 },
+  { label: '3-6 personnes', rate: null },
+  { label: '6-10 personnes', rate: null },
 ]
 
 const FORMATS = [
-  { label: 'Demi-journée', hours: 4, work: '3h de formation', prep: '1h de préparation' },
-  { label: 'Journée entière', hours: 8, work: '6h de formation', prep: '2h de préparation' },
+  { label: 'Demi-journée', work: '3h de formation', prep: '1h de préparation' },
+  { label: 'Journée entière', work: '6h de formation', prep: '2h de préparation' },
 ]
 
 export function FormationPricing() {
@@ -35,13 +36,25 @@ export function FormationPricing() {
               <Users size={15} style={{ color: OR }} />
             </div>
             <p className="text-text-muted text-xs font-medium mb-1">{r.label}</p>
-            <p className="text-xl font-bold" style={{ color: OR }}>CHF {r.rate}</p>
-            <p className="text-text-muted text-[10px] mt-0.5">par heure</p>
+            {r.rate ? (
+              <>
+                <p className="text-xl font-bold" style={{ color: OR }}>CHF {r.rate}</p>
+                <p className="text-text-muted text-[10px] mt-0.5">par heure</p>
+              </>
+            ) : (
+              <Link
+                href="/contact"
+                className="text-base font-bold transition-opacity hover:opacity-80"
+                style={{ color: OR }}
+              >
+                Sur devis
+              </Link>
+            )}
           </div>
         ))}
       </div>
 
-      {/* Format cards with calculated prices */}
+      {/* Format cards */}
       <div className="grid sm:grid-cols-2 gap-4">
         {FORMATS.map((f) => (
           <div
@@ -54,7 +67,7 @@ export function FormationPricing() {
                 className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
                 style={{ background: 'rgba(255,107,0,0.10)', border: `1px solid ${ORD}` }}
               >
-                {f.hours === 4
+                {f.label === 'Demi-journée'
                   ? <Clock size={15} style={{ color: OR }} />
                   : <CalendarDays size={15} style={{ color: OR }} />
                 }
@@ -65,27 +78,32 @@ export function FormationPricing() {
               </div>
             </div>
 
-            <div className="space-y-2.5">
-              {HOURLY_RATES.map((r) => (
-                <div
-                  key={r.label}
-                  className="flex items-center justify-between py-1.5 border-b last:border-b-0"
-                  style={{ borderColor: ORD }}
-                >
-                  <span className="text-text-secondary text-sm">{r.label}</span>
-                  <span className="font-bold text-sm" style={{ color: OR }}>
-                    CHF {(r.rate * f.hours).toLocaleString('fr-CH')}
-                  </span>
-                </div>
-              ))}
+            <div className="flex items-center justify-between py-1.5">
+              <span className="text-text-secondary text-sm">Tarif</span>
+              <Link
+                href="/contact"
+                className="font-bold text-sm transition-opacity hover:opacity-80"
+                style={{ color: OR }}
+              >
+                Sur devis
+              </Link>
             </div>
+            <p className="text-text-muted text-[10px] mt-2">
+              Programme personnalise selon vos besoins.{' '}
+              <Link href="/contact" className="underline hover:text-white transition-colors" style={{ color: OR }}>
+                Demander un devis
+              </Link>
+            </p>
           </div>
         ))}
       </div>
 
       {/* Note */}
       <p className="text-text-muted text-xs mt-4 text-center leading-relaxed">
-        Le programme est personnalisé pour chaque entreprise. Devis gratuit sous 48h.
+        Le programme est personnalise pour chaque entreprise.{' '}
+        <Link href="/contact" className="underline hover:text-white transition-colors" style={{ color: OR }}>
+          Devis gratuit sous 48h
+        </Link>
       </p>
     </div>
   )

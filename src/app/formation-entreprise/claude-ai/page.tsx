@@ -78,7 +78,7 @@ const FAQ = [
   {
     question: 'Quels sont les tarifs de la formation Claude IA ?',
     answer:
-      'La formation Claude IA est facturée à l\'heure selon la taille du groupe : CHF 150/h pour 1 personne, CHF 200/h pour 2 personnes, CHF 250/h pour 3 à 6 personnes et CHF 300/h pour 6 à 10 personnes. La demi-journée (4h) ou la journée entière (8h) incluent la préparation sur mesure.',
+      'La formation Claude IA est facturée à l\'heure selon la taille du groupe : CHF 200/h pour 1 personne, CHF 300/h pour 2 personnes. Pour les groupes de 3 à 10 personnes ainsi que les formules demi-journée et journée entière, le tarif est établi sur devis. Contactez-nous pour un chiffrage personnalisé.',
   },
   {
     question: 'Est-ce que Claude.ai est disponible en français ?',

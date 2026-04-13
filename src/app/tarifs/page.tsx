@@ -36,16 +36,16 @@ const orangeBd    = orange.border
 const greenColor  = green.color
 
 /* ── Formation pricing ── */
-const HOURLY_RATES = [
-  { label: '1 personne', rate: 150 },
-  { label: '2 personnes', rate: 200 },
-  { label: '3-6 personnes', rate: 250 },
-  { label: '6-10 personnes', rate: 300 },
+const HOURLY_RATES: { label: string; rate: number | null }[] = [
+  { label: '1 personne', rate: 200 },
+  { label: '2 personnes', rate: 300 },
+  { label: '3-6 personnes', rate: null },
+  { label: '6-10 personnes', rate: null },
 ]
 
 const FORMATION_FORMATS = [
-  { label: 'Demi-journée', hours: 4, detail: '3h de formation + 1h de préparation' },
-  { label: 'Journée entière', hours: 8, detail: '6h de formation + 2h de préparation' },
+  { label: 'Demi-journée', detail: '3h de formation + 1h de préparation' },
+  { label: 'Journée entière', detail: '6h de formation + 2h de préparation' },
 ]
 
 /* ── IA service cards ── */
@@ -251,10 +251,22 @@ export default function TarifsPage() {
                     }}
                   >
                     <p className="text-text-muted text-xs font-medium mb-2">{r.label}</p>
-                    <p className="text-2xl font-bold" style={{ color: orangeColor }}>
-                      CHF {r.rate}
-                    </p>
-                    <p className="text-text-muted text-[11px] mt-1">par heure</p>
+                    {r.rate ? (
+                      <>
+                        <p className="text-2xl font-bold" style={{ color: orangeColor }}>
+                          CHF {r.rate}
+                        </p>
+                        <p className="text-text-muted text-[11px] mt-1">par heure</p>
+                      </>
+                    ) : (
+                      <Link
+                        href="/contact"
+                        className="text-lg font-bold transition-opacity hover:opacity-80"
+                        style={{ color: orangeColor }}
+                      >
+                        Sur devis
+                      </Link>
+                    )}
                   </div>
                 ))}
               </div>
@@ -271,17 +283,23 @@ export default function TarifsPage() {
                   style={{ background: orangeBg, borderColor: orangeBd }}
                 >
                   <p className="text-white font-bold text-lg mb-1">{f.label}</p>
-                  <p className="text-text-muted text-xs mb-4">{f.detail}</p>
-                  <div className="space-y-2">
-                    {HOURLY_RATES.map((r) => (
-                      <div key={r.label} className="flex items-center justify-between">
-                        <span className="text-text-secondary text-sm">{r.label}</span>
-                        <span className="font-bold text-sm" style={{ color: orangeColor }}>
-                          CHF {r.rate * f.hours}
-                        </span>
-                      </div>
-                    ))}
+                  <p className="text-text-muted text-xs mb-3">{f.detail}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-text-secondary text-sm">Tarif</span>
+                    <Link
+                      href="/contact"
+                      className="font-bold text-sm transition-opacity hover:opacity-80"
+                      style={{ color: orangeColor }}
+                    >
+                      Sur devis
+                    </Link>
                   </div>
+                  <p className="text-text-muted text-[11px] mt-3">
+                    Programme personnalise selon vos besoins.{' '}
+                    <Link href="/contact" className="underline hover:text-white transition-colors" style={{ color: orangeColor }}>
+                      Demander un devis
+                    </Link>
+                  </p>
                 </div>
               ))}
             </div>

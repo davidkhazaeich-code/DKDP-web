@@ -14,7 +14,7 @@ export function Step1Project() {
       {/* Section 1 - Votre situation */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Votre situation
+          Votre situation <span className="text-red-400">*</span>
         </p>
         <div className="grid grid-cols-2 gap-3">
           <SelectionCard
@@ -38,7 +38,7 @@ export function Step1Project() {
       {/* Section 2 - Type de projet */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Type de projet
+          Type de projet <span className="text-red-400">*</span>
         </p>
         <div className="grid grid-cols-2 gap-3">
           <SelectionCard

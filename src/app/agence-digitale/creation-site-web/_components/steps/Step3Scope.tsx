@@ -95,7 +95,7 @@ export function Step3Scope() {
       {/* Section 1 - Nombre de pages */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Nombre de pages
+          Nombre de pages <span className="text-red-400">*</span>
         </p>
         <div className="grid grid-cols-1 gap-2">
           {PAGE_OPTIONS.map((opt) => (
@@ -135,7 +135,7 @@ export function Step3Scope() {
       {/* Section 2 - Langues */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Langues
+          Langues <span className="text-red-400">*</span>
         </p>
         <div className="flex flex-wrap gap-2">
           {LANGUAGE_OPTIONS.map((opt) => (
@@ -152,7 +152,7 @@ export function Step3Scope() {
       {/* Section 3 - Niveau de design */}
       <div>
         <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Niveau de design
+          Niveau de design <span className="text-red-400">*</span>
         </p>
         <div className="grid grid-cols-1 gap-3">
           <SelectionCard

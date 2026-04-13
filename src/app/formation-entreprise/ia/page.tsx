@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   description:
     'Formation Intelligence Artificielle en entreprise à Genève et en Suisse romande. ChatGPT, Claude et Copilot maîtrisés en une journée. Programme sur mesure pour PME, présentiel ou distanciel.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/ia' },
+  openGraph: {
+    images: [{ url: '/images/og/formation-ia.png', width: 1376, height: 768, alt: 'Formation IA entreprise Genève DKDP' }],
+  },
 }
 
 const FAQ = [

@@ -47,6 +47,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_CH',
     siteName: 'DKDP',
+    images: [{ url: '/images/og/chatbot-ia.png', width: 1376, height: 768, alt: 'Chatbot IA sur mesure entreprise Genève DKDP' }],
   },
   twitter: {
     card: 'summary_large_image',

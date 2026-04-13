@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   title: 'Agents IA sur mesure pour entreprises à Genève | DKDP',
   description: "Développement d'agents IA sur mesure pour PME à Genève et en Suisse romande. Automatisation, support client, analyse de données. Opérationnel en 2 semaines.",
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/agents-ia' },
+  openGraph: {
+    images: [{ url: '/images/og/agents-ia.png', width: 1376, height: 768, alt: 'Agents IA sur mesure entreprise Genève DKDP' }],
+  },
 }
 
 // ─── Design tokens ────────────────────────────────────────────────────────────

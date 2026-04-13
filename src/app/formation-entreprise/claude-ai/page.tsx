@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   description:
     'Formation Claude IA pour entreprises à Genève et en Suisse romande. Claude.ai, Projects collaboratifs, Claude Code. Programme sur mesure, 1 à 2 jours, présentiel ou distanciel.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/claude-ai' },
+  openGraph: {
+    images: [{ url: '/images/og/formation-claude-ai.png', width: 1376, height: 768, alt: 'Formation Claude IA Genève DKDP' }],
+  },
 }
 
 /* ─────────────────────────────────────────────

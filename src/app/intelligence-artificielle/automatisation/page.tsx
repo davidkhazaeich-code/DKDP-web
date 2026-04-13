@@ -39,6 +39,9 @@ export const metadata: Metadata = {
   description:
     'Automatisation IA pour PME avec Make, Zapier et n8n. Connectez CRM, email et ERP sans code. Livraison en 2 semaines. Genève et Suisse romande.',
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/automatisation' },
+  openGraph: {
+    images: [{ url: '/images/og/automatisation-ia.png', width: 1376, height: 768, alt: 'Automatisation IA entreprise Genève DKDP' }],
+  },
 }
 
 // ─── Design tokens ────────────────────────────────────────────────────────────

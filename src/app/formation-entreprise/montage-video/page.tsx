@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description:
     'Formation montage vidéo pour PME en Suisse romande. CapCut, DaVinci Resolve, Premiere Pro. Vos équipes produisent en interne. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/montage-video' },
+  openGraph: {
+    images: [{ url: '/images/og/formation-montage-video.png', width: 1376, height: 768, alt: 'Formation montage vidéo entreprise Genève DKDP' }],
+  },
 }
 
 const FAQ = [

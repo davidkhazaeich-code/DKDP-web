@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description:
     'Formation réseaux sociaux pour PME en Suisse romande et à Genève. Instagram, LinkedIn, TikTok, Facebook. Stratégie, Canva, calendrier éditorial. Demandez votre devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/reseaux-sociaux' },
+  openGraph: {
+    images: [{ url: '/images/og/formation-reseaux-sociaux.png', width: 1376, height: 768, alt: 'Formation réseaux sociaux entreprise Genève DKDP' }],
+  },
 }
 
 const FAQ = [

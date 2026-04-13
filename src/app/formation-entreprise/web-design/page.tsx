@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description:
     'Formation Canva et web design pour PME et entreprises à Genève et Suisse romande. Vos équipes créent des visuels professionnels en une journée. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/web-design' },
+  openGraph: {
+    images: [{ url: '/images/og/formation-web-design.png', width: 1376, height: 768, alt: 'Formation Canva et web design entreprise Genève DKDP' }],
+  },
 }
 
 const FAQ = [

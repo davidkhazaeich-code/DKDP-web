@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   title: 'Mise en place IA en Entreprise Genève | Intégration ChatGPT Claude | DKDP',
   description: "Intégration IA sur mesure pour entreprises et PME à Genève. ChatGPT, Claude, Mistral connectés à vos outils existants. Déploiement rapide, sans tout reconstruire. Devis gratuit.",
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/mise-en-place' },
+  openGraph: {
+    images: [{ url: '/images/og/mise-en-place-ia.png', width: 1376, height: 768, alt: 'Mise en place IA entreprise Genève DKDP' }],
+  },
 }
 
 // ── Design tokens ──────────────────────────────────────────────

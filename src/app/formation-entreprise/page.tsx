@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   title: 'Formation Informatique Entreprise Genève · PME et Équipes · DKDP',
   description: 'Formation informatique pour entreprises et PME à Genève. Formez vos collaborateurs en IA, Excel, cybersécurité. Sessions sur mesure, en présentiel ou en ligne. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise' },
+  openGraph: {
+    images: [{ url: '/images/og/formation-entreprise.png', width: 1376, height: 768, alt: 'Formation informatique entreprise Genève DKDP' }],
+  },
 }
 
 const PROGRAMS = [

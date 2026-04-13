@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   title: 'Agence IA Genève | Intelligence Artificielle pour PME | DKDP',
   description: 'Agence IA à Genève pour PME et entreprises. Agents IA sur mesure, automatisation des processus, audit et conseil. 700+ entreprises accompagnées en Suisse romande. Audit gratuit.',
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle' },
+  openGraph: {
+    images: [{ url: '/images/og/intelligence-artificielle.png', width: 1376, height: 768, alt: 'Intelligence artificielle pour PME Genève DKDP' }],
+  },
 }
 
 const SERVICES = [

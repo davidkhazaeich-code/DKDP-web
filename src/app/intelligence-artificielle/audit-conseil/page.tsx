@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   title: 'Audit et Conseil IA pour Entreprises à Genève | DKDP',
   description: "Conseil en intelligence artificielle pour PME en Suisse romande. Audit IA structuré : 3 actions à fort ROI identifiées. Dès CHF 490, rapport complet sous 48h.",
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/audit-conseil' },
+  openGraph: {
+    images: [{ url: '/images/og/audit-conseil-ia.png', width: 1376, height: 768, alt: 'Audit et conseil IA entreprise Genève DKDP' }],
+  },
 }
 
 const color  = chrome.color

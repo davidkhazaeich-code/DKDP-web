@@ -1,5 +1,5 @@
 import jsPDF from 'jspdf'
-import 'jspdf-autotable'
+import autoTable from 'jspdf-autotable'
 
 function formatCHF(n: number): string {
   return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'")
@@ -80,7 +80,7 @@ export function generateEstimationPdf(params: {
   if (contact.email) contactRows.push(['Email', contact.email])
   if (contact.phone) contactRows.push(['Telephone', contact.phone])
 
-  ;(doc as any).autoTable({
+  autoTable(doc, {
     startY: y,
     head: [],
     body: contactRows,
@@ -89,11 +89,11 @@ export function generateEstimationPdf(params: {
     styles: {
       font: 'Helvetica',
       fontSize: 10,
-      textColor: dark,
+      textColor: dark as [number, number, number],
       cellPadding: { top: 2.5, bottom: 2.5, left: 4, right: 4 },
     },
     columnStyles: {
-      0: { fontStyle: 'bold', cellWidth: 35, textColor: gray },
+      0: { fontStyle: 'bold', cellWidth: 35, textColor: gray as [number, number, number] },
       1: { cellWidth: contentWidth - 35 },
     },
   })
@@ -115,14 +115,14 @@ export function generateEstimationPdf(params: {
 
     y += 6
 
-    ;(doc as any).autoTable({
+    autoTable(doc, {
       startY: y,
       head: [['Critere', 'Selection']],
       body: filteredSelections.map((s) => [s.label, s.value]),
       theme: 'striped',
       margin: { left: marginLeft, right: marginRight },
       headStyles: {
-        fillColor: violet,
+        fillColor: violet as [number, number, number],
         textColor: [255, 255, 255],
         font: 'Helvetica',
         fontStyle: 'bold',
@@ -131,10 +131,10 @@ export function generateEstimationPdf(params: {
       bodyStyles: {
         font: 'Helvetica',
         fontSize: 10,
-        textColor: dark,
+        textColor: dark as [number, number, number],
       },
       alternateRowStyles: {
-        fillColor: lightGray,
+        fillColor: lightGray as [number, number, number],
       },
       styles: {
         cellPadding: { top: 3.5, bottom: 3.5, left: 5, right: 5 },

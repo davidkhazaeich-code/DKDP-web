@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   title: 'Agence Digitale Genève · Site web, SEO, Google Ads · DKDP',
   description: 'Agence digitale à Genève. Création de site web, SEO, Google Ads et réseaux sociaux pour PME en Suisse romande. 100+ sites livrés, devis gratuit sous 48h.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale' },
+  openGraph: {
+    images: [{ url: '/images/og/agence-digitale.png', width: 1376, height: 768, alt: 'Agence digitale Genève DKDP' }],
+  },
 }
 
 const SERVICES = [

@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   description:
     'Agence social media à Genève : community management, création de contenu et Social Ads pour PME. Instagram, LinkedIn, TikTok, YouTube.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/reseaux-sociaux' },
+  openGraph: {
+    images: [{ url: '/images/og/reseaux-sociaux-agence.png', width: 1376, height: 768, alt: 'Gestion réseaux sociaux Genève DKDP' }],
+  },
 }
 
 

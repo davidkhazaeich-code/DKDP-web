@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description:
     'Agence de référencement naturel à Genève. Audit SEO, stratégie de contenu et GEO pour PME suisses. Dominez Google et les IA. Résultats en 6 à 12 semaines.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/seo' },
+  openGraph: {
+    images: [{ url: '/images/og/seo-geneve.png', width: 1376, height: 768, alt: 'Agence SEO référencement Genève DKDP' }],
+  },
 }
 
 const color = violet.color

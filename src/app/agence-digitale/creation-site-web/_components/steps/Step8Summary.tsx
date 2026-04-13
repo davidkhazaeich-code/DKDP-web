@@ -645,16 +645,28 @@ export function Step8Summary() {
           </InputField>
         )}
 
-        {/* Dynamic: rush → launch date */}
+        {/* Dynamic: rush → launch date (month selector, 12 months from now) */}
         {state.services.includes('rush') && (
           <InputField label="Date de lancement souhaitée" id="launchDate" optional icon={<Calendar size={14} />}>
-            <input
+            <select
               id="launchDate"
-              type="date"
               value={state.contact.launchDate}
               onChange={setField('launchDate')}
               className={inputClass}
-            />
+            >
+              <option value="" className="bg-zinc-900">Sélectionnez un mois...</option>
+              {Array.from({ length: 12 }, (_, i) => {
+                const d = new Date()
+                d.setMonth(d.getMonth() + i + 1)
+                const label = d.toLocaleDateString('fr-CH', { month: 'long', year: 'numeric' })
+                const value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
+                return (
+                  <option key={value} value={value} className="bg-zinc-900">
+                    {label.charAt(0).toUpperCase() + label.slice(1)}
+                  </option>
+                )
+              })}
+            </select>
           </InputField>
         )}
 

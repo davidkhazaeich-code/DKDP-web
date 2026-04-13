@@ -225,7 +225,7 @@ export default function FormationEntreprisePage() {
               style={{ background: 'rgba(255,107,0,0.05)', borderColor: 'rgba(255,107,0,0.20)' }}
             >
               <p className="text-text-secondary leading-relaxed max-w-2xl mx-auto">
-                Nos formations informatiques en entreprise sont conçues pour un impact immédiat : chaque collaborateur repart avec des compétences utilisables le lendemain, sur ses vrais outils, dans son vrai contexte professionnel. Que vous soyez une PME de 5 personnes ou une équipe de 50, le programme s&apos;adapte.
+                Nos formations informatiques en entreprise sont conçues pour un impact immédiat : chaque collaborateur repart avec des compétences utilisables le lendemain, sur ses vrais outils, dans son vrai contexte professionnel. Que vous soyez une PME de 5 personnes ou une équipe de 50, le programme s&apos;adapte. Découvrez comment <Link href="/blog/formation-ia-collaborateurs-roi" className="underline hover:text-white transition-colors">la formation IA booste le ROI de vos collaborateurs</Link>.
               </p>
             </div>
           </SectionReveal>

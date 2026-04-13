@@ -228,7 +228,7 @@ export default function FormationIAPage() {
                 La plupart des collaborateurs ont testé ChatGPT une fois, obtenu un résultat décevant, et sont passés à autre chose. Pourtant, avec les bonnes techniques de prompting, l&apos;IA réduit de 60 à 80% le temps de traitement des tâches répétitives.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
-                DKDP ne fait pas de démonstrations génériques. On travaille sur vos vrais documents, vos vrais emails et vos vrais cas d&apos;usage. Dès le lendemain matin, vous avez des prompts personnels et une routine IA opérationnelle.
+                DKDP ne fait pas de démonstrations génériques. On travaille sur vos vrais documents, vos vrais emails et vos vrais cas d&apos;usage. Dès le lendemain matin, vous avez des prompts personnels et une routine IA opérationnelle. Pour comparer les outils, consultez notre guide <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-white transition-colors">ChatGPT vs Claude vs Copilot pour les PME</Link>.
               </p>
               <div className="space-y-3">
                 {[

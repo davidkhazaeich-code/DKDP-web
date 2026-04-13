@@ -303,7 +303,7 @@ export default function PubliciteSEAPage() {
                 La plupart des comptes Google Ads des PME saignent du budget sur des mots-clés hors cible, des annonces non testées et un suivi des conversions mal configuré. DKDP commence toujours par corriger ces fuites avant d&apos;augmenter le budget.
               </p>
               <p className="text-text-secondary leading-relaxed">
-                Votre compte Ads vous appartient. Vous avez accès à tout à tout moment. DKDP ne prend pas de commission sur votre budget media : chaque franc publicitaire va directement à Google.
+                Votre compte Ads vous appartient. Vous avez accès à tout à tout moment. DKDP ne prend pas de commission sur votre budget media : chaque franc publicitaire va directement à Google. Découvrez notre comparatif <Link href="/blog/seo-vs-google-ads-geneve" className="underline hover:text-white transition-colors">SEO vs Google Ads : que choisir à Genève ?</Link>
               </p>
             </SectionReveal>
             <SectionReveal delay={0.1}>

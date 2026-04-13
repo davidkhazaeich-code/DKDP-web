@@ -206,7 +206,7 @@ export default function FormationCybersecuritePage() {
                 Contrairement aux grandes entreprises, les PME disposent de peu de protections et sont perçues comme des cibles faciles. Une seule erreur humaine suffit : un clic sur un lien de phishing, un mot de passe réutilisé, un email usurpant l&apos;identité d&apos;un dirigeant.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
-                DKDP ne fait pas de théorie abstraite. On présente des cas réels survenus en Suisse, on simule les attaques, et on donne à chaque participant les réflexes concrets pour y faire face. En une demi-journée, vos équipes deviennent votre première ligne de défense.
+                DKDP ne fait pas de théorie abstraite. On présente des cas réels survenus en Suisse, on simule les attaques, et on donne à chaque participant les réflexes concrets pour y faire face. En une demi-journée, vos équipes deviennent votre première ligne de défense. Découvrez les <Link href="/blog/cybersecurite-pme-erreurs-courantes" className="underline hover:text-white transition-colors">8 erreurs de cybersécurité les plus courantes en PME</Link>.
               </p>
               <div className="space-y-3">
                 {[

@@ -234,7 +234,7 @@ export default function SEOPage() {
                 Le SEO ne se limite pas à quelques balises bien remplies. DKDP combine audit technique rigoureux, contenu optimisé pour les intentions de recherche de vos clients, et acquisition progressive d&apos;autorité. Le résultat : un trafic qualifié qui croît mois après mois.
               </p>
               <p className="text-text-secondary leading-relaxed">
-                On travaille essentiellement sur le marché genevois et suisse romand, ce qui nous donne une connaissance précise des requêtes locales, des comportements de recherche et de la concurrence en ligne dans votre secteur.
+                On travaille essentiellement sur le marché genevois et suisse romand, ce qui nous donne une connaissance précise des requêtes locales, des comportements de recherche et de la concurrence en ligne dans votre secteur. Consultez notre guide <Link href="/blog/seo-local-geneve-2026" className="underline hover:text-white transition-colors">SEO local à Genève en 2026</Link>.
               </p>
             </SectionReveal>
             <SectionReveal delay={0.1}>

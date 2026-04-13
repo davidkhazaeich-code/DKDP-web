@@ -1058,7 +1058,7 @@ export default function FormationClaudeAIPage() {
                 <p className="text-text-secondary leading-relaxed mb-8">
                   Cette expérience de terrain nous permet d&apos;aller bien au-delà des tutoriels génériques :
                   nous savons ce qui fonctionne vraiment, ce qui ne fonctionne pas, et comment adapter
-                  Claude à des contextes professionnels spécifiques.
+                  Claude à des contextes professionnels spécifiques. En savoir plus sur <Link href="/blog/claude-code-leak-utiliser-ia-comme-infrastructure" className="underline hover:text-white transition-colors">comment utiliser Claude comme infrastructure IA</Link>.
                 </p>
                 <div className="space-y-3">
                   {[

@@ -302,7 +302,7 @@ export default function AutomationPage() {
                 Pourquoi automatiser les tâches répétitives de votre PME
               </h2>
               <p className="text-text-secondary leading-relaxed mb-8">
-                Les PME perdent en moyenne 5 heures par semaine et par collaborateur sur des tâches de transfert de données entre outils. Ce n&apos;est pas un problème d&apos;organisation : c&apos;est un problème de connexion entre systèmes.
+                Les PME perdent en moyenne 5 heures par semaine et par collaborateur sur des tâches de transfert de données entre outils. Ce n&apos;est pas un problème d&apos;organisation : c&apos;est un problème de connexion entre systèmes. Lire notre article : <Link href="/blog/automatiser-taches-repetitives-ia-pme" className="underline hover:text-white transition-colors">automatiser les tâches répétitives avec l&apos;IA dans votre PME</Link>.
               </p>
               <div className="space-y-3">
                 {[

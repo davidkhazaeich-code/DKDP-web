@@ -262,7 +262,7 @@ export default function CreationSiteWebPage() {
                 Un site web beau mais lent, mal référencé ou difficile à mettre à jour ne rapporte rien. DKDP conçoit des sites qui combinent design soigné, performance technique et fondamentaux SEO, pour que votre investissement soit rentable dès le premier mois.
               </p>
               <p className="text-text-secondary leading-relaxed">
-                Chaque projet démarre par un brief approfondi. On comprend votre marché, vos clients et vos objectifs avant d&apos;ouvrir Figma. Le résultat est un site pensé pour votre audience, pas pour impressionner des designers.
+                Chaque projet démarre par un brief approfondi. On comprend votre marché, vos clients et vos objectifs avant d&apos;ouvrir Figma. Le résultat est un site pensé pour votre audience, pas pour impressionner des designers. Combien coûte un site web ? Notre article détaillé : <Link href="/blog/cout-site-web-geneve-2026" className="underline hover:text-white transition-colors">le coût d&apos;un site web à Genève en 2026</Link>.
               </p>
             </SectionReveal>
             <SectionReveal delay={0.1}>

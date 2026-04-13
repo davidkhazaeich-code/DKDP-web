@@ -19,9 +19,9 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
-  title: 'Référencement SEO & GEO à Genève · Google + IA · DKDP',
+  title: 'Agence SEO Genève | Référencement naturel et GEO | DKDP',
   description:
-    'Agence SEO à Genève. Audit complet, stratégie de contenu et GEO pour dominer Google et les IA (ChatGPT, Perplexity, Google AI Overviews). Premiers résultats en 6 à 12 semaines.',
+    'Agence de référencement naturel à Genève. Audit SEO, stratégie de contenu et GEO pour PME suisses. Dominez Google et les IA. Résultats en 6 à 12 semaines.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/seo' },
 }
 
@@ -145,13 +145,13 @@ export default function SEOPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">SEO · Genève &amp; Suisse romande</GradTag>
+                <GradTag className="mb-6">SEO · Genève et Suisse romande</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Référencement SEO à Genève : dominez les{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>mots-clés de votre marché.</GradText>
+                  Référencement naturel à Genève : dominez les{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>résultats Google et IA.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP construit votre autorité organique sur Google avec une stratégie SEO complète : technique, contenu et netlinking. Résultats durables, sans frais par clic.
+                  DKDP, agence SEO à Genève, construit votre autorité organique avec une stratégie de référencement naturel complète : audit technique, contenu optimisé et netlinking. Notre agence SEO accompagne les PME suisses vers un référencement naturel durable, sans frais par clic.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Audit SEO gratuit →</LiquidMetalButton>
@@ -228,7 +228,7 @@ export default function SEOPage() {
             <SectionReveal>
               <GradTag className="mb-4">Notre approche</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Le SEO qui génère des leads, pas juste du trafic.
+                Référencement naturel : du trafic qualifié, pas juste des visiteurs.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Le SEO ne se limite pas à quelques balises bien remplies. DKDP combine audit technique rigoureux, contenu optimisé pour les intentions de recherche de vos clients, et acquisition progressive d&apos;autorité. Le résultat : un trafic qualifié qui croît mois après mois.
@@ -394,7 +394,7 @@ export default function SEOPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Résultats</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que vous gagnez concrètement.
+                Les résultats concrets de notre SEO pour PME à Genève.
               </h2>
             </div>
           </SectionReveal>
@@ -426,7 +426,7 @@ export default function SEOPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Des tarifs clairs, un engagement transparent.
+                Tarifs référencement SEO Genève : clairs et sans engagement caché.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">Chaque prestation est détaillée et validée avant démarrage. Pas de mauvaises surprises en cours de mission.</p>
             </div>
@@ -715,7 +715,7 @@ export default function SEOPage() {
 
       {/* ── FAQ ── */}
       <div id="faq" className="scroll-mt-[124px]">
-        <FAQSection items={FAQ} title="Vos questions sur le référencement SEO" />
+        <FAQSection items={FAQ} title="FAQ référencement naturel Genève" />
       </div>
 
       {/* ── Bridge ── */}

@@ -49,7 +49,7 @@ const FAQ = [
   {
     question: 'Travaillez-vous avec des équipes marketing internes ?',
     answer:
-      'Oui. DKDP intervient souvent en complément d\'une équipe interne : audit de la situation, formation aux bonnes pratiques, cadrage stratégique ou soutien ponctuel sur des projets spécifiques. On s\'adapté à votre organisation.',
+      'Oui. DKDP intervient souvent en complément d\'une équipe interne : audit de la situation, formation aux bonnes pratiques, cadrage stratégique ou soutien ponctuel sur des projets spécifiques. On s\'adapte à votre organisation.',
   },
   {
     question: 'Quels livrables reçoit-on d\'une mission de consulting ?',
@@ -97,12 +97,12 @@ const PROCESS = [
   },
   {
     step: '04',
-    title: 'Mesure & optimisation',
+    title: 'Mesure et optimisation',
     desc: 'Tableaux de bord en temps réel. Chaque semaine, on analyse, on ajuste, on améliore.',
   },
   {
     step: '05',
-    title: 'Coaching & reporting',
+    title: 'Coaching et reporting',
     desc: 'Réunion mensuelle avec le décideur. Rapport complet, décisions éclairées, équipe autonome.',
   },
 ]
@@ -137,11 +137,10 @@ export default function ConsultingMarketingPage() {
               <div>
                 <GradTag className="mb-6">Stratégie digitale · Audit · Genève</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Une stratégie marketing qui génère des{' '}
-                  <span className="grad-text--ia">résultats mesurables.</span>
+                  <GradText>Consulting marketing digital à Genève</GradText> : une stratégie qui génère des résultats mesurables.
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP audite votre présence digitale, définit votre stratégie de croissance et pilote l&apos;exécution mois après mois. Pas de rapport de 50 pages : des KPIs, des actions et des résultats prouvés en 6 mois.
+                  Consultant marketing digital pour PME en Suisse romande, DKDP audite votre présence digitale, définit votre stratégie de croissance et pilote l&apos;exécution mois après mois. Pas de rapport de 50 pages : des KPIs, des actions et des résultats prouvés en 6 mois.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Appel découverte gratuit →</LiquidMetalButton>
@@ -162,7 +161,7 @@ export default function ConsultingMarketingPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: '+65%', l: 'Leads générés', sub: 'Gain moyen à 6 mois' },
-              { v: '10 ans', l: "D'expertise", sub: 'B2B & B2C Suisse' },
+              { v: '10 ans', l: "D'expertise", sub: 'B2B et B2C Suisse' },
               { v: '95%', l: 'Clients renouvellent', sub: 'Après première année' },
               { v: '6 mois', l: 'ROI mesurable', sub: 'Délai moyen constaté' },
             ].map((s) => (
@@ -218,7 +217,7 @@ export default function ConsultingMarketingPage() {
             <SectionReveal>
               <GradTag className="mb-4">Notre approche</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Un regard extérieur qui fait la différence.
+                Conseil marketing pour PME : un regard extérieur qui fait la différence.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Quand on gère son propre marketing au quotidien, on a du mal à voir ce qui bloque. DKDP apporte un regard neuf, des données concrètes et une expérience sur plus de 150 projets pour pointer exactement où se perdent vos opportunités.
@@ -257,7 +256,7 @@ export default function ConsultingMarketingPage() {
             <SectionReveal>
               <GradTag className="mb-4">Le vrai problème</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                La plupart des PME investissent sans stratégie définie.
+                Stratégie digitale PME : pourquoi la plupart investissent sans cap défini.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Sans audit ni cap clair, chaque euro dépensé en marketing est un pari. DKDP mesure l&apos;écart entre votre situation actuelle et votre potentiel réel sur chaque levier de croissance.
@@ -342,7 +341,7 @@ export default function ConsultingMarketingPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Des tarifs clairs, un engagement flexible.
+                Tarifs consulting marketing digital pour PME.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">Chaque prestation est documentée et validée avant démarrage. Sans engagement annuel sur les formules mensuelles.</p>
             </div>
@@ -452,7 +451,7 @@ export default function ConsultingMarketingPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Méthode</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Comment se déroule une mission de consulting.
+                Notre méthode de consulting marketing digital en 5 étapes.
               </h2>
             </div>
           </SectionReveal>

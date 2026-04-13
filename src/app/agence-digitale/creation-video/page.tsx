@@ -140,11 +140,11 @@ export default function CreationVideoPage() {
               <div>
                 <GradTag className="mb-6">Vidéo d&apos;entreprise · Genève</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Des vidéos qui{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>captivent, partagent et convertissent.</GradText>
+                  Création vidéo d&apos;entreprise à Genève :{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>captivez, partagez et convertissez.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP produit vos vidéos d&apos;entreprise à Genève : clips sociaux, témoignages clients, brand films. Production 4K, livrée en 5 jours.
+                  Production vidéo professionnelle pour PME et entreprises en Suisse romande. DKDP réalise vos vidéos corporate à Genève : clips sociaux, témoignages clients, brand films. Captation 4K, livrée en 5 jours.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Devis vidéo gratuit →</LiquidMetalButton>
@@ -233,7 +233,7 @@ export default function CreationVideoPage() {
             <SectionReveal>
               <GradTag className="mb-4">Notre approche</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Des vidéos pensées pour convaincre, pas juste pour briller.
+                Production vidéo professionnelle pensée pour convaincre, pas juste pour briller.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Une belle image ne suffit pas. DKDP commence par comprendre votre message, votre cible et l&apos;objectif de la vidéo : notoriété, confiance, conversion. Chaque choix de cadrage, de musique et de montage est fait pour servir ce but.
@@ -272,7 +272,7 @@ export default function CreationVideoPage() {
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi la vidéo</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Le contenu statique ne convertit plus comme avant.
+                Pourquoi la vidéo corporate convertit mieux que le contenu statique.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Les algorithmes de toutes les plateformes sociales priorisent la vidéo. Les visiteurs de votre site restent plus longtemps avec une vidéo. Vos prospects se souviennent de vous si vous leur avez parlé en vidéo. C&apos;est mesurable, pas une opinion.
@@ -319,7 +319,7 @@ export default function CreationVideoPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Résultats</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Le format qui convertit le mieux.
+                Vidéo marketing : le format qui convertit le mieux.
               </h2>
             </div>
           </SectionReveal>
@@ -636,7 +636,7 @@ export default function CreationVideoPage() {
 
       {/* ── FAQ ── */}
       <div id="faq" className="scroll-mt-[124px]">
-        <FAQSection items={FAQ} title="Vos questions sur la création vidéo" />
+        <FAQSection items={FAQ} title="FAQ : création vidéo pour PME et entreprises en Suisse romande" />
       </div>
 
       {/* ── Bridge ── */}

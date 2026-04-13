@@ -13,7 +13,7 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildService, buildBreadcrumbList } from '@/lib/schema'
+import { buildService, buildBreadcrumbList, buildFAQPage } from '@/lib/schema'
 import { FAQ_AGENCE } from '@/data/faq-agence'
 import { CITIES } from '@/lib/cities'
 import { FunnelDiagram } from './_components/FunnelDiagram'
@@ -28,7 +28,7 @@ const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBloc
 
 export const metadata: Metadata = {
   title: 'Agence Digitale Genève · Site web, SEO, Google Ads · DKDP',
-  description: 'Agence digitale à Genève et Suisse romande. Création de site web, référencement SEO, Google Ads, réseaux sociaux, vidéo. Résultats mesurables.',
+  description: 'Agence digitale à Genève. Création de site web, SEO, Google Ads et réseaux sociaux pour PME en Suisse romande. 100+ sites livrés, devis gratuit sous 48h.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale' },
 }
 
@@ -112,6 +112,7 @@ export default function AgenceDigitalePage() {
     <main>
       <SchemaOrg schema={buildService({ name: 'Agence Digitale Genève', url: '/agence-digitale', description: 'Création de sites web, SEO, Google Ads et réseaux sociaux pour entreprises à Genève et en Suisse romande.' })} />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Agence Digitale', url: '/agence-digitale' }])} />
+      <SchemaOrg schema={buildFAQPage(FAQ_AGENCE)} />
 
       {/* ── Hero ── */}
       <HeroBg
@@ -124,11 +125,11 @@ export default function AgenceDigitalePage() {
               <div>
                 <GradTag className="mb-6">Service Digital</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Votre présence digitale,{' '}
-                  <GradText as="span">optimisée de A à Z.</GradText>
+                  Agence digitale à Genève :{' '}
+                  <GradText as="span">votre présence en ligne, optimisée de A à Z.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  De la création de site au référencement, en passant par les campagnes payantes : on construit une stratégie cohérente qui génère de vrais résultats.
+                  Agence web spécialisée pour les PME en Suisse romande. De la création de site au référencement, en passant par les campagnes payantes : on construit une stratégie cohérente qui génère de vrais résultats.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton href="/agence-digitale/creation-site-web/estimation" size="lg">Estimer mon projet →</LiquidMetalButton>
@@ -166,7 +167,7 @@ export default function AgenceDigitalePage() {
             <div className="text-center mb-12">
               <GradTag className="mb-4">Le problème</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-2xl mx-auto">
-                Sans stratégie digitale, vous laissez vos clients à vos concurrents.
+                Sans stratégie digitale à Genève, vos clients vont chez vos concurrents.
               </h2>
             </div>
           </SectionReveal>
@@ -220,7 +221,7 @@ export default function AgenceDigitalePage() {
             <div className="mb-14">
               <GradTag className="mb-4">Nos services</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-xl">
-                Tout ce dont votre digital a besoin.
+                Nos services : création de site web, SEO, publicité et réseaux sociaux.
               </h2>
             </div>
           </SectionReveal>
@@ -408,7 +409,7 @@ export default function AgenceDigitalePage() {
                 <div className="mb-10">
                   <GradTag className="mb-4">Notre différence</GradTag>
                   <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                    Pourquoi choisir DKDP ?
+                    Pourquoi choisir DKDP comme agence digitale ?
                   </h2>
                 </div>
               </SectionReveal>
@@ -442,7 +443,7 @@ export default function AgenceDigitalePage() {
             <SectionReveal>
               <GradTag className="mb-4">Notre méthode</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                De zéro à une présence qui génère des résultats.
+                Notre méthode : de l'audit au lancement de votre projet digital.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-8">
                 On ne vend pas des sites web ou du SEO. On construit des systèmes digitaux cohérents qui attirent, convainquent et convertissent. Chaque décision est justifiée par des données réelles.
@@ -523,7 +524,7 @@ export default function AgenceDigitalePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Preuves concrètes</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que nos clients obtiennent vraiment.
+                Résultats concrets pour des PME en Suisse romande.
               </h2>
             </div>
           </SectionReveal>
@@ -627,7 +628,7 @@ export default function AgenceDigitalePage() {
             <div className="mb-8">
               <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Suisse romande</p>
               <h2 className="text-2xl md:text-3xl font-bold text-white">
-                Nous accompagnons les entreprises de toute la region.
+                Agence web active dans toute la Suisse romande.
               </h2>
             </div>
           </SectionReveal>

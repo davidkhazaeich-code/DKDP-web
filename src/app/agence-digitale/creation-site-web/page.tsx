@@ -22,7 +22,7 @@ const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBloc
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
-  title: 'Création de Site Web à Genève · Sur mesure & performant · DKDP',
+  title: 'Création de Site Web à Genève | Sur mesure et performant | DKDP',
   description:
     'Création de sites web professionnels à Genève. Site vitrine, e-commerce ou sur mesure. Rapide, SEO-ready, livré en 3 à 5 semaines. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-site-web' },
@@ -175,11 +175,11 @@ export default function CreationSiteWebPage() {
               <div>
                 <GradTag className="mb-6">Site web sur mesure · Genève</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Votre site web à Genève,{' '}
+                  Création de site web à Genève,{' '}
                   <GradText as="span">conçu pour convertir.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP crée des sites web professionnels à Genève : vitrine, e-commerce ou sur mesure. Chaque projet est pensé pour être rapide, visible sur Google et facile à gérer en autonomie. Les tarifs démarrent à CHF 2&apos;500, avec un devis fixe et sans surprise.
+                  DKDP crée des sites web professionnels pour les PME à Genève et en Suisse romande : vitrine, e-commerce ou sur mesure. Chaque projet est pensé pour être rapide, visible sur Google et facile à gérer en autonomie. Les tarifs démarrent à CHF 2&apos;500, avec un devis fixe et sans surprise.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/agence-digitale/creation-site-web/estimation" size="lg">Estimer mon projet →</LiquidMetalButton>
@@ -256,7 +256,7 @@ export default function CreationSiteWebPage() {
             <SectionReveal>
               <GradTag className="mb-4">Notre approche</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Un site qui travaille pour vous, pas juste un site.
+                Un site internet qui travaille pour votre PME.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Un site web beau mais lent, mal référencé ou difficile à mettre à jour ne rapporte rien. DKDP conçoit des sites qui combinent design soigné, performance technique et fondamentaux SEO, pour que votre investissement soit rentable dès le premier mois.
@@ -379,7 +379,7 @@ export default function CreationSiteWebPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Des tarifs clairs, un devis fixe.
+                Création de site web : tarifs clairs, devis fixe.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">Pas de surprise en cours de projet. Chaque devis est détaillé et validé avant que quoi que ce soit ne démarre.</p>
             </div>
@@ -506,7 +506,7 @@ export default function CreationSiteWebPage() {
               <div className="text-center mb-16">
                 <GradTag className="mb-4">Le processus</GradTag>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                  6 étapes, zéro improvisation.
+                  Créer votre site internet en 6 étapes.
                 </h2>
               </div>
             </SectionReveal>
@@ -523,7 +523,7 @@ export default function CreationSiteWebPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Réalisations</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Des résultats, pas des promesses.
+                Sites web livrés à Genève : résultats concrets.
               </h2>
             </div>
           </SectionReveal>

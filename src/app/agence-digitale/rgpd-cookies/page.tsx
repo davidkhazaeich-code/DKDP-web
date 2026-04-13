@@ -18,9 +18,9 @@ const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m =
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 export const metadata: Metadata = {
-  title: 'Mise en conformité RGPD & Cookies à Genève · LPD Suisse · DKDP',
+  title: 'Mise en conformité RGPD et nLPD Genève | Bandeau cookies | DKDP',
   description:
-    'Mise en conformité RGPD et LPD suisse pour PME à Genève. Politique de confidentialité, bandeau cookies, registre des traitements. Protection juridique complète.',
+    'Mise en conformité RGPD et nLPD pour entreprises et PME à Genève. Bandeau cookies, politique de confidentialité, registre des traitements. Audit sous 48h, dès CHF 800.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/rgpd-cookies' },
 }
 
@@ -101,12 +101,12 @@ const PROCESS = [
   },
   {
     step: '04',
-    title: 'Contrats & registres',
+    title: 'Contrats et registres',
     desc: 'Rédaction ou adaptation des contrats de sous-traitance (DPA) et création du registre des traitements.',
   },
   {
     step: '05',
-    title: 'Certification & formation',
+    title: 'Certification et formation',
     desc: 'Remise du certificat de conformité DKDP, formation de l\'équipe et mise en place du suivi annuel.',
   },
 ]
@@ -123,7 +123,7 @@ export default function RGPDCookiesPage() {
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
         { name: 'Agence Digitale', url: 'https://dkdp.ch/agence-digitale' },
-        { name: 'RGPD & Cookies', url: 'https://dkdp.ch/agence-digitale/rgpd-cookies' },
+        { name: 'RGPD et Cookies', url: 'https://dkdp.ch/agence-digitale/rgpd-cookies' },
       ])} />
 
       {/* ── Hero ── */}
@@ -135,17 +135,17 @@ export default function RGPDCookiesPage() {
                 Service Digital
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
-              <span className="text-sm" style={{ color }}>RGPD &amp; Cookies</span>
+              <span className="text-sm" style={{ color }}>RGPD et Cookies</span>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">RGPD · revLPD suisse · Cookies</GradTag>
+                <GradTag className="mb-6">RGPD · nLPD suisse · Bandeau cookies</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Mise en conformité RGPD et LPD. Rapide, complète,{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>sans risque.</GradText>
+                  Mise en conformité RGPD et nLPD à Genève.{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>Rapide, complète, sans risque.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP met votre site et vos pratiques en conformité avec le RGPD européen et la loi suisse revLPD. Audit livré sous 48h, implémentation complète en 5 jours.
+                  DKDP accompagne les entreprises et PME genevoises dans leur mise en conformité RGPD et nLPD : bandeau cookies, politique de confidentialité, registre des traitements. Audit livré sous 48h, implémentation complète en 5 jours.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Demander un audit →</LiquidMetalButton>
@@ -189,7 +189,7 @@ export default function RGPDCookiesPage() {
             <SectionReveal>
               <GradTag className="mb-4">Notre approche</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Une conformité complète, expliquée simplement.
+                Audit de conformité RGPD et nLPD : notre méthode en 5 étapes.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La conformité RGPD n&apos;est pas optionnelle. Mais elle ne doit pas non plus vous bloquer. DKDP prend en charge l&apos;intégralité de la mise en conformité de votre site : audit des traitements, rédaction des documents légaux, et implémentation technique du banner cookies.
@@ -228,7 +228,7 @@ export default function RGPDCookiesPage() {
             <SectionReveal>
               <GradTag className="mb-4">Le vrai problème</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Votre site expose votre entreprise chaque jour sans conformité.
+                Risques juridiques sans conformité RGPD pour les entreprises suisses.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La plupart des PME suisses ne savent pas qu&apos;elles sont en infraction. Un formulaire sans mention légale, un cookie analytics sans consentement, un sous-traitant sans contrat DPA : chacun de ces points peut déclencher une sanction ou une plainte de concurrent.
@@ -281,7 +281,7 @@ export default function RGPDCookiesPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Protection</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que la conformité vous apporte concrètement.
+                Les bénéfices concrets de la mise en conformité RGPD.
               </h2>
             </div>
           </SectionReveal>
@@ -313,7 +313,7 @@ export default function RGPDCookiesPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Des tarifs clairs, une conformité sans surprise.
+                Tarifs mise en conformité RGPD à Genève.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">Chaque prestation est définie avant démarrage. Pas de facturation à l&apos;heure, pas de surprise en cours de mission.</p>
             </div>
@@ -600,7 +600,7 @@ export default function RGPDCookiesPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <FAQSection items={FAQ} title="Vos questions sur le RGPD et les cookies" />
+      <FAQSection items={FAQ} title="Questions fréquentes sur le RGPD, la nLPD et les cookies" />
 
       {/* ── Bridge ── */}
       <section className="py-16 border-t border-border">

@@ -28,7 +28,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 export const metadata: Metadata = {
   title: 'Gestion Réseaux Sociaux Genève · Instagram, LinkedIn · DKDP',
   description:
-    'Gestion des réseaux sociaux pour PME à Genève. Stratégie, création de contenu, community management et Social Ads sur Instagram, LinkedIn, Facebook, TikTok et YouTube.',
+    'Agence social media à Genève : community management, création de contenu et Social Ads pour PME. Instagram, LinkedIn, TikTok, YouTube.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/reseaux-sociaux' },
 }
 
@@ -150,11 +150,11 @@ export default function ReseauxSociauxPage() {
               <div>
                 <GradTag className="mb-6">Instagram · LinkedIn · TikTok · YouTube</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Des réseaux sociaux qui génèrent de{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>vraie croissance.</GradText>
+                  Gestion de vos réseaux sociaux à{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>Genève.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP gère votre présence sur les réseaux sociaux de A à Z : stratégie, création de contenu, publication et community management. +180% d&apos;engagement moyen en 3 mois. Vous vous concentrez sur votre métier, on s&apos;occupe du reste.
+                  Votre community manager à Genève : DKDP, agence social media, gère votre présence de A à Z. Stratégie, création de contenu, publication et community management. +180% d&apos;engagement moyen en 3 mois. Vous vous concentrez sur votre métier, on s&apos;occupe du reste.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Demander un devis →</LiquidMetalButton>
@@ -243,7 +243,7 @@ export default function ReseauxSociauxPage() {
             <SectionReveal>
               <GradTag className="mb-4">Notre approche</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Du contenu qui résonne avec votre audience.
+                Création de contenu social media pour votre entreprise.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Publier pour publier ne sert à rien. DKDP construit une stratégie éditoriale basée sur votre audience cible, votre secteur et vos objectifs business. Chaque contenu a un but : visibilité, engagement, trafic ou conversion.
@@ -335,7 +335,7 @@ export default function ReseauxSociauxPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Résultats</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que vous gagnez concrètement.
+                Les résultats concrets d'une gestion professionnelle de vos réseaux sociaux.
               </h2>
             </div>
           </SectionReveal>
@@ -374,7 +374,7 @@ export default function ReseauxSociauxPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Des forfaits clairs, sans surprise.
+                Forfaits community management Genève : tarifs clairs.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">Budget média non inclus dans les forfaits. Chaque forfait est mensuel et résiliable à tout moment.</p>
             </div>
@@ -482,7 +482,7 @@ export default function ReseauxSociauxPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Méthode</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Comment on prend en main vos réseaux.
+                Comment notre agence social media gère vos réseaux.
               </h2>
             </div>
           </SectionReveal>

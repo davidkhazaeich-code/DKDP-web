@@ -216,11 +216,11 @@ export default function PubliciteSEAPage() {
               <div>
                 <GradTag className="mb-6">Google Ads · SEA · Genève</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Des campagnes Google Ads{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>qui rentabilisent chaque franc.</GradText>
+                  Campagnes Google Ads à Genève :{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>chaque franc investi vous rapporte.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP gère vos campagnes Google Ads avec une obsession du ROI. Budget 100% dédié au media, gestion transparente sans commission, suivi de chaque conversion. Trafic qualifié dès les premières 48h.
+                  Agence SEA spécialisée pour les PME en Suisse romande. DKDP gère vos campagnes Google Ads avec une obsession du ROI. Budget 100% dédié au media, gestion transparente sans commission, suivi de chaque conversion. Trafic qualifié dès les premières 48h.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Audit Ads gratuit →</LiquidMetalButton>
@@ -297,7 +297,7 @@ export default function PubliciteSEAPage() {
             <SectionReveal>
               <GradTag className="mb-4">Notre approche</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Pas de dépenses inutiles. Que du résultat.
+                Notre approche SEA : zéro dépense inutile, que du résultat
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La plupart des comptes Google Ads des PME saignent du budget sur des mots-clés hors cible, des annonces non testées et un suivi des conversions mal configuré. DKDP commence toujours par corriger ces fuites avant d&apos;augmenter le budget.
@@ -336,7 +336,7 @@ export default function PubliciteSEAPage() {
             <SectionReveal>
               <GradTag className="mb-4">Le vrai problème</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Votre budget part à la poubelle sans que vous le sachiez.
+                Publicité Google mal gérée : votre budget part à la poubelle
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Un compte Google Ads mal configuré perd entre 40% et 60% de son budget sur des clics non qualifiés, des mots-clés trop larges et des pages de destination qui ne convertissent pas. Ce n&apos;est pas visible dans votre tableau de bord par défaut.
@@ -389,7 +389,7 @@ export default function PubliciteSEAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Résultats</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que vous gagnez concrètement.
+                Résultats concrets de vos campagnes Google Ads
               </h2>
             </div>
           </SectionReveal>
@@ -445,7 +445,7 @@ export default function PubliciteSEAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Des tarifs clairs, sans commission cachée.
+                Tarifs agence SEA : clairs, sans commission cachée
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">Votre budget publicitaire va 100% à Google. DKDP facture uniquement la gestion stratégique, sans surprise.</p>
             </div>

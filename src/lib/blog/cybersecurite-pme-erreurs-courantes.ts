@@ -215,7 +215,27 @@ ___IMG:cybersecurite-pme-checklist-protection.png___
 
 ## Conclusion
 
-La cybersécurité n'est pas un projet réservé aux DSI des grandes entreprises. C'est un ensemble de bonnes pratiques accessibles à toute PME, souvent à faible coût. Les 8 points couverts dans cet article constituent le socle minimal. Commencez ce mois-ci par les deux premières priorités : gestionnaire de mots de passe et 2FA. Ces deux mesures seules réduisent votre surface d'attaque de façon drastique.`,
+La cybersécurité n'est pas un projet réservé aux DSI des grandes entreprises. C'est un ensemble de bonnes pratiques accessibles à toute PME, souvent à faible coût. Les 8 points couverts dans cet article constituent le socle minimal. Commencez ce mois-ci par les deux premières priorités : gestionnaire de mots de passe et 2FA. Ces deux mesures seules réduisent votre surface d'attaque de façon drastique.
+
+## Questions fréquentes
+
+**Combien coûte la mise en place d'une sécurité de base pour une PME de 10 personnes ?**
+Un socle minimal représente environ 30 à 60 CHF par mois pour une PME de 10 personnes : gestionnaire de mots de passe (3 à 5 $/utilisateur/mois), solution de sauvegarde cloud (6 à 10 $/mois) et applications d'authentification 2FA gratuites. La formation phishing annuelle représente un coût ponctuel de 500 à 2 000 CHF selon le prestataire.
+
+**Quelle est la différence entre la LPD et le RGPD pour une PME suisse ?**
+La LPD (Loi fédérale sur la Protection des Données) est la réglementation suisse équivalente au RGPD européen. Elle s'applique à toutes les entreprises traitant des données personnelles de résidents suisses, quelle que soit leur taille. Une violation de la LPD peut entraîner des amendes jusqu'à 250 000 CHF pour les responsables. Les PME suisses doivent se conformer aux deux si elles ont des clients européens.
+
+**Le 2FA par SMS est-il suffisant ?**
+Le 2FA par SMS est bien mieux que pas de 2FA du tout, mais il reste vulnérable aux attaques de type SIM swapping (vol du numéro de téléphone). Pour les services critiques (comptabilité, données clients, systèmes de paiement), préférez une application d'authentification comme Authy ou Google Authenticator, qui génère des codes localement sans passer par le réseau mobile.
+
+**Que faire en cas de cyberattaque ou de ransomware ?**
+Les premières mesures : déconnecter immédiatement les machines infectées du réseau (Ethernet et Wifi), ne pas éteindre les ordinateurs (les logs sont utiles pour l'analyse), contacter votre prestataire informatique et signaler l'incident au NCSC (Centre national pour la cybersécurité suisse). N'essayez pas de restaurer vous-même sans accompagnement. Ne payez pas la rançon sans conseil expert.
+
+**Comment vérifier si mes données d'entreprise ont déjà été compromises ?**
+Utilisez Have I Been Pwned (haveibeenpwned.com) pour vérifier si des adresses email de votre domaine figurent dans des bases de données volées. Ce service gratuit recense des milliards d'identifiants compromis issus de fuites publiques. Configurez une alerte pour être notifié en cas de nouvelle fuite impliquant votre domaine.
+
+**DKDP propose-t-il des formations à la cybersécurité pour les équipes PME ?**
+Oui. DKDP propose des [formations cybersécurité pratiques](/formation-entreprise/cybersecurite) pour PME à Genève : sensibilisation au phishing, bonnes pratiques de mots de passe, gestion des accès, simulation d'attaques. Sessions de groupe jusqu'à 12 personnes, adaptées à votre contexte. À partir de CHF 1 500.`,
   }
 
 export default article

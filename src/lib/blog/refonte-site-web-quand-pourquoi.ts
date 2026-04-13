@@ -231,7 +231,27 @@ La refonte n\'est pas une fin en soi. C\'est un investissement stratégique que 
 
 Une bonne refonte ne se décide pas sur un coup de tête ou parce que le design "vieillit". Elle se justifie par des données : trafic, conversion, performance, positionnement SEO. Prenez le temps d\'auditer ces indicateurs avant de lancer un projet.
 
-Chez DKDP, chaque projet de refonte commence par un audit de l\'existant. Parce qu\'on ne construit pas quelque chose de mieux sans comprendre ce qui ne fonctionne pas dans l\'actuel.`,
+Chez DKDP, chaque projet de refonte commence par un audit de l\'existant. Parce qu\'on ne construit pas quelque chose de mieux sans comprendre ce qui ne fonctionne pas dans l\'actuel.
+
+## Questions fréquentes
+
+**Combien coûte une refonte de site web pour une PME à Genève ?**
+Une refonte complète pour une PME genevoise coûte entre CHF 5 000 et CHF 20 000 selon la complexité. Un site vitrine de 5 à 10 pages avec un CMS se situe entre CHF 5 000 et CHF 8 000. Un site avec fonctionnalités avancées ou e-commerce dépasse CHF 10 000. DKDP propose des refontes à partir de CHF 5 000 avec audit de l\'existant inclus.
+
+**Combien de temps prend une refonte de site web ?**
+Une refonte complète prend entre 2 et 4 mois en moyenne. Un site vitrine standard est livré en 6 à 10 semaines. Un site avec CMS personnalisé ou e-commerce demande 3 à 5 mois. La phase d\'audit et de brief représente 2 semaines, le design 2 à 3 semaines, le développement 4 à 6 semaines, puis les tests et le lancement.
+
+**Dois-je garder mon domaine et mes contenus existants lors d'une refonte ?**
+Oui, dans la quasi-totalité des cas. Votre domaine et vos contenus existants ont une valeur SEO accumulée. La refonte doit préserver les URLs existantes (ou mettre en place des redirections 301 rigoureuses) et réutiliser le contenu qui performe déjà. Perdre ces acquis SEO par une mauvaise migration peut coûter des mois de trafic organique.
+
+**Quelle technologie choisir pour un nouveau site PME : WordPress, Next.js ou Webflow ?**
+Cela dépend de vos besoins. WordPress convient si votre équipe veut gérer beaucoup de contenu sans compétences techniques. Next.js est idéal pour les performances maximales et le SEO avancé (score PageSpeed supérieur à 95). Webflow est un bon compromis design et autonomie. DKDP développe en Next.js et Astro pour les performances, avec une interface de gestion de contenu adaptée à votre équipe.
+
+**Comment mesurer si ma refonte a été un succès ?**
+Les indicateurs à suivre 3 et 6 mois après le lancement : trafic organique (Google Search Console), taux de conversion (formulaires, appels), taux de rebond et scores PageSpeed Mobile. Une refonte bien conduite génère en moyenne +40 à +80 % de trafic organique et multiplie par 2 à 3 le taux de conversion dans les 12 mois.
+
+**Peut-on éviter une refonte avec des optimisations ponctuelles ?**
+Souvent oui, si vous identifiez 1 ou 2 signaux d\'alerte seulement. Des optimisations ciblées (amélioration de la vitesse, refonte du formulaire de contact, ajout d\'un blog) peuvent suffire. La règle des 3 signaux s\'applique : 3 problèmes structurels ou plus, et la refonte devient l\'option la plus rentable à long terme.`,
   }
 
 export default article

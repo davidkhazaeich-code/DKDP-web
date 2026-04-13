@@ -165,7 +165,27 @@ Une approche hybride est aussi viable : ChatGPT pour les usages créatifs et var
 
 ## Conclusion
 
-Il n'existe pas de meilleur outil universel : il existe l'outil le mieux aligné sur vos besoins. Avant de souscrire, listez vos cinq cas d'usage prioritaires et évaluez lequel des trois assistants les couvre le mieux. La plupart des plateformes offrent une version gratuite ou un essai : profitez-en pour tester concrètement avant de déployer à toute l'équipe.`,
+Il n'existe pas de meilleur outil universel : il existe l'outil le mieux aligné sur vos besoins. Avant de souscrire, listez vos cinq cas d'usage prioritaires et évaluez lequel des trois assistants les couvre le mieux. La plupart des plateformes offrent une version gratuite ou un essai : profitez-en pour tester concrètement avant de déployer à toute l'équipe.
+
+## Questions fréquentes
+
+**ChatGPT est-il meilleur que Claude pour une PME ?**
+Cela dépend de l'usage. ChatGPT excelle dans la polyvalence : création de contenu varié, support client, génération d'images. Claude est supérieur pour les tâches de rédaction longue et précise, l'analyse de documents volumineux et les consignes complexes. La plupart des PME bénéficieraient des deux outils combinés pour 40 $/mois.
+
+**Combien coûte ChatGPT pour une équipe de 10 personnes ?**
+ChatGPT Team coûte 25 $ par utilisateur et par mois. Pour 10 personnes, le budget mensuel est de 250 $. Claude Team est au même tarif. Microsoft Copilot coûte 30 $/utilisateur/mois en plus de la licence Microsoft 365 existante.
+
+**Copilot fonctionne-t-il sans Microsoft 365 ?**
+Non. Microsoft Copilot est une extension de la suite Microsoft 365. Sans abonnement M365 Business, Copilot ne peut pas être activé. Il est conçu exclusivement pour les équipes déjà dans l'écosystème Microsoft.
+
+**Mes données sont-elles protégées avec ces outils IA ?**
+Claude offre la politique de confidentialité la plus solide : Anthropic s'engage à ne pas utiliser vos conversations pour entraîner ses modèles sans consentement explicite. ChatGPT utilise les données par défaut (désactivable dans les paramètres). Copilot répond aux normes RGPD dans l'environnement M365. Dans tous les cas, évitez de soumettre des données personnelles sensibles ou des informations confidentielles de clients.
+
+**Peut-on utiliser plusieurs outils IA en même temps ?**
+Oui, et c'est souvent la stratégie la plus efficace. Beaucoup de PME utilisent Copilot pour les tâches bureautiques quotidiennes (emails, résumés Teams, Excel) et ChatGPT ou Claude pour la production de contenu et les tâches stratégiques. Le coût reste maîtrisable et le gain de productivité est maximal.
+
+**Existe-t-il une formation pour apprendre à utiliser ces outils en PME ?**
+DKDP propose des [formations pratiques aux outils IA pour les équipes](/formation-entreprise/ia) à Genève, adaptées aux profils non techniques. Les sessions couvrent ChatGPT, Claude et Copilot selon vos outils et vos cas d'usage réels.`,
   }
 
 export default article

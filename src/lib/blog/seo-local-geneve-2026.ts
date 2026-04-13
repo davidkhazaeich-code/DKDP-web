@@ -189,7 +189,27 @@ Utilisez également les publications Google Business Profile pour relayer vos ac
 
 ## Conclusion
 
-Le SEO local à Genève n'est pas une question de budget publicitaire, mais de rigueur et de régularité. Une fiche Google Business Profile soignée, une cohérence NAP irréprochable, et une stratégie d'avis clients systématique peuvent transformer votre visibilité locale en 3 à 6 mois. Commencez par l'audit de votre situation actuelle, puis attaquez les points les plus impactants en premier.`,
+Le SEO local à Genève n'est pas une question de budget publicitaire, mais de rigueur et de régularité. Une fiche Google Business Profile soignée, une cohérence NAP irréprochable, et une stratégie d'avis clients systématique peuvent transformer votre visibilité locale en 3 à 6 mois. Commencez par l'audit de votre situation actuelle, puis attaquez les points les plus impactants en premier.
+
+## Questions fréquentes
+
+**Combien de temps faut-il pour apparaître dans le top 3 de Google Maps à Genève ?**
+Avec une fiche Google Business Profile bien optimisée et une stratégie d'avis clients active, les premiers résultats sont visibles en 2 à 4 mois. Atteindre et maintenir le top 3 prend généralement 4 à 8 mois selon la concurrence dans votre secteur. Les secteurs très concurrentiels (restauration, santé, juridique) demandent un effort plus soutenu.
+
+**Ai-je besoin d'un site web pour être bien référencé localement à Genève ?**
+Votre fiche Google Business Profile peut fonctionner sans site web, mais un site augmente significativement votre autorité et vos signaux de pertinence. Google favorise les entreprises dont le site est cohérent avec leur fiche GBP. Un simple site vitrine suffit pour la plupart des PME locales.
+
+**Les avis Google peuvent-ils être faux ou achetés ?**
+Google détecte et supprime les faux avis. La pratique est contraire aux conditions d'utilisation et peut entraîner la suspension de votre fiche. Concentrez-vous sur des stratégies légitimes : demander directement aux clients satisfaits, envoyer un lien par email post-prestation, former vos équipes à mentionner les avis naturellement.
+
+**Que faire si j'ai plusieurs agences ou points de vente à Genève ?**
+Créez une fiche Google Business Profile distincte pour chaque adresse physique. Chaque fiche doit avoir des informations spécifiques (adresse exacte, photos du lieu, horaires propres) et non pas du contenu copié. Google valorise les fiches uniques et spécifiques par lieu.
+
+**Qu'est-ce que la NAP et pourquoi est-ce si important pour le SEO local ?**
+NAP signifie Name, Address, Phone number. C'est la cohérence exacte de ces trois informations sur toutes les plateformes : votre site, Google Maps, local.ch, search.ch, réseaux sociaux. Une incohérence (même mineure comme "Rue" vs "R.") envoie un signal de méfiance à Google et pénalise votre ranking local.
+
+**DKDP propose-t-il des services de SEO local à Genève ?**
+Oui. DKDP propose un [service complet de référencement SEO local](/agence-digitale/seo) pour les PME genevoises : optimisation Google Business Profile, stratégie d'avis, audit NAP, création de pages locales et suivi des positions. Les résultats constatés sont de +40 à +120 % de trafic local en 6 mois.`,
   }
 
 export default article

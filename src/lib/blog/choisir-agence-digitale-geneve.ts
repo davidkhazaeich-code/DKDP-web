@@ -260,7 +260,27 @@ ___IMG:choisir-agence-digitale-geneve-criteres.png___
 
 Choisir une agence digitale à Genève, c\'est choisir un partenaire de croissance, pas un fournisseur de pages web. Prenez le temps du brief, comparez les réponses à vos vraies questions, et méfiez-vous autant du moins-disant que du trop-prometteur.
 
-Chez DKDP, chaque projet commence par un appel de 30 minutes sans engagement pour comprendre votre situation réelle. Parce qu\'un bon site web commence par une bonne conversation.`,
+Chez DKDP, chaque projet commence par un appel de 30 minutes sans engagement pour comprendre votre situation réelle. Parce qu\'un bon site web commence par une bonne conversation.
+
+## Questions fréquentes
+
+**Combien coûte le service d'une agence digitale à Genève ?**
+Les tarifs varient selon les services : création de site web entre CHF 5 000 et CHF 20 000, SEO mensuel entre CHF 500 et CHF 2 000 par mois, Google Ads à partir de CHF 500 de budget géré. Méfiez-vous des offres "tout compris" à prix très bas : elles cachent souvent des prestations standardisées sans personnalisation réelle.
+
+**Faut-il choisir une agence locale genevoise ou peut-on travailler à distance ?**
+Le travail à distance est tout à fait possible et pratiqué par la majorité des agences digitales. Une agence genevoise connaît mieux les spécificités locales (LPD, culture B2B suisse romande, concurrents locaux), ce qui peut être un avantage pour le SEO local et le positionnement sur les requêtes géolocalisées.
+
+**Quels sont les signaux d'alarme d'une mauvaise agence digitale ?**
+Les principaux signaux : absence de références clients vérifiables, promesses de résultats SEO garantis en 30 jours, contrats longs sans clause de résiliation, impossibilité d\'accéder à vos propres comptes Google Analytics ou Search Console, et interlocuteur qui change à chaque échange.
+
+**Quelle est la différence entre une agence et un freelance ?**
+Un freelance offre généralement plus de flexibilité et des tarifs inférieurs, mais dépend d\'une seule personne. Une agence dispose d\'une équipe (développeur, designer, spécialiste SEO), d\'une meilleure disponibilité et d\'une capacité à gérer des projets plus complexes. Pour une PME avec des besoins multiples, l\'agence est souvent plus adaptée.
+
+**Doit-on signer un contrat avec une agence digitale ?**
+Toujours. Un contrat doit préciser : le périmètre exact de la prestation, les délais, les conditions de paiement, les droits de propriété intellectuelle du site livré et les conditions de résiliation. Méfiez-vous des agences qui ne proposent pas de contrat écrit ou qui refusent de détailler les exclusions.
+
+**Comment évaluer si une agence digitale genevoise est compétente en SEO ?**
+Demandez à voir le ranking actuel de leurs clients sur des mots-clés locaux, leur approche technique (Core Web Vitals, données structurées, mobile-first) et des résultats concrets avec des chiffres. Une agence qui ne peut pas montrer ses propres résultats SEO est un signal d\'alerte.`,
   }
 
 export default article

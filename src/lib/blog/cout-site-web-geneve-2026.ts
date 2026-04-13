@@ -210,7 +210,27 @@ Le site n\'est pas une dépense, c\'est un commercial qui travaille 24h/24. La q
 
 À Genève en 2026, un site vitrine professionnel bien référencé coûte entre 5\'000 et 12\'000 CHF pour une PME standard. En dessous, attendez-vous à des compromis importants sur le SEO, les performances ou la personnalisation. Au-dessus, vous payez la complexité fonctionnelle ou un positionnement premium.
 
-La meilleure démarche : demandez 3 devis détaillés, comparez ligne par ligne, et choisissez l\'agence qui vous explique clairement ce qui est inclus, et ce qui ne l\'est pas.`,
+La meilleure démarche : demandez 3 devis détaillés, comparez ligne par ligne, et choisissez l\'agence qui vous explique clairement ce qui est inclus, et ce qui ne l\'est pas.
+
+## Questions fréquentes
+
+**Quel est le prix d'un site vitrine professionnel à Genève en 2026 ?**
+Un site vitrine PME bien conçu coûte entre CHF 5 000 et CHF 12 000 à Genève. Ce budget inclut le design sur mesure, le développement, le SEO on-page, la formation CMS et la mise en ligne. En dessous de CHF 3 000, attendez-vous à un template générique avec peu de personnalisation et aucun travail SEO.
+
+**Pourquoi un site web à CHF 990 est-il risqué ?**
+Un site à très bas prix implique systématiquement des compromis : template non personnalisé, aucun travail SEO, performances médiocres (chargement supérieur à 4 secondes) et maintenance à vos frais dès la première semaine. Le coût réel à 12 mois (hébergement, corrections, zéro trafic Google) dépasse souvent celui d\'un site bien fait dès le départ.
+
+**Un site e-commerce coûte-t-il plus cher qu'un site vitrine ?**
+Oui. Un site e-commerce démarre à CHF 6 000 pour une boutique simple (jusqu\'à 50 produits, paiement Stripe). Pour un catalogue plus large, des intégrations ERP ou un système de gestion des stocks, le budget monte à CHF 12 000-20 000. La fonctionnalité paiement, la gestion des taxes suisses et la sécurité des transactions justifient ce surcoût.
+
+**Le SEO est-il toujours inclus dans la création d'un site web ?**
+Pas automatiquement. Vérifiez toujours ce que le devis inclut précisément : balises title et meta, structure sémantique HTML, Core Web Vitals, Schema.org. Ces fondamentaux SEO on-page devraient être inclus dans tout site professionnel. Le SEO avancé (création de contenu, backlinks, suivi de positionnement) est une prestation mensuelle séparée.
+
+**Faut-il payer un hébergement en plus du prix du site ?**
+Oui, dans la quasi-totalité des cas. L\'hébergement est un coût récurrent distinct de la création. Comptez entre CHF 100 et CHF 500 par an selon la plateforme (Vercel, Infomaniak, Hostinger). Certaines agences incluent la première année. Clarifiez ce point avant de signer.
+
+**DKDP propose-t-il des devis transparents pour la création de site web ?**
+Oui. DKDP fournit un [devis fixe et détaillé](/agence-digitale/creation-site-web) avant tout démarrage, avec les inclus, les exclus et le planning. Un appel découverte gratuit de 30 minutes est proposé pour cadrer votre projet avant toute proposition chiffrée.`,
   }
 
 export default article

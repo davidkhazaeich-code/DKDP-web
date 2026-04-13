@@ -176,7 +176,27 @@ Pour une PME standard (10-50 employés, secteur de services, zone Genève + Suis
 
 En 2026, les PME genevoises qui performent le mieux sur Google utilisent les deux leviers de façon complémentaire. Le SEO construit votre présence long terme. Les Ads testent, accélèrent et comblent les lacunes de visibilité. Choisir l'un en excluant l'autre, c'est se priver de la moitié du potentiel.
 
-Si vous devez prioriser avec un budget limité : commencez par le SEO si vous avez 6+ mois devant vous, et par les Ads si vous avez besoin de clients dans les 30 prochains jours.`,
+Si vous devez prioriser avec un budget limité : commencez par le SEO si vous avez 6+ mois devant vous, et par les Ads si vous avez besoin de clients dans les 30 prochains jours.
+
+## Questions fréquentes
+
+**Quel budget faut-il prévoir pour le SEO ou Google Ads à Genève ?**
+Pour le SEO, comptez entre CHF 500 et CHF 2 000 par mois selon la compétitivité de votre secteur. Pour Google Ads, le budget minimal recommandé est de CHF 500 à CHF 1 000 par mois de dépenses publicitaires, auquel s\'ajoute les frais de gestion d\'agence (15 à 20 % du budget ou forfait fixe).
+
+**En combien de temps le SEO donne-t-il des résultats visibles à Genève ?**
+Les premiers mouvements de positionnement sont visibles en 2 à 4 mois. Des résultats significatifs (trafic organique mesurable, leads via Google) arrivent en 4 à 8 mois. Les secteurs peu concurrentiels progressent plus vite. Le SEO demande de la patience mais ses résultats sont durables, contrairement aux Ads qui s\'arrêtent avec le budget.
+
+**Google Ads est-il rentable pour une PME genevoise ?**
+Oui, si la valeur moyenne d\'un client est suffisamment élevée. Pour un cabinet d\'avocats, un architecte ou une agence, un seul client acquis via Ads peut couvrir plusieurs mois de budget publicitaire. Pour des prestations à faible marge, le ROI est plus difficile à atteindre. L\'analyse du coût par acquisition cible est indispensable avant de lancer.
+
+**Peut-on faire du SEO et Google Ads en même temps ?**
+Oui, et c\'est la stratégie la plus efficace pour la plupart des PME. Les Ads couvrent les mots-clés compétitifs immédiatement pendant que le SEO monte en puissance. À mesure que le SEO progresse, on réduit les Ads sur les requêtes déjà bien positionnées organiquement et on réalloue le budget sur de nouvelles opportunités.
+
+**Le SEO local est-il différent du SEO national ?**
+Oui. Le SEO local (apparaître dans "plombier Genève" ou le Pack Maps Google) repose principalement sur Google Business Profile, les avis clients et la cohérence NAP (Nom, Adresse, Téléphone). Le SEO national vise des requêtes sans géolocalisation et demande plus de contenu et de backlinks. Pour une PME genevoise, le SEO local est souvent prioritaire et plus rapide à actionner.
+
+**DKDP propose-t-il les deux services : SEO et Google Ads ?**
+Oui. DKDP gère le [référencement SEO](/agence-digitale/seo) et les [campagnes Google Ads](/agence-digitale/publicite-sea) pour les PME de Suisse romande. Un audit gratuit de votre situation actuelle permet de recommander la répartition optimale selon vos objectifs et votre budget.`,
   }
 
 export default article

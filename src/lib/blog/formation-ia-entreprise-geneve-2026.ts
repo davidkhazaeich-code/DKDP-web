@@ -264,7 +264,27 @@ Une mauvaise formation IA est une conférence de 3 heures sur ChatGPT sans prati
 
 En 2026, la question n'est plus "est-ce qu'on forme nos équipes à l'IA" mais "quels usages on priorise et comment on mesure l'impact". Les PME genevoises qui prennent de l'avance maintenant se dotent d'un levier de productivité que leurs concurrents mettront 18 mois à rattraper.
 
-DKDP propose des formations IA sur-mesure pour les équipes de PME à Genève et en Suisse romande. Chaque programme est construit autour de vos outils, vos métiers et vos objectifs mesurables.`,
+DKDP propose des formations IA sur-mesure pour les équipes de PME à Genève et en Suisse romande. Chaque programme est construit autour de vos outils, vos métiers et vos objectifs mesurables.
+
+## Questions fréquentes
+
+**Combien coûte une formation IA pour entreprise à Genève ?**
+Une session de formation IA pratique (6 à 7 heures, groupe jusqu\'à 12 personnes) est proposée à partir de CHF 1 500 chez DKDP. Le programme est 100 % personnalisé selon vos outils (ChatGPT, Claude, Copilot) et vos cas d\'usage réels. Pour des formations plus longues ou des groupes plus importants, un devis sur mesure est établi.
+
+**Combien de temps dure une formation IA en entreprise ?**
+Une session standard dure 6 à 7 heures (une journée). Elle combine théorie (30 %) et pratique sur vos propres outils (70 %). Pour les équipes plus avancées ou les programmes multi-modules (découverte, utilisation quotidienne, automatisation), des formats sur 2 jours sont disponibles.
+
+**Quels outils IA sont couverts dans les formations DKDP ?**
+Les formations couvrent ChatGPT, Claude, Microsoft Copilot et les outils sectoriels selon votre activité. Pour les équipes techniques, les modules peuvent inclure Claude Code, les API d\'IA et les workflows d\'automatisation (Make, n8n, Zapier). Le programme est adapté au niveau de départ de vos équipes.
+
+**Faut-il des compétences techniques pour suivre une formation IA ?**
+Non. Les formations DKDP sont conçues pour des profils non techniques : dirigeants, responsables RH, marketing, commerciaux. L\'objectif est de passer de "je ne sais pas comment l\'utiliser" à "j\'utilise l\'IA au quotidien sur mes vraies tâches" en une journée.
+
+**Quel est le ROI d'une formation IA pour une PME ?**
+Les PME qui forment leurs équipes aux outils IA constatent en moyenne 8 à 15 heures gagnées par collaborateur et par mois (rédaction, synthèses, recherches, reporting). Pour une équipe de 5 personnes à CHF 80/h, cela représente CHF 3 200 à CHF 6 000 de productivité gagnée par mois, pour un investissement formation de CHF 1 500.
+
+**La formation IA est-elle éligible aux subventions en Suisse ?**
+Certaines formations peuvent être financées partiellement par des fonds cantonaux ou sectoriels en Suisse romande. Renseignez-vous auprès de votre association professionnelle ou du Service de l\'emploi de votre canton. DKDP peut fournir un programme détaillé et une attestation de [formation IA](/formation-entreprise/ia) pour faciliter les démarches.`,
   }
 
 export default article

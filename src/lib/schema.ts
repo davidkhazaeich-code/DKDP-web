@@ -81,7 +81,19 @@ export function buildService({ name, url, description }: { name: string; url: st
   }
 }
 
-export function buildCourse({ name, url, description }: { name: string; url: string; description?: string }) {
+export function buildCourse({
+  name, url, description, duration, teaches, prerequisites, priceFrom, ratingValue, ratingCount,
+}: {
+  name: string
+  url: string
+  description?: string
+  duration?: string
+  teaches?: string[]
+  prerequisites?: string
+  priceFrom?: number
+  ratingValue?: string
+  ratingCount?: number
+}) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Course',
@@ -93,12 +105,23 @@ export function buildCourse({ name, url, description }: { name: string; url: str
       name: 'DKDP',
       url: BASE_URL,
     },
-    courseMode: 'onsite',
+    courseMode: ['onsite', 'online'],
     inLanguage: 'fr',
     availableLanguage: 'French',
+    ...(duration ? { duration } : {}),
+    ...(teaches ? { teaches } : {}),
+    ...(prerequisites ? { coursePrerequisites: prerequisites } : {}),
+    ...(ratingValue ? {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue,
+        ratingCount: ratingCount ?? 500,
+        bestRating: '5',
+      },
+    } : {}),
     hasCourseInstance: {
       '@type': 'CourseInstance',
-      courseMode: 'onsite',
+      courseMode: ['onsite', 'online'],
       inLanguage: 'fr',
       location: {
         '@type': 'Place',
@@ -110,11 +133,18 @@ export function buildCourse({ name, url, description }: { name: string; url: str
           addressCountry: 'CH',
         },
       },
+      instructor: {
+        '@type': 'Person',
+        name: 'David Khazaei',
+        jobTitle: 'Fondateur et formateur principal',
+        url: `${BASE_URL}/a-propos`,
+      },
       offers: {
         '@type': 'Offer',
-        category: 'Sur devis',
         priceCurrency: 'CHF',
-        url: `${BASE_URL}/contact`,
+        ...(priceFrom ? { price: String(priceFrom), priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: String(priceFrom), description: `À partir de CHF ${priceFrom}/h` } } : { category: 'Sur devis' }),
+        url: `${BASE_URL}/contact?service=formation`,
+        availability: 'https://schema.org/InStock',
       },
     },
   }

@@ -93,7 +93,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationMontageVideoPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Montage Vidéo Entreprise Genève', url: '/formation-entreprise/montage-video', description: 'Formation montage vidéo pour équipes d\'entreprise à Genève. CapCut, DaVinci Resolve et Premiere Pro. Produisez vos vidéos professionnelles en interne.' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Montage Vidéo Entreprise Genève', url: '/formation-entreprise/montage-video', description: 'Formation montage vidéo pour équipes d\'entreprise à Genève. CapCut, DaVinci Resolve et Premiere Pro. Produisez vos vidéos professionnelles en interne.', duration: 'P1D', teaches: ['CapCut', 'DaVinci Resolve', 'Premiere Pro', 'Tournage smartphone', 'Export multi-format'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

@@ -84,7 +84,7 @@ const steps = [
 export default function FormationInformatiquePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Informatique Entreprise Genève', url: '/formation-entreprise/informatique', description: 'Formation informatique pour PME à Genève. Windows, emails, réseau, outils collaboratifs. Tous niveaux, en présentiel.' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Informatique Entreprise Genève', url: '/formation-entreprise/informatique', description: 'Formation informatique pour PME à Genève. Windows, emails, réseau, outils collaboratifs. Tous niveaux, en présentiel.', duration: 'P1D', teaches: ['Windows', 'Gestion fichiers', 'Emails professionnels', 'Outils collaboratifs', 'Cloud'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

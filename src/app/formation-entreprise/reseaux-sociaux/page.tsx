@@ -96,7 +96,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationReseauxSociauxPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Réseaux Sociaux Entreprise Genève', url: '/formation-entreprise/reseaux-sociaux', description: 'Formation réseaux sociaux professionnels à Genève. Instagram, LinkedIn, TikTok, Facebook. Stratégie, Canva, calendrier éditorial. Autonomie dès le lendemain.' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Réseaux Sociaux Entreprise Genève', url: '/formation-entreprise/reseaux-sociaux', description: 'Formation réseaux sociaux professionnels à Genève. Instagram, LinkedIn, TikTok, Facebook. Stratégie, Canva, calendrier éditorial. Autonomie dès le lendemain.', duration: 'P1D', teaches: ['Stratégie réseaux sociaux', 'Création de contenu', 'Calendrier éditorial', 'Instagram', 'LinkedIn', 'TikTok'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

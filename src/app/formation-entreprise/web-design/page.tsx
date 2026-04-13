@@ -100,7 +100,7 @@ const steps = [
 export default function FormationWebDesignPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Web Design Canva Entreprise Genève', url: '/formation-entreprise/web-design', description: "Formation Canva et web design pour équipes d'entreprise à Genève. Créez des visuels professionnels sans être graphiste." })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Web Design Canva Entreprise Genève', url: '/formation-entreprise/web-design', description: "Formation Canva et web design pour équipes d'entreprise à Genève. Créez des visuels professionnels sans être graphiste.", duration: 'P1D', teaches: ['Canva', 'Figma', 'Charte graphique', 'Design de visuels', 'Templates'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

@@ -148,6 +148,12 @@ export default function FormationClaudeAIPage() {
         name: 'Formation Claude IA en entreprise Genève',
         url: '/formation-entreprise/claude-ai',
         description: 'Formation spécialisée Claude AI pour équipes d\'entreprise à Genève. Claude.ai, Projects collaboratifs, Extended Thinking et Claude Code. Programme sur mesure.',
+        duration: 'P2D',
+        teaches: ['Claude.ai', 'Claude Projects', 'Claude Code', 'Prompt engineering', 'Automatisation'],
+        prerequisites: 'Aucun prérequis technique',
+        priceFrom: 200,
+        ratingValue: '4.9',
+        ratingCount: 500,
       })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([

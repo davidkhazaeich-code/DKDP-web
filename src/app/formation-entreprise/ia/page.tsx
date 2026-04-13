@@ -104,7 +104,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationIAPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Intelligence Artificielle en entreprise Genève', url: '/formation-entreprise/ia', description: 'Formation IA pratique pour équipes d\'entreprise à Genève. ChatGPT, Claude, Copilot. Programme sur mesure, 1 journée.' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Intelligence Artificielle en entreprise Genève', url: '/formation-entreprise/ia', description: 'Formation IA pratique pour équipes d\'entreprise à Genève. ChatGPT, Claude, Copilot. Programme sur mesure, 1 journée.', duration: 'P1D', teaches: ['Prompting avancé', 'ChatGPT', 'Claude', 'Copilot', 'Automatisation IA', 'Confidentialité IA'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

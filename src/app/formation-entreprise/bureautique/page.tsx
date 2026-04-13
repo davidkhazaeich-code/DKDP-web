@@ -100,7 +100,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationBureautiquePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Bureautique Excel Microsoft 365 Genève', url: '/formation-entreprise/bureautique', description: 'Formation bureautique professionnelle à Genève. Excel, Word, PowerPoint, Outlook et Microsoft 365 pour équipes d\'entreprise.' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Bureautique Excel Microsoft 365 Genève', url: '/formation-entreprise/bureautique', description: 'Formation bureautique professionnelle à Genève. Excel, Word, PowerPoint, Outlook et Microsoft 365 pour équipes d\'entreprise.', duration: 'P1D', teaches: ['Excel', 'Word', 'PowerPoint', 'Microsoft 365', 'Tableaux croisés dynamiques'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

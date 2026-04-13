@@ -118,7 +118,7 @@ const badgeColors: Record<string, { background: string; color: string; border: s
 export default function FormationEntreprisePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation informatique en entreprise', url: '/formation-entreprise', description: 'Formation informatique pour entreprises et PME à Genève. IA, bureautique, cybersécurité, réseaux sociaux. Formez vos collaborateurs avec des sessions sur mesure.' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation informatique en entreprise', url: '/formation-entreprise', description: 'Formation informatique pour entreprises et PME à Genève. IA, bureautique, cybersécurité, réseaux sociaux. Formez vos collaborateurs avec des sessions sur mesure.', duration: 'P1D', teaches: ['IA', 'Bureautique', 'Cybersécurité', 'Réseaux sociaux', 'Web design', 'Informatique', 'Montage vidéo'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Formation Entreprise', url: '/formation-entreprise' }])} />
       <SchemaOrg schema={buildFAQPage(FAQ_FORMATION)} />
 

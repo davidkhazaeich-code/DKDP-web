@@ -115,7 +115,7 @@ export function buildCourse({
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue,
-        ratingCount: ratingCount ?? 500,
+        reviewCount: ratingCount ?? 500,
         bestRating: '5',
       },
     } : {}),
@@ -182,6 +182,7 @@ export function buildWebSite() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': 'https://dkdp.ch/#website',
     name: 'DKDP',
     url: BASE_URL,
     description: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise.',
@@ -255,7 +256,14 @@ export function buildArticle(data: {
       name: 'Blog DKDP',
       url: `${BASE_URL}/blog`,
     },
-    ...(data.image ? { image: data.image } : {}),
+    ...(data.image ? {
+      image: {
+        '@type': 'ImageObject',
+        url: data.image,
+        width: 1200,
+        height: 675,
+      },
+    } : {}),
     ...(data.readTime ? { timeRequired: `PT${data.readTime.replace(/\D/g, '')}M` } : {}),
   }
 }
@@ -285,10 +293,10 @@ export function buildOrganization() {
     },
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Rue du 31 Decembre 36',
-      addressLocality: 'Geneve',
+      streetAddress: 'Rue du 31 Décembre 36',
+      addressLocality: 'Genève',
       postalCode: '1207',
-      addressRegion: 'Geneve',
+      addressRegion: 'Genève',
       addressCountry: 'CH',
     },
     contactPoint: [

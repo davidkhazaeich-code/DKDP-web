@@ -3,7 +3,7 @@
 import { useState, FormEvent, ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import {
-  Pencil, CheckCircle, Loader2,
+  Pencil, CheckCircle, Loader2, Download,
   User, Building2, Mail, Phone, Link,
   Calendar, Code2, MessageSquare,
 } from 'lucide-react'
@@ -204,6 +204,7 @@ const inputClass =
 export function Step8Summary() {
   const { state, dispatch } = useEstimator()
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [pdfData, setPdfData] = useState<{ base64: string; filename: string } | null>(null)
   const estimate = calculateEstimate(state)
 
   // ── Build recap items ──
@@ -435,6 +436,10 @@ export function Step8Summary() {
         throw new Error(`Erreur serveur (${res.status})`)
       }
 
+      const result = await res.json()
+      if (result.pdf) {
+        setPdfData({ base64: result.pdf, filename: result.pdfFilename })
+      }
       dispatch({ type: 'SET_SUBMITTED' })
     } catch (err) {
       dispatch({ type: 'SET_SUBMITTING', value: false })
@@ -464,6 +469,21 @@ export function Step8Summary() {
             Votre estimation a été envoyée avec succès. Vous recevrez un devis détaillé sous 48h.
           </p>
         </div>
+        {pdfData && (
+          <button
+            type="button"
+            onClick={() => {
+              const link = document.createElement('a')
+              link.href = `data:application/pdf;base64,${pdfData.base64}`
+              link.download = pdfData.filename
+              link.click()
+            }}
+            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-sm transition-colors cursor-pointer"
+          >
+            <Download size={18} />
+            Télécharger le PDF
+          </button>
+        )}
       </motion.div>
     )
   }

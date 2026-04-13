@@ -10,6 +10,7 @@ import { rateLimit, getIp } from '@/lib/rate-limit'
 import { sanitize } from '@/lib/sanitize'
 import { estimationRequestSchema } from '@/lib/estimation/validation'
 import { calculateEstimate } from '@/lib/estimation/pricing'
+import { generateEstimationPdf } from '@/lib/estimation/generate-pdf'
 import type { EstimationState } from '@/lib/estimation/types'
 
 // ── Label maps for readable email output ──
@@ -117,7 +118,8 @@ const SERVICE_LABELS: Record<string, string> = {
 
 // ── Email HTML builder helpers ──
 
-function tableRow(label: string, value: string): string {
+// Dark theme helpers (internal email)
+function darkTableRow(label: string, value: string): string {
   return `
     <tr>
       <td style="padding:8px 14px;background:#1e2a3d;font-weight:600;width:140px;border-radius:4px 0 0 4px;white-space:nowrap;color:#9ca3af;font-size:13px">${label}</td>
@@ -127,7 +129,7 @@ function tableRow(label: string, value: string): string {
   `
 }
 
-function sectionTitle(text: string): string {
+function darkSectionTitle(text: string): string {
   return `
     <tr>
       <td colspan="2" style="padding:16px 0 8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#A78BFA">
@@ -135,6 +137,30 @@ function sectionTitle(text: string): string {
       </td>
     </tr>
   `
+}
+
+// Light theme helpers (prospect email)
+function lightTableRow(label: string, value: string): string {
+  return `
+    <tr>
+      <td style="padding:8px 14px;font-weight:600;width:140px;white-space:nowrap;color:#6b7280;font-size:13px;border-bottom:1px solid #f3f4f6">${label}</td>
+      <td style="padding:8px 14px;color:#1a1a1a;font-size:14px;border-bottom:1px solid #f3f4f6">${value}</td>
+    </tr>
+  `
+}
+
+function lightSectionTitle(text: string): string {
+  return `
+    <tr>
+      <td colspan="2" style="padding:18px 0 8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#7c3aed">
+        ${text}
+      </td>
+    </tr>
+  `
+}
+
+function formatNum(n: number): string {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'")
 }
 
 export async function POST(req: NextRequest) {
@@ -201,97 +227,121 @@ export async function POST(req: NextRequest) {
 
   const serverPrice = calculateEstimate(stateForCalc)
 
-  // ── Build email content ──
+  // ── Build selection rows for emails + PDF ──
 
-  const summaryRows = `
-    ${sectionTitle('Projet')}
-    ${tableRow('Situation', SITUATION_LABELS[data.situation] ?? data.situation)}
-    ${tableRow('Type de site', SITE_TYPE_LABELS[data.siteType] ?? data.siteType)}
-    ${data.sector ? tableRow('Secteur', SECTOR_LABELS[data.sector] ?? data.sector) : ''}
-    ${sectionTitle('Conception')}
-    ${data.logo ? tableRow('Logo', LOGO_LABELS[data.logo] ?? data.logo) : ''}
-    ${data.branding ? tableRow('Charte graphique', BRANDING_LABELS[data.branding] ?? data.branding) : ''}
-    ${data.strategy.length > 0 ? tableRow('Strategie', data.strategy.map(s => STRATEGY_LABELS[s] ?? s).join(', ')) : ''}
-    ${sectionTitle('Structure')}
-    ${tableRow('Pages', data.pages === 'unsure' ? 'À définir' : data.pages)}
-    ${tableRow('Langues', data.languages)}
-    ${tableRow('Design', DESIGN_LABELS[data.designLevel] ?? data.designLevel)}
-    ${sectionTitle('Contenu')}
-    ${data.copywriting ? tableRow('Redaction', COPYWRITING_LABELS[data.copywriting] ?? data.copywriting) : ''}
-    ${data.visuals ? tableRow('Visuels', VISUALS_LABELS[data.visuals] ?? data.visuals) : ''}
-    ${data.features.length > 0 ? tableRow('Fonctionnalites', data.features.map(f => FEATURE_LABELS[f] ?? f).join('<br>')) : ''}
-    ${data.seo.length > 0 ? tableRow('SEO', data.seo.map(s => SEO_LABELS[s] ?? s).join('<br>')) : ''}
-    ${data.acquisition.length > 0 ? tableRow('Acquisition', data.acquisition.map(a => ACQUISITION_LABELS[a] ?? a).join('<br>')) : ''}
-    ${data.automation.length > 0 ? tableRow('Automatisation', data.automation.map(a => AUTOMATION_LABELS[a] ?? a).join('<br>')) : ''}
-    ${data.services.length > 0 ? tableRow('Services', data.services.map(s => SERVICE_LABELS[s] ?? s).join('<br>')) : ''}
-  `
+  const selectionItems: { label: string; value: string }[] = [
+    { label: 'Situation', value: SITUATION_LABELS[data.situation] ?? data.situation },
+    { label: 'Type de site', value: SITE_TYPE_LABELS[data.siteType] ?? data.siteType },
+    { label: 'Secteur', value: data.sector ? (SECTOR_LABELS[data.sector] ?? data.sector) : '' },
+    { label: 'Logo', value: data.logo ? (LOGO_LABELS[data.logo] ?? data.logo) : '' },
+    { label: 'Charte graphique', value: data.branding ? (BRANDING_LABELS[data.branding] ?? data.branding) : '' },
+    { label: 'Strategie', value: data.strategy.map(s => STRATEGY_LABELS[s] ?? s).join(', ') },
+    { label: 'Pages', value: data.pages === 'unsure' ? 'A definir' : data.pages },
+    { label: 'Langues', value: data.languages },
+    { label: 'Design', value: DESIGN_LABELS[data.designLevel] ?? data.designLevel },
+    { label: 'Redaction', value: data.copywriting ? (COPYWRITING_LABELS[data.copywriting] ?? data.copywriting) : '' },
+    { label: 'Visuels', value: data.visuals ? (VISUALS_LABELS[data.visuals] ?? data.visuals) : '' },
+    { label: 'Fonctionnalites', value: data.features.map(f => FEATURE_LABELS[f] ?? f).join(', ') },
+    { label: 'SEO', value: data.seo.map(s => SEO_LABELS[s] ?? s).join(', ') },
+    { label: 'Acquisition', value: data.acquisition.map(a => ACQUISITION_LABELS[a] ?? a).join(', ') },
+    { label: 'Automatisation', value: data.automation.map(a => AUTOMATION_LABELS[a] ?? a).join(', ') },
+    { label: 'Services', value: data.services.map(s => SERVICE_LABELS[s] ?? s).join(', ') },
+  ]
+
+  // ── Generate PDF ──
+
+  const now = new Date()
+  const dateStr = now.toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric' })
+  const pdfBuffer = generateEstimationPdf({
+    contact: { firstName: contact.firstName, lastName: contact.lastName, company: contact.company, email: contact.email, phone: contact.phone },
+    selections: selectionItems,
+    price: serverPrice,
+    siteType: SITE_TYPE_LABELS[data.siteType] ?? data.siteType,
+    date: dateStr,
+  })
+  const pdfBase64 = pdfBuffer.toString('base64')
+
+  // ── Build prospect email (white background) ──
+
+  const prospectRows = selectionItems
+    .filter(s => s.value)
+    .map(s => lightTableRow(s.label, sanitize(s.value)))
+    .join('')
 
   const prospectEmailHtml = `
-    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#1a1a2e;min-height:100%;padding:32px 16px">
-      <div style="max-width:600px;margin:0 auto;background:#16213e;border-radius:16px;overflow:hidden;border:1px solid rgba(167,139,250,0.2)">
+    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;min-height:100%;padding:32px 16px">
+      <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e5e7eb">
 
         <!-- Header -->
-        <div style="padding:32px 32px 24px;border-bottom:1px solid rgba(167,139,250,0.15)">
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#A78BFA;margin-bottom:8px">DKDP.ch</div>
-          <h1 style="margin:0;font-size:22px;font-weight:700;color:#e4e4e7">Votre estimation de projet</h1>
+        <div style="padding:32px 32px 24px;border-bottom:1px solid #e5e7eb">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#7c3aed;margin-bottom:8px">DKDP.ch</div>
+          <h1 style="margin:0;font-size:22px;font-weight:700;color:#1a1a1a">Votre estimation de projet</h1>
+          <p style="margin:6px 0 0;font-size:13px;color:#6b7280">${dateStr}</p>
         </div>
 
         <!-- Body -->
         <div style="padding:28px 32px">
 
-          <p style="margin:0 0 24px;color:#e4e4e7;font-size:15px;line-height:1.6">
-            Merci ${sanitize(contact.firstName)},
+          <p style="margin:0 0 24px;color:#1a1a1a;font-size:15px;line-height:1.6">
+            Bonjour ${sanitize(contact.firstName)},
           </p>
-          <p style="margin:0 0 28px;color:#9ca3af;font-size:14px;line-height:1.6">
-            Voici le recapitulatif de votre estimation :
+          <p style="margin:0 0 28px;color:#6b7280;font-size:14px;line-height:1.6">
+            Merci pour votre demande. Voici le recapitulatif de votre estimation :
           </p>
 
           <!-- Summary table -->
           <table style="width:100%;border-collapse:collapse">
-            ${summaryRows}
+            ${prospectRows}
           </table>
 
           <!-- Price block -->
-          <div style="margin-top:28px;padding:20px 24px;background:#0f172a;border-radius:12px;border:1px solid rgba(167,139,250,0.3)">
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:12px">Estimation indicative</div>
-            <div style="color:#e4e4e7;font-size:22px;font-weight:700">
-              CHF ${serverPrice.totalMin.toLocaleString('fr-CH')} &ndash; ${serverPrice.totalMax.toLocaleString('fr-CH')}
+          <div style="margin-top:28px;padding:20px 24px;background:#faf5ff;border-radius:12px;border:1px solid #e9d5ff">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#7c3aed;margin-bottom:12px">Estimation budgetaire</div>
+            <div style="color:#1a1a1a;font-size:22px;font-weight:700">
+              CHF ${formatNum(serverPrice.totalMin)} - ${formatNum(serverPrice.totalMax)}
             </div>
             ${serverPrice.monthlyMin > 0 ? `
-            <div style="color:#9ca3af;font-size:13px;margin-top:6px">
-              + CHF ${serverPrice.monthlyMin.toLocaleString('fr-CH')}/mois (services recurrents)
+            <div style="color:#6b7280;font-size:13px;margin-top:6px">
+              + CHF ${formatNum(serverPrice.monthlyMin)}/mois (services recurrents)
             </div>` : ''}
-            <div style="color:#9ca3af;font-size:13px;margin-top:6px">
-              Delai estimatif : ${serverPrice.weeksMin}&ndash;${serverPrice.weeksMax} semaines
+            <div style="color:#6b7280;font-size:13px;margin-top:6px">
+              Delai estime : ~${serverPrice.weeksMin}-${serverPrice.weeksMax} semaines
             </div>
           </div>
 
           <!-- CTA message -->
-          <div style="margin-top:28px;padding:20px 24px;background:#1e2a3d;border-radius:12px;border-left:3px solid #A78BFA">
-            <p style="margin:0;color:#e4e4e7;font-size:14px;line-height:1.7">
-              Notre équipe vous contactera sous 48h pour discuter de votre projet en detail et affiner cette estimation selon vos besoins spécifiques.
+          <div style="margin-top:28px;padding:20px 24px;background:#f9fafb;border-radius:12px;border-left:3px solid #7c3aed">
+            <p style="margin:0;color:#374151;font-size:14px;line-height:1.7">
+              Notre equipe vous contactera sous <strong>48h</strong> pour discuter de votre projet et affiner cette estimation. Vous trouverez egalement le recapitulatif en piece jointe (PDF).
             </p>
           </div>
 
           ${contact.message ? `
           <div style="margin-top:20px">
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#A78BFA;margin-bottom:8px">Votre message</div>
-            <div style="padding:14px;background:#1a2235;border-radius:8px;color:#9ca3af;font-size:13px;line-height:1.6">${sanitize(contact.message).replace(/\n/g, '<br>')}</div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#7c3aed;margin-bottom:8px">Votre message</div>
+            <div style="padding:14px;background:#f9fafb;border-radius:8px;color:#374151;font-size:13px;line-height:1.6">${sanitize(contact.message).replace(/\n/g, '<br>')}</div>
           </div>` : ''}
 
         </div>
 
         <!-- Footer -->
-        <div style="padding:20px 32px;border-top:1px solid rgba(167,139,250,0.15);text-align:center">
-          <p style="margin:0;color:#6b7280;font-size:12px">
+        <div style="padding:20px 32px;border-top:1px solid #e5e7eb;text-align:center">
+          <p style="margin:0;color:#9ca3af;font-size:12px">
             DKDP.ch &bull; Agence digitale a Geneve &bull;
-            <a href="https://dkdp.ch" style="color:#A78BFA;text-decoration:none">dkdp.ch</a>
+            <a href="https://dkdp.ch" style="color:#7c3aed;text-decoration:none">dkdp.ch</a>
           </p>
         </div>
 
       </div>
     </div>
   `
+
+  // ── Build internal email (dark theme, kept as-is) ──
+
+  const darkSummaryRows = selectionItems
+    .filter(s => s.value)
+    .map(s => darkTableRow(s.label, sanitize(s.value)))
+    .join('')
 
   const internalEmailHtml = `
     <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#1a1a2e;min-height:100%;padding:32px 16px">
@@ -301,7 +351,7 @@ export async function POST(req: NextRequest) {
         <div style="padding:28px 32px 20px;border-bottom:1px solid rgba(167,139,250,0.15)">
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#A78BFA;margin-bottom:6px">Estimation DKDP</div>
           <h1 style="margin:0;font-size:20px;font-weight:700;color:#e4e4e7">
-            ${sanitize(SITE_TYPE_LABELS[data.siteType] ?? data.siteType)} &mdash; ${sanitize(contact.company)}
+            ${sanitize(SITE_TYPE_LABELS[data.siteType] ?? data.siteType)} - ${sanitize(contact.company || contact.firstName)}
           </h1>
         </div>
 
@@ -310,49 +360,34 @@ export async function POST(req: NextRequest) {
           <!-- Contact info -->
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#A78BFA;margin-bottom:10px">Contact</div>
           <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
-            ${tableRow('Nom', sanitize(contact.firstName) + ' ' + sanitize(contact.lastName))}
-            ${tableRow('Entreprise', sanitize(contact.company))}
-            ${tableRow('Email', `<a href="mailto:${sanitize(contact.email)}" style="color:#A78BFA">${sanitize(contact.email)}</a>`)}
-            ${tableRow('Telephone', sanitize(contact.phone))}
-            ${contact.message ? tableRow('Message', sanitize(contact.message).replace(/\n/g, '<br>')) : ''}
-            ${contact.currentSiteUrl ? tableRow('Site actuel', `<a href="${sanitize(contact.currentSiteUrl)}" style="color:#A78BFA">${sanitize(contact.currentSiteUrl)}</a>`) : ''}
-            ${contact.appDescription ? tableRow('Description app', sanitize(contact.appDescription).replace(/\n/g, '<br>')) : ''}
-            ${contact.launchDate ? tableRow('Date lancement', sanitize(contact.launchDate)) : ''}
+            ${darkTableRow('Nom', sanitize(contact.firstName) + ' ' + sanitize(contact.lastName))}
+            ${darkTableRow('Entreprise', sanitize(contact.company))}
+            ${darkTableRow('Email', `<a href="mailto:${sanitize(contact.email)}" style="color:#A78BFA">${sanitize(contact.email)}</a>`)}
+            ${darkTableRow('Telephone', sanitize(contact.phone))}
+            ${contact.message ? darkTableRow('Message', sanitize(contact.message).replace(/\n/g, '<br>')) : ''}
+            ${contact.currentSiteUrl ? darkTableRow('Site actuel', `<a href="${sanitize(contact.currentSiteUrl)}" style="color:#A78BFA">${sanitize(contact.currentSiteUrl)}</a>`) : ''}
+            ${contact.appDescription ? darkTableRow('Description app', sanitize(contact.appDescription).replace(/\n/g, '<br>')) : ''}
+            ${contact.launchDate ? darkTableRow('Date lancement', sanitize(contact.launchDate)) : ''}
           </table>
 
           <!-- Selections -->
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#A78BFA;margin-bottom:10px">Selections</div>
           <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
-            ${summaryRows}
+            ${darkSummaryRows}
           </table>
 
           <!-- Server-calculated price -->
           <div style="margin-bottom:16px;padding:20px 24px;background:#0f172a;border-radius:12px;border:1px solid rgba(167,139,250,0.3)">
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:12px">Prix calcule cote serveur</div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:12px">Prix calcule serveur</div>
             <div style="color:#e4e4e7;font-size:22px;font-weight:700">
-              CHF ${serverPrice.totalMin.toLocaleString('fr-CH')} &ndash; ${serverPrice.totalMax.toLocaleString('fr-CH')}
+              CHF ${formatNum(serverPrice.totalMin)} - ${formatNum(serverPrice.totalMax)}
             </div>
             ${serverPrice.monthlyMin > 0 ? `
             <div style="color:#9ca3af;font-size:13px;margin-top:6px">
-              Mensuel : CHF ${serverPrice.monthlyMin.toLocaleString('fr-CH')}&ndash;${serverPrice.monthlyMax.toLocaleString('fr-CH')}/mois
+              Mensuel : CHF ${formatNum(serverPrice.monthlyMin)}-${formatNum(serverPrice.monthlyMax)}/mois
             </div>` : ''}
             <div style="color:#9ca3af;font-size:13px;margin-top:6px">
-              Delai : ${serverPrice.weeksMin}&ndash;${serverPrice.weeksMax} semaines
-            </div>
-          </div>
-
-          <!-- Client-submitted price (for comparison) -->
-          <div style="padding:16px 20px;background:#1a2235;border-radius:12px;border:1px solid rgba(255,255,255,0.08)">
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:10px">Prix soumis par le client (comparaison)</div>
-            <div style="color:#9ca3af;font-size:14px">
-              Total : CHF ${data.estimatedTotal.min.toLocaleString('fr-CH')} &ndash; ${data.estimatedTotal.max.toLocaleString('fr-CH')}
-            </div>
-            ${data.estimatedMonthly.min > 0 ? `
-            <div style="color:#9ca3af;font-size:13px;margin-top:4px">
-              Mensuel : CHF ${data.estimatedMonthly.min.toLocaleString('fr-CH')}&ndash;${data.estimatedMonthly.max.toLocaleString('fr-CH')}/mois
-            </div>` : ''}
-            <div style="color:#9ca3af;font-size:13px;margin-top:4px">
-              Delai : ${data.estimatedWeeks.min}&ndash;${data.estimatedWeeks.max} semaines
+              Delai : ${serverPrice.weeksMin}-${serverPrice.weeksMax} semaines
             </div>
           </div>
 
@@ -363,21 +398,29 @@ export async function POST(req: NextRequest) {
 
   const resend = new Resend(process.env.RESEND_API_KEY)
 
-  // ── Send emails ──
+  // ── Send emails (with PDF attachment for prospect) ──
+  const pdfFilename = `estimation-dkdp-${data.siteType}-${now.toISOString().slice(0, 10)}.pdf`
+
   try {
     await Promise.all([
       resend.emails.send({
         from: 'DKDP.ch <estimation@dkdp.ch>',
         to: contact.email,
-        subject: 'Votre estimation DKDP',
+        subject: 'Votre estimation de projet - DKDP.ch',
         html: prospectEmailHtml,
+        attachments: [
+          { filename: pdfFilename, content: pdfBase64, contentType: 'application/pdf' },
+        ],
       }),
       resend.emails.send({
         from: 'Estimation DKDP <estimation@dkdp.ch>',
         to: 'dk@dkdp.ch',
         replyTo: `${sanitize(contact.firstName)} ${sanitize(contact.lastName)} <${sanitize(contact.email)}>`,
-        subject: `[Estimation] ${sanitize(data.siteType)} - ${sanitize(contact.company)}`,
+        subject: `[Estimation] ${sanitize(data.siteType)} - ${sanitize(contact.company || contact.firstName)}`,
         html: internalEmailHtml,
+        attachments: [
+          { filename: pdfFilename, content: pdfBase64, contentType: 'application/pdf' },
+        ],
       }),
     ])
   } catch (err) {
@@ -458,5 +501,5 @@ export async function POST(req: NextRequest) {
     console.error('[estimation] Notion error:', err)
   }
 
-  return NextResponse.json({ success: true })
+  return NextResponse.json({ success: true, pdf: pdfBase64, pdfFilename })
 }

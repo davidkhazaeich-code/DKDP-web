@@ -163,6 +163,16 @@ function formatNum(n: number): string {
   return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'")
 }
 
+/** Format "2026-05" → "Mai 2026" */
+function formatLaunchDate(val: string): string {
+  if (!val) return ''
+  const [year, month] = val.split('-')
+  if (!year || !month) return val
+  const d = new Date(Number(year), Number(month) - 1)
+  const label = d.toLocaleDateString('fr-CH', { month: 'long', year: 'numeric' })
+  return label.charAt(0).toUpperCase() + label.slice(1)
+}
+
 export async function POST(req: NextRequest) {
   // ── Rate limit: 3 submissions per IP per 15 minutes ──
   const ip = getIp(req)
@@ -367,7 +377,7 @@ export async function POST(req: NextRequest) {
             ${contact.message ? darkTableRow('Message', sanitize(contact.message).replace(/\n/g, '<br>')) : ''}
             ${contact.currentSiteUrl ? darkTableRow('Site actuel', `<a href="${sanitize(contact.currentSiteUrl)}" style="color:#A78BFA">${sanitize(contact.currentSiteUrl)}</a>`) : ''}
             ${contact.appDescription ? darkTableRow('Description app', sanitize(contact.appDescription).replace(/\n/g, '<br>')) : ''}
-            ${contact.launchDate ? darkTableRow('Date lancement', sanitize(contact.launchDate)) : ''}
+            ${contact.launchDate ? darkTableRow('Date lancement', sanitize(formatLaunchDate(contact.launchDate))) : ''}
           </table>
 
           <!-- Selections -->
@@ -493,6 +503,7 @@ export async function POST(req: NextRequest) {
           Message: {
             rich_text: [{ text: { content: contact.message.slice(0, 2000) } }],
           },
+          ...(contact.launchDate ? { Lancement: { rich_text: [{ text: { content: formatLaunchDate(contact.launchDate) } }] } } : {}),
         },
       })
     }

@@ -95,7 +95,7 @@ function StickyBottomBar() {
                   : 'bg-zinc-800 text-zinc-500 cursor-not-allowed',
               ].join(' ')}
             >
-              {isLastStep ? 'Estimer' : 'Suivant'}
+              {isLastStep ? 'Recevoir mon estimation' : 'Suivant'}
               <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
           )}

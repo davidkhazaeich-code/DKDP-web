@@ -126,6 +126,7 @@ export default function IntelligenceArtificiellePage() {
                     Voir nos solutions ↓
                   </Link>
                 </div>
+                <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
               </div>
               <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(212,212,216,0.10)' }}>

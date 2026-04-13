@@ -131,6 +131,7 @@ export default function AgentsIAPage() {
                     Voir les agents →
                   </Link>
                 </div>
+                <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
               </div>
 
               <div className="relative">

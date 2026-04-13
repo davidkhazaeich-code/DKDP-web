@@ -217,6 +217,7 @@ export default function AutomationPage() {
                     Comment ca marche <ArrowRight size={13} />
                   </Link>
                 </div>
+                <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
               </div>
 
               <div className="relative">

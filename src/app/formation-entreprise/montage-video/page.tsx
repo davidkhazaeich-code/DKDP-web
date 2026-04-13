@@ -128,6 +128,7 @@ export default function FormationMontageVideoPage() {
                     Voir le programme ↓
                   </Link>
                 </div>
+                <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>

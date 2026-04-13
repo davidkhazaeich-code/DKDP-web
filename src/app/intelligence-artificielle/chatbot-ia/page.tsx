@@ -352,6 +352,7 @@ export default function ChatbotIAPage() {
                     Comment ca marche ↓
                   </Link>
                 </div>
+                <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
               </div>
 
               {/* Chat mockup */}

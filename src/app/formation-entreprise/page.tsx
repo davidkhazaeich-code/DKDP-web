@@ -21,14 +21,14 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const FormationROICalculator = dynamic(() => import('@/components/sections/FormationROICalculator').then(m => ({ default: m.FormationROICalculator })))
 const ProgressionDiagram = dynamic(() => import('./_components/ProgressionDiagram').then(m => ({ default: m.ProgressionDiagram })))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildCourse, buildBreadcrumbList } from '@/lib/schema'
+import { buildCourse, buildBreadcrumbList, buildFAQPage } from '@/lib/schema'
 import { FAQ_FORMATION } from '@/data/faq-formation'
 import { orange } from '@/lib/tokens'
 import { HeroVisual } from './_components/HeroVisual'
 
 export const metadata: Metadata = {
-  title: 'Formation Entreprise Genève · IA, Bureautique, Cybersécurité · DKDP',
-  description: 'Formations professionnelles en entreprise à Genève et Suisse romande. IA, Excel, Cybersécurité, Réseaux sociaux. Sessions sur mesure, en présentiel ou en ligne.',
+  title: 'Formation Informatique Entreprise Genève · PME et Équipes · DKDP',
+  description: 'Formation informatique pour entreprises et PME à Genève. Formez vos collaborateurs en IA, Excel, cybersécurité. Sessions sur mesure, en présentiel ou en ligne. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise' },
 }
 
@@ -114,8 +114,9 @@ const badgeColors: Record<string, { background: string; color: string; border: s
 export default function FormationEntreprisePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation IA et Digital en Entreprise', url: '/formation-entreprise', description: 'Formations professionnelles en IA, bureautique, cybersécurité et réseaux sociaux pour entreprises à Genève et en Suisse romande.' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation informatique en entreprise', url: '/formation-entreprise', description: 'Formation informatique pour entreprises et PME à Genève. IA, bureautique, cybersécurité, réseaux sociaux. Formez vos collaborateurs avec des sessions sur mesure.' })} />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Formation Entreprise', url: '/formation-entreprise' }])} />
+      <SchemaOrg schema={buildFAQPage(FAQ_FORMATION)} />
 
       {/* ── Hero ── */}
       <HeroBg
@@ -129,11 +130,11 @@ export default function FormationEntreprisePage() {
               <div>
                 <GradTag className="mb-6">Formation Entreprise</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Formez vos équipes,{' '}
-                  <GradText as="span">accélérez votre croissance.</GradText>
+                  Formation informatique en entreprise :{' '}
+                  <GradText as="span">formez vos collaborateurs.</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  Des formations pratiques, adaptées à votre secteur et vos outils. En présentiel ou en ligne, pour des équipes qui progressent vraiment.
+                  Des formations informatiques sur mesure pour PME et grandes entreprises à Genève. IA, bureautique, cybersécurité : vos équipes progressent en une journée, sur leurs vrais outils.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
@@ -171,7 +172,7 @@ export default function FormationEntreprisePage() {
             <div className="text-center mb-12">
               <GradTag className="mb-4">Le contexte</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-2xl mx-auto">
-                Le numérique évolue vite. Vos équipes doivent suivre.
+                Pourquoi former vos collaborateurs au numérique ?
               </h2>
             </div>
           </SectionReveal>
@@ -187,7 +188,7 @@ export default function FormationEntreprisePage() {
                 Icon: BarChart2,
                 stat: '63%',
                 title: 'Des PME sous-équipées',
-                desc: 'Des PME européennes déclarent que leurs équipes ne maîtrisent pas les outils numériques à leur disposition. La formation comble ce fossé rapidement.',
+                desc: 'Des PME déclarent que leurs collaborateurs ne maîtrisent pas les outils numériques à leur disposition. Une formation informatique ciblée comble ce fossé rapidement.',
               },
               {
                 Icon: Lightbulb,
@@ -220,7 +221,7 @@ export default function FormationEntreprisePage() {
               style={{ background: 'rgba(255,107,0,0.05)', borderColor: 'rgba(255,107,0,0.20)' }}
             >
               <p className="text-text-secondary leading-relaxed max-w-2xl mx-auto">
-                Les formations DKDP sont conçues pour un impact immédiat : chaque participant repart avec des compétences utilisables le lendemain, sur ses vrais outils, dans son vrai contexte professionnel.
+                Nos formations informatiques en entreprise sont conçues pour un impact immédiat : chaque collaborateur repart avec des compétences utilisables le lendemain, sur ses vrais outils, dans son vrai contexte professionnel. Que vous soyez une PME de 5 personnes ou une équipe de 50, le programme s&apos;adapte.
               </p>
             </div>
           </SectionReveal>
@@ -236,7 +237,7 @@ export default function FormationEntreprisePage() {
             <div className="mb-14">
               <GradTag className="mb-4">Nos programmes</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-xl">
-                7 formations, toutes sur mesure.
+                Nos formations informatiques pour entreprises et PME
               </h2>
             </div>
           </SectionReveal>
@@ -303,7 +304,7 @@ export default function FormationEntreprisePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Impact réel</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce qu&apos;une formation DKDP change concrètement.
+                Ce que la formation informatique en entreprise change concrètement
               </h2>
             </div>
           </SectionReveal>

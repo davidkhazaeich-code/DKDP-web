@@ -28,9 +28,9 @@ import { CapabilityCard } from './_components/CapabilityCard'
 import { UseCaseCard } from './_components/UseCaseCard'
 
 export const metadata: Metadata = {
-  title: 'Formation Claude IA Genève · Claude.ai & Projects · DKDP',
+  title: 'Formation Claude IA Genève | Entreprise et Équipes | DKDP',
   description:
-    'Formation Claude IA pour entreprises à Genève. Claude.ai, Projects collaboratifs, Claude Code. Programme sur mesure, 1 à 2 jours, présentiel ou distanciel.',
+    'Formation Claude IA pour entreprises à Genève et en Suisse romande. Claude.ai, Projects collaboratifs, Claude Code. Programme sur mesure, 1 à 2 jours, présentiel ou distanciel.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/claude-ai' },
 }
 
@@ -93,7 +93,7 @@ const FAQ = [
 const FORMATEURS = [
   {
     name: 'Romane',
-    designation: 'Experte IA, SEO/GEO & UX · Formatrice',
+    designation: 'Experte IA, SEO/GEO et UX · Formatrice',
     quote:
       "Spécialiste en intelligence artificielle, SEO/GEO et UX, j'anime les sessions Claude.ai et Projects en alliant vision stratégique et pédagogie. Mon objectif : que chaque collaborateur reparte avec des outils qu'il maîtrise vraiment.",
     src: '/images/team/romane.png',
@@ -114,7 +114,7 @@ const FORMATEURS = [
   },
   {
     name: 'Ali Khazaei',
-    designation: 'Formateur · Développement & Informatique',
+    designation: 'Formateur · Développement et Informatique',
     quote:
       "Développeur et formateur, j'interviens sur les modules informatique et développement web. Pédagogue avant tout, je m'assure que chaque participant repart avec des bases solides et des compétences immédiatement applicables.",
     src: '/images/team/ali-khazaei.png',
@@ -124,7 +124,7 @@ const FORMATEURS = [
   },
   {
     name: 'Claude',
-    designation: 'Formateur Indépendant · Programmation & Informatique',
+    designation: 'Formateur Indépendant · Programmation et Informatique',
     quote:
       "Formateur et développeur indépendant, j'interviens sur la partie technique des formations en programmation et en informatique. Praticien du terrain, je traduis les concepts complexes en compétences directement applicables.",
     src: '/images/team/claude-formation.png',
@@ -182,14 +182,14 @@ export default function FormationClaudeAIPage() {
                 </div>
 
                 <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Formez vos équipes à{' '}
-                  <GradText as="span">Claude, l&apos;IA qui révolutionne le travail.</GradText>
+                  <GradText as="span">Formation Claude IA</GradText>{' '}
+                  pour entreprises à Genève
                 </h1>
 
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   Claude AI d&apos;Anthropic est l&apos;outil le plus puissant pour les équipes professionnelles en 2026.
                   Documents longs, projets collaboratifs, raisonnement complexe, automatisation de code.
-                  DKDP vous forme en profondeur sur chaque fonctionnalité qui compte.
+                  DKDP forme les PME et grandes entreprises de Suisse romande en profondeur sur chaque fonctionnalité qui compte.
                 </p>
 
                 <p className="text-text-muted text-base leading-relaxed mb-8">
@@ -203,7 +203,7 @@ export default function FormationClaudeAIPage() {
                     { label: '100% pratique', icon: Zap },
                     { label: 'Sur vos documents réels', icon: FileText },
                     { label: 'Toutes industries', icon: Users },
-                    { label: 'Genève & Suisse romande', icon: Target },
+                    { label: 'Genève et Suisse romande', icon: Target },
                   ].map(({ label, icon: Icon }) => (
                     <div
                       key={label}
@@ -625,7 +625,7 @@ export default function FormationClaudeAIPage() {
                 Programme détaillé
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
-                Une journée intense. Une maîtrise réelle.
+                Programme de formation Claude IA : une journée pour maîtriser l&apos;outil
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
                 7 heures de formation pratique, construites sur vos propres documents et cas d&apos;usage.
@@ -684,7 +684,7 @@ export default function FormationClaudeAIPage() {
                   <AgendaRow time="14:45" title="Hooks, MCP et extensions : aller plus loin" dur="45 min" type="code" />
                   <AgendaRow time="15:30" title="Agents multi-tâches et délégation longue durée" dur="45 min" type="workshop" />
                   <AgendaRow time="16:15" title="Sécurité, secrets et bonnes pratiques agentic" dur="30 min" type="theory" />
-                  <AgendaRow time="16:45" title="Q&R et cas pratiques de votre équipe" dur="15 min" type="qa" />
+                  <AgendaRow time="16:45" title="Questions, réponses et cas pratiques de votre équipe" dur="15 min" type="qa" />
                 </div>
 
                 <div
@@ -745,7 +745,7 @@ export default function FormationClaudeAIPage() {
                 Fonctionnalités couvertes
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
-                On va au fond de chaque capacité
+                Les fonctionnalités Claude que vous apprendrez
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
                 La formation ne survole pas les fonctionnalités. Elle vous apprend
@@ -782,7 +782,7 @@ export default function FormationClaudeAIPage() {
               },
               {
                 icon: Database,
-                title: 'Projects & mémoire',
+                title: 'Projects et mémoire',
                 desc: 'Persistez le contexte entre les sessions. Claude se souvient de votre entreprise, vos clients, vos processus, sans répéter les instructions.',
                 color: OR, bg: ORB, border: ORD,
               },
@@ -826,7 +826,7 @@ export default function FormationClaudeAIPage() {
                 Par département
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
-                Des cas d&apos;usage concrets pour chaque métier
+                Cas d&apos;usage Claude IA par département
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
                 La formation est personnalisée selon les fonctions de votre équipe.
@@ -1006,7 +1006,7 @@ export default function FormationClaudeAIPage() {
                 Tarifs
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
-                Un tarif horaire adapté à votre groupe.
+                Tarifs de la formation Claude IA
               </h2>
               <p className="text-text-secondary text-lg max-w-xl mx-auto">
                 Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).
@@ -1052,7 +1052,7 @@ export default function FormationClaudeAIPage() {
                 </p>
                 <div className="space-y-3">
                   {[
-                    'David & Romane : deux praticiens qui l\'utilisent au quotidien',
+                    'David et Romane : deux praticiens qui l\'utilisent au quotidien',
                     'Exemples tirés de projets DKDP réels',
                     'Suivi post-formation par email pendant 30 jours',
                     'Programme mis à jour à chaque nouvelle version Claude',
@@ -1138,7 +1138,7 @@ export default function FormationClaudeAIPage() {
         <div className="max-w-[900px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white mb-3">Questions fréquentes</h2>
+              <h2 className="text-3xl font-bold text-white mb-3">Questions fréquentes sur la formation Claude IA</h2>
               <p className="text-text-muted">Tout ce que vous devez savoir avant de réserver.</p>
             </div>
           </SectionReveal>

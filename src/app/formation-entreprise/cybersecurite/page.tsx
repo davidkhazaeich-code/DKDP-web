@@ -20,7 +20,7 @@ import { ThreatLevelChart } from './_components/ThreatLevelChart'
 export const metadata: Metadata = {
   title: 'Formation Cybersécurité Entreprise Genève · DKDP',
   description:
-    'Formation cybersécurité pour PME à Genève. Phishing, ransomware, social engineering. Simulations réelles, bonnes pratiques et plan d\'urgence. Équipes non-techniques.',
+    'Formation cybersécurité pour PME et entreprises en Suisse romande. Phishing, ransomware, social engineering. Simulations réelles, bonnes pratiques et plan d\'urgence. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/cybersecurite' },
 }
 
@@ -103,11 +103,11 @@ export default function FormationCybersecuritePage() {
               <div>
                 <GradTag className="mb-6">Cybersécurité · Simulations réelles · Genève</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Protégez votre entreprise contre{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>les cyberattaques.</GradText>
+                  Formation cybersécurité en entreprise :{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>protégez vos équipes</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos équipes à reconnaître et éviter les cybermenaces : phishing, ransomware, social engineering. Formation pratique avec simulations réelles.
+                  DKDP forme vos équipes à reconnaître et éviter les cybermenaces : phishing, ransomware, social engineering. Formation pratique avec simulations réelles, pour PME et entreprises à Genève et en Suisse romande.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
@@ -196,7 +196,7 @@ export default function FormationCybersecuritePage() {
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi maintenant</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Les PME suisses sont les cibles préférées des hackers.
+                Pourquoi la cybersécurité est urgente pour les PME suisses
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Contrairement aux grandes entreprises, les PME disposent de peu de protections et sont perçues comme des cibles faciles. Une seule erreur humaine suffit : un clic sur un lien de phishing, un mot de passe réutilisé, un email usurpant l&apos;identité d&apos;un dirigeant.
@@ -236,7 +236,7 @@ export default function FormationCybersecuritePage() {
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Des gestes simples qui protègent toute l&apos;entreprise.
+                Programme de la formation cybersécurité
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La cybersécurité n&apos;est pas réservée aux techniciens. DKDP explique les risques concrets auxquels vos employés font face chaque jour : emails frauduleux, mots de passe faibles, connexions non sécurisées. On rend les menaces tangibles avec des exemples réels d&apos;incidents survenus en Suisse.
@@ -266,7 +266,7 @@ export default function FormationCybersecuritePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Profils</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Pour qui est cette formation ?
+                Pour qui est la formation cybersécurité en entreprise ?
               </h2>
             </div>
           </SectionReveal>
@@ -301,7 +301,7 @@ export default function FormationCybersecuritePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Déroulement</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Comment se passe la formation ?
+                Déroulement de la formation cybersécurité
               </h2>
             </div>
           </SectionReveal>
@@ -333,7 +333,7 @@ export default function FormationCybersecuritePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                La parole à nos participants.
+                Retours après la formation cybersécurité
               </h2>
             </div>
           </SectionReveal>
@@ -388,7 +388,7 @@ export default function FormationCybersecuritePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Un tarif horaire adapté à votre groupe.
+                Tarifs de la formation cybersécurité
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
                 Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).

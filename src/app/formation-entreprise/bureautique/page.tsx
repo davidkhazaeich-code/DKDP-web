@@ -18,9 +18,9 @@ import { orange } from '@/lib/tokens'
 import { ExcelSkillsComparison } from './_components/ExcelSkillsComparison'
 
 export const metadata: Metadata = {
-  title: 'Formation Bureautique & Excel Genève · Microsoft 365 · DKDP',
+  title: 'Formation Bureautique et Excel en Entreprise à Genève | DKDP',
   description:
-    'Formation bureautique professionnelle à Genève. Excel, Word, PowerPoint et Microsoft 365. Tous niveaux, sur mesure, en présentiel ou en ligne.',
+    'Formation bureautique et Excel en entreprise à Genève et Suisse romande. Word, PowerPoint, Microsoft 365. Programme adapté à votre équipe, PME ou grande entreprise. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/bureautique' },
 }
 
@@ -87,7 +87,7 @@ const STEPS = [
   {
     Icon: CheckCircle2,
     title: 'Support & attestation',
-    desc: 'Guide de référence numérique livré. Attestation individuelle de formation. Q&R 30 jours après.',
+    desc: 'Guide de référence numérique livré. Attestation individuelle de formation. Questions et réponses 30 jours après.',
   },
 ]
 
@@ -101,7 +101,7 @@ export default function FormationBureautiquePage() {
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
         { name: 'Formation Entreprise', url: 'https://dkdp.ch/formation-entreprise' },
-        { name: 'Bureautique & Excel', url: 'https://dkdp.ch/formation-entreprise/bureautique' },
+        { name: 'Bureautique et Excel', url: 'https://dkdp.ch/formation-entreprise/bureautique' },
       ])} />
 
       {/* ── Hero ── */}
@@ -113,17 +113,17 @@ export default function FormationBureautiquePage() {
                 Formation Entreprise
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
-              <span className="text-sm" style={{ color }}>Bureautique &amp; Excel</span>
+              <span className="text-sm" style={{ color }}>Bureautique et Excel</span>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <GradTag className="mb-6">Excel · Word · Microsoft 365</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Maîtrisez Excel et Microsoft 365,{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>vraiment.</GradText>
+                  Formation bureautique et Excel{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>pour votre entreprise à Genève</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos équipes à Excel, Word, PowerPoint et Microsoft 365 en présentiel à Genève. Formation adaptée à votre niveau et vos usages réels. Vos collaborateurs repartent avec des compétences applicables dès le lendemain.
+                  DKDP forme vos équipes à Excel, Word, PowerPoint et Microsoft 365 en présentiel à Genève et en Suisse romande. Programme adapté à votre PME ou grande entreprise, à votre niveau et vos usages réels. Vos collaborateurs repartent avec des compétences applicables dès le lendemain.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
@@ -212,7 +212,7 @@ export default function FormationBureautiquePage() {
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi maintenant</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Vos équipes utilisent Excel depuis des années. Mais pas comme ça.
+                Pourquoi former vos équipes à Excel et la bureautique
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La plupart des collaborateurs n&apos;utilisent que 10% des fonctionnalités d&apos;Excel ou de Word. Des heures perdues chaque semaine sur des tâches qui pourraient être automatisées en quelques clics. La formation DKDP cible les 20% de fonctions qui couvrent 80% des besoins quotidiens.
@@ -258,7 +258,7 @@ export default function FormationBureautiquePage() {
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Des outils que vous utilisez chaque jour, enfin maîtrisés.
+                Programme de formation Excel, Word et Microsoft 365
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La formation commence par une évaluation du niveau du groupe, puis on plonge directement dans la pratique. Chaque module est illustré avec vos cas d&apos;usage réels. On ne fait pas de démo : on travaille sur vos vrais documents.
@@ -288,7 +288,7 @@ export default function FormationBureautiquePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Profils</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Pour qui est cette formation ?
+                Pour qui est la formation bureautique en entreprise ?
               </h2>
             </div>
           </SectionReveal>
@@ -363,7 +363,7 @@ export default function FormationBureautiquePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                La parole à nos participants.
+                Retours après la formation bureautique
               </h2>
             </div>
           </SectionReveal>
@@ -418,7 +418,7 @@ export default function FormationBureautiquePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Un tarif horaire adapté à votre groupe.
+                Tarifs de la formation bureautique
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
                 Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).

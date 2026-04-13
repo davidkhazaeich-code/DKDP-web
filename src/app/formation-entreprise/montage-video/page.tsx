@@ -20,7 +20,7 @@ import { VideoToolCards } from './_components/VideoToolCards'
 export const metadata: Metadata = {
   title: 'Formation Montage Vidéo Entreprise Genève · DKDP',
   description:
-    'Formation montage vidéo pour entreprises à Genève. CapCut, DaVinci Resolve et Premiere Pro. Produisez vos Reels, vidéos YouTube et contenus d\'entreprise en interne. Sur mesure.',
+    'Formation montage vidéo pour PME en Suisse romande. CapCut, DaVinci Resolve, Premiere Pro. Vos équipes produisent en interne. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/montage-video' },
 }
 
@@ -112,11 +112,11 @@ export default function FormationMontageVideoPage() {
               <div>
                 <GradTag className="mb-6">CapCut · DaVinci · Premiere Pro</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Produisez vos propres vidéos professionnelles,{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>en interne.</GradText>
+                  Formation montage vidéo pour entreprises{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>à Genève</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos équipes à CapCut, DaVinci Resolve et Premiere Pro. Après une journée, vous produisez vos Reels, vidéos YouTube et contenus d&apos;entreprise vous-mêmes.
+                  DKDP forme les équipes de PME en Suisse romande à CapCut, DaVinci Resolve et Premiere Pro. Après une journée, vous produisez vos Reels, vidéos YouTube et contenus d&apos;entreprise vous-mêmes.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
@@ -172,7 +172,7 @@ export default function FormationMontageVideoPage() {
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi maintenant</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                La vidéo n&apos;est plus une option. C&apos;est le format qui convertit.
+                Pourquoi votre entreprise a besoin d&apos;une formation montage vidéo
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Les entreprises qui externalisent leur production vidéo dépensent en moyenne CHF 300 à 800 par contenu, pour des délais de 5 à 10 jours. Avec les bons outils et une formation d&apos;une journée, vos équipes produisent le même résultat en 45 minutes, en interne.
@@ -218,7 +218,7 @@ export default function FormationMontageVideoPage() {
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Du tournage à la publication en une journée.
+                Programme de la formation montage vidéo
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La formation commence par les bases du tournage avec smartphone (cadrage, lumière, son), puis enchaîne sur CapCut pour les formats courts, DaVinci Resolve pour le montage professionnel et l&apos;étalonnage, et enfin Premiere Pro pour ceux qui veulent aller plus loin. Chaque module débouche sur une production réelle.
@@ -248,7 +248,7 @@ export default function FormationMontageVideoPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Profils</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Pour qui est cette formation ?
+                Pour qui est la formation montage vidéo ?
               </h2>
             </div>
           </SectionReveal>
@@ -274,7 +274,7 @@ export default function FormationMontageVideoPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Déroulement</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce qui se passe pendant la journée.
+                Déroulement de la formation montage vidéo
               </h2>
             </div>
           </SectionReveal>
@@ -306,7 +306,7 @@ export default function FormationMontageVideoPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                La parole à nos participants.
+                Retours après la formation montage vidéo
               </h2>
             </div>
           </SectionReveal>
@@ -361,7 +361,7 @@ export default function FormationMontageVideoPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Un tarif horaire adapté à votre groupe.
+                Tarifs de la formation montage vidéo
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
                 Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).

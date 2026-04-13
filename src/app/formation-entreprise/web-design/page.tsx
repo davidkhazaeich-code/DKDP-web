@@ -18,9 +18,9 @@ import { orange } from '@/lib/tokens'
 import { DesignToolCards } from './_components/DesignToolCards'
 
 export const metadata: Metadata = {
-  title: 'Formation Web Design & Canva Genève · DKDP',
+  title: 'Formation Canva et Web Design Entreprise Genève | DKDP',
   description:
-    'Formation web design et Canva pour entreprises à Genève. Créez des visuels professionnels sans être graphiste. Charte graphique, templates et exports. Sur mesure.',
+    'Formation Canva et web design pour PME et entreprises à Genève et Suisse romande. Vos équipes créent des visuels professionnels en une journée. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/web-design' },
 }
 
@@ -88,7 +88,7 @@ const steps = [
   },
   {
     Icon: Award,
-    title: 'Portfolio & process',
+    title: 'Portfolio et process',
     desc: 'Chaque participant repart avec 5 visuels créés et un process de production efficace pour son quotidien.',
   },
 ]
@@ -101,7 +101,7 @@ export default function FormationWebDesignPage() {
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
         { name: 'Formation Entreprise', url: 'https://dkdp.ch/formation-entreprise' },
-        { name: 'Web design & Canva', url: 'https://dkdp.ch/formation-entreprise/web-design' },
+        { name: 'Web design et Canva', url: 'https://dkdp.ch/formation-entreprise/web-design' },
       ])} />
 
       {/* ── Hero ── */}
@@ -113,17 +113,17 @@ export default function FormationWebDesignPage() {
                 Formation Entreprise
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
-              <span className="text-sm" style={{ color }}>Web design &amp; Canva</span>
+              <span className="text-sm" style={{ color }}>Web design et Canva</span>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <GradTag className="mb-6">Canva · Figma · Design graphique</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Créez vos visuels et supports de communication{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>vous-même.</GradText>
+                  Formation Canva et web design en entreprise{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>à Genève</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos équipes à Canva, Figma et les principes de design graphique. Après une journée, vous créez des visuels professionnels sans faire appel à une agence.
+                  DKDP forme vos équipes de PME et entreprises à Canva, Figma et les principes de design graphique. Après une journée, vos collaborateurs à Genève et en Suisse romande créent des visuels professionnels sans faire appel à une agence.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
@@ -179,7 +179,7 @@ export default function FormationWebDesignPage() {
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi maintenant</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Chaque visuel externalisé vous coûte du temps et de l&apos;argent.
+                Pourquoi former vos équipes au design graphique et à Canva
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Attendre une agence pour un post Instagram, payer un graphiste pour un flyer, relancer plusieurs fois pour un document de présentation : ces frictions ralentissent vos équipes et grignotent votre budget communication.
@@ -225,7 +225,7 @@ export default function FormationWebDesignPage() {
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Du zéro au visuel professionnel en une session.
+                Programme de la formation Canva et design graphique
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La formation commence par les principes fondamentaux du design (en 45 min, pas plus) puis on passe directement à Canva. Chaque participant crée ses premiers visuels pendant la formation, aux couleurs de son entreprise, sur les formats qu&apos;il utilisera vraiment.
@@ -255,7 +255,7 @@ export default function FormationWebDesignPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Profils</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Pour qui est cette formation ?
+                Pour qui est la formation web design en entreprise ?
               </h2>
             </div>
           </SectionReveal>
@@ -290,7 +290,7 @@ export default function FormationWebDesignPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Déroulement</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce qui se passe pendant la journée.
+                Déroulement de la formation web design
               </h2>
             </div>
           </SectionReveal>
@@ -330,7 +330,7 @@ export default function FormationWebDesignPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                La parole à nos participants.
+                Retours après la formation Canva
               </h2>
             </div>
           </SectionReveal>
@@ -385,7 +385,7 @@ export default function FormationWebDesignPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Un tarif horaire adapté à votre groupe.
+                Tarifs de la formation web design
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
                 Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).

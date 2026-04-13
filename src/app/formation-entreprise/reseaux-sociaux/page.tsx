@@ -20,7 +20,7 @@ import { SocialBeforeAfter } from './_components/SocialBeforeAfter'
 export const metadata: Metadata = {
   title: 'Formation Réseaux Sociaux Entreprise Genève · DKDP',
   description:
-    'Formation réseaux sociaux professionnels à Genève. Instagram, LinkedIn, TikTok et Facebook. Stratégie, Canva, calendrier éditorial. Vos équipes repartent autonomes dès le lendemain.',
+    'Formation réseaux sociaux pour PME en Suisse romande et à Genève. Instagram, LinkedIn, TikTok, Facebook. Stratégie, Canva, calendrier éditorial. Demandez votre devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/reseaux-sociaux' },
 }
 
@@ -115,11 +115,11 @@ export default function FormationReseauxSociauxPage() {
               <div>
                 <GradTag className="mb-6">Instagram · LinkedIn · TikTok · Facebook</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Gérez vos réseaux sociaux vous-même,{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>avec impact.</GradText>
+                  Formation réseaux sociaux pour entreprises{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>à Genève</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos équipes et indépendants à Instagram, LinkedIn, TikTok et Facebook. Stratégie, Canva, calendrier éditorial : vous repartez autonomes dès le lendemain.
+                  DKDP forme les PME et indépendants en Suisse romande à Instagram, LinkedIn, TikTok et Facebook. Stratégie, Canva, calendrier éditorial : vous repartez autonomes dès le lendemain.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
@@ -175,7 +175,7 @@ export default function FormationReseauxSociauxPage() {
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi maintenant</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Poster sans stratégie, c&apos;est travailler pour rien.
+                Pourquoi former vos équipes aux réseaux sociaux
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La majorité des professionnels qui gèrent leurs réseaux sociaux seuls publient de façon irrégulière, sans ligne éditoriale ni cohérence visuelle. Résultat : peu d&apos;abonnés, peu d&apos;engagement, et beaucoup de temps gaspillé.
@@ -221,7 +221,7 @@ export default function FormationReseauxSociauxPage() {
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Stratégie, contenu et analyse en une journée.
+                Programme de la formation réseaux sociaux
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La formation commence par la stratégie : pour qui publiez-vous, quel message, sur quel réseau. On passe ensuite à la pratique : création de visuels dans Canva, rédaction de légendes, mise en place du calendrier éditorial et des outils de planification.
@@ -251,7 +251,7 @@ export default function FormationReseauxSociauxPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Profils</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Pour qui est cette formation ?
+                Pour qui est la formation réseaux sociaux en entreprise ?
               </h2>
             </div>
           </SectionReveal>
@@ -277,7 +277,7 @@ export default function FormationReseauxSociauxPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Déroulement</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce qui se passe pendant la journée.
+                Déroulement de la formation réseaux sociaux
               </h2>
             </div>
           </SectionReveal>
@@ -309,7 +309,7 @@ export default function FormationReseauxSociauxPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                La parole à nos participants.
+                Retours après la formation réseaux sociaux
               </h2>
             </div>
           </SectionReveal>
@@ -364,7 +364,7 @@ export default function FormationReseauxSociauxPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Un tarif horaire adapté à votre groupe.
+                Tarifs de la formation réseaux sociaux
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
                 Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).

@@ -20,7 +20,7 @@ import { ITProblemsComparison } from './_components/ITProblemsComparison'
 export const metadata: Metadata = {
   title: 'Formation Informatique Entreprise Genève · DKDP',
   description:
-    'Formation informatique pour PME à Genève. Windows, emails, réseau, outils collaboratifs. Tous niveaux, en présentiel. Réduisez les tickets IT de 40%.',
+    'Formation informatique pour PME à Genève et en Suisse romande. Windows, emails, réseau, outils collaboratifs. Tous niveaux, en présentiel. Demandez votre devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/informatique' },
 }
 
@@ -74,7 +74,7 @@ const steps = [
   { Icon: Monitor, title: 'Diagnostic de groupe', desc: 'Évaluation du niveau réel de chaque participant. Programme ajusté selon les lacunes identifiées.' },
   { Icon: Settings, title: 'Pratique guidée', desc: 'Exercices sur les machines des participants. On résout les problèmes réels rencontrés au quotidien.' },
   { Icon: Cpu, title: 'Cas du quotidien', desc: 'Simulation de pannes courantes et procédures de dépannage simples. Autonomie immédiate.' },
-  { Icon: Award, title: 'Suivi & attestation', desc: 'Guide de référence numérique livré. Attestation individuelle. Support réponses 30 jours post-formation.' },
+  { Icon: Award, title: 'Suivi et attestation', desc: 'Guide de référence numérique livré. Attestation individuelle. Support réponses 30 jours post-formation.' },
 ]
 
 export default function FormationInformatiquePage() {
@@ -103,11 +103,11 @@ export default function FormationInformatiquePage() {
               <div>
                 <GradTag className="mb-6">Compétences numériques · Tous niveaux · Genève</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Vos équipes maîtrisent leur outil informatique,{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>enfin.</GradText>
+                  Formation informatique entreprise à Genève : vos équipes deviennent{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>autonomes</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos collaborateurs à utiliser Windows, les emails, le réseau et les outils collaboratifs en autonomie complète. Tous niveaux, en présentiel à Genève.
+                  DKDP forme vos collaborateurs de PME en Suisse romande à utiliser Windows, les emails, le réseau et les outils collaboratifs en autonomie complète. Tous niveaux, en présentiel à Genève.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
@@ -163,7 +163,7 @@ export default function FormationInformatiquePage() {
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi maintenant</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Vos équipes perdent des heures sur des problèmes évitables.
+                Pourquoi vos équipes ont besoin d'une formation informatique
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 Imprimante bloquée, fichier introuvable, boîte mail saturée, réseau qui ne répond pas : ces petits problèmes du quotidien coûtent cher en productivité. Et chaque appel au support IT mobilise deux personnes au lieu d&apos;une.
@@ -203,7 +203,7 @@ export default function FormationInformatiquePage() {
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Les bases qui font vraiment gagner du temps.
+                Programme de la formation informatique en entreprise
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La plupart des formations informatiques passent trop de temps sur la théorie. DKDP se concentre sur les gestes quotidiens qui font la différence : comment trouver un fichier en 5 secondes, partager un document sans créer 4 versions, ou trier 100 emails en 10 minutes.
@@ -233,7 +233,7 @@ export default function FormationInformatiquePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Profils</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Pour qui est cette formation ?
+                Pour qui est la formation informatique en entreprise ?
               </h2>
             </div>
           </SectionReveal>
@@ -266,7 +266,7 @@ export default function FormationInformatiquePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Déroulement</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Comment se passe la formation ?
+                Déroulement de la formation informatique
               </h2>
             </div>
           </SectionReveal>
@@ -298,7 +298,7 @@ export default function FormationInformatiquePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                La parole à nos participants.
+                Retours après la formation informatique
               </h2>
             </div>
           </SectionReveal>
@@ -353,7 +353,7 @@ export default function FormationInformatiquePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Un tarif horaire adapté à votre groupe.
+                Tarifs de la formation informatique
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
                 Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).

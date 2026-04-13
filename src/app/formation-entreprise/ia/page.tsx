@@ -25,7 +25,7 @@ import { SkillsBento } from './_components/SkillsBento'
 export const metadata: Metadata = {
   title: 'Formation IA Entreprise Genève · ChatGPT, Claude · DKDP',
   description:
-    'Formation Intelligence Artificielle en entreprise à Genève. ChatGPT, Claude et Copilot maîtrisés en une journée. Programme sur mesure, présentiel ou distanciel.',
+    'Formation Intelligence Artificielle en entreprise à Genève et en Suisse romande. ChatGPT, Claude et Copilot maîtrisés en une journée. Programme sur mesure pour PME, présentiel ou distanciel.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/ia' },
 }
 
@@ -123,11 +123,11 @@ export default function FormationIAPage() {
               <div>
                 <GradTag className="mb-6">Intelligence Artificielle · 1 journée</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Vos équipes maîtrisent l&apos;IA en une journée.{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Formation à Genève.</GradText>
+                  Formation IA en entreprise à Genève :{' '}
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>maîtrisez ChatGPT en une journée</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève. Programme 100% sur mesure, orienté pratique. Vos équipes gagnent en moyenne 8 heures par semaine dès le lendemain de la formation.
+                  DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. Vos équipes gagnent en moyenne 8 heures par semaine dès le lendemain de la formation.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
@@ -264,7 +264,7 @@ export default function FormationIAPage() {
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Une journée 100% pratique.
+                Programme de la formation IA : une journée 100% pratique.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La formation commence par 30 minutes de théorie sur le fonctionnement de l&apos;IA, puis on passe immédiatement à la pratique. Chaque module inclut des exercices sur vos cas d&apos;usage réels. On ne fait pas de démo : on travaille sur vos vrais documents et vos vraies tâches.
@@ -413,7 +413,7 @@ export default function FormationIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Profils</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Pour qui est cette formation ?
+                Pour qui est la formation IA en entreprise ?
               </h2>
             </div>
           </SectionReveal>
@@ -470,7 +470,7 @@ export default function FormationIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                La parole à nos participants.
+                Retours après la formation IA.
               </h2>
             </div>
           </SectionReveal>
@@ -545,7 +545,7 @@ export default function FormationIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Un tarif horaire adapté à votre groupe.
+                Tarifs de la formation IA entreprise.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
                 Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).

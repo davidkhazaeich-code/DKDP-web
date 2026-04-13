@@ -14,6 +14,7 @@ import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { PerformanceComparison } from './_components/PerformanceComparison'
 import { TechStack } from './_components/TechStack'
 import { HeroVisual } from './_components/HeroVisual'
+import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
@@ -220,37 +221,20 @@ export default function CreationSiteWebPage() {
       </section>
 
       {/* ── Subnav ── */}
-      <div className="sticky top-[66px] z-30 px-6 pt-1.5">
-        <div className="max-w-[1200px] mx-auto rounded-2xl bg-[#0A0A0A]/90 backdrop-blur-2xl px-5">
-          <div className="flex items-center justify-between gap-2">
-            <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
-              {[
-                { label: 'Notre approche', href: '#approche' },
-                { label: 'Tarifs', href: '#tarifs' },
-                { label: 'Processus', href: '#process' },
-                { label: 'Estimation', href: '/agence-digitale/creation-site-web/estimation' },
-                { label: 'Réalisations', href: '#realisations' },
-                { label: 'FAQ', href: '#faq' },
-              ].map(({ label, href }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold text-text-muted hover:text-white transition-colors duration-150 whitespace-nowrap"
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
-            <Link
-              href="/agence-digitale/creation-site-web/estimation"
-              className="flex-shrink-0 hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-bold transition-opacity hover:opacity-80"
-              style={{ background: 'rgba(124,58,237,0.18)', color: '#A78BFA', border: '1px solid rgba(124,58,237,0.30)' }}
-            >
-              Estimer mon projet
-            </Link>
-          </div>
-        </div>
-      </div>
+      <ScrollSpyNav
+        items={[
+          { label: 'Notre approche', href: '#approche' },
+          { label: 'Tarifs', href: '#tarifs' },
+          { label: 'Processus', href: '#process' },
+          { label: 'Estimation', href: '/agence-digitale/creation-site-web/estimation' },
+          { label: 'Réalisations', href: '#realisations' },
+          { label: 'FAQ', href: '#faq' },
+        ]}
+        cta={{ label: 'Estimer mon projet', href: '/agence-digitale/creation-site-web/estimation' }}
+        accentColor="#A78BFA"
+        accentBg="rgba(124,58,237,0.18)"
+        accentBorder="rgba(124,58,237,0.30)"
+      />
 
       {/* ── Ce qu'on fait ── */}
       <section id="approche" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">

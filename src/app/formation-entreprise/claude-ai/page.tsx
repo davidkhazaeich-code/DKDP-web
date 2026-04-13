@@ -21,6 +21,7 @@ const CircularTestimonialsLazy = dynamic(() => import('@/components/ui/circular-
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
 const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
+import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet, orange, chrome } from '@/lib/tokens'
 import { ClaudeProductCard } from './_components/ClaudeProductCard'
@@ -316,38 +317,22 @@ export default function FormationClaudeAIPage() {
       </section>
 
       {/* ══ 3. Subnav sticky ══ */}
-      <div className="sticky top-[66px] z-30 px-6 pt-1.5">
-        <div className="max-w-[1200px] mx-auto rounded-2xl bg-[#0A0A0A]/90 backdrop-blur-2xl px-5">
-          <div className="flex items-center justify-between gap-2">
-            <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Sections de la page">
-              {[
-                { label: 'Pourquoi Claude', href: '#pourquoi' },
-                { label: 'Produits', href: '#produits' },
-                { label: 'Programme', href: '#programme' },
-                { label: 'Capacités', href: '#capacités' },
-                { label: 'Métiers', href: '#métiers' },
-                { label: 'Tarifs', href: '#tarifs' },
-                { label: 'FAQ', href: '#faq' },
-              ].map(({ label, href }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold text-text-muted hover:text-white transition-colors whitespace-nowrap"
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
-            <Link
-              href="/contact?service=formation-claude"
-              className="flex-shrink-0 hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-bold transition-opacity hover:opacity-80"
-              style={{ background: ORB, color: OR, border: `1px solid ${ORD}` }}
-            >
-              Prendre contact
-            </Link>
-          </div>
-        </div>
-      </div>
+      <ScrollSpyNav
+        items={[
+          { label: 'Pourquoi maintenant', href: '#pourquoi' },
+          { label: 'Programme', href: '#programme' },
+          { label: 'Compétences', href: '#compétences' },
+          { label: 'ROI', href: '#roi' },
+          { label: 'Format', href: '#format' },
+          { label: 'Galerie', href: '#galerie' },
+          { label: 'Tarifs', href: '#tarifs' },
+          { label: 'FAQ', href: '#faq' },
+        ]}
+        cta={{ label: 'Prendre contact', href: '/contact' }}
+        accentColor="#FF8C00"
+        accentBg="rgba(255,107,0,0.12)"
+        accentBorder="rgba(255,107,0,0.25)"
+      />
 
       {/* ══ 4. Pourquoi Claude maintenant ══ */}
       <section id="pourquoi" className="py-24 border-b border-border">

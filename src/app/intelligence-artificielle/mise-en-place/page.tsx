@@ -22,6 +22,7 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import dynamic from 'next/dynamic'
 import { HeroBg } from '@/components/ui/HeroBg'
+import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
@@ -183,36 +184,19 @@ export default function MiseEnPlacePage() {
       </section>
 
       {/* ── Subnav ── */}
-      <div className="sticky top-[66px] z-30 px-6 pt-1.5">
-        <div className="max-w-[1200px] mx-auto rounded-2xl bg-[#0A0A0A]/90 backdrop-blur-2xl px-5">
-          <div className="flex items-center justify-between gap-2">
-            <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
-              {[
-                { label: 'Pourquoi c\'est complexe', href: '#complexite' },
-                { label: 'Modèles de langage', href: '#llms' },
-                { label: 'Applications', href: '#applications' },
-                { label: 'Notre méthode', href: '#methode' },
-                { label: 'Tarifs', href: '#tarifs' },
-              ].map(({ label, href }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold text-text-muted hover:text-white transition-colors duration-150 whitespace-nowrap"
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
-            <Link
-              href="/contact"
-              className="flex-shrink-0 hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-bold transition-opacity hover:opacity-80"
-              style={{ background: 'rgba(212,212,216,0.10)', color: '#D4D4D8', border: '1px solid rgba(212,212,216,0.20)' }}
-            >
-              Prendre contact
-            </Link>
-          </div>
-        </div>
-      </div>
+      <ScrollSpyNav
+        items={[
+          { label: "Pourquoi c'est complexe", href: '#complexite' },
+          { label: 'Modèles de langage', href: '#llms' },
+          { label: 'Applications', href: '#applications' },
+          { label: 'Notre méthode', href: '#methode' },
+          { label: 'Tarifs', href: '#tarifs' },
+        ]}
+        cta={{ label: 'Prendre contact', href: '/contact' }}
+        accentColor="#D4D4D8"
+        accentBg="rgba(212,212,216,0.10)"
+        accentBorder="rgba(212,212,216,0.20)"
+      />
 
       {/* ── Le problème ───────────────────────────────────────── */}
       <section id="complexite" className="py-24 bg-bg-card border-b border-border scroll-mt-[124px]">

@@ -9,6 +9,7 @@ import { HeroBg } from '@/components/ui/HeroBg'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
+import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
@@ -162,37 +163,20 @@ export default function FormationCybersecuritePage() {
       </section>
 
       {/* ── Subnav ── */}
-      <div className="sticky top-[66px] z-30 px-6 pt-1.5">
-        <div className="max-w-[1200px] mx-auto rounded-2xl bg-[#0A0A0A]/90 backdrop-blur-2xl px-5">
-          <div className="flex items-center justify-between gap-2">
-            <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
-              {[
-                { label: 'Pourquoi maintenant', href: '#pourquoi' },
-                { label: 'Programme', href: '#programme' },
-                { label: 'Profils', href: '#profils' },
-                { label: 'Déroulement', href: '#deroulement' },
-                { label: 'Tarifs', href: '#tarifs' },
-                { label: 'FAQ', href: '#faq' },
-              ].map(({ label, href }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold text-text-muted hover:text-white transition-colors duration-150 whitespace-nowrap"
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
-            <Link
-              href="/contact"
-              className="flex-shrink-0 hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-bold transition-opacity hover:opacity-80"
-              style={{ background: 'rgba(255,107,0,0.12)', color: '#FF8C00', border: '1px solid rgba(255,107,0,0.25)' }}
-            >
-              Prendre contact
-            </Link>
-          </div>
-        </div>
-      </div>
+      <ScrollSpyNav
+        items={[
+          { label: 'Pourquoi maintenant', href: '#pourquoi' },
+          { label: 'Programme', href: '#programme' },
+          { label: 'Profils', href: '#profils' },
+          { label: 'Déroulement', href: '#deroulement' },
+          { label: 'Tarifs', href: '#tarifs' },
+          { label: 'FAQ', href: '#faq' },
+        ]}
+        cta={{ label: 'Prendre contact', href: '/contact' }}
+        accentColor="#FF8C00"
+        accentBg="rgba(255,107,0,0.12)"
+        accentBorder="rgba(255,107,0,0.25)"
+      />
 
       {/* ── Pourquoi maintenant ── */}
       <section id="pourquoi" className="scroll-mt-[124px] py-24">

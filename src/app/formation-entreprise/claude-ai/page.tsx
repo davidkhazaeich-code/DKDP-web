@@ -19,6 +19,7 @@ const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m =
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => m.Testimonials))
 const CircularTestimonialsLazy = dynamic(() => import('@/components/ui/circular-testimonials').then(m => m.CircularTestimonials))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
+const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet, orange, chrome } from '@/lib/tokens'
@@ -1129,6 +1130,8 @@ export default function FormationClaudeAIPage() {
           </div>
         </section>
       </HeroBg>
+
+      <FormationTrainer accentColor='#FF8C00' />
 
       {/* ══ 13. Testimonials ══ */}
       <Testimonials accentRgb="167,139,250" />

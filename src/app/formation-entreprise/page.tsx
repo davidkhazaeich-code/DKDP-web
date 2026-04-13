@@ -18,6 +18,7 @@ const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m =
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
+const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 const FormationROICalculator = dynamic(() => import('@/components/sections/FormationROICalculator').then(m => ({ default: m.FormationROICalculator })))
 const ProgressionDiagram = dynamic(() => import('./_components/ProgressionDiagram').then(m => ({ default: m.ProgressionDiagram })))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
@@ -519,6 +520,7 @@ export default function FormationEntreprisePage() {
       </HeroBg>
 
       {/* ── Témoignages ── */}
+      <FormationTrainer accentColor='#FF8C00' />
       <LogoBanner label="Équipes déjà formées" />
       <Testimonials accentRgb="255,140,0" />
 

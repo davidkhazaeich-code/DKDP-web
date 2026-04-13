@@ -13,6 +13,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
+const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
 import { VideoToolCards } from './_components/VideoToolCards'
@@ -298,6 +299,8 @@ export default function FormationMontageVideoPage() {
           </div>
         </div>
       </section>
+
+      <FormationTrainer accentColor='#FF8C00' />
 
       {/* ── Témoignages ── */}
       <section className="py-24">

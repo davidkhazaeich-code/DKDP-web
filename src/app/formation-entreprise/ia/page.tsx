@@ -27,9 +27,9 @@ import { ROIChart } from './_components/ROIChart'
 import { FormateursSection } from './_components/FormateursSection'
 
 export const metadata: Metadata = {
-  title: 'Formation IA Entreprise Genève et Suisse romande · ChatGPT, Claude, Copilot · DKDP',
+  title: 'Formation IA entreprise Genève · ChatGPT, Claude, Copilot en 1 jour · DKDP',
   description:
-    '91% opérationnels dès J+1. Formation IA pratique pour équipes PME à Genève et Suisse romande. ChatGPT, Claude, Copilot maîtrisés en 1 jour. Présentiel ou en ligne.',
+    "Former ses équipes à l'IA en 1 jour. Formation entreprise à Genève et en Suisse romande : ChatGPT, Claude, Copilot. 91% opérationnels dès J+1. Programme sur mesure pour PME.",
   alternates: {
     canonical: 'https://dkdp.ch/formation-entreprise/ia',
     languages: {
@@ -315,12 +315,12 @@ export default function FormationIAPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-12">
-              <GradTag className="mb-4">Ce que vous maitriserez</GradTag>
+              <GradTag className="mb-4">Ce que vous maîtriserez</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                6 compétences concretes, utilisables des le lendemain.
+                6 compétences concrètes, utilisables dès le lendemain.
               </h2>
               <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
-                Pas de theorie abstraite. Chaque compétence est travaillee sur vos vrais documents et vos vrais cas d&apos;usage.
+                Pas de théorie abstraite. Chaque compétence est travaillée sur vos vrais documents et vos vrais cas d&apos;usage.
               </p>
             </div>
           </SectionReveal>
@@ -584,7 +584,7 @@ export default function FormationIAPage() {
                 Nos formations en action.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                Des sessions pratiques dans un cadre professionnel. Chaque formation est adaptée a votre équipe et vos outils.
+                Des sessions pratiques dans un cadre professionnel. Chaque formation est adaptée à votre équipe et vos outils.
               </p>
             </div>
           </SectionReveal>

@@ -96,11 +96,11 @@ export function FormationTrainer({ accentColor = '#FF8C00' }: { accentColor?: st
         </SectionReveal>
 
         {/* ── Trainers ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14 md:mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-14 md:mb-20">
           {TRAINERS.map((t, i) => (
             <SectionReveal key={t.name} delay={i * 0.08}>
               <div
-                className="group relative flex flex-col h-full rounded-[18px] border backdrop-blur-sm transition-all duration-300 hover:-translate-y-1"
+                className="group relative flex flex-col h-full rounded-[20px] border backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 overflow-hidden"
                 style={{
                   background: `rgba(${rgb},0.04)`,
                   borderColor: `rgba(${rgb},0.14)`,
@@ -108,63 +108,67 @@ export function FormationTrainer({ accentColor = '#FF8C00' }: { accentColor?: st
               >
                 {/* Hover glow */}
                 <div
-                  className="absolute inset-0 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  className="absolute inset-0 rounded-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{ boxShadow: `0 0 40px rgba(${rgb},0.08), inset 0 1px 0 rgba(${rgb},0.10)` }}
                 />
 
-                {/* Top: avatar row */}
-                <div className="relative p-5 pb-4 flex items-center gap-4">
-                  <div
-                    className="relative w-[52px] h-[52px] rounded-full overflow-hidden flex-shrink-0 ring-2"
-                    style={{ ['--tw-ring-color' as string]: `rgba(${rgb},0.30)` }}
-                  >
-                    <Image
-                      src={t.image}
-                      alt={`${t.name}, formateur DKDP`}
-                      fill
-                      className="object-cover"
-                      sizes="52px"
-                    />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-1.5">
-                      <p className="text-white font-bold leading-tight">{t.name}</p>
-                      <BadgeCheck size={15} style={{ color: accentColor }} className="flex-shrink-0" />
-                      {t.linkedin && (
-                        <Link
-                          href={t.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="ml-0.5 text-text-muted hover:text-[#0A66C2] transition-colors"
-                          aria-label={`LinkedIn de ${t.name}`}
-                        >
-                          <LinkedinIcon size={14} />
-                        </Link>
-                      )}
-                    </div>
-                    <p className="text-text-muted text-[13px] mt-0.5 leading-snug">{t.role}</p>
-                  </div>
+                {/* Portrait image */}
+                <div
+                  className="relative w-full overflow-hidden"
+                  style={{
+                    height: '300px',
+                    background: `linear-gradient(180deg, rgba(${rgb},0.10) 0%, rgba(${rgb},0.03) 100%)`,
+                  }}
+                >
+                  <Image
+                    src={t.image}
+                    alt={`${t.name}, formateur DKDP`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 380px"
+                    priority={i === 0}
+                    style={{
+                      objectFit: 'contain',
+                      objectPosition: 'bottom center',
+                    }}
+                  />
                   {/* Highlight chip */}
                   <span
-                    className="hidden sm:inline-flex text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full whitespace-nowrap"
+                    className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full whitespace-nowrap backdrop-blur-sm"
                     style={{
-                      background: `rgba(${rgb},0.14)`,
+                      background: `rgba(${rgb},0.20)`,
                       color: accentColor,
-                      border: `1px solid rgba(${rgb},0.20)`,
+                      border: `1px solid rgba(${rgb},0.30)`,
                     }}
                   >
                     {t.highlight}
                   </span>
                 </div>
 
-                {/* Bio */}
-                <div className="px-5 pb-4 flex-1">
-                  <p className="text-text-secondary text-sm leading-relaxed">{t.bio}</p>
-                </div>
+                {/* Content */}
+                <div className="flex flex-col flex-1 p-5">
+                  {/* Name + badges */}
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <p className="text-white font-bold text-lg leading-tight">{t.name}</p>
+                    <BadgeCheck size={16} style={{ color: accentColor }} className="flex-shrink-0" />
+                    {t.linkedin && (
+                      <Link
+                        href={t.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-0.5 text-text-muted hover:text-[#0A66C2] transition-colors"
+                        aria-label={`LinkedIn de ${t.name}`}
+                      >
+                        <LinkedinIcon size={14} />
+                      </Link>
+                    )}
+                  </div>
+                  <p className="text-text-muted text-[13px] mb-4 leading-snug">{t.role}</p>
 
-                {/* Skills footer */}
-                <div className="px-5 pb-5 pt-2 border-t" style={{ borderColor: `rgba(${rgb},0.10)` }}>
-                  <div className="flex flex-wrap gap-1.5">
+                  {/* Bio */}
+                  <p className="text-text-secondary text-sm leading-relaxed flex-1">{t.bio}</p>
+
+                  {/* Skills */}
+                  <div className="flex flex-wrap gap-1.5 mt-4 pt-4 border-t" style={{ borderColor: `rgba(${rgb},0.10)` }}>
                     {t.skills.map((s) => (
                       <span
                         key={s}

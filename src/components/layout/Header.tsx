@@ -69,6 +69,7 @@ const FORMATION_MAIN = [
 
 const FORMATION_SECONDARY = [
   { title: 'Programme complet', href: '/formation-entreprise', icon: BookOpen },
+  { title: 'Nos formateurs', href: '/formation-entreprise/ia#formateurs', icon: Users2 },
   { title: 'Pour les particuliers', href: '/formation-particuliers', icon: Users2 },
   { title: 'Réserver une session', href: '/contact', icon: Phone },
 ]

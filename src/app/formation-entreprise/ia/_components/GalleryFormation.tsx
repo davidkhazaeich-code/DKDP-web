@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { X } from 'lucide-react'
-import { orange } from '@/lib/tokens'
 
 const IMAGES = [
   {
@@ -49,7 +48,7 @@ export function GalleryFormation() {
             key={img.src}
             onClick={() => setLightbox(i)}
             className="group relative aspect-[16/10] rounded-[12px] overflow-hidden cursor-pointer border transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
-            style={{ borderColor: orange.border, background: orange.bg }}
+            style={{ borderColor: 'rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.025)' }}
           >
             <Image
               src={img.src}

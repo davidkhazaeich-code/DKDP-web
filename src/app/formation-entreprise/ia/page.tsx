@@ -22,6 +22,8 @@ import { GalleryFormation } from './_components/GalleryFormation'
 import { SkillsBento } from './_components/SkillsBento'
 import { LeadFormInline } from './_components/LeadFormInline'
 import { FormateursSection } from './_components/FormateursSection'
+import { ModulesMarquee } from './_components/ModulesMarquee'
+import { DayAgenda } from './_components/DayAgenda'
 
 export const metadata: Metadata = {
   title: 'Formation IA entreprise Genève · ChatGPT, Claude, Copilot en 1 jour · DKDP',
@@ -81,15 +83,6 @@ const FAQ = [
   },
 ]
 
-const MODULES = [
-  'Les bases de l\'IA générative : comment ça fonctionne vraiment',
-  'Prompting efficace : les techniques qui font la différence',
-  'ChatGPT en pratique : rédaction, synthèse, analyse',
-  'Claude pour les tâches longues et sensibles',
-  'Microsoft Copilot dans Word, Excel et Outlook',
-  'Automatisations simples avec Make ou Zapier',
-  'Sécurité, confidentialité et limites des outils IA',
-]
 
 const FORMATS = [
   {
@@ -294,14 +287,7 @@ export default function FormationIAPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <div className="space-y-3">
-                {MODULES.map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0" style={{ color }} />
-                    <span className="text-text-secondary text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
+              <ModulesMarquee />
             </SectionReveal>
           </div>
         </div>
@@ -330,7 +316,51 @@ export default function FormationIAPage() {
       {/* ── Calculateur ROI Formation ── */}
       <ROICalculatorFormation />
 
-
+      {/* ── Agenda de la journée ── */}
+      <section className="py-24 bg-bg-card border-y border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <SectionReveal>
+              <GradTag className="mb-4">Programme détaillé</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
+                Ce qui se passe pendant la journée.
+              </h2>
+              <p className="text-text-secondary leading-relaxed mb-6">
+                La journée alterne théorie courte et pratique intensive. 90% du temps est consacré à des exercices sur vos cas réels. La théorie sert uniquement à comprendre pourquoi quelque chose fonctionne, pas à remplir des slides.
+              </p>
+              <div className="space-y-3">
+                {[
+                  '7 heures de formation, moins de 45 min de théorie pure',
+                  'Exercices sur vos vrais documents et vos vraies tâches',
+                  'Chaque participant repart avec ses templates de prompts personnels',
+                  'Attestation individuelle de formation remise en fin de journée',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div
+                      className="flex h-8 w-8 items-center justify-center rounded-[7px] flex-shrink-0"
+                      style={{ background: bg, border: `1px solid ${border}` }}
+                    >
+                      <CheckCircle2 size={15} style={{ color }} />
+                    </div>
+                    <span className="text-text-secondary text-sm leading-relaxed">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </SectionReveal>
+            <SectionReveal delay={0.15}>
+              <div
+                className="rounded-[20px] p-6 border"
+                style={{ background: bg, borderColor: border }}
+              >
+                <p className="text-[11px] font-bold uppercase tracking-widest mb-5 text-center" style={{ color }}>
+                  Planning type d&apos;une journée
+                </p>
+                <DayAgenda />
+              </div>
+            </SectionReveal>
+          </div>
+        </div>
+      </section>
 
       {/* ── Formats ── */}
       <section id="format" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">

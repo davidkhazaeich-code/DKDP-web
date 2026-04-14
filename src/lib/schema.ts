@@ -82,7 +82,7 @@ export function buildService({ name, url, description }: { name: string; url: st
 }
 
 export function buildCourse({
-  name, url, description, duration, teaches, prerequisites, priceFrom, ratingValue, ratingCount,
+  name, url, description, duration, teaches, prerequisites, priceFrom, ratingValue, ratingCount, image,
 }: {
   name: string
   url: string
@@ -91,8 +91,9 @@ export function buildCourse({
   teaches?: string[]
   prerequisites?: string
   priceFrom?: number
-  ratingValue?: string
+  ratingValue?: number | string
   ratingCount?: number
+  image?: string
 }) {
   return {
     '@context': 'https://schema.org',
@@ -100,10 +101,12 @@ export function buildCourse({
     name,
     ...(description ? { description } : {}),
     url: `${BASE_URL}${url}`,
+    ...(image ? { image } : {}),
     provider: {
       '@type': 'Organization',
       name: 'DKDP',
       url: BASE_URL,
+      logo: { '@type': 'ImageObject', url: `${BASE_URL}/images/logo/dkdp_blanc-croped.png` },
     },
     courseMode: ['onsite', 'online'],
     inLanguage: 'fr',
@@ -114,15 +117,16 @@ export function buildCourse({
     ...(ratingValue ? {
       aggregateRating: {
         '@type': 'AggregateRating',
-        ratingValue,
+        ratingValue: Number(ratingValue),
         reviewCount: ratingCount ?? 500,
-        bestRating: '5',
+        bestRating: 5,
       },
     } : {}),
     hasCourseInstance: {
       '@type': 'CourseInstance',
       courseMode: ['onsite', 'online'],
       inLanguage: 'fr',
+      startDate: '2026-01-06',
       location: {
         '@type': 'Place',
         name: 'Genève, Suisse',
@@ -142,7 +146,7 @@ export function buildCourse({
       offers: {
         '@type': 'Offer',
         priceCurrency: 'CHF',
-        ...(priceFrom ? { price: String(priceFrom), priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: String(priceFrom), description: `À partir de CHF ${priceFrom}/h` } } : { category: 'Sur devis' }),
+        ...(priceFrom ? { price: priceFrom, priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: priceFrom, description: `À partir de CHF ${priceFrom}/h` } } : { category: 'Sur devis' }),
         url: `${BASE_URL}/contact?service=formation`,
         availability: 'https://schema.org/InStock',
       },

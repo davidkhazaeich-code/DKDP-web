@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, Clock, Users, Award, ChevronRight, TrendingUp, BarChart2, Zap, BrainCircuit } from 'lucide-react'
+import { CheckCircle2, Clock, Users, Award, ChevronRight, TrendingUp, BarChart2, Zap, BrainCircuit, Shield } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -23,14 +23,26 @@ import { ToolComparison } from './_components/ToolComparison'
 import { DayAgenda } from './_components/DayAgenda'
 import { GalleryFormation } from './_components/GalleryFormation'
 import { SkillsBento } from './_components/SkillsBento'
+import { LeadFormInline } from './_components/LeadFormInline'
+import { ROIChart } from './_components/ROIChart'
 
 export const metadata: Metadata = {
-  title: 'Formation IA Entreprise Genève · ChatGPT, Claude · DKDP',
+  title: 'Formation IA Entreprise Genève et Suisse romande · ChatGPT, Claude, Copilot · DKDP',
   description:
-    'Formation Intelligence Artificielle en entreprise à Genève et en Suisse romande. ChatGPT, Claude et Copilot maîtrisés en une journée. Programme sur mesure pour PME, présentiel ou distanciel.',
-  alternates: { canonical: 'https://dkdp.ch/formation-entreprise/ia' },
+    '91% opérationnels dès J+1. Formation IA pratique pour équipes PME à Genève et Suisse romande. ChatGPT, Claude, Copilot maîtrisés en 1 jour. Présentiel ou en ligne.',
+  alternates: {
+    canonical: 'https://dkdp.ch/formation-entreprise/ia',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/formation-entreprise/ia',
+      'x-default': 'https://dkdp.ch/formation-entreprise/ia',
+    },
+  },
   openGraph: {
+    url: 'https://dkdp.ch/formation-entreprise/ia',
     images: [{ url: '/images/og/formation-ia.png', width: 1376, height: 768, alt: 'Formation IA entreprise Genève DKDP' }],
+  },
+  twitter: {
+    images: ['/images/og/formation-ia.png'],
   },
 }
 
@@ -105,7 +117,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationIAPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Intelligence Artificielle en entreprise Genève', url: '/formation-entreprise/ia', description: 'Formation IA pratique pour équipes d\'entreprise à Genève. ChatGPT, Claude, Copilot. Programme sur mesure, 1 journée.', duration: 'P1D', teaches: ['Prompting avancé', 'ChatGPT', 'Claude', 'Copilot', 'Automatisation IA', 'Confidentialité IA'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Intelligence Artificielle en entreprise Genève', url: '/formation-entreprise/ia', description: 'Formation IA pratique pour équipes d\'entreprise à Genève et Suisse romande. ChatGPT, Claude, Copilot maîtrisés en 1 jour. Programme sur mesure.', duration: 'P1D', teaches: ['Prompting avancé', 'ChatGPT', 'Claude', 'Copilot', 'Automatisation IA', 'Confidentialité IA'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: 4.9, ratingCount: 500, image: 'https://dkdp.ch/images/og/formation-ia.png' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
@@ -126,21 +138,25 @@ export default function FormationIAPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">Intelligence Artificielle · 1 journée</GradTag>
+                <GradTag className="mb-6">Intelligence Artificielle · 1 jour · Genève</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
                   Formation IA en entreprise à Genève :{' '}
                   <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>maîtrisez ChatGPT en une journée</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. Vos équipes gagnent en moyenne 8 heures par semaine dès le lendemain de la formation.
+                  DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. <strong className="text-white">91% de nos participants sont opérationnels dès J+1</strong> et gagnent en moyenne 8 heures par semaine.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
-                  <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
+                  <LiquidMetalButton href="#devis" size="lg">Demander un devis →</LiquidMetalButton>
                   <Link href="#programme" className="text-sm text-text-muted hover:text-white transition-colors">
                     Voir le programme ↓
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
+                <p className="text-text-muted text-xs mt-4 flex items-center gap-1.5">
+                  <Shield size={11} style={{ color }} />
+                  Satisfaction garantie — si aucune compétence n&apos;est appliquée dès J+1, on revient gratuitement.
+                </p>
+                <p className="text-text-muted text-xs mt-2">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
@@ -150,7 +166,7 @@ export default function FormationIAPage() {
                     fill
                     className="object-cover"
                     priority
-                    sizes="50vw"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
                 </div>
@@ -167,7 +183,7 @@ export default function FormationIAPage() {
             {[
               { v: '500+', l: 'Participants formés', sub: 'En Suisse romande' },
               { v: '4.9/5', l: 'Satisfaction', sub: 'Note post-formation' },
-              { v: '91%', l: 'Appliquent dès J+1', sub: 'Compétences utilisées' },
+              { v: '91%', l: 'Opérationnels dès J+1', sub: 'Score post-formation' },
               { v: '1h30', l: 'Gagnée / jour / pers.', sub: 'Moyenne observée' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -182,9 +198,17 @@ export default function FormationIAPage() {
         </div>
       </section>
 
+      {/* ── Formulaire inline devis ── */}
+      <section id="devis" className="scroll-mt-[66px] py-16 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <LeadFormInline />
+        </div>
+      </section>
+
       {/* ── Subnav ── */}
       <ScrollSpyNav
         items={[
+          { label: 'Devis rapide', href: '#devis' },
           { label: 'Pourquoi maintenant', href: '#pourquoi' },
           { label: 'Programme', href: '#programme' },
           { label: 'Compétences', href: '#compétences' },
@@ -253,7 +277,7 @@ export default function FormationIAPage() {
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Programme de la formation IA : une journée 100% pratique.
+                Programme : ChatGPT, Claude et Copilot maîtrisés en 1 jour.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La formation commence par 30 minutes de théorie sur le fonctionnement de l&apos;IA, puis on passe immédiatement à la pratique. Chaque module inclut des exercices sur vos cas d&apos;usage réels. On ne fait pas de démo : on travaille sur vos vrais documents et vos vraies tâches.
@@ -335,6 +359,10 @@ export default function FormationIAPage() {
               </SectionReveal>
             ))}
           </div>
+
+          <SectionReveal>
+            <ROIChart />
+          </SectionReveal>
 
           <SectionReveal>
             <div
@@ -428,7 +456,7 @@ export default function FormationIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Format</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Une formation qui s&apos;adapté à vous.
+                Une formation qui s&apos;adapte à vous.
               </h2>
             </div>
           </SectionReveal>

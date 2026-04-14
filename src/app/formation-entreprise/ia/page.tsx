@@ -151,8 +151,8 @@ export default function FormationIAPage() {
               <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
                   <Image
-                    src="/images/services/dkdp-formation-ia-conference-geneve.webp"
-                    alt="Formation Intelligence Artificielle en entreprise a Geneve, conference devant 10 professionnels"
+                    src="/images/gallery/formation-ia-participant-aha-moment.webp"
+                    alt="Participant decouvrant les capacites de l'IA lors d'une formation DKDP Geneve"
                     fill
                     className="object-cover"
                     priority

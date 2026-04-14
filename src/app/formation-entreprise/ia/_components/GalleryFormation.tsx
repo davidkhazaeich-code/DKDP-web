@@ -31,9 +31,9 @@ const IMAGES = [
     caption: 'Networking entre participants',
   },
   {
-    src: '/images/gallery/formation-ia-participant-aha-moment.webp',
-    alt: 'Participant decouvrant les capacités de l IA avec expression de comprehension lors d une formation DKDP',
-    caption: 'Le moment "aha"',
+    src: '/images/services/dkdp-formation-ia-conference-geneve.webp',
+    alt: 'Formation IA entreprise Geneve 2026 : conference devant un groupe de professionnels DKDP',
+    caption: 'Session plénière',
   },
 ]
 

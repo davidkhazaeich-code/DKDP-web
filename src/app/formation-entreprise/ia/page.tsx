@@ -16,7 +16,6 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const ROICalculatorFormation = dynamic(() => import('@/components/sections/ROICalculatorFormation').then(m => m.ROICalculatorFormation))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => m.Testimonials))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
-const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
 import { ToolComparison } from './_components/ToolComparison'
@@ -155,7 +154,7 @@ export default function FormationIAPage() {
                 </div>
                 <p className="text-text-muted text-xs mt-4 flex items-center gap-1.5">
                   <Shield size={11} style={{ color }} />
-                  Satisfaction garantie — si aucune compétence n&apos;est appliquée dès J+1, on revient gratuitement.
+                  Satisfaction garantie : si aucune compétence n&apos;est appliquée dès J+1, on revient gratuitement.
                 </p>
                 <p className="text-text-muted text-xs mt-2">Programme mis à jour : avril 2026</p>
               </div>
@@ -615,8 +614,6 @@ export default function FormationIAPage() {
 
       {/* ── Calculateur ROI Formation ── */}
       <ROICalculatorFormation />
-
-      <FormationTrainer accentColor='#FF8C00' />
 
       {/* ── Témoignages ── */}
       <Testimonials accentRgb="255,140,0" />

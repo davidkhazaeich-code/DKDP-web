@@ -11,7 +11,6 @@ const TEAM = [
     src: '/images/team/david-khazaei.png',
     cardBg: 'linear-gradient(160deg, rgba(124,58,237,0.22) 0%, rgba(124,58,237,0.06) 100%)',
     cardBorder: 'rgba(124,58,237,0.3)',
-    imageScale: 1,
   },
   {
     name: 'Romane',
@@ -21,8 +20,6 @@ const TEAM = [
     src: '/images/team/romane.png',
     cardBg: 'linear-gradient(160deg, rgba(255,107,0,0.20) 0%, rgba(255,107,0,0.05) 100%)',
     cardBorder: 'rgba(255,107,0,0.28)',
-    imageScale: 1.38,
-    imageOffsetX: 80,
     linkedin: 'https://www.linkedin.com/in/romane-degeorges/',
   },
   {

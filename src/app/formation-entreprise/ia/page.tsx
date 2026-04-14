@@ -261,6 +261,29 @@ export default function FormationIAPage() {
         </div>
       </section>
 
+      {/* ── Competences acquises (Bento) ── */}
+      <section id="compétences" className="scroll-mt-[124px] py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <GradTag className="mb-4">Ce que vous maîtriserez</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                6 compétences concrètes, utilisables dès le lendemain.
+              </h2>
+              <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
+                Pas de théorie abstraite. Chaque compétence est travaillée sur vos vrais documents et vos vrais cas d&apos;usage.
+              </p>
+            </div>
+          </SectionReveal>
+          <SectionReveal delay={0.1}>
+            <SkillsBento />
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ── Calculateur ROI Formation ── */}
+      <ROICalculatorFormation />
+
       {/* ── Programme ── */}
       <section id="programme" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -292,29 +315,6 @@ export default function FormationIAPage() {
           </div>
         </div>
       </section>
-
-      {/* ── Competences acquises (Bento) ── */}
-      <section id="compétences" className="scroll-mt-[124px] py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-12">
-              <GradTag className="mb-4">Ce que vous maîtriserez</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                6 compétences concrètes, utilisables dès le lendemain.
-              </h2>
-              <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
-                Pas de théorie abstraite. Chaque compétence est travaillée sur vos vrais documents et vos vrais cas d&apos;usage.
-              </p>
-            </div>
-          </SectionReveal>
-          <SectionReveal delay={0.1}>
-            <SkillsBento />
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* ── Calculateur ROI Formation ── */}
-      <ROICalculatorFormation />
 
       {/* ── Agenda de la journée ── */}
       <section className="py-24 bg-bg-card border-y border-border">

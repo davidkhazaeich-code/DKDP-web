@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, Clock, Users, Award, ChevronRight, TrendingUp, BarChart2, Zap, BrainCircuit, Shield } from 'lucide-react'
+import { CheckCircle2, Clock, Users, Award, ChevronRight, BrainCircuit, Shield } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -14,16 +14,13 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const ROICalculatorFormation = dynamic(() => import('@/components/sections/ROICalculatorFormation').then(m => m.ROICalculatorFormation))
-const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => m.Testimonials))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
 import { ToolComparison } from './_components/ToolComparison'
-import { DayAgenda } from './_components/DayAgenda'
 import { GalleryFormation } from './_components/GalleryFormation'
 import { SkillsBento } from './_components/SkillsBento'
 import { LeadFormInline } from './_components/LeadFormInline'
-import { ROIChart } from './_components/ROIChart'
 import { FormateursSection } from './_components/FormateursSection'
 
 export const metadata: Metadata = {
@@ -235,7 +232,7 @@ export default function FormationIAPage() {
                 Vos équipes utilisent déjà l&apos;IA. Mais pas de la bonne façon.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
-                La plupart des collaborateurs ont testé ChatGPT une fois, obtenu un résultat décevant, et sont passés à autre chose. Pourtant, avec les bonnes techniques de prompting, l&apos;IA réduit de 60 à 80% le temps de traitement des tâches répétitives.
+                La plupart des collaborateurs ont testé ChatGPT une fois, obtenu un résultat décevant, et sont passés à autre chose. Pourtant, former ses équipes à l&apos;IA avec les bonnes techniques de prompting réduit de 60 à 80% le temps de traitement des tâches répétitives.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
                 DKDP ne fait pas de démonstrations génériques. On travaille sur vos vrais documents, vos vrais emails et vos vrais cas d&apos;usage. Dès le lendemain matin, vous avez des prompts personnels et une routine IA opérationnelle. Pour comparer les outils, consultez notre guide <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-white transition-colors">ChatGPT vs Claude vs Copilot pour les PME</Link>.
@@ -330,160 +327,10 @@ export default function FormationIAPage() {
         </div>
       </section>
 
-      {/* ── ROI par poste ── */}
-      <section id="roi" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Retour sur investissement</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que chaque poste gagne concrètement.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-            {[
-              { role: 'Manager', saved: '2h / jour', tasks: 'Comptes-rendus, synthèses, préparation réunions, emails complexes', color },
-              { role: 'Assistante de direction', saved: '3h / jour', tasks: "Rédaction, organisation des agenda, emails, gestion de documents", color },
-              { role: 'Commercial', saved: '1h30 / jour', tasks: 'Propositions commerciales, suivi clients, qualification de leads', color },
-              { role: 'Comptable / Finance', saved: '1h30 / jour', tasks: 'Analyses, synthèses de données, rapports, notes de frais', color },
-              { role: 'Chargé de communication', saved: '2h / jour', tasks: 'Contenus réseaux sociaux, visuels, articles, newsletters', color },
-              { role: 'Équipe RH', saved: '2h / jour', tasks: "Offres d'emploi, intégration, emails candidats, notes de synthèse", color },
-            ].map((r, i) => (
-              <SectionReveal key={r.role} delay={i * 0.07}>
-                <div
-                  className="flex flex-col gap-3 p-6 rounded-[14px] border h-full"
-                  style={{ background: 'rgba(255,255,255,0.025)', borderColor: 'rgba(255,255,255,0.07)' }}
-                >
-                  <div className="flex items-center justify-between">
-                    <p className="text-white font-bold">{r.role}</p>
-                    <span
-                      className="text-[11px] font-bold px-2.5 py-1 rounded-full"
-                      style={{ background: 'rgba(255,107,0,0.15)', color: r.color, border: `1px solid rgba(255,107,0,0.28)` }}
-                    >
-                      {r.saved}
-                    </span>
-                  </div>
-                  <p className="text-text-muted text-xs leading-relaxed">{r.tasks}</p>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
+      {/* ── Calculateur ROI Formation ── */}
+      <ROICalculatorFormation />
 
-          <SectionReveal>
-            <ROIChart />
-          </SectionReveal>
 
-          <SectionReveal>
-            <div
-              className="rounded-[16px] p-4 border"
-              style={{ background: 'rgba(255,107,0,0.04)', borderColor: 'rgba(255,107,0,0.18)' }}
-            >
-              <p className="text-text-secondary text-sm text-center">
-                Pour une équipe de 8 personnes à 1h30 économisée / jour en moyenne : <span className="text-white font-bold">240h / mois libérées</span>. Soit l&apos;équivalent de <span className="text-white font-bold">1.5 équivalent temps plein</span> réaffecté à des tâches à haute valeur.
-              </p>
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* ── Agenda de la journée ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <SectionReveal>
-              <GradTag className="mb-4">Programme détaillé</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Ce qui se passe pendant la journée.
-              </h2>
-              <p className="text-text-secondary leading-relaxed mb-6">
-                La journée est structurée pour alterner théorie courte et pratique intensive. 90% du temps est consacré à des exercices sur vos cas réels. La théorie sert uniquement à comprendre pourquoi quelque chose fonctionne, pas à remplir des slides.
-              </p>
-              <div className="space-y-3 mb-6">
-                {[
-                  { Icon: Zap, text: '7 heures de formation, moins de 45 min de théorie pure' },
-                  { Icon: TrendingUp, text: 'Exercices sur vos vrais documents et vos vraies tâches' },
-                  { Icon: BarChart2, text: 'Chaque participant repart avec ses templates de prompts personnels' },
-                  { Icon: Award, text: 'Attestation individuelle de formation remise en fin de journée' },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div
-                      className="flex h-8 w-8 items-center justify-center rounded-[7px] flex-shrink-0"
-                      style={{ background: bg, border: `1px solid ${border}` }}
-                    >
-                      <item.Icon size={15} style={{ color }} />
-                    </div>
-                    <span className="text-text-secondary text-sm leading-relaxed">{item.text}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="relative w-full aspect-[16/10] rounded-[14px] overflow-hidden">
-                <Image
-                  src="/images/gallery/formation-ia-participante-focus.webp"
-                  alt="Participante concentree sur son laptop lors d'une formation IA DKDP Geneve"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </SectionReveal>
-            <SectionReveal delay={0.15}>
-              <div
-                className="rounded-[20px] p-6 border"
-                style={{ background: bg, borderColor: border }}
-              >
-                <p className="text-[11px] font-bold uppercase tracking-widest mb-5 text-center" style={{ color }}>
-                  Planning type d&apos;une journée
-                </p>
-                <DayAgenda />
-              </div>
-            </SectionReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Pour qui ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <SectionReveal>
-              <div
-                className="relative aspect-[4/3] rounded-[20px] overflow-hidden"
-                style={{ boxShadow: '0 0 60px rgba(255,107,0,0.12)' }}
-              >
-                <Image
-                  src="/images/gallery/formation-ia-salle-formation-geneve.webp"
-                  alt="Session de formation IA DKDP a Geneve : petit groupe de professionnels en salle"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </SectionReveal>
-            <SectionReveal delay={0.1}>
-              <GradTag className="mb-4">Profils</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-5">
-                Pour qui est la formation IA en entreprise ?
-              </h2>
-              <p className="text-text-secondary text-sm leading-relaxed mb-8">
-                Conçue pour les non-techniciens. Aucun prérequis, aucun code. Le programme s&apos;adapte au métier et aux outils de chaque participant.
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {['Managers', 'Assistantes de direction', 'Commerciaux', 'Équipes RH', 'Comptables', 'Chargés de communication'].map((role) => (
-                  <div
-                    key={role}
-                    className="flex items-center gap-2.5 p-3.5 rounded-[10px] border"
-                    style={{ background: 'rgba(255,255,255,0.025)', borderColor: 'rgba(255,255,255,0.07)' }}
-                  >
-                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: color }} />
-                    <p className="text-white font-medium text-sm leading-tight">{role}</p>
-                  </div>
-                ))}
-              </div>
-            </SectionReveal>
-          </div>
-        </div>
-      </section>
 
       {/* ── Formats ── */}
       <section id="format" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
@@ -601,7 +448,7 @@ export default function FormationIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Tarifs de la formation IA entreprise.
+                Tarifs de la formation IA entreprise en Suisse romande.
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
                 Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).
@@ -611,12 +458,6 @@ export default function FormationIAPage() {
           <FormationPricing />
         </div>
       </section>
-
-      {/* ── Calculateur ROI Formation ── */}
-      <ROICalculatorFormation />
-
-      {/* ── Témoignages ── */}
-      <Testimonials accentRgb="255,140,0" />
 
       {/* ── FAQ ── */}
       <div id="faq" className="scroll-mt-[124px]">

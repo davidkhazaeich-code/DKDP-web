@@ -146,9 +146,9 @@ export default function FormationIAPage() {
                   <Shield size={11} style={{ color }} />
                   Satisfaction garantie : si aucune compétence n&apos;est appliquée dès J+1, on revient gratuitement.
                 </p>
-                <p className="text-text-muted text-xs mt-2">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">
+                <p className="text-text-muted text-xs mb-2 text-center">Programme mis à jour : avril 2026</p>
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
                   <Image
                     src="/images/gallery/formation-ia-participant-aha-moment.webp"

@@ -138,12 +138,12 @@ export function SkillsBento() {
         <div
           key={s.title}
           className={`group rounded-[16px] p-6 border transition-all duration-300 hover:translate-y-[-2px] ${s.span}`}
-          style={{ background: bg, borderColor: border }}
+          style={{ background: 'rgba(255,255,255,0.025)', borderColor: 'rgba(255,255,255,0.07)' }}
         >
           <div className="flex items-start gap-4">
             <div
               className="flex h-10 w-10 items-center justify-center rounded-[10px] flex-shrink-0"
-              style={{ background: 'rgba(255,107,0,0.12)', border: `1px solid rgba(255,107,0,0.25)` }}
+              style={{ background: 'rgba(255,107,0,0.10)', border: `1px solid rgba(255,107,0,0.22)` }}
             >
               <s.Icon size={18} style={{ color }} />
             </div>

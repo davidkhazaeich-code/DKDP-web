@@ -25,6 +25,7 @@ import { GalleryFormation } from './_components/GalleryFormation'
 import { SkillsBento } from './_components/SkillsBento'
 import { LeadFormInline } from './_components/LeadFormInline'
 import { ROIChart } from './_components/ROIChart'
+import { FormateursSection } from './_components/FormateursSection'
 
 export const metadata: Metadata = {
   title: 'Formation IA Entreprise Genève et Suisse romande · ChatGPT, Claude, Copilot · DKDP',
@@ -214,6 +215,7 @@ export default function FormationIAPage() {
           { label: 'Compétences', href: '#compétences' },
           { label: 'ROI', href: '#roi' },
           { label: 'Format', href: '#format' },
+          { label: 'Formateurs', href: '#formateurs' },
           { label: 'Galerie', href: '#galerie' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
@@ -287,6 +289,15 @@ export default function FormationIAPage() {
               </p>
             </SectionReveal>
             <SectionReveal delay={0.1}>
+              <div className="relative w-full aspect-[16/10] rounded-[16px] overflow-hidden mb-6">
+                <Image
+                  src="/images/gallery/formation-ia-collaboration-laptop.webp"
+                  alt="Exercice pratique en duo lors d'une formation IA DKDP Geneve"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
               <div className="space-y-3">
                 {MODULES.map((item) => (
                   <div key={item} className="flex items-start gap-3">
@@ -343,7 +354,7 @@ export default function FormationIAPage() {
               <SectionReveal key={r.role} delay={i * 0.07}>
                 <div
                   className="flex flex-col gap-3 p-6 rounded-[14px] border h-full"
-                  style={{ background: bg, borderColor: border }}
+                  style={{ background: 'rgba(255,255,255,0.025)', borderColor: 'rgba(255,255,255,0.07)' }}
                 >
                   <div className="flex items-center justify-between">
                     <p className="text-white font-bold">{r.role}</p>
@@ -426,25 +437,42 @@ export default function FormationIAPage() {
       {/* ── Pour qui ── */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <SectionReveal>
+              <div
+                className="relative aspect-[4/3] rounded-[20px] overflow-hidden"
+                style={{ boxShadow: '0 0 60px rgba(255,107,0,0.12)' }}
+              >
+                <Image
+                  src="/images/gallery/formation-ia-salle-formation-geneve.webp"
+                  alt="Session de formation IA DKDP a Geneve : petit groupe de professionnels en salle"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </SectionReveal>
+            <SectionReveal delay={0.1}>
               <GradTag className="mb-4">Profils</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-5">
                 Pour qui est la formation IA en entreprise ?
               </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {['Managers', 'Assistantes de direction', 'Commerciaux', 'Équipes RH', 'Comptables', 'Chargés de communication'].map((role, i) => (
-              <SectionReveal key={role} delay={i * 0.07}>
-                <div
-                  className="flex items-center justify-center text-center p-4 rounded-[12px] border h-full"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <p className="text-white font-medium text-sm">{role}</p>
-                </div>
-              </SectionReveal>
-            ))}
+              <p className="text-text-secondary text-sm leading-relaxed mb-8">
+                Conçue pour les non-techniciens. Aucun prérequis, aucun code. Le programme s&apos;adapte au métier et aux outils de chaque participant.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {['Managers', 'Assistantes de direction', 'Commerciaux', 'Équipes RH', 'Comptables', 'Chargés de communication'].map((role) => (
+                  <div
+                    key={role}
+                    className="flex items-center gap-2.5 p-3.5 rounded-[10px] border"
+                    style={{ background: 'rgba(255,255,255,0.025)', borderColor: 'rgba(255,255,255,0.07)' }}
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: color }} />
+                    <p className="text-white font-medium text-sm leading-tight">{role}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionReveal>
           </div>
         </div>
       </section>
@@ -478,6 +506,9 @@ export default function FormationIAPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Formateurs ── */}
+      <FormateursSection />
 
       {/* ── Témoignages ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
@@ -515,7 +546,7 @@ export default function FormationIAPage() {
               <SectionReveal key={i} delay={i * 0.1}>
                 <div
                   className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
+                  style={{ background: 'rgba(255,255,255,0.025)', borderColor: 'rgba(255,255,255,0.07)' }}
                 >
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: t.stars }).map((_, j) => (
@@ -523,7 +554,7 @@ export default function FormationIAPage() {
                     ))}
                   </div>
                   <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
+                  <div className="mt-6 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                     <p className="text-white font-semibold text-sm">{t.name}</p>
                     <p className="text-text-muted text-xs">{t.company}</p>
                   </div>

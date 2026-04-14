@@ -200,9 +200,9 @@ export default function FormationIAPage() {
         items={[
           { label: 'Devis rapide', href: '#devis' },
           { label: 'Pourquoi maintenant', href: '#pourquoi' },
-          { label: 'Programme', href: '#programme' },
           { label: 'Compétences', href: '#compétences' },
-          { label: 'ROI', href: '#roi' },
+          { label: 'ROI', href: '#calculateur-roi-formation' },
+          { label: 'Programme', href: '#programme' },
           { label: 'Format', href: '#format' },
           { label: 'Formateurs', href: '#formateurs' },
           { label: 'Galerie', href: '#galerie' },

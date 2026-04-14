@@ -32,6 +32,15 @@ const PRINCIPALS = [
     linkedin: 'https://www.linkedin.com/in/romane-degeorges/',
     stat: 'IA et SEO',
   },
+  {
+    name: 'Claude',
+    role: 'Assistant IA Anthropic, co-formateur',
+    bio: "L'IA la plus avancée du marché, utilisée en direct pendant chaque séance. Les participants apprennent à maîtriser Claude dans leur contexte métier réel.",
+    image: '/images/team/claude-formation.png',
+    skills: ["Rédaction et synthèse", 'Analyse de documents', 'Code et automatisation'],
+    linkedin: null,
+    stat: 'Anthropic',
+  },
 ]
 
 const SUPPORT = {
@@ -63,8 +72,8 @@ export function FormateursSection() {
           </div>
         </SectionReveal>
 
-        {/* ── David + Romane — grandes cartes portrait ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+        {/* ── David + Romane + Claude — grandes cartes portrait ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
           {PRINCIPALS.map((t, i) => (
             <SectionReveal key={t.name} delay={i * 0.12}>
               <div
@@ -81,13 +90,13 @@ export function FormateursSection() {
                 />
 
                 {/* ── Photo portrait ── */}
-                <div className="relative w-full h-[320px] sm:h-[400px] md:h-[460px] lg:h-[520px] overflow-hidden bg-[#181818]">
+                <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#181818]">
                   <Image
                     src={t.image}
                     alt={`${t.name}, formateur DKDP Genève`}
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                    sizes="(max-width: 640px) 100vw, 50vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Dégradé bas pour lier photo et contenu */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/10 to-transparent" />

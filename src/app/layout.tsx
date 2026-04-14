@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider'
 import { CalProvider } from '@/components/providers/CalProvider'
@@ -90,6 +91,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </SmoothScrollProvider>
         </MotionProvider>
         <Analytics />
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SCXF5R826D"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SCXF5R826D');
+          `}
+        </Script>
       </body>
     </html>
   )

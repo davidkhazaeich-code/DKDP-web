@@ -400,7 +400,7 @@ export default function FormationIAPage() {
               <p className="text-text-secondary leading-relaxed mb-6">
                 La journée est structurée pour alterner théorie courte et pratique intensive. 90% du temps est consacré à des exercices sur vos cas réels. La théorie sert uniquement à comprendre pourquoi quelque chose fonctionne, pas à remplir des slides.
               </p>
-              <div className="space-y-3">
+              <div className="space-y-3 mb-6">
                 {[
                   { Icon: Zap, text: '7 heures de formation, moins de 45 min de théorie pure' },
                   { Icon: TrendingUp, text: 'Exercices sur vos vrais documents et vos vraies tâches' },
@@ -417,6 +417,15 @@ export default function FormationIAPage() {
                     <span className="text-text-secondary text-sm leading-relaxed">{item.text}</span>
                   </div>
                 ))}
+              </div>
+              <div className="relative w-full aspect-[16/10] rounded-[14px] overflow-hidden">
+                <Image
+                  src="/images/gallery/formation-ia-participante-focus.webp"
+                  alt="Participante concentree sur son laptop lors d'une formation IA DKDP Geneve"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
             </SectionReveal>
             <SectionReveal delay={0.15}>

@@ -73,7 +73,7 @@ export function ROIChart() {
         }}
       >
         {[
-          { v: '91%', l: 'opérationnels dès J+1' },
+          { v: '100%', l: 'opérationnels dès J+1' },
           { v: '4.9/5', l: 'satisfaction moyenne' },
           { v: '500+', l: 'participants formés' },
         ].map(({ v, l }) => (

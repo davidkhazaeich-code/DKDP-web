@@ -118,7 +118,7 @@ export function HeroVisual() {
       {/* Mini stats */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { v: '91%', l: 'Appliquent dès J+1', c: '#4ade80' },
+          { v: '100%', l: 'Appliquent dès J+1', c: '#4ade80' },
           { v: '1 jour', l: 'Format intensif', c: O },
           { v: '100%', l: 'Sur mesure', c: '#FF8C00' },
         ].map((s) => (

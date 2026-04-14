@@ -28,7 +28,7 @@ import { DayAgenda } from './_components/DayAgenda'
 export const metadata: Metadata = {
   title: 'Formation IA entreprise Genève · ChatGPT, Claude, Copilot en 1 jour · DKDP',
   description:
-    "Former ses équipes à l'IA en 1 jour. Formation entreprise à Genève et en Suisse romande : ChatGPT, Claude, Copilot. 91% opérationnels dès J+1. Programme sur mesure pour PME.",
+    "Former ses équipes à l'IA en 1 jour. Formation entreprise à Genève et en Suisse romande : ChatGPT, Claude, Copilot. 100% opérationnels dès J+1. Programme sur mesure pour PME.",
   alternates: {
     canonical: 'https://dkdp.ch/formation-entreprise/ia',
     languages: {
@@ -134,7 +134,7 @@ export default function FormationIAPage() {
                   <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>maîtrisez ChatGPT en une journée</GradText>
                 </h1>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. <strong className="text-white">91% de nos participants sont opérationnels dès J+1</strong> et gagnent en moyenne 8 heures par semaine.
+                  DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. <strong className="text-white">100% de nos participants sont opérationnels dès J+1</strong> et gagnent en moyenne 8 heures par semaine.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="#devis" size="lg">Demander un devis →</LiquidMetalButton>
@@ -173,7 +173,7 @@ export default function FormationIAPage() {
             {[
               { v: '500+', l: 'Participants formés', sub: 'En Suisse romande' },
               { v: '4.9/5', l: 'Satisfaction', sub: 'Note post-formation' },
-              { v: '91%', l: 'Opérationnels dès J+1', sub: 'Score post-formation' },
+              { v: '100%', l: 'Opérationnels dès J+1', sub: 'Score post-formation' },
               { v: '1h30', l: 'Gagnée / jour / pers.', sub: 'Moyenne observée' },
             ].map((s) => (
               <SectionReveal key={s.l}>

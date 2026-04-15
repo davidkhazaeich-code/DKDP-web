@@ -11,7 +11,7 @@ import {
   Bot, Workflow, BrainCircuit, BookOpen, Users2, Presentation,
   Phone, FileText, Star, ChevronRight, X, Menu,
   Film, Shield, Share2, Palette, LayoutGrid,
-  Sparkles, CalendarCheck, Monitor, MessageCircle,
+  Sparkles, CalendarCheck, Monitor, MessageCircle, Smartphone,
 } from 'lucide-react'
 import {
   NavigationMenu, NavigationMenuContent, NavigationMenuItem,
@@ -25,6 +25,7 @@ import { ClaudeIcon } from '@/components/icons/ClaudeIcon'
 
 const AGENCE_MAIN = [
   { title: 'Création de site web', href: '/agence-digitale/creation-site-web', icon: Globe, description: 'Sites sur mesure qui convertissent et performent.' },
+  { title: 'Développement d\'application', href: '/agence-digitale/developpement-application', icon: Smartphone, description: 'iOS, Android, web app et PWA sur mesure pour PME.' },
   { title: 'SEO & Référencement', href: '/agence-digitale/seo', icon: Search, description: 'Visibilité organique durable sur Google.' },
   { title: 'Publicité SEA', href: '/agence-digitale/publicite-sea', icon: Megaphone, description: 'Google Ads et campagnes payantes rentables.' },
   { title: 'Réseaux sociaux', href: '/agence-digitale/reseaux-sociaux', icon: Share2, description: 'Présence sociale cohérente et engageante.' },

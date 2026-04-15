@@ -46,7 +46,8 @@ export const ROUTES: Route[] = [
   { url: '/formation-entreprise',      priority: 0.90, changeFrequency: 'monthly' },
 
   // ─── Agence Digitale — Services ───────────────────────────────────────────
-  { url: '/agence-digitale/creation-site-web',    priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/creation-site-web',              priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/developpement-application',      priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/seo',                  priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/publicite-sea',        priority: 0.80, changeFrequency: 'monthly' },
   { url: '/agence-digitale/reseaux-sociaux',      priority: 0.80, changeFrequency: 'monthly' },

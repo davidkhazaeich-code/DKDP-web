@@ -1,7 +1,6 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { GradText } from '@/components/ui/GradText'
 import { EstimatorProvider, useEstimator } from './EstimatorContext'
 import { EstimatorProgress } from './EstimatorProgress'
 import { EstimatorCounter } from './EstimatorCounter'
@@ -45,17 +44,7 @@ function EstimatorInner() {
   }
 
   return (
-    <div className="max-w-[1200px] mx-auto px-4 pb-20">
-      {/* Title */}
-      <div className="text-center mb-4 sm:mb-6">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1.5 sm:mb-3">
-          Estimez votre <GradText>projet web</GradText>
-        </h2>
-        <p className="text-zinc-400 max-w-2xl mx-auto text-sm sm:text-base hidden sm:block">
-          Configurez votre projet en quelques étapes et recevez une estimation personnalisée
-        </p>
-      </div>
-
+    <div className="max-w-[1200px] mx-auto px-4 pt-4 sm:pt-6 pb-20">
       <TrustBanner />
 
       <div className="mt-4 sm:mt-6 lg:mt-8 lg:grid lg:grid-cols-[1fr_320px] lg:gap-8">

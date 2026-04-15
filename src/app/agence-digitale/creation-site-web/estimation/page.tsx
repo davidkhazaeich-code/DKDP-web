@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildBreadcrumbList, buildService } from '@/lib/schema'
-import { Estimator } from '../_components/Estimator'
+import { EstimationStarter } from '../_components/EstimationStarter'
 
 export const metadata: Metadata = {
   title: 'Estimation gratuite site web · Simulateur de prix en ligne · DKDP',
@@ -41,35 +40,17 @@ export default function EstimationPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#09090B]/40 via-transparent to-[#09090B]" />
       </div>
 
-      {/* ── Intro texte (SEO + word count) ── */}
-      <section className="relative pt-24 sm:pt-32 pb-0">
+      {/* ── Hero ── */}
+      <section className="relative pt-24 sm:pt-32 pb-16">
         <div className="max-w-[860px] mx-auto px-6 text-center">
           <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#A78BFA' }}>
             Simulateur de prix
           </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.03em] text-white mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.03em] text-white mb-10 leading-tight">
             Combien coûte votre site web ?
           </h1>
-          <p className="text-zinc-400 text-base sm:text-lg leading-relaxed mb-3 max-w-xl mx-auto">
-            Répondez à quelques questions sur votre projet. Le simulateur calcule une estimation transparente basée sur les tarifs réels de l&apos;agence à Genève. Résultat immédiat, devis détaillé sous 48h, sans engagement.
-          </p>
-          <p className="text-zinc-500 text-sm mb-10">
-            Vous préférez échanger directement ?{' '}
-            <Link href="/contact" className="text-white underline underline-offset-2 hover:text-zinc-300 transition-colors">
-              Contactez-nous
-            </Link>
-            {' '}ou découvrez notre{' '}
-            <Link href="/agence-digitale/creation-site-web" className="text-white underline underline-offset-2 hover:text-zinc-300 transition-colors">
-              service de création de site web
-            </Link>
-            .
-          </p>
+          <EstimationStarter />
         </div>
-      </section>
-
-      {/* ── Estimateur ── */}
-      <section className="relative pb-16">
-        <Estimator />
       </section>
 
       {/* ── Contexte SEO ── */}

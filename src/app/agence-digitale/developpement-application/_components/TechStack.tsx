@@ -1,57 +1,111 @@
-export function TechStack() {
-  const CATEGORIES = [
-    {
-      label: 'Mobile',
-      techs: [
-        { name: 'React Native', c: '#61DBFB', bg: 'rgba(97,219,251,0.08)', b: 'rgba(97,219,251,0.25)' },
-        { name: 'Swift (iOS)', c: '#FA7343', bg: 'rgba(250,115,67,0.08)', b: 'rgba(250,115,67,0.25)' },
-        { name: 'Kotlin (Android)', c: '#A97BFF', bg: 'rgba(169,123,255,0.08)', b: 'rgba(169,123,255,0.25)' },
-        { name: 'Expo', c: '#ffffff', bg: 'rgba(255,255,255,0.05)', b: 'rgba(255,255,255,0.12)' },
-      ],
-    },
-    {
-      label: 'Web & Backend',
-      techs: [
-        { name: 'Next.js', c: '#ffffff', bg: 'rgba(255,255,255,0.05)', b: 'rgba(255,255,255,0.12)' },
-        { name: 'Node.js', c: '#6CC24A', bg: 'rgba(108,194,74,0.08)', b: 'rgba(108,194,74,0.25)' },
-        { name: 'TypeScript', c: '#3178C6', bg: 'rgba(49,120,198,0.10)', b: 'rgba(49,120,198,0.28)' },
-        { name: 'Tailwind CSS', c: '#38BDF8', bg: 'rgba(56,189,248,0.08)', b: 'rgba(56,189,248,0.25)' },
-      ],
-    },
-    {
-      label: 'Base de données & Auth',
-      techs: [
-        { name: 'PostgreSQL', c: '#336791', bg: 'rgba(51,103,145,0.10)', b: 'rgba(51,103,145,0.28)' },
-        { name: 'Supabase', c: '#3ECF8E', bg: 'rgba(62,207,142,0.08)', b: 'rgba(62,207,142,0.25)' },
-        { name: 'Prisma', c: '#5A67D8', bg: 'rgba(90,103,216,0.10)', b: 'rgba(90,103,216,0.28)' },
-        { name: 'Firebase', c: '#FFCA28', bg: 'rgba(255,202,40,0.07)', b: 'rgba(255,202,40,0.22)' },
-      ],
-    },
-    {
-      label: 'Design & Déploiement',
-      techs: [
-        { name: 'Figma', c: '#F24E1E', bg: 'rgba(242,78,30,0.08)', b: 'rgba(242,78,30,0.28)' },
-        { name: 'Vercel', c: '#D4D4D8', bg: 'rgba(212,212,216,0.06)', b: 'rgba(212,212,216,0.18)' },
-        { name: 'AWS', c: '#FF9900', bg: 'rgba(255,153,0,0.08)', b: 'rgba(255,153,0,0.22)' },
-        { name: 'App Store / Play', c: '#A78BFA', bg: 'rgba(124,58,237,0.08)', b: 'rgba(124,58,237,0.22)' },
-      ],
-    },
-  ]
+const CATEGORIES = [
+  {
+    label: 'Mobile',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+      </svg>
+    ),
+    accent: '#A78BFA',
+    accentBg: 'rgba(124,58,237,0.10)',
+    accentBorder: 'rgba(124,58,237,0.25)',
+    techs: [
+      { name: 'React Native', dot: '#61DBFB' },
+      { name: 'Swift (iOS)', dot: '#FA7343' },
+      { name: 'Kotlin (Android)', dot: '#A97BFF' },
+      { name: 'Expo', dot: '#ffffff' },
+    ],
+  },
+  {
+    label: 'Web & Backend',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+      </svg>
+    ),
+    accent: '#60a5fa',
+    accentBg: 'rgba(96,165,250,0.10)',
+    accentBorder: 'rgba(96,165,250,0.25)',
+    techs: [
+      { name: 'Next.js', dot: '#ffffff' },
+      { name: 'Node.js', dot: '#6CC24A' },
+      { name: 'TypeScript', dot: '#3178C6' },
+      { name: 'Tailwind CSS', dot: '#38BDF8' },
+    ],
+  },
+  {
+    label: 'Base de données & Auth',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+      </svg>
+    ),
+    accent: '#4ade80',
+    accentBg: 'rgba(74,222,128,0.10)',
+    accentBorder: 'rgba(74,222,128,0.25)',
+    techs: [
+      { name: 'PostgreSQL', dot: '#336791' },
+      { name: 'Supabase', dot: '#3ECF8E' },
+      { name: 'Prisma', dot: '#5A67D8' },
+      { name: 'Firebase', dot: '#FFCA28' },
+    ],
+  },
+  {
+    label: 'Design & Déploiement',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+      </svg>
+    ),
+    accent: '#fbbf24',
+    accentBg: 'rgba(251,191,36,0.10)',
+    accentBorder: 'rgba(251,191,36,0.25)',
+    techs: [
+      { name: 'Figma', dot: '#F24E1E' },
+      { name: 'Vercel', dot: '#D4D4D8' },
+      { name: 'AWS', dot: '#FF9900' },
+      { name: 'App Store / Play', dot: '#A78BFA' },
+    ],
+  },
+]
 
+export function TechStack() {
   return (
-    <div className="space-y-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border rounded-[16px] overflow-hidden">
       {CATEGORIES.map((cat) => (
-        <div key={cat.label}>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-3">{cat.label}</p>
-          <div className="flex flex-wrap gap-2">
+        <div
+          key={cat.label}
+          className="bg-[#0D0D0D] p-6 flex flex-col gap-5"
+        >
+          {/* Category header */}
+          <div className="flex items-center gap-2.5">
+            <div
+              className="flex h-8 w-8 items-center justify-center rounded-[8px] flex-shrink-0"
+              style={{ background: cat.accentBg, border: `1px solid ${cat.accentBorder}`, color: cat.accent }}
+            >
+              {cat.icon}
+            </div>
+            <span
+              className="text-[11px] font-bold uppercase tracking-[0.1em]"
+              style={{ color: cat.accent }}
+            >
+              {cat.label}
+            </span>
+          </div>
+
+          {/* Tech list */}
+          <div className="grid grid-cols-2 gap-2">
             {cat.techs.map((t) => (
-              <span
+              <div
                 key={t.name}
-                className="px-3 py-1.5 rounded-[6px] text-[12px] font-semibold"
-                style={{ background: t.bg, border: `1px solid ${t.b}`, color: t.c }}
+                className="flex items-center gap-2.5 px-3 py-2.5 rounded-[8px] bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.05] transition-colors duration-150"
               >
-                {t.name}
-              </span>
+                <span
+                  className="h-2 w-2 rounded-full flex-shrink-0"
+                  style={{ background: t.dot }}
+                />
+                <span className="text-[13px] font-medium text-text-secondary truncate">{t.name}</span>
+              </div>
             ))}
           </div>
         </div>

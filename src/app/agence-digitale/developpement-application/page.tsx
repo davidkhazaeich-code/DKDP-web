@@ -332,12 +332,7 @@ export default function DeveloppementApplicationPage() {
             </div>
           </SectionReveal>
           <SectionReveal delay={0.1}>
-            <div
-              className="rounded-[20px] p-8 md:p-10 border"
-              style={{ background: bg, borderColor: border }}
-            >
-              <TechStack />
-            </div>
+            <TechStack />
           </SectionReveal>
         </div>
       </section>

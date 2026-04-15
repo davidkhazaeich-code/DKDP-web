@@ -112,7 +112,6 @@ const EQUIPE = [
     skills: ['IA & Automatisation', 'Stratégie digitale', 'Développement web', 'SEO', 'Google Ads'],
     email: 'dk@dkdp.ch',
     linkedin: 'https://www.linkedin.com/in/davidkhazaei/',
-    imageScale: 0.9,
   },
   {
     name: 'Romane',
@@ -125,8 +124,6 @@ const EQUIPE = [
     skills: ['Intelligence artificielle', 'SEO & GEO', 'UX Design', 'Formation'],
     email: 'rd@dkdp.ch',
     linkedin: 'https://www.linkedin.com/in/romane-degeorges/',
-    imageScale: 1.19,
-    imageOffsetX: 15,
   },
   {
     name: 'Ali Khazaei',
@@ -474,10 +471,6 @@ export default function AProposPage() {
                         fill
                         className="relative z-10 object-contain object-bottom"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        style={('imageScale' in member || 'imageOffsetX' in member) ? {
-                          transform: `translateX(${(member as { imageOffsetX?: number }).imageOffsetX ?? 0}px) scale(${(member as { imageScale?: number }).imageScale ?? 1})`,
-                          transformOrigin: 'bottom center',
-                        } : undefined}
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
                     </div>

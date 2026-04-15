@@ -128,7 +128,7 @@ export default function FormationIAPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">Intelligence Artificielle · 1 jour · Genève</GradTag>
+                <GradTag className="mb-6">Intelligence Artificielle · Genève et Suisse romande</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
                   Formation IA en entreprise à Genève :{' '}
                   <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>maîtrisez ChatGPT en une journée</GradText>

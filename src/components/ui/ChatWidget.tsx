@@ -311,6 +311,7 @@ function LimitReachedCTA() {
 export function ChatWidget() {
   const [isEurope, setIsEurope] = useState(true)
   const [isOpen, setIsOpen] = useState(false)
+  const [nearFooter, setNearFooter] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const [placeholderIndex, setPlaceholderIndex] = useState(0)
   const [showPlaceholder, setShowPlaceholder] = useState(true)
@@ -327,6 +328,18 @@ export function ChatWidget() {
   useEffect(() => {
     const match = document.cookie.match(/(?:^|; )geo-eu=([^;]*)/)
     if (match && match[1] === '0') setIsEurope(false)
+  }, [])
+
+  // Cache la barre (état fermé) quand le footer devient visible
+  useEffect(() => {
+    const footer = document.querySelector('footer')
+    if (!footer) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setNearFooter(entry.isIntersecting),
+      { threshold: 0 }
+    )
+    observer.observe(footer)
+    return () => observer.disconnect()
   }, [])
 
   const [chatTransport] = useState(() => new DefaultChatTransport({
@@ -523,7 +536,7 @@ export function ChatWidget() {
           BOTTOM SEARCH BAR (closed state)
          ════════════════════════════════════════════════════════════════════════ */}
       <AnimatePresence>
-        {!isOpen && (
+        {!isOpen && !nearFooter && (
           <m.div
             ref={barRef}
             initial={{ opacity: 0, y: 30 }}

@@ -46,7 +46,7 @@ const SERVICES = [
     Icon: Smartphone, title: 'Développement d\'application', href: '/agence-digitale/developpement-application',
     description: 'Applications iOS, Android, web app et PWA sur mesure. Un seul interlocuteur de la maquette au store.',
     badge: 'Nouveau',
-    image: '/images/services/dkdp-agence-creation-web.webp',
+    image: '/images/services/dkdp-developpement-application-service.webp',
   },
   {
     Icon: Search, title: 'Référencement SEO', href: '/agence-digitale/seo',

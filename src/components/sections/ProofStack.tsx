@@ -7,8 +7,8 @@ import { GradTag } from '@/components/ui/GradTag'
 
 const STATS = [
   { end: 10, suffix: '+', label: "ans d'expérience", description: 'Dans le digital suisse romand' },
-  { end: 150, suffix: '+', label: 'entreprises', description: 'Accompagnées avec succès' },
-  { end: 463, suffix: '+', label: 'élèves formés', description: 'En Suisse romande' },
+  { end: 700, suffix: '+', label: 'clients accompagnés', description: 'Entreprises et PME suisses' },
+  { end: 500, suffix: '+', label: 'professionnels formés', description: 'En Suisse romande' },
   { end: 4.9, suffix: '/5', label: 'note Google', description: 'Vérifiée et certifiée' },
 ]
 
@@ -72,7 +72,7 @@ export function ProofStack() {
           <div className="text-center mb-10 sm:mb-16">
             <GradTag className="mb-4">Ils nous ont fait confiance</GradTag>
             <h2 id="proof-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-              150 entreprises genevoises nous font confiance.
+              700+ clients et PME nous font confiance.
             </h2>
           </div>
         </SectionReveal>

@@ -53,7 +53,7 @@ export function HomeHero() {
           <GradText as="span">qui vous fait sortir du lot.</GradText>
         </h1>
         <p className="text-text-secondary text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 max-w-[860px] mx-auto">
-          On crée votre site, on optimisé votre SEO, on déploie l&apos;IA dans vos équipes
+          On crée votre site, on optimise votre SEO, on déploie l&apos;IA dans vos équipes
           et on forme vos collaborateurs. Résultats mesurables, pas de blabla.
         </p>
         <div className="flex justify-center">

@@ -121,7 +121,7 @@ export function ProcessSteps({ accentRgb }: { accentRgb?: string } = {}) {
               Comment ça marche
             </h2>
             <p className="text-text-secondary text-base sm:text-lg md:text-xl max-w-xl mx-auto">
-              5 étapes claires, un processus éprouvé sur 150+ projets.
+              5 étapes claires, un processus éprouvé sur 700+ projets.
             </p>
           </div>
         </SectionReveal>

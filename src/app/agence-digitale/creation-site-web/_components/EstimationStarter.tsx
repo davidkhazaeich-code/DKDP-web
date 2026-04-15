@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, X } from 'lucide-react'
+import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { Estimator } from './Estimator'
 
 export function EstimationStarter() {
@@ -34,17 +35,9 @@ export function EstimationStarter() {
 
   return (
     <>
-      <button
-        onClick={() => setStarted(true)}
-        className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-300 hover:scale-[1.03] hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A78BFA]/60"
-        style={{ background: '#A78BFA', color: '#09090B' }}
-      >
-        Démarrer le simulateur
-        <ArrowRight
-          size={18}
-          className="transition-transform duration-300 group-hover:translate-x-1"
-        />
-      </button>
+      <LiquidMetalButton onClick={() => setStarted(true)} size="lg">
+        Démarrer le simulateur &nbsp;<ArrowRight size={15} style={{ display: 'inline', verticalAlign: 'middle' }} />
+      </LiquidMetalButton>
 
       <AnimatePresence>
         {started && (

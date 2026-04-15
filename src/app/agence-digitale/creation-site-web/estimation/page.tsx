@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildBreadcrumbList, buildService } from '@/lib/schema'
 import { EstimationStarter } from '../_components/EstimationStarter'
+import { PriceChart } from '../_components/PriceChart'
 
 export const metadata: Metadata = {
   title: 'Estimation gratuite site web · Simulateur de prix en ligne · DKDP',
@@ -41,7 +42,7 @@ export default function EstimationPage() {
       </div>
 
       {/* ── Hero ── */}
-      <section className="relative pt-24 sm:pt-32 pb-16">
+      <section className="relative pt-24 sm:pt-32 pb-10">
         <div className="max-w-[860px] mx-auto px-6 text-center">
           <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#A78BFA' }}>
             Simulateur de prix
@@ -51,6 +52,11 @@ export default function EstimationPage() {
           </h1>
           <EstimationStarter />
         </div>
+      </section>
+
+      {/* ── Chart ── */}
+      <section className="relative pb-12 px-4 sm:px-6">
+        <PriceChart />
       </section>
 
       {/* ── Contexte SEO ── */}

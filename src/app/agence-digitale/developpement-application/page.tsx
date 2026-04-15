@@ -15,6 +15,7 @@ import { violet } from '@/lib/tokens'
 import { HeroVisual } from './_components/HeroVisual'
 import { AppTypesSection } from './_components/AppTypesSection'
 import { TechStack } from './_components/TechStack'
+import { AppGallery } from './_components/AppGallery'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     'Développement d\'applications mobiles et web pour PME à Genève. iOS, Android, React Native, Web App sur mesure. Du cahier des charges au lancement, devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/developpement-application' },
   openGraph: {
-    images: [{ url: '/images/og/developpement-application.png', width: 1376, height: 768, alt: 'Développement application Genève DKDP' }],
+    images: [{ url: '/images/og/developpement-application.webp', width: 1376, height: 768, alt: 'Développement application Genève DKDP' }],
   },
 }
 
@@ -226,6 +227,7 @@ export default function DeveloppementApplicationPage() {
           { label: 'Types d\'apps', href: '#types' },
           { label: 'Processus', href: '#process' },
           { label: 'Stack', href: '#stack' },
+          { label: 'Réalisations', href: '#galerie' },
           { label: 'Pourquoi DKDP', href: '#pourquoi' },
           { label: 'FAQ', href: '#faq' },
         ]}
@@ -266,7 +268,11 @@ export default function DeveloppementApplicationPage() {
                 Une PME qui gère ses interventions sur papier, ses commandes par email ou ses clients dans un tableur perd du temps chaque jour. Ce n&apos;est pas visible dans les bilans, mais c&apos;est mesurable en heures perdues, en erreurs et en croissance bloquée.
               </p>
               <p className="text-text-secondary leading-relaxed">
-                Une application métier bien conçue automatise les tâches répétitives, centralise les données et offre à vos équipes et à vos clients une expérience à la hauteur de votre activité.
+                Une application métier bien conçue automatise les tâches répétitives, centralise les données et offre à vos équipes et à vos clients une expérience à la hauteur de votre activité. Couplée à nos solutions d&apos;{' '}
+                <Link href="/intelligence-artificielle/automatisation" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color }}>automatisation IA</Link>
+                {' '}ou d&apos;{' '}
+                <Link href="/intelligence-artificielle/agents-ia" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color }}>agents IA</Link>
+                , votre application gagne en intelligence sans alourdir vos équipes.
               </p>
             </SectionReveal>
             <SectionReveal delay={0.1}>
@@ -333,6 +339,24 @@ export default function DeveloppementApplicationPage() {
               <TechStack />
             </div>
           </SectionReveal>
+        </div>
+      </section>
+
+      {/* ── Galerie apps ── */}
+      <section id="galerie" className="py-24 border-b border-border scroll-mt-[124px]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <GradTag className="mb-4">Interfaces réalisées</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                Des apps pensées pour l&apos;usage réel.
+              </h2>
+              <p className="text-text-secondary mt-4 max-w-lg mx-auto text-sm">
+                CRM mobile, SaaS web, gestion terrain, e-commerce, PWA : chaque projet a sa logique, son usage, ses contraintes métier.
+              </p>
+            </div>
+          </SectionReveal>
+          <AppGallery />
         </div>
       </section>
 

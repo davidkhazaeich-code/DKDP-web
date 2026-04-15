@@ -1,9 +1,10 @@
+import { Smartphone, Globe, Zap } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { violet, orange, teal } from '@/lib/tokens'
 
 const APPS = [
   {
-    emoji: '📱',
+    Icon: Smartphone,
     title: 'Application mobile native',
     desc: 'Une app iOS ou Android construite avec les APIs système complètes : notifications push, caméra, GPS, biométrie. Performance maximale, expérience soignée.',
     tags: ['Swift (iOS)', 'Kotlin (Android)', 'React Native'],
@@ -12,7 +13,7 @@ const APPS = [
     border: violet.border,
   },
   {
-    emoji: '🌐',
+    Icon: Globe,
     title: 'Web App & SaaS',
     desc: "Application métier accessible depuis n'importe quel navigateur. Dashboard, portail client, outil interne. Aucune installation, déploiement simplifié.",
     tags: ['Next.js', 'React', 'Node.js', 'PostgreSQL'],
@@ -21,7 +22,7 @@ const APPS = [
     border: orange.border,
   },
   {
-    emoji: '⚡',
+    Icon: Zap,
     title: 'PWA',
     desc: "L'expérience d'une app mobile, le déploiement d'un site web. Fonctionne hors-ligne, s'installe sur l'écran d'accueil, envoie des notifications. Idéal pour des budgets maîtrisés.",
     tags: ['Offline', 'Notifications push', 'Installable'],
@@ -41,10 +42,10 @@ export function AppTypesSection() {
           >
             {/* Icon */}
             <div
-              className="flex h-12 w-12 items-center justify-center rounded-[10px] text-2xl flex-shrink-0"
+              className="flex h-12 w-12 items-center justify-center rounded-[10px] flex-shrink-0"
               style={{ background: app.bg, border: `1px solid ${app.border}` }}
             >
-              {app.emoji}
+              <app.Icon size={22} style={{ color: app.color }} strokeWidth={1.75} />
             </div>
 
             {/* Content */}

@@ -19,7 +19,7 @@ const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m =
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => m.Testimonials))
 const CircularTestimonialsLazy = dynamic(() => import('@/components/ui/circular-testimonials').then(m => m.CircularTestimonials))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
-const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
+const ROICalculatorFormation = dynamic(() => import('@/components/sections/ROICalculatorFormation').then(m => ({ default: m.ROICalculatorFormation })))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
@@ -28,6 +28,8 @@ import { ClaudeProductCard } from './_components/ClaudeProductCard'
 import { AgendaRow } from './_components/AgendaRow'
 import { CapabilityCard } from './_components/CapabilityCard'
 import { UseCaseCard } from './_components/UseCaseCard'
+import { LeadFormInlineClaudeAI } from './_components/LeadFormInlineClaudeAI'
+import { GalleryFormationClaudeAI } from './_components/GalleryFormationClaudeAI'
 
 export const metadata: Metadata = {
   title: 'Formation Claude IA Genève | Entreprise et Équipes | DKDP',
@@ -316,12 +318,19 @@ export default function FormationClaudeAIPage() {
         </div>
       </section>
 
-      {/* ══ 3. Subnav sticky ══ */}
+      {/* ══ 3. Formulaire inline devis ══ */}
+      <section className="py-16 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <LeadFormInlineClaudeAI />
+        </div>
+      </section>
+
+      {/* ══ 4. Subnav sticky ══ */}
       <ScrollSpyNav
         items={[
-          { label: 'Pourquoi maintenant', href: '#pourquoi' },
+          { label: 'Pourquoi Claude', href: '#pourquoi' },
           { label: 'Programme', href: '#programme' },
-          { label: 'Compétences', href: '#compétences' },
+          { label: 'Compétences', href: '#competences' },
           { label: 'ROI', href: '#roi' },
           { label: 'Format', href: '#format' },
           { label: 'Galerie', href: '#galerie' },
@@ -334,8 +343,8 @@ export default function FormationClaudeAIPage() {
         accentBorder="rgba(255,107,0,0.25)"
       />
 
-      {/* ══ 4. Pourquoi Claude maintenant ══ */}
-      <section id="pourquoi" className="py-24 border-b border-border">
+      {/* ══ 5. Pourquoi Claude maintenant ══ */}
+      <section id="pourquoi" className="py-24 border-b border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
@@ -613,7 +622,7 @@ export default function FormationClaudeAIPage() {
       </section>
 
       {/* ══ 6. Programme ══ */}
-      <section id="programme" className="py-24 border-b border-border">
+      <section id="programme" className="py-24 border-b border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
@@ -732,8 +741,8 @@ export default function FormationClaudeAIPage() {
         </div>
       </section>
 
-      {/* ══ 7. Capacités clés ══ */}
-      <section id="capacités" className="py-24 border-b border-border">
+      {/* ══ 7. Compétences ══ */}
+      <section id="competences" className="py-24 border-b border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
@@ -941,7 +950,7 @@ export default function FormationClaudeAIPage() {
       </HeroBg>
 
       {/* ══ 9. Formats ══ */}
-      <section className="py-24 border-b border-border">
+      <section id="format" className="py-24 border-b border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
@@ -993,8 +1002,35 @@ export default function FormationClaudeAIPage() {
         </div>
       </section>
 
-      {/* ══ 10. Tarifs ══ */}
-      <section id="tarifs" className="py-24 border-b border-border">
+      {/* ══ 10. ROI ══ */}
+      <section id="roi" className="scroll-mt-[124px]">
+        <ROICalculatorFormation />
+      </section>
+
+      {/* ══ 11. Galerie ══ */}
+      <section id="galerie" className="py-24 border-b border-border scroll-mt-[124px]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
+                En images
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                La formation Claude IA en pratique
+              </h2>
+              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                Des sessions concrètes, des équipes actives, des compétences immédiatement utilisables.
+              </p>
+            </div>
+          </SectionReveal>
+          <SectionReveal delay={0.1}>
+            <GalleryFormationClaudeAI />
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ══ 12. Tarifs ══ */}
+      <section id="tarifs" className="py-24 border-b border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
@@ -1126,13 +1162,11 @@ export default function FormationClaudeAIPage() {
         </section>
       </HeroBg>
 
-      <FormationTrainer accentColor='#FF8C00' />
-
-      {/* ══ 13. Testimonials ══ */}
+      {/* ══ 15. Testimonials ══ */}
       <Testimonials accentRgb="167,139,250" />
 
-      {/* ══ 13. FAQ ══ */}
-      <section id="faq" className="py-24 border-b border-border">
+      {/* ══ 16. FAQ ══ */}
+      <section id="faq" className="py-24 border-b border-border scroll-mt-[124px]">
         <div className="max-w-[900px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-12">

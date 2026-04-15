@@ -7,7 +7,7 @@ import { m, AnimatePresence } from 'framer-motion'
 import {
   Globe, Search, Megaphone, Share2, Film, Presentation, Shield,
   BrainCircuit, BookOpen, Palette, Cpu,
-  Bot, Workflow, MessageCircle,
+  Bot, Workflow, MessageCircle, Smartphone,
   ChevronRight, GraduationCap, Sparkles,
 } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -30,6 +30,7 @@ type ServiceItem = {
 
 const AGENCE_SERVICES: ServiceItem[] = [
   { icon: Globe, title: 'Création de site web', href: '/agence-digitale/creation-site-web', description: 'Sites sur mesure, rapides et optimisés pour la conversion.', badge: 'Best seller', image: '/images/services/dkdp-agence-creation-web.webp', pillar: 'agence' },
+  { icon: Smartphone, title: 'Développement d\'application', href: '/agence-digitale/developpement-application', description: 'iOS, Android, web app et PWA sur mesure pour vos besoins métier.', badge: 'Nouveau', image: '/images/services/dkdp-agence-creation-web.webp', pillar: 'agence' },
   { icon: Search, title: 'Référencement SEO', href: '/agence-digitale/seo', description: 'Stratégie de contenu et optimisation technique pour dominer Google.', badge: 'Populaire', image: '/images/services/dkdp-agence-seo.webp', pillar: 'agence' },
   { icon: Megaphone, title: 'Publicité Google Ads', href: '/agence-digitale/publicite-sea', description: 'Campagnes search et display rentables, ROI suivi en temps réel.', badge: null, image: '/images/services/dkdp-agence-sea.webp', pillar: 'agence' },
   { icon: Share2, title: 'Réseaux sociaux', href: '/agence-digitale/reseaux-sociaux', description: 'Présence cohérente sur Instagram, LinkedIn, Facebook.', badge: null, image: '/images/services/dkdp-agence-reseaux-sociaux.webp', pillar: 'agence' },
@@ -63,8 +64,8 @@ type PillarData = { key: PillarKey; label: string; shortLabel: string; subtitle:
 
 const PILLARS: PillarData[] = [
   {
-    key: 'agence', label: 'Marketing digital', shortLabel: 'Marketing', subtitle: '7 services',
-    preview: ['Sites web', 'SEO', 'Google Ads', 'Réseaux sociaux'],
+    key: 'agence', label: 'Marketing digital', shortLabel: 'Marketing', subtitle: '8 services',
+    preview: ['Sites web', 'App mobile', 'SEO', 'Google Ads'],
     heroImage: '/images/services/dkdp-agence-creation-web.webp',
     Icon: Globe, color: violet.color, bg: violet.bg, border: violet.border, items: AGENCE_SERVICES,
     accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.14)', blob2: 'rgba(124,58,237,0.06)',

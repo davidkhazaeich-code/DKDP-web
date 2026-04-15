@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import {
-  Globe, Search, Megaphone, Share2, Film, Presentation, Shield,
+  Globe, Search, Megaphone, Share2, Film, Presentation, Shield, Smartphone,
   ChevronRight, Zap, Users, BarChart2, MapPin,
   EyeOff, AlertTriangle, TrendingDown, Target, Rocket,
 } from 'lucide-react'
@@ -40,6 +40,12 @@ const SERVICES = [
     Icon: Globe, title: 'Création de site web', href: '/agence-digitale/creation-site-web',
     description: 'Sites sur mesure, rapides et optimisés pour la conversion. De la landing page au site e-commerce complexe.',
     badge: 'Best seller',
+    image: '/images/services/dkdp-agence-creation-web.webp',
+  },
+  {
+    Icon: Smartphone, title: 'Développement d\'application', href: '/agence-digitale/developpement-application',
+    description: 'Applications iOS, Android, web app et PWA sur mesure. Un seul interlocuteur de la maquette au store.',
+    badge: 'Nouveau',
     image: '/images/services/dkdp-agence-creation-web.webp',
   },
   {

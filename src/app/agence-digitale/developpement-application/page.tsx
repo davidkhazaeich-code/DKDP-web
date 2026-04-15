@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import { CheckCircle2, ChevronRight, ShieldCheck, Code2, Users, RefreshCw } from 'lucide-react'
+import { ChevronRight, ShieldCheck, Code2, Users, RefreshCw } from 'lucide-react'
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
@@ -276,21 +277,48 @@ export default function DeveloppementApplicationPage() {
               </p>
             </SectionReveal>
             <SectionReveal delay={0.1}>
-              <div className="space-y-3">
-                {[
-                  'Application de gestion d\'interventions terrain (iOS/Android)',
-                  'Portail client avec accès sécurisé à leurs données',
-                  'Outil de commande ou de réservation en ligne',
-                  'Dashboard de suivi en temps réel pour vos équipes',
-                  'App e-commerce mobile pour vos produits',
-                  'Outil interne de gestion RH ou logistique',
-                  'MVP pour tester une idée avant de tout investir',
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0" style={{ color }} />
-                    <span className="text-text-secondary text-sm">{item}</span>
+              <div className="flex flex-col gap-4">
+
+                {/* Marquee */}
+                <div className="relative overflow-hidden rounded-[12px] border border-border bg-bg-card py-3">
+                  {/* fade edges */}
+                  <div className="pointer-events-none absolute inset-y-0 left-0 w-10 z-10 bg-gradient-to-r from-bg-card to-transparent" />
+                  <div className="pointer-events-none absolute inset-y-0 right-0 w-10 z-10 bg-gradient-to-l from-bg-card to-transparent" />
+                  <div className="flex w-max animate-marquee gap-0">
+                    {[
+                      'Gestion interventions terrain iOS/Android',
+                      'Portail client sécurisé',
+                      'Outil de commande en ligne',
+                      'Dashboard temps réel équipes',
+                      'App e-commerce mobile',
+                      'Gestion RH ou logistique',
+                      'MVP pour valider une idée',
+                      'Gestion interventions terrain iOS/Android',
+                      'Portail client sécurisé',
+                      'Outil de commande en ligne',
+                      'Dashboard temps réel équipes',
+                      'App e-commerce mobile',
+                      'Gestion RH ou logistique',
+                      'MVP pour valider une idée',
+                    ].map((item, i) => (
+                      <span key={i} className="flex items-center gap-3 px-5 whitespace-nowrap text-[13px] text-text-secondary">
+                        <span className="h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ background: color }} />
+                        {item}
+                      </span>
+                    ))}
                   </div>
-                ))}
+                </div>
+
+                {/* Image */}
+                <div className="relative overflow-hidden rounded-[16px] border border-border aspect-[4/3]">
+                  <Image
+                    src="/images/apps/dkdp-besoin-app-metier-entreprise.webp"
+                    alt="Professionnel utilisant une application métier sur mesure développée par DKDP Genève"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </SectionReveal>
           </div>

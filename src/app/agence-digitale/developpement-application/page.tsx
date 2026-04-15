@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { ChevronRight, ShieldCheck, Code2, Users, RefreshCw } from 'lucide-react'
+import { ParallaxImage } from '@/components/ui/ParallaxImage'
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
@@ -309,16 +309,14 @@ export default function DeveloppementApplicationPage() {
                   </div>
                 </div>
 
-                {/* Image */}
-                <div className="relative overflow-hidden rounded-[16px] border border-border aspect-[4/3]">
-                  <Image
-                    src="/images/apps/dkdp-besoin-app-metier-entreprise.webp"
-                    alt="Professionnel utilisant une application métier sur mesure développée par DKDP Genève"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
+                {/* Image with parallax */}
+                <ParallaxImage
+                  src="/images/apps/dkdp-besoin-app-metier-entreprise.webp"
+                  alt="Professionnel utilisant une application métier sur mesure développée par DKDP Genève"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="aspect-[4/3] rounded-[16px] border border-border"
+                  strength={10}
+                />
               </div>
             </SectionReveal>
           </div>

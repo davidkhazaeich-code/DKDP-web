@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import { SectionReveal } from '@/components/ui/SectionReveal'
+import { ParallaxImage } from '@/components/ui/ParallaxImage'
 
 const GALLERY = [
   {
@@ -43,7 +43,7 @@ const GALLERY = [
 export function AppGallery() {
   return (
     <div className="space-y-4">
-      {/* Row 1: portrait + landscape + landscape */}
+      {/* Row 1: portrait + landscape */}
       <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4">
         <SectionReveal delay={0}>
           <GalleryCard item={GALLERY[0]} />
@@ -77,20 +77,23 @@ export function AppGallery() {
 }
 
 function GalleryCard({ item }: { item: (typeof GALLERY)[number] }) {
+  const aspectClass = item.aspect === 'portrait' ? 'aspect-[3/4]' : 'aspect-video'
+
   return (
-    <div className="group relative overflow-hidden rounded-[14px] border border-border bg-bg-card hover:-translate-y-0.5 transition-transform duration-300">
-      <div className={`relative w-full ${item.aspect === 'portrait' ? 'aspect-[3/4]' : 'aspect-video'}`}>
-        <Image
-          src={item.src}
-          alt={item.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-          <span className="text-[12px] font-semibold text-white/90 tracking-wide">{item.caption}</span>
-        </div>
+    <div className="group relative rounded-[14px] border border-border bg-bg-card overflow-hidden hover:-translate-y-0.5 transition-transform duration-300">
+      {/* Parallax image — overflow handled by parent */}
+      <ParallaxImage
+        src={item.src}
+        alt={item.alt}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className={`w-full ${aspectClass}`}
+        strength={10}
+      />
+
+      {/* Hover overlay + caption */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+        <span className="text-[12px] font-semibold text-white/90 tracking-wide">{item.caption}</span>
       </div>
     </div>
   )

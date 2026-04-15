@@ -5,7 +5,7 @@ import { useEstimator } from './EstimatorContext'
 import { AnimatedCounter } from './ui/AnimatedCounter'
 import { calculateEstimate } from '@/lib/estimation/pricing'
 
-function StickyBottomBar() {
+export function StickyBottomBar() {
   const { state, dispatch } = useEstimator()
   const { currentStep } = state
   const estimate = calculateEstimate(state)
@@ -105,13 +105,90 @@ function StickyBottomBar() {
   )
 }
 
+// ── Top banner (desktop) ──────────────────────────────────────────────────────
+
+export function EstimatorTopBanner() {
+  const { state } = useEstimator()
+  const { currentStep } = state
+  const estimate = calculateEstimate(state)
+  const { totalMin, totalMax, monthlyMin, weeksMin, weeksMax } = estimate
+  const dots = Array.from({ length: 8 }, (_, i) => i + 1)
+
+  return (
+    <div
+      className="rounded-2xl border border-white/[0.06] bg-[#0A0A0A]/70 backdrop-blur-md px-6 py-4 flex items-center gap-5 mb-6"
+    >
+      {/* Label */}
+      <div className="flex-shrink-0">
+        <p className="text-[10px] font-semibold uppercase tracking-widest text-zinc-500">
+          Votre estimation
+        </p>
+      </div>
+
+      <div className="w-px self-stretch bg-white/[0.06]" />
+
+      {/* Price */}
+      <div className="flex-shrink-0">
+        <p className="text-xl font-bold text-white leading-none tabular-nums">
+          <AnimatedCounter value={totalMin} prefix="CHF" />
+          <span className="text-zinc-600 mx-2">–</span>
+          <AnimatedCounter value={totalMax} prefix="" />
+        </p>
+        {monthlyMin > 0 && (
+          <p className="text-xs mt-1" style={{ color: '#A78BFA' }}>
+            +CHF {monthlyMin.toLocaleString('fr-CH')}/mois
+          </p>
+        )}
+      </div>
+
+      <div className="w-px self-stretch bg-white/[0.06]" />
+
+      {/* Step progress */}
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-3">
+          <div className="flex gap-1 flex-1">
+            {dots.map((dot) => (
+              <div
+                key={dot}
+                className="h-1 flex-1 rounded-full transition-all duration-300"
+                style={{
+                  background:
+                    dot <= currentStep
+                      ? 'rgba(124,58,237,0.7)'
+                      : 'rgba(255,255,255,0.08)',
+                }}
+              />
+            ))}
+          </div>
+          <p className="text-xs text-zinc-500 flex-shrink-0">
+            Étape <span className="text-zinc-300 font-medium">{currentStep}</span>/8
+          </p>
+        </div>
+      </div>
+
+      {/* Weeks (conditional) */}
+      {weeksMin > 0 && (
+        <>
+          <div className="w-px self-stretch bg-white/[0.06]" />
+          <div className="flex-shrink-0">
+            <p className="text-sm font-medium text-emerald-400">
+              ~{weeksMin}–{weeksMax} sem.
+            </p>
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
+// ── Legacy sidebar (kept for reference, replaced by EstimatorTopBanner) ──────
+
 export function EstimatorCounter() {
   const { state } = useEstimator()
   const { currentStep } = state
   const estimate = calculateEstimate(state)
   const { totalMin, totalMax, monthlyMin, monthlyMax, weeksMin, weeksMax } = estimate
 
-  // Dots for step indicator
   const dots = Array.from({ length: 8 }, (_, i) => i + 1)
 
   return (
@@ -125,12 +202,9 @@ export function EstimatorCounter() {
             background: '#0A0A0A',
           }}
         >
-          {/* Label */}
           <p className="text-sm text-zinc-500 uppercase tracking-wider font-medium">
             Votre estimation
           </p>
-
-          {/* Total price */}
           <div>
             <p className="text-2xl font-bold text-white leading-tight">
               <AnimatedCounter value={totalMin} prefix="CHF" />
@@ -138,8 +212,6 @@ export function EstimatorCounter() {
               <AnimatedCounter value={totalMax} prefix="" />
             </p>
           </div>
-
-          {/* Monthly if applicable */}
           {monthlyMin > 0 && (
             <p className="text-sm font-medium" style={{ color: '#A78BFA' }}>
               +CHF {monthlyMin.toLocaleString('fr-CH')}{' '}
@@ -149,14 +221,7 @@ export function EstimatorCounter() {
               /mois
             </p>
           )}
-
-          {/* Divider */}
-          <div
-            className="h-px w-full"
-            style={{ background: 'rgba(255,255,255,0.06)' }}
-          />
-
-          {/* Step indicator */}
+          <div className="h-px w-full" style={{ background: 'rgba(255,255,255,0.06)' }} />
           <div className="flex flex-col gap-2">
             <p className="text-xs text-zinc-500">
               Étape <span className="text-zinc-300 font-medium">{currentStep}</span> / 8
@@ -176,8 +241,6 @@ export function EstimatorCounter() {
               ))}
             </div>
           </div>
-
-          {/* Delay */}
           {weeksMin > 0 && (
             <p className="text-sm text-emerald-400 font-medium">
               ~{weeksMin}-{weeksMax} semaines

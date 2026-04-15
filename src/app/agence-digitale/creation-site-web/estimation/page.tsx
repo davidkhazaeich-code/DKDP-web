@@ -54,13 +54,8 @@ export default function EstimationPage() {
         </div>
       </section>
 
-      {/* ── Chart ── */}
-      <section className="relative pb-12 px-4 sm:px-6">
-        <PriceChart />
-      </section>
-
       {/* ── Contexte SEO ── */}
-      <section className="relative pb-20">
+      <section className="relative pb-12">
         <div className="max-w-[860px] mx-auto px-6">
           <div className="rounded-[16px] border border-zinc-800 bg-zinc-900/40 p-7">
             <h2 className="text-white font-bold text-lg mb-3">Comment fonctionne le simulateur ?</h2>
@@ -75,6 +70,11 @@ export default function EstimationPage() {
             </p>
           </div>
         </div>
+      </section>
+
+      {/* ── Chart ── */}
+      <section className="relative pb-20 px-4 sm:px-6">
+        <PriceChart />
       </section>
     </main>
   )

@@ -36,12 +36,12 @@ const Testimonials = dynamic(() =>
 )
 
 export const metadata: Metadata = {
-  title: 'Chatbot IA sur mesure pour entreprises a Geneve | DKDP',
+  title: 'Chatbot IA sur mesure pour entreprises à Genève | DKDP',
   description:
-    'Chatbot IA sur mesure pour PME a Geneve. Support client 24/7, qualification de leads, prise de RDV automatique. Des CHF 2 900. Deploye en 2-5 semaines.',
+    'Chatbot IA sur mesure pour PME à Genève. Support client 24/7, qualification de leads, prise de RDV automatique. Des CHF 2 900. déployé en 2-5 semaines.',
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia' },
   openGraph: {
-    title: 'Chatbot IA sur mesure pour entreprises a Geneve | DKDP',
+    title: 'Chatbot IA sur mesure pour entreprises à Genève | DKDP',
     description:
       'Chatbot IA concu pour votre métier : support client 24/7, qualification de leads, prise de rendez-vous automatique. Agence DKDP, Geneve.',
     url: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
@@ -52,12 +52,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Chatbot IA sur mesure pour entreprises a Geneve | DKDP',
+    title: 'Chatbot IA sur mesure pour entreprises à Genève | DKDP',
     description:
       'Chatbot IA concu pour votre métier : support 24/7, leads qualifies, RDV automatiques. Des CHF 2\'900. Agence DKDP Geneve.',
   },
   keywords: [
-    'chatbot IA Geneve',
+    'chatbot IÀ Genève',
     'chatbot entreprise Suisse',
     'assistant virtuel PME',
     'chatbot sur mesure',
@@ -180,7 +180,7 @@ const INDUSTRIES = [
   {
     Icon: Stethoscope,
     title: 'Cabinets medicaux et dentaires',
-    scenario: 'Les patients appellent pour prendre rendez-vous, vérifier les horaires ou poser des questions pre-consultation. Le chatbot gère la prise de rendez-vous et les informations pratiques, meme le week-end.',
+    scenario: 'Les patients appellent pour prendre rendez-vous, vérifier les horaires ou poser des questions pre-consultation. Le chatbot gère la prise de rendez-vous et les informations pratiques, même le week-end.',
     example: '"Je voudrais un rendez-vous pour un detartrage" → Proposition de creneaux + confirmation automatique',
   },
   {
@@ -259,10 +259,10 @@ export default function ChatbotIAPage() {
       {/* ── Schema.org ── */}
       <SchemaOrg
         schema={buildService({
-          name: 'Chatbot IA sur mesure pour entreprises a Geneve',
+          name: 'Chatbot IA sur mesure pour entreprises à Genève',
           url: '/intelligence-artificielle/chatbot-ia',
           description:
-            'Conception, développement et déploiement de chatbots IA sur mesure pour PME a Geneve et en Suisse romande. Support client 24/7, qualification de leads, prise de rendez-vous automatisée. Des CHF 2900.',
+            'Conception, développement et déploiement de chatbots IA sur mesure pour PME à Genève et en Suisse romande. Support client 24/7, qualification de leads, prise de rendez-vous automatisée. Des CHF 2900.',
         })}
       />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
@@ -275,9 +275,9 @@ export default function ChatbotIAPage() {
       />
       <SchemaOrg
         schema={buildWebPageWithSpeakable({
-          name: 'Chatbot IA sur mesure pour entreprises a Geneve',
+          name: 'Chatbot IA sur mesure pour entreprises à Genève',
           url: '/intelligence-artificielle/chatbot-ia',
-          description: 'DKDP concoit et déploie des chatbots IA sur mesure pour PME a Geneve. Support client 24/7, qualification de leads, prise de rendez-vous automatique. Des CHF 2900, deploye en 2 a 5 semaines.',
+          description: 'DKDP concoit et déploie des chatbots IA sur mesure pour PME à Genève. Support client 24/7, qualification de leads, prise de rendez-vous automatique. Des CHF 2900, déployé en 2 a 5 semaines.',
         })}
       />
       {/* Structured pricing for rich snippets */}
@@ -286,7 +286,7 @@ export default function ChatbotIAPage() {
           '@context': 'https://schema.org',
           '@type': 'Product',
           name: 'Chatbot IA sur mesure',
-          description: 'Chatbot IA concu et deploye pour votre entreprise. Support client 24/7, qualification de leads, prise de rendez-vous automatique.',
+          description: 'Chatbot IA concu et déployé pour votre entreprise. Support client 24/7, qualification de leads, prise de rendez-vous automatique.',
           brand: { '@type': 'Organization', name: 'DKDP' },
           url: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
           offers: [
@@ -344,22 +344,22 @@ export default function ChatbotIAPage() {
                 <GradTag className="mb-6">Chatbot IA sur mesure · Geneve</GradTag>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
                   Chatbot IA sur mesure{' '}
-                  <GradText as="span">pour votre entreprise a Geneve</GradText>
+                  <GradText as="span">pour votre entreprise à Genève</GradText>
                 </h1>
                 <p data-speakable className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP concoit des chatbots IA sur mesure pour les PME a Geneve et en Suisse romande.
-                  Pas un widget generique : un assistant virtuel intelligent concu pour votre métier, vos questions
-                  et vos clients. Deploye sur votre site en 2 a 5 semaines, a partir de CHF 2&apos;900.
+                  DKDP concoit des chatbots IA sur mesure pour les PME à Genève et en Suisse romande.
+                  Pas un widget générique : un assistant virtuel intelligent concu pour votre métier, vos questions
+                  et vos clients. déployé sur votre site en 2 a 5 semaines, a partir de CHF 2&apos;900.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=chatbot-ia" size="lg">
                     Discuter de mon projet<span aria-hidden="true"> →</span>
                   </LiquidMetalButton>
                   <Link
-                    href="#comment-ca-marche"
+                    href="#comment-ca-marché"
                     className="text-sm text-text-muted hover:text-white transition-colors"
                   >
-                    Comment ca marche ↓
+                    Comment ca marché ↓
                   </Link>
                 </div>
                 <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
@@ -492,7 +492,7 @@ export default function ChatbotIAPage() {
       <ScrollSpyNav
         items={[
           { label: 'Bénéfices', href: '#benefices' },
-          { label: 'Processus', href: '#comment-ca-marche' },
+          { label: 'Processus', href: '#comment-ca-marché' },
           { label: "Cas d'usage", href: '#cas-usage' },
           { label: 'Offres', href: '#offres' },
           { label: 'FAQ', href: '#faq' },
@@ -626,9 +626,9 @@ export default function ChatbotIAPage() {
         </div>
       </section>
 
-      {/* ── Comment ca marche ── */}
+      {/* ── Comment ca marché ── */}
       <section
-        id="comment-ca-marche"
+        id="comment-ca-marché"
         className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]"
       >
         <div className="max-w-[1200px] mx-auto px-6">
@@ -728,7 +728,7 @@ export default function ChatbotIAPage() {
               </h2>
               <p data-speakable className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto">
                 Chaque chatbot DKDP est concu pour un métier spécifique : fiduciaires, cabinets
-                medicaux, agences immobilieres, commerces et PME de services a Geneve. Voici
+                medicaux, agences immobilieres, commerces et PME de services à Genève. Voici
                 comment il s&apos;intégré concretement dans ces secteurs.
               </p>
             </div>
@@ -783,7 +783,7 @@ export default function ChatbotIAPage() {
               </h2>
               <p data-speakable className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto">
                 Devis fixe en CHF, sans surprise. Chaque formule inclut la conception, le
-                développement et le déploiement par notre équipe a Geneve. Paiement en 3 fois possible.
+                développement et le déploiement par notre équipe à Genève. Paiement en 3 fois possible.
               </p>
             </div>
           </SectionReveal>

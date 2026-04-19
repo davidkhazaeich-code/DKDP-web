@@ -47,7 +47,7 @@ export const ROUTES: Route[] = [
 
   // ─── Agence Digitale — Services ───────────────────────────────────────────
   { url: '/agence-digitale/creation-site-web',              priority: 0.85, changeFrequency: 'monthly' },
-  { url: '/agence-digitale/developpement-application',      priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/développement-application',      priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/seo',                  priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/publicite-sea',        priority: 0.80, changeFrequency: 'monthly' },
   { url: '/agence-digitale/reseaux-sociaux',      priority: 0.80, changeFrequency: 'monthly' },
@@ -112,17 +112,17 @@ export const ROUTES: Route[] = [
  * Ajouter ici quand une URL change ou qu'une page est supprimée.
  * Ces redirections sont automatiquement appliquées via next.config.ts.
  *
- * Historique — redirections migrées depuis l'ancienne structure d'URL :
+ * Historique — redirections migrées depuis l'ancienne structuré d'URL :
  */
 export const REDIRECTS: Redirect[] = [
 
   // ─── Service Digital — ancien site ────────────────────────────────────────
   { source: '/creation-site-internet-geneve',         destination: '/agence-digitale/creation-site-web',    permanent: true },
-  { source: '/referencement-naturel-seo',             destination: '/agence-digitale/seo',                  permanent: true },
+  { source: '/référencement-naturel-seo',             destination: '/agence-digitale/seo',                  permanent: true },
   { source: '/publicite-google-sea',                  destination: '/agence-digitale/publicite-sea',        permanent: true },
   { source: '/gestion-reseaux-sociaux-publicite',     destination: '/agence-digitale/reseaux-sociaux',      permanent: true },
   { source: '/creation-video-geneve',                 destination: '/agence-digitale/creation-video',       permanent: true },
-  { source: '/consulting-strategie-marketing-geneve', destination: '/agence-digitale/consulting-marketing', permanent: true },
+  { source: '/consulting-stratégie-marketing-geneve', destination: '/agence-digitale/consulting-marketing', permanent: true },
   { source: '/rgpd-gestion-des-cookies',              destination: '/agence-digitale/rgpd-cookies',         permanent: true },
 
   // ─── Intelligence Artificielle — ancien site ──────────────────────────────

@@ -42,7 +42,7 @@ export default function HomePage() {
       <SchemaOrg schema={buildOrganization()} />
       <SchemaOrg schema={buildFAQPage(FAQ_ITEMS.map(({ question, answer }) => ({ question, answer })))} />
       <SchemaOrg schema={buildWebSite()} />
-      <SchemaOrg schema={buildWebPageWithSpeakable({ name: 'Agence Digitale Geneve', url: '/', description: 'Agence digitale a Geneve spécialisée en creation de sites web, SEO, intelligence artificielle et formation entreprise.' })} />
+      <SchemaOrg schema={buildWebPageWithSpeakable({ name: 'Agence Digitale Geneve', url: '/', description: 'Agence digitale à Genève spécialisée en creation de sites web, SEO, intelligence artificielle et formation entreprise.' })} />
       <RevealDisabledProvider>
         <HomeHero />
         <ProblemBlock />

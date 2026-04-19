@@ -12,7 +12,7 @@ const article: Article = {
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/seo-local-geneve-hero.png',
-      alt: 'SEO local Geneve 2026 : vue aerienne de Geneve avec epingles de localisation et grille numerique pour referencement local PME',
+      alt: 'SEO local Geneve 2026 : vue aerienne de Geneve avec epingles de localisation et grille numerique pour référencement local PME',
     },
     images: [
       {

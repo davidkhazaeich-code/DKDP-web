@@ -104,7 +104,7 @@ export function Step2Branding() {
         </div>
       </div>
 
-      {/* Strategie marketing */}
+      {/* stratégie marketing */}
       <div>
         <SectionLabel optional>Stratégie marketing</SectionLabel>
         <div className="grid grid-cols-1 gap-2.5 sm:gap-3">

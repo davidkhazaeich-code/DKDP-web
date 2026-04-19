@@ -1,0 +1,59 @@
+<style>
+  .tl-wrapper { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem; }
+  .tl-card { background: #141414; border: 1px solid #2a2a2a; border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: border-color .2s; }
+  .tl-card:hover { border-color: #A78BFA; }
+  .tl-card.selected { border-color: #A78BFA; box-shadow: 0 0 0 2px rgba(167,139,250,.3); }
+  .tl-card h3 { color: #fff; font-size: 1rem; font-weight: 600; margin-bottom: .5rem; }
+  .tl-card .tag { display: inline-block; font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: .2rem .6rem; border-radius: 100px; background: rgba(167,139,250,.15); color: #A78BFA; border: 1px solid rgba(167,139,250,.3); margin-bottom: .75rem; }
+  .steps { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; margin-top: .75rem; }
+  .step { font-size: .72rem; color: #ccc; background: #1e1e1e; border: 1px solid #333; border-radius: 8px; padding: .3rem .65rem; white-space: nowrap; }
+  .step-arrow { color: #555; font-size: .8rem; }
+  .tl-card p { font-size: .82rem; color: #888; line-height: 1.5; }
+  .letter-badge { display: inline-flex; align-items: center; justify-content: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: rgba(167,139,250,.2); color: #A78BFA; font-size: .75rem; font-weight: 700; margin-right: .5rem; }
+</style>
+
+<h2>Comment structurer la chronologie du processus ?</h2>
+<p class="subtitle">La timeline est la section phare de la page — choisissez l'approche qui correspond le mieux à votre processus réel</p>
+
+<div class="tl-wrapper">
+
+  <div class="tl-card" data-choice="a" onclick="toggleSelect(this)">
+    <span class="tag">Option A — 5 étapes essentielles</span>
+    <h3><span class="letter-badge">A</span>Processus épuré, facile à lire</h3>
+    <div class="steps">
+      <div class="step">🎯 Découverte</div><span class="step-arrow">→</span>
+      <div class="step">🎨 Design UX/UI</div><span class="step-arrow">→</span>
+      <div class="step">⚙️ Développement</div><span class="step-arrow">→</span>
+      <div class="step">🧪 Tests QA</div><span class="step-arrow">→</span>
+      <div class="step">🚀 Lancement</div>
+    </div>
+    <p style="margin-top:.75rem">Simple, rassurant, universel. Idéal pour des clients non-techniques. Chaque étape a un visuel illustré + durée estimée.</p>
+  </div>
+
+  <div class="tl-card" data-choice="b" onclick="toggleSelect(this)">
+    <span class="tag">Option B — 7 étapes détaillées</span>
+    <h3><span class="letter-badge">B</span>Processus complet, crédible</h3>
+    <div class="steps">
+      <div class="step">🔍 Audit & Cahier des charges</div><span class="step-arrow">→</span>
+      <div class="step">🗺️ Architecture</div><span class="step-arrow">→</span>
+      <div class="step">🎨 Wireframes & Design</div><span class="step-arrow">→</span>
+      <div class="step">⚙️ Développement</div><span class="step-arrow">→</span>
+      <div class="step">🧪 Tests & QA</div><span class="step-arrow">→</span>
+      <div class="step">🚀 Déploiement</div><span class="step-arrow">→</span>
+      <div class="step">📈 Suivi & Évolution</div>
+    </div>
+    <p style="margin-top:.75rem">Montre l'expertise technique. Rassure les clients exigeants. Chaque étape a description + livrables concrets.</p>
+  </div>
+
+  <div class="tl-card" data-choice="c" onclick="toggleSelect(this)">
+    <span class="tag">Option C — 3 grandes phases</span>
+    <h3><span class="letter-badge">C</span>Vision macro, très visuel</h3>
+    <div class="steps">
+      <div class="step">💡 Concevoir</div><span class="step-arrow">→</span>
+      <div class="step">🔨 Construire</div><span class="step-arrow">→</span>
+      <div class="step">🌍 Lancer & Faire grandir</div>
+    </div>
+    <p style="margin-top:.75rem">Grandes illustrations pleine-largeur par phase. Très impactant visuellement, moins de détail technique. Chaque phase contient des sous-points.</p>
+  </div>
+
+</div>

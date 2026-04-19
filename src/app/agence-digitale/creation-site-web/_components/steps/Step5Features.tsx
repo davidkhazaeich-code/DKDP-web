@@ -21,7 +21,7 @@ interface FeatureItem {
 }
 
 const FEATURES: FeatureItem[] = [
-  { id: 'blog-setup', title: 'Création de blog', description: 'Structure, catégories, articles', price: 'CHF 800', icon: <BookOpen size={18} /> },
+  { id: 'blog-setup', title: 'Création de blog', description: 'structuré, catégories, articles', price: 'CHF 800', icon: <BookOpen size={18} /> },
   { id: 'blog-management', title: 'Gestion de blog', description: 'Publication et maintenance mensuelle', price: 'CHF 300', priceLabel: '/mois', icon: <PenSquare size={18} /> },
   { id: 'form', title: 'Formulaire sur-mesure', description: 'Contact, devis, inscription', price: 'CHF 400', icon: <ClipboardList size={18} /> },
   { id: 'booking', title: 'Système de réservation', description: 'Prise de rendez-vous en ligne', price: "CHF 1'200", icon: <CalendarCheck size={18} /> },

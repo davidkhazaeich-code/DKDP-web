@@ -60,8 +60,8 @@ const BRANDING_LABELS: Record<string, string> = {
 
 const STRATEGY_LABELS: Record<string, string> = {
   positioning: 'Positionnement stratégique',
-  'market-study': 'Etude de marche',
-  'content-strategy': 'Strategie de contenu',
+  'market-study': 'Etude de marché',
+  'content-strategy': 'stratégie de contenu',
 }
 
 const COPYWRITING_LABELS: Record<string, string> = {
@@ -245,7 +245,7 @@ export async function POST(req: NextRequest) {
     { label: 'Secteur', value: data.sector ? (SECTOR_LABELS[data.sector] ?? data.sector) : '' },
     { label: 'Logo', value: data.logo ? (LOGO_LABELS[data.logo] ?? data.logo) : '' },
     { label: 'Charte graphique', value: data.branding ? (BRANDING_LABELS[data.branding] ?? data.branding) : '' },
-    { label: 'Strategie', value: data.strategy.map(s => STRATEGY_LABELS[s] ?? s).join(', ') },
+    { label: 'stratégie', value: data.strategy.map(s => STRATEGY_LABELS[s] ?? s).join(', ') },
     { label: 'Pages', value: data.pages === 'unsure' ? 'A definir' : data.pages },
     { label: 'Langues', value: data.languages },
     { label: 'Design', value: DESIGN_LABELS[data.designLevel] ?? data.designLevel },
@@ -322,7 +322,7 @@ export async function POST(req: NextRequest) {
           <!-- CTA message -->
           <div style="margin-top:28px;padding:20px 24px;background:#f9fafb;border-radius:12px;border-left:3px solid #7c3aed">
             <p style="margin:0;color:#374151;font-size:14px;line-height:1.7">
-              Notre equipe vous contactera sous <strong>48h</strong> pour discuter de votre projet et affiner cette estimation. Vous trouverez egalement le recapitulatif en piece jointe (PDF).
+              Notre équipe vous contactera sous <strong>48h</strong> pour discuter de votre projet et affiner cette estimation. Vous trouverez egalement le recapitulatif en piece jointe (PDF).
             </p>
           </div>
 
@@ -337,7 +337,7 @@ export async function POST(req: NextRequest) {
         <!-- Footer -->
         <div style="padding:20px 32px;border-top:1px solid #e5e7eb;text-align:center">
           <p style="margin:0;color:#9ca3af;font-size:12px">
-            DKDP.ch &bull; Agence digitale a Geneve &bull;
+            DKDP.ch &bull; Agence digitale à Genève &bull;
             <a href="https://dkdp.ch" style="color:#7c3aed;text-decoration:none">dkdp.ch</a>
           </p>
         </div>

@@ -522,7 +522,7 @@ export default function IntelligenceArtificiellePage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <p className="text-center text-text-muted text-xs font-semibold uppercase tracking-widest mb-8">
-              Compléter votre démarche IA
+              Compléter votre démarché IA
             </p>
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

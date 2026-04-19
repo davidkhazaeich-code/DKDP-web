@@ -150,7 +150,7 @@ Ce modèle réduit les coûts de consulting de 30 à 50 % tout en augmentant la 
 </div>
 <div style="flex:1;padding:0.75rem 1rem;border-radius:10px;background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.12)">
 <div style="font-size:0.8rem;font-weight:600;color:#A78BFA;margin-bottom:0.25rem">Avant : preparation IA</div>
-<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Brief structure, analyse des données existantes, 5 hypotheses generees, benchmark sectoriel. Coût : ~0 CHF. Temps : 30 min.</div>
+<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Brief structuré, analyse des données existantes, 5 hypotheses generees, benchmark sectoriel. Coût : ~0 CHF. Temps : 30 min.</div>
 </div>
 </div>
 <div style="display:flex;align-items:stretch;gap:0.75rem">
@@ -214,7 +214,7 @@ ___IMG:ia-consultant-humain-modele-hybride.png___
 <div style="padding:1.25rem;border-radius:12px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.15)">
 <div style="font-size:1.1rem;margin-bottom:0.4rem">&#128200;</div>
 <div style="font-size:0.8rem;font-weight:700;color:#4ade80;margin-bottom:0.3rem">IA + Consultant (optimal)</div>
-<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">Strategie marketing, choix de marche, plan de croissance, transformation digitale, levee de fonds, optimisation des processus</div>
+<div style="font-size:0.75rem;color:#9CA3AF;line-height:1.5">stratégie marketing, choix de marché, plan de croissance, transformation digitale, levee de fonds, optimisation des processus</div>
 </div>
 <div style="padding:1.25rem;border-radius:12px;background:rgba(252,165,165,0.06);border:1px solid rgba(252,165,165,0.15)">
 <div style="font-size:1.1rem;margin-bottom:0.4rem">&#9888;&#65039;</div>

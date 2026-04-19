@@ -54,7 +54,7 @@ const SERVICES = [
   { label: 'Formation IA entreprise', href: '/formation-entreprise/ia', desc: 'Formations pratiques IA generative, Claude AI et prompt engineering.' },
   { label: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia', desc: 'Déploiement d\'agents IA autonomes pour vos processus métier.' },
   { label: 'Creation de site web', href: '/agence-digitale/creation-site-web', desc: 'Sites vitrines, e-commerce et applications web sur mesure.' },
-  { label: 'Referencement SEO', href: '/agence-digitale/seo', desc: 'SEO local et national pour dominer Google dans votre region.' },
+  { label: 'référencement SEO', href: '/agence-digitale/seo', desc: 'SEO local et national pour dominer Google dans votre region.' },
   { label: 'Publicite Google Ads', href: '/agence-digitale/publicite-sea', desc: 'Campagnes Search et Performance Max, leads qualifies.' },
 ]
 
@@ -62,7 +62,7 @@ const IA_CAPABILITIES = [
   { Icon: Bot, title: 'Agents IA autonomes', desc: 'Des agents intelligents qui executent des taches complexes : tri d\'emails, generation de rapports, qualification de leads, service client 24/7.' },
   { Icon: Workflow, title: 'Automatisation des processus', desc: 'Connexion de vos outils (CRM, ERP, email, comptabilite) avec des workflows IA qui eliminent les taches repetitives.' },
   { Icon: BrainCircuit, title: 'IA generative sur mesure', desc: 'Solutions personnalisées de generation de contenu, d\'analyse de documents et de prise de decision assistee par IA.' },
-  { Icon: Sparkles, title: 'Audit & strategie IA', desc: 'Identification des opportunités d\'automatisation dans votre entreprise. ROI mesurable des la première semaine.' },
+  { Icon: Sparkles, title: 'Audit & stratégie IA', desc: 'Identification des opportunités d\'automatisation dans votre entreprise. ROI mesurable des la première semaine.' },
 ]
 
 export default async function CityPage({ params }: Props) {
@@ -73,7 +73,7 @@ export default async function CityPage({ params }: Props) {
   const faq = [
     {
       question: `Comment l'intelligence artificielle peut aider mon entreprise a ${city.name} ?`,
-      answer: `L'IA permet aux entreprises de ${city.name} d'automatiser les taches repetitives, d'améliorer le service client avec des chatbots intelligents, de générer du contenu marketing et d'analyser des données complexes. DKDP déploie des agents IA sur mesure adaptés au tissu economique de ${city.name} (${city.economicProfile}).`,
+      answer: `L'IA permet aux entreprises de ${city.name} d'automatiser les taches repetitives, d'améliorer le service client avec des chatbots intelligents, de générer du contenu marketing et d'analyser des données complexes. DKDP déploie des agents IA sur mesure adaptés au tissu économique de ${city.name} (${city.economicProfile}).`,
     },
     {
       question: `Qu'est-ce qu'un agent IA et comment le déployer a ${city.name} ?`,
@@ -89,11 +89,11 @@ export default async function CityPage({ params }: Props) {
     },
     {
       question: `DKDP se deplace-t-il a ${city.name} pour les formations et projets IA ?`,
-      answer: `Oui. Nos bureaux sont a Geneve (${city.distance}), mais nous intervenons regulierement a ${city.name} pour les formations sur site et les ateliers IA. Les reunions projet peuvent se faire en personne, en visioconference, ou en hybride.`,
+      answer: `Oui. Nos bureaux sont à Genève (${city.distance}), mais nous intervenons regulierement a ${city.name} pour les formations sur site et les ateliers IA. Les reunions projet peuvent se faire en personne, en visioconference, ou en hybride.`,
     },
     {
       question: `Pourquoi choisir DKDP comme agence IA a ${city.name} ?`,
-      answer: `DKDP combine expertise technique (web, IA, automatisation) et 10+ ans d'expérience avec 700+ clients en Suisse romande. Contrairement aux pure players IA, nous integrons l'intelligence artificielle dans une strategie digitale globale (site web, SEO, formation). Notre proximite avec ${city.name} permet un accompagnement regulier.`,
+      answer: `DKDP combine expertise technique (web, IA, automatisation) et 10+ ans d'expérience avec 700+ clients en Suisse romande. Contrairement aux pure players IA, nous integrons l'intelligence artificielle dans une stratégie digitale globale (site web, SEO, formation). Notre proximite avec ${city.name} permet un accompagnement regulier.`,
     },
   ]
 
@@ -241,7 +241,7 @@ export default async function CityPage({ params }: Props) {
               ))}
             </div>
             <div className="mt-5 pt-4 border-t" style={{ borderColor: CHD }}>
-              <p className="text-text-muted text-xs mb-3">Tissu economique : {city.economicProfile}</p>
+              <p className="text-text-muted text-xs mb-3">Tissu économique : {city.economicProfile}</p>
               <Link
                 href="/intelligence-artificielle"
                 className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors hover:opacity-80"
@@ -340,7 +340,7 @@ export default async function CityPage({ params }: Props) {
               </p>
               <div className="space-y-5">
                 {[
-                  { Icon: Building2, title: 'Tissu economique', text: city.economicProfile },
+                  { Icon: Building2, title: 'Tissu économique', text: city.economicProfile },
                   { Icon: Users, title: 'Population', text: city.population },
                   { Icon: Globe2, title: 'Proximite', text: city.distance },
                 ].map((item) => (

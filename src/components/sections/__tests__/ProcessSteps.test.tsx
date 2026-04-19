@@ -5,7 +5,7 @@ import { ProcessSteps } from '../ProcessSteps'
 describe('ProcessSteps', () => {
   it('renders section heading', () => {
     render(<ProcessSteps />)
-    expect(screen.getByText(/comment ça marche/i)).toBeInTheDocument()
+    expect(screen.getByText(/comment ça marché/i)).toBeInTheDocument()
   })
 
   it('renders 5 step titles', () => {

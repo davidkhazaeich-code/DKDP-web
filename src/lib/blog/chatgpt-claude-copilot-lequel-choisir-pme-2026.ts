@@ -179,7 +179,7 @@ ChatGPT Team coûte 25 $ par utilisateur et par mois. Pour 10 personnes, le budg
 Non. Microsoft Copilot est une extension de la suite Microsoft 365. Sans abonnement M365 Business, Copilot ne peut pas être activé. Il est conçu exclusivement pour les équipes déjà dans l'écosystème Microsoft.
 
 **Mes données sont-elles protégées avec ces outils IA ?**
-Claude offre la politique de confidentialité la plus solide : Anthropic s'engage à ne pas utiliser vos conversations pour entraîner ses modèles sans consentement explicite. ChatGPT utilise les données par défaut (désactivable dans les paramètres). Copilot répond aux normes RGPD dans l'environnement M365. Dans tous les cas, évitez de soumettre des données personnelles sensibles ou des informations confidentielles de clients.
+Claude offre la politique de confidentialité la plus solide : Anthropic s'engage à ne pas utiliser vos conversations pour entraîner ses modèles sans consentement explicite. ChatGPT utilise les données par défaut (désactivable dans les paramètrès). Copilot répond aux normes RGPD dans l'environnement M365. Dans tous les cas, évitez de soumettre des données personnelles sensibles ou des informations confidentielles de clients.
 
 **Peut-on utiliser plusieurs outils IA en même temps ?**
 Oui, et c'est souvent la stratégie la plus efficace. Beaucoup de PME utilisent Copilot pour les tâches bureautiques quotidiennes (emails, résumés Teams, Excel) et ChatGPT ou Claude pour la production de contenu et les tâches stratégiques. Le coût reste maîtrisable et le gain de productivité est maximal.

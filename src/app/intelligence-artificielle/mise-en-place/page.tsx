@@ -51,7 +51,7 @@ const FAQ_ITEMS = [
   {
     question: 'Nos données sont-elles en sécurité avec un LLM externe ?',
     answer:
-      'La sécurité des données est notre priorité. On travaille avec des accords de confidentialite stricts et on configure les API OpenAI/Anthropic en mode "no training" pour que vos données ne soient jamais utilisees pour entraîner les modèles. Pour les données tres sensibles, on propose une intégration avec des modèles hébergés localement (Mistral auto-heberge, LLaMA via Ollama) qui ne quittent jamais votre infrastructure.',
+      'La sécurité des données est notre priorité. On travaille avec des accords de confidentialite stricts et on configure les API OpenAI/Anthropic en mode "no training" pour que vos données ne soient jamais utilisees pour entraîner les modèles. Pour les données très sensibles, on propose une intégration avec des modèles hébergés localement (Mistral auto-heberge, LLaMA via Ollama) qui ne quittent jamais votre infrastructure.',
   },
   {
     question: 'Comment choisir le bon LLM pour notre projet ?',
@@ -81,7 +81,7 @@ export default function MiseEnPlacePage() {
     <main>
       <SchemaOrg
         schema={buildService({
-          name: 'Mise en place IA Geneve : Intégration ChatGPT Claude LLM',
+          name: 'Mise en place IÀ Genève : Intégration ChatGPT Claude LLM',
           url: '/intelligence-artificielle/mise-en-place',
           description:
             'Intégration de ChatGPT, Claude et autres LLMs dans votre stack existant. Couche d\'orchestration sur mesure, prompt engineering, connexion a vos données. Sans tout reconstruire.',
@@ -148,7 +148,7 @@ export default function MiseEnPlacePage() {
                 >
                   <Image
                     src="/images/services/dkdp-ia-mise-en-place.webp"
-                    alt="Intégration LLM et mise en place IA sur mesure a Geneve"
+                    alt="Intégration LLM et mise en place IA sur mesure à Genève"
                     fill
                     className="object-cover"
                     priority
@@ -208,7 +208,7 @@ export default function MiseEnPlacePage() {
                 Pourquoi déployer l&apos;IA nécessite une intégration sur mesure.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
-                ChatGPT en mode generique ne connait pas vos procedures internes, vos clients, ni vos contraintes métier.
+                ChatGPT en mode générique ne connait pas vos procedures internes, vos clients, ni vos contraintes métier.
                 Pour qu&apos;un LLM soit utile dans votre entreprise, il faut l&apos;ancrer dans votre contexte : vos données, vos outils, vos processus.
                 C&apos;est precisement cette ingenierie que DKDP réalise.
               </p>
@@ -262,7 +262,7 @@ export default function MiseEnPlacePage() {
                 Icon: MessageSquare,
                 title: 'Assistant interne',
                 desc: 'Un chatbot qui repond sur vos docs, procedures internes et base de connaissance. Vos équipes trouvent l\'information en secondes, pas en minutes.',
-                tag: 'Tres demande',
+                tag: 'très demande',
                 tagColor: violet,
               },
               {
@@ -296,7 +296,7 @@ export default function MiseEnPlacePage() {
               {
                 Icon: Newspaper,
                 title: 'Veille et synthese',
-                desc: 'Resumes automatiques de news sectorielles, rapports de marche, alertes concurrentielles. Restez informe sans passer des heures a lire.',
+                desc: 'Resumes automatiques de news sectorielles, rapports de marché, alertes concurrentielles. Restez informe sans passer des heures a lire.',
                 tag: null,
                 tagColor: '',
               },
@@ -368,7 +368,7 @@ export default function MiseEnPlacePage() {
                 </p>
                 <div className="mt-auto space-y-2">
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color }}>Points forts</p>
-                  {['Taches complexes et raisonnement', 'Multilingue natif (FR/DE/IT/EN)', 'Vision : analyse d\'images et PDFs', 'Ecosysteme plugins tres large'].map((s) => (
+                  {['Taches complexes et raisonnement', 'Multilingue natif (FR/DE/IT/EN)', 'Vision : analyse d\'images et PDFs', 'Ecosysteme plugins très large'].map((s) => (
                     <div key={s} className="flex items-center gap-2">
                       <CheckCircle2 size={12} style={{ color: '#10a37f' }} />
                       <span className="text-text-muted text-[12px]">{s}</span>
@@ -407,7 +407,7 @@ export default function MiseEnPlacePage() {
                   </div>
                 </div>
                 <p className="text-text-secondary text-sm leading-relaxed mb-5">
-                  Excellence sur les longs documents, l&apos;analyse approfondie et le code. Fenetre de contexte tres large.
+                  Excellence sur les longs documents, l&apos;analyse approfondie et le code. Fenetre de contexte très large.
                   Architecture constitutionnelle pour des reponses plus sures.
                 </p>
                 <div className="mt-auto space-y-2">
@@ -446,7 +446,7 @@ export default function MiseEnPlacePage() {
                 </p>
                 <div className="mt-auto space-y-2">
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color }}>Points forts</p>
-                  {['Conforme RGPD européen', 'Auto-hébergement possible', 'Couts inferieurs aux modèles US', 'Tres bon sur le francais et l\'allemand'].map((s) => (
+                  {['Conforme RGPD européen', 'Auto-hébergement possible', 'Couts inferieurs aux modèles US', 'très bon sur le francais et l\'allemand'].map((s) => (
                     <div key={s} className="flex items-center gap-2">
                       <CheckCircle2 size={12} style={{ color: '#ff7832' }} />
                       <span className="text-text-muted text-[12px]">{s}</span>
@@ -494,7 +494,7 @@ export default function MiseEnPlacePage() {
                   Icon: GitMerge,
                   n: '02',
                   title: 'Architecture',
-                  desc: 'Choix du LLM adapté, design de la couche d\'orchestration, strategie de prompting et de gestion du contexte. Aucune ligne de code avant validation.',
+                  desc: 'Choix du LLM adapté, design de la couche d\'orchestration, stratégie de prompting et de gestion du contexte. Aucune ligne de code avant validation.',
                 },
                 {
                   Icon: Code2,

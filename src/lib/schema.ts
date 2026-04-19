@@ -287,7 +287,7 @@ export function buildOrganization() {
       height: 512,
     },
     image: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
-    description: 'Agence digitale a Geneve spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME suisses.',
+    description: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME suisses.',
     foundingDate: '2015',
     founder: {
       '@type': 'Person',
@@ -345,7 +345,7 @@ export function buildOrganization() {
         },
         {
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'SEO et referencement', description: 'Referencement naturel Google pour PME' },
+          itemOffered: { '@type': 'Service', name: 'SEO et référencement', description: 'référencement naturel Google pour PME' },
           priceCurrency: 'CHF',
           price: '500',
           priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: '500', description: 'A partir de CHF 500/mois' },

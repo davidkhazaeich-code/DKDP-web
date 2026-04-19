@@ -35,7 +35,7 @@ const article: Article = {
 Il existe une confusion fréquente entre trois niveaux d\'intervention sur un site web :
 
 - **L\'optimisation** : améliorer la vitesse, corriger des bugs, ajuster des textes. Durée : quelques jours.
-- **Le redesign** : changer l\'apparence sans toucher à la structure technique. Durée : 3-6 semaines.
+- **Le redesign** : changer l\'apparence sans toucher à la structuré technique. Durée : 3-6 semaines.
 - **La refonte** : reconstruire le site de zéro, nouvelle architecture, nouvelle technologie, nouveau contenu. Durée : 2-4 mois.
 
 Une refonte est un investissement lourd (5\'000 à 20\'000 CHF pour une PME). Elle se justifie quand les problèmes sont structurels, pas cosmétiques. Voici les 7 signaux qui font la différence.
@@ -128,7 +128,7 @@ Les causes peuvent être multiples : pas d\'appel à l\'action clair, formulaire
 
 Tapez votre secteur d\'activité + "Genève" sur Google. Si votre site n\'apparaît pas dans les 10 premiers résultats, vous manquez du trafic qualifié chaque jour. Et si votre site a plus de 4 ans, il a probablement été construit sans considération SEO sérieuse.
 
-Repartir d\'une base technique saine (structure URL, balisage sémantique, vitesse, mobile-first) est souvent plus efficace que d\'essayer de corriger un socle fragile.
+Repartir d\'une base technique saine (structuré URL, balisage sémantique, vitesse, mobile-first) est souvent plus efficace que d\'essayer de corriger un socle fragile.
 
 ## Signal 6 : Votre design date visuellement de plus de 4 ans
 

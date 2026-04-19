@@ -64,7 +64,7 @@ Un audit digital 360 effectué avant toute refonte change radicalement ce résul
 <div style="padding:1.25rem;border-radius:12px;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.15);text-align:center">
 <div style="font-size:1.5rem;margin-bottom:0.5rem">&#128221;</div>
 <div style="font-size:0.85rem;font-weight:600;color:#60a5fa;margin-bottom:0.25rem">Contenu</div>
-<div style="font-size:0.75rem;color:#9CA3AF">Qualite, actualite, structure, medias</div>
+<div style="font-size:0.75rem;color:#9CA3AF">Qualite, actualite, structuré, medias</div>
 </div>
 <div style="padding:1.25rem;border-radius:12px;background:rgba(212,212,216,0.08);border:1px solid rgba(212,212,216,0.15);text-align:center">
 <div style="font-size:1.5rem;margin-bottom:0.5rem">&#128200;</div>
@@ -84,7 +84,7 @@ L'audit SEO couvre quatre sous-dimensions :
 
 **Backlinks :** Combien de sites font des liens vers le vôtre, et lesquels ? La qualité du profil de liens entrants est un signal de confiance majeur pour Google. Un audit des backlinks révèle aussi les liens toxiques à désavouer.
 
-**Technique :** Crawlabilité (Google peut-il accéder à toutes vos pages ?), indexation (quelles pages sont indexées et lesquelles ne le sont pas ?), sitemap XML, robots.txt, cannonical tags, pagination, structure des URLs.
+**Technique :** Crawlabilité (Google peut-il accéder à toutes vos pages ?), indexation (quelles pages sont indexées et lesquelles ne le sont pas ?), sitemap XML, robots.txt, cannonical tags, pagination, structuré des URLs.
 
 **Contenu :** Duplicate content, thin content (pages avec trop peu de contenu), pages orphelines (non liées depuis le site), optimisation des balises title et meta description.
 
@@ -110,7 +110,7 @@ Un site web non sécurisé expose vos visiteurs et votre réputation. L'audit de
 
 Le contenu est souvent le parent pauvre des audits digitaux. Pourtant, un contenu obsolète, mal structuré ou non aligné sur l'intention de recherche de vos cibles peut ruiner tous vos efforts SEO.
 
-Auditez : la qualité et l'actualité de chaque page (est-ce que l'information est toujours exacte ?), la couverture des sujets importants pour vos clients (existe-t-il des lacunes ?), la structure des textes (titres H1/H2/H3, listes, paragraphes courts), la présence et la qualité des images et médias.
+Auditez : la qualité et l'actualité de chaque page (est-ce que l'information est toujours exacte ?), la couverture des sujets importants pour vos clients (existe-t-il des lacunes ?), la structuré des textes (titres H1/H2/H3, listes, paragraphes courts), la présence et la qualité des images et médias.
 
 ### 6. Analytics et tracking
 
@@ -200,7 +200,7 @@ ___IMG:audit-digital-radar.png___
 <div>
 <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">UX</span><span style="font-size:0.85rem;font-weight:700;color:#FF8C00">5/10</span></div>
 <div style="height:8px;border-radius:4px;background:rgba(74,222,128,0.1)"><div style="width:50%;height:100%;border-radius:4px;background:#FF8C00"></div></div>
-<div style="font-size:0.7rem;color:#71717a;margin-top:0.15rem">Probleme typique : CTA absent ou generique sur les pages clés</div>
+<div style="font-size:0.7rem;color:#71717a;margin-top:0.15rem">Probleme typique : CTA absent ou générique sur les pages clés</div>
 </div>
 <div>
 <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem"><span style="font-size:0.85rem;color:#e4e4e7">Sécurité</span><span style="font-size:0.85rem;font-weight:700;color:#4ade80">7/10</span></div>

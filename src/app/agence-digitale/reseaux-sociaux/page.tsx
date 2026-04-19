@@ -86,7 +86,7 @@ const BENEFITS = [
     Icon: Clock,
     value: '12h/sem',
     title: 'Votre temps libéré',
-    desc: 'Créer du contenu de qualité prend 12 à 15 heures par semaine. DKDP prend tout en charge pour que vous vous concentriez sur votre coeur de métier.',
+    desc: 'Créer du contenu de qualité prend 12 à 15 heures par semaine. DKDP prend tout en charge pour que vous vous concentriez sur votre cœur de métier.',
   },
   {
     Icon: Users,
@@ -171,7 +171,7 @@ export default function ReseauxSociauxPage() {
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}>
                   <Image
                     src="/images/services/dkdp-gestion-reseaux-sociaux-geneve.webp"
-                    alt="Gestion reseaux sociaux a Geneve, deux professionnels analysant les performances social media"
+                    alt="Gestion reseaux sociaux à Genève, deux professionnels analysant les performances social media"
                     fill
                     className="object-cover"
                     priority

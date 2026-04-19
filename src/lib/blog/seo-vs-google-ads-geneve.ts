@@ -116,7 +116,7 @@ ___IMG:seo-vs-google-ads-geneve-roi-courbe.png___
 La vraie réponse n'est pas "l'un ou l'autre", c'est une question de phase :
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(74,222,128,0.2);background:rgba(74,222,128,0.04)">
-<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#4ade80;margin-bottom:1rem">STRATEGIE PAR PHASES POUR PME GENEVOISE</div>
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#4ade80;margin-bottom:1rem">stratégie PAR PHASES POUR PME GENEVOISE</div>
 <div style="display:flex;flex-direction:column;gap:1rem">
 <div style="display:flex;gap:1rem;align-items:flex-start">
 <div style="width:44px;height:44px;border-radius:50%;background:rgba(255,140,0,0.15);border:1px solid rgba(255,140,0,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;font-weight:800;color:#FF8C00">1</div>

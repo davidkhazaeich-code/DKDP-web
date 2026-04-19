@@ -12,7 +12,7 @@ export const FAQ_ITEMS = [
   {
     question: "Comment une service digital à Genève peut améliorer mon référencement SEO ?",
     answer:
-      "Nous commençons par un audit complet de votre site : structure technique, vitesse, maillage interne, mots-clés, et présence locale. Ensuite, nous mettons en place les optimisations on-page, la stratégie de contenu, et les actions off-page. Nos clients observent des résultats mesurables (trafic organique, leads) entre 3 et 6 mois.",
+      "Nous commençons par un audit complet de votre site : structuré technique, vitesse, maillage interne, mots-clés, et présence locale. Ensuite, nous mettons en place les optimisations on-page, la stratégie de contenu, et les actions off-page. Nos clients observent des résultats mesurables (trafic organique, leads) entre 3 et 6 mois.",
   },
   {
     question: "L'intelligence artificielle est-elle adaptée aux PME suisses ?",

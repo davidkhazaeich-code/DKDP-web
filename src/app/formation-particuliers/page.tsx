@@ -46,7 +46,7 @@ const TOPICS = [
   {
     Icon: Smartphone,
     title: 'Smartphone',
-    desc: "iPhone et Android : applications, photos, WhatsApp, paramètres, synchronisation et sécurité mobile.",
+    desc: "iPhone et Android : applications, photos, WhatsApp, paramètrès, synchronisation et sécurité mobile.",
     tags: ['iPhone', 'Android', 'Applications'],
     href: 'https://cours-informatique.ch/cours-informatique/smartphone-iphone-android/',
   },

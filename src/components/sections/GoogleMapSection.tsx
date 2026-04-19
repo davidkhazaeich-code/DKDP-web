@@ -43,7 +43,7 @@ export function GoogleMapSection() {
                 <h2 className="text-lg sm:text-xl font-bold">Nous trouver</h2>
               </div>
               <p className="text-text-secondary text-sm leading-relaxed">
-                Au coeur du quartier des Eaux-Vives, à deux pas du lac Léman.
+                Au cœur du quartier des Eaux-Vives, à deux pas du lac Léman.
               </p>
             </div>
 

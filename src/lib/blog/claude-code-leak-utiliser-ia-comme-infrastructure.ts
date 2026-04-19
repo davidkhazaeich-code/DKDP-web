@@ -254,7 +254,7 @@ L\'IA en 2026, ce n\'est plus un chatbot à qui on pose des questions. C\'est un
 
 Ceux qui continuent à l\'utiliser comme un simple assistant passeront à côté de l\'essentiel. Ceux qui la structurent comme un système prennent une avance mesurable sur leurs concurrents.
 
-Dans un monde où tout le monde a accès aux mêmes outils, l\'avantage ne vient plus de l\'outil lui-même. Il vient de la manière dont on le structure.
+Dans un monde où tout le monde a accès aux mêmes outils, l\'avantage ne vient plus de l\'outil lui-même. Il vient de la manière dont on le structuré.
 
 C\'est exactement ce qu\'on fait chez DKDP : on ne vend pas des abonnements IA, on construit des systèmes qui produisent des résultats. Si vous voulez passer de l\'"utilisation" à la "conception" de votre IA, c\'est le moment d\'en parler.`,
   }

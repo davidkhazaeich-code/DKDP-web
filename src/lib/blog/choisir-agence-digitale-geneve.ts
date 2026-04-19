@@ -12,7 +12,7 @@ const article: Article = {
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/choisir-agence-digitale-geneve-hero.png',
-      alt: 'Choisir agence digitale Geneve : reunion entre client PME et équipe agence web pour projet digital',
+      alt: 'Choisir agence digitale Geneve : réunion entre client PME et équipe agence web pour projet digital',
     },
     images: [
       {
@@ -153,7 +153,7 @@ La sous-traitance offshore peut fonctionner si elle est bien gérée. Mais si l\
 
 Un site web sans SEO est une brochure papier digitale. L\'agence que vous choisissez doit intégrer le référencement naturel dans sa réflexion dès la phase de stratégie, pas comme une option à cocher en fin de projet.
 
-Testez-la : demandez-lui comment elle structure les URL, comment elle gère les balises title, comment elle optimisé les Core Web Vitals. Si elle change de sujet ou répond "on fait le SEO après", passez votre chemin.
+Testez-la : demandez-lui comment elle structuré les URL, comment elle gère les balises title, comment elle optimisé les Core Web Vitals. Si elle change de sujet ou répond "on fait le SEO après", passez votre chemin.
 
 ## Critère 5 : Le suivi et la relation post-livraison
 

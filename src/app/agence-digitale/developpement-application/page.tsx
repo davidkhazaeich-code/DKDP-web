@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   title: 'Développement Application Genève | iOS, Android, Web App | DKDP',
   description:
     'Développement d\'applications mobiles et web pour PME à Genève. iOS, Android, React Native, Web App sur mesure. Du cahier des charges au lancement, devis gratuit.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale/developpement-application' },
+  alternates: { canonical: 'https://dkdp.ch/agence-digitale/développement-application' },
   openGraph: {
-    images: [{ url: '/images/og/developpement-application.webp', width: 1376, height: 768, alt: 'Développement application Genève DKDP' }],
+    images: [{ url: '/images/og/développement-application.webp', width: 1376, height: 768, alt: 'Développement application Genève DKDP' }],
   },
 }
 
@@ -156,14 +156,14 @@ export default function DeveloppementApplicationPage() {
     <main>
       <SchemaOrg schema={buildService({
         name: 'Développement d\'application à Genève',
-        url: '/agence-digitale/developpement-application',
+        url: '/agence-digitale/développement-application',
         description: 'Développement d\'applications mobiles iOS, Android et web app sur mesure pour PME à Genève. React Native, Next.js, Supabase.',
       })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
         { name: 'Agence Digitale', url: 'https://dkdp.ch/agence-digitale' },
-        { name: 'Développement d\'application', url: 'https://dkdp.ch/agence-digitale/developpement-application' },
+        { name: 'Développement d\'application', url: 'https://dkdp.ch/agence-digitale/développement-application' },
       ])} />
 
       {/* ── Hero ── */}

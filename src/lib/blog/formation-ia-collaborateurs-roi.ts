@@ -21,7 +21,7 @@ const article: Article = {
         caption: 'Courbe ROI type : plateau initial, puis gain exponentiel à partir du 3e mois',
       },
       {
-        src: '/images/blog/formation-ia-roi-progression-equipe.png',
+        src: '/images/blog/formation-ia-roi-progression-équipe.png',
         alt: 'Formation IA ROI progression équipe : visualisation avant et apres formation IA avec gains de productivité en entreprise',
         caption: "Progression de la productivité d'une équipe avant et après formation IA structurée",
       },
@@ -29,7 +29,7 @@ const article: Article = {
     tags: ['formation', 'IA', 'ROI', 'entreprise', 'management', 'productivité'],
     seoTitle: 'Formation IA entreprise : calculer le ROI en 2026 · DKDP',
     seoDescription:
-      "Comment calculer le ROI d'une formation IA pour vos équipes et convaincre votre direction d'investir. Méthode, chiffres, erreurs à éviter et structure de programme.",
+      "Comment calculer le ROI d'une formation IA pour vos équipes et convaincre votre direction d'investir. Méthode, chiffres, erreurs à éviter et structuré de programme.",
     content: `## Le problème : l'IA est là, les équipes ne savent pas l'utiliser
 
 Vos collaborateurs ont entendu parler de ChatGPT, de Claude, de Copilot. Certains les utilisent en dilettante, pour des usages personnels ou des tâches simples. Mais dans la grande majorité des PME suisses, l'IA n'est pas encore intégrée dans les processus de travail de façon systématique et maîtrisée.
@@ -223,7 +223,7 @@ Une journée de formation sans suivi produit des résultats décevants. Les comp
 </div>
 </div>
 
-___IMG:formation-ia-roi-progression-equipe.png___
+___IMG:formation-ia-roi-progression-équipe.png___
 
 ## Comment convaincre la direction
 

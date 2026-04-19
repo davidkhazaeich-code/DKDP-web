@@ -97,7 +97,7 @@ export default function RGPDCookiesPage() {
                 Lors de votre première visite, une bannière vous permet d&apos;accepter ou refuser les cookies non essentiels. Vous pouvez modifier vos préférences à tout moment.
               </p>
               <p className="text-text-secondary text-sm leading-relaxed">
-                Vous pouvez également désactiver les cookies directement dans les paramètres de votre navigateur. Notez que certaines fonctionnalités du site peuvent être altérées si vous désactivez les cookies essentiels.
+                Vous pouvez également désactiver les cookies directement dans les paramètrès de votre navigateur. Notez que certaines fonctionnalités du site peuvent être altérées si vous désactivez les cookies essentiels.
               </p>
             </div>
           </SectionReveal>

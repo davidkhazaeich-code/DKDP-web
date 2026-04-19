@@ -80,7 +80,7 @@ const SKILLS = [
       <div className="mt-4 flex flex-col gap-1.5">
         {[
           { task: 'Email client complexe', before: '15 min', after: '45s' },
-          { task: 'Compte-rendu reunion', before: '25 min', after: '2 min' },
+          { task: 'Compte-rendu réunion', before: '25 min', after: '2 min' },
           { task: 'Synthese de rapport', before: '45 min', after: '1 min' },
         ].map((r) => (
           <div key={r.task} className="flex items-center justify-between text-[10px]">

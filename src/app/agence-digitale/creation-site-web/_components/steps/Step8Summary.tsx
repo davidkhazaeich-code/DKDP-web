@@ -502,7 +502,7 @@ export function Step8Summary() {
             {estimate.totalMin !== estimate.totalMax && (
               <>
                 {' '}&ndash;{' '}
-                <AnimatedCounter value={estimate.totalMax} prefix="CHF" />
+                <AnimatedCounter value={estimate.totalMax} prefix="" />
               </>
             )}
           </p>

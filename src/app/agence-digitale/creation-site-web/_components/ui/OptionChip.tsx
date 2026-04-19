@@ -12,10 +12,11 @@ export function OptionChip({ label, selected, onClick }: OptionChipProps) {
       type="button"
       onClick={onClick}
       className={[
-        'px-4 py-2 rounded-lg border text-sm font-medium transition-all cursor-pointer',
+        'px-3.5 py-2 rounded-lg border text-sm font-medium transition-all duration-150 cursor-pointer',
+        'min-h-[40px] sm:min-h-[38px]',
         selected
-          ? 'border-violet-500/50 bg-violet-500/10 text-violet-300'
-          : 'border-white/10 bg-white/[0.02] text-zinc-400 hover:border-white/20 hover:text-zinc-300',
+          ? 'border-violet-500/60 bg-violet-500/[0.12] text-violet-200 shadow-[0_0_0_1px_rgba(139,92,246,0.15)]'
+          : 'border-white/10 bg-white/[0.02] text-zinc-400 hover:border-white/20 hover:text-zinc-200 hover:bg-white/[0.04]',
       ].join(' ')}
     >
       {label}

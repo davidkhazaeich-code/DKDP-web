@@ -14,6 +14,28 @@ import { Step6Acquisition } from './steps/Step6Acquisition'
 import { Step7Services } from './steps/Step7Services'
 import { Step8Summary } from './steps/Step8Summary'
 
+const STEP_TITLES: Record<number, string> = {
+  1: 'Votre projet',
+  2: 'Branding & stratégie',
+  3: 'Envergure du site',
+  4: 'Contenu',
+  5: 'Fonctionnalités',
+  6: 'Acquisition & marketing',
+  7: 'Services complémentaires',
+  8: 'Recevoir votre estimation',
+}
+
+const STEP_SUBTITLES: Record<number, string> = {
+  1: 'Quelques questions pour cadrer votre besoin',
+  2: 'Logo, identité et positionnement',
+  3: 'Volume, langues et niveau de design',
+  4: 'Rédaction et visuels',
+  5: 'Ce que votre site doit pouvoir faire',
+  6: 'SEO, publicité et automatisation',
+  7: 'Maintenance, formation et options',
+  8: 'Dernière étape : recevez votre devis détaillé',
+}
+
 function EstimatorInner() {
   const { state } = useEstimator()
   const { currentStep, direction } = state
@@ -33,37 +55,58 @@ function EstimatorInner() {
   }
 
   return (
-    <div className="max-w-[1200px] mx-auto px-4 pt-4 sm:pt-6 pb-20">
+    <div className="max-w-[1100px] mx-auto px-3 sm:px-5 lg:px-6 pt-3 sm:pt-5 pb-24 sm:pb-28">
 
-      {/* ── Estimation banner (desktop only, above wizard) ── */}
-      <div className="hidden lg:block">
+      {/* Trust banner — small top row */}
+      <TrustBanner />
+
+      {/* Desktop estimation summary banner (above wizard) */}
+      <div className="hidden lg:block mt-5">
         <EstimatorTopBanner />
       </div>
 
-      <TrustBanner />
+      {/* Wizard card */}
+      <div className="mt-4 sm:mt-5">
+        <div className="relative rounded-2xl border border-white/[0.07] bg-[#0A0A0A]/80 backdrop-blur-md overflow-hidden">
 
-      {/* ── Wizard — full width on all breakpoints ── */}
-      <div className="mt-4 sm:mt-6 lg:mt-6">
-        <div className="relative rounded-2xl border border-white/[0.06] bg-[#0A0A0A]/70 backdrop-blur-md p-3 sm:p-5 lg:p-6">
-          <EstimatorProgress />
+          {/* Progress bar — tight padding */}
+          <div className="px-3 sm:px-5 lg:px-6 pt-4 sm:pt-5 lg:pt-6 pb-3 sm:pb-4 border-b border-white/[0.05]">
+            <EstimatorProgress />
+          </div>
 
-          <div className="mt-4 sm:mt-6 min-h-[300px] sm:min-h-[400px]">
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={currentStep}
-                initial={{ opacity: 0, x: direction * 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction * -50 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-              >
-                {renderStep()}
-              </motion.div>
-            </AnimatePresence>
+          {/* Step content with title header */}
+          <div className="px-3 sm:px-5 lg:px-6 py-5 sm:py-6 lg:py-7">
+            {/* Step title */}
+            <div className="mb-5 sm:mb-6">
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white leading-tight">
+                {STEP_TITLES[currentStep]}
+              </h2>
+              {STEP_SUBTITLES[currentStep] && (
+                <p className="mt-1 text-xs sm:text-sm text-zinc-500 leading-relaxed">
+                  {STEP_SUBTITLES[currentStep]}
+                </p>
+              )}
+            </div>
+
+            {/* Animated step body */}
+            <div className="min-h-[280px] sm:min-h-[380px]">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={currentStep}
+                  initial={{ opacity: 0, x: direction * 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: direction * -40 }}
+                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {renderStep()}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ── Navigation bar — all breakpoints ── */}
+      {/* Sticky bottom nav bar — all breakpoints */}
       <StickyBottomBar />
     </div>
   )

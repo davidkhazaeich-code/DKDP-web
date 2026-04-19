@@ -25,12 +25,14 @@ export function CollapsibleSection({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex w-full items-center justify-between gap-3 py-3 text-left"
+        className="flex w-full items-center justify-between gap-3 py-3.5 text-left cursor-pointer"
       >
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-semibold text-zinc-100">{title}</span>
+        <div className="flex items-center gap-2.5">
+          <span className="text-[11px] sm:text-xs font-semibold text-zinc-300 uppercase tracking-[0.12em]">
+            {title}
+          </span>
           {selectedCount !== undefined && selectedCount > 0 && (
-            <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-violet-500/20 border border-violet-500/30 px-1.5 text-[10px] font-semibold text-violet-300">
+            <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-violet-500/20 border border-violet-500/40 px-1.5 text-[10px] font-semibold text-violet-300 tabular-nums">
               {selectedCount}
             </span>
           )}
@@ -55,7 +57,7 @@ export function CollapsibleSection({
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="pb-3">{children}</div>
+            <div className="pt-1 pb-3">{children}</div>
           </motion.div>
         )}
       </AnimatePresence>

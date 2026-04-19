@@ -4,19 +4,19 @@ import { PlusCircle, RefreshCw, Globe, ShoppingCart, Rocket, Code2 } from 'lucid
 import { useEstimator } from '../EstimatorContext'
 import { SelectionCard } from '../ui/SelectionCard'
 import { OptionChip } from '../ui/OptionChip'
+import { SectionLabel } from '../ui/SectionLabel'
 import { SECTORS } from '@/lib/estimation/sectors'
 
 export function Step1Project() {
   const { state, dispatch } = useEstimator()
 
   return (
-    <div className="space-y-5 sm:space-y-8">
-      {/* Section 1 - Votre situation */}
+    <div className="space-y-6 sm:space-y-7">
+
+      {/* Situation */}
       <div>
-        <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Votre situation <span className="text-red-400">*</span>
-        </p>
-        <div className="grid grid-cols-2 gap-3">
+        <SectionLabel required>Votre situation</SectionLabel>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
           <SelectionCard
             title="Nouveau site"
             description="Créer votre premier site web"
@@ -35,16 +35,14 @@ export function Step1Project() {
         </div>
       </div>
 
-      {/* Section 2 - Type de projet */}
+      {/* Type de projet */}
       <div>
-        <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Type de projet <span className="text-red-400">*</span>
-        </p>
-        <div className="grid grid-cols-2 gap-3">
+        <SectionLabel required>Type de projet</SectionLabel>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
           <SelectionCard
             title="Site vitrine"
             description="Présentation de votre activité"
-            price="des CHF 2'500"
+            price="dès CHF 2'500"
             icon={<Globe size={18} />}
             selected={state.siteType === 'vitrine'}
             onClick={() => dispatch({ type: 'SET_SITE_TYPE', value: 'vitrine' })}
@@ -52,7 +50,7 @@ export function Step1Project() {
           <SelectionCard
             title="E-commerce"
             description="Boutique en ligne"
-            price="des CHF 5'000"
+            price="dès CHF 5'000"
             icon={<ShoppingCart size={18} />}
             selected={state.siteType === 'ecommerce'}
             onClick={() => dispatch({ type: 'SET_SITE_TYPE', value: 'ecommerce' })}
@@ -60,7 +58,7 @@ export function Step1Project() {
           <SelectionCard
             title="Landing page"
             description="Page unique de conversion"
-            price="des CHF 1'000"
+            price="dès CHF 1'000"
             icon={<Rocket size={18} />}
             selected={state.siteType === 'landing'}
             onClick={() => dispatch({ type: 'SET_SITE_TYPE', value: 'landing' })}
@@ -68,7 +66,7 @@ export function Step1Project() {
           <SelectionCard
             title="Application web"
             description="Solution sur mesure"
-            price="des CHF 8'000"
+            price="dès CHF 8'000"
             icon={<Code2 size={18} />}
             selected={state.siteType === 'webapp'}
             onClick={() => dispatch({ type: 'SET_SITE_TYPE', value: 'webapp' })}
@@ -76,11 +74,9 @@ export function Step1Project() {
         </div>
       </div>
 
-      {/* Section 3 - Secteur d'activite */}
+      {/* Secteur */}
       <div>
-        <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Secteur d&apos;activité <span className="text-zinc-600 font-normal normal-case text-xs tracking-normal">(optionnel)</span>
-        </p>
+        <SectionLabel optional>Secteur d&apos;activité</SectionLabel>
         <div className="flex flex-wrap gap-2">
           {SECTORS.map((sector) => (
             <OptionChip
@@ -92,6 +88,7 @@ export function Step1Project() {
           ))}
         </div>
       </div>
+
     </div>
   )
 }

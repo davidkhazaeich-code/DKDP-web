@@ -7,21 +7,21 @@ import {
 import { useEstimator } from '../EstimatorContext'
 import { SelectionCard } from '../ui/SelectionCard'
 import { MultiSelectCard } from '../ui/MultiSelectCard'
+import { SectionLabel } from '../ui/SectionLabel'
 
 export function Step2Branding() {
   const { state, dispatch } = useEstimator()
 
   return (
-    <div className="space-y-8">
-      <p className="text-xs text-zinc-500 italic">Optionnel : personnalisez ou passez cette étape</p>
-      {/* Section 1 - Logo */}
+    <div className="space-y-6 sm:space-y-7">
+
+      {/* Logo */}
       <div>
-        <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Logo
-        </p>
-        <div className="grid grid-cols-1 gap-3">
+        <SectionLabel optional>Logo</SectionLabel>
+        <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
           <SelectionCard
             title="J'ai déjà mon logo"
+            description="Fourni en vectoriel ou haute définition"
             price="Inclus"
             priceColor="text-emerald-400"
             icon={<CheckCircle2 size={18} />}
@@ -32,6 +32,7 @@ export function Step2Branding() {
           />
           <SelectionCard
             title="Créer un logo"
+            description="Design original à votre image"
             price="CHF 800-1'500"
             icon={<Palette size={18} />}
             selected={state.logo === 'create'}
@@ -41,6 +42,7 @@ export function Step2Branding() {
           />
           <SelectionCard
             title="Moderniser mon logo"
+            description="Refresh visuel de l'existant"
             price="CHF 500-1'000"
             icon={<RefreshCw size={18} />}
             selected={state.logo === 'modernize'}
@@ -51,43 +53,37 @@ export function Step2Branding() {
         </div>
       </div>
 
-      {/* Section 2 - Identite visuelle */}
+      {/* Identite visuelle */}
       <div>
-        <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Identité visuelle
-        </p>
-        <div className="grid grid-cols-1 gap-3">
+        <SectionLabel optional>Identité visuelle</SectionLabel>
+        <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
           <SelectionCard
             title="J'ai déjà ma charte"
+            description="Couleurs, typographies, style défini"
             price="Inclus"
             priceColor="text-emerald-400"
             icon={<CheckCircle2 size={18} />}
             selected={state.branding === 'existing'}
             onClick={() =>
-              dispatch({
-                type: 'SET_BRANDING',
-                value: state.branding === 'existing' ? null : 'existing',
-              })
+              dispatch({ type: 'SET_BRANDING', value: state.branding === 'existing' ? null : 'existing' })
             }
           />
           <SelectionCard
             title="Créer une identité"
+            description="Palette, typo, charte complète"
             price="CHF 1'000-2'000"
             icon={<Paintbrush size={18} />}
             selected={state.branding === 'create'}
             onClick={() =>
-              dispatch({
-                type: 'SET_BRANDING',
-                value: state.branding === 'create' ? null : 'create',
-              })
+              dispatch({ type: 'SET_BRANDING', value: state.branding === 'create' ? null : 'create' })
             }
           >
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {['Palette couleurs', 'Typographie', 'Charte graphique', 'Signature email'].map(
                 (tag) => (
                   <span
                     key={tag}
-                    className="text-xs px-2 py-1 rounded border border-violet-500/20 bg-violet-500/10 text-violet-300"
+                    className="text-[10px] sm:text-xs px-2 py-1 rounded-md border border-violet-500/30 bg-violet-500/10 text-violet-300 font-medium"
                   >
                     {tag}
                   </span>
@@ -97,25 +93,21 @@ export function Step2Branding() {
           </SelectionCard>
           <SelectionCard
             title="Moderniser mon branding"
+            description="Refonte partielle de l'existant"
             price="CHF 600-1'200"
             icon={<RefreshCw size={18} />}
             selected={state.branding === 'modernize'}
             onClick={() =>
-              dispatch({
-                type: 'SET_BRANDING',
-                value: state.branding === 'modernize' ? null : 'modernize',
-              })
+              dispatch({ type: 'SET_BRANDING', value: state.branding === 'modernize' ? null : 'modernize' })
             }
           />
         </div>
       </div>
 
-      {/* Section 3 - Strategie marketing */}
+      {/* Strategie marketing */}
       <div>
-        <p className="text-sm font-medium text-zinc-400 mb-3 uppercase tracking-wider">
-          Stratégie marketing
-        </p>
-        <div className="grid grid-cols-1 gap-3">
+        <SectionLabel optional>Stratégie marketing</SectionLabel>
+        <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
           <MultiSelectCard
             title="Positionnement"
             description="Définir votre proposition de valeur unique"
@@ -142,6 +134,7 @@ export function Step2Branding() {
           />
         </div>
       </div>
+
     </div>
   )
 }

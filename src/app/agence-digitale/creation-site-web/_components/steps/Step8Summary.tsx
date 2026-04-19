@@ -491,21 +491,13 @@ export function Step8Summary() {
   // Recap + totals sidebar content (reused in both layouts)
   const recapContent = (
     <div className="space-y-4">
-      <CategoryBlock title="Projet" step={1} items={projetItems} />
-      <CategoryBlock title="Branding" step={2} items={brandingItems} />
-      <CategoryBlock title="Envergure" step={3} items={envergureItems} />
-      <CategoryBlock title="Contenu" step={4} items={contenuItems} />
-      <CategoryBlock title="Fonctionnalités" step={5} items={featuresItems} />
-      <CategoryBlock title="Acquisition" step={6} items={acquisitionItems} />
-      <CategoryBlock title="Services" step={7} items={servicesItems} />
-
-      {/* Totals */}
+      {/* Totals block at the top */}
       <div className="rounded-2xl border border-violet-500/30 bg-violet-500/5 p-5 space-y-3">
         <div>
-          <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-1">
+          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500 mb-1.5">
             Investissement unique
           </p>
-          <p className="text-2xl lg:text-xl font-bold text-white">
+          <p className="text-2xl lg:text-xl xl:text-2xl font-bold text-white leading-tight tabular-nums">
             <AnimatedCounter value={estimate.totalMin} prefix="CHF" />
             {estimate.totalMin !== estimate.totalMax && (
               <>
@@ -517,30 +509,39 @@ export function Step8Summary() {
         </div>
         {estimate.monthlyMin > 0 && (
           <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-1">
+            <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500 mb-1">
               Coûts récurrents
             </p>
-            <p className="text-base font-semibold text-violet-400">
+            <p className="text-base font-semibold text-violet-400 tabular-nums">
               +{formatCHF(estimate.monthlyMin, estimate.monthlyMax)} /mois
             </p>
           </div>
         )}
         {estimate.weeksMin > 0 && (
           <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-1">
+            <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500 mb-1">
               Délai estimé
             </p>
-            <p className="text-base font-semibold text-emerald-400">
+            <p className="text-base font-semibold text-emerald-400 tabular-nums">
               ~{estimate.weeksMin}
               {estimate.weeksMin !== estimate.weeksMax && `-${estimate.weeksMax}`}{' '}
               semaines
             </p>
           </div>
         )}
-        <p className="text-xs text-zinc-500 border-t border-white/5 pt-3">
+        <p className="text-xs text-zinc-500 border-t border-violet-500/10 pt-3 leading-relaxed">
           Estimation indicative. Devis personnalisé sous 48h.
         </p>
       </div>
+
+      {/* Selections by category */}
+      <CategoryBlock title="Projet" step={1} items={projetItems} />
+      <CategoryBlock title="Branding" step={2} items={brandingItems} />
+      <CategoryBlock title="Envergure" step={3} items={envergureItems} />
+      <CategoryBlock title="Contenu" step={4} items={contenuItems} />
+      <CategoryBlock title="Fonctionnalités" step={5} items={featuresItems} />
+      <CategoryBlock title="Acquisition" step={6} items={acquisitionItems} />
+      <CategoryBlock title="Services" step={7} items={servicesItems} />
     </div>
   )
 

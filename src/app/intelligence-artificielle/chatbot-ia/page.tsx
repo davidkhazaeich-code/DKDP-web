@@ -101,6 +101,11 @@ const FAQ = [
       'Oui. Calendriers de reservation (Cal.com, Calendly), CRM (HubSpot, Pipedrive), systèmes de ticketing, bases de données internes. On s\'adapté a votre stack existant sans tout reconstruire.',
   },
   {
+    question: 'Avec quelles plateformes et CMS le chatbot est-il compatible ?',
+    answer:
+      'Le chatbot s\'intègre via un simple script a coller dans votre site, sans refonte. Compatible avec Webflow, WordPress, Shopify, Wix, Squarespace, ainsi que les sites sur mesure (Next.js, Astro, Laravel, PHP). L\'installation prend 15 minutes et DKDP s\'occupe de l\'integration de bout en bout.',
+  },
+  {
     question: 'Est-ce que le chatbot remplace mon équipe ?',
     answer:
       'Non, et ce n\'est pas l\'objectif. Le chatbot prend en charge les demandes repetitives et les horaires ou personne n\'est disponible. Votre équipe se concentre sur les echanges a forte valeur ajoutee. C\'est un outil, pas un remplacement.',
@@ -220,7 +225,7 @@ const OFFERS = [
       'Tout ce qui est inclus dans Essentiel',
       'Connexion a votre calendrier de reservation',
       'Qualification de leads automatique',
-      'Reponses basees sur vos documents internes',
+      'Base de connaissances sur mesure (FAQ, produits, procedures)',
       'Tableau de bord des conversations',
       '3 mois de suivi et ajustements inclus',
     ],
@@ -233,7 +238,7 @@ const OFFERS = [
     features: [
       'Tout ce qui est inclus dans Pro',
       'Connecte a vos outils existants (CRM, ERP, ticketing)',
-      'Déploiement multi-canal (site, WhatsApp, Instagram)',
+      'Déploiement multi-canal sur devis (site, WhatsApp Business, Messenger)',
       'Chatbot multilingue (FR, EN, DE)',
       'Logique métier avancee et workflows personnalisés',
       'Suivi continu et evolution mensuelle',
@@ -304,10 +309,14 @@ export default function ChatbotIAPage() {
             {
               '@type': 'Offer',
               name: 'Chatbot Sur mesure',
-              price: '5500',
               priceCurrency: 'CHF',
-              priceSpecification: { '@type': 'PriceSpecification', minPrice: '5500', priceCurrency: 'CHF', description: 'A partir de CHF 5500, sur devis' },
-              description: 'Chatbot multi-canal, multilingue, connecte CRM/ERP, suivi continu',
+              priceSpecification: {
+                '@type': 'PriceSpecification',
+                minPrice: '8000',
+                priceCurrency: 'CHF',
+                description: 'A partir de CHF 8 000, sur devis',
+              },
+              description: 'Chatbot multi-canal, multilingue, connecte CRM/ERP, suivi continu. Sur devis.',
               url: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia#offres',
             },
           ],

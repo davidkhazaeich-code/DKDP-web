@@ -38,12 +38,14 @@ export function generateEstimationPdf(params: {
   doc.setFillColor(...violet)
   doc.rect(0, 0, W, 2.5, 'F')
 
-  // Logo (read from public/)
+  // Logo (read from public/) — dkdp_noir.png has aspect ratio 7.20:1
   try {
     const logoPath = path.join(process.cwd(), 'public/images/logo/dkdp_noir.png')
     const logoData = fs.readFileSync(logoPath)
     const logoBase64 = `data:image/png;base64,${logoData.toString('base64')}`
-    doc.addImage(logoBase64, 'PNG', ML, 8, 50, 10)
+    const logoW = 40
+    const logoH = logoW / 7.20 // preserve aspect ratio (2729x379)
+    doc.addImage(logoBase64, 'PNG', ML, 10, logoW, logoH)
   } catch {
     // Fallback text if logo not found
     doc.setFont('Helvetica', 'bold')

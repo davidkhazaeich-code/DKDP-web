@@ -104,11 +104,11 @@ const PROCESS = [
   {
     step: '01',
     title: 'Audit & benchmark',
-    desc: 'Analyse du compte existant ou audit du marché. Mots-clés concurrents, budget optimal, structure recommandée.',
+    desc: 'Analyse du compte existant ou audit du marché. Mots-clés concurrents, budget optimal, structuré recommandée.',
   },
   {
     step: '02',
-    title: 'Structure & annonces',
+    title: 'structuré & annonces',
     desc: 'Création des groupes d\'annonces, textes optimisés A/B, extensions. Suivi conversions configuré.',
   },
   {

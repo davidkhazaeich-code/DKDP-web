@@ -1,0 +1,220 @@
+<style>
+* { box-sizing: border-box; }
+.page-sections { display: flex; flex-direction: column; gap: 1.25rem; }
+.sec-block { background: #141414; border: 1px solid #222; border-radius: 14px; overflow: hidden; }
+.sec-header { display: flex; align-items: center; justify-content: space-between; padding: .75rem 1.25rem; border-bottom: 1px solid #1e1e1e; background: #0f0f0f; }
+.sec-header h3 { color: #ccc; font-size: .82rem; font-weight: 600; margin: 0; }
+.sec-tag { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: .15rem .55rem; border-radius: 100px; }
+.tag-v { background: rgba(167,139,250,.15); color: #A78BFA; border: 1px solid rgba(167,139,250,.3); }
+.tag-o { background: rgba(255,140,0,.12); color: #FF8C00; border: 1px solid rgba(255,140,0,.25); }
+.sec-body { padding: 1.25rem; }
+
+/* === TYPES D'APPS === */
+.apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
+.app-card { background: #0f0f0f; border: 1px solid #2a2a2a; border-radius: 10px; padding: 1rem; transition: border-color .2s; }
+.app-card:hover { border-color: rgba(167,139,250,.4); }
+.app-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: .65rem; }
+.app-card h4 { color: #e5e5e5; font-size: .82rem; font-weight: 600; margin: 0 0 .3rem; }
+.app-card p { color: #666; font-size: .72rem; line-height: 1.5; margin: 0 0 .6rem; }
+.app-tags { display: flex; gap: .3rem; flex-wrap: wrap; }
+.app-tag { font-size: .62rem; color: #888; background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 6px; padding: .15rem .45rem; }
+
+/* === TIMELINE === */
+.timeline { position: relative; padding-left: 2.5rem; }
+.timeline::before { content: ''; position: absolute; left: .9rem; top: .5rem; bottom: .5rem; width: 1px; background: linear-gradient(to bottom, #A78BFA, rgba(167,139,250,.1)); }
+.tl-item { position: relative; margin-bottom: 1.5rem; }
+.tl-item:last-child { margin-bottom: 0; }
+.tl-dot { position: absolute; left: -2rem; top: .15rem; width: 22px; height: 22px; border-radius: 50%; background: rgba(167,139,250,.15); border: 1.5px solid rgba(167,139,250,.5); display: flex; align-items: center; justify-content: center; font-size: .65rem; }
+.tl-dot.active { background: rgba(167,139,250,.3); border-color: #A78BFA; box-shadow: 0 0 10px rgba(167,139,250,.3); }
+.tl-num { font-size: .6rem; font-weight: 700; color: #A78BFA; }
+.tl-content { background: #0f0f0f; border: 1px solid #252525; border-radius: 10px; padding: .85rem 1rem; }
+.tl-top { display: flex; align-items: center; gap: .5rem; margin-bottom: .35rem; }
+.tl-emoji { font-size: .9rem; }
+.tl-title { color: #e5e5e5; font-size: .82rem; font-weight: 600; }
+.tl-duration { margin-left: auto; font-size: .65rem; color: #A78BFA; background: rgba(167,139,250,.1); border-radius: 100px; padding: .15rem .5rem; border: 1px solid rgba(167,139,250,.2); }
+.tl-desc { color: #666; font-size: .74rem; line-height: 1.5; }
+.tl-deliverables { display: flex; gap: .3rem; flex-wrap: wrap; margin-top: .5rem; }
+.tl-del { font-size: .63rem; color: #888; background: #1a1a1a; border: 1px solid #2d2d2d; border-radius: 5px; padding: .12rem .4rem; }
+.tl-del::before { content: '→ '; color: #555; }
+
+/* === STACK TECH === */
+.stack-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; }
+.stack-item { background: #0f0f0f; border: 1px solid #252525; border-radius: 8px; padding: .6rem; text-align: center; }
+.stack-item .s-label { font-size: .65rem; color: #888; text-transform: uppercase; letter-spacing: .05em; display: block; margin-bottom: .3rem; }
+.stack-item .s-tech { font-size: .75rem; color: #ccc; font-weight: 600; }
+
+.tl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+</style>
+
+<h2>Sections principales de la page</h2>
+<p class="subtitle">Aperçu des 3 sections centrales — types d'apps, timeline processus, stack technique</p>
+
+<div class="page-sections">
+
+  <!-- TYPES D'APPS -->
+  <div class="sec-block">
+    <div class="sec-header">
+      <h3>Section 2 — Types d'applications</h3>
+      <span class="sec-tag tag-v">Cards visuelles · 3 colonnes</span>
+    </div>
+    <div class="sec-body">
+      <div style="margin-bottom:.85rem;">
+        <span style="display:inline-block;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .7rem;border-radius:100px;background:rgba(167,139,250,.12);color:#A78BFA;border:1px solid rgba(167,139,250,.3);">Ce qu'on développe</span>
+        <p style="color:#ccc;font-size:.95rem;font-weight:600;margin:.5rem 0 .2rem;">Toutes les apps, un seul interlocuteur.</p>
+        <p style="color:#666;font-size:.76rem;">iOS, Android, web app ou PWA — on couvre l'ensemble du spectre selon votre besoin métier.</p>
+      </div>
+      <div class="apps-grid">
+        <div class="app-card">
+          <div class="app-icon" style="background:rgba(167,139,250,.12);">📱</div>
+          <h4>App mobile native</h4>
+          <p>iOS (Swift) et Android (Kotlin) pour une performance maximale et un accès aux fonctionnalités système.</p>
+          <div class="app-tags">
+            <span class="app-tag">Swift</span>
+            <span class="app-tag">Kotlin</span>
+            <span class="app-tag">React Native</span>
+          </div>
+        </div>
+        <div class="app-card">
+          <div class="app-icon" style="background:rgba(255,140,0,.1);">🌐</div>
+          <h4>Web App / SaaS</h4>
+          <p>Application métier accessible navigateur, dashboard, portail client — sans installation, partout.</p>
+          <div class="app-tags">
+            <span class="app-tag">Next.js</span>
+            <span class="app-tag">React</span>
+            <span class="app-tag">Node.js</span>
+          </div>
+        </div>
+        <div class="app-card">
+          <div class="app-icon" style="background:rgba(45,212,191,.1);">⚡</div>
+          <h4>PWA</h4>
+          <p>Progressive Web App : l'expérience d'une app mobile, le déploiement d'un site. Idéal pour les budgets maîtrisés.</p>
+          <div class="app-tags">
+            <span class="app-tag">Offline</span>
+            <span class="app-tag">Notifications</span>
+            <span class="app-tag">Installable</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="sec-block">
+    <div class="sec-header">
+      <h3>Section 3 — Processus de développement</h3>
+      <span class="sec-tag tag-v">Timeline 5 étapes · illustrée</span>
+    </div>
+    <div class="sec-body">
+      <div style="margin-bottom:1rem;">
+        <span style="display:inline-block;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .7rem;border-radius:100px;background:rgba(167,139,250,.12);color:#A78BFA;border:1px solid rgba(167,139,250,.3);">Notre méthode</span>
+        <p style="color:#ccc;font-size:.95rem;font-weight:600;margin:.5rem 0 .2rem;">Du cahier des charges au store, sans mauvaise surprise.</p>
+      </div>
+      <div class="tl-grid">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot active"><span class="tl-num">1</span></div>
+            <div class="tl-content">
+              <div class="tl-top">
+                <span class="tl-emoji">🎯</span>
+                <span class="tl-title">Découverte & cadrage</span>
+                <span class="tl-duration">1–2 sem.</span>
+              </div>
+              <p class="tl-desc">Analyse de vos besoins métier, définition du périmètre, personas utilisateurs, cahier des charges.</p>
+              <div class="tl-deliverables">
+                <span class="tl-del">Cahier des charges</span>
+                <span class="tl-del">Devis fixe</span>
+              </div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><span class="tl-num">2</span></div>
+            <div class="tl-content">
+              <div class="tl-top">
+                <span class="tl-emoji">🎨</span>
+                <span class="tl-title">Design UX/UI</span>
+                <span class="tl-duration">2–3 sem.</span>
+              </div>
+              <p class="tl-desc">Wireframes, maquettes Figma, prototype cliquable. Vous validez avant qu'on écrive la première ligne de code.</p>
+              <div class="tl-deliverables">
+                <span class="tl-del">Maquettes Figma</span>
+                <span class="tl-del">Prototype</span>
+              </div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><span class="tl-num">3</span></div>
+            <div class="tl-content">
+              <div class="tl-top">
+                <span class="tl-emoji">⚙️</span>
+                <span class="tl-title">Développement</span>
+                <span class="tl-duration">4–10 sem.</span>
+              </div>
+              <p class="tl-desc">Sprints courts avec démos régulières. Accès à un environnement de test en continu.</p>
+              <div class="tl-deliverables">
+                <span class="tl-del">Env. de test</span>
+                <span class="tl-del">Démos sprint</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline" style="padding-top:0;">
+          <div class="tl-item" style="margin-top:0;">
+            <div class="tl-dot"><span class="tl-num">4</span></div>
+            <div class="tl-content">
+              <div class="tl-top">
+                <span class="tl-emoji">🧪</span>
+                <span class="tl-title">Tests & QA</span>
+                <span class="tl-duration">1–2 sem.</span>
+              </div>
+              <p class="tl-desc">Tests fonctionnels, de performance, de sécurité. Corrections avant mise en production.</p>
+              <div class="tl-deliverables">
+                <span class="tl-del">Rapport de tests</span>
+                <span class="tl-del">Correctifs</span>
+              </div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><span class="tl-num">5</span></div>
+            <div class="tl-content">
+              <div class="tl-top">
+                <span class="tl-emoji">🚀</span>
+                <span class="tl-title">Lancement & suivi</span>
+                <span class="tl-duration">Continu</span>
+              </div>
+              <p class="tl-desc">Mise en production, publication App Store/Play Store, formation équipe, support post-lancement.</p>
+              <div class="tl-deliverables">
+                <span class="tl-del">Publication stores</span>
+                <span class="tl-del">Documentation</span>
+                <span class="tl-del">Support 30j</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STACK TECH -->
+  <div class="sec-block">
+    <div class="sec-header">
+      <h3>Section 4 — Stack technique</h3>
+      <span class="sec-tag tag-o">Crédibilité · grille compacte</span>
+    </div>
+    <div class="sec-body">
+      <div style="margin-bottom:.85rem;">
+        <p style="color:#888;font-size:.76rem;">Des technos choisies pour durer — pas pour faire joli sur une slide.</p>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-item"><span class="s-label">Mobile</span><span class="s-tech">React Native</span></div>
+        <div class="stack-item"><span class="s-label">iOS natif</span><span class="s-tech">Swift</span></div>
+        <div class="stack-item"><span class="s-label">Android</span><span class="s-tech">Kotlin</span></div>
+        <div class="stack-item"><span class="s-label">Web App</span><span class="s-tech">Next.js</span></div>
+        <div class="stack-item"><span class="s-label">Backend</span><span class="s-tech">Node.js</span></div>
+        <div class="stack-item"><span class="s-label">Base de données</span><span class="s-tech">PostgreSQL</span></div>
+        <div class="stack-item"><span class="s-label">Auth</span><span class="s-tech">Supabase</span></div>
+        <div class="stack-item"><span class="s-label">Déploiement</span><span class="s-tech">Vercel / AWS</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -52,7 +52,7 @@ const FAQ = [
   {
     question: 'La formation inclut-elle des conseils sur l\'organisation numérique ?',
     answer:
-      'Oui. Un module complet est dédié à l\'organisation numérique : structure de dossiers, nommage des fichiers, gestion des emails (tri, archivage, filtres automatiques), et outils de gestion des tâches.',
+      'Oui. Un module complet est dédié à l\'organisation numérique : structuré de dossiers, nommage des fichiers, gestion des emails (tri, archivage, filtres automatiques), et outils de gestion des tâches.',
   },
   {
     question: 'Combien coûte une formation informatique pour une équipe ?',

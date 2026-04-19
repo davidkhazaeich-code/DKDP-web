@@ -3,7 +3,7 @@ import type { Article } from './types'
 const article: Article = {
     slug: 'claude-gestion-tokens-optimiser-ia-agence-geneve',
     category: 'ia',
-    title: 'Claude et gestion des tokens : optimiser l\'usage de l\'IA en agence a Geneve',
+    title: 'Claude et gestion des tokens : optimiser l\'usage de l\'IA en agence à Genève',
     excerpt:
       'Les limites d\'utilisation de Claude sont atteintes trop vite ? Le problème n\'est pas l\'outil, c\'est la methode. Voici comment comprendre les tokens et structurer vos sessions pour reduire les coûts et améliorer la qualité des résultats.',
     date: '5 avril 2026',
@@ -12,7 +12,7 @@ const article: Article = {
     author: 'David Khazaei',
     heroImage: {
       src: '/images/blog/gestion-tokens-ia-hero.png',
-      alt: 'Gestion tokens Claude IA Geneve : flux de tokens dans un reseau neuronal pour optimiser usage IA en agence',
+      alt: 'Gestion tokens Claude IÀ Genève : flux de tokens dans un reseau neuronal pour optimiser usage IA en agence',
     },
     images: [
       {
@@ -27,16 +27,16 @@ const article: Article = {
       },
     ],
     tags: ['IA', 'Claude', 'Tokens', 'Optimisation', 'Productivite', 'Geneve', 'Agence'],
-    seoTitle: 'Gestion des tokens Claude : optimiser l\'IA en agence a Geneve',
+    seoTitle: 'Gestion des tokens Claude : optimiser l\'IA en agence à Genève',
     seoDescription:
-      'Comment optimiser votre consommation de tokens avec Claude en 2026. Bonnes pratiques, erreurs courantes et approche systemique pour les agences et PME a Geneve.',
+      'Comment optimiser votre consommation de tokens avec Claude en 2026. Bonnes pratiques, erreurs courantes et approche systemique pour les agences et PME à Genève.',
     content: `## Pourquoi vos limites sont atteintes trop vite
 
-A Geneve, les agences digitales et équipes tech adoptent massivement les outils d\'intelligence artificielle comme Claude pour accelerer production, développement et automatisation.
+À Genève, les agences digitales et équipes tech adoptent massivement les outils d\'intelligence artificielle comme Claude pour accélérer production, développement et automatisation.
 
-Mais un problème revient systematiquement : les limites sont atteintes trop rapidement, meme avec des abonnements eleves.
+Mais un problème revient systematiquement : les limites sont atteintes trop rapidement, même avec des abonnements eleves.
 
-Ce phenomene est souvent mal compris. Il ne s\'agit pas d\'un manque de puissance du modele, mais d\'un mauvais usage du système. La difference entre un utilisateur qui epuise ses credits en deux heures et un autre qui tient toute la semaine tient rarement a la quantite de travail accompli. Elle tient a la structure des interactions.
+Ce phenomene est souvent mal compris. Il ne s\'agit pas d\'un manque de puissance du modele, mais d\'un mauvais usage du système. La difference entre un utilisateur qui epuise ses credits en deux heures et un autre qui tient toute la semaine tient rarement a la quantite de travail accompli. Elle tient a la structuré des interactions.
 
 ## Comprendre le fonctionnement des tokens
 
@@ -68,7 +68,7 @@ Les consequences sont directes :
 - Les longues conversations deviennent extremement inefficaces en termes de rapport qualité/coût
 - Une grande partie des ressources est utilisee pour relire l\'historique, pas pour produire de nouvelles reponses
 
-Ce fonctionnement explique pourquoi une session longue peut consommer beaucoup plus qu\'une serie de sessions courtes, meme pour un volume de travail identique.
+Ce fonctionnement explique pourquoi une session longue peut consommer beaucoup plus qu\'une serie de sessions courtes, même pour un volume de travail identique.
 
 ___IMG:gestion-tokens-cout-exponentiel.png___
 
@@ -104,7 +104,7 @@ C\'est un cercle vicieux : plus la conversation est longue, moins l\'IA est perf
 <div style="padding:1.5rem;border-radius:14px;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.04)">
 <div style="font-size:1.5rem;margin-bottom:0.5rem">1</div>
 <div style="font-size:0.9rem;font-weight:700;color:#fca5a5;margin-bottom:0.5rem">Conversations trop longues</div>
-<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.6">50 messages dans un meme chat = coût exponentiel par reponse. Chaque message relit tout l\'historique.</div>
+<div style="font-size:0.8rem;color:#9CA3AF;line-height:1.6">50 messages dans un même chat = coût exponentiel par reponse. Chaque message relit tout l\'historique.</div>
 </div>
 <div style="padding:1.5rem;border-radius:14px;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.04)">
 <div style="font-size:1.5rem;margin-bottom:0.5rem">2</div>
@@ -125,7 +125,7 @@ C\'est un cercle vicieux : plus la conversation est longue, moins l\'IA est perf
 
 ### 1. Conserver des conversations trop longues
 
-C\'est l\'erreur numéro un. Accumuler des messages dans un meme chat augmente fortement le coût a chaque interaction. Un echange de 50 messages coute exponentiellement plus cher par reponse qu\'un echange de 5 messages.
+C\'est l\'erreur numéro un. Accumuler des messages dans un même chat augmente fortement le coût a chaque interaction. Un echange de 50 messages coute exponentiellement plus cher par reponse qu\'un echange de 5 messages.
 
 ### 2. Fournir trop d\'informations inutiles
 
@@ -177,15 +177,15 @@ Ciblez uniquement les informations nécessaires. Evitez les contenus volumineux 
 
 ### Optimiser les prompts
 
-Regroupez plusieurs instructions dans un seul message. Formulez des demandes claires et precises avec un format de sortie defini. Plus votre prompt est structure, moins l\'IA a besoin d\'iterer pour comprendre ce que vous attendez.
+Regroupez plusieurs instructions dans un seul message. Formulez des demandes claires et precises avec un format de sortie defini. Plus votre prompt est structuré, moins l\'IA a besoin d\'iterer pour comprendre ce que vous attendez.
 
 <div style="margin:2rem 0;padding:1.5rem;border-radius:14px;border:1px solid rgba(63,63,70,0.4);background:rgba(24,24,27,0.6)">
-<div style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#71717a;margin-bottom:1rem">Comparaison : prompt vague vs prompt structure</div>
+<div style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#71717a;margin-bottom:1rem">Comparaison : prompt vague vs prompt structuré</div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
 <div style="padding:1rem;border-radius:10px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15)">
 <div style="font-size:0.65rem;font-weight:700;color:#fca5a5;margin-bottom:0.5rem">AVANT</div>
 <div style="font-size:0.8rem;color:#a1a1aa;font-style:italic;line-height:1.5">"Ecris-moi un texte pour la page du site"</div>
-<div style="margin-top:0.5rem;font-size:0.7rem;color:#71717a">~500 tokens de reponse exploratoire, résultat generique, 2-3 iterations nécessaires</div>
+<div style="margin-top:0.5rem;font-size:0.7rem;color:#71717a">~500 tokens de reponse exploratoire, résultat générique, 2-3 iterations nécessaires</div>
 </div>
 <div style="padding:1rem;border-radius:10px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.15)">
 <div style="font-size:0.65rem;font-weight:700;color:#4ade80;margin-bottom:0.5rem">APRES</div>
@@ -214,7 +214,7 @@ Les équipes les plus performantes ne considerent plus l\'IA comme un simple out
 <div style="width:2rem;text-align:center;color:#52525b;font-size:1.2rem">&#8594;</div>
 <div style="flex:1;text-align:center;padding:1rem 0.5rem;background:rgba(255,107,0,0.08);border:1px solid rgba(255,107,0,0.15)">
 <div style="font-size:0.7rem;font-weight:700;color:#FF8C00">Niveau 2</div>
-<div style="font-size:0.75rem;color:#a1a1aa;margin-top:0.3rem">Structure</div>
+<div style="font-size:0.75rem;color:#a1a1aa;margin-top:0.3rem">structuré</div>
 <div style="font-size:0.65rem;color:#71717a;margin-top:0.2rem">Prompts + templates</div>
 </div>
 <div style="width:2rem;text-align:center;color:#52525b;font-size:1.2rem">&#8594;</div>
@@ -234,7 +234,7 @@ Les équipes les plus performantes ne considerent plus l\'IA comme un simple out
 
 C\'est exactement l\'approche qu\'on déploie chez DKDP quand on accompagne des équipes dans leur adoption de l\'IA. Le gain n\'est pas incremental : il est souvent de l\'ordre de 3x a 5x en termes de productivité par franc depense.
 
-## Enjeux pour les entreprises a Geneve
+## Enjeux pour les entreprises à Genève
 
 Dans un environnement ou les coûts operationnels sont parmi les plus eleves d\'Europe, optimiser l\'usage de l\'IA devient un levier stratégique significatif.
 
@@ -263,7 +263,7 @@ Une mauvaise utilisation entraine :
 
 - Une augmentation rapide des coûts d\'abonnement et d\'API
 - Une perte de productivité (temps passe a corriger des reponses inadequates)
-- Un retour sur investissement limite qui remet en question l\'adoption meme de l\'outil
+- Un retour sur investissement limite qui remet en question l\'adoption même de l\'outil
 
 A l\'inverse, une utilisation maitrisee permet :
 

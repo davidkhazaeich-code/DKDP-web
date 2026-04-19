@@ -149,7 +149,7 @@ ___IMG:site-web-convertit-ux.png___
 </div>
 <div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(167,139,250,0.05);border-radius:8px">
 <div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #A78BFA;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#A78BFA">&#10003;</div>
-<div style="font-size:0.8rem;color:#e4e4e7">Experience mobile testee manuellement</div>
+<div style="font-size:0.8rem;color:#e4e4e7">expérience mobile testee manuellement</div>
 </div>
 <div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(167,139,250,0.05);border-radius:8px">
 <div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #A78BFA;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#A78BFA">&#10003;</div>

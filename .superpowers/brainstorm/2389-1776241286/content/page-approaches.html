@@ -1,0 +1,102 @@
+<style>
+  .approach-grid { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem; }
+  .approach { background: #141414; border: 1px solid #2a2a2a; border-radius: 14px; padding: 1.5rem; cursor: pointer; transition: border-color .2s; }
+  .approach:hover { border-color: #A78BFA55; }
+  .approach.selected { border-color: #A78BFA; box-shadow: 0 0 0 2px rgba(167,139,250,.25); }
+  .approach-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+  .badge { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%; background: rgba(167,139,250,.2); color: #A78BFA; font-size: .85rem; font-weight: 700; flex-shrink: 0; }
+  .approach h3 { color: #fff; font-size: 1rem; font-weight: 600; margin: 0; }
+  .approach .tagline { font-size: .78rem; color: #A78BFA; font-style: italic; margin: 0 0 1rem 0; }
+  .sections-flow { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+  .sec { font-size: .72rem; color: #ccc; background: #1c1c1c; border: 1px solid #333; border-radius: 8px; padding: .28rem .6rem; white-space: nowrap; }
+  .sec.highlight { background: rgba(167,139,250,.12); border-color: rgba(167,139,250,.35); color: #A78BFA; font-weight: 600; }
+  .arrow { color: #444; font-size: .75rem; }
+  .desc { font-size: .81rem; color: #888; line-height: 1.55; margin-top: .85rem; }
+  .pros-mini { display: flex; gap: 1rem; margin-top: .85rem; flex-wrap: wrap; }
+  .pro { font-size: .74rem; color: #4ade80; }
+  .pro::before { content: '✓ '; }
+  .con { font-size: .74rem; color: #888; }
+  .con::before { content: '· '; }
+  .rec-label { display: inline-block; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: .15rem .55rem; border-radius: 100px; background: rgba(167,139,250,.2); color: #A78BFA; border: 1px solid rgba(167,139,250,.4); float: right; margin-top: .1rem; }
+</style>
+
+<h2>Structure générale de la page</h2>
+<p class="subtitle">3 approches pour organiser le contenu — ciblée PME, mobile-first + web apps</p>
+
+<div class="approach-grid">
+
+  <div class="approach" data-choice="a" onclick="toggleSelect(this)">
+    <div class="approach-header">
+      <div class="badge">A</div>
+      <div>
+        <h3>Expertise & Processus <span class="rec-label">⭐ Recommandé</span></h3>
+      </div>
+    </div>
+    <p class="tagline">"On sait faire, voici comment on travaille"</p>
+    <div class="sections-flow">
+      <div class="sec">Hero</div><span class="arrow">→</span>
+      <div class="sec">Stats (projets, technos)</div><span class="arrow">→</span>
+      <div class="sec highlight">Types d'apps (cards visuelles)</div><span class="arrow">→</span>
+      <div class="sec highlight">Timeline 5 étapes</div><span class="arrow">→</span>
+      <div class="sec">Stack technique</div><span class="arrow">→</span>
+      <div class="sec">Pourquoi DKDP</div><span class="arrow">→</span>
+      <div class="sec">FAQ</div><span class="arrow">→</span>
+      <div class="sec">CTA Final</div>
+    </div>
+    <p class="desc">Structure classique mais efficace pour les PME : on rassure par les chiffres, on montre ce qu'on livre (mobile, web, PWA), puis on explique le processus étape par étape. Idéal pour des décideurs qui veulent savoir "concrètement, comment ça se passe".</p>
+    <div class="pros-mini">
+      <span class="pro">Convertit bien les décideurs</span>
+      <span class="pro">Processus clair = moins de friction</span>
+      <span class="pro">Cohérent avec les autres pages DKDP</span>
+    </div>
+  </div>
+
+  <div class="approach" data-choice="b" onclick="toggleSelect(this)">
+    <div class="approach-header">
+      <div class="badge">B</div>
+      <div><h3>Problèmes → Solutions</h3></div>
+    </div>
+    <p class="tagline">"On comprend vos besoins avant de parler techno"</p>
+    <div class="sections-flow">
+      <div class="sec">Hero</div><span class="arrow">→</span>
+      <div class="sec highlight">Pain points PME (3 cas)</div><span class="arrow">→</span>
+      <div class="sec highlight">Solutions par type d'app</div><span class="arrow">→</span>
+      <div class="sec">Timeline 5 étapes</div><span class="arrow">→</span>
+      <div class="sec">Stack</div><span class="arrow">→</span>
+      <div class="sec">FAQ</div><span class="arrow">→</span>
+      <div class="sec">CTA Final</div>
+    </div>
+    <p class="desc">On commence par nommer les problèmes concrets des PME ("votre équipe perd du temps avec Excel", "pas d'app mobile pour vos clients"). Puis on présente les solutions correspondantes. Plus empathique, mais demande un bon copywriting pour ne pas sembler générique.</p>
+    <div class="pros-mini">
+      <span class="pro">Très empathique</span>
+      <span class="pro">Parle directement au décideur</span>
+      <span class="con">Risque de sembler générique</span>
+      <span class="con">Plus long à lire</span>
+    </div>
+  </div>
+
+  <div class="approach" data-choice="c" onclick="toggleSelect(this)">
+    <div class="approach-header">
+      <div class="badge">C</div>
+      <div><h3>Showcase & Processus</h3></div>
+    </div>
+    <p class="tagline">"Voir pour croire — puis comprendre comment"</p>
+    <div class="sections-flow">
+      <div class="sec">Hero</div><span class="arrow">→</span>
+      <div class="sec highlight">Galerie / mockups d'apps livrées</div><span class="arrow">→</span>
+      <div class="sec">Types d'apps</div><span class="arrow">→</span>
+      <div class="sec">Timeline 5 étapes</div><span class="arrow">→</span>
+      <div class="sec">Pourquoi DKDP</div><span class="arrow">→</span>
+      <div class="sec">FAQ</div><span class="arrow">→</span>
+      <div class="sec">CTA Final</div>
+    </div>
+    <p class="desc">On attaque avec du visuel fort : screenshots ou mockups d'apps construites (mobile, web, dashboard). Très impactant si DKDP a un portfolio à montrer, moins adapté sans visuels réels. La galerie remplace la section "stats" pour prouver l'expertise.</p>
+    <div class="pros-mini">
+      <span class="pro">Impact visuel immédiat</span>
+      <span class="pro">Preuves concrètes</span>
+      <span class="con">Nécessite un portfolio existant</span>
+      <span class="con">Moins adapté si pas de visuels</span>
+    </div>
+  </div>
+
+</div>

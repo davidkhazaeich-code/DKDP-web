@@ -25,7 +25,7 @@ export function HeroVisual() {
           {/* Radar-style bars */}
           <div className="space-y-3">
             {[
-              { axis: 'Strategie digitale', before: 25, after: 85 },
+              { axis: 'stratégie digitale', before: 25, after: 85 },
               { axis: 'SEO technique', before: 18, after: 92 },
               { axis: 'Contenu & copywriting', before: 35, after: 78 },
               { axis: 'Conversion (UX/CRO)', before: 22, after: 71 },

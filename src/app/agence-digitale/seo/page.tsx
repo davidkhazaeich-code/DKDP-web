@@ -47,7 +47,7 @@ const FAQ = [
   {
     question: 'Quelle est la différence entre le SEO on-page et off-page ?',
     answer:
-      'Le SEO on-page couvre tout ce qui est sur votre site : structure des pages, balises, contenu, vitesse de chargement, maillage interne. Le SEO off-page concerne l\'autorité de votre domaine : backlinks, mentions de la marque, présence locale. DKDP travaille sur les deux dimensions.',
+      'Le SEO on-page couvre tout ce qui est sur votre site : structuré des pages, balises, contenu, vitesse de chargement, maillage interne. Le SEO off-page concerne l\'autorité de votre domaine : backlinks, mentions de la marque, présence locale. DKDP travaille sur les deux dimensions.',
   },
   {
     question: 'Faut-il créer du contenu régulièrement pour le SEO ?',
@@ -57,7 +57,7 @@ const FAQ = [
   {
     question: 'Que comprend un audit SEO chez DKDP ?',
     answer:
-      'L\'audit SEO couvre : crawl technique du site (erreurs, redirections, temps de chargement), analyse des balises et de la structure, audit du contenu existant, analyse du profil de backlinks, et analyse de la concurrence sur vos mots-clés cibles. Le rapport est remis avec des priorités claires.',
+      'L\'audit SEO couvre : crawl technique du site (erreurs, redirections, temps de chargement), analyse des balises et de la structuré, audit du contenu existant, analyse du profil de backlinks, et analyse de la concurrence sur vos mots-clés cibles. Le rapport est remis avec des priorités claires.',
   },
   {
     question: 'Le SEO local est-il différent du SEO classique ?',
@@ -111,7 +111,7 @@ const PROCESS = [
   {
     step: '03',
     title: 'On-page',
-    desc: 'Réécriture des titres, métas, H1-H3. Structure sémantique, cocon thématique, maillage interne optimisé.',
+    desc: 'Réécriture des titres, métas, H1-H3. structuré sémantique, cocon thématique, maillage interne optimisé.',
   },
   {
     step: '04',
@@ -229,7 +229,7 @@ export default function SEOPage() {
                 {[
                   'Audit SEO technique complet (erreurs, indexation, vitesse)',
                   'Recherche de mots-clés à intention d\'achat',
-                  'Optimisation on-page (titres, métas, H1-H3, structure)',
+                  'Optimisation on-page (titres, métas, H1-H3, structuré)',
                   'Création de contenu SEO (articles, pages de service)',
                   'Netlinking (backlinks de qualité sur sites d\'autorité)',
                   'SEO local Google Business Profile',
@@ -678,7 +678,7 @@ export default function SEOPage() {
                   { Icon: ShieldCheck, title: 'Résultats mesurables', desc: 'Rapport mensuel de positions, trafic et conversions. Les progrès sont chiffrés, pas racontés.' },
                   { Icon: TrendingUp, title: 'SEO white-hat', desc: 'Pas de techniques black-hat. Chaque action respecte les guidelines Google et construit une autorité durable.' },
                   { Icon: Clock, title: 'Premiers signaux en 30j', desc: 'Les corrections techniques et premières optimisations sont visibles dans Search Console dans les 4 premières semaines.' },
-                  { Icon: Globe2, title: 'Vos données restent vôtres', desc: 'Vous gardez la main sur Search Console, Analytics et GBP. DKDP travaille sur vos plateformes, jamais en silo.' },
+                  { Icon: Globe2, title: 'Vos données restent vôtrès', desc: 'Vous gardez la main sur Search Console, Analytics et GBP. DKDP travaille sur vos plateformes, jamais en silo.' },
                 ].map((g) => (
                   <div key={g.title} className="text-center">
                     <div

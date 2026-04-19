@@ -162,11 +162,11 @@ ___IMG:cybersecurite-pme-risques.png___
 **Semaine 4 : Formation équipe.** Organisez une session de 1h sur le phishing et les bonnes pratiques de sécurité. Configurez SPF/DKIM/DMARC. Séparez vos réseaux Wifi.
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(212,212,216,0.2);background:rgba(212,212,216,0.05)">
-<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:1rem">CHECKLIST SECURITE ESSENTIELLE</div>
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:1rem">CHECKLIST sécurité ESSENTIELLE</div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem">
 <div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
 <div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>
-<div style="font-size:0.8rem;color:#e4e4e7">Gestionnaire de mots de passe deploye</div>
+<div style="font-size:0.8rem;color:#e4e4e7">Gestionnaire de mots de passe déployé</div>
 </div>
 <div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:rgba(74,222,128,0.05);border-radius:8px">
 <div style="min-width:18px;height:18px;border-radius:4px;border:2px solid #4ade80;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#4ade80">&#10003;</div>

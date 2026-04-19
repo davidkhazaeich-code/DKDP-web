@@ -12,7 +12,7 @@ const IMAGES = [
   },
   {
     src: '/images/gallery/formation-ia-collaboration-laptop.webp',
-    alt: 'Formation IA Geneve : collaboration sur laptop entre deux professionnels pendant un atelier pratique',
+    alt: 'Formation IÀ Genève : collaboration sur laptop entre deux professionnels pendant un atelier pratique',
     caption: 'Exercice pratique en duo',
   },
   {
@@ -26,8 +26,8 @@ const IMAGES = [
     caption: 'Atelier collaboratif',
   },
   {
-    src: '/images/gallery/formation-ia-echange-pause-cafe.webp',
-    alt: 'Echange informel entre professionnels pendant une pause cafe lors d une formation IA a Geneve',
+    src: '/images/gallery/formation-ia-echange-pause-café.webp',
+    alt: 'Echange informel entre professionnels pendant une pause café lors d une formation IA à Genève',
     caption: 'Networking entre participants',
   },
   {

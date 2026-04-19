@@ -219,7 +219,7 @@ export default function AuditConseilPage() {
                   {
                     Icon: Database,
                     title: 'Évaluation des données disponibles',
-                    desc: 'Qualité, accessibilité, structure. Les données sont le carburant de l&apos;IA : on vérifie que le réservoir est là.',
+                    desc: 'Qualité, accessibilité, structuré. Les données sont le carburant de l&apos;IA : on vérifie que le réservoir est là.',
                   },
                   {
                     Icon: BarChart3,
@@ -503,7 +503,7 @@ export default function AuditConseilPage() {
                 <div className="flex items-end gap-2 mb-1">
                   <span className="text-4xl font-bold text-white">CHF 890</span>
                 </div>
-                <p className="text-text-muted text-sm mb-8">Pour les entreprises prêtes à déployer l&apos;IA à l&apos;échelle de toute la structure</p>
+                <p className="text-text-muted text-sm mb-8">Pour les entreprises prêtes à déployer l&apos;IA à l&apos;échelle de toute la structuré</p>
 
                 <ul className="space-y-3 flex-1 mb-8">
                   {[

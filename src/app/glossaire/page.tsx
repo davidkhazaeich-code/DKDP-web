@@ -105,7 +105,7 @@ const TERMS: Term[] = [
     term: 'Crawl',
     category: 'SEO',
     definition:
-      'Exploration automatique d\'un site par les robots de Google pour découvrir et indexer ses pages. Une structure claire et un sitemap à jour facilitent le crawl et améliorent la couverture d\'indexation.',
+      'Exploration automatique d\'un site par les robots de Google pour découvrir et indexer ses pages. Une structuré claire et un sitemap à jour facilitent le crawl et améliorent la couverture d\'indexation.',
   },
   // D
   {
@@ -125,7 +125,7 @@ const TERMS: Term[] = [
     term: 'E-E-A-T',
     category: 'SEO',
     definition:
-      'Experience, Expertise, Authoritativeness, Trustworthiness. Cadre Google pour évaluer la fiabilité d\'un contenu. Se traduit concrètement par : biographies d\'auteurs, avis clients vérifiables, adresse physique et certifications affichées sur le site.',
+      'expérience, Expertise, Authoritativeness, Trustworthiness. Cadre Google pour évaluer la fiabilité d\'un contenu. Se traduit concrètement par : biographies d\'auteurs, avis clients vérifiables, adresse physique et certifications affichées sur le site.',
   },
   {
     term: 'ERP',
@@ -243,7 +243,7 @@ const TERMS: Term[] = [
     term: 'On-page SEO',
     category: 'SEO',
     definition:
-      'Optimisation des éléments directement sur la page : balises title et Hn, maillage interne, vitesse de chargement, structure du contenu et présence des mots-clés cibles dans les zones stratégiques.',
+      'Optimisation des éléments directement sur la page : balises title et Hn, maillage interne, vitesse de chargement, structuré du contenu et présence des mots-clés cibles dans les zones stratégiques.',
   },
   // P
   {
@@ -269,7 +269,7 @@ const TERMS: Term[] = [
     term: 'Redirect 301',
     category: 'SEO',
     definition:
-      'Redirection permanente d\'une URL vers une autre. Transfère l\'autorité SEO de l\'ancienne page vers la nouvelle. Indispensable lors d\'une refonte de site ou d\'un changement de structure d\'URL.',
+      'Redirection permanente d\'une URL vers une autre. Transfère l\'autorité SEO de l\'ancienne page vers la nouvelle. Indispensable lors d\'une refonte de site ou d\'un changement de structuré d\'URL.',
   },
   {
     term: 'RGPD',
@@ -344,7 +344,7 @@ const TERMS: Term[] = [
     term: 'UX',
     category: 'Web',
     definition:
-      'User Experience. Expérience utilisateur. Qualité globale de l\'interaction avec un site ou un produit : fluidité, logique de navigation, accessibilité. Une bonne UX réduit le taux de rebond et augmente les conversions.',
+      'User expérience. Expérience utilisateur. Qualité globale de l\'interaction avec un site ou un produit : fluidité, logique de navigation, accessibilité. Une bonne UX réduit le taux de rebond et augmente les conversions.',
   },
   // V
   {

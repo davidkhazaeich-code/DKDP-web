@@ -116,7 +116,7 @@ export function ProcessSteps() {
           <div className="text-center mb-12 sm:mb-20">
             <GradTag className="mb-4 sm:mb-6">Notre méthode</GradTag>
             <h2 id="process-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-4 sm:mb-5">
-              Comment ça marche
+              Comment ça marché
             </h2>
             <p className="text-text-secondary text-base sm:text-lg md:text-xl max-w-xl mx-auto">
               5 étapes claires, un processus éprouvé sur 700+ projets.

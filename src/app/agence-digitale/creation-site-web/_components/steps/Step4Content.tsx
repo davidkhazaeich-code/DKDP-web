@@ -47,7 +47,7 @@ export function Step4Content() {
           />
           <SelectionCard
             title="Rédaction professionnelle"
-            description="Copywriting SEO avancé, ton et structure"
+            description="Copywriting SEO avancé, ton et structuré"
             price={`CHF ${formatChf(professionalPrice)}`}
             icon={<PenTool size={18} />}
             selected={state.copywriting === 'professional'}

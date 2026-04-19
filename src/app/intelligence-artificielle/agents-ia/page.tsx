@@ -332,7 +332,7 @@ export default function AgentsIAPage() {
       </section>
 
       {/* ── Processus ── */}
-      <section id="comment-ca-marche" className="py-24 scroll-mt-[124px]">
+      <section id="comment-ca-marché" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -575,7 +575,7 @@ export default function AgentsIAPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <p className="text-center text-text-muted text-xs font-semibold uppercase tracking-widest mb-8">
-              Compléter votre démarche IA
+              Compléter votre démarché IA
             </p>
           </SectionReveal>
 

@@ -56,7 +56,7 @@ En comprenant en profondeur les architectures logicielles, les dependances entre
 
 Ce phenomene illustre une realite clé : **la frontiere entre compétence technique et capacité offensive disparait**.
 
-C'est une realite que chaque entreprise doit intégrer : la meme intelligence qui optimisé un système est celle qui peut en exposer les failles.
+C'est une realite que chaque entreprise doit intégrer : la même intelligence qui optimisé un système est celle qui peut en exposer les failles.
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(212,212,216,0.16);background:rgba(212,212,216,0.04)">
 <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:1.2rem">Ce que Claude Mythos sait faire</div>
@@ -92,7 +92,7 @@ L'IA a notamment :
 
 Plus significatif encore, elle est capable de **raisonner en chaine**, c'est-a-dire relier plusieurs vulnerabilites mineures pour générer une faille majeure exploitable. Une capacité qui correspond precisement aux techniques utilisees dans les cyberattaques les plus sophistiquees.
 
-Pour mettre cela en perspective : le [leak de Claude Code](/blog/claude-code-leak-utiliser-ia-comme-infrastructure) avait deja revele la profondeur architecturale des outils Anthropic. Avec Mythos, on passe a un niveau superieur en termes de capacité de raisonnement.
+Pour mettre cela en perspective : le [leak de Claude Code](/blog/claude-code-leak-utiliser-ia-comme-infrastructure) avait déjà revele la profondeur architecturale des outils Anthropic. Avec Mythos, on passe a un niveau superieur en termes de capacité de raisonnement.
 
 ## Une technologie a double tranchant
 
@@ -139,7 +139,7 @@ Cette initiative, connue sous le nom de **Project Glasswing**, vise a donner une
 Il s'agit d'un precedent important dans la gouvernance des modèles d'IA avances.
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(167,139,250,0.2);background:rgba(167,139,250,0.04)">
-<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1.2rem">Project Glasswing : la strategie Anthropic</div>
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:1.2rem">Project Glasswing : la stratégie Anthropic</div>
 <div style="display:flex;flex-direction:column;gap:0.75rem">
 <div style="display:flex;align-items:flex-start;gap:1rem">
 <div style="min-width:2rem;height:2rem;border-radius:50%;background:rgba(167,139,250,0.15);border:1px solid rgba(167,139,250,0.3);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#A78BFA">1</div>

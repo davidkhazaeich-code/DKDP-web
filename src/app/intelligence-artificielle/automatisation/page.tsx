@@ -212,10 +212,10 @@ export default function AutomationPage() {
                     Planifier un appel gratuit
                   </LiquidMetalButton>
                   <Link
-                    href="#comment-ca-marche"
+                    href="#comment-ca-marché"
                     className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-white transition-colors"
                   >
-                    Comment ca marche <ArrowRight size={13} />
+                    Comment ca marché <ArrowRight size={13} />
                   </Link>
                 </div>
                 <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
@@ -267,7 +267,7 @@ export default function AutomationPage() {
         items={[
           { label: 'Pourquoi automatiser', href: '#pourquoi' },
           { label: 'Outils & intégrations', href: '#outils' },
-          { label: 'Processus', href: '#comment-ca-marche' },
+          { label: 'Processus', href: '#comment-ca-marché' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
         ]}
@@ -362,7 +362,7 @@ export default function AutomationPage() {
       </section>
 
       {/* ── Process ── */}
-      <section id="comment-ca-marche" className="py-24 scroll-mt-[124px]">
+      <section id="comment-ca-marché" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">

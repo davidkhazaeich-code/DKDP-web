@@ -67,7 +67,7 @@ const schemas = [
     },
     {
       question: "Que contient le rapport d'audit SEO ?",
-      answer: "Le rapport couvre six dimensions : mots-clés cibles et positionnements actuels, SEO technique (crawl, indexation, données structurées), profil de backlinks et opportunités de netlinking, qualité et structure du contenu, SEO local et Google My Business, et présence GEO dans les IA (Google AI Overviews, ChatGPT, Perplexity). Chaque point est noté et accompagné de recommandations priorisées.",
+      answer: "Le rapport couvre six dimensions : mots-clés cibles et positionnements actuels, SEO technique (crawl, indexation, données structurées), profil de backlinks et opportunités de netlinking, qualité et structuré du contenu, SEO local et Google My Business, et présence GEO dans les IA (Google AI Overviews, ChatGPT, Perplexity). Chaque point est noté et accompagné de recommandations priorisées.",
     },
     {
       question: "Quelle est la différence entre l'audit SEO et l'audit de site ?",
@@ -79,7 +79,7 @@ const schemas = [
     },
     {
       question: "Que se passe-t-il après l'audit SEO ?",
-      answer: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. Nos clients SEO observent en moyenne +240% de trafic organique à 6 mois. Mais la décision et le timing restent entièrement les vôtres.",
+      answer: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. Nos clients SEO observent en moyenne +240% de trafic organique à 6 mois. Mais la décision et le timing restent entièrement les vôtrès.",
     },
   ]),
 ]
@@ -128,7 +128,7 @@ const ANALYSIS_POINTS = [
     ),
   },
   {
-    title: 'Contenu & structure',
+    title: 'Contenu & structuré',
     desc: "Balises H, densité de mots-clés, duplicate content, longueur des pages et opportunités d'optimisation éditoriale.",
     accent: chrome,
     accentBg: chromeBg,
@@ -211,7 +211,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Que contient le rapport d'audit SEO ?",
-    a: "Le rapport couvre six dimensions : mots-clés cibles et positionnements actuels, SEO technique (crawl, indexation, données structurées), profil de backlinks et opportunités de netlinking, qualité et structure du contenu, SEO local et Google My Business, et présence GEO dans les IA (Google AI Overviews, ChatGPT, Perplexity). Chaque point est noté et accompagné de recommandations priorisées.",
+    a: "Le rapport couvre six dimensions : mots-clés cibles et positionnements actuels, SEO technique (crawl, indexation, données structurées), profil de backlinks et opportunités de netlinking, qualité et structuré du contenu, SEO local et Google My Business, et présence GEO dans les IA (Google AI Overviews, ChatGPT, Perplexity). Chaque point est noté et accompagné de recommandations priorisées.",
   },
   {
     q: "Quelle est la différence entre l'audit SEO et l'audit de site ?",
@@ -223,7 +223,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Que se passe-t-il après l'audit SEO ?",
-    a: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. Nos clients SEO observent en moyenne +240% de trafic organique à 6 mois. Mais la décision et le timing restent entièrement les vôtres.",
+    a: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. Nos clients SEO observent en moyenne +240% de trafic organique à 6 mois. Mais la décision et le timing restent entièrement les vôtrès.",
   },
 ]
 
@@ -367,7 +367,7 @@ export default function AuditSEOPage() {
         </div>
       </section>
 
-      {/* Section 4 : Comment ca marche */}
+      {/* Section 4 : Comment ca marché */}
       <section aria-labelledby="process-heading" className="py-20 px-6">
         <div className="max-w-[1100px] mx-auto">
           <SectionReveal>

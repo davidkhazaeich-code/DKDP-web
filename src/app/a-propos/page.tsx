@@ -100,7 +100,7 @@ const PILLARS = [
   },
 ]
 
-const EQUIPE = [
+const équipe = [
   {
     name: 'David Khazaei',
     role: 'Fondateur · Développeur & Consultant Digital',
@@ -450,7 +450,7 @@ export default function AProposPage() {
             </SectionReveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {EQUIPE.map((member, i) => (
+              {équipe.map((member, i) => (
                 <SectionReveal key={member.name} delay={i * 0.1}>
                   <div
                     className="flex flex-col rounded-[20px] overflow-hidden h-full"

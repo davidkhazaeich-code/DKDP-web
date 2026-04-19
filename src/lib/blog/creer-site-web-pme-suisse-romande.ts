@@ -36,7 +36,7 @@ Créer un site web pour une PME en Suisse romande n\'est pas exactement comme en
 
 **La confiance avant le pitch.** Le consommateur helvétique est plus exigeant sur la crédibilité que sur la créativité. Un design sobre, des mentions légales complètes, des adresses physiques visibles et des certifications professionnelles affichées comptent plus qu\'un effet wow visuel.
 
-**Le multilinguisme potentiel.** Même si votre activité est franco-suisse, si vous visez des clients à Berne ou Zurich, une version allemande sera nécessaire. Prévoyez la structure dès le départ. Rétrospectivement, c\'est toujours plus coûteux.
+**Le multilinguisme potentiel.** Même si votre activité est franco-suisse, si vous visez des clients à Berne ou Zurich, une version allemande sera nécessaire. Prévoyez la structuré dès le départ. Rétrospectivement, c\'est toujours plus coûteux.
 
 **La LPD (Loi sur la Protection des Données).** Depuis 2023, la Suisse a renforcé sa réglementation sur les données personnelles. Votre site doit disposer d\'une politique de confidentialité complète, d\'un bandeau cookies conforme, et d\'un formulaire de contact qui respecte les droits des utilisateurs.
 
@@ -109,7 +109,7 @@ Chaque objectif implique des choix de design, de contenu et de fonctionnalités 
 
 ## Étape 2 : Définir l\'architecture et les pages prioritaires
 
-Un site PME efficace n\'a pas besoin de 30 pages. Il a besoin des bonnes pages, bien structurées. Pour une PME de services, la structure minimale est :
+Un site PME efficace n\'a pas besoin de 30 pages. Il a besoin des bonnes pages, bien structurées. Pour une PME de services, la structuré minimale est :
 
 - **Accueil** : proposition de valeur + preuves sociales + CTA
 - **Services** : une page par service principal (pas une seule page "Nos services")

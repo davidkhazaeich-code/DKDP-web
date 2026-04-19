@@ -102,7 +102,7 @@ const ANALYSIS_POINTS = [
   },
   {
     title: 'SEO Technique',
-    desc: 'Balises meta, structure des titres, sitemap, robots.txt, données structurées, indexation Google.',
+    desc: 'Balises meta, structuré des titres, sitemap, robots.txt, données structurées, indexation Google.',
     accent: violet,
     accentBg: violetBg,
     accentBd: violetBd,
@@ -214,7 +214,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Quelle est la différence entre un audit de site et un audit SEO ?",
-    a: "L'audit de site couvre l'ensemble de votre site web : performance, sécurité, UX, mobile et SEO on-page. L'audit SEO se concentre exclusivement sur votre positionnement organique : mots-clés, backlinks, structure éditoriale, SEO local et présence dans les IA. Les deux sont complémentaires, on propose aussi un audit SEO gratuit dédié.",
+    a: "L'audit de site couvre l'ensemble de votre site web : performance, sécurité, UX, mobile et SEO on-page. L'audit SEO se concentre exclusivement sur votre positionnement organique : mots-clés, backlinks, structuré éditoriale, SEO local et présence dans les IA. Les deux sont complémentaires, on propose aussi un audit SEO gratuit dédié.",
   },
   {
     q: "Qui réalise l'audit ?",
@@ -368,7 +368,7 @@ export default function AuditSitePage() {
         </div>
       </section>
 
-      {/* ── Section 4 : Comment ça marche ────────────────────────────────── */}
+      {/* ── Section 4 : Comment ça marché ────────────────────────────────── */}
       <section aria-labelledby="process-heading" className="py-20 px-6">
         <div className="max-w-[1100px] mx-auto">
           <SectionReveal>

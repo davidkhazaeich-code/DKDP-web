@@ -57,7 +57,7 @@ const FAQ = [
   {
     question: 'Est-ce que mon site sera optimisé pour le référencement Google ?',
     answer:
-      'Oui. Chaque site livré par DKDP intègre les fondamentaux SEO : structure sémantique HTML, balises titre et méta optimisées, images compressées, performance Core Web Vitals, et balisage Schema.org. Le SEO avancé (contenu, backlinks) fait l\'objet d\'une prestation séparée.',
+      'Oui. Chaque site livré par DKDP intègre les fondamentaux SEO : structuré sémantique HTML, balises titre et méta optimisées, images compressées, performance Core Web Vitals, et balisage Schema.org. Le SEO avancé (contenu, backlinks) fait l\'objet d\'une prestation séparée.',
   },
   {
     question: 'Mon site sera-t-il adapté aux mobiles ?',
@@ -97,7 +97,7 @@ const BENEFITS = [
     Icon: Search,
     title: 'SEO-ready dès le départ',
     value: 'Top 3',
-    desc: 'Structure sémantique, balises, Schema.org, performance : les bases SEO sont intégrées au développement, pas ajoutées après.',
+    desc: 'structuré sémantique, balises, Schema.org, performance : les bases SEO sont intégrées au développement, pas ajoutées après.',
   },
   {
     Icon: Settings,

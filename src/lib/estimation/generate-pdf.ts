@@ -234,7 +234,7 @@ export function generateEstimationPdf(params: {
     doc.setFont('Helvetica', 'normal')
     doc.setFontSize(8)
     doc.setTextColor(...gray)
-    doc.text('Notre equipe vous contactera sous 48h pour affiner cette estimation et vous envoyer un devis detaille.', ML + 5, y + 12)
+    doc.text('Notre équipe vous contactera sous 48h pour affiner cette estimation et vous envoyer un devis détaillé.', ML + 5, y + 12)
   }
 
   // ══════════════════════════════════════════════════════════════════
@@ -257,7 +257,7 @@ export function generateEstimationPdf(params: {
   doc.setFont('Helvetica', 'normal')
   doc.setFontSize(7)
   doc.setTextColor(...gray)
-  doc.text('Agence digitale a Geneve', ML, footerY + 4)
+  doc.text('Agence digitale à Genève', ML, footerY + 4)
 
   // Center: contact
   doc.setFont('Helvetica', 'normal')

@@ -100,7 +100,7 @@ Quand une agence genevoise vous soumet un devis, voici ce que cachent les lignes
 
 **Développement (30-40%)** : intégration des maquettes, développement des fonctionnalités (formulaires, CMS, e-commerce, API tierces), tests multi-navigateurs et multi-appareils, optimisation des performances.
 
-**SEO on-page (10-15%)** : structure de URL, balises title et meta, balisage sémantique H1/H2, optimisation des images, Core Web Vitals. C\'est ici que beaucoup de projets économisent à tort : un site invisible sur Google ne sert à rien.
+**SEO on-page (10-15%)** : structuré de URL, balises title et meta, balisage sémantique H1/H2, optimisation des images, Core Web Vitals. C\'est ici que beaucoup de projets économisent à tort : un site invisible sur Google ne sert à rien.
 
 **Gestion de projet et communication (15-20%)** : réunions de cadrage, suivi, recettes, formation à l\'utilisation du CMS. Ce temps est réel et nécessaire.
 
@@ -194,7 +194,7 @@ ___IMG:cout-site-web-geneve-tableau.png___
 
 ## Les 5 questions à poser avant de signer
 
-1. **Est-ce que le SEO on-page est inclus ?** (title, meta, structure sémantique, Core Web Vitals)
+1. **Est-ce que le SEO on-page est inclus ?** (title, meta, structuré sémantique, Core Web Vitals)
 2. **Qui héberge le site et à quel prix après livraison ?**
 3. **Puis-je modifier le contenu moi-même sans frais ?** (accès CMS)
 4. **Qu\'est-ce qui n\'est pas inclus dans ce devis ?** (la question la plus révélatrice)
@@ -210,7 +210,7 @@ Le site n\'est pas une dépense, c\'est un commercial qui travaille 24h/24. La q
 
 À Genève en 2026, un site vitrine professionnel bien référencé coûte entre 5\'000 et 12\'000 CHF pour une PME standard. En dessous, attendez-vous à des compromis importants sur le SEO, les performances ou la personnalisation. Au-dessus, vous payez la complexité fonctionnelle ou un positionnement premium.
 
-La meilleure démarche : demandez 3 devis détaillés, comparez ligne par ligne, et choisissez l\'agence qui vous explique clairement ce qui est inclus, et ce qui ne l\'est pas.
+La meilleure démarché : demandez 3 devis détaillés, comparez ligne par ligne, et choisissez l\'agence qui vous explique clairement ce qui est inclus, et ce qui ne l\'est pas.
 
 ## Questions fréquentes
 
@@ -224,7 +224,7 @@ Un site à très bas prix implique systématiquement des compromis : template no
 Oui. Un site e-commerce démarre à CHF 6 000 pour une boutique simple (jusqu\'à 50 produits, paiement Stripe). Pour un catalogue plus large, des intégrations ERP ou un système de gestion des stocks, le budget monte à CHF 12 000-20 000. La fonctionnalité paiement, la gestion des taxes suisses et la sécurité des transactions justifient ce surcoût.
 
 **Le SEO est-il toujours inclus dans la création d'un site web ?**
-Pas automatiquement. Vérifiez toujours ce que le devis inclut précisément : balises title et meta, structure sémantique HTML, Core Web Vitals, Schema.org. Ces fondamentaux SEO on-page devraient être inclus dans tout site professionnel. Le SEO avancé (création de contenu, backlinks, suivi de positionnement) est une prestation mensuelle séparée.
+Pas automatiquement. Vérifiez toujours ce que le devis inclut précisément : balises title et meta, structuré sémantique HTML, Core Web Vitals, Schema.org. Ces fondamentaux SEO on-page devraient être inclus dans tout site professionnel. Le SEO avancé (création de contenu, backlinks, suivi de positionnement) est une prestation mensuelle séparée.
 
 **Faut-il payer un hébergement en plus du prix du site ?**
 Oui, dans la quasi-totalité des cas. L\'hébergement est un coût récurrent distinct de la création. Comptez entre CHF 100 et CHF 500 par an selon la plateforme (Vercel, Infomaniak, Hostinger). Certaines agences incluent la première année. Clarifiez ce point avant de signer.

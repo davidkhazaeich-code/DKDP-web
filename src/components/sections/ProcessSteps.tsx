@@ -1,6 +1,5 @@
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
-import { HeroBg } from '@/components/ui/HeroBg'
 
 // Interpolated colors: violet #7C3AED → orange #FF6B00 across 5 steps
 // Step 0→4, t = i/4
@@ -109,9 +108,8 @@ const STEPS = [
   },
 ] as const
 
-export function ProcessSteps({ accentRgb }: { accentRgb?: string } = {}) {
+export function ProcessSteps() {
   return (
-    <HeroBg blob1="rgba(124,58,237,0.10)" blob2="rgba(255,107,0,0.08)" accentRgb={accentRgb}>
     <section aria-labelledby="process-heading" className="py-14 sm:py-24 md:py-32">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <SectionReveal>
@@ -164,6 +162,5 @@ export function ProcessSteps({ accentRgb }: { accentRgb?: string } = {}) {
         </div>
       </div>
     </section>
-    </HeroBg>
   )
 }

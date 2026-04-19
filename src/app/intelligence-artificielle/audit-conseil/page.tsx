@@ -179,7 +179,7 @@ export default function AuditConseilPage() {
       <ScrollSpyNav
         items={[
           { label: 'Notre approche', href: '#approche' },
-          { label: 'Ce que vous recevez', href: '#recevez' },
+          { label: 'Ce que vous recevez', href: '#livrables' },
           { label: 'Processus', href: '#process' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },

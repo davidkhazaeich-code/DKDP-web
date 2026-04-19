@@ -8,6 +8,7 @@ import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
@@ -172,6 +173,19 @@ export default function FormationReseauxSociauxPage() {
           </div>
         </div>
       </section>
+
+      {/* ══ Subnav sticky ══ */}
+      <ScrollSpyNav
+        items={[
+          { label: 'Programme', href: '#programme' },
+          { label: 'Tarifs', href: '#tarifs' },
+          { label: 'FAQ', href: '#faq' },
+        ]}
+        cta={{ label: 'Prendre contact', href: '/contact' }}
+        accentColor="#FF8C00"
+        accentBg="rgba(255,107,0,0.12)"
+        accentBorder="rgba(255,107,0,0.25)"
+      />
 
       {/* ── Intro definition ── */}
       <section className="py-8">
@@ -374,7 +388,7 @@ export default function FormationReseauxSociauxPage() {
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
-        <section className="py-24 border-y border-border">
+        <section id="tarifs" className="py-24 border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -393,7 +407,9 @@ export default function FormationReseauxSociauxPage() {
       </HeroBg>
 
       {/* ── FAQ ── */}
-      <FAQSection items={FAQ} title="Vos questions sur la formation réseaux sociaux" />
+      <section id="faq" className="scroll-mt-[124px]">
+        <FAQSection items={FAQ} title="Vos questions sur la formation réseaux sociaux" />
+      </section>
 
       {/* ── Bridge ── */}
       <section className="py-16 border-t border-border">

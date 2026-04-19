@@ -329,10 +329,12 @@ export default function FormationClaudeAIPage() {
       <ScrollSpyNav
         items={[
           { label: 'Pourquoi Claude', href: '#pourquoi' },
+          { label: 'Produits', href: '#produits' },
           { label: 'Programme', href: '#programme' },
           { label: 'Compétences', href: '#competences' },
-          { label: 'ROI', href: '#roi' },
+          { label: 'Métiers', href: '#métiers' },
           { label: 'Format', href: '#format' },
+          { label: 'ROI', href: '#roi' },
           { label: 'Galerie', href: '#galerie' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },

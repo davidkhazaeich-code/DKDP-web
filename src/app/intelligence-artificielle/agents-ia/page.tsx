@@ -179,9 +179,9 @@ export default function AgentsIAPage() {
       {/* ── Subnav ── */}
       <ScrollSpyNav
         items={[
-          { label: 'Comment ça fonctionne', href: '#fonctionne' },
-          { label: "Types d'agents", href: '#types' },
-          { label: 'Processus', href: '#process' },
+          { label: 'Comment ça fonctionne', href: '#fonctionnement' },
+          { label: "Types d'agents", href: '#types-agents' },
+          { label: 'Processus', href: '#comment-ca-marché' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
         ]}

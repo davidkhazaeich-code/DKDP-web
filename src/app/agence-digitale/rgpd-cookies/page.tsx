@@ -8,6 +8,7 @@ import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { HeroBg } from '@/components/ui/HeroBg'
+import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { ComplianceGap } from './_components/ComplianceGap'
@@ -185,8 +186,22 @@ export default function RGPDCookiesPage() {
         </div>
       </section>
 
+      {/* ── Subnav ── */}
+      <ScrollSpyNav
+        items={[
+          { label: 'Notre approche', href: '#approche' },
+          { label: 'Processus', href: '#process' },
+          { label: 'Tarifs', href: '#tarifs' },
+          { label: 'FAQ', href: '#faq' },
+        ]}
+        cta={{ label: 'Prendre contact', href: '/contact' }}
+        accentColor={color}
+        accentBg={bg}
+        accentBorder={border}
+      />
+
       {/* ── Notre approche ── */}
-      <section className="py-24 bg-bg-card border-y border-border">
+      <section id="approche" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>

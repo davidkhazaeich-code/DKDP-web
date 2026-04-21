@@ -342,10 +342,12 @@ export default function ChatbotIAPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <GradTag className="mb-6">Chatbot IA sur mesure · Geneve</GradTag>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Chatbot IA sur mesure{' '}
-                  <GradText as="span">pour votre entreprise à Genève</GradText>
+                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
+                  Chatbot IA sur mesure à Genève
                 </h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  <GradText as="span">Pas un chatbot générique. Un assistant qui connaît votre métier.</GradText>
+                </p>
                 <p data-speakable className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP concoit des chatbots IA sur mesure pour les PME à Genève et en Suisse romande.
                   Pas un widget générique : un assistant virtuel intelligent concu pour votre métier, vos questions

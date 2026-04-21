@@ -113,10 +113,12 @@ export default function AgentsIAPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <GradTag className="mb-6">Agents IA</GradTag>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Agents IA sur mesure{' '}
-                  <GradText as="span">pour votre entreprise à Genève.</GradText>
+                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
+                  Agents IA sur mesure à Genève
                 </h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  <GradText as="span">Un employé virtuel qui bosse 24/7. Et ne se plaint jamais.</GradText>
+                </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   Vos tâches répétitives automatisées, vos clients répondus, vos données analysées.
                   Concu pour les PME en Suisse romande, opérationnel en 2 semaines.

@@ -116,10 +116,12 @@ export default function FormationMontageVideoPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <GradTag className="mb-6">CapCut · DaVinci · Premiere Pro</GradTag>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Formation montage vidéo pour entreprises{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>à Genève</GradText>
+                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
+                  Formation montage vidéo à Genève
                 </h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Des Reels et vidéos pro, produits en interne. En une journée.</GradText>
+                </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme les équipes de PME en Suisse romande à CapCut, DaVinci Resolve et Premiere Pro. Après une journée, vous produisez vos Reels, vidéos YouTube et contenus d&apos;entreprise vous-mêmes.
                 </p>

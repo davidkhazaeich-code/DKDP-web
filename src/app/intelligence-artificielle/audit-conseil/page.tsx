@@ -118,10 +118,12 @@ export default function AuditConseilPage() {
                     Sans engagement
                   </span>
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Audit IA pour votre entreprise :{' '}
-                  <GradText as="span">identifiez vos 3 actions à fort ROI</GradText>
+                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
+                  Audit IA pour entreprise à Genève
                 </h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  <GradText as="span">3 opportunités concrètes sous 48h. Pas un rapport qui dort.</GradText>
+                </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-8">
                   Notre conseil IA identifie les 3 opportunités d&apos;automatisation à fort ROI pour votre PME en Suisse romande. Résultats concrets en une session, rapport complet sous 48h.
                 </p>

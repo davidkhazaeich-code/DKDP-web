@@ -180,10 +180,12 @@ export default function DeveloppementApplicationPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <GradTag className="mb-6">Apps Mobile et Web · Genève et Suisse romande</GradTag>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Votre application sur mesure,{' '}
-                  <GradText as="span">de l&apos;idée au lancement.</GradText>
+                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
+                  Développement d&apos;application à Genève
                 </h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  <GradText as="span">Une app qui fait tourner votre métier, pas votre patience.</GradText>
+                </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   iOS, Android, web app ou PWA : DKDP développe des applications métier robustes pour les PME qui veulent digitaliser leurs opérations ou créer une nouvelle expérience client. Un seul interlocuteur, de la maquette au store.
                 </p>

@@ -133,10 +133,12 @@ export default function AgenceDigitalePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <GradTag className="mb-6">Service Digital</GradTag>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Agence digitale à Genève :{' '}
-                  <GradText as="span">votre présence en ligne, optimisée de A à Z.</GradText>
+                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
+                  Agence digitale à Genève
                 </h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  <GradText as="span">Votre présence en ligne, pensée pour ramener des clients.</GradText>
+                </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   Agence web spécialisée pour les PME en Suisse romande. De la création de site au référencement, en passant par les campagnes payantes : on construit une stratégie cohérente qui génère de vrais résultats.
                 </p>

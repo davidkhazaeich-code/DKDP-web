@@ -107,10 +107,12 @@ export default function FormationCybersecuritePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <GradTag className="mb-6">Cybersécurité · Simulations réelles · Genève</GradTag>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Formation cybersécurité en entreprise :{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>protégez vos équipes</GradText>
+                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
+                  Formation cybersécurité en entreprise à Genève
                 </h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Un clic mal placé coûte plus cher qu&apos;une journée de formation.</GradText>
+                </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme vos équipes à reconnaître et éviter les cybermenaces : phishing, ransomware, social engineering. Formation pratique avec simulations réelles, pour PME et entreprises à Genève et en Suisse romande.
                 </p>

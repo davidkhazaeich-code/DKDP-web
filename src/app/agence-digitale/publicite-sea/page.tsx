@@ -219,10 +219,12 @@ export default function PubliciteSEAPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <GradTag className="mb-6">Google Ads · SEA · Genève</GradTag>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Campagnes Google Ads à Genève :{' '}
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>chaque franc investi vous rapporte.</GradText>
+                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
+                  Campagnes Google Ads à Genève
                 </h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>Chaque franc investi, mesuré. Chaque lead, compté.</GradText>
+                </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   Agence SEA spécialisée pour les PME en Suisse romande. DKDP gère vos campagnes Google Ads avec une obsession du ROI. Budget 100% dédié au media, gestion transparente sans commission, suivi de chaque conversion. Trafic qualifié dès les premières 48h.
                 </p>

@@ -133,10 +133,12 @@ export default function FormationEntreprisePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <GradTag className="mb-6">Formation Entreprise</GradTag>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Formation informatique en entreprise :{' '}
-                  <GradText as="span">formez vos collaborateurs.</GradText>
+                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
+                  Formation entreprise à Genève
                 </h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  <GradText as="span">Vos équipes compétentes dès demain. Pas dans six mois.</GradText>
+                </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   Des formations informatiques sur mesure pour PME et grandes entreprises à Genève. IA, bureautique, cybersécurité : vos équipes progressent en une journée, sur leurs vrais outils.
                 </p>

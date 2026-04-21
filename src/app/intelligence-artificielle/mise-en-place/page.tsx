@@ -119,10 +119,12 @@ export default function MiseEnPlacePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <GradTag className="mb-6">Mise en place IA</GradTag>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  Mise en place de l&apos;IA en entreprise,{' '}
-                  <GradText as="span">sans tout reconstruire.</GradText>
+                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
+                  Mise en place de l&apos;IA en entreprise à Genève
                 </h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  <GradText as="span">Intégrez l&apos;IA dans vos outils existants. Sans tout casser.</GradText>
+                </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   On intègre ChatGPT, Claude et les meilleurs LLMs directement dans vos outils existants.
                   Déploiement adapté aux PME en Suisse romande : votre base de code reste intacte, vous gagnez les capacités de l&apos;IA en quelques semaines.

@@ -194,10 +194,12 @@ export default function FormationClaudeAIPage() {
                   </span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-[-0.03em] leading-[1.08] mb-6">
-                  <GradText as="span">Formation Claude IA</GradText>{' '}
-                  pour entreprises à Genève
+                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
+                  Formation Claude IA à Genève
                 </h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  <GradText as="span">Vos équipes, enfin à la hauteur de Claude.</GradText>
+                </p>
 
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   Claude AI d&apos;Anthropic est l&apos;outil le plus puissant pour les équipes professionnelles en 2026.

@@ -623,7 +623,7 @@ export function ChatWidget() {
               <m.button
                 type="submit"
                 disabled={!inputValue.trim()}
-                className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default"
+                className="flex-shrink-0 w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default"
                 style={{
                   background: inputValue.trim()
                     ? '#7C3AED'
@@ -659,7 +659,7 @@ export function ChatWidget() {
             transition={{ type: 'spring' as const, damping: 22, stiffness: 260 }}
             className="flex flex-col overflow-hidden rounded-2xl w-full"
             style={{
-              height: 'min(480px, 65dvh)',
+              height: 'min(480px, 65dvh, calc(100dvh - 80px))',
               background: '#0A0A0A',
               border: '1px solid rgba(124,58,237,0.15)',
               boxShadow: '0 16px 70px rgba(0,0,0,0.8), 0 0 80px rgba(124,58,237,0.08)',
@@ -681,10 +681,11 @@ export function ChatWidget() {
                 {messages.length > 0 && (
                   <button
                     onClick={handleReset}
-                    className="p-2.5 rounded-full hover:bg-[rgba(255,255,255,0.05)] transition-colors cursor-pointer"
+                    className="p-3 sm:p-2.5 rounded-full hover:bg-[rgba(255,255,255,0.05)] transition-colors cursor-pointer"
                     title="Effacer la conversation"
+                    aria-label="Effacer la conversation"
                   >
-                    <RotateCcw size={14} className="text-[#71717a]" />
+                    <RotateCcw size={16} className="text-[#71717a] sm:w-[14px] sm:h-[14px]" />
                   </button>
                 )}
                 <button
@@ -820,7 +821,7 @@ export function ChatWidget() {
                   <m.button
                     type="submit"
                     disabled={!inputValue.trim() || isLoading}
-                    className="flex-shrink-0 w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default mb-0.5"
+                    className="flex-shrink-0 w-11 h-11 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default mb-0.5"
                     style={{
                       background: inputValue.trim()
                         ? '#7C3AED'

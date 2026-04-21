@@ -164,6 +164,7 @@ body.chat-open {
   overflow: hidden;
   position: fixed;
   inset: 0;
+  width: 100%; /* Android : empêche le saut de scrollbar quand le scroll se coupe */
   overscroll-behavior: none;
   touch-action: none;
 }

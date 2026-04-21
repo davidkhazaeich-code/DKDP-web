@@ -47,7 +47,7 @@ export const ROUTES: Route[] = [
 
   // ─── Agence Digitale — Services ───────────────────────────────────────────
   { url: '/agence-digitale/creation-site-web',              priority: 0.85, changeFrequency: 'monthly' },
-  { url: '/agence-digitale/développement-application',      priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/developpement-application',      priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/seo',                  priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/publicite-sea',        priority: 0.80, changeFrequency: 'monthly' },
   { url: '/agence-digitale/reseaux-sociaux',      priority: 0.80, changeFrequency: 'monthly' },
@@ -135,5 +135,11 @@ export const REDIRECTS: Redirect[] = [
   // ─── Réalisations — ancien site ───────────────────────────────────────────
   { source: '/nos-realisations',         destination: '/', permanent: true },
   { source: '/nos-realisations/:slug',   destination: '/', permanent: true },
+
+  // ─── Correction bug URL accentuée (2026-04-21) ─────────────────────────────
+  // L'URL avec accent avait été indexée dans le site par erreur ; le routing
+  // Next.js n'a jamais matché cette variante, donc 404. Redirect conservatoire
+  // au cas où Google aurait indexé l'ancienne forme.
+  { source: '/agence-digitale/développement-application', destination: '/agence-digitale/developpement-application', permanent: true },
 
 ]

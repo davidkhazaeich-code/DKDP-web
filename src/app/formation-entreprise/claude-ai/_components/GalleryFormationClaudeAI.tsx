@@ -21,7 +21,7 @@ const IMAGES = [
     caption: 'Module Claude Code pour développeurs',
   },
   {
-    src: '/images/gallery/formation-claude-projects-équipe.webp',
+    src: '/images/gallery/formation-claude-projects-equipe.webp',
     alt: 'Formation Claude Projects Genève : équipe collaborant sur un espace Claude partagé lors d une session DKDP',
     caption: 'Atelier Claude Projects en équipe',
   },

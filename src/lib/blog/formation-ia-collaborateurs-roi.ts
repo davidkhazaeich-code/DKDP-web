@@ -21,7 +21,7 @@ const article: Article = {
         caption: 'Courbe ROI type : plateau initial, puis gain exponentiel à partir du 3e mois',
       },
       {
-        src: '/images/blog/formation-ia-roi-progression-équipe.png',
+        src: '/images/blog/formation-ia-roi-progression-equipe.png',
         alt: 'Formation IA ROI progression équipe : visualisation avant et apres formation IA avec gains de productivité en entreprise',
         caption: "Progression de la productivité d'une équipe avant et après formation IA structurée",
       },

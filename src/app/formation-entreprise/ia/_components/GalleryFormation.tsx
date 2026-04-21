@@ -26,7 +26,7 @@ const IMAGES = [
     caption: 'Atelier collaboratif',
   },
   {
-    src: '/images/gallery/formation-ia-echange-pause-café.webp',
+    src: '/images/gallery/formation-ia-echange-pause-cafe.webp',
     alt: 'Echange informel entre professionnels pendant une pause café lors d une formation IA à Genève',
     caption: 'Networking entre participants',
   },

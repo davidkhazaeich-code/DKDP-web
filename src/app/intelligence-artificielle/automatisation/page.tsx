@@ -199,12 +199,9 @@ export default function AutomationPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">Automatisation IA</GradTag>
-                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
-                  Automatisation IA pour PME à Genève
-                </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span">Ce qui vous prend 3h par jour, automatisé en 2 semaines.</GradText>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Automatisation IA pour PME à Genève</h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                  Ce qui vous prend <GradText as="span">3h par jour</GradText>, automatisé en <GradText as="span">2 semaines</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   On connecte votre CRM, vos emails et votre ERP avec des workflows IA sur Make, Zapier ou n8n. Fini la saisie manuelle, les relances oubliées et les données perdues entre les outils. Pour les PME en Suisse romande qui veulent gagner du temps sans toucher une ligne de code.

@@ -110,7 +110,7 @@ export default function AuditConseilPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <GradTag>Audit IA</GradTag>
+                  <h1 className="grad-tag inline-block text-xs md:text-sm">Audit IA pour entreprise à Genève</h1>
                   <span
                     className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
                     style={{ background: 'rgba(74,222,128,0.12)', color: green, border: `1px solid rgba(74,222,128,0.25)` }}
@@ -118,11 +118,8 @@ export default function AuditConseilPage() {
                     Sans engagement
                   </span>
                 </div>
-                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
-                  Audit IA pour entreprise à Genève
-                </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span">3 opportunités concrètes sous 48h. Pas un rapport qui dort.</GradText>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                  3 opportunités concrètes <GradText as="span">sous 48h</GradText>. Pas un rapport qui dort.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-8">
                   Notre conseil IA identifie les 3 opportunités d&apos;automatisation à fort ROI pour votre PME en Suisse romande. Résultats concrets en une session, rapport complet sous 48h.

@@ -139,12 +139,9 @@ export default function ConsultingMarketingPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">Stratégie digitale · Audit · Genève</GradTag>
-                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
-                  Consulting marketing digital à Genève
-                </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span">Des actions, des KPIs, des résultats. Pas un rapport de 50 pages.</GradText>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Consulting marketing digital à Genève</h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                  Des actions, des KPIs, <GradText as="span">des résultats</GradText>. Pas un rapport de 50 pages.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   Consultant marketing digital pour PME en Suisse romande, DKDP audite votre présence digitale, définit votre stratégie de croissance et pilote l&apos;exécution mois après mois. Pas de rapport de 50 pages : des KPIs, des actions et des résultats prouvés en 6 mois.

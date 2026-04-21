@@ -185,7 +185,7 @@ export default function FormationClaudeAIPage() {
               {/* Left */}
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <GradTag>Formation · Claude IA · 1-2 jours</GradTag>
+                  <h1 className="grad-tag inline-block text-xs md:text-sm">Formation Claude IA à Genève</h1>
                   <span
                     className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
                     style={{ color: OR, background: ORB, border: `1px solid ${ORD}` }}
@@ -193,12 +193,8 @@ export default function FormationClaudeAIPage() {
                     Nouveau 2026
                   </span>
                 </div>
-
-                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
-                  Formation Claude IA à Genève
-                </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span">Vos équipes testent Claude. On leur apprend à s&apos;en servir.</GradText>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                  Vos équipes testent Claude. On leur apprend à <GradText as="span">s&apos;en servir</GradText>.
                 </p>
 
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">

@@ -110,12 +110,9 @@ export default function IntelligenceArtificiellePage() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">Intelligence Artificielle</GradTag>
-                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
-                  Intelligence artificielle pour PME à Genève
-                </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span">Déployez l&apos;IA là où ça compte. Pas partout pour l&apos;effet.</GradText>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Intelligence artificielle pour PME à Genève</h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                  Déployez l&apos;IA <GradText as="span">là où ça compte</GradText>. Pas partout pour l&apos;effet.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   PME en Suisse romande : automatisez ce qui vous ralentit. Déployez l&apos;IA là où ça compte vraiment. On s&apos;occupe de tout, de l&apos;audit à la mise en production.

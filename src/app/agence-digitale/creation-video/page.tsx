@@ -142,12 +142,9 @@ export default function CreationVideoPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">Vidéo d&apos;entreprise · Genève</GradTag>
-                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
-                  Création vidéo d&apos;entreprise à Genève
-                </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>Une vidéo qu&apos;on regarde jusqu&apos;au bout. Et qu&apos;on partage.</GradText>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Création vidéo d&apos;entreprise à Genève</h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                  Une vidéo qu&apos;on regarde <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>jusqu&apos;au bout</GradText>. Et qu&apos;on <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>partage</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   Production vidéo professionnelle pour PME et entreprises en Suisse romande. DKDP réalise vos vidéos corporate à Genève : clips sociaux, témoignages clients, brand films. Captation 4K, livrée en 5 jours.

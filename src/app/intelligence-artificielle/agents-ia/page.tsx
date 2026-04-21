@@ -112,12 +112,9 @@ export default function AgentsIAPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">Agents IA</GradTag>
-                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
-                  Agents IA sur mesure à Genève
-                </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span">Un employé virtuel qui bosse 24/7. Et ne se plaint jamais.</GradText>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Agents IA sur mesure à Genève</h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                  Un employé virtuel qui bosse <GradText as="span">24/7</GradText>. Et ne se plaint jamais.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   Vos tâches répétitives automatisées, vos clients répondus, vos données analysées.

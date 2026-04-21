@@ -122,12 +122,9 @@ export default function FormationBureautiquePage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">Excel · Word · Microsoft 365</GradTag>
-                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
-                  Formation bureautique et Excel à Genève
-                </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>3 heures sur Excel. On leur apprend à le faire en 30 minutes.</GradText>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation bureautique et Excel à Genève</h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>3 heures</GradText> sur Excel. On leur apprend à le faire en <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>30 minutes</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme vos équipes à Excel, Word, PowerPoint et Microsoft 365 en présentiel à Genève et en Suisse romande. Programme adapté à votre PME ou grande entreprise, à votre niveau et vos usages réels. Vos collaborateurs repartent avec des compétences applicables dès le lendemain.

@@ -106,12 +106,9 @@ export default function FormationInformatiquePage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">Compétences numériques · Tous niveaux · Genève</GradTag>
-                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
-                  Formation informatique entreprise à Genève
-                </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Plus besoin d&apos;appeler l&apos;IT pour chaque manip.</GradText>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation informatique entreprise à Genève</h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Plus besoin</GradText> d&apos;appeler l&apos;IT pour chaque manip.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme vos collaborateurs de PME en Suisse romande à utiliser Windows, les emails, le réseau et les outils collaboratifs en autonomie complète. Tous niveaux, en présentiel à Genève.

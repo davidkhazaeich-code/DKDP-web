@@ -143,12 +143,9 @@ export default function RGPDCookiesPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">RGPD · nLPD suisse · Bandeau cookies</GradTag>
-                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
-                  Conformité RGPD et nLPD à Genève
-                </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>Conforme en 5 jours. Tranquille pour des années.</GradText>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Conformité RGPD et nLPD à Genève</h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                  Conforme en <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>5 jours</GradText>. Tranquille pour <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>des années</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP accompagne les entreprises et PME genevoises dans leur mise en conformité RGPD et nLPD : bandeau cookies, politique de confidentialité, registre des traitements. Audit livré sous 48h, implémentation complète en 5 jours.

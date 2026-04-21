@@ -152,12 +152,9 @@ export default function ReseauxSociauxPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <GradTag className="mb-6">Instagram · LinkedIn · TikTok · YouTube</GradTag>
-                <h1 className="text-lg md:text-xl font-semibold text-text-secondary tracking-tight mb-3">
-                  Gestion de réseaux sociaux à Genève
-                </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>Des posts qui bossent, pas de la présence pour la présence.</GradText>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Gestion de réseaux sociaux à Genève</h1>
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                  Des posts <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>qui bossent</GradText>, pas de la présence pour la présence.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   Votre community manager à Genève : DKDP, agence social media, gère votre présence de A à Z. Stratégie, création de contenu, publication et community management. +180% d&apos;engagement moyen en 3 mois. Vous vous concentrez sur votre métier, on s&apos;occupe du reste.

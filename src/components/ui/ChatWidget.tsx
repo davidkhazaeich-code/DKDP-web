@@ -7,8 +7,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, m } from 'framer-motion'
-import { X, Send, CalendarCheck, RotateCcw, Globe, Sparkles, ArrowRight, MessageCircle, Mail } from 'lucide-react'
+import { X, Send, CalendarCheck, RotateCcw, Globe, Sparkles, ArrowRight, MessageCircle, Mail, Mic } from 'lucide-react'
 import Markdown from 'react-markdown'
+import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 
 const MESSAGE_LIMIT = 10
 const MAX_CHAR_LENGTH = 500
@@ -324,6 +325,12 @@ export function ChatWidget() {
   const chatInputRef = useRef<HTMLTextAreaElement>(null)
   const barRef = useRef<HTMLDivElement>(null)
 
+  // ── Dictée vocale (Web Speech API) ──
+  const speech = useSpeechRecognition({ lang: 'fr-FR' })
+  useEffect(() => {
+    if (speech.transcript) setInputValue(speech.transcript)
+  }, [speech.transcript])
+
   // Hide chat outside Europe
   useEffect(() => {
     const match = document.cookie.match(/(?:^|; )geo-eu=([^;]*)/)
@@ -495,16 +502,18 @@ export function ChatWidget() {
     e?.preventDefault()
     const text = inputValue.trim()
     if (!text) return
+    speech.stop()
     setIsOpen(true)
     sendMessage({ text })
     setInputValue('')
     setBarFocused(false)
-  }, [inputValue, sendMessage])
+  }, [inputValue, sendMessage, speech])
 
   function handleChatSubmit(e?: FormEvent) {
     e?.preventDefault()
     const text = inputValue.trim()
     if (!text || isLoading || isLimitReached) return
+    speech.stop()
     sendMessage({ text })
     setInputValue('')
     if (chatInputRef.current) chatInputRef.current.style.height = 'auto'
@@ -619,6 +628,31 @@ export function ChatWidget() {
                   </div>
                 )}
               </div>
+
+              {speech.isSupported && (
+                <m.button
+                  type="button"
+                  onClick={speech.toggle}
+                  aria-label={speech.isListening ? 'Arreter la dictee' : 'Dicter un message'}
+                  aria-pressed={speech.isListening}
+                  className="flex-shrink-0 w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center rounded-full cursor-pointer relative"
+                  style={{
+                    background: speech.isListening
+                      ? 'rgba(239,68,68,0.14)'
+                      : 'rgba(255,255,255,0.04)',
+                  }}
+                  whileTap={{ scale: 0.94 }}
+                >
+                  <Mic size={15} className={speech.isListening ? 'text-red-400' : 'text-[#9CA3AF]'} />
+                  {speech.isListening && (
+                    <m.span
+                      className="absolute inset-0 rounded-full border border-red-400/60 pointer-events-none"
+                      animate={{ scale: [1, 1.3], opacity: [0.7, 0] }}
+                      transition={{ duration: 1.2, repeat: Infinity, ease: 'easeOut' }}
+                    />
+                  )}
+                </m.button>
+              )}
 
               <m.button
                 type="submit"
@@ -818,6 +852,31 @@ export function ChatWidget() {
                       style={{ minHeight: '28px', maxHeight: '100px' }}
                     />
                   </div>
+                  {speech.isSupported && (
+                    <m.button
+                      type="button"
+                      onClick={speech.toggle}
+                      disabled={isLoading}
+                      aria-label={speech.isListening ? 'Arreter la dictee' : 'Dicter un message'}
+                      aria-pressed={speech.isListening}
+                      className="flex-shrink-0 w-11 h-11 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default mb-0.5 relative"
+                      style={{
+                        background: speech.isListening
+                          ? 'rgba(239,68,68,0.14)'
+                          : 'rgba(255,255,255,0.04)',
+                      }}
+                      whileTap={{ scale: 0.94 }}
+                    >
+                      <Mic size={14} className={speech.isListening ? 'text-red-400' : 'text-[#9CA3AF]'} />
+                      {speech.isListening && (
+                        <m.span
+                          className="absolute inset-0 rounded-full border border-red-400/60 pointer-events-none"
+                          animate={{ scale: [1, 1.3], opacity: [0.7, 0] }}
+                          transition={{ duration: 1.2, repeat: Infinity, ease: 'easeOut' }}
+                        />
+                      )}
+                    </m.button>
+                  )}
                   <m.button
                     type="submit"
                     disabled={!inputValue.trim() || isLoading}

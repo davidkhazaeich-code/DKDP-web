@@ -3,18 +3,23 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 /**
- * Hook de reconnaissance vocale basé sur l'API native Web Speech
- * (`SpeechRecognition` / `webkitSpeechRecognition`).
+ * Hook de reconnaissance vocale basé sur l'API native Web Speech.
  *
- * Supporté sur :
- * - iOS Safari (moteur Apple)
- * - Chrome / Edge desktop (moteur Google)
- * - Chrome Android
- * - Non supporté sur Firefox → `isSupported` est false, le bouton
- *   d'activation doit être masqué.
+ * Particularités de cette implémentation :
  *
- * L'API tourne côté client et est gratuite. La reconnaissance s'arrête
- * automatiquement après ~2s de silence ou quand `stop()` est appelé.
+ * 1. Chaque appel à `start()` crée une NOUVELLE instance de
+ *    `SpeechRecognition`. iOS Safari (et dans une moindre mesure Chrome)
+ *    ne permet pas de réutiliser proprement un objet après que `onend`
+ *    a été déclenché : les `start()` suivants échouent silencieusement.
+ *    Recréer l'objet à chaque session élimine tout ce bug de "deuxième
+ *    clic qui ne fait rien".
+ *
+ * 2. `start()` reste synchrone à l'intérieur du click handler : on ne
+ *    met pas de `await` avant car Chrome exige que `start()` soit
+ *    appelé dans la même task que le user gesture, sinon silent reject.
+ *
+ * 3. Le support du navigateur est détecté une seule fois au mount,
+ *    permet de masquer le bouton mic sur Firefox.
  */
 
 type MinimalSpeechRecognition = {
@@ -50,14 +55,35 @@ export function useSpeechRecognition(options: { lang?: string } = {}) {
 
   const recognitionRef = useRef<MinimalSpeechRecognition | null>(null)
 
+  // Détection du support — une seule fois au mount.
   useEffect(() => {
+    setIsSupported(getSpeechRecognitionCtor() !== null)
+    return () => {
+      // Coupe toute reconnaissance encore active au démontage
+      try {
+        recognitionRef.current?.abort()
+      } catch {
+        // ignore
+      }
+      recognitionRef.current = null
+    }
+  }, [])
+
+  const start = useCallback(() => {
+    if (isListening) return
     const Ctor = getSpeechRecognitionCtor()
-    if (!Ctor) {
-      setIsSupported(false)
-      return
+    if (!Ctor) return
+
+    // Abort toute reconnaissance précédente avant d'en démarrer une nouvelle.
+    try {
+      recognitionRef.current?.abort()
+    } catch {
+      // ignore
     }
 
-    setIsSupported(true)
+    setTranscript('')
+    setError(null)
+
     const recognition = new Ctor()
     recognition.lang = lang
     recognition.interimResults = true
@@ -80,11 +106,11 @@ export function useSpeechRecognition(options: { lang?: string } = {}) {
     recognition.onerror = (event) => {
       setIsListening(false)
       const code = event.error ?? 'unknown'
-      console.warn('[chatbot dictation] onerror code =', code, event)
+      console.warn('[chatbot dictation] onerror:', code, event)
       if (code === 'not-allowed' || code === 'service-not-allowed') {
         setError('Permission microphone refusée par le navigateur.')
       } else if (code === 'no-speech') {
-        setError(null) // silence simple, pas une vraie erreur
+        setError(null)
       } else if (code === 'audio-capture') {
         setError('Aucun microphone détecté.')
       } else if (code === 'network') {
@@ -98,24 +124,8 @@ export function useSpeechRecognition(options: { lang?: string } = {}) {
 
     recognitionRef.current = recognition
 
-    return () => {
-      try {
-        recognition.abort()
-      } catch {
-        // ignore
-      }
-      recognitionRef.current = null
-    }
-  }, [lang])
-
-  const start = useCallback(() => {
-    // Synchrone : preserve le user gesture context (sinon Chrome et
-    // Safari refusent le demarrage de la reconnaissance vocale).
-    if (!recognitionRef.current || isListening) return
-    setTranscript('')
-    setError(null)
     try {
-      recognitionRef.current.start()
+      recognition.start()
       setIsListening(true)
     } catch (err) {
       const msg = (err as Error)?.message ?? ''
@@ -126,7 +136,7 @@ export function useSpeechRecognition(options: { lang?: string } = {}) {
       console.warn('[chatbot dictation] start() threw:', err)
       setError(`Démarrage impossible : ${msg || 'erreur inconnue'}`)
     }
-  }, [isListening])
+  }, [isListening, lang])
 
   const stop = useCallback(() => {
     if (!recognitionRef.current) return

@@ -117,13 +117,15 @@ export const ROUTES: Route[] = [
 export const REDIRECTS: Redirect[] = [
 
   // ─── Service Digital — ancien site ────────────────────────────────────────
-  { source: '/creation-site-internet-geneve',         destination: '/agence-digitale/creation-site-web',    permanent: true },
-  { source: '/référencement-naturel-seo',             destination: '/agence-digitale/seo',                  permanent: true },
-  { source: '/publicite-google-sea',                  destination: '/agence-digitale/publicite-sea',        permanent: true },
-  { source: '/gestion-reseaux-sociaux-publicite',     destination: '/agence-digitale/reseaux-sociaux',      permanent: true },
-  { source: '/creation-video-geneve',                 destination: '/agence-digitale/creation-video',       permanent: true },
-  { source: '/consulting-stratégie-marketing-geneve', destination: '/agence-digitale/consulting-marketing', permanent: true },
-  { source: '/rgpd-gestion-des-cookies',              destination: '/agence-digitale/rgpd-cookies',         permanent: true },
+  { source: '/creation-site-internet-geneve',          destination: '/agence-digitale/creation-site-web',    permanent: true },
+  { source: '/referencement-naturel-seo',              destination: '/agence-digitale/seo',                  permanent: true },
+  { source: '/référencement-naturel-seo',              destination: '/agence-digitale/seo',                  permanent: true },
+  { source: '/publicite-google-sea',                   destination: '/agence-digitale/publicite-sea',        permanent: true },
+  { source: '/gestion-reseaux-sociaux-publicite',      destination: '/agence-digitale/reseaux-sociaux',      permanent: true },
+  { source: '/creation-video-geneve',                  destination: '/agence-digitale/creation-video',       permanent: true },
+  { source: '/consulting-strategie-marketing-geneve',  destination: '/agence-digitale/consulting-marketing', permanent: true },
+  { source: '/consulting-stratégie-marketing-geneve',  destination: '/agence-digitale/consulting-marketing', permanent: true },
+  { source: '/rgpd-gestion-des-cookies',               destination: '/agence-digitale/rgpd-cookies',         permanent: true },
 
   // ─── Intelligence Artificielle — ancien site ──────────────────────────────
   { source: '/intelligence-artificielle-agent-ia-et-automatisation', destination: '/intelligence-artificielle', permanent: true },

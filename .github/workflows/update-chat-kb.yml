@@ -1,0 +1,60 @@
+name: Update chat knowledge base
+
+# Regénère la base de connaissances du chatbot DKDP en crawlant dkdp.ch,
+# commit le fichier généré sur main, ce qui déclenche automatiquement
+# un redeploy Vercel.
+
+on:
+  # Tous les jours à 3h du matin (UTC = 4h Paris l'hiver, 5h l'été)
+  schedule:
+    - cron: '0 3 * * *'
+  # Déclenchement manuel depuis l'onglet Actions de GitHub
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-chat-kb
+  cancel-in-progress: true
+
+jobs:
+  crawl-and-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Build knowledge base from dkdp.ch
+        run: npm run build:kb
+        env:
+          SITE_URL: https://dkdp.ch
+
+      - name: Commit and push if KB changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/chat-knowledge-base.ts
+          if git diff --staged --quiet; then
+            echo "Aucun changement détecté dans la KB. Rien à commit."
+          else
+            git commit -m "chore(chat-kb): sync knowledge base from dkdp.ch
+
+Auto-généré par .github/workflows/update-chat-kb.yml"
+            git push origin main
+            echo "✓ KB mise à jour et pushée sur main (déclenche Vercel redeploy)"
+          fi

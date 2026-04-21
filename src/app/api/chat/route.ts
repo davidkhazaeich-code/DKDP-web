@@ -100,7 +100,20 @@ export async function POST(req: NextRequest) {
 
   const result = streamText({
     model: anthropic('claude-haiku-4-5-20251001'),
-    system: DKDP_SYSTEM_PROMPT,
+    system: [
+      {
+        role: 'system',
+        content: DKDP_SYSTEM_PROMPT,
+        providerOptions: {
+          // Prompt caching Anthropic (ephemeral, 5 min par défaut).
+          // Le system prompt complet (règles + base de connaissances auto-
+          // générée du site) est cache côté Anthropic. Les conversations
+          // suivantes dans la fenêtre de 5 min paient ~10 % du coût d'input
+          // sur ce préfixe au lieu de 100 %.
+          anthropic: { cacheControl: { type: 'ephemeral' } },
+        },
+      },
+    ],
     messages: modelMessages,
     maxOutputTokens: 500,
   })

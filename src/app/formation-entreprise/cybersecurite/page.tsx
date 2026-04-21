@@ -108,7 +108,7 @@ export default function FormationCybersecuritePage() {
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation cybersécurité en entreprise à Genève</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
-                  Un clic mal placé coûte <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>plus cher</GradText> qu&apos;une journée de formation.
+                  Un clic mal placé coûte <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>plus cher</GradText>{' '}qu&apos;une journée de formation.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme vos équipes à reconnaître et éviter les cybermenaces : phishing, ransomware, social engineering. Formation pratique avec simulations réelles, pour PME et entreprises à Genève et en Suisse romande.

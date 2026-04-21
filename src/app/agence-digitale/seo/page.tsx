@@ -151,7 +151,7 @@ export default function SEOPage() {
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Référencement SEO à Genève</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
-                  La <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>première page</GradText> de Google. Pas la troisième.
+                  La <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>première page</GradText>{' '}de Google. Pas la troisième.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP, agence SEO à Genève, construit votre autorité organique avec une stratégie de référencement naturel complète : audit technique, contenu optimisé et netlinking. Notre agence SEO accompagne les PME suisses vers un référencement naturel durable, sans frais par clic.

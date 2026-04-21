@@ -80,12 +80,19 @@ export function useSpeechRecognition(options: { lang?: string } = {}) {
     recognition.onerror = (event) => {
       setIsListening(false)
       const code = event.error ?? 'unknown'
+      console.warn('[chatbot dictation] onerror code =', code, event)
       if (code === 'not-allowed' || code === 'service-not-allowed') {
-        setError('Permission microphone refusée.')
+        setError('Permission microphone refusée par le navigateur.')
       } else if (code === 'no-speech') {
         setError(null) // silence simple, pas une vraie erreur
+      } else if (code === 'audio-capture') {
+        setError('Aucun microphone détecté.')
+      } else if (code === 'network') {
+        setError('Dictée indisponible : connexion réseau requise.')
+      } else if (code === 'language-not-supported') {
+        setError('Langue non supportée par votre navigateur.')
       } else if (code !== 'aborted') {
-        setError('Reconnaissance vocale indisponible.')
+        setError(`Dictée indisponible (${code}).`)
       }
     }
 
@@ -101,40 +108,23 @@ export function useSpeechRecognition(options: { lang?: string } = {}) {
     }
   }, [lang])
 
-  const start = useCallback(async () => {
+  const start = useCallback(() => {
+    // Synchrone : preserve le user gesture context (sinon Chrome et
+    // Safari refusent le demarrage de la reconnaissance vocale).
     if (!recognitionRef.current || isListening) return
     setTranscript('')
     setError(null)
-
-    // Demande permission micro explicite avant d'appeler start() : sur Chrome
-    // si la permission a ete refusee une fois, recognition.start() echoue
-    // silencieusement. getUserMedia force le prompt ou le refus explicite.
-    if (typeof navigator !== 'undefined' && navigator.mediaDevices?.getUserMedia) {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-        // On stoppe le stream immediatement, on voulait juste la permission
-        stream.getTracks().forEach((t) => t.stop())
-      } catch (err) {
-        const name = (err as Error)?.name ?? 'unknown'
-        if (name === 'NotAllowedError' || name === 'PermissionDeniedError') {
-          setError('Permission microphone refusée. Autorisez le micro dans les réglages du site.')
-        } else if (name === 'NotFoundError' || name === 'DevicesNotFoundError') {
-          setError('Aucun microphone détecté.')
-        } else {
-          setError('Impossible d\'accéder au microphone.')
-        }
-        return
-      }
-    }
-
     try {
       recognitionRef.current.start()
       setIsListening(true)
     } catch (err) {
       const msg = (err as Error)?.message ?? ''
-      if (!msg.includes('already started')) {
-        setError('La reconnaissance vocale n\'a pas pu démarrer.')
+      if (msg.toLowerCase().includes('already started')) {
+        setIsListening(true)
+        return
       }
+      console.warn('[chatbot dictation] start() threw:', err)
+      setError(`Démarrage impossible : ${msg || 'erreur inconnue'}`)
     }
   }, [isListening])
 

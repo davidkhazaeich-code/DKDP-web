@@ -644,7 +644,7 @@ export function ChatWidget() {
                 )}
               </div>
 
-              {speech.isSupported && (
+              {speech.isAvailable && (
                 <m.button
                   type="button"
                   onClick={speech.toggle}
@@ -877,7 +877,7 @@ export function ChatWidget() {
                       style={{ minHeight: '28px', maxHeight: '100px' }}
                     />
                   </div>
-                  {speech.isSupported && (
+                  {speech.isAvailable && (
                     <m.button
                       type="button"
                       onClick={speech.toggle}

@@ -45,6 +45,17 @@ function getSpeechRecognitionCtor(): SpeechRecognitionCtor | null {
   return w.SpeechRecognition ?? w.webkitSpeechRecognition ?? null
 }
 
+// Codes d'erreur qui indiquent que la dictée ne marchera pas durant
+// toute cette session (permission refusée, pas de micro, langue non
+// supportée). Quand un de ces codes remonte, on cache le bouton pour
+// ne pas laisser le visiteur taper dans le vide.
+const FATAL_ERROR_CODES = new Set([
+  'not-allowed',
+  'service-not-allowed',
+  'audio-capture',
+  'language-not-supported',
+])
+
 export function useSpeechRecognition(options: { lang?: string } = {}) {
   const { lang = 'fr-FR' } = options
 
@@ -52,6 +63,7 @@ export function useSpeechRecognition(options: { lang?: string } = {}) {
   const [isListening, setIsListening] = useState(false)
   const [transcript, setTranscript] = useState('')
   const [error, setError] = useState<string | null>(null)
+  const [hasFatalError, setHasFatalError] = useState(false)
 
   const recognitionRef = useRef<MinimalSpeechRecognition | null>(null)
 
@@ -107,6 +119,7 @@ export function useSpeechRecognition(options: { lang?: string } = {}) {
       setIsListening(false)
       const code = event.error ?? 'unknown'
       console.warn('[chatbot dictation] onerror:', code, event)
+      if (FATAL_ERROR_CODES.has(code)) setHasFatalError(true)
       if (code === 'not-allowed' || code === 'service-not-allowed') {
         setError('Micro refusé. Vérifiez les réglages système (Confidentialité → Microphone) et les permissions du site.')
       } else if (code === 'no-speech') {
@@ -152,5 +165,9 @@ export function useSpeechRecognition(options: { lang?: string } = {}) {
     else start()
   }, [isListening, start, stop])
 
-  return { isSupported, isListening, transcript, error, start, stop, toggle }
+  // Le bouton ne s'affiche que si le navigateur supporte l'API ET qu'on
+  // n'a pas encore rencontré d'erreur fatale dans la session courante.
+  const isAvailable = isSupported && !hasFatalError
+
+  return { isSupported, isAvailable, hasFatalError, isListening, transcript, error, start, stop, toggle }
 }

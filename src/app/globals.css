@@ -104,14 +104,45 @@
 /* ═══ Global resets ═══ */
 *, *::before, *::after { box-sizing: border-box; }
 
-/* iOS Safari zoom-on-focus fix: font-size < 16px triggers auto-zoom on input focus.
-   Force 16px on mobile (≤640px) for all text inputs/textareas/selects, keep
-   Tailwind's text-sm (14px) on desktop where there's no zoom issue. */
+/* iOS Safari zoom-on-focus fix (2026 reference stack).
+   iOS zooms when the computed font-size of a focused input is < 16px.
+   Belt-and-suspenders : 16px floor on mobile + disable aggressive text
+   inflation + kill the 300ms double-tap delay. */
+
+/* 1. Stop iOS text inflation without blocking user pinch-zoom (keep "100%"
+   not "none" so the OS Accessibility zoom still works). */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 2. Remove the 300ms tap delay, block ambiguous double-tap zoom on
+   interactive elements. Safe alternative to user-scalable=no. */
+body {
+  touch-action: manipulation;
+}
+
+/* 3. The primary fix : force every form control >= 16px on mobile so
+   iOS Safari never auto-zooms on focus. Uses max() to preserve upward
+   em-scaling. Mobile-only scope keeps Tailwind's text-sm (14px) visual
+   on desktop where no zoom occurs. */
 @media (max-width: 640px) {
-  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]),
+  input,
+  select,
   textarea,
-  select {
-    font-size: 16px !important;
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="password"],
+  input[type="number"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"] {
+    font-size: max(16px, 1rem) !important;
   }
 }
 

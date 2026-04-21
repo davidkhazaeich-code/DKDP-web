@@ -101,15 +101,40 @@ export function useSpeechRecognition(options: { lang?: string } = {}) {
     }
   }, [lang])
 
-  const start = useCallback(() => {
+  const start = useCallback(async () => {
     if (!recognitionRef.current || isListening) return
     setTranscript('')
     setError(null)
+
+    // Demande permission micro explicite avant d'appeler start() : sur Chrome
+    // si la permission a ete refusee une fois, recognition.start() echoue
+    // silencieusement. getUserMedia force le prompt ou le refus explicite.
+    if (typeof navigator !== 'undefined' && navigator.mediaDevices?.getUserMedia) {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+        // On stoppe le stream immediatement, on voulait juste la permission
+        stream.getTracks().forEach((t) => t.stop())
+      } catch (err) {
+        const name = (err as Error)?.name ?? 'unknown'
+        if (name === 'NotAllowedError' || name === 'PermissionDeniedError') {
+          setError('Permission microphone refusée. Autorisez le micro dans les réglages du site.')
+        } else if (name === 'NotFoundError' || name === 'DevicesNotFoundError') {
+          setError('Aucun microphone détecté.')
+        } else {
+          setError('Impossible d\'accéder au microphone.')
+        }
+        return
+      }
+    }
+
     try {
       recognitionRef.current.start()
       setIsListening(true)
-    } catch {
-      // start() peut throw si déjà en cours, on ignore
+    } catch (err) {
+      const msg = (err as Error)?.message ?? ''
+      if (!msg.includes('already started')) {
+        setError('La reconnaissance vocale n\'a pas pu démarrer.')
+      }
     }
   }, [isListening])
 

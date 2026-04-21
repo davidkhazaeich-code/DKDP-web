@@ -331,6 +331,11 @@ export function ChatWidget() {
     if (speech.transcript) setInputValue(speech.transcript)
   }, [speech.transcript])
 
+  // Log speech errors to console (aide debug et transparent pour l'utilisateur)
+  useEffect(() => {
+    if (speech.error) console.warn('[chatbot dictation]', speech.error)
+  }, [speech.error])
+
   // Hide chat outside Europe
   useEffect(() => {
     const match = document.cookie.match(/(?:^|; )geo-eu=([^;]*)/)
@@ -561,6 +566,16 @@ export function ChatWidget() {
               bottom: 'max(24px, env(safe-area-inset-bottom, 24px))',
             }}
           >
+            {speech.error && (
+              <m.div
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] text-red-300 bg-[#1a0e0e] border border-red-500/30 px-3 py-1 rounded-full shadow-lg"
+                role="alert"
+              >
+                {speech.error}
+              </m.div>
+            )}
             <form
               onSubmit={handleBarSubmit}
               onClick={() => { if (messages.length > 0) setIsOpen(true) }}
@@ -823,6 +838,16 @@ export function ChatWidget() {
                 className="flex-shrink-0 px-4 pt-2"
                 style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom, 12px))' }}
               >
+                {speech.error && (
+                  <m.div
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-2 text-[11px] text-red-300 bg-[#1a0e0e] border border-red-500/30 px-3 py-1.5 rounded-lg"
+                    role="alert"
+                  >
+                    {speech.error}
+                  </m.div>
+                )}
                 <form
                   onSubmit={handleChatSubmit}
                   className="flex items-end gap-2 rounded-2xl px-3 py-2"

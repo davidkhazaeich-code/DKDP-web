@@ -108,7 +108,7 @@ export function useSpeechRecognition(options: { lang?: string } = {}) {
       const code = event.error ?? 'unknown'
       console.warn('[chatbot dictation] onerror:', code, event)
       if (code === 'not-allowed' || code === 'service-not-allowed') {
-        setError('Permission microphone refusée par le navigateur.')
+        setError('Micro refusé. Vérifiez les réglages système (Confidentialité → Microphone) et les permissions du site.')
       } else if (code === 'no-speech') {
         setError(null)
       } else if (code === 'audio-capture') {

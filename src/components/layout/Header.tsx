@@ -268,9 +268,22 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
     }
   }, [open])
 
+  React.useEffect(() => {
+    if (!open) return
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [open, onClose])
+
   if (!mounted || typeof window === 'undefined') return null
 
   const tab = MOBILE_TABS.find(t => t.key === activeTab)!
+
+  function haptic() {
+    try { navigator.vibrate?.(8) } catch {}
+  }
 
   function switchTab(key: TabKey) {
     const ci = TAB_ORDER.indexOf(activeTab)
@@ -278,6 +291,16 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
     if (ci === ni) return
     setDirection(ni > ci ? 1 : -1)
     setActiveTab(key)
+    haptic()
+  }
+
+  function swipeToNextTab(deltaX: number) {
+    const ci = TAB_ORDER.indexOf(activeTab)
+    if (deltaX < 0 && ci < TAB_ORDER.length - 1) {
+      switchTab(TAB_ORDER[ci + 1])
+    } else if (deltaX > 0 && ci > 0) {
+      switchTab(TAB_ORDER[ci - 1])
+    }
   }
 
   function handleTabClick(t: typeof MOBILE_TABS[0]) {
@@ -299,8 +322,17 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
           id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu de navigation"
           className="fixed left-0 right-0 bottom-0 z-40 xl:hidden flex flex-col"
-          style={{ top: '66px', background: 'rgba(8,8,8,0.97)', backdropFilter: 'blur(24px)' }}
+          style={{
+            top: 'calc(66px + env(safe-area-inset-top, 0px))',
+            background: 'rgba(8,8,8,0.97)',
+            backdropFilter: 'blur(18px)',
+            WebkitBackdropFilter: 'blur(18px)',
+            willChange: 'transform, opacity',
+          }}
         >
           {/* ── Tab bar ── */}
           <div className="flex-shrink-0 px-4 pt-4 pb-3">
@@ -315,7 +347,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                     className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-[10px] text-[12px] font-semibold transition-all duration-200"
                     style={isActive
                       ? { color: t.color, background: t.bg, border: `1px solid ${t.border}` }
-                      : { color: '#52525B' }
+                      : { color: '#A1A1AA' }
                     }
                   >
                     <t.tabIcon size={13} />
@@ -338,7 +370,16 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.16, ease: [0.4, 0, 0.2, 1] }}
-                className="px-4 pb-4"
+                onPanEnd={(_, info) => {
+                  if (
+                    Math.abs(info.offset.x) > 60 &&
+                    Math.abs(info.offset.x) > Math.abs(info.offset.y) * 1.5 &&
+                    Math.abs(info.velocity.x) > 150
+                  ) {
+                    swipeToNextTab(info.offset.x)
+                  }
+                }}
+                className="px-4 pb-4 touch-pan-y"
               >
                 {/* Clickable tags */}
                 <div className="flex flex-wrap items-center gap-1.5 mt-1 mb-3">
@@ -365,17 +406,18 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                 </div>
 
                 {/* Cards grid */}
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-2">
                   {tab.items.map((item, i) => (
                     <m.div
                       key={item.href}
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.03, duration: 0.16 }}
+                      transition={{ delay: i * 0.02, duration: 0.16 }}
                     >
                       <Link
                         href={item.href}
-                        onClick={onClose}
+                        prefetch
+                        onClick={() => { haptic(); onClose() }}
                         className="flex flex-col gap-2.5 rounded-[12px] p-3.5 h-full active:scale-[0.97] transition-transform"
                         style={{ background: tab.bg, border: `1px solid ${tab.border}` }}
                       >
@@ -419,8 +461,9 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                         <Link
                           key={item.href}
                           href={item.href}
-                          onClick={onClose}
-                          className="flex items-center gap-3 px-2 py-2.5 rounded-[8px] text-[13px] text-text-secondary hover:bg-white/[0.05] hover:text-white transition-colors group"
+                          prefetch
+                          onClick={() => { haptic(); onClose() }}
+                          className="flex items-center gap-3 px-2 py-2.5 rounded-[8px] text-[13px] text-text-secondary hover:bg-white/[0.05] hover:text-white active:bg-white/[0.08] transition-colors group"
                         >
                           <item.icon size={14} className="flex-shrink-0 transition-colors" style={{ color: tab.color }} />
                           <span>{item.title}</span>
@@ -499,8 +542,24 @@ export function Header() {
   React.useEffect(() => { setMobileOpen(false) }, [pathname])
 
   React.useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    if (!mobileOpen) return
+    const scrollY = window.scrollY
+    const { position, top, left, right, width, overflow } = document.body.style
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${scrollY}px`
+    document.body.style.left = '0'
+    document.body.style.right = '0'
+    document.body.style.width = '100%'
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.position = position
+      document.body.style.top = top
+      document.body.style.left = left
+      document.body.style.right = right
+      document.body.style.width = width
+      document.body.style.overflow = overflow
+      window.scrollTo(0, scrollY)
+    }
   }, [mobileOpen])
 
   return (
@@ -749,8 +808,11 @@ export function Header() {
             aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            onClick={() => setMobileOpen((v) => !v)}
-            className="xl:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-border hover:bg-white/5 transition-colors"
+            onClick={() => {
+              try { navigator.vibrate?.(10) } catch {}
+              setMobileOpen((v) => !v)
+            }}
+            className="xl:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-border hover:bg-white/5 active:scale-95 transition-all"
           >
             {mobileOpen
               ? <X size={18} />

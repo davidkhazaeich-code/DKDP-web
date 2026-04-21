@@ -198,7 +198,7 @@ export default function FormationClaudeAIPage() {
                   Formation Claude IA à Genève
                 </h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span">Vos équipes, enfin à la hauteur de Claude.</GradText>
+                  <GradText as="span">Vos équipes testent Claude. On leur apprend à s&apos;en servir.</GradText>
                 </p>
 
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">

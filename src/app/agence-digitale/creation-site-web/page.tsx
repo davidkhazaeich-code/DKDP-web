@@ -182,7 +182,7 @@ export default function CreationSiteWebPage() {
                   Création de site web à Genève
                 </h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
-                  <GradText as="span">Un site qui convertit, pas un portfolio.</GradText>
+                  <GradText as="span">Un site qui ramène des clients, pas des compliments.</GradText>
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP crée des sites web professionnels pour les PME à Genève et en Suisse romande : vitrine, e-commerce ou sur mesure. Chaque projet est pensé pour être rapide, visible sur Google et facile à gérer en autonomie. Les tarifs démarrent à CHF 2&apos;500, avec un devis fixe et sans surprise.

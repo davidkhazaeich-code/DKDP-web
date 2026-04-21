@@ -9,7 +9,19 @@ import { usePathname } from 'next/navigation'
 import { AnimatePresence, m } from 'framer-motion'
 import { X, Send, CalendarCheck, RotateCcw, Globe, Sparkles, ArrowRight, MessageCircle, Mail, Mic } from 'lucide-react'
 import Markdown from 'react-markdown'
+import { getCalApi } from '@calcom/embed-react'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+
+// ── Token de commande que le modele peut emettre pour declencher une action UI
+const BOOK_TOKEN_RE = /\[BOOK\]/g
+
+async function openBookingModal() {
+  const cal = await getCalApi({ namespace: 'planifier-un-appel' })
+  cal('modal', {
+    calLink: 'david-khazaei/planifier-un-appel',
+    config: { layout: 'month_view', theme: 'dark' },
+  })
+}
 
 const MESSAGE_LIMIT = 10
 const MAX_CHAR_LENGTH = 500
@@ -168,12 +180,19 @@ function TypingIndicator() {
 function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content: string }) {
   const isUser = role === 'user'
 
+  // Detecte le token [BOOK] emis par l'assistant : on le retire du texte
+  // visible et on affiche un bouton qui ouvre la modale Cal.com.
+  const hasBookToken = !isUser && BOOK_TOKEN_RE.test(content)
+  // reset flag apres le test (exec global conserve lastIndex)
+  BOOK_TOKEN_RE.lastIndex = 0
+  const visibleContent = hasBookToken ? content.replace(BOOK_TOKEN_RE, '').trim() : content
+
   return (
     <m.div
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: DKDP_BOUNCE }}
-      className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}
+      className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}
     >
       <div
         className={`max-w-[85%] text-[13.5px] leading-relaxed ${
@@ -212,10 +231,31 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
               },
             }}
           >
-            {content}
+            {visibleContent}
           </Markdown>
         )}
       </div>
+
+      {hasBookToken && (
+        <m.button
+          type="button"
+          onClick={openBookingModal}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.15, ease: DKDP_BOUNCE }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.97 }}
+          className="mt-3 inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[12.5px] font-semibold text-white cursor-pointer"
+          style={{
+            background: 'linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%)',
+            boxShadow: '0 6px 20px rgba(124,58,237,0.35)',
+          }}
+        >
+          <CalendarCheck size={14} />
+          Réserver 30 min avec David
+          <ArrowRight size={12} />
+        </m.button>
+      )}
     </m.div>
   )
 }
@@ -362,7 +402,13 @@ export function ChatWidget() {
     transport: chatTransport,
   })
 
-  // ── Persist messages in sessionStorage ──
+  // ── Persist messages in localStorage avec TTL 1h ──
+  // localStorage (vs sessionStorage precedent) survit a la fermeture de
+  // l'onglet : le visiteur qui revient dans l'heure retrouve sa conversation.
+  // Au-dela de 1h on repart sur un chat neuf pour eviter d'accumuler des
+  // contextes perimes.
+  const CHAT_STORAGE_KEY = 'dkdp-chat'
+  const CHAT_TTL_MS = 60 * 60 * 1000 // 1 heure
   const restoredRef = useRef(false)
 
   // Restore on mount
@@ -370,24 +416,31 @@ export function ChatWidget() {
     if (restoredRef.current) return
     restoredRef.current = true
     try {
-      const saved = sessionStorage.getItem('dkdp-chat')
-      if (saved) {
-        const parsed = JSON.parse(saved)
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          setMessages(parsed)
-        }
+      const saved = localStorage.getItem(CHAT_STORAGE_KEY)
+      if (!saved) return
+      const parsed = JSON.parse(saved) as { ts?: number; messages?: unknown }
+      const age = parsed.ts ? Date.now() - parsed.ts : Infinity
+      if (age > CHAT_TTL_MS) {
+        localStorage.removeItem(CHAT_STORAGE_KEY)
+        return
+      }
+      if (Array.isArray(parsed.messages) && parsed.messages.length > 0) {
+        setMessages(parsed.messages as typeof messages)
       }
     } catch { /* ignore */ }
   }, [setMessages])
 
-  // Save when messages change (skip empty and initial render)
+  // Save when messages change (skip initial render before restore)
   useEffect(() => {
     if (!restoredRef.current) return
     try {
       if (messages.length > 0) {
-        sessionStorage.setItem('dkdp-chat', JSON.stringify(messages))
+        localStorage.setItem(
+          CHAT_STORAGE_KEY,
+          JSON.stringify({ ts: Date.now(), messages }),
+        )
       } else {
-        sessionStorage.removeItem('dkdp-chat')
+        localStorage.removeItem(CHAT_STORAGE_KEY)
       }
     } catch { /* ignore */ }
   }, [messages])

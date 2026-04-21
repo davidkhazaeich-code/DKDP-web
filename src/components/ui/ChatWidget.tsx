@@ -7,14 +7,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, m } from 'framer-motion'
-import { X, Send, CalendarCheck, RotateCcw, Globe, Sparkles, ArrowRight, MessageCircle, Mail, Mic } from 'lucide-react'
+import {
+  X, Send, CalendarCheck, RotateCcw, Globe, Sparkles, ArrowRight, MessageCircle,
+  Mail, Mic, Search, Megaphone, Bot, Workflow, BrainCircuit, GraduationCap, FileText,
+} from 'lucide-react'
 import Markdown from 'react-markdown'
 import { getCalApi } from '@calcom/embed-react'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 
-// ── Token de commande que le modele peut emettre pour declencher une action UI
-const BOOK_TOKEN_RE = /\[BOOK\]/g
-
+// Ouvre la modale Cal.com. Utilisee par la SmartCTABar quand l'assistant
+// emet le token [BOOK] dans son message.
 async function openBookingModal() {
   const cal = await getCalApi({ namespace: 'planifier-un-appel' })
   cal('modal', {
@@ -180,19 +182,17 @@ function TypingIndicator() {
 function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content: string }) {
   const isUser = role === 'user'
 
-  // Detecte le token [BOOK] emis par l'assistant : on le retire du texte
-  // visible et on affiche un bouton qui ouvre la modale Cal.com.
-  const hasBookToken = !isUser && BOOK_TOKEN_RE.test(content)
-  // reset flag apres le test (exec global conserve lastIndex)
-  BOOK_TOKEN_RE.lastIndex = 0
-  const visibleContent = hasBookToken ? content.replace(BOOK_TOKEN_RE, '').trim() : content
+  // Le token [BOOK] est consommé par la CTA bar (voir SmartCTABar) pour
+  // transformer un des 3 boutons en reservation Cal.com. On se contente
+  // ici de le retirer du texte visible.
+  const visibleContent = isUser ? content : stripBookToken(content)
 
   return (
     <m.div
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: DKDP_BOUNCE }}
-      className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}
+      className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}
     >
       <div
         className={`max-w-[85%] text-[13.5px] leading-relaxed ${
@@ -235,34 +235,115 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
           </Markdown>
         )}
       </div>
-
-      {hasBookToken && (
-        <m.button
-          type="button"
-          onClick={openBookingModal}
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.15, ease: DKDP_BOUNCE }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.97 }}
-          className="mt-3 inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[12.5px] font-semibold text-white cursor-pointer"
-          style={{
-            background: 'linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%)',
-            boxShadow: '0 6px 20px rgba(124,58,237,0.35)',
-          }}
-        >
-          <CalendarCheck size={14} />
-          Réserver 30 min avec David
-          <ArrowRight size={12} />
-        </m.button>
-      )}
     </m.div>
   )
 }
 
-// ── CTA bar after assistant messages ────────────────────────────────────────
+function stripBookToken(text: string): string {
+  return text.replace(/\[BOOK\]/g, '').replace(/\n{3,}/g, '\n\n').trim()
+}
 
-function ChatCTABar() {
+// ── Smart CTA bar : 3 CTAs qui s'adaptent au dernier message ────────────────
+
+type CTAKey =
+  | 'book' | 'contact' | 'services' | 'tarifs'
+  | 'site-web' | 'seo' | 'sea' | 'reseaux-sociaux' | 'video' | 'consulting'
+  | 'agents-ia' | 'automatisation' | 'audit-ia' | 'mise-en-place-ia' | 'chatbot'
+  | 'formation-ia' | 'formation-claude'
+
+type CTADef = {
+  label: string
+  icon: React.ComponentType<{ size?: number; className?: string }>
+  href?: string
+  action?: () => void
+}
+
+// Catalogue des CTAs indexe par chemin pour le matching des liens
+// markdown emis par l'assistant. `book` n'a pas de href puisque la
+// modale Cal.com s'ouvre via une action cote client.
+const CTA_CATALOG: Record<CTAKey, CTADef> = {
+  book:              { label: 'Réserver 30 min',           icon: CalendarCheck, action: openBookingModal },
+  contact:           { label: 'Nous contacter',            icon: Mail,          href: '/contact' },
+  services:          { label: 'Nos services',              icon: Sparkles,      href: '/#nos-expertises' },
+  tarifs:            { label: 'Voir les tarifs',           icon: FileText,      href: '/tarifs' },
+  'site-web':        { label: 'Création de site web',      icon: Globe,         href: '/agence-digitale/creation-site-web' },
+  seo:               { label: 'SEO et référencement',      icon: Search,        href: '/agence-digitale/seo' },
+  sea:               { label: 'Publicité Google Ads',      icon: Megaphone,     href: '/agence-digitale/publicite-sea' },
+  'reseaux-sociaux': { label: 'Réseaux sociaux',           icon: Sparkles,      href: '/agence-digitale/reseaux-sociaux' },
+  video:             { label: 'Création vidéo',            icon: Sparkles,      href: '/agence-digitale/creation-video' },
+  consulting:        { label: 'Consulting marketing',      icon: Sparkles,      href: '/agence-digitale/consulting-marketing' },
+  'agents-ia':       { label: 'Agents IA sur mesure',      icon: Bot,           href: '/intelligence-artificielle/agents-ia' },
+  automatisation:    { label: 'Automatisation métier',     icon: Workflow,      href: '/intelligence-artificielle/automatisation' },
+  'audit-ia':        { label: 'Audit et conseil IA',       icon: BrainCircuit,  href: '/intelligence-artificielle/audit-conseil' },
+  'mise-en-place-ia':{ label: 'Mise en place IA',          icon: Sparkles,      href: '/intelligence-artificielle/mise-en-place' },
+  chatbot:           { label: 'Chatbot IA sur mesure',     icon: MessageCircle, href: '/intelligence-artificielle/chatbot-ia' },
+  'formation-ia':    { label: 'Formation IA entreprise',   icon: GraduationCap, href: '/formation-entreprise/ia' },
+  'formation-claude':{ label: 'Formation Claude IA',       icon: GraduationCap, href: '/formation-entreprise/claude-ai' },
+}
+
+// Mapping href → CTAKey pour detecter quel CTA le bot a mentionne
+const HREF_TO_CTA: Record<string, CTAKey> = Object.entries(CTA_CATALOG).reduce((acc, [key, def]) => {
+  if (def.href) acc[def.href] = key as CTAKey
+  return acc
+}, {} as Record<string, CTAKey>)
+
+// Mots-cles de repli quand aucun lien markdown n'est trouve dans le message
+const KEYWORD_TO_CTA: { pattern: RegExp; cta: CTAKey }[] = [
+  { pattern: /\bchatbot\b/i,                           cta: 'chatbot' },
+  { pattern: /\bagent[s]? ia\b/i,                      cta: 'agents-ia' },
+  { pattern: /\bautomatis/i,                           cta: 'automatisation' },
+  { pattern: /\baudit\b.*\bia\b|\bconseil\b.*\bia\b/i, cta: 'audit-ia' },
+  { pattern: /\bformation claude\b/i,                  cta: 'formation-claude' },
+  { pattern: /\bformation ia\b|\bformation chatgpt\b/i,cta: 'formation-ia' },
+  { pattern: /\bsite (web|internet)\b|refonte/i,       cta: 'site-web' },
+  { pattern: /\bseo\b|référencement|mots.cl/i,         cta: 'seo' },
+  { pattern: /google ads|\bsea\b|publicité/i,          cta: 'sea' },
+  { pattern: /réseaux sociaux|instagram|linkedin/i,    cta: 'reseaux-sociaux' },
+  { pattern: /vidéo|montage/i,                         cta: 'video' },
+  { pattern: /tarif|prix|budget|combien/i,             cta: 'tarifs' },
+]
+
+// Choisit jusqu'a 3 CTAs pertinents a partir du contenu du dernier message
+// assistant (+ fallback vers un set par defaut).
+function selectCTAs(content: string): CTAKey[] {
+  const picks: CTAKey[] = []
+  const add = (key: CTAKey) => {
+    if (!picks.includes(key) && picks.length < 3) picks.push(key)
+  }
+
+  // 1. Token [BOOK] -> reservation Cal.com en premier
+  if (/\[BOOK\]/.test(content)) add('book')
+
+  // 2. Liens markdown explicites /agence-digitale/... -> CTA direct
+  const linkRe = /\]\((\/[a-z0-9/-]+)\)/gi
+  let match: RegExpExecArray | null
+  while ((match = linkRe.exec(content)) !== null) {
+    const href = match[1].replace(/#.*$/, '') // drop fragment
+    const cta = HREF_TO_CTA[href]
+    if (cta) add(cta)
+  }
+
+  // 3. Mots-cles si pas encore 3 CTAs
+  if (picks.length < 3) {
+    for (const { pattern, cta } of KEYWORD_TO_CTA) {
+      if (pattern.test(content)) add(cta)
+      if (picks.length >= 3) break
+    }
+  }
+
+  // 4. Remplit avec defaults neutres (en evitant les doublons)
+  const FALLBACKS: CTAKey[] = ['services', 'tarifs', 'contact']
+  for (const cta of FALLBACKS) {
+    if (picks.length >= 3) break
+    add(cta)
+  }
+
+  return picks
+}
+
+function SmartCTABar({ lastAssistantContent }: { lastAssistantContent: string }) {
+  const ctas = selectCTAs(lastAssistantContent)
+
   return (
     <m.div
       initial={{ opacity: 0, y: 4 }}
@@ -270,36 +351,49 @@ function ChatCTABar() {
       transition={{ duration: 0.3, delay: 0.15 }}
       className="flex flex-wrap gap-2 mt-4"
     >
-      <Link
-        href="/intelligence-artificielle/chatbot-ia"
-        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-medium cursor-pointer transition-all duration-200
-          bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] text-[#9CA3AF]
-          hover:bg-[rgba(124,58,237,0.08)] hover:border-[rgba(124,58,237,0.25)] hover:text-white"
-      >
-        <MessageCircle size={11} />
-        Chatbot pour mon site web
-        <ArrowRight size={10} />
-      </Link>
-      <Link
-        href="/#nos-expertises"
-        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-medium cursor-pointer transition-all duration-200
-          bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] text-[#9CA3AF]
-          hover:bg-[rgba(124,58,237,0.08)] hover:border-[rgba(124,58,237,0.25)] hover:text-white"
-      >
-        <Sparkles size={11} />
-        Nos services
-        <ArrowRight size={10} />
-      </Link>
-      <Link
-        href="/contact"
-        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-semibold cursor-pointer transition-all duration-200
-          text-white border border-[rgba(124,58,237,0.35)]
-          hover:border-[rgba(124,58,237,0.5)] hover:brightness-110"
-        style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.25), rgba(167,139,250,0.15))' }}
-      >
-        <Mail size={11} />
-        Nous contacter
-      </Link>
+      {ctas.map((key, idx) => {
+        const def = CTA_CATALOG[key]
+        const Icon = def.icon
+        // Premier CTA : mis en valeur avec gradient violet (primary)
+        const isPrimary = idx === 0 && key === 'book'
+        const baseClasses = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-medium cursor-pointer transition-all duration-200'
+        const primaryClasses = 'text-white border border-[rgba(124,58,237,0.4)] font-semibold hover:border-[rgba(124,58,237,0.6)] hover:brightness-110'
+        const primaryStyle = { background: 'linear-gradient(135deg, rgba(124,58,237,0.35), rgba(167,139,250,0.20))' }
+        const secondaryClasses = 'bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] text-[#9CA3AF] hover:bg-[rgba(124,58,237,0.08)] hover:border-[rgba(124,58,237,0.25)] hover:text-white'
+
+        const inner = (
+          <>
+            <Icon size={11} />
+            {def.label}
+            {!def.action && <ArrowRight size={10} />}
+          </>
+        )
+
+        if (def.action) {
+          return (
+            <button
+              key={key}
+              type="button"
+              onClick={def.action}
+              className={`${baseClasses} ${isPrimary ? primaryClasses : secondaryClasses}`}
+              style={isPrimary ? primaryStyle : undefined}
+            >
+              {inner}
+            </button>
+          )
+        }
+
+        return (
+          <Link
+            key={key}
+            href={def.href!}
+            className={`${baseClasses} ${isPrimary ? primaryClasses : secondaryClasses}`}
+            style={isPrimary ? primaryStyle : undefined}
+          >
+            {inner}
+          </Link>
+        )
+      })}
     </m.div>
   )
 }
@@ -859,8 +953,8 @@ export function ChatWidget() {
                       role={m.role as 'user' | 'assistant'}
                       content={text}
                     />
-                    {/* CTA bar after the last assistant message */}
-                    {isLastAssistant && <ChatCTABar />}
+                    {/* CTA bar adaptatif sous le dernier message assistant */}
+                    {isLastAssistant && <SmartCTABar lastAssistantContent={text} />}
                   </div>
                 )
               })}

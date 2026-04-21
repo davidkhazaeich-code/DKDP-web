@@ -104,7 +104,7 @@ function AnimatedPlaceholder({ index, visible }: { index: number; visible: boole
       {visible && (
         <m.span
           key={index}
-          className="absolute inset-0 flex items-center text-[#71717a] text-sm select-none pointer-events-none whitespace-nowrap overflow-hidden"
+          className="absolute inset-0 flex items-center text-[#71717a] text-base md:text-sm select-none pointer-events-none whitespace-nowrap overflow-hidden"
           initial="initial"
           animate="animate"
           exit="exit"
@@ -604,7 +604,7 @@ export function ChatWidget() {
                 {!inputValue && (
                   <div className="absolute inset-0 flex items-center pointer-events-none">
                     {hasConversation ? (
-                      <span className="text-sm text-[#A78BFA] font-medium">Reprendre notre conversation.</span>
+                      <span className="text-base md:text-sm text-[#A78BFA] font-medium">Reprendre notre conversation.</span>
                     ) : (
                       <>
                         <AnimatedPlaceholder
@@ -612,7 +612,7 @@ export function ChatWidget() {
                           visible={showPlaceholder && !barFocused}
                         />
                         {barFocused && (
-                          <span className="text-sm text-[#71717a]">Posez votre question...</span>
+                          <span className="text-base md:text-sm text-[#71717a]">Posez votre question...</span>
                         )}
                       </>
                     )}

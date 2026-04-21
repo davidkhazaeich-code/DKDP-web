@@ -185,6 +185,8 @@ export default function FormationWebDesignPage() {
           { label: 'FAQ', href: '#faq' },
         ]}
         accentColor="#FF8C00"
+        accentBg="rgba(255,107,0,0.12)"
+        accentBorder="rgba(255,107,0,0.25)"
       />
 
       {/* ── Intro definition ── */}

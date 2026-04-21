@@ -408,7 +408,7 @@ export function ChatWidget() {
   // Au-dela de 1h on repart sur un chat neuf pour eviter d'accumuler des
   // contextes perimes.
   const CHAT_STORAGE_KEY = 'dkdp-chat'
-  const CHAT_TTL_MS = 60 * 60 * 1000 // 1 heure
+  const CHAT_TTL_MS = 24 * 60 * 60 * 1000 // 24 heures
   const restoredRef = useRef(false)
 
   // Restore on mount

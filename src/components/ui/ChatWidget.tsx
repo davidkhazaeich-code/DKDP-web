@@ -761,7 +761,7 @@ export function ChatWidget() {
             transition={{ type: 'spring' as const, damping: 22, stiffness: 260 }}
             className="flex flex-col overflow-hidden rounded-2xl w-full"
             style={{
-              height: 'min(480px, 65dvh, calc(100dvh - 80px))',
+              height: 'min(576px, 78dvh, calc(100dvh - 80px))',
               background: '#0A0A0A',
               border: '1px solid rgba(124,58,237,0.15)',
               boxShadow: '0 16px 70px rgba(0,0,0,0.8), 0 0 80px rgba(124,58,237,0.08)',

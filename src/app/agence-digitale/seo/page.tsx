@@ -9,7 +9,7 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { SEOFunnel } from './_components/SEOFunnel'
 import { HeroVisual } from './_components/HeroVisual'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
@@ -20,12 +20,19 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
-  title: 'Agence SEO Genève | Référencement naturel et GEO | DKDP',
+  title: 'Agence SEO Genève | SEO local, GEO & AI Overviews | DKDP',
   description:
-    'Agence de référencement naturel à Genève. Audit SEO, stratégie de contenu et GEO pour PME suisses. Dominez Google et les IA. Résultats en 6 à 12 semaines.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale/seo' },
+    "Agence SEO et GEO à Genève : audit SEO, SEO local (Google Business Profile, citations), stratégie contenu, E-E-A-T. Dominez Google, ChatGPT, Perplexity et les AI Overviews. PME Suisse romande, résultats 6-12 semaines.",
+  alternates: {
+    canonical: 'https://dkdp.ch/agence-digitale/seo',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/agence-digitale/seo',
+      'x-default': 'https://dkdp.ch/agence-digitale/seo',
+    },
+  },
   openGraph: {
-    images: [{ url: '/images/og/seo-geneve.png', width: 1376, height: 768, alt: 'Agence SEO référencement Genève DKDP' }],
+    url: 'https://dkdp.ch/agence-digitale/seo',
+    images: [{ url: '/images/og/seo-geneve.png', width: 1376, height: 768, alt: 'Agence SEO Genève : référencement naturel, SEO local et GEO par DKDP' }],
   },
 }
 
@@ -128,7 +135,17 @@ const PROCESS = [
 export default function SEOPage() {
   return (
     <main>
-      <SchemaOrg schema={buildService({ name: 'Référencement SEO Genève', url: '/agence-digitale/seo', description: 'Stratégie SEO complète pour PME à Genève. Audit technique, contenu et backlinks pour dominer les résultats Google.' })} />
+      <SchemaOrg
+        schema={buildServiceWithLocalBusiness({
+          name: 'Agence SEO et GEO à Genève',
+          url: '/agence-digitale/seo',
+          description:
+            "Agence de référencement naturel (SEO) et Generative Engine Optimization (GEO) à Genève. Audit SEO technique, SEO local (Google Business Profile, citations locales, reviews), stratégie de contenu, E-E-A-T, Schema.org, netlinking. Optimisation pour Google, ChatGPT, Perplexity, Claude, Copilot et les AI Overviews. PME Suisse romande.",
+          serviceType: 'Référencement naturel et GEO',
+          priceFrom: 500,
+          priceSpecDescription: 'À partir de CHF 500/mois pour un accompagnement SEO PME',
+        })}
+      />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
@@ -195,7 +212,8 @@ export default function SEOPage() {
       <ScrollSpyNav
         items={[
           { label: 'Notre approche', href: '#approche' },
-          { label: 'Résultats', href: '#résultats' },
+          { label: 'Résultats', href: '#resultats' },
+          { label: 'SEO local', href: '#seo-local-geneve' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'Processus', href: '#process' },
           { label: 'Réalisations', href: '#realisations' },
@@ -374,7 +392,7 @@ export default function SEOPage() {
       </section>
 
       {/* ── Bénéfices ── */}
-      <section id="résultats" className="py-24 scroll-mt-[124px]">
+      <section id="resultats" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
@@ -400,6 +418,100 @@ export default function SEOPage() {
                 </div>
               </SectionReveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SEO Local Genève (Option A du brief SEO : H2 dédiée + contenu 500+ mots) ── */}
+      <section id="seo-local-geneve" className="py-24 border-y border-border scroll-mt-[124px]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 items-start">
+            <SectionReveal>
+              <GradTag className="mb-4">SEO local Genève</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
+                SEO local à Genève : Google Business Profile, citations locales et pack local.
+              </h2>
+              <p className="text-text-secondary leading-relaxed mb-4">
+                À Genève, 46 % des recherches commerciales sont locales (source : Think with Google 2026). Sur mobile, 78 % des requêtes &laquo; près de moi &raquo; finissent par un appel ou un trajet dans les 24 h. Si vous n&apos;apparaissez pas dans le <strong className="text-white">pack local</strong> (les 3 fiches Google Maps au-dessus des résultats bleus), vous êtes invisibles pour la moitié de vos prospects genevois.
+              </p>
+              <p className="text-text-secondary leading-relaxed mb-6">
+                DKDP déploie une stratégie SEO local complète : optimisation de votre <strong className="text-white">Google Business Profile</strong> (ex-Google My Business), construction d&apos;un réseau de citations locales cohérentes (NAP : Name, Address, Phone), récolte structurée d&apos;avis clients, schema <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded">LocalBusiness</code> sur toutes vos pages et optimisation mobile Core Web Vitals (LCP, CLS, INP) pour le ranking mobile-first. Pour un guide complet, lisez <Link href="/blog/seo-local-geneve-2026" className="underline hover:text-white transition-colors">SEO local Genève 2026 : dominer Google Maps</Link>.
+              </p>
+              <div className="space-y-3">
+                {[
+                  { k: 'Google Business Profile', v: 'Fiche optimisée, photos 360°, posts hebdomadaires, réponses aux avis, attributs (accessibilité, parking, modes de paiement Twint).' },
+                  { k: 'Citations locales', v: 'Inscription et cohérence NAP sur local.ch, search.ch, Yellow.local.ch, Pages Jaunes, Hotfrog, Yelp, Apple Maps.' },
+                  { k: 'Avis clients', v: "Processus de collecte automatisé post-prestation (email, SMS, QR code). Réponse personnalisée à chaque avis, positif ou négatif." },
+                  { k: 'Pack local & Maps', v: 'Positionnement dans les 3 fiches du pack local pour vos mots-clés géolocalisés (ex. « fiduciaire Eaux-Vives », « dentiste Carouge »).' },
+                  { k: 'Mobile-first ranking', v: 'Core Web Vitals au vert : LCP < 2,5 s, INP < 200 ms, CLS < 0,1. Test systématique sur iPhone et Android.' },
+                  { k: 'Schema LocalBusiness', v: 'JSON-LD enrichi avec geo-coordinates, openingHoursSpecification, areaServed, aggregateRating.' },
+                ].map((row) => (
+                  <div key={row.k} className="flex gap-3">
+                    <CheckCircle2 size={14} className="mt-1 flex-shrink-0" style={{ color }} />
+                    <p className="text-sm text-text-secondary">
+                      <strong className="text-white">{row.k} :</strong> {row.v}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </SectionReveal>
+
+            <SectionReveal delay={0.12}>
+              <div
+                className="rounded-[20px] p-6 md:p-8 border"
+                style={{ background: bg, borderColor: border, boxShadow: '0 0 50px rgba(124,58,237,0.08)' }}
+              >
+                <p className="text-[11px] font-bold uppercase tracking-widest mb-5" style={{ color: violet.color }}>
+                  Quartiers et communes couverts
+                </p>
+                <div className="grid grid-cols-2 gap-2 mb-6 text-xs">
+                  {[
+                    'Eaux-Vives', 'Plainpalais', 'Champel', 'Servette',
+                    'Pâquis', 'Cité-Centre', 'Carouge', 'Lancy',
+                    'Onex', 'Vernier', 'Meyrin', 'Chêne-Bougeries',
+                    'Thônex', 'Genève rive droite', 'Genève rive gauche', 'Grand-Saconnex',
+                  ].map((quartier) => (
+                    <div
+                      key={quartier}
+                      className="px-2.5 py-1.5 rounded-md border text-text-secondary"
+                      style={{ background: 'rgba(124,58,237,0.05)', borderColor: 'rgba(124,58,237,0.20)' }}
+                    >
+                      {quartier}
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: violet.color }}>
+                  KPIs SEO local moyens (6 mois DKDP)
+                </p>
+                <div className="space-y-3">
+                  {[
+                    { label: 'Apparitions dans le pack local', before: '12 %', after: '58 %', delta: 'x4,8' },
+                    { label: 'Clics vers itinéraire', before: '8/sem', after: '47/sem', delta: 'x5,9' },
+                    { label: 'Appels depuis la fiche GBP', before: '3/sem', after: '19/sem', delta: 'x6,3' },
+                    { label: 'Avis Google nouveaux', before: '1/mois', after: '12/mois', delta: 'x12' },
+                  ].map((row) => (
+                    <div key={row.label} className="flex items-center justify-between gap-3">
+                      <p className="text-text-secondary text-xs flex-1 leading-tight">{row.label}</p>
+                      <div className="flex items-center gap-2 text-xs">
+                        <span className="text-text-muted line-through">{row.before}</span>
+                        <span className="text-white font-semibold">{row.after}</span>
+                        <span
+                          className="px-1.5 py-0.5 rounded-full font-bold text-[10px]"
+                          style={{ background: 'rgba(74,222,128,0.12)', color: '#4ade80', border: '1px solid rgba(74,222,128,0.25)' }}
+                        >
+                          {row.delta}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-text-muted text-[11px] mt-6 leading-relaxed">
+                  Moyenne constatée sur les 14 PME accompagnées en SEO local par DKDP entre 2024 et 2026. Les résultats individuels varient selon le secteur, la concurrence locale et la situation de départ.
+                </p>
+              </div>
+            </SectionReveal>
           </div>
         </div>
       </section>

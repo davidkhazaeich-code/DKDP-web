@@ -243,6 +243,42 @@ export default function IAGenevePage() {
         </div>
       </section>
 
+      {/* ── Estimation CTA (lead-gen haute intention) ── */}
+      <section className="py-16">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <Link
+            href="/agence-digitale/creation-site-web/estimation"
+            className="group relative block overflow-hidden rounded-[20px] border transition-all hover:-translate-y-0.5 duration-200"
+            style={{
+              background: 'linear-gradient(135deg, rgba(212,212,216,0.14) 0%, rgba(212,212,216,0.04) 100%)',
+              borderColor: 'rgba(212,212,216,0.30)',
+              boxShadow: '0 0 50px rgba(212,212,216,0.08)',
+            }}
+          >
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 p-8 md:p-10">
+              <div className="flex-1">
+                <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color }}>
+                  Budget et délai en 2 minutes
+                </p>
+                <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-white mb-2">
+                  Estimez votre projet IA ou digital à Genève.
+                </h2>
+                <p className="text-text-secondary text-sm md:text-base leading-relaxed max-w-xl">
+                  Estimateur en ligne gratuit : agent IA, chatbot, automatisation, site web. Réponse chiffrée immédiate, sans e-mail obligatoire.
+                </p>
+              </div>
+              <div
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm shrink-0 transition-transform group-hover:translate-x-1"
+                style={{ background: color, color: '#09090B' }}
+              >
+                Obtenir mon estimation
+                <ChevronRight size={16} />
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* ── Subnav ── */}
       <ScrollSpyNav
         items={[

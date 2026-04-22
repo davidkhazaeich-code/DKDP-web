@@ -295,8 +295,8 @@ export default function RefonteSiteWebPage() {
                   style={{ boxShadow: '0 0 60px rgba(167,139,250,0.18)' }}
                 >
                   <Image
-                    src="/images/services/dkdp-refonte-site-web-geneve.webp"
-                    alt="Refonte de site web à Genève : migration moderne sans perte SEO par l'agence DKDP"
+                    src="/images/og/refonte-site-web.png"
+                    alt="Refonte de site web à Genève : split-screen avant/après design 2026 avec Core Web Vitals au vert par DKDP"
                     fill
                     className="object-cover"
                     priority
@@ -331,6 +331,42 @@ export default function RefonteSiteWebPage() {
               </SectionReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Estimation CTA (lead-gen haute intention) ── */}
+      <section className="py-16">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <Link
+            href="/agence-digitale/creation-site-web/estimation"
+            className="group relative block overflow-hidden rounded-[20px] border transition-all hover:-translate-y-0.5 duration-200"
+            style={{
+              background: 'linear-gradient(135deg, rgba(167,139,250,0.14) 0%, rgba(167,139,250,0.04) 100%)',
+              borderColor: 'rgba(167,139,250,0.32)',
+              boxShadow: '0 0 50px rgba(167,139,250,0.10)',
+            }}
+          >
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 p-8 md:p-10">
+              <div className="flex-1">
+                <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: V }}>
+                  Budget et délai en 2 minutes
+                </p>
+                <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-white mb-2">
+                  Combien coûtera la refonte de votre site ?
+                </h2>
+                <p className="text-text-secondary text-sm md:text-base leading-relaxed max-w-xl">
+                  Estimateur en ligne gratuit. Tailles, technos, modules, délais. Réponse chiffrée immédiate, sans e-mail obligatoire.
+                </p>
+              </div>
+              <div
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm shrink-0 transition-transform group-hover:translate-x-1"
+                style={{ background: V, color: '#09090B' }}
+              >
+                Obtenir mon estimation
+                <ChevronRight size={16} />
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 

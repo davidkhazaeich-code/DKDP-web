@@ -25,8 +25,9 @@ import { ClaudeIcon } from '@/components/icons/ClaudeIcon'
 
 const AGENCE_MAIN = [
   { title: 'Création de site web', href: '/agence-digitale/creation-site-web', icon: Globe, description: 'Sites sur mesure qui convertissent et performent.' },
+  { title: 'Refonte de site web', href: '/agence-digitale/refonte-site-web', icon: Globe, description: 'Migration sans perte SEO, design 2026 pour PME romandes.' },
   { title: 'Développement d\'application', href: '/agence-digitale/developpement-application', icon: Smartphone, description: 'iOS, Android, web app et PWA sur mesure pour PME.' },
-  { title: 'SEO & Référencement', href: '/agence-digitale/seo', icon: Search, description: 'Visibilité organique durable sur Google.' },
+  { title: 'SEO & Référencement', href: '/agence-digitale/seo', icon: Search, description: 'Visibilité organique durable sur Google et les IA.' },
   { title: 'Publicité SEA', href: '/agence-digitale/publicite-sea', icon: Megaphone, description: 'Google Ads et campagnes payantes rentables.' },
   { title: 'Réseaux sociaux', href: '/agence-digitale/reseaux-sociaux', icon: Share2, description: 'Présence sociale cohérente et engageante.' },
   { title: 'Création vidéo', href: '/agence-digitale/creation-video', icon: Film, description: 'Vidéos qui captivent et convertissent.' },
@@ -51,6 +52,7 @@ const IA_MAIN = [
 ]
 
 const IA_SECONDARY = [
+  { title: 'Agence IA à Genève', href: '/intelligence-artificielle/geneve', icon: Globe },
   { title: 'Formation IA entreprise', href: '/formation-entreprise/ia', icon: GraduationCap },
   { title: 'Formation Claude', href: '/formation-entreprise/claude-ai', icon: ClaudeIcon },
   { title: 'Tarifs IA', href: '/tarifs', icon: FileText },

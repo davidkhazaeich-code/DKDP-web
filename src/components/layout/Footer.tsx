@@ -15,6 +15,7 @@ const PILLARS = [
       { label: 'Audit site gratuit', href: '/agence-digitale/creation-site-web/audit-site' },
       { label: 'Audit SEO gratuit', href: '/agence-digitale/seo/audit-seo' },
       { label: 'Création de site web', href: '/agence-digitale/creation-site-web' },
+      { label: 'Refonte de site web', href: '/agence-digitale/refonte-site-web' },
       { label: 'Référencement SEO', href: '/agence-digitale/seo' },
       { label: 'Publicité Google Ads', href: '/agence-digitale/publicite-sea' },
       { label: 'Réseaux sociaux', href: '/agence-digitale/reseaux-sociaux' },
@@ -49,6 +50,7 @@ const PILLARS = [
     border: 'rgba(212,212,216,0.14)',
     Icon: Sparkles,
     links: [
+      { label: 'Agence IA à Genève', href: '/intelligence-artificielle/geneve' },
       { label: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia' },
       { label: 'Chatbot IA', href: '/intelligence-artificielle/chatbot-ia' },
       { label: 'Automatisation métier', href: '/intelligence-artificielle/automatisation' },

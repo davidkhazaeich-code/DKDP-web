@@ -47,6 +47,7 @@ export const ROUTES: Route[] = [
 
   // ─── Agence Digitale — Services ───────────────────────────────────────────
   { url: '/agence-digitale/creation-site-web',              priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/refonte-site-web',               priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/developpement-application',      priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/seo',                  priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/publicite-sea',        priority: 0.80, changeFrequency: 'monthly' },
@@ -76,6 +77,7 @@ export const ROUTES: Route[] = [
   { url: '/intelligence-artificielle/audit-conseil', priority: 0.80, changeFrequency: 'monthly' },
   { url: '/intelligence-artificielle/mise-en-place', priority: 0.80, changeFrequency: 'monthly' },
   { url: '/intelligence-artificielle/chatbot-ia',   priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/intelligence-artificielle/geneve',       priority: 0.85, changeFrequency: 'monthly' },
 
   // ─── Formation Entreprise ─────────────────────────────────────────────────
   { url: '/formation-entreprise/claude-ai',       priority: 0.85, changeFrequency: 'monthly' },

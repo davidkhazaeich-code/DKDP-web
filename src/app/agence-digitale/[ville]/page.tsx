@@ -34,8 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = getCity(ville)
   if (!city) return {}
 
-  const title = `Intelligence artificielle & Agent IA a ${city.name} | Agence digitale DKDP`
-  const description = `Agence IA a ${city.name} (${city.canton}) : agents IA, automatisation, formation IA entreprise et création de sites web. DKDP accompagne les PME de ${city.name} dans leur transformation digitale. Devis gratuit.`
+  const title = `Agence digitale à ${city.name} | Sites web, SEO, IA & Formation | DKDP`
+  const description = `Agence digitale à ${city.name} (${city.canton}) : création et refonte de sites web, SEO, intelligence artificielle, formation. DKDP accompagne les PME de ${city.name} depuis 2015. Devis 48 h.`
 
   return {
     title,
@@ -107,14 +107,14 @@ export default async function CityPage({ params }: Props) {
       ])} />
       <SchemaOrg schema={buildFAQPage(faq)} />
       <SchemaOrg schema={buildWebPageWithSpeakable({
-        name: `Intelligence artificielle & Agent IA a ${city.name}`,
+        name: `Agence digitale à ${city.name}`,
         url: `/agence-digitale/${city.slug}`,
-        description: `Agence IA a ${city.name} : agents IA, automatisation, formation IA entreprise et solutions digitales pour PME.`,
+        description: `Agence digitale à ${city.name} : sites web, SEO, intelligence artificielle et formation entreprise pour PME.`,
       })} />
       <SchemaOrg schema={buildService({
-        name: `Agent IA & Automatisation a ${city.name}`,
+        name: `Agence digitale à ${city.name}`,
         url: `/agence-digitale/${city.slug}`,
-        description: `Déploiement d'agents IA et automatisation des processus pour les entreprises de ${city.name}. Chatbots, workflows intelligents, IA generative.`,
+        description: `Services digitaux complets pour les entreprises de ${city.name} : création et refonte de sites web, SEO local, agents IA, automatisation, formation IA entreprise.`,
       })} />
       <SchemaOrg schema={buildCourse({
         name: `Formation IA entreprise a ${city.name}`,
@@ -136,14 +136,15 @@ export default async function CityPage({ params }: Props) {
               </nav>
               <div className="max-w-2xl">
                 <GradTag className="mb-5">
-                  IA, Automatisation & Formation a {city.name}
+                  Agence digitale à {city.name}
                 </GradTag>
                 <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
-                  Intelligence artificielle et agents IA pour les entreprises de{' '}
-                  <GradText as="span">{city.name}</GradText>
+                  Agence digitale à{' '}
+                  <GradText as="span">{city.name}</GradText>{' '}
+                  : sites web, SEO, IA et formation pour PME.
                 </h1>
                 <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-8" data-speakable="true">
-                  Agents IA, automatisation des processus, formation IA et solutions digitales. DKDP accompagne les PME de {city.name} dans leur transformation par l'intelligence artificielle.
+                  Création et refonte de sites web, référencement SEO et GEO, intelligence artificielle et formation entreprise. DKDP accompagne les PME de {city.name} depuis 2015. 700+ clients, conforme nLPD 2023.
                 </p>
                 <div className="flex flex-wrap gap-3 items-center justify-center">
                   <LiquidMetalButton href="/contact" size="lg">Audit IA gratuit →</LiquidMetalButton>

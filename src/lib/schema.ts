@@ -6,7 +6,7 @@ export function buildLocalBusiness() {
     '@type': 'ProfessionalService',
     '@id': 'https://dkdp.ch/#local-business',
     name: 'DKDP',
-    description: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME. 700+ clients accompagnés en Suisse romande.',
+    description: "Agence digitale à Genève (quartier des Eaux-Vives) spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME. 700+ clients accompagnés en Suisse romande depuis 2015.",
     url: BASE_URL,
     telephone: '+41799407969',
     email: 'dk@dkdp.ch',
@@ -14,6 +14,7 @@ export function buildLocalBusiness() {
       '@type': 'PostalAddress',
       streetAddress: 'Rue du 31 Décembre 36',
       addressLocality: 'Genève',
+      addressRegion: 'Genève',
       postalCode: '1207',
       addressCountry: 'CH',
     },
@@ -78,6 +79,79 @@ export function buildService({ name, url, description }: { name: string; url: st
       name: 'Genève, Suisse romande',
     },
     serviceType: name,
+  }
+}
+
+/**
+ * Service combiné à LocalBusiness (GEO-optimized).
+ * Émet un seul graph {Service, LocalBusiness} lié par @id, avec areaServed
+ * détaillé (8 villes romandes) et offers chiffrés. Utilisé sur les pages
+ * services pilier et les pages ville pour maximiser les citations AI Overviews.
+ */
+export function buildServiceWithLocalBusiness({
+  name,
+  url,
+  description,
+  serviceType,
+  priceFrom,
+  priceCurrency = 'CHF',
+  priceSpecDescription,
+  extraAreas = [],
+}: {
+  name: string
+  url: string
+  description: string
+  serviceType: string
+  priceFrom?: number | string
+  priceCurrency?: string
+  priceSpecDescription?: string
+  extraAreas?: string[]
+}) {
+  const areasRomandes = [
+    { '@type': 'City', name: 'Genève' },
+    { '@type': 'City', name: 'Lausanne' },
+    { '@type': 'City', name: 'Nyon' },
+    { '@type': 'City', name: 'Morges' },
+    { '@type': 'City', name: 'Fribourg' },
+    { '@type': 'City', name: 'Neuchâtel' },
+    { '@type': 'City', name: 'Sion' },
+    { '@type': 'City', name: 'Montreux' },
+    { '@type': 'AdministrativeArea', name: 'Suisse romande' },
+    ...extraAreas.map((a) => ({ '@type': 'City', name: a })),
+  ]
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        '@id': `${BASE_URL}${url}#service`,
+        name,
+        description,
+        url: `${BASE_URL}${url}`,
+        serviceType,
+        provider: { '@id': 'https://dkdp.ch/#local-business' },
+        areaServed: areasRomandes,
+        ...(priceFrom
+          ? {
+              offers: {
+                '@type': 'Offer',
+                priceCurrency,
+                price: String(priceFrom),
+                priceSpecification: {
+                  '@type': 'PriceSpecification',
+                  priceCurrency,
+                  price: String(priceFrom),
+                  description: priceSpecDescription ?? `À partir de ${priceCurrency} ${priceFrom}`,
+                },
+                availability: 'https://schema.org/InStock',
+                url: `${BASE_URL}${url}`,
+              },
+            }
+          : {}),
+      },
+      buildLocalBusiness(),
+    ],
   }
 }
 

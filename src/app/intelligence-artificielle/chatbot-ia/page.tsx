@@ -22,7 +22,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildService, buildFAQPage, buildBreadcrumbList, buildWebPageWithSpeakable } from '@/lib/schema'
+import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList, buildWebPageWithSpeakable } from '@/lib/schema'
 import { chrome, violet } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() =>
@@ -36,33 +36,41 @@ const Testimonials = dynamic(() =>
 )
 
 export const metadata: Metadata = {
-  title: 'Chatbot IA sur mesure pour entreprises à Genève | DKDP',
+  title: 'Chatbot IA Genève | Claude, GPT-5, WhatsApp | DKDP',
   description:
-    'Chatbot IA sur mesure pour PME à Genève. Support client 24/7, qualification de leads, prise de RDV automatique. Des CHF 2 900. déployé en 2-5 semaines.',
-  alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia' },
+    'Création de chatbots IA pour PME Genève : support 24/7, qualification leads, prise RDV. Basés Claude (Anthropic), GPT-5. Intégration WhatsApp, site web, Messenger. Déploiement 2 semaines.',
+  alternates: {
+    canonical: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
+      'x-default': 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
+    },
+  },
   openGraph: {
-    title: 'Chatbot IA sur mesure pour entreprises à Genève | DKDP',
+    title: 'Chatbot IA Genève | Claude, GPT-5, WhatsApp | DKDP',
     description:
-      'Chatbot IA concu pour votre métier : support client 24/7, qualification de leads, prise de rendez-vous automatique. Agence DKDP, Geneve.',
+      "Chatbot IA conçu pour votre métier : support client 24/7, qualification de leads, prise de rendez-vous automatique. Moteurs Claude Opus 4.7, GPT-5, Gemini 3. Agence DKDP, Genève.",
     url: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
     type: 'website',
     locale: 'fr_CH',
     siteName: 'DKDP',
-    images: [{ url: '/images/og/chatbot-ia.png', width: 1376, height: 768, alt: 'Chatbot IA sur mesure entreprise Genève DKDP' }],
+    images: [{ url: '/images/og/chatbot-ia.png', width: 1376, height: 768, alt: 'Chatbot IA sur mesure Genève propulsé par Claude et GPT-5, agence DKDP' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Chatbot IA sur mesure pour entreprises à Genève | DKDP',
+    title: 'Chatbot IA Genève | Claude, GPT-5, WhatsApp | DKDP',
     description:
-      'Chatbot IA concu pour votre métier : support 24/7, leads qualifies, RDV automatiques. Des CHF 2\'900. Agence DKDP Geneve.',
+      "Chatbot IA conçu pour votre métier : support 24/7, leads qualifiés, RDV automatiques. Dès CHF 2'900. Agence DKDP Genève.",
   },
   keywords: [
-    'chatbot IÀ Genève',
+    'chatbot IA Genève',
     'chatbot entreprise Suisse',
+    'chatbot Claude',
+    'chatbot GPT-5',
+    'chatbot WhatsApp PME',
+    'chatbot souverain Suisse',
     'assistant virtuel PME',
     'chatbot sur mesure',
-    'automatisation service client',
-    'chatbot IA suisse romande',
     'DKDP',
   ],
 }
@@ -71,44 +79,64 @@ export const metadata: Metadata = {
 
 const FAQ = [
   {
-    question: 'Combien coute un chatbot IA sur mesure ?',
+    question: 'Chatbot vs agent IA : quelle différence ?',
     answer:
-      'Un chatbot essentiel demarre a CHF 2\'900. Les formules plus avancees avec connexion a vos outils métier se situent entre CHF 5\'500 et CHF 12\'000. DKDP fournit un devis fixe avant demarrage, sans surprises.',
+      "Un chatbot répond à des questions dans une conversation, généralement sur votre site ou WhatsApp. Un agent IA va plus loin : il prend des décisions autonomes, exécute des actions dans vos outils (CRM, ERP, calendrier) et peut chaîner plusieurs tâches. Un chatbot qui déclenche un workflow Zapier devient de facto un agent. DKDP déploie les deux selon votre besoin, avec un continuum : on commence souvent par un chatbot Essentiel, on évolue vers un agent quand les cas d'usage s'étendent.",
+  },
+  {
+    question: 'Claude ou GPT pour mon chatbot ?',
+    answer:
+      "Claude Opus 4.7 (Anthropic) pour les chatbots qui raisonnent sur de longs documents : contrats, FAQ techniques, bases juridiques, dossiers médicaux anonymisés. Meilleur choix si vos clients posent des questions complexes. GPT-5 (OpenAI) pour les chatbots multimodaux (photos, PDF, audio) : idéal pour le support technique ou médical avec pièces jointes. Gemini 3 (Google) si vous êtes déjà dans Google Workspace. Tous nos chatbots sont connectés à votre base documentaire privée (RAG) pour répondre avec vos propres contenus, jamais en hallucinant.",
+  },
+  {
+    question: 'Peut-on utiliser une IA souveraine Suisse pour mon chatbot ?',
+    answer:
+      "Oui. Pour les secteurs régulés (fiduciaire, médical, juridique, banque privée, RH) on propose Infomaniak Euria (IA suisse hébergée à Genève et Winterthur) ou Swisscom Swiss AI Assistant. On peut aussi déployer Mistral Large 2 ou Llama 4 auto-hébergés sur un VPS Suisse. Les données ne quittent jamais le territoire. Un DPA est systématiquement signé. Coût légèrement supérieur (environ +15 à 25 %) mais conformité nLPD 2023 et secret professionnel garantis.",
+  },
+  {
+    question: "Comment intégrer le chatbot sur WhatsApp ?",
+    answer:
+      "Via WhatsApp Business API (Twilio ou 360dialog). On demande un numéro business à votre nom, on le relie au chatbot et on obtient la validation Meta en 2 à 5 jours. Le chatbot répond alors automatiquement sur WhatsApp avec votre identité de marque, gère les escalades vers vos conseillers et synchronise les conversations dans votre CRM. Particulièrement efficace pour les agences immobilières, les cabinets médicaux et les boutiques e-commerce.",
+  },
+  {
+    question: "Combien coûte un chatbot IA sur mesure ?",
+    answer:
+      "Un chatbot Essentiel démarre à CHF 2 900 (réponses aux questions fréquentes, site web, déploiement 2 semaines). Les formules avec connexion à vos outils métier (CRM, agenda, ERP) se situent entre CHF 5 500 et CHF 12 000. Pour des chatbots multi-canal avec RAG sur base documentaire volumineuse, chiffrage sur devis. Tarif fixe fourni avant démarrage, pas de surprises. Maintenance mensuelle en option dès CHF 250/mois.",
   },
   {
     question: 'Combien de temps faut-il pour déployer un chatbot ?',
     answer:
-      'Entre 2 et 5 semaines selon la complexite. Un chatbot qui repond aux questions frequentes peut etre operationnel en 2 semaines. Un assistant connecte a votre CRM ou système de reservation prend 4 a 5 semaines.',
+      "Entre 2 et 5 semaines selon la complexité. Un chatbot Essentiel qui répond aux questions fréquentes est opérationnel en 2 semaines. Un assistant connecté à votre CRM ou système de réservation (Cal.com, Calendly) prend 4 à 5 semaines. Un chatbot multi-canal (site + WhatsApp + Messenger) avec RAG sur documentation privée se déploie en 5 à 6 semaines.",
   },
   {
-    question: 'Est-ce que mes données restent confidentielles ?',
+    question: 'Mes données clients sont-elles protégées ?',
     answer:
-      'Oui. DKDP heberge les chatbots sur des infrastructures européennes conformes au RGPD. Vos données ne sont jamais utilisees pour entraîner des modèles tiers. On vous explique exactement ou vos données transitent avant le déploiement.',
+      "Oui. DKDP héberge les chatbots sur infrastructures européennes conformes RGPD ou sur serveur Suisse (Infomaniak) si vos contraintes nLPD l'exigent. Vos données ne sont jamais utilisées pour entraîner des modèles tiers (clause contractuelle explicite avec Anthropic, OpenAI, Google). On vous explique exactement où vos données transitent avant le déploiement. DPA systématiquement signé.",
   },
   {
-    question: 'Est-ce que le chatbot peut se tromper ou inventer des reponses ?',
+    question: "Est-ce que le chatbot peut se tromper ou inventer des réponses ?",
     answer:
-      'Tout système IA a des limites. C\'est pourquoi DKDP configure chaque chatbot avec des garde-fous : il repond uniquement a partir de vos contenus valides, et transfere vers un humain quand la question depasse son perimetre. On teste rigoureusement avant la mise en ligne.',
+      "Tout système IA a des limites. C'est pourquoi DKDP configure chaque chatbot avec des garde-fous : il répond uniquement à partir de vos contenus validés (RAG avec seuil de confiance), et transfère vers un humain quand la question dépasse son périmètre. On teste rigoureusement avant la mise en ligne avec un corpus de 50 à 100 questions métier. Les hallucinations sont réduites à moins de 2 % sur les cas d'usage DKDP 2026.",
   },
   {
-    question: 'Qui maintient le chatbot apres la mise en ligne ?',
+    question: 'Qui maintient le chatbot après la mise en ligne ?',
     answer:
-      'DKDP propose un suivi mensuel inclus dans les formules Pro et Sur mesure. On analyse les conversations, on ajuste les reponses et on ajoute de nouveaux contenus selon vos retours. Vous n\'avez rien de technique a gérer.',
+      "DKDP propose un suivi mensuel inclus dans les formules Pro et Sur mesure (3 mois inclus). On analyse les conversations, on ajuste les réponses, on ajoute de nouveaux contenus selon vos retours. Vous n'avez rien de technique à gérer. Au-delà, la maintenance mensuelle continue dès CHF 250/mois (logs, monitoring, ajustements prompts, ajout de nouvelles FAQ).",
   },
   {
-    question: 'Le chatbot peut-il etre connecte a mes outils existants ?',
+    question: 'Le chatbot peut-il être connecté à mes outils existants ?',
     answer:
-      'Oui. Calendriers de reservation (Cal.com, Calendly), CRM (HubSpot, Pipedrive), systèmes de ticketing, bases de données internes. On s\'adapté a votre stack existant sans tout reconstruire.',
+      "Oui. Calendriers de réservation (Cal.com, Calendly), CRM (HubSpot, Pipedrive, Salesforce, Zoho), systèmes de ticketing (Zendesk, Intercom), ERP (Bexio, Abacus), bases de données internes, Google Workspace, Microsoft 365. On s'adapte à votre stack existant sans tout reconstruire, via API ou webhooks n8n/Make.",
   },
   {
     question: 'Avec quelles plateformes et CMS le chatbot est-il compatible ?',
     answer:
-      'Le chatbot s\'intègre via un simple script a coller dans votre site, sans refonte. Compatible avec Webflow, WordPress, Shopify, Wix, Squarespace, ainsi que les sites sur mesure (Next.js, Astro, Laravel, PHP). L\'installation prend 15 minutes et DKDP s\'occupe de l\'integration de bout en bout.',
+      "Le chatbot s'intègre via un simple script à coller dans votre site, sans refonte. Compatible avec Webflow, WordPress, Shopify, Wix, Squarespace, HubSpot CMS, Framer, ainsi que les sites sur mesure (Next.js, Astro, Laravel, PHP). L'installation prend 15 minutes et DKDP s'occupe de l'intégration de bout en bout.",
   },
   {
     question: 'Est-ce que le chatbot remplace mon équipe ?',
     answer:
-      'Non, et ce n\'est pas l\'objectif. Le chatbot prend en charge les demandes repetitives et les horaires ou personne n\'est disponible. Votre équipe se concentre sur les echanges a forte valeur ajoutee. C\'est un outil, pas un remplacement.',
+      "Non, et ce n'est pas l'objectif. Le chatbot prend en charge les demandes répétitives et les horaires où personne n'est disponible. Votre équipe se concentre sur les échanges à forte valeur ajoutée. C'est un outil, pas un remplacement. Sur les déploiements DKDP 2026, les équipes support libèrent en moyenne 40 à 60 % de leur temps sur les tickets de niveau 1.",
   },
 ]
 
@@ -258,11 +286,14 @@ export default function ChatbotIAPage() {
     <main>
       {/* ── Schema.org ── */}
       <SchemaOrg
-        schema={buildService({
-          name: 'Chatbot IA sur mesure pour entreprises à Genève',
+        schema={buildServiceWithLocalBusiness({
+          name: 'Chatbot IA sur mesure à Genève',
           url: '/intelligence-artificielle/chatbot-ia',
           description:
-            'Conception, développement et déploiement de chatbots IA sur mesure pour PME à Genève et en Suisse romande. Support client 24/7, qualification de leads, prise de rendez-vous automatisée. Des CHF 2900.',
+            "Conception et déploiement de chatbots IA sur mesure pour PME à Genève et en Suisse romande. Propulsés par Claude Opus 4.7 (Anthropic), GPT-5 (OpenAI) ou Gemini 3 (Google). Intégration WhatsApp Business, site web, Messenger. RAG sur base documentaire privée. Conforme nLPD 2023, hébergement Suisse disponible.",
+          serviceType: 'Développement de chatbot IA sur mesure',
+          priceFrom: 2900,
+          priceSpecDescription: "À partir de CHF 2'900 pour un chatbot Essentiel déployé en 2 semaines",
         })}
       />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
@@ -355,7 +386,7 @@ export default function ChatbotIAPage() {
                     Discuter de mon projet<span aria-hidden="true"> →</span>
                   </LiquidMetalButton>
                   <Link
-                    href="#comment-ca-marché"
+                    href="#comment-ca-marche"
                     className="text-sm text-text-muted hover:text-white transition-colors"
                   >
                     Comment ca marché ↓
@@ -491,7 +522,8 @@ export default function ChatbotIAPage() {
       <ScrollSpyNav
         items={[
           { label: 'Bénéfices', href: '#benefices' },
-          { label: 'Processus', href: '#comment-ca-marché' },
+          { label: 'Modèle IA', href: '#modele-ia' },
+          { label: 'Processus', href: '#comment-ca-marche' },
           { label: "Cas d'usage", href: '#cas-usage' },
           { label: 'Offres', href: '#offres' },
           { label: 'FAQ', href: '#faq' },
@@ -539,6 +571,95 @@ export default function ChatbotIAPage() {
               </SectionReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Modèle IA (GEO : entités LLM nommées) ── */}
+      <section id="modele-ia" className="py-24 scroll-mt-[124px]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <GradTag className="mb-4">Moteur IA</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto mb-4">
+                Quel modèle IA pour votre chatbot ?
+              </h2>
+              <p className="text-text-secondary max-w-2xl mx-auto leading-relaxed">
+                On choisit le moteur IA selon vos contraintes métier, budget et souveraineté des données. Tous nos chatbots fonctionnent en RAG sur votre base documentaire privée, jamais en hallucinant.
+              </p>
+            </div>
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                name: 'Claude Opus 4.7',
+                provider: 'Anthropic',
+                accentColor: violet.color,
+                accentBg: 'rgba(167,139,250,0.08)',
+                accentBorder: 'rgba(167,139,250,0.22)',
+                pitch: 'Raisonnement long, documents volumineux, analyses juridiques ou techniques.',
+                useCase: 'Fiduciaire, juridique, support technique niveau 2',
+              },
+              {
+                name: 'GPT-5',
+                provider: 'OpenAI',
+                accentColor: chrome.color,
+                accentBg: 'rgba(212,212,216,0.06)',
+                accentBorder: 'rgba(212,212,216,0.18)',
+                pitch: 'Multimodal : texte, image, voix. Pièces jointes traitées nativement.',
+                useCase: 'Support technique, médical avec pièces jointes, e-commerce',
+              },
+              {
+                name: 'Gemini 3',
+                provider: 'Google',
+                accentColor: '#60a5fa',
+                accentBg: 'rgba(96,165,250,0.06)',
+                accentBorder: 'rgba(96,165,250,0.20)',
+                pitch: 'Intégration native Google Workspace, Gmail, Drive, Docs.',
+                useCase: 'Équipes déjà 100 % Google, onboarding RH',
+              },
+              {
+                name: 'Infomaniak Euria',
+                provider: 'IA souveraine Suisse',
+                accentColor: '#4ade80',
+                accentBg: 'rgba(74,222,128,0.06)',
+                accentBorder: 'rgba(74,222,128,0.20)',
+                pitch: 'Hébergée 100 % en Suisse (Genève, Winterthur). nLPD 2023 par défaut.',
+                useCase: 'Secteurs régulés : médical, juridique, banque privée, RH',
+              },
+            ].map((m, i) => (
+              <SectionReveal key={m.name} delay={i * 0.08}>
+                <div
+                  className="flex flex-col h-full rounded-[16px] border p-6"
+                  style={{ background: m.accentBg, borderColor: m.accentBorder }}
+                >
+                  <div className="mb-3">
+                    <p className="text-white font-bold text-base">{m.name}</p>
+                    <p className="text-[11px] uppercase tracking-wider mt-0.5" style={{ color: m.accentColor }}>
+                      {m.provider}
+                    </p>
+                  </div>
+                  <p className="text-text-secondary text-sm leading-relaxed mb-4 flex-1">{m.pitch}</p>
+                  <div className="pt-3 border-t" style={{ borderColor: m.accentBorder }}>
+                    <p className="text-[10px] font-bold uppercase tracking-wider mb-1" style={{ color: m.accentColor }}>
+                      Idéal pour
+                    </p>
+                    <p className="text-text-muted text-xs leading-relaxed">{m.useCase}</p>
+                  </div>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+
+          <SectionReveal>
+            <p className="text-text-muted text-sm text-center mt-8 max-w-2xl mx-auto leading-relaxed">
+              On propose également <strong className="text-white">Mistral Large 2</strong> et <strong className="text-white">Llama 4</strong> auto-hébergés sur serveur Suisse quand la souveraineté est contractuelle. Pour comparer les modèles grand public, lisez notre guide{' '}
+              <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-white transition-colors">
+                ChatGPT, Claude ou Copilot pour votre PME
+              </Link>
+              .
+            </p>
+          </SectionReveal>
         </div>
       </section>
 
@@ -627,7 +748,7 @@ export default function ChatbotIAPage() {
 
       {/* ── Comment ca marché ── */}
       <section
-        id="comment-ca-marché"
+        id="comment-ca-marche"
         className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]"
       >
         <div className="max-w-[1200px] mx-auto px-6">

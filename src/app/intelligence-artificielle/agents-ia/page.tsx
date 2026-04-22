@@ -21,18 +21,26 @@ import dynamic from 'next/dynamic'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const AgentTypesGrid = dynamic(() => import('./_components/AgentTypesGrid').then(m => m.AgentTypesGrid))
 
 export const metadata: Metadata = {
-  title: 'Agents IA sur mesure pour entreprises à Genève | DKDP',
-  description: "Développement d'agents IA sur mesure pour PME à Genève et en Suisse romande. Automatisation, support client, analyse de données. Opérationnel en 2 semaines.",
-  alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/agents-ia' },
+  title: 'Agents IA sur mesure Genève | Claude, GPT-5, LangChain | DKDP',
+  description:
+    "Développement d'agents IA autonomes pour PME romandes : assistants virtuels, agents commerciaux, RAG. Technologies Claude Anthropic, GPT-5, LangChain, n8n. Devis 48 h.",
+  alternates: {
+    canonical: 'https://dkdp.ch/intelligence-artificielle/agents-ia',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/intelligence-artificielle/agents-ia',
+      'x-default': 'https://dkdp.ch/intelligence-artificielle/agents-ia',
+    },
+  },
   openGraph: {
-    images: [{ url: '/images/og/agents-ia.png', width: 1376, height: 768, alt: 'Agents IA sur mesure entreprise Genève DKDP' }],
+    url: 'https://dkdp.ch/intelligence-artificielle/agents-ia',
+    images: [{ url: '/images/og/agents-ia.png', width: 1376, height: 768, alt: "Agents IA sur mesure Genève : Claude, GPT-5, LangChain par DKDP" }],
   },
 }
 
@@ -68,7 +76,27 @@ const FAQ_ITEMS = [
   {
     question: "Que se passe-t-il si l'agent commet une erreur ?",
     answer:
-      "Chaque agent est concu avec un seuil de confiance. En dessous de ce seuil, il escalade automatiquement vers un humain plutot que de répondre de facon incorrecte. Les erreurs sont loggées et analysées lors du suivi mensuel. Dans les premières semaines, on recommande une validation humaine sur un sous-ensemble des interactions pour calibrer le comportement.",
+      "Chaque agent est conçu avec un seuil de confiance. En dessous de ce seuil, il escalade automatiquement vers un humain plutôt que de répondre de façon incorrecte. Les erreurs sont loggées et analysées lors du suivi mensuel. Dans les premières semaines, on recommande une validation humaine sur un sous-ensemble des interactions pour calibrer le comportement.",
+  },
+  {
+    question: "Claude ou ChatGPT pour mon entreprise ?",
+    answer:
+      "On choisit le modèle selon votre cas d'usage. Claude Opus 4.7 (Anthropic) est privilégié pour les agents qui raisonnent sur du texte long, analysent des documents volumineux (contrats, rapports, base documentaire) et manipulent des outils métier. GPT-5 (OpenAI) est préféré pour les agents multimodaux (texte, image, voix) et les intégrations larges. Gemini 3 (Google) s'impose quand votre stack est 100 % Google Workspace. Pour les secteurs régulés (médical, juridique, finance), on propose aussi Mistral, Llama 4 auto-hébergés ou les solutions souveraines suisses (Infomaniak Euria, Swisscom Swiss AI Assistant).",
+  },
+  {
+    question: "Mes données sont-elles hébergées en Suisse ?",
+    answer:
+      "Oui, si vos contraintes réglementaires (nLPD 2023, secret bancaire, secret médical) l'exigent. On déploie alors l'agent sur un VPS Infomaniak en Suisse ou sur votre infrastructure on-premise, avec LangChain/LangGraph pour l'orchestration et Qdrant ou Weaviate self-hosted comme base vectorielle. Les données ne quittent jamais le territoire suisse. Un accord de confidentialité et un DPA (Data Processing Agreement) sont signés avant tout démarrage.",
+  },
+  {
+    question: "Quel ROI attendre d'un agent IA commercial ?",
+    answer:
+      "Sur les déploiements DKDP 2026, un agent de qualification commerciale libère en moyenne 15 heures par semaine sur l'équipe sales, traite plus de 100 leads par jour et améliore le taux de conversion de 20 à 35 % (meilleur scoring, relances plus précises, enrichissement CRM automatique). Le retour sur investissement est généralement atteint entre 2 et 4 mois pour une PME de 5 à 30 collaborateurs. On vous livre une projection ROI chiffrée lors de l'audit initial gratuit.",
+  },
+  {
+    question: "Combien de temps pour déployer un agent IA sur mesure ?",
+    answer:
+      "Un agent Starter (1 cas d'usage, 1 canal) est livré en production en 2 semaines. Un agent Pro (multi-canal, intégrations CRM et outils métier, jusqu'à 3 agents coordonnés) prend 4 à 6 semaines. Les projets plus complexes (agents RAG sur base documentaire volumineuse, orchestration LangGraph multi-agents, intégrations spécifiques type Bexio, HubSpot, Salesforce) sont chiffrés sur devis, avec une première version testable en 3 à 4 semaines.",
   },
 ]
 
@@ -77,11 +105,14 @@ export default function AgentsIAPage() {
   return (
     <main>
       <SchemaOrg
-        schema={buildService({
-          name: 'Agents IA sur mesure Genève',
+        schema={buildServiceWithLocalBusiness({
+          name: 'Agents IA sur mesure à Genève',
           url: '/intelligence-artificielle/agents-ia',
           description:
-            'Des agents IA sur mesure qui automatisent vos tâches répétitives, répondent à vos clients et analysent vos données. Déployés en 2 semaines pour votre métier.',
+            "Développement d'agents IA autonomes pour PME romandes : assistants virtuels, agents commerciaux, agents de support et RAG. Technologies Claude (Anthropic), GPT-5 (OpenAI), LangChain, LangGraph, n8n. Hébergement Suisse possible, conforme nLPD 2023 et RGPD.",
+          serviceType: 'Développement d\'agents IA sur mesure',
+          priceFrom: 2500,
+          priceSpecDescription: 'À partir de CHF 2 500 pour un agent Starter (1 canal, 2 semaines, clé en main)',
         })}
       />
       <SchemaOrg schema={buildFAQPage(FAQ_ITEMS)} />
@@ -179,8 +210,9 @@ export default function AgentsIAPage() {
       <ScrollSpyNav
         items={[
           { label: 'Comment ça fonctionne', href: '#fonctionnement' },
+          { label: 'Stack technique', href: '#stack-technique' },
           { label: "Types d'agents", href: '#types-agents' },
-          { label: 'Processus', href: '#comment-ca-marché' },
+          { label: 'Processus', href: '#comment-ca-marche' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
         ]}
@@ -234,6 +266,98 @@ export default function AgentsIAPage() {
         </div>
       </section>
 
+      {/* ── Stack technique (GEO : entités nommées pour citations AI) ── */}
+      <section id="stack-technique" className="py-24 border-y border-border scroll-mt-[124px]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <GradTag className="mb-4">Stack technique</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto mb-4">
+                Les technologies IA que nous maîtrisons pour vos agents sur mesure.
+              </h2>
+              <p className="text-text-secondary max-w-2xl mx-auto leading-relaxed">
+                On construit vos agents avec les meilleures briques du marché 2026. Le choix dépend de votre cas d&apos;usage, de votre budget et de vos contraintes de souveraineté (nLPD, RGPD, hébergement Suisse).
+              </p>
+            </div>
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+            {[
+              {
+                label: 'Modèles LLM',
+                accent: violet,
+                accentBg: 'rgba(167,139,250,0.08)',
+                accentBorder: 'rgba(167,139,250,0.22)',
+                items: [
+                  { name: 'Claude Opus 4.7 (Anthropic)', desc: 'Raisonnement long, analyse de documents, manipulation d\'outils. Le meilleur choix pour les agents métiers sensibles.' },
+                  { name: 'GPT-5 (OpenAI)', desc: 'Agents multimodaux : texte, image, voix. Large écosystème d\'intégrations.' },
+                  { name: 'Gemini 3 (Google)', desc: 'Intégration native Google Workspace. Parfait pour les équipes déjà sur Gmail, Drive, Docs.' },
+                ],
+              },
+              {
+                label: 'Orchestration',
+                accent: color,
+                accentBg: bg,
+                accentBorder: border,
+                items: [
+                  { name: 'LangChain', desc: 'Framework de référence pour chaîner des appels LLM, outils et mémoires.' },
+                  { name: 'LangGraph', desc: 'Orchestration d\'agents complexes en graphe : routage, validation, escalade.' },
+                  { name: 'n8n / Make / Zapier', desc: 'Connecte vos agents à Bexio, Salesforce, HubSpot, Google Workspace, WhatsApp.' },
+                ],
+              },
+              {
+                label: 'Bases vectorielles (RAG)',
+                accent: green,
+                accentBg: 'rgba(74,222,128,0.06)',
+                accentBorder: 'rgba(74,222,128,0.20)',
+                items: [
+                  { name: 'Pinecone', desc: 'Vector DB managée, haute performance, idéal pour les grandes bases documentaires.' },
+                  { name: 'Weaviate / Qdrant', desc: 'Alternatives open-source, auto-hébergeables en Suisse pour les données sensibles.' },
+                  { name: 'Embeddings Cohere & OpenAI', desc: 'Pour transformer votre documentation privée en mémoire d\'agent.' },
+                ],
+              },
+            ].map((group, i) => (
+              <SectionReveal key={group.label} delay={i * 0.08}>
+                <div
+                  className="flex flex-col h-full rounded-[16px] border p-6"
+                  style={{ background: group.accentBg, borderColor: group.accentBorder }}
+                >
+                  <p
+                    className="text-[10px] font-bold uppercase tracking-widest mb-4"
+                    style={{ color: group.accent }}
+                  >
+                    {group.label}
+                  </p>
+                  <div className="flex flex-col gap-4 flex-1">
+                    {group.items.map((item) => (
+                      <div key={item.name}>
+                        <p className="text-white font-semibold text-sm mb-1">{item.name}</p>
+                        <p className="text-text-muted text-xs leading-relaxed">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+
+          <SectionReveal>
+            <div
+              className="rounded-[16px] p-6 border text-center"
+              style={{ background: 'rgba(212,212,216,0.04)', borderColor: border }}
+            >
+              <p className="text-text-secondary text-sm leading-relaxed max-w-3xl mx-auto">
+                Pour les secteurs régulés (fiduciaire, médical, juridique, RH), on propose également <strong className="text-white">Mistral Large 2</strong> et <strong className="text-white">Llama 4</strong> auto-hébergés sur serveur Suisse, ainsi que les solutions souveraines <strong className="text-white">Infomaniak Euria</strong> et <strong className="text-white">Swisscom Swiss AI Assistant</strong>. Vos données ne quittent jamais le territoire. Pour comparer les 3 modèles grand public, consultez notre guide{' '}
+                <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-white transition-colors">
+                  ChatGPT, Claude ou Copilot : lequel choisir pour votre PME
+                </Link>
+                .
+              </p>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       {/* ── Types d'agents ── */}
       <section id="types-agents" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -241,8 +365,11 @@ export default function AgentsIAPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Nos agents</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-2xl mx-auto">
-                Nos agents IA pour entreprises : qualification, support et analyse.
+                Nos agents IA : commercial, support et analyse, connectés à votre stack.
               </h2>
+              <p className="text-text-secondary max-w-2xl mx-auto mt-4 text-sm">
+                Trois patterns éprouvés, déployables en 2 à 6 semaines, alimentés par Claude Opus 4.7 ou GPT-5 selon vos exigences.
+              </p>
             </div>
           </SectionReveal>
 
@@ -250,45 +377,48 @@ export default function AgentsIAPage() {
             {[
               {
                 Icon: Users,
-                title: 'Agent de qualification commerciale',
+                title: 'Agent commercial',
+                stack: 'Claude Opus 4.7 + HubSpot + Bexio via n8n',
                 accent: violet,
                 accentBg: 'rgba(167,139,250,0.08)',
                 accentBorder: 'rgba(167,139,250,0.20)',
-                pourQui: 'Pour les équipes sales et les PME avec des leads entrants',
+                pourQui: 'Équipes sales et PME avec des leads entrants',
                 capabilities: [
                   'Traite plus de 100 leads par jour sans effort humain',
                   'Pose les questions de qualification selon votre script',
-                  'Classe et enrichit votre CRM automatiquement',
+                  'Enrichit HubSpot, Pipedrive ou Salesforce automatiquement',
                 ],
-                roi: '15h libérées par semaine en moyenne',
+                roi: '15 h libérées par semaine en moyenne',
               },
               {
                 Icon: MessageSquare,
                 title: 'Agent de support client',
+                stack: 'RAG sur base Notion ou Confluence, déployé sur WhatsApp Business via Twilio',
                 accent: green,
                 accentBg: 'rgba(74,222,128,0.06)',
                 accentBorder: 'rgba(74,222,128,0.18)',
-                pourQui: 'Pour les e-commerces, SaaS et services avec forte volumétrie',
+                pourQui: 'E-commerces, SaaS et services à forte volumétrie',
                 capabilities: [
-                  'Réduit le volume de tickets de 70% en moyenne',
-                  'Disponible 24h/24, répond en moins de 3 secondes',
-                  'Escalade les cas complexes avec le contexte complet',
+                  'Réduit le volume de tickets de 70 % en moyenne',
+                  'Disponible 24 h/24, répond en moins de 3 secondes',
+                  'Escalade les cas complexes vers Zendesk ou Intercom',
                 ],
-                roi: 'CSAT client +25 points en 3 mois',
+                roi: 'CSAT +25 points en 3 mois',
               },
               {
                 Icon: BarChart3,
                 title: "Agent d'analyse et reporting",
+                stack: 'GPT-5 ou Claude Sonnet 4.6, intégré à Slack + Google Workspace',
                 accent: color,
                 accentBg: bg,
                 accentBorder: border,
-                pourQui: 'Pour les managers et directions qui pilotent par les données',
+                pourQui: 'Managers et directions qui pilotent par les données',
                 capabilities: [
-                  'Lit vos fichiers, bases de données et tableaux de bord',
-                  'Produit des rapports lisibles et actionnables',
-                  'Alerte sur les anomalies ou tendances critiques',
+                  'Lit vos CSV, Excel, BigQuery ou Airtable',
+                  'Produit des rapports lisibles postés dans Slack',
+                  'Alerte sur anomalies et tendances critiques',
                 ],
-                roi: '3h de reporting hebdomadaire éliminées',
+                roi: '3 h de reporting hebdomadaire éliminées',
               },
             ].map((agent, i) => (
               <SectionReveal key={agent.title} delay={i * 0.1}>
@@ -303,7 +433,13 @@ export default function AgentsIAPage() {
                     <agent.Icon size={22} style={{ color: agent.accent }} />
                   </div>
                   <h3 className="text-white font-bold text-lg mb-2">{agent.title}</h3>
-                  <p className="text-[11px] font-semibold uppercase tracking-wider mb-4" style={{ color: agent.accent }}>
+                  <p
+                    className="text-[10px] font-medium mb-3 leading-snug"
+                    style={{ color: agent.accent }}
+                  >
+                    <span className="uppercase tracking-wider font-bold">Stack : </span>{agent.stack}
+                  </p>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider mb-4 text-text-muted">
                     Pour qui : {agent.pourQui}
                   </p>
                   <div className="flex flex-col gap-2 flex-1 mb-5">
@@ -331,7 +467,7 @@ export default function AgentsIAPage() {
       </section>
 
       {/* ── Processus ── */}
-      <section id="comment-ca-marché" className="py-24 scroll-mt-[124px]">
+      <section id="comment-ca-marche" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">

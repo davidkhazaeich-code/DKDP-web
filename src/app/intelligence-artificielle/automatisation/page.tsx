@@ -28,7 +28,7 @@ import dynamic from 'next/dynamic'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
@@ -36,12 +36,19 @@ const WorkflowDiagram = dynamic(() => import('./_components/WorkflowDiagram').th
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: 'Automatisation IA pour PME Genève | Workflows sans code | DKDP',
+  title: 'Automatisation n8n, Make, Zapier pour PME Suisse | DKDP',
   description:
-    'Automatisation IA pour PME avec Make, Zapier et n8n. Connectez CRM, email et ERP sans code. Livraison en 2 semaines. Genève et Suisse romande.',
-  alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/automatisation' },
+    'Automatisation de vos processus métier via n8n, Make, Zapier. Intégration Bexio, Abacus, Google Workspace, Slack, HubSpot. Gagnez 10 h/semaine. PME Genève Suisse romande. Devis 48 h.',
+  alternates: {
+    canonical: 'https://dkdp.ch/intelligence-artificielle/automatisation',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/intelligence-artificielle/automatisation',
+      'x-default': 'https://dkdp.ch/intelligence-artificielle/automatisation',
+    },
+  },
   openGraph: {
-    images: [{ url: '/images/og/automatisation-ia.png', width: 1376, height: 768, alt: 'Automatisation IA entreprise Genève DKDP' }],
+    url: 'https://dkdp.ch/intelligence-artificielle/automatisation',
+    images: [{ url: '/images/og/automatisation-ia.png', width: 1376, height: 768, alt: 'Automatisation n8n, Make, Zapier pour PME Suisse romande par DKDP' }],
   },
 }
 
@@ -137,7 +144,27 @@ const FAQ = [
   {
     question: "Quelle différence avec un développeur qui code une intégration ?",
     answer:
-      "Une intégration codée est plus rigide et plus coûteuse à maintenir. Si votre CRM change de version ou si vous adoptez un nouvel outil, refactoriser du code prend du temps et de l'argent. Les workflows no-code sont modulaires, visuellement lisibles, et modifiables en quelques minutes. Ils conviennent à 95% des besoins d'automatisation des PME.",
+      "Une intégration codée est plus rigide et plus coûteuse à maintenir. Si votre CRM change de version ou si vous adoptez un nouvel outil, refactoriser du code prend du temps et de l'argent. Les workflows no-code sont modulaires, visuellement lisibles, et modifiables en quelques minutes. Ils conviennent à 95 % des besoins d'automatisation des PME.",
+  },
+  {
+    question: "n8n ou Make : lequel choisir pour ma PME ?",
+    answer:
+      "n8n si vos données sont sensibles (fiduciaire, médical, juridique, RH), si vous voulez un déploiement auto-hébergé en Suisse ou si vous prévoyez des volumes importants. Make (ex-Integromat) si vous voulez un rapport prix/flexibilité optimal et des workflows visuels complexes sans gérer d'infrastructure. Zapier reste pertinent pour un démarrage rapide avec des intégrations standards. On recommande toujours le choix le plus simple qui couvre votre cas d'usage, avec une porte de sortie en cas de croissance.",
+  },
+  {
+    question: "Peut-on héberger n8n en Suisse ?",
+    answer:
+      "Oui. n8n est open-source et s'auto-héberge sur un VPS Infomaniak (Suisse), Exoscale (Suisse) ou sur votre infrastructure on-premise. C'est la seule plateforme d'automatisation majeure qui offre cette option. Les données ne quittent jamais le territoire, vous êtes conformes nLPD 2023 par défaut. Coût d'hébergement : environ CHF 20 à 80 par mois selon la volumétrie. On prend en charge le setup, les mises à jour et la sauvegarde.",
+  },
+  {
+    question: "Quels sont les coûts d'une automatisation n8n ?",
+    answer:
+      "Un premier workflow livré en 2 semaines démarre à CHF 1 500 (tarif fixe, clé en main). Une automatisation multi-étapes avec intégrations métier (Bexio, HubSpot, Salesforce) se situe entre CHF 3 000 et 6 000. Pour les projets complexes (orchestration d'agents IA, RAG sur documentation, facturation multi-devises) on chiffre sur devis. La maintenance mensuelle, optionnelle après les 3 mois inclus, démarre à CHF 250/mois.",
+  },
+  {
+    question: "Mes données restent-elles confidentielles ?",
+    answer:
+      "Oui. Sur un déploiement n8n auto-hébergé Suisse, vos données ne sortent jamais de votre serveur. Sur Make et Zapier (cloud EU), les données transitent mais ne sont pas utilisées pour entraîner des modèles tiers. On signe systématiquement un DPA (Data Processing Agreement) et un accord de confidentialité avant le démarrage. Les credentials (tokens API) sont stockés chiffrés et rotatifs.",
   },
 ]
 
@@ -161,11 +188,14 @@ export default function AutomationPage() {
   return (
     <main>
       <SchemaOrg
-        schema={buildService({
-          name: 'Automatisation métier IA Genève',
+        schema={buildServiceWithLocalBusiness({
+          name: 'Automatisation n8n, Make, Zapier à Genève',
           url: '/intelligence-artificielle/automatisation',
           description:
-            'Workflows sans code qui connectent votre CRM, email et ERP pour éliminer les tâches manuelles répétitives.',
+            'Automatisation des processus métier via n8n (auto-hébergé ou cloud), Make et Zapier. Connecte Bexio, Abacus, HubSpot, Salesforce, Google Workspace, Slack, WhatsApp Business, Stripe. Conforme nLPD 2023, hébergement Suisse possible.',
+          serviceType: 'Automatisation de processus métier',
+          priceFrom: 1500,
+          priceSpecDescription: 'À partir de CHF 1 500 pour un premier workflow automatisé livré en 2 semaines',
         })}
       />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
@@ -199,22 +229,22 @@ export default function AutomationPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Automatisation IA pour PME à Genève</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Automatisation n8n, Make et Zapier pour PME Genève</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
                   Ce qui vous prend <GradText as="span">3h par jour</GradText>, automatisé en <GradText as="span">2 semaines</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  On connecte votre CRM, vos emails et votre ERP avec des workflows IA sur Make, Zapier ou n8n. Fini la saisie manuelle, les relances oubliées et les données perdues entre les outils. Pour les PME en Suisse romande qui veulent gagner du temps sans toucher une ligne de code.
+                  On connecte votre CRM, vos emails et votre ERP avec des workflows IA sur <strong className="text-white">n8n</strong> (auto-hébergeable en Suisse), <strong className="text-white">Make</strong> ou <strong className="text-white">Zapier</strong>. Intégrations natives Bexio, Abacus, HubSpot, Google Workspace, Slack, WhatsApp Business, Stripe. Pour les PME en Suisse romande qui veulent gagner 10 heures par semaine sans toucher une ligne de code.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     Planifier un appel gratuit
                   </LiquidMetalButton>
                   <Link
-                    href="#comment-ca-marché"
+                    href="#comment-ca-marche"
                     className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-white transition-colors"
                   >
-                    Comment ca marché <ArrowRight size={13} />
+                    Comment ça marche <ArrowRight size={13} />
                   </Link>
                 </div>
                 <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
@@ -265,8 +295,9 @@ export default function AutomationPage() {
       <ScrollSpyNav
         items={[
           { label: 'Pourquoi automatiser', href: '#pourquoi' },
+          { label: 'n8n Suisse', href: '#n8n-suisse' },
           { label: 'Outils & intégrations', href: '#outils' },
-          { label: 'Processus', href: '#comment-ca-marché' },
+          { label: 'Processus', href: '#comment-ca-marche' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
         ]}
@@ -322,6 +353,73 @@ export default function AutomationPage() {
       </section>
 
       {/* ── Outils connectés ── */}
+      {/* ── Pourquoi n8n Suisse (GEO + nLPD angle) ── */}
+      <section id="n8n-suisse" className="py-24 scroll-mt-[124px]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <SectionReveal>
+              <GradTag className="mb-4">n8n Suisse</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
+                Pourquoi n8n est la référence pour l&apos;automatisation PME en Suisse.
+              </h2>
+              <p className="text-text-secondary leading-relaxed mb-4">
+                <strong className="text-white">n8n est la seule plateforme d&apos;automatisation qui peut être auto-hébergée sur serveur Suisse</strong>. Vos données ne quittent jamais le pays. Critique pour la conformité <strong className="text-white">nLPD 2023</strong> et pour les secteurs régulés : fiduciaire, médical, juridique, RH, banques privées, assurances.
+              </p>
+              <p className="text-text-secondary leading-relaxed mb-6">
+                On déploie n8n (auto-hébergé chez Infomaniak ou cloud managed), Make (ex-Integromat) et Zapier selon votre cas d&apos;usage et votre budget.
+              </p>
+              <div className="space-y-3">
+                {[
+                  { k: 'n8n self-hosted', v: 'Données sensibles, volumes importants, agents IA custom, sur-mesure sans limite.' },
+                  { k: 'Make (ex-Integromat)', v: 'Workflows visuels complexes, branchements multiples, rapport prix/flexibilité imbattable.' },
+                  { k: 'Zapier', v: 'Démarrage rapide, intégrations standards, équipes non-techniques qui pilotent sans formation longue.' },
+                ].map((row) => (
+                  <div key={row.k} className="flex gap-3">
+                    <CheckCircle2 size={14} className="mt-1 flex-shrink-0" style={{ color }} />
+                    <p className="text-sm text-text-secondary"><strong className="text-white">{row.k} :</strong> {row.v}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionReveal>
+
+            <SectionReveal delay={0.15}>
+              <div
+                className="rounded-[20px] p-7 border"
+                style={{ background: bg, borderColor: border, boxShadow: '0 0 50px rgba(212,212,216,0.06)' }}
+              >
+                <p className="text-[11px] font-bold uppercase tracking-widest mb-5 text-center" style={{ color }}>
+                  Intégrations natives Suisses
+                </p>
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  {[
+                    { cat: 'ERP & compta', names: 'Bexio, Abacus, Sage, Crésus' },
+                    { cat: 'Workspace', names: 'Google Workspace, Microsoft 365' },
+                    { cat: 'Messagerie', names: 'Slack, Teams, WhatsApp Business' },
+                    { cat: 'CRM', names: 'HubSpot, Pipedrive, Salesforce, Zoho' },
+                    { cat: 'Paiements', names: 'Stripe, Twint (webhook), PostFinance' },
+                    { cat: 'Data', names: 'Airtable, Notion, Google Sheets' },
+                  ].map((row) => (
+                    <div
+                      key={row.cat}
+                      className="p-3 rounded-[10px] border"
+                      style={{ background: 'rgba(212,212,216,0.04)', borderColor: border }}
+                    >
+                      <p className="text-[10px] font-bold uppercase tracking-wider mb-1" style={{ color }}>
+                        {row.cat}
+                      </p>
+                      <p className="text-text-secondary text-xs leading-relaxed">{row.names}</p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-text-muted text-[11px] text-center mt-4">
+                  Votre outil métier a une API ? On le connecte.
+                </p>
+              </div>
+            </SectionReveal>
+          </div>
+        </div>
+      </section>
+
       <section id="outils" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -361,7 +459,7 @@ export default function AutomationPage() {
       </section>
 
       {/* ── Process ── */}
-      <section id="comment-ca-marché" className="py-24 scroll-mt-[124px]">
+      <section id="comment-ca-marche" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">

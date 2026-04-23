@@ -236,7 +236,68 @@ IMAGES = [
             "Clean, minimal, premium infographic style. No axis labels visible."
         ),
     },
+    # Article 21 — Limite de session Claude (2026-04-23)
+    {
+        "filename": "limite-session-claude-hero.webp",
+        "aspect": "16:9",
+        "prompt": (
+            "A semi-flat, geometric conceptual illustration representing Claude AI session context management. "
+            "Horizontal split composition on a near-black #050505 background. "
+            "Left side (30 percent): a cluttered overflowing chrome-gray container filled with small disorganized "
+            "geometric fragments, tiny chat bubbles, crumpled rectangles, overlapping text lines. Subtle red warning glow. "
+            "Right side (60 percent): four separate clean rounded containers in a 2x2 grid, each containing one icon "
+            "(lightbulb, document with checkmark, play arrow, magnifier) in minimal stroke style. Subtle chrome glow. "
+            "Between the two sides, four thin flowing lines with small violet dots traveling along. "
+            "One single orange accent dot on one line. Subtle violet blob upper right, brushed metal grain at 2.5 percent. "
+            "No text, no letters, no logos. Dark premium tech, Swiss minimal, editorial."
+        ),
+    },
+    {
+        "filename": "limite-session-claude-courbe-qualite.webp",
+        "aspect": "16:9",
+        "prompt": (
+            "A minimalist editorial data visualization on a deep black background, 16:9 landscape. "
+            "Two smooth S-shaped curves crossing at the exact center of the chart area: "
+            "one in pale cool chrome silver rising from bottom-left to top-right with a gentle S-curve, "
+            "the other in soft lavender violet declining from top-left to bottom-right in a mirrored S-curve. "
+            "Soft translucent fills under each line at low opacity. At the crossing point, a small silver dot "
+            "with a faint radial glow. A single thin dashed vertical line in very dark grey through the crossing. "
+            "Background grid almost invisible, mostly pure negative space. No axis numbers, no labels, no legend, "
+            "no chart title, no text anywhere. Swiss graphic design, dark premium tech, editorial minimalism."
+        ),
+    },
+    {
+        "filename": "limite-session-claude-fractionnement.webp",
+        "aspect": "16:9",
+        "prompt": (
+            "A clean, modern horizontal flow diagram on a near-black background, 16:9 landscape. "
+            "Left side: one large rectangular card representing a monolithic session, with an overloaded visual "
+            "of stacked small icons piled inside, in chrome gray with subtle red-tinted glow indicating overload. "
+            "A curved splitting arrow in violet fans out into four separate clean paths. "
+            "Right side: four small vertical cards in a 2x2 grid, each with a minimal stroke icon "
+            "(lightbulb, document with checkmark, play arrow, magnifying glass) in chrome. "
+            "Rounded corners 12px, subtle chrome glow on each card. "
+            "Connecting curves in dark grey with small violet dots traveling along, one single orange accent dot. "
+            "Lots of negative space, no borders around the overall chart, no text, no labels. "
+            "Swiss minimal, dark premium tech, editorial."
+        ),
+    },
 ]
+
+
+def convert_jpeg_png_to_webp(path: Path) -> None:
+    """Gemini returns JPEG bytes even when filename is .png. If the target is
+    actually a .webp, run cwebp on the raw bytes we wrote. No-op otherwise."""
+    if path.suffix != ".webp":
+        return
+    cwebp = Path("/opt/homebrew/bin/cwebp")
+    if not cwebp.exists():
+        return
+    import subprocess
+    tmp = path.with_suffix(".raw")
+    path.rename(tmp)
+    subprocess.run([str(cwebp), "-q", "82", "-quiet", str(tmp), "-o", str(path)], check=True)
+    tmp.unlink()
 
 
 def generate_image(item: dict, idx: int, total: int) -> bool:
@@ -263,7 +324,8 @@ def generate_image(item: dict, idx: int, total: int) -> bool:
         for part in response.candidates[0].content.parts:
             if part.inline_data and part.inline_data.mime_type.startswith("image/"):
                 output_path.write_bytes(part.inline_data.data)
-                print(f"  -> Saved: {output_path} ({len(part.inline_data.data) // 1024}KB)")
+                convert_jpeg_png_to_webp(output_path)
+                print(f"  -> Saved: {output_path} ({output_path.stat().st_size // 1024}KB)")
                 image_saved = True
                 break
 

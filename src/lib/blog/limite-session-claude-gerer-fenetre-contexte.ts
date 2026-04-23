@@ -11,17 +11,17 @@ const article: Article = {
   readTime: '8 min',
   author: 'David Khazaei',
   heroImage: {
-    src: '/images/blog/limite-session-claude-hero.png',
+    src: '/images/blog/limite-session-claude-hero.webp',
     alt: 'Limite session Claude 2026 : illustration d\'une session IA saturée transformée en sessions propres et structurées pour agence à Genève',
   },
   images: [
     {
-      src: '/images/blog/limite-session-claude-courbe-qualite.png',
+      src: '/images/blog/limite-session-claude-courbe-qualite.webp',
       alt: 'Limite session Claude : courbe du contexte utilisé qui monte et de la qualité des réponses qui baisse au fil de la conversation',
       caption: 'Plus la fenêtre de contexte se remplit, plus la qualité des réponses chute. Le point de bascule arrive plus vite qu\'on ne le pense.',
     },
     {
-      src: '/images/blog/limite-session-claude-fractionnement.png',
+      src: '/images/blog/limite-session-claude-fractionnement.webp',
       alt: 'Limite session Claude : schéma de fractionnement d\'une session monolithique en 4 sessions spécialisées exploration planification exécution vérification',
       caption: 'Découper une tâche complexe en plusieurs sessions ciblées coûte moins de tokens et produit de meilleurs résultats.',
     },
@@ -67,7 +67,7 @@ Deux conséquences directes :
 
 Une session longue n\'est donc pas "plus productive" qu\'une série de sessions courtes. C\'est l\'inverse, pour le même volume de travail.
 
-___IMG:limite-session-claude-courbe-qualite.png___
+___IMG:limite-session-claude-courbe-qualite.webp___
 
 ## Le mythe de la grande fenêtre de contexte
 
@@ -185,7 +185,7 @@ Un découpage qui fonctionne bien pour la plupart des projets :
 
 Chaque session démarre avec un contexte minimal. Chaque session livre un résultat clair qui alimente la suivante. Aucune n\'est saturée.
 
-___IMG:limite-session-claude-fractionnement.png___
+___IMG:limite-session-claude-fractionnement.webp___
 
 ### 4. Utiliser des sous-agents quand c\'est pertinent
 

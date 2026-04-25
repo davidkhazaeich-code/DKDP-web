@@ -24,11 +24,12 @@ import a18 from './claude-code-leak-utiliser-ia-comme-infrastructure'
 import a19 from './claude-gestion-tokens-optimiser-ia-agence-geneve'
 import a20 from './claude-mythos-cybersecurite-ia-2026'
 import a21 from './limite-session-claude-gerer-fenetre-contexte'
+import a22 from './gpt-5-5-vs-claude-opus-4-7-tests-pratiques-2026'
 
-export const FEATURED_SLUG = 'limite-session-claude-gerer-fenetre-contexte'
+export const FEATURED_SLUG = 'gpt-5-5-vs-claude-opus-4-7-tests-pratiques-2026'
 
 export const ARTICLES: Article[] = [
-  a21, a01, a02, a03, a04, a05, a06, a07, a08, a09, a10,
+  a22, a21, a01, a02, a03, a04, a05, a06, a07, a08, a09, a10,
   a11, a12, a13, a14, a15, a16, a17, a18, a19, a20,
 ]
 

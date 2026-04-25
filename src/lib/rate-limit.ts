@@ -23,14 +23,17 @@ interface RateLimitOptions {
   limit: number
   /** Window in milliseconds */
   windowMs: number
+  /** Namespace key (e.g. route name) so each route has its own counter per IP */
+  scope?: string
 }
 
 export function rateLimit(ip: string, opts: RateLimitOptions): { allowed: boolean; remaining: number } {
   const now = Date.now()
-  const entry = minuteStore.get(ip)
+  const key = opts.scope ? `${opts.scope}:${ip}` : ip
+  const entry = minuteStore.get(key)
 
   if (!entry || now > entry.resetAt) {
-    minuteStore.set(ip, { count: 1, resetAt: now + opts.windowMs })
+    minuteStore.set(key, { count: 1, resetAt: now + opts.windowMs })
     return { allowed: true, remaining: opts.limit - 1 }
   }
 

@@ -6,7 +6,7 @@ import { sanitize } from '@/lib/sanitize'
 export async function POST(req: NextRequest) {
   // ── Rate limit: 3 audit requests per IP per 10 minutes ──
   const ip = getIp(req)
-  const { allowed } = rateLimit(ip, { limit: 3, windowMs: 10 * 60 * 1000 })
+  const { allowed } = rateLimit(ip, { scope: 'audit', limit: 3, windowMs: 10 * 60 * 1000 })
   if (!allowed) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
   }

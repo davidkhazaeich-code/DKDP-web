@@ -176,7 +176,7 @@ function formatLaunchDate(val: string): string {
 export async function POST(req: NextRequest) {
   // ── Rate limit: 3 submissions per IP per 15 minutes ──
   const ip = getIp(req)
-  const { allowed } = rateLimit(ip, { limit: 3, windowMs: 15 * 60 * 1000 })
+  const { allowed } = rateLimit(ip, { scope: 'estimation', limit: 3, windowMs: 15 * 60 * 1000 })
   if (!allowed) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
   }

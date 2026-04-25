@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
   const ip = getIp(req)
 
   // Rate limit: 10 messages per IP per minute
-  const { allowed: minuteOk } = rateLimit(ip, { limit: 10, windowMs: 60 * 1000 })
+  const { allowed: minuteOk } = rateLimit(ip, { scope: 'chat', limit: 10, windowMs: 60 * 1000 })
   if (!minuteOk) {
     return new Response(JSON.stringify({ error: 'Too many requests. Please wait a moment.' }), {
       status: 429,

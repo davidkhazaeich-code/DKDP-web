@@ -5,7 +5,7 @@ import { sanitize } from '@/lib/sanitize'
 
 export async function POST(req: NextRequest) {
   const ip = getIp(req)
-  const { allowed } = rateLimit(ip, { limit: 5, windowMs: 10 * 60 * 1000 })
+  const { allowed } = rateLimit(ip, { scope: 'newsletter', limit: 5, windowMs: 10 * 60 * 1000 })
   if (!allowed) return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
 
   const body = await req.json()

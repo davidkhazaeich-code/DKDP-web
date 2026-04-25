@@ -16,6 +16,7 @@ import {
 import { violet, orange, chrome } from '@/lib/tokens'
 import { InlineCTA } from './_components/InlineCTA'
 import { ServiceGrid } from './_components/ServiceGrid'
+import { SummarizeWithAI } from './_components/SummarizeWithAI'
 import type { ServiceLink } from './_components/InlineCTA'
 
 /* ─────────────────────────────────────────────
@@ -444,13 +445,15 @@ export default async function ArticlePage(
             {article.title}
           </h1>
 
-          <div className="flex items-center gap-4 text-sm text-zinc-500 mb-10 flex-wrap">
+          <div className="flex items-center gap-4 text-sm text-zinc-500 mb-8 flex-wrap">
             <span>Par {article.author}</span>
             <span>·</span>
             <time dateTime={article.dateISO}>{article.date}</time>
             <span>·</span>
             <span>{article.readTime} de lecture</span>
           </div>
+
+          <SummarizeWithAI articleUrl={`https://dkdp.ch/blog/${article.slug}`} />
         </div>
       </div>
 

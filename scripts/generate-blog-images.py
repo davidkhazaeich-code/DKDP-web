@@ -282,6 +282,46 @@ IMAGES = [
             "Swiss minimal, dark premium tech, editorial."
         ),
     },
+    # Article 22 — GPT-5.5 vs Claude Opus 4.7 (2026-04-25)
+    {
+        "filename": "gpt-vs-claude-2026-hero.webp",
+        "aspect": "16:9",
+        "prompt": (
+            "A semi-flat geometric conceptual illustration on a near-black background, 16:9 landscape. "
+            "Two abstract orb-shapes facing each other in a balanced symmetric composition. "
+            "Left orb: softly glowing sphere in cool chrome silver and pale teal accents, geometric "
+            "concentric data rings, subtle particle dots. Right orb: mirrored sphere in warm violet "
+            "and orange accents, similar concentric rings. Both orbs glow gently against deep dark space. "
+            "Between them, a thin vertical axis with a single bright dot in the center. "
+            "Subtle radial blobs: cool teal upper left, warm violet lower right, both at low opacity. "
+            "No text, no faces, no robots. Brushed metal grain. Swiss editorial, dark premium tech."
+        ),
+    },
+    {
+        "filename": "gpt-vs-claude-2026-tests-resultats.webp",
+        "aspect": "16:9",
+        "prompt": (
+            "A clean modern data visualization on a deep black background, 16:9 landscape. "
+            "Four horizontal grouped bar pairs stacked vertically, each pair showing two slim horizontal "
+            "bars side by side with rounded ends: one in cool chrome silver, one in soft violet. "
+            "Most chrome bars shorter (faster) than violet ones. "
+            "Left edge of each pair: a small minimal stroke icon in chrome (globe, planet system, game controller, tree). "
+            "Right edge of each bar: just a tick mark, no numbers visible. No labels, no text, no legend. "
+            "Subtle radial blob in violet upper right at very low opacity. Lots of negative space."
+        ),
+    },
+    {
+        "filename": "gpt-vs-claude-2026-matrice-decision.webp",
+        "aspect": "16:9",
+        "prompt": (
+            "A clean modern decision matrix on a deep black background, 16:9 landscape. "
+            "A 2x2 grid of four equal quadrants with thin dividers in very dark grey. "
+            "Each quadrant contains a single minimal stroke icon in chrome silver, with a small colored dot "
+            "at the corner. Top-left: lightning bolt + soft teal-chrome dot. Top-right: paint palette + violet dot. "
+            "Bottom-left: game controller + soft teal-chrome dot. Bottom-right: tree branching icon + half teal half violet dot. "
+            "Subtle radial blobs at the four corners. No text, no labels, no legend, no logos. Brushed metal grain."
+        ),
+    },
 ]
 
 

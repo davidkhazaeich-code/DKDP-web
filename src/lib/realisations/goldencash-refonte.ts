@@ -27,13 +27,15 @@ const realisation: Realisation = {
   },
   approach: {
     title: 'Astro SSG plus API hybride avec dashboard securise',
-    body: "Refonte complete sur Astro 5 en SSG pour la performance et la simplicite de deploiement. Cote backend, une API PHP joue le role de proxy hybride entre deux sources de cours metaux precieux : XMLCharts en source primaire et FXCM en fallback automatique. Le cache de 10 secondes limite les appels payants tout en garantissant des tarifs fraichement valides. Un dashboard admin securise permet a l'equipe Golden Cash de basculer manuellement entre les sources d'API en cas de probleme externe.",
+    body: `Refonte complete sur Astro 5 en SSG pour la performance et la simplicite de deploiement. Cote backend, une API PHP joue le role de proxy hybride entre deux sources de cours metaux precieux : XMLCharts en source primaire et FXCM en fallback automatique. Le cache de 10 secondes limite les appels payants tout en garantissant des tarifs fraichement valides. L'estimateur public calcule le rachat en temps reel selon le poids et le carat, et un dashboard admin securise par JWT permet a l'equipe Golden Cash de basculer entre les sources d'API, ajuster les marges, surcharger les taux EUR/CHF ou figer manuellement les prix en quelques secondes.`,
     bullets: [
-      'Astro 5 SSG pour la performance, deploiement Infomaniak',
+      'Astro 5 SSG, deploiement Infomaniak, Lighthouse 100/100',
+      'Estimateur live : poids et carat vers prix temps reel, refresh 30s',
+      'Table DTI auto-refresh 10s pour les transactions DTI directes',
       'API PHP avec fallback automatique XMLCharts vers FXCM',
-      'Cache 10 secondes, EUR/CHF rafraichi toutes les 15 secondes',
-      'Dashboard admin securise pour bascule manuelle des sources',
-      'Documentation technique complete (5 fichiers MD : SETUP, ARCHITECTURE, API, FRONTEND, ADMIN)',
+      'Dashboard admin securise par JWT 8h, bascule API en 1 clic',
+      'Surcharge manuelle des taux EUR/CHF, USD/CHF, USD/EUR',
+      "Mode override pour figer les prix en cas d'indisponibilite des deux APIs",
     ],
   },
   stack: [
@@ -55,19 +57,29 @@ const realisation: Realisation = {
   },
   gallery: [
     {
-      src: '/images/realisations/goldencash-refonte/section-1.webp',
-      alt: 'Catalogue metaux precieux Golden Cash avec tarifs live',
-      caption: 'Catalogue avec tarifs DTI live, rafraichis toutes les 10 secondes',
+      src: '/images/realisations/goldencash-refonte/estimation-form.webp',
+      alt: `Formulaire de l'estimateur Golden Cash : poids et carat`,
+      caption: `Estimateur public : le client saisit poids et carat, le prix est calcule en temps reel a partir des cours du jour.`,
     },
     {
-      src: '/images/realisations/goldencash-refonte/section-2.webp',
-      alt: 'Section milieu de page Golden Cash',
-      caption: 'Presentation services et conversion EUR/CHF live',
+      src: '/images/realisations/goldencash-refonte/estimation-fullpage.webp',
+      alt: `Page complete de l'estimateur Golden Cash avec resultats par carat`,
+      caption: `Resultat de l'estimation : prix CHF et EUR par carat, decomposition complete et toggle de devise.`,
+    },
+    {
+      src: '/images/realisations/goldencash-refonte/dti-rates-table.webp',
+      alt: 'Table DTI Golden Cash : tarifs metaux precieux temps reel',
+      caption: 'Table DTI auto-refresh toutes les 10 secondes, source XMLCharts ou FXCM affichee, utilisee par le systeme de facturation.',
+    },
+    {
+      src: '/images/realisations/goldencash-refonte/admin-login.webp',
+      alt: 'Page de login du dashboard admin Golden Cash, design dark gold',
+      caption: `Dashboard admin securise par JWT 8h : bascule des sources d'API, ajustement des marges, surcharge des taux.`,
     },
     {
       src: '/images/realisations/goldencash-refonte/mobile-section-1.webp',
       alt: 'Vue mobile Golden Cash',
-      caption: 'Adaptation responsive iOS pour usage en mobilite',
+      caption: 'Adaptation responsive iOS, mobile-first avec barre CTA fixe en bas.',
     },
   ],
   liveUrl: 'https://goldencash.ch',

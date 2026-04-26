@@ -16,6 +16,7 @@ import { TechStack } from './_components/TechStack'
 import { HeroVisual } from './_components/HeroVisual'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
+import { RealisationsForCategory } from '@/components/realisations/RealisationsForCategory'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
@@ -653,6 +654,12 @@ export default function CreationSiteWebPage() {
           </SectionReveal>
         </div>
       </section>
+
+      {/* ── Realisations cross-link ── */}
+      <RealisationsForCategory
+        category="site-web"
+        title="Sites web crees pour des PME suisses"
+      />
 
       {/* ── CTA ── */}
       <div className="text-center pb-2">

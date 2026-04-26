@@ -448,3 +448,21 @@ export function buildWebPageWithSpeakable({ name, url, description }: { name: st
     },
   }
 }
+
+export function buildRealisationsCollection(input: { items: { slug: string; client: { name: string }; meta: { title: string } }[] }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Realisations DKDP',
+    url: `${BASE_URL}/realisations`,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: input.items.map((r, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${BASE_URL}/realisations/${r.slug}`,
+        name: `${r.client.name} : ${r.meta.title}`,
+      })),
+    },
+  } as const
+}

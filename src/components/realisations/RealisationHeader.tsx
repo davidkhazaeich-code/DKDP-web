@@ -27,8 +27,8 @@ export function RealisationHeader({ r }: { r: Realisation }) {
         </div>
 
         <div className="mx-auto max-w-[1200px] px-6 pb-16 md:pb-20">
-          <SectionReveal>
-            <GradTag>{CATEGORY_LABEL[r.category]}</GradTag>
+          <SectionReveal className="flex flex-col items-start">
+            <GradTag className="self-start">{CATEGORY_LABEL[r.category]}</GradTag>
 
             <h1 className="mt-6 text-4xl tracking-[-0.02em] leading-[1.05] text-white md:text-5xl lg:text-6xl">
               {r.client.name} :{' '}

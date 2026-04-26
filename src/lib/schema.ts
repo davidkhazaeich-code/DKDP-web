@@ -449,6 +449,35 @@ export function buildWebPageWithSpeakable({ name, url, description }: { name: st
   }
 }
 
+export function buildRealisationPage(input: {
+  realisation: {
+    slug: string
+    client: { name: string }
+    meta: { title: string; excerpt: string; dateISO: string }
+    category: string
+    liveUrl?: string
+  }
+}): Record<string, unknown> {
+  const r = input.realisation
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `${r.client.name} : ${r.meta.title}`,
+    url: `${BASE_URL}/realisations/${r.slug}`,
+    description: r.meta.excerpt,
+    datePublished: r.meta.dateISO,
+    about: {
+      '@type': 'CreativeWork',
+      genre: r.category,
+    },
+    mentions: {
+      '@type': 'Organization',
+      name: r.client.name,
+      ...(r.liveUrl ? { url: r.liveUrl } : {}),
+    },
+  }
+}
+
 export function buildRealisationsCollection(input: { items: { slug: string; client: { name: string }; meta: { title: string } }[] }) {
   return {
     '@context': 'https://schema.org',

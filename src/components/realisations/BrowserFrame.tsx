@@ -91,7 +91,16 @@ export function BrowserFrame({
         </div>
       </div>
 
-      {/* Viewport */}
+      {/* Viewport
+          The translating container receives [data-browser-scroll].
+          Animation is driven by CSS in globals.css via:
+            [data-browser-frame]:hover [data-browser-scroll]     → desktop hover
+            [data-browser-frame][data-autoscroll="true"] [...]   → mobile IO (coarse pointer + trigger="visible")
+          Known: translateY endpoint uses 100vh as proxy for frame height.
+          Overshoot guard: images shorter than 100vh will not over-scroll
+          because the image never fills more than the frame; images taller
+          than the frame will scroll correctly on desktop and approximately
+          on mobile (acceptable imprecision, refineable via ResizeObserver). */}
       <div className="relative h-[calc(100%-2.25rem)] overflow-hidden">
         {src ? (
           <div

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { ROUTES } from '@/lib/routes'
 import { ARTICLES } from '@/lib/blog'
+import { REALISATIONS } from '@/lib/realisations'
 
 const BASE_URL = 'https://dkdp.ch'
 
@@ -15,5 +16,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(a.dateISO),
   }))
 
-  return [...staticRoutes, ...blogRoutes]
+  const realisationRoutes: MetadataRoute.Sitemap = REALISATIONS
+    .filter((r) => r.meta.status === 'live')
+    .map((r) => ({
+      url: `${BASE_URL}/realisations/${r.slug}`,
+      lastModified: new Date(r.meta.dateISO),
+      changeFrequency: 'monthly' as const,
+      priority: 0.70,
+    }))
+
+  return [...staticRoutes, ...blogRoutes, ...realisationRoutes]
 }

@@ -9,7 +9,7 @@ import { ResultsGrid } from '@/components/realisations/ResultsGrid'
 import { GalleryGrid } from '@/components/realisations/GalleryGrid'
 import { TestimonialQuote } from '@/components/realisations/TestimonialQuote'
 import { RelatedRealisations } from '@/components/realisations/RelatedRealisations'
-import { CTAFinal } from '@/components/sections/CTAFinal'
+import { CinematicCTA } from '@/components/realisations/CinematicCTA'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildBreadcrumbList, buildRealisationPage } from '@/lib/schema'
 import { REALISATIONS, getRealisation, getRelated } from '@/lib/realisations'
@@ -86,7 +86,7 @@ export default async function RealisationDetailPage({ params }: { params: Params
       {r.gallery && <GalleryGrid items={r.gallery} />}
       {r.testimonial && <TestimonialQuote t={r.testimonial} />}
       <RelatedRealisations items={related} />
-      <CTAFinal />
+      <CinematicCTA />
     </>
   )
 }

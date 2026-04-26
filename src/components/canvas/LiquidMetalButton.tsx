@@ -11,6 +11,8 @@ interface LiquidMetalButtonProps {
   size?: 'md' | 'lg'
   className?: string
   shaderDelay?: number
+  target?: string
+  rel?: string
 }
 
 const sizeMap = {
@@ -26,6 +28,8 @@ export function LiquidMetalButton({
   size = 'lg',
   className = '',
   shaderDelay = 0,
+  target,
+  rel,
 }: LiquidMetalButtonProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
@@ -234,6 +238,8 @@ export function LiquidMetalButton({
           href={href}
           className={className}
           style={{ ...wrapperStyle, textDecoration: 'none' }}
+          target={target}
+          rel={rel}
           {...interactionHandlers}
         >
           {visualContent}

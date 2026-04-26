@@ -401,3 +401,23 @@ body.chat-open {
     animation: none;
   }
 }
+
+/* ═══ BrowserFrame — auto-scroll animation ═══ */
+@keyframes browserScroll {
+  0%   { transform: translateY(0); }
+  10%  { transform: translateY(0); }
+  50%  { transform: translateY(calc(-100% + 100vh)); }
+  60%  { transform: translateY(calc(-100% + 100vh)); }
+  100% { transform: translateY(0); }
+}
+
+[data-browser-frame]:hover [data-browser-scroll],
+[data-browser-frame][data-autoscroll="true"] [data-browser-scroll] {
+  animation: browserScroll var(--scroll-duration, 12s) ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-browser-frame] [data-browser-scroll] {
+    animation: none !important;
+  }
+}

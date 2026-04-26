@@ -98,8 +98,12 @@ export const ROUTES: Route[] = [
   { url: '/a-propos',  priority: 0.70, changeFrequency: 'monthly' },
 
   // ─── Contenu & Ressources ─────────────────────────────────────────────────
-  { url: '/blog',      priority: 0.75, changeFrequency: 'weekly'  },
-  { url: '/glossaire', priority: 0.70, changeFrequency: 'weekly'  },
+  { url: '/blog',           priority: 0.75, changeFrequency: 'weekly'  },
+
+  // ─── Realisations ─────────────────────────────────────────────────────────
+  { url: '/realisations',   priority: 0.80, changeFrequency: 'monthly' },
+
+  { url: '/glossaire',      priority: 0.70, changeFrequency: 'weekly'  },
 
   // ─── Utilitaires / Légales ────────────────────────────────────────────────
   { url: '/plan-du-site',                    priority: 0.30, changeFrequency: 'yearly' },

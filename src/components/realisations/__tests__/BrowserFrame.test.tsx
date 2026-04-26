@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { BrowserFrame } from '../BrowserFrame'
 
@@ -58,5 +58,68 @@ describe('BrowserFrame', () => {
     )
     const frame = container.querySelector('[data-browser-frame]')
     expect(frame?.className).toContain('aspect-[16/9]')
+  })
+
+  it('triggers autoscroll via IntersectionObserver when trigger=visible on touch device', async () => {
+    // Mock pointer: coarse
+    const originalMatchMedia = window.matchMedia
+    window.matchMedia = ((query: string) => ({
+      matches: query.includes('coarse'),
+      media: query,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      onchange: null,
+      addListener: () => {},
+      removeListener: () => {},
+      dispatchEvent: () => false,
+    })) as typeof window.matchMedia
+
+    // Mock IntersectionObserver
+    let triggerCallback: ((entries: IntersectionObserverEntry[]) => void) | null = null
+    const observe = vi.fn()
+    const disconnect = vi.fn()
+    const OriginalIO = window.IntersectionObserver
+    // Must use a real constructor function (not an arrow) so `new` works
+    function MockIO(this: IntersectionObserver, cb: (entries: IntersectionObserverEntry[]) => void) {
+      triggerCallback = cb
+      this.observe = observe
+      this.disconnect = disconnect
+      this.unobserve = vi.fn()
+      this.takeRecords = vi.fn(() => [])
+      ;(this as unknown as Record<string, unknown>).root = null
+      ;(this as unknown as Record<string, unknown>).rootMargin = ''
+      ;(this as unknown as Record<string, unknown>).thresholds = [0.6]
+    }
+    window.IntersectionObserver = MockIO as unknown as typeof IntersectionObserver
+
+    const { container } = render(
+      <BrowserFrame
+        src="/test.webp"
+        alt="Test"
+        browserUrl="example.com"
+        trigger="visible"
+      />
+    )
+
+    expect(observe).toHaveBeenCalledTimes(1)
+
+    // Initially, the frame should not have data-autoscroll
+    const frame = container.querySelector('[data-browser-frame]')
+    expect(frame?.getAttribute('data-autoscroll')).toBeNull()
+
+    // Fire the IO callback with intersectionRatio >= 0.6
+    triggerCallback?.([
+      { isIntersecting: true, intersectionRatio: 0.7 } as IntersectionObserverEntry,
+    ])
+
+    // Wait for state update
+    await new Promise(resolve => setTimeout(resolve, 0))
+
+    expect(frame?.getAttribute('data-autoscroll')).toBe('true')
+    expect(disconnect).toHaveBeenCalledTimes(1)
+
+    // Restore globals
+    window.matchMedia = originalMatchMedia
+    window.IntersectionObserver = OriginalIO
   })
 })

@@ -55,33 +55,6 @@ const realisation: Realisation = {
     author: 'Sandrine',
     role: 'Co-gerante, Golden Cash Geneve',
   },
-  gallery: [
-    {
-      src: '/images/realisations/goldencash-refonte/estimation-form.webp',
-      alt: `Formulaire de l'estimateur Golden Cash : poids et carat`,
-      caption: `Estimateur public : le client saisit poids et carat, le prix est calcule en temps reel a partir des cours du jour.`,
-    },
-    {
-      src: '/images/realisations/goldencash-refonte/estimation-fullpage.webp',
-      alt: `Page complete de l'estimateur Golden Cash avec resultats par carat`,
-      caption: `Resultat de l'estimation : prix CHF et EUR par carat, decomposition complete et toggle de devise.`,
-    },
-    {
-      src: '/images/realisations/goldencash-refonte/dti-rates-table.webp',
-      alt: 'Table DTI Golden Cash : tarifs metaux precieux temps reel',
-      caption: 'Table DTI auto-refresh toutes les 10 secondes, source XMLCharts ou FXCM affichee, utilisee par le systeme de facturation.',
-    },
-    {
-      src: '/images/realisations/goldencash-refonte/admin-login.webp',
-      alt: 'Page de login du dashboard admin Golden Cash, design dark gold',
-      caption: `Dashboard admin securise par JWT 8h : bascule des sources d'API, ajustement des marges, surcharge des taux.`,
-    },
-    {
-      src: '/images/realisations/goldencash-refonte/mobile-section-1.webp',
-      alt: 'Vue mobile Golden Cash',
-      caption: 'Adaptation responsive iOS, mobile-first avec barre CTA fixe en bas.',
-    },
-  ],
   liveUrl: 'https://goldencash.ch',
 }
 

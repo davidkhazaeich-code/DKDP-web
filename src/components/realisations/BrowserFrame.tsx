@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useId, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { clsx } from 'clsx'
 
 export type BrowserFrameProps = {
@@ -30,7 +30,6 @@ export function BrowserFrame({
   scrollDuration,
   className,
 }: BrowserFrameProps) {
-  const headingId = useId()
   const ref = useRef<HTMLDivElement>(null)
   const [shouldAutoscroll, setShouldAutoscroll] = useState(false)
 
@@ -73,7 +72,6 @@ export function BrowserFrame({
         aspectClass,
         className,
       )}
-      aria-labelledby={headingId}
     >
       {/* Chrome bar */}
       <div className="flex h-9 items-center gap-2 border-b border-white/10 bg-[#1B1B1F] px-3">
@@ -109,7 +107,6 @@ export function BrowserFrame({
             style={{ '--scroll-duration': `${scrollDuration ?? 12}s` } as React.CSSProperties}
           >
             <img
-              id={headingId}
               src={src}
               alt={alt}
               loading="lazy"

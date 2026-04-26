@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import { BrowserFrame } from '@/components/realisations/BrowserFrame'
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+}
+
+// TODO : delete in Bundle G (Task 18 of the realisations plan)
 
 export default function DevPage() {
   return (

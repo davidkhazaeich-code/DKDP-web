@@ -122,4 +122,36 @@ describe('BrowserFrame', () => {
     window.matchMedia = originalMatchMedia
     window.IntersectionObserver = OriginalIO
   })
+
+  it('does not set up IntersectionObserver when trigger=hover (even on touch)', () => {
+    const originalMatchMedia = window.matchMedia
+    window.matchMedia = ((query: string) => ({
+      matches: query.includes('coarse'),
+      media: query,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      onchange: null,
+      addListener: () => {},
+      removeListener: () => {},
+      dispatchEvent: () => false,
+    })) as typeof window.matchMedia
+
+    const ioConstructor = vi.fn()
+    const OriginalIO = window.IntersectionObserver
+    window.IntersectionObserver = ioConstructor as unknown as typeof IntersectionObserver
+
+    render(
+      <BrowserFrame
+        src="/test.webp"
+        alt="Test"
+        browserUrl="example.com"
+        trigger="hover"
+      />
+    )
+
+    expect(ioConstructor).not.toHaveBeenCalled()
+
+    window.matchMedia = originalMatchMedia
+    window.IntersectionObserver = OriginalIO
+  })
 })

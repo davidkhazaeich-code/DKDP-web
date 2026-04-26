@@ -445,21 +445,19 @@ export default async function ArticlePage(
             {article.title}
           </h1>
 
-          <div className="flex items-center gap-4 text-sm text-zinc-500 mb-8 flex-wrap">
+          <div className="flex items-center gap-4 text-sm text-zinc-500 mb-10 flex-wrap">
             <span>Par {article.author}</span>
             <span>·</span>
             <time dateTime={article.dateISO}>{article.date}</time>
             <span>·</span>
             <span>{article.readTime} de lecture</span>
           </div>
-
-          <SummarizeWithAI articleUrl={`https://dkdp.ch/blog/${article.slug}`} />
         </div>
       </div>
 
       {/* ══ 2. Hero image ══ */}
       <div className="bg-zinc-950 pb-2">
-        <div className="max-w-5xl mx-auto px-4 mb-12">
+        <div className="max-w-5xl mx-auto px-4 mb-8">
           <div className="relative rounded-[20px] overflow-hidden aspect-video border border-zinc-800/60">
             <Image
               src={article.heroImage.src}
@@ -470,6 +468,9 @@ export default async function ArticlePage(
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
             />
           </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 mb-4">
+          <SummarizeWithAI articleUrl={`https://dkdp.ch/blog/${article.slug}`} />
         </div>
       </div>
 

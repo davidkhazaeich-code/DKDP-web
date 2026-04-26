@@ -40,6 +40,7 @@ const AGENCE_SECONDARY = [
   { title: 'Audit SEO gratuit', href: '/agence-digitale/seo/audit-seo', icon: BarChart2 },
   { title: 'Estimation gratuite', href: '/agence-digitale/creation-site-web/estimation', icon: CalendarCheck },
   { title: 'Tarifs agence', href: '/tarifs', icon: FileText },
+  { title: 'Realisations', href: '/realisations', icon: Star },
   { title: 'Contacter l\'agence', href: '/contact', icon: Phone },
 ]
 

@@ -24,8 +24,6 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList, buildWebPageWithSpeakable } from '@/lib/schema'
 import { chrome, violet } from '@/lib/tokens'
-import { RealisationsForCategory } from '@/components/realisations/RealisationsForCategory'
-
 const CTAFinal = dynamic(() =>
   import('@/components/sections/CTAFinal').then((m) => ({ default: m.CTAFinal }))
 )
@@ -982,13 +980,6 @@ export default function ChatbotIAPage() {
       <div id="faq" className="scroll-mt-[124px]">
         <FAQSection items={FAQ} title="Questions sur nos chatbots IA" />
       </div>
-
-      {/* ── Realisations cross-link ── */}
-      <RealisationsForCategory
-        category="projet-ia"
-        tag="Chatbot"
-        title="Chatbots IA livres recemment"
-      />
 
       {/* ── CTA Final ── */}
       <CTAFinal />

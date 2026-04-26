@@ -9,7 +9,7 @@ import { m, AnimatePresence } from 'framer-motion'
 import {
   Globe, Cpu, GraduationCap, Search, Megaphone, BarChart2,
   Bot, Workflow, BrainCircuit, BookOpen, Users2, Presentation,
-  Phone, FileText, Star, ChevronRight, X, Menu,
+  Phone, FileText, ChevronRight, X, Menu,
   Film, Shield, Share2, Palette, LayoutGrid,
   Sparkles, CalendarCheck, Monitor, MessageCircle, Smartphone,
 } from 'lucide-react'
@@ -40,7 +40,6 @@ const AGENCE_SECONDARY = [
   { title: 'Audit SEO gratuit', href: '/agence-digitale/seo/audit-seo', icon: BarChart2 },
   { title: 'Estimation gratuite', href: '/agence-digitale/creation-site-web/estimation', icon: CalendarCheck },
   { title: 'Tarifs agence', href: '/tarifs', icon: FileText },
-  { title: 'Realisations', href: '/realisations', icon: Star },
   { title: 'Contacter l\'agence', href: '/contact', icon: Phone },
 ]
 

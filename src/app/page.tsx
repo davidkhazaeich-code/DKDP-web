@@ -17,7 +17,6 @@ const TeamSection    = dynamic(() => import('@/components/sections/TeamSection')
 const FAQSection     = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
 const EstimationBanner = dynamic(() => import('@/components/sections/EstimationBanner').then(m => ({ default: m.EstimationBanner })))
 const CTAFinal       = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
-const FeaturedRealisations = dynamic(() => import('@/components/realisations/FeaturedRealisations').then(m => ({ default: m.FeaturedRealisations })))
 
 export const metadata: Metadata = {
   title: 'Agence Digitale Genève · Sites web, IA & Formation | DKDP',
@@ -51,7 +50,6 @@ export default function HomePage() {
         <AllServices />
         <ProcessSteps />
         <ProofStack />
-        <FeaturedRealisations />
         <Testimonials />
         <TeamSection />
         <FAQSection />

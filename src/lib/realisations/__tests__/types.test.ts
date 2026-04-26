@@ -13,7 +13,6 @@ describe('SLUG_REGEX', () => {
     expect(SLUG_REGEX.test('GoldenCash-refonte')).toBe(false)
     expect(SLUG_REGEX.test('refonte-goldencash-')).toBe(false)
     expect(SLUG_REGEX.test('cafe-latte')).toBe(true)
-    expect(SLUG_REGEX.test('cafe-latte')).toBe(true)
     expect(SLUG_REGEX.test('café-latté')).toBe(false)
   })
 })

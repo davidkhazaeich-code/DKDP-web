@@ -99,10 +99,7 @@ export const ROUTES: Route[] = [
 
   // ─── Contenu & Ressources ─────────────────────────────────────────────────
   { url: '/blog',           priority: 0.75, changeFrequency: 'weekly'  },
-
-  // ─── Realisations ─────────────────────────────────────────────────────────
   { url: '/realisations',   priority: 0.80, changeFrequency: 'monthly' },
-
   { url: '/glossaire',      priority: 0.70, changeFrequency: 'weekly'  },
 
   // ─── Utilitaires / Légales ────────────────────────────────────────────────

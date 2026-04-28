@@ -5,6 +5,7 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import dynamic from 'next/dynamic'
 import { HeroBg } from '@/components/ui/HeroBg'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet as violetToken, chrome as chromeToken, orange as orangeToken, green as greenToken } from '@/lib/tokens'
@@ -532,6 +533,8 @@ export default function AuditSEOPage() {
           </div>
         </div>
       </section>
+
+      <LogoBanner />
 
       {/* CTAFinal */}
       <CTAFinal />

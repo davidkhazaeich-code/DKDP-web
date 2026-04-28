@@ -196,8 +196,17 @@ export function AppLogoMarquee({
   eyebrow,
   className = '',
 }: MarqueeProps) {
-  // Doublon pour effet infini
-  const doubled = [...logos, ...logos]
+  // Repetition adaptative : si peu de logos, on multiplie la liste pour
+  // s'assurer qu'une "moitie" du track est plus large que l'ecran (sinon
+  // le translateX(-50%) laisse apparaitre du vide entre les cycles).
+  // Cible : au moins 18 elements par moitie de boucle.
+  const minPerHalf = 18
+  const baseRepeat = Math.max(1, Math.ceil(minPerHalf / logos.length))
+  const visible = Array.from({ length: baseRepeat }, () => logos).flat()
+  // 1ere demi-boucle = "visible" (premier passage : seul logos.length premiers
+  // ont alt visible pour SEO). 2eme demi-boucle = duplicat aria-hidden pour
+  // le defile sans couture.
+  const doubled = [...visible, ...visible]
   return (
     <div className={`app-logos-marquee ${className}`}>
       {eyebrow && (

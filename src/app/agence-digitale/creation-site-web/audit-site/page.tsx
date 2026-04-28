@@ -7,6 +7,7 @@ import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet as violetToken, chrome as chromeToken, orange as orangeToken, green as greenToken } from '@/lib/tokens'
 import { AuditHeroForm } from '@/components/sections/AuditHeroForm'
@@ -532,6 +533,8 @@ export default function AuditSitePage() {
           </div>
         </div>
       </section>
+
+      <LogoBanner />
 
       {/* ── CTAFinal ─────────────────────────────────────────────────────── */}
       <CTAFinal />

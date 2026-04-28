@@ -192,7 +192,7 @@ export default function FormationParticuliersPage() {
       >
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
               {/* Left */}
               <div>
@@ -255,6 +255,7 @@ export default function FormationParticuliersPage() {
               </div>
 
               {/* Right: info card */}
+              <div>
               <SectionReveal delay={0.15}>
                 <div
                   className="hidden lg:flex flex-col gap-5 rounded-2xl p-7 border"
@@ -306,6 +307,10 @@ export default function FormationParticuliersPage() {
                   </div>
                 </div>
               </SectionReveal>
+                <div className="mt-6 lg:mt-8 -mx-2 lg:mx-0">
+                  <LogoBanner label="Ils nous font confiance" />
+                </div>
+              </div>
 
             </div>
           </div>
@@ -322,8 +327,6 @@ export default function FormationParticuliersPage() {
 
       </HeroBg>
 
-
-      <LogoBanner />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">

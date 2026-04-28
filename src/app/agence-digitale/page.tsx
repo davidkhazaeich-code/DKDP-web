@@ -133,7 +133,7 @@ export default function AgenceDigitalePage() {
       >
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Agence digitale à Genève</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
@@ -156,7 +156,12 @@ export default function AgenceDigitalePage() {
                   </Link>
                 </div>
               </div>
-              <HeroVisual />
+              <div>
+                <HeroVisual />
+                <div className="mt-6 lg:mt-8 -mx-2 lg:mx-0">
+                  <LogoBanner label="Ils nous font confiance" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -172,8 +177,6 @@ export default function AgenceDigitalePage() {
 
       </HeroBg>
 
-
-      <LogoBanner label="Ils nous font confiance" />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">

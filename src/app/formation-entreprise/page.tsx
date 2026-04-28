@@ -139,7 +139,7 @@ export default function FormationEntreprisePage() {
       >
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation entreprise à Genève</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
@@ -164,7 +164,12 @@ export default function FormationEntreprisePage() {
                 </div>
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
-              <HeroVisual />
+              <div>
+                <HeroVisual />
+                <div className="mt-6 lg:mt-8 -mx-2 lg:mx-0">
+                  <LogoBanner label="Équipes déjà formées" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -180,8 +185,6 @@ export default function FormationEntreprisePage() {
 
       </HeroBg>
 
-
-      <LogoBanner label="Équipes déjà formées" />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">

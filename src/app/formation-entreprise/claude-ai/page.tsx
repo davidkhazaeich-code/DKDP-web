@@ -184,7 +184,7 @@ export default function FormationClaudeAIPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               {/* Left */}
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -217,7 +217,6 @@ export default function FormationClaudeAIPage() {
                     { label: '100% pratique', icon: Zap },
                     { label: 'Sur vos documents réels', icon: FileText },
                     { label: 'Toutes industries', icon: Users },
-                    { label: 'Genève et Suisse romande', icon: Target },
                   ].map(({ label, icon: Icon }) => (
                     <div
                       key={label}
@@ -291,20 +290,18 @@ export default function FormationClaudeAIPage() {
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* ── Marquee outils integre au hero ── */}
-        <div className="pt-4 pb-12" aria-label="L'ecosysteme IA autour de Claude">
-          <AppLogoMarquee
+              
+                <div className="mt-6 lg:mt-8" aria-label="L'ecosysteme IA autour de Claude">
+                  <AppLogoMarquee
             logos={IA_LOGOS}
             durationSeconds={75}
             size="md"
           />
-        </div>
-
-      </HeroBg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>      </HeroBg>
 
 
 

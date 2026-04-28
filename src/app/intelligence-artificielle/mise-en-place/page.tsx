@@ -159,7 +159,7 @@ export default function MiseEnPlacePage() {
                 <div className="mb-6 lg:mb-8" aria-label="Outils IA qu'on deploie chez vous">
                   <AppLogoMarquee
             logos={IA_LOGOS}
-            durationSeconds={70}
+            durationSeconds={126}
             size="md"
           />
                 </div>

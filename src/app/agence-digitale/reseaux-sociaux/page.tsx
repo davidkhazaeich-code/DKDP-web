@@ -182,7 +182,7 @@ export default function ReseauxSociauxPage() {
                 <div className="mb-6 lg:mb-8" aria-label="Reseaux sociaux et outils IA qu'on pilote">
                   <AppLogoMarquee
             logos={[...SOCIAL_LOGOS, ...IA_LOGOS.slice(0, 5)]}
-            durationSeconds={80}
+            durationSeconds={144}
             size="md"
           />
                 </div>

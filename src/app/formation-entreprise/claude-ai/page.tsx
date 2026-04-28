@@ -245,7 +245,7 @@ export default function FormationClaudeAIPage() {
                 <div className="mb-6 lg:mb-8" aria-label="L'ecosysteme IA autour de Claude">
                   <AppLogoMarquee
             logos={IA_LOGOS}
-            durationSeconds={75}
+            durationSeconds={135}
             size="md"
           />
                 </div>

@@ -167,7 +167,7 @@ export default function FormationWebDesignPage() {
                 <div className="mb-6 lg:mb-8" aria-label="Outils design et web qu'on enseigne">
                   <AppLogoMarquee
             logos={DESIGN_WEB_LOGOS}
-            durationSeconds={60}
+            durationSeconds={108}
             size="md"
           />
                 </div>

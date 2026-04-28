@@ -168,7 +168,7 @@ export default function FormationEntreprisePage() {
                 <div className="mb-6 lg:mb-8" aria-label="Outils enseignes en formation entreprise">
                   <AppLogoMarquee
                     logos={[...IA_LOGOS.slice(0, 6), ...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
-                    durationSeconds={95}
+                    durationSeconds={171}
                     size="md"
                   />
                 </div>

@@ -414,7 +414,7 @@ export default function ChatbotIAPage() {
                 <div className="mb-6 lg:mb-8" aria-label="Modeles IA qu'on integre dans vos chatbots">
                   <AppLogoMarquee
             logos={IA_LOGOS}
-            durationSeconds={70}
+            durationSeconds={126}
             size="md"
           />
                 </div>

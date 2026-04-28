@@ -209,7 +209,7 @@ export default function CreationSiteWebPage() {
         <div className="pt-4 pb-12" aria-label="Stack pour vos sites web sur mesure">
           <AppLogoMarquee
             logos={[...DESIGN_WEB_LOGOS, ...IA_LOGOS.slice(0, 4)]}
-            durationSeconds={70}
+            durationSeconds={126}
             size="md"
           />
         </div>

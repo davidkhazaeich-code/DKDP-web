@@ -160,7 +160,7 @@ export default function AgenceDigitalePage() {
                 <div className="mb-6 lg:mb-8" aria-label="Stack outils utilises par notre agence digitale">
                   <AppLogoMarquee
                     logos={[...IA_LOGOS.slice(0, 6), ...DESIGN_WEB_LOGOS, ...PRODUCTIVITE_LOGOS.slice(0, 6), ...SOCIAL_LOGOS]}
-                    durationSeconds={110}
+                    durationSeconds={198}
                     size="md"
                   />
                 </div>

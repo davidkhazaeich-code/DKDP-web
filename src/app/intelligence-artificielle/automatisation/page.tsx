@@ -268,7 +268,7 @@ export default function AutomationPage() {
                 <div className="mb-6 lg:mb-8" aria-label="Outils IA qu'on integre dans vos automatisations">
                   <AppLogoMarquee
             logos={IA_LOGOS}
-            durationSeconds={75}
+            durationSeconds={135}
             size="md"
           />
                 </div>

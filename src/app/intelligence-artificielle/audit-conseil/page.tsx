@@ -150,7 +150,7 @@ export default function AuditConseilPage() {
                 <div className="mb-6 lg:mb-8" aria-label="Outils IA qu'on audite et compare">
                   <AppLogoMarquee
             logos={IA_LOGOS}
-            durationSeconds={75}
+            durationSeconds={135}
             size="md"
           />
                 </div>

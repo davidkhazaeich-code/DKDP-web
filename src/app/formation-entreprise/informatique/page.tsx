@@ -137,7 +137,7 @@ export default function FormationInformatiquePage() {
                 <div className="mb-6 lg:mb-8" aria-label="Outils informatiques que vos equipes maitrisent">
                   <AppLogoMarquee
             logos={[...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
-            durationSeconds={90}
+            durationSeconds={162}
             size="md"
           />
                 </div>

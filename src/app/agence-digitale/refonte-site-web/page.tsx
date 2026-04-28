@@ -305,7 +305,7 @@ export default function RefonteSiteWebPage() {
                 <div className="mb-6 lg:mb-8" aria-label="Stack pour la refonte de votre site">
                   <AppLogoMarquee
             logos={[...DESIGN_WEB_LOGOS, ...IA_LOGOS.slice(0, 4)]}
-            durationSeconds={70}
+            durationSeconds={126}
             size="md"
           />
                 </div>

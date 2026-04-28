@@ -185,7 +185,7 @@ export default function AgentsIAPage() {
                 <div className="mb-6 lg:mb-8" aria-label="Outils IA pour vos agents intelligents">
                   <AppLogoMarquee
             logos={IA_LOGOS}
-            durationSeconds={70}
+            durationSeconds={126}
             size="md"
           />
                 </div>

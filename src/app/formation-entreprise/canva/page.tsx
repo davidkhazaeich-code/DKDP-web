@@ -167,7 +167,7 @@ export default function FormationCanvaPage() {
                 <div className="mb-6 lg:mb-8" aria-label="Outils design et social qu'on enseigne">
                   <AppLogoMarquee
             logos={[...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
-            durationSeconds={80}
+            durationSeconds={144}
             size="md"
           />
                 </div>

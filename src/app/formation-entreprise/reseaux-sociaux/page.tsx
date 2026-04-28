@@ -149,7 +149,7 @@ export default function FormationReseauxSociauxPage() {
                 <div className="mb-6 lg:mb-8" aria-label="Reseaux sociaux et outils de creation">
                   <AppLogoMarquee
             logos={[...SOCIAL_LOGOS, ...DESIGN_WEB_LOGOS]}
-            durationSeconds={70}
+            durationSeconds={126}
             size="md"
           />
                 </div>

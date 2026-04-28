@@ -162,7 +162,7 @@ export default function FormationIAPage() {
                 <div className="mb-6 lg:mb-8" aria-label="Outils IA qu'on enseigne en entreprise">
                   <AppLogoMarquee
             logos={IA_LOGOS}
-            durationSeconds={75}
+            durationSeconds={135}
             size="md"
           />
                 </div>

@@ -218,7 +218,7 @@ export default function IAGenevePage() {
                 <div className="mb-6 lg:mb-8" aria-label="Outils IA deployes a Geneve et en Suisse romande">
                   <AppLogoMarquee
             logos={IA_LOGOS}
-            durationSeconds={75}
+            durationSeconds={135}
             size="md"
           />
                 </div>

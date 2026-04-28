@@ -172,7 +172,7 @@ export default function ConsultingMarketingPage() {
         <div className="pt-4 pb-12" aria-label="Outils marketing qu'on deploie pour vous">
           <AppLogoMarquee
             logos={[...IA_LOGOS.slice(0, 5), ...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
-            durationSeconds={105}
+            durationSeconds={189}
             size="md"
           />
         </div>

@@ -259,7 +259,7 @@ export default function FormationParticuliersPage() {
                 <div className="mb-6 lg:mb-8" aria-label="Outils enseignes en formation particuliers">
                   <AppLogoMarquee
                     logos={[...IA_LOGOS.slice(0, 5), ...BUREAUTIQUE_LOGOS, ...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
-                    durationSeconds={100}
+                    durationSeconds={180}
                     size="md"
                   />
                 </div>

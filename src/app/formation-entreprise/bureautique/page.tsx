@@ -153,7 +153,7 @@ export default function FormationBureautiquePage() {
                 <div className="mb-6 lg:mb-8" aria-label="Logiciels bureautiques que vos equipes maitrisent">
                   <AppLogoMarquee
             logos={[...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
-            durationSeconds={85}
+            durationSeconds={153}
             size="md"
           />
                 </div>

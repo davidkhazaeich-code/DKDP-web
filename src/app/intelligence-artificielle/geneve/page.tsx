@@ -31,6 +31,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
+import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
@@ -234,7 +235,19 @@ export default function IAGenevePage() {
         </section>
       </HeroBg>
 
-      {/* ── Stats ── */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="Outils IA deployes a Geneve et en Suisse romande">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={IA_LOGOS}
+            durationSeconds={75}
+            size="md"
+            eyebrow="Outils IA deployes a Geneve et en Suisse romande"
+          />
+        </SectionReveal>
+      </section>      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">

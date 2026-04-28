@@ -34,6 +34,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet } from '@/lib/tokens'
+import { AppLogoMarquee, DESIGN_WEB_LOGOS, IA_LOGOS } from '@/components/ui/AppLogos'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
@@ -321,7 +322,19 @@ export default function RefonteSiteWebPage() {
         </section>
       </HeroBg>
 
-      {/* ── Stats ── */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="Stack pour la refonte de votre site">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={[...DESIGN_WEB_LOGOS, ...IA_LOGOS.slice(0, 4)]}
+            durationSeconds={70}
+            size="md"
+            eyebrow="Stack pour la refonte de votre site"
+          />
+        </SectionReveal>
+      </section>      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

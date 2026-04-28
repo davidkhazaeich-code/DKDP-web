@@ -33,6 +33,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
+import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
@@ -284,7 +285,19 @@ export default function AutomationPage() {
         </section>
       </HeroBg>
 
-      {/* ── Stats bar ── */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="Outils IA qu'on integre dans vos automatisations">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={IA_LOGOS}
+            durationSeconds={75}
+            size="md"
+            eyebrow="Outils IA qu'on integre dans vos automatisations"
+          />
+        </SectionReveal>
+      </section>      {/* ── Stats bar ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-3 gap-6 md:gap-12">

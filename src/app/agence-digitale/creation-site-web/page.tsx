@@ -18,6 +18,7 @@ import { TechStack } from './_components/TechStack'
 import { HeroVisual } from './_components/HeroVisual'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
+import { AppLogoMarquee, DESIGN_WEB_LOGOS, IA_LOGOS } from '@/components/ui/AppLogos'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
@@ -206,7 +207,19 @@ export default function CreationSiteWebPage() {
         </section>
       </HeroBg>
 
-      {/* ── Stats ── */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="Stack pour vos sites web sur mesure">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={[...DESIGN_WEB_LOGOS, ...IA_LOGOS.slice(0, 4)]}
+            durationSeconds={70}
+            size="md"
+            eyebrow="Stack pour vos sites web sur mesure"
+          />
+        </SectionReveal>
+      </section>      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

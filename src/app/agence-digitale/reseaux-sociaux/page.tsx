@@ -25,6 +25,7 @@ import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { PlatformGrid } from './_components/PlatformGrid'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
+import { AppLogoMarquee, SOCIAL_LOGOS, IA_LOGOS } from '@/components/ui/AppLogos'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
@@ -195,7 +196,19 @@ export default function ReseauxSociauxPage() {
         </section>
       </HeroBg>
 
-      {/* ── Stats ── */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="Reseaux sociaux et outils IA qu'on pilote">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={[...SOCIAL_LOGOS, ...IA_LOGOS.slice(0, 5)]}
+            durationSeconds={80}
+            size="md"
+            eyebrow="Reseaux sociaux et outils IA qu'on pilote"
+          />
+        </SectionReveal>
+      </section>      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

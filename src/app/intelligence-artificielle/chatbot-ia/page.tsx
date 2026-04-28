@@ -27,6 +27,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList, buildWebPageWithSpeakable } from '@/lib/schema'
 import { chrome, violet } from '@/lib/tokens'
+import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 const CTAFinal = dynamic(() =>
   import('@/components/sections/CTAFinal').then((m) => ({ default: m.CTAFinal }))
 )
@@ -507,7 +508,19 @@ export default function ChatbotIAPage() {
         </section>
       </HeroBg>
 
-      {/* ── Stats ── */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="Modeles IA qu'on integre dans vos chatbots">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={IA_LOGOS}
+            durationSeconds={70}
+            size="md"
+            eyebrow="Modeles IA qu'on integre dans vos chatbots"
+          />
+        </SectionReveal>
+      </section>      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

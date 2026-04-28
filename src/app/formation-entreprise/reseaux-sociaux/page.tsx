@@ -20,6 +20,7 @@ const FormationPricing = dynamic(() => import('@/components/sections/FormationPr
 const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
+import { AppLogoMarquee, SOCIAL_LOGOS, DESIGN_WEB_LOGOS } from '@/components/ui/AppLogos'
 import { SocialBeforeAfter } from './_components/SocialBeforeAfter'
 
 export const metadata: Metadata = {
@@ -162,7 +163,19 @@ export default function FormationReseauxSociauxPage() {
         </section>
       </HeroBg>
 
-      {/* ── Stats ── */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="Reseaux sociaux et outils de creation">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={[...SOCIAL_LOGOS, ...DESIGN_WEB_LOGOS]}
+            durationSeconds={70}
+            size="md"
+            eyebrow="Reseaux sociaux et outils de creation"
+          />
+        </SectionReveal>
+      </section>      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

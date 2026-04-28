@@ -20,6 +20,7 @@ const FormationPricing = dynamic(() => import('@/components/sections/FormationPr
 const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
+import { AppLogoMarquee, DESIGN_WEB_LOGOS } from '@/components/ui/AppLogos'
 import { FigmaFeatureCards } from './_components/FigmaFeatureCards'
 
 export const metadata: Metadata = {
@@ -180,7 +181,19 @@ export default function FormationWebDesignPage() {
         </section>
       </HeroBg>
 
-      {/* ── Stats ── */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="Outils design et web qu'on enseigne">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={DESIGN_WEB_LOGOS}
+            durationSeconds={60}
+            size="md"
+            eyebrow="Outils design et web qu'on enseigne"
+          />
+        </SectionReveal>
+      </section>      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

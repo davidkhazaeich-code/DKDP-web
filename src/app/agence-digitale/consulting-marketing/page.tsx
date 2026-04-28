@@ -16,6 +16,7 @@ import { MarketingAuditScore } from './_components/MarketingAuditScore'
 import { HeroVisual } from './_components/HeroVisual'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
+import { AppLogoMarquee, IA_LOGOS, DESIGN_WEB_LOGOS, SOCIAL_LOGOS } from '@/components/ui/AppLogos'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
@@ -169,7 +170,19 @@ export default function ConsultingMarketingPage() {
         </section>
       </HeroBg>
 
-      {/* ── Stats ── */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="Outils marketing qu'on deploie pour vous">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={[...IA_LOGOS.slice(0, 5), ...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
+            durationSeconds={105}
+            size="md"
+            eyebrow="Outils marketing qu'on deploie pour vous"
+          />
+        </SectionReveal>
+      </section>      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

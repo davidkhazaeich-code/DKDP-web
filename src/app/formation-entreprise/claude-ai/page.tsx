@@ -26,6 +26,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet, orange, chrome } from '@/lib/tokens'
+import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 import { ClaudeProductCard } from './_components/ClaudeProductCard'
 import { AgendaRow } from './_components/AgendaRow'
 import { CapabilityCard } from './_components/CapabilityCard'
@@ -296,7 +297,19 @@ export default function FormationClaudeAIPage() {
         </section>
       </HeroBg>
 
-      {/* ══ 2. Stats ══ */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="L'ecosysteme IA autour de Claude">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={IA_LOGOS}
+            durationSeconds={75}
+            size="md"
+            eyebrow="L'ecosysteme IA autour de Claude"
+          />
+        </SectionReveal>
+      </section>      {/* ══ 2. Stats ══ */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

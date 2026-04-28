@@ -20,6 +20,7 @@ const ROICalculatorFormation = dynamic(() => import('@/components/sections/ROICa
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
+import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 import { ToolComparison } from './_components/ToolComparison'
 import { GalleryFormation } from './_components/GalleryFormation'
 import { SkillsBento } from './_components/SkillsBento'
@@ -176,7 +177,19 @@ export default function FormationIAPage() {
         </section>
       </HeroBg>
 
-      {/* ── Stats ── */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="Outils IA qu'on enseigne en entreprise">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={IA_LOGOS}
+            durationSeconds={75}
+            size="md"
+            eyebrow="Outils IA qu'on enseigne en entreprise"
+          />
+        </SectionReveal>
+      </section>      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

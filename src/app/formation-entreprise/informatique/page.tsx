@@ -20,6 +20,7 @@ const FormationPricing = dynamic(() => import('@/components/sections/FormationPr
 const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
+import { AppLogoMarquee, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from '@/components/ui/AppLogos'
 import { ITProblemsComparison } from './_components/ITProblemsComparison'
 
 export const metadata: Metadata = {
@@ -150,7 +151,19 @@ export default function FormationInformatiquePage() {
         </section>
       </HeroBg>
 
-      {/* ── Stats ── */}
+
+
+      {/* ── Marquee outils ── */}
+      <section className="py-14 border-b border-border" aria-label="Outils informatiques que vos equipes maitrisent">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={[...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
+            durationSeconds={90}
+            size="md"
+            eyebrow="Outils informatiques que vos equipes maitrisent"
+          />
+        </SectionReveal>
+      </section>      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

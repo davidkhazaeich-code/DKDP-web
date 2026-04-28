@@ -194,6 +194,8 @@ export default function FormationWebDesignPage() {
 
 
       
+
+      <LogoBanner />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -508,7 +510,6 @@ export default function FormationWebDesignPage() {
       </section>
 
       {/* ── CTA ── */}
-      <LogoBanner />
       <CTAFinal accentRgb="255,140,0" />
     </main>
   )

@@ -184,6 +184,8 @@ export default function CreationVideoPage() {
         </section>
       </HeroBg>
 
+
+      <LogoBanner />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -674,7 +676,6 @@ export default function CreationVideoPage() {
       </section>
 
       {/* ── CTA ── */}
-      <LogoBanner />
       <CTAFinal />
     </main>
   )

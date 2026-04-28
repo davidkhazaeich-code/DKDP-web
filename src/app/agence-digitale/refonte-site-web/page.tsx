@@ -335,6 +335,8 @@ export default function RefonteSiteWebPage() {
 
 
       
+
+      <LogoBanner />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -874,7 +876,6 @@ export default function RefonteSiteWebPage() {
         </div>
       </section>
 
-      <LogoBanner />
       <CTAFinal accentRgb="167,139,250" />
     </main>
   )

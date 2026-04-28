@@ -220,6 +220,8 @@ export default function CreationSiteWebPage() {
 
 
       
+
+      <LogoBanner />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -683,7 +685,6 @@ export default function CreationSiteWebPage() {
           En savoir plus sur l&apos;agence et David Khazaei
         </Link>
       </div>
-      <LogoBanner />
       <CTAFinal />
     </main>
   )

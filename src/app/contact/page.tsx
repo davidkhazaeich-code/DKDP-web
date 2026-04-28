@@ -38,13 +38,13 @@ export default function ContactPage() {
           </div>
         </section>
 
+        <LogoBanner />
+
         {/* Contact form + Cal.com booking */}
         <ContactSection />
 
         {/* Google Maps + location info */}
         <GoogleMapSection />
-
-        <LogoBanner />
 
       </main>
     </HeroBg>

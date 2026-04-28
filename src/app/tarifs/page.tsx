@@ -186,6 +186,8 @@ export default function TarifsPage() {
         </section>
       </HeroBg>
 
+
+      <LogoBanner />
       {/* ── Philosophy banner ── */}
       <section className="py-10 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -568,7 +570,6 @@ export default function TarifsPage() {
       </section>
 
       {/* ── CTA Final ── */}
-      <LogoBanner />
       <CTAFinal />
     </main>
   )

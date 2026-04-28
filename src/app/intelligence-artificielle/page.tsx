@@ -166,6 +166,8 @@ export default function IntelligenceArtificiellePage() {
 
       </HeroBg>
 
+
+      <LogoBanner label="Entreprises qui nous font confiance" />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -534,7 +536,6 @@ export default function IntelligenceArtificiellePage() {
       </section>
 
       {/* ── Témoignages ── */}
-      <LogoBanner label="Entreprises qui nous font confiance" />
       <Testimonials accentRgb="212,212,216" />
 
       {/* ── FAQ ── */}

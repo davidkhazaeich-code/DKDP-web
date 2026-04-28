@@ -180,6 +180,8 @@ export default function AuditConseilPage() {
 
 
       
+
+      <LogoBanner />
       {/* ── Stats ─────────────────────────────────────────────────────────── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -696,7 +698,6 @@ export default function AuditConseilPage() {
       </section>
 
       {/* ── CTAFinal ──────────────────────────────────────────────────────── */}
-      <LogoBanner />
       <CTAFinal accentRgb="212,212,216" />
 
     </main>

@@ -298,6 +298,8 @@ export default function AutomationPage() {
 
 
       
+
+      <LogoBanner />
       {/* ── Stats bar ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -820,7 +822,6 @@ export default function AutomationPage() {
       </section>
 
       {/* ── CTA ── */}
-      <LogoBanner />
       <CTAFinal accentRgb="212,212,216" />
     </main>
   )

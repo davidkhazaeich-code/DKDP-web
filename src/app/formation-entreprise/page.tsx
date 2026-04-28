@@ -180,6 +180,8 @@ export default function FormationEntreprisePage() {
 
       </HeroBg>
 
+
+      <LogoBanner label="Équipes déjà formées" />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -554,7 +556,6 @@ export default function FormationEntreprisePage() {
 
       {/* ── Témoignages ── */}
       <FormationTrainer accentColor='#FF8C00' />
-      <LogoBanner label="Équipes déjà formées" />
       <Testimonials accentRgb="255,140,0" />
 
       {/* ── FAQ ── */}

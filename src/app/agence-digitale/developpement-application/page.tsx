@@ -209,6 +209,8 @@ export default function DeveloppementApplicationPage() {
         </section>
       </HeroBg>
 
+
+      <LogoBanner />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -425,7 +427,6 @@ export default function DeveloppementApplicationPage() {
       </section>
 
       {/* ── CTA Final ── */}
-      <LogoBanner />
       <CTAFinal accentRgb="124,58,237" />
 
       {/* ── FAQ ── */}

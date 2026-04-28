@@ -2,75 +2,92 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Layers, PenTool, Layout, Globe2, TrendingUp, BarChart2, Zap } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Layers, PenTool, Layout, Globe2, TrendingUp, BarChart2, Zap, Code2 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
 const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
-import { DesignToolCards } from './_components/DesignToolCards'
+import { FigmaFeatureCards } from './_components/FigmaFeatureCards'
 
 export const metadata: Metadata = {
-  title: 'Formation Canva et Web Design Entreprise Genève | DKDP',
+  title: 'Formation Web Design et Figma à Genève | UI/UX, Wireframes, Prototypes | DKDP',
   description:
-    'Formation Canva et web design pour PME et entreprises à Genève et Suisse romande. Vos équipes créent des visuels professionnels en une journée. Devis gratuit.',
+    'Formation Web Design et Figma pour PME et entreprises à Genève et en Suisse romande. UI/UX, wireframes, maquettes, design system, prototypes interactifs. Concevez votre site avant de le développer. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/web-design' },
   openGraph: {
-    images: [{ url: '/images/og/formation-web-design.png', width: 1376, height: 768, alt: 'Formation Canva et web design entreprise Genève DKDP' }],
+    images: [{ url: '/images/og/formation-web-design.png', width: 1376, height: 768, alt: 'Formation Web Design et Figma entreprise Genève DKDP' }],
   },
 }
 
 const FAQ = [
   {
-    question: 'Faut-il être graphiste pour suivre la formation web design ?',
+    question: 'Faut-il être designer pour suivre la formation Web Design ?',
     answer:
-      'Non. La formation DKDP est conçue pour des non-graphistes. On vous apprend à utiliser Canva et les principes de base du design (typographie, couleurs, mise en page) pour créer des visuels professionnels sans logiciel complexe.',
+      "Non. La formation est conçue pour des profils non-designers : product managers, fondateurs, marketers techniques, développeurs front, entrepreneurs. On part des fondamentaux UI/UX (grille, hiérarchie, typographie, accessibilité) et on construit progressivement vos premières maquettes Figma. Aucune compétence en illustration ou en graphisme n'est requise.",
   },
   {
-    question: "Qu'est-ce que Canva et pourquoi l'utiliser ?",
+    question: "Pourquoi choisir Figma plutôt qu'un autre outil de design ?",
     answer:
-      "Canva est un outil de création graphique en ligne, accessible sans compétences techniques. Il permet de créer des présentations, des posts réseaux sociaux, des flyers, des bannières et bien d'autres visuels en quelques minutes. C'est l'outil idéal pour les équipes qui veulent être autonomes visuellement.",
+      "Figma est devenu le standard mondial du web design en 2026 : 4 millions de designers actifs, utilisé par 90% des startups tech et la quasi-totalité des grandes PME suisses. Avantages clés : collaboration temps réel comme Google Docs, plan gratuit suffisant pour démarrer, communauté massive de templates et plugins, et un Dev Mode intégré qui simplifie le handoff vers le développement.",
   },
   {
-    question: "La formation couvre-t-elle uniquement Canva ?",
+    question: "Qu'est-ce que l'Auto Layout dans Figma et pourquoi c'est important ?",
     answer:
-      "Canva est l'outil central de la formation. On couvre également les bases du design (typographie, hiérarchie visuelle, palette de couleurs) et les principes de la charte graphique. Pour ceux qui souhaitent aller plus loin, un module sur Figma et Adobe Express est inclus dans les formules avancées.",
+      "Auto Layout est le système de mise en page responsive de Figma. Plutôt que d'aligner manuellement chaque élément, vous définissez des règles (espacement, alignement, padding) et Figma adapte automatiquement vos frames quand le contenu change. Résultat : des maquettes mobile, tablet et desktop construites en parallèle, sans dupliquer le travail. C'est l'une des compétences clés de la formation.",
   },
   {
-    question: 'Peut-on intégrer notre charte graphique dans Canva ?',
+    question: "Qu'est-ce qu'un design system et pourquoi en construire un ?",
     answer:
-      "Oui. Un module entier est dédié à la configuration du Canva Brand Kit : import de votre logo, définition de votre palette de couleurs, choix de vos polices. À la fin de la formation, vos templates sont aux couleurs de votre entreprise.",
+      "Un design system regroupe les composants réutilisables de votre interface (boutons, cards, formulaires, typographie, couleurs) avec leurs variants et leurs règles d'usage. Une modification du composant principal se propage automatiquement partout. Bénéfices : cohérence garantie, évolutions rapides, onboarding facilité pour les nouveaux membres. La formation inclut un module dédié sur la création d'un design system minimal mais robuste.",
   },
   {
-    question: 'Quels formats peut-on créer avec Canva ?',
+    question: 'La formation couvre-t-elle les prototypes interactifs ?',
     answer:
-      "Posts réseaux sociaux (Instagram, LinkedIn, Facebook), Stories et Reels, présentations PowerPoint-like, flyers et affiches, newsletters, bannières web, cartes de visite et documents internes. La formation couvre les formats les plus utiles pour votre activité.",
+      "Oui. Un module entier est dédié au prototypage Figma : transitions entre écrans, animations simples, hover states, scroll effects, formulaires fonctionnels. Vous repartez avec un prototype cliquable de votre projet, prêt à présenter à vos parties prenantes ou à tester avec vos utilisateurs avant le développement.",
   },
   {
-    question: 'La version gratuite de Canva suffit-elle ?',
+    question: "Le handoff vers les développeurs est-il couvert ?",
     answer:
-      "La version gratuite couvre déjà 80% des besoins. Canva Pro (CHF 15/mois) débloque les fonctionnalités avancées comme le Brand Kit complet, la suppression de fond, et les templates premium. DKDP vous aide à choisir la formule adaptée à vos besoins.",
+      "Oui. La formation couvre le Dev Mode de Figma (anciennement Inspect) : récupération automatique des couleurs, espacements, polices, exports d'assets et code CSS prêt à copier. Vos maquettes deviennent directement exploitables par votre équipe technique ou votre agence web, sans aller-retour sur les détails.",
+  },
+  {
+    question: 'Combien de temps dure la formation Web Design ?',
+    answer:
+      "Une demi-journée (4h) pour les fondamentaux : principes UI/UX, premiers wireframes, prise en main de Figma. Une journée complète (8h) pour aller plus loin : Auto Layout, design system, prototypes, handoff dev. Les équipes produit et marketing optent généralement pour la journée complète.",
+  },
+  {
+    question: 'La formation peut-elle se dérouler dans nos locaux ?',
+    answer:
+      "Oui. DKDP intervient à Genève et dans toute la Suisse romande sur site (vos locaux), dans nos espaces de formation, ou en visio selon votre préférence. Pour les équipes produit qui doivent ensuite collaborer sur Figma, la formation sur site est souvent la plus efficace.",
   },
 ]
 
 const MODULES = [
-  'Principes de design graphique (couleurs, typographie, espacement)',
-  'Canva Pro : templates, identité de marque et kit graphique',
-  'Création de visuels pour réseaux sociaux (tous formats)',
-  'Présentations PowerPoint et Google Slides niveau pro',
-  "Figma : wireframes et maquettes d'écrans simples",
-  'Bannières web, flyers et supports imprimés',
-  'Export et formats : print vs web vs mobile',
-  'Cohérence visuelle et charte graphique personnelle',
+  'Principes UI/UX 2026 : grille, hiérarchie, typographie, accessibilité, contraste',
+  'Wireframes basse fidélité : architecture mobile-first et flux utilisateur',
+  'Découverte de Figma : interface, frames, pages, projets, collaboration',
+  "Auto Layout : maquettes responsive sans répéter le travail",
+  'Design system : tokens de couleurs, typographie, espacement et grille',
+  'Composants réutilisables et variants (boutons, cards, formulaires)',
+  'Maquettes haute fidélité : pages site web, app mobile, dashboard',
+  'Prototypes interactifs : flux, transitions, hover states, scroll',
+  "Collaboration en équipe : libraries partagées, commentaires, validation",
+  'Dev Mode : handoff propre vers les développeurs ou votre agence web',
+  'Tendances UI 2026 : glassmorphism, dark mode, motion design',
+  "Plugins Figma essentiels : Iconify, Unsplash, Content Reel, Figma to Code",
 ]
 
 const color = orange.color, bg = orange.bg, border = orange.border
@@ -78,35 +95,35 @@ const color = orange.color, bg = orange.bg, border = orange.border
 const steps = [
   {
     Icon: Layers,
-    title: 'Bases du design',
-    desc: "Théorie essentielle : couleurs, typographie, mise en page. Ce qui distingue un visuel professionnel d'un visuel amateur.",
-  },
-  {
-    Icon: Layout,
-    title: 'Canva en pratique',
-    desc: 'Création de vos templates personnels : posts, stories, bannières, présentations. Kit de marque configuré.',
+    title: 'Bases UI/UX',
+    desc: "Fondamentaux qui distinguent une interface professionnelle d'un design amateur. Hiérarchie, contraste, accessibilité, mobile-first.",
   },
   {
     Icon: PenTool,
-    title: 'Introduction Figma',
-    desc: 'Création de maquettes simples et wireframes. Les bases pour collaborer avec un développeur ou une agence web.',
+    title: 'Wireframes',
+    desc: 'Construction de votre architecture écran par écran en basse fidélité. Validation des flux avant tout investissement visuel.',
   },
   {
-    Icon: Award,
-    title: 'Portfolio et process',
-    desc: 'Chaque participant repart avec 5 visuels créés et un process de production efficace pour son quotidien.',
+    Icon: Layout,
+    title: 'Maquettes Figma',
+    desc: "Auto Layout, composants, design system. Vos pages haute fidélité responsives, prêtes à être présentées en interne ou en client.",
+  },
+  {
+    Icon: Code2,
+    title: 'Prototype et handoff',
+    desc: 'Prototype cliquable testable en interne, et Dev Mode configuré pour un handoff propre vers vos développeurs.',
   },
 ]
 
 export default function FormationWebDesignPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Web Design Canva Entreprise Genève', url: '/formation-entreprise/web-design', description: "Formation Canva et web design pour équipes d'entreprise à Genève. Créez des visuels professionnels sans être graphiste.", duration: 'P1D', teaches: ['Canva', 'Figma', 'Charte graphique', 'Design de visuels', 'Templates'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Web Design et Figma Entreprise Genève', url: '/formation-entreprise/web-design', description: "Formation Web Design et Figma pour équipes produit, marketing et fondateurs à Genève et en Suisse romande. UI/UX, wireframes, maquettes, design system, prototypes. Concevez votre site avant de le développer.", duration: 'P1D', teaches: ['Figma', 'UI/UX Design', 'Wireframes', 'Auto Layout', 'Design System', 'Prototypes interactifs', 'Dev Mode'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
         { name: 'Formation Entreprise', url: 'https://dkdp.ch/formation-entreprise' },
-        { name: 'Web design et Canva', url: 'https://dkdp.ch/formation-entreprise/web-design' },
+        { name: 'Formation Web Design', url: 'https://dkdp.ch/formation-entreprise/web-design' },
       ])} />
 
       {/* ── Hero ── */}
@@ -118,30 +135,39 @@ export default function FormationWebDesignPage() {
                 Formation Entreprise
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
-              <span className="text-sm" style={{ color }}>Web design et Canva</span>
+              <span className="text-sm" style={{ color }}>Formation Web Design</span>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation Canva et web design à Genève</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation Web Design et Figma à Genève</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
-                  Créez vos visuels <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>vous-mêmes</GradText>. Pas besoin d&apos;une agence.
+                  Concevez votre site avant de le <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>développer</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos équipes de PME et entreprises à Canva, Figma et les principes de design graphique. Après une journée, vos collaborateurs à Genève et en Suisse romande créent des visuels professionnels sans faire appel à une agence.
+                  DKDP forme vos équipes produit, marketing et fondateurs au web design moderne et à Figma à Genève et en Suisse romande. UI/UX, wireframes, maquettes, design system, prototypes : pilotez vos projets web sans dépendre d&apos;une agence pour chaque écran.
                 </p>
+                <HeroPills
+                  accentRgb="255, 140, 0"
+                  items={[
+                    { label: '100% pratique', Icon: Zap },
+                    { label: 'Sur vos projets', Icon: Layout },
+                    { label: 'Tous secteurs', Icon: Users },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
                   <Link href="#programme" className="text-sm text-text-muted hover:text-white transition-colors">
                     Voir le programme ↓
                   </Link>
                 </div>
+                <TrustLine items={['Figma maîtrisé', 'Maquettes responsives', 'Genève et Suisse romande']} accentRgb="255, 140, 0" />
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
                   <Image
                     src="/images/services/dkdp-formation-web-design.webp"
-                    alt="Formation web design et Canva en entreprise à Genève"
+                    alt="Formation Figma et web design en entreprise à Genève : maquettes responsives et design system"
                     fill
                     className="object-cover"
                     priority
@@ -160,10 +186,10 @@ export default function FormationWebDesignPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '3', l: 'Outils maîtrisés', sub: 'Canva, Figma, Adobe Express' },
-              { v: '3h/sem', l: 'Économisées', sub: 'Sur création de visuels' },
-              { v: '85%', l: 'Autonomie', sub: 'Sur supports de communication' },
-              { v: '1 journée', l: 'Pour créer seul', sub: 'Vos supports professionnels' },
+              { v: '4M+', l: 'Designers Figma', sub: 'Standard mondial du web design' },
+              { v: '90%', l: 'Startups', sub: 'Utilisent Figma pour leur produit' },
+              { v: '70%', l: 'Temps gagné', sub: 'Sur les itérations maquettes' },
+              { v: '1 journée', l: 'Pour wireframer', sub: 'Votre premier projet web' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -192,7 +218,7 @@ export default function FormationWebDesignPage() {
       <section className="py-8">
         <div className="max-w-[1200px] mx-auto px-6">
           <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-center">
-            DKDP forme les PME et entreprises de Genève et Suisse romande à la création de visuels professionnels avec Canva et les bases du web design. Vos collaborateurs apprennent à produire des supports de communication (posts, présentations, brochures) sans dépendre d&apos;un graphiste. Formation pratique en une journée.
+            DKDP forme les PME, startups et entreprises de Genève et de Suisse romande aux fondamentaux du web design moderne avec Figma. Vos collaborateurs apprennent à concevoir des interfaces, à itérer sur les maquettes et à collaborer proprement avec leurs développeurs ou leur agence. Formation pratique sur vos vrais projets, en une journée.
           </p>
         </div>
       </section>
@@ -204,19 +230,20 @@ export default function FormationWebDesignPage() {
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi maintenant</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Pourquoi former vos équipes au design graphique et à Canva
+                Pourquoi former vos équipes au web design et à Figma
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
-                Attendre une agence pour un post Instagram, payer un graphiste pour un flyer, relancer plusieurs fois pour un document de présentation : ces frictions ralentissent vos équipes et grignotent votre budget communication.
+                Lancer un projet web sans maquette claire, c&apos;est s&apos;exposer aux allers-retours coûteux avec votre agence. Demander à un développeur de deviner l&apos;UX, c&apos;est obtenir un produit qui marche techniquement mais qui n&apos;atteint pas vos utilisateurs. Et expliquer une vision verbalement, c&apos;est garantir 30% de retravail.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
-                Avec les bons outils et les bonnes bases, vos collaborateurs créent eux-mêmes des visuels cohérents et professionnels. En une journée, l&apos;autonomie devient une réalité.
+                Avec Figma maîtrisé, vos équipes produit et marketing conçoivent leurs propres maquettes, testent les flux avec des prototypes cliquables, et fournissent à leurs développeurs un cahier des charges visuel précis. Le résultat est mesurable : moins de retravail, des projets plus rapides, des produits qui convertissent.
               </p>
               <div className="space-y-3">
                 {[
-                  "Les PME dépensent en moyenne CHF 4 000/an en création graphique externalisée",
-                  "Canva est utilisé par plus de 170 millions de personnes dans le monde pour sa simplicité",
-                  "Un kit de templates bien construit réduit le temps de production visuelle de 70%",
+                  "Figma est utilisé par 4 millions de designers dans le monde et plus de 90% des startups tech",
+                  "Une maquette validée en amont réduit les coûts de développement de 30 à 40% en moyenne",
+                  "Le Dev Mode de Figma divise par 3 le temps de handoff entre design et développement",
+                  "Un design system minimal accélère les itérations futures de votre produit de 50%",
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
@@ -231,11 +258,11 @@ export default function FormationWebDesignPage() {
                 style={{ background: bg, borderColor: border, boxShadow: '0 0 50px rgba(255,107,0,0.07)' }}
               >
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6 text-center" style={{ color }}>
-                  Les 3 outils couverts
+                  Les 3 piliers Figma de la formation
                 </p>
-                <DesignToolCards />
+                <FigmaFeatureCards />
                 <p className="text-text-muted text-[11px] text-center mt-4">
-                  On adapté la profondeur selon votre niveau et vos besoins. Canva est toujours le point de départ.
+                  Chaque pilier est appliqué directement sur un cas concret de votre projet.
                 </p>
               </div>
             </SectionReveal>
@@ -244,19 +271,19 @@ export default function FormationWebDesignPage() {
       </section>
 
       {/* ── Programme ── */}
-      <section id="programme" className="py-24 bg-bg-card border-y border-border">
+      <section id="programme" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Programme de la formation Canva et design graphique
+                Programme complet de la formation Web Design
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
-                La formation commence par les principes fondamentaux du design (en 45 min, pas plus) puis on passe directement à Canva. Chaque participant crée ses premiers visuels pendant la formation, aux couleurs de son entreprise, sur les formats qu&apos;il utilisera vraiment.
+                La formation démarre par les fondamentaux UI/UX (45 minutes) puis bascule directement dans Figma. Chaque participant construit ses propres wireframes, ses premières maquettes haute fidélité et un prototype cliquable, sur un projet réel apporté par votre équipe.
               </p>
               <p className="text-text-secondary leading-relaxed">
-                À la fin de la session, vous disposez d&apos;un kit de templates prêts à l&apos;emploi. Plus besoin de repartir de zéro à chaque publication : vos templates font le travail.
+                À la fin de la session, vous repartez avec une bibliothèque Figma initiée pour votre entreprise (couleurs, typographie, composants), un projet documenté et un Dev Mode configuré, prêt à être transmis à vos développeurs.
               </p>
             </SectionReveal>
             <SectionReveal delay={0.1}>
@@ -280,20 +307,20 @@ export default function FormationWebDesignPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Profils</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Pour qui est la formation web design en entreprise ?
+                Pour qui est la formation Web Design en entreprise
               </h2>
             </div>
           </SectionReveal>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
-              'Équipes communication et marketing',
-              'Assistantes administratives',
-              'Gérants de petites entreprises',
-              'Indépendants et auto-entrepreneurs',
-              'Community managers',
-              'Toute personne créant des supports visuels',
-              'Responsables marketing sans budget agence',
-              'Entrepreneurs solos',
+              'Product managers et chefs de produit',
+              'Fondateurs et CEOs de startups',
+              'Marketers techniques et growth',
+              'Développeurs front qui montent en design',
+              'UX writers et content designers',
+              'Équipes produit interne',
+              'Designers en transition vers Figma',
+              'Entrepreneurs solos qui pilotent leur app',
             ].map((role, i) => (
               <SectionReveal key={role} delay={i * 0.07}>
                 <div
@@ -315,7 +342,7 @@ export default function FormationWebDesignPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Déroulement</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Déroulement de la formation web design
+                Déroulement de la formation Web Design
               </h2>
             </div>
           </SectionReveal>
@@ -357,28 +384,28 @@ export default function FormationWebDesignPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Retours après la formation Canva
+                Retours après la formation Web Design
               </h2>
             </div>
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                quote: "Avant la formation, je payais une graphiste pour chaque post Instagram. Maintenant je crée mes visuels en 15 minutes avec Canva. Rentabilisé en 2 semaines.",
-                name: 'Nathalie F., Fondatrice',
-                company: 'Boutique artisanale, Genève',
-                stars: 5,
-              },
-              {
-                quote: "On a formé toute notre équipe communication à Canva. La cohérence visuelle de notre marque s'est améliorée du jour au lendemain. Fini les visuels disparates.",
-                name: 'Thomas L., Responsable marketing',
-                company: 'PME 40 personnes, Vaud',
-                stars: 5,
-              },
-              {
-                quote: "La partie Figma était une révélation. Je peux maintenant concevoir les interfaces de mes apps moi-même et les expliquer à mes développeurs.",
+                quote: "La partie Auto Layout a été une révélation. Je peux maintenant maquetter une page mobile, tablet et desktop en parallèle, sans dupliquer le travail. Mes itérations vont 3 fois plus vite.",
                 name: 'Julien K., Fondateur',
                 company: 'Startup tech, Genève',
+                stars: 5,
+              },
+              {
+                quote: "On a formé toute notre équipe produit à Figma et au design system. Notre cahier des charges visuel est devenu beaucoup plus précis : 40% de retravail en moins avec notre agence de développement.",
+                name: 'Sophie B., Product Manager',
+                company: 'Scale-up SaaS, Lausanne',
+                stars: 5,
+              },
+              {
+                quote: "Le Dev Mode m'a fait gagner un temps fou. Je récupère directement les couleurs, les espacements et le code CSS sans poser une seule question au designer. Le handoff est devenu fluide.",
+                name: 'Marc D., Lead Developer',
+                company: 'PME industrielle, Vaud',
                 stars: 5,
               },
             ].map((t, i) => (
@@ -412,10 +439,10 @@ export default function FormationWebDesignPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Tarifs de la formation web design
+                Tarifs de la formation Web Design
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).
+                Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h), sur site ou en visio.
               </p>
             </div>
           </SectionReveal>
@@ -426,7 +453,7 @@ export default function FormationWebDesignPage() {
 
       {/* ── FAQ ── */}
       <section id="faq" className="scroll-mt-[124px]">
-        <FAQSection items={FAQ} title="Vos questions sur la formation web design et Canva" />
+        <FAQSection items={FAQ} title="Vos questions sur la formation Web Design et Figma" />
       </section>
 
       {/* ── Bridge ── */}
@@ -434,7 +461,7 @@ export default function FormationWebDesignPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <Link
-              href="/formation-entreprise/reseaux-sociaux"
+              href="/agence-digitale/creation-site-web"
               className="group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 rounded-[14px] p-6 md:p-8 border transition-all hover:-translate-y-0.5 duration-200"
               style={{
                 background: 'linear-gradient(135deg, rgba(255,107,0,0.06) 0%, rgba(255,107,0,0.02) 100%)',
@@ -450,9 +477,9 @@ export default function FormationWebDesignPage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Aller plus loin</p>
-                  <p className="text-white font-bold text-lg leading-tight">Diffuser vos visuels sur les bons réseaux</p>
+                  <p className="text-white font-bold text-lg leading-tight">Vous avez la maquette. On la développe.</p>
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
-                    Vous créez de beaux visuels. Pour les diffuser efficacement sur les bonnes plateformes et bâtir votre audience, découvrez notre formation réseaux sociaux.
+                    Vos équipes savent maintenant concevoir leurs interfaces dans Figma. Pour transformer ces maquettes en site web performant et SEO-friendly, découvrez notre service de création de site web.
                   </p>
                 </div>
               </div>
@@ -460,7 +487,7 @@ export default function FormationWebDesignPage() {
                 className="flex-shrink-0 inline-flex items-center gap-1.5 text-[12px] font-semibold px-4 py-2 rounded-[8px] transition-opacity group-hover:opacity-80"
                 style={{ background: bg, color, border: `1px solid ${border}` }}
               >
-                Voir la formation <ChevronRight size={12} />
+                Voir le service <ChevronRight size={12} />
               </span>
             </Link>
           </SectionReveal>
@@ -468,6 +495,7 @@ export default function FormationWebDesignPage() {
       </section>
 
       {/* ── CTA ── */}
+      <LogoBanner />
       <CTAFinal accentRgb="255,140,0" />
     </main>
   )

@@ -14,11 +14,14 @@ import {
   Globe2,
   Star,
   Search,
+  Target,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
@@ -28,6 +31,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 export const metadata: Metadata = {
@@ -225,12 +229,20 @@ export default function PubliciteSEAPage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   Agence SEA spécialisée pour les PME en Suisse romande. DKDP gère vos campagnes Google Ads avec une obsession du ROI. Budget 100% dédié au media, gestion transparente sans commission, suivi de chaque conversion. Trafic qualifié dès les premières 48h.
                 </p>
+                <HeroPills
+                  items={[
+                    { label: 'Sans engagement', Icon: CheckCircle2 },
+                    { label: 'Suivi hebdomadaire', Icon: BarChart2 },
+                    { label: 'Optimisation budget garantie', Icon: Target },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Audit Ads gratuit →</LiquidMetalButton>
                   <Link href="#process" className="text-sm text-text-muted hover:text-white transition-colors">
                     Notre méthode ↓
                   </Link>
                 </div>
+                <TrustLine items={['Sans engagement', 'Suivi hebdomadaire', 'Optimisation budget garantie']} />
               </div>
               <HeroVisual />
             </div>
@@ -676,6 +688,7 @@ export default function PubliciteSEAPage() {
       </section>
 
       {/* ── CTA ── */}
+      <LogoBanner />
       <CTAFinal />
     </main>
   )

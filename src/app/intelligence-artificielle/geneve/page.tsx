@@ -18,11 +18,14 @@ import {
   Zap,
   BrainCircuit,
   Award,
+  CalendarCheck,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
@@ -30,6 +33,7 @@ import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
@@ -176,9 +180,19 @@ export default function IAGenevePage() {
                   700+ PME romandes accompagnées depuis 2015. Basée aux Eaux-Vives à Genève. Technologies Claude Opus 4.7, GPT-5, n8n. Conforme nLPD 2023, hébergement Suisse possible.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
+                  <HeroPills
+                    accentRgb="212, 212, 216"
+                    items={[
+                      { label: 'Eaux-Vives, Genève', Icon: MapPin },
+                      { label: 'Audit gratuit 30 min', Icon: Zap },
+                      { label: 'Premier RDV offert', Icon: CalendarCheck },
+                    ]}
+                    className="basis-full"
+                  />
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     Audit IA gratuit 30 min
                   </LiquidMetalButton>
+                  <TrustLine items={['Eaux-Vives, Genève', 'Audit gratuit 30 min', 'Premier rendez-vous offert']} accentRgb="212, 212, 216" className="basis-full mt-2" />
                   <Link
                     href="#services"
                     className="text-sm text-text-muted hover:text-white transition-colors"
@@ -809,6 +823,7 @@ export default function IAGenevePage() {
       </section>
 
       {/* ── CTA Final ── */}
+      <LogoBanner />
       <CTAFinal accentRgb="212,212,216" />
     </main>
   )

@@ -15,11 +15,15 @@ import {
   GitMerge,
   Zap,
   BarChart2,
+  Clock,
+  GraduationCap,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import dynamic from 'next/dynamic'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
@@ -27,6 +31,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const LLMStackDiagram = dynamic(() => import('./_components/LLMStackDiagram').then(m => m.LLMStackDiagram))
 
@@ -127,9 +132,19 @@ export default function MiseEnPlacePage() {
                   Déploiement adapté aux PME en Suisse romande : votre base de code reste intacte, vous gagnez les capacités de l&apos;IA en quelques semaines.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
+                  <HeroPills
+                    accentRgb="212, 212, 216"
+                    items={[
+                      { label: 'Audit gratuit', Icon: Zap },
+                      { label: 'Production 4 sem', Icon: Clock },
+                      { label: 'Formation incluse', Icon: GraduationCap },
+                    ]}
+                    className="basis-full"
+                  />
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     Planifier un appel
                   </LiquidMetalButton>
+                  <TrustLine items={['Audit gratuit 30 min', 'Mise en production sous 4 semaines', 'Formation incluse']} accentRgb="212, 212, 216" className="basis-full mt-2" />
                   <Link
                     href="#llms"
                     className="text-sm text-text-muted hover:text-white transition-colors"
@@ -758,6 +773,7 @@ export default function MiseEnPlacePage() {
       </section>
 
       {/* ── CTA Final ─────────────────────────────────────────── */}
+      <LogoBanner />
       <CTAFinal accentRgb="212,212,216" />
     </main>
   )

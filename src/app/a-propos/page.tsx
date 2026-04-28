@@ -10,12 +10,17 @@ import {
   BookOpen,
   Mail,
   CheckCircle2,
+  MapPin,
+  Award,
+  Users,
 } from 'lucide-react'
 import Image from 'next/image'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildPerson } from '@/lib/schema'
@@ -199,6 +204,14 @@ export default function AProposPage() {
                   DKDP aide les PME de Suisse romande à passer à l'action avec des
                   résultats concrets et mesurables.
                 </p>
+                <HeroPills
+                  accentRgb="156, 163, 175"
+                  items={[
+                    { label: 'Eaux-Vives, Genève', Icon: MapPin },
+                    { label: '5 ans d\'expertise locale', Icon: Award },
+                    { label: 'PME romandes accompagnées', Icon: Users },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     Discutons de votre projet
@@ -210,6 +223,10 @@ export default function AProposPage() {
                     Notre histoire ↓
                   </Link>
                 </div>
+                <TrustLine
+                  items={['Eaux-Vives, Genève', '700+ clients accompagnés', 'Réponse sous 24h']}
+                  accentRgb="156, 163, 175"
+                />
               </div>
 
               {/* Right: Logo DKDP */}

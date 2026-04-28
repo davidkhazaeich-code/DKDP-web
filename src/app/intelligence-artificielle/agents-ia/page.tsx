@@ -12,11 +12,16 @@ import {
   TrendingUp,
   Star,
   MessageSquare,
+  Zap,
+  ShieldCheck,
+  Clock,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import dynamic from 'next/dynamic'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
@@ -24,6 +29,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const AgentTypesGrid = dynamic(() => import('./_components/AgentTypesGrid').then(m => m.AgentTypesGrid))
 
@@ -152,9 +158,19 @@ export default function AgentsIAPage() {
                   Concu pour les PME en Suisse romande, opérationnel en 2 semaines.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
+                  <HeroPills
+                    accentRgb="212, 212, 216"
+                    items={[
+                      { label: 'Audit gratuit', Icon: Zap },
+                      { label: 'Données Suisse ou UE', Icon: ShieldCheck },
+                      { label: 'Production en 4 sem', Icon: Clock },
+                    ]}
+                    className="basis-full"
+                  />
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     Planifier un appel
                   </LiquidMetalButton>
+                  <TrustLine items={['Audit gratuit 30 min', 'Mise en production sous 4 semaines', 'Données hébergées en Suisse ou UE']} accentRgb="212, 212, 216" className="basis-full mt-2" />
                   <Link
                     href="#types-agents"
                     className="text-sm text-text-muted hover:text-white transition-colors"
@@ -788,6 +804,7 @@ export default function AgentsIAPage() {
       </section>
 
       {/* ── CTA final ── */}
+      <LogoBanner />
       <CTAFinal accentRgb="212,212,216" />
     </main>
   )

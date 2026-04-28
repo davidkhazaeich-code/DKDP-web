@@ -7,6 +7,8 @@ import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
@@ -17,6 +19,7 @@ import { violet } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
   title: 'Mise en conformité RGPD et nLPD Genève | Bandeau cookies | DKDP',
@@ -150,12 +153,20 @@ export default function RGPDCookiesPage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP accompagne les entreprises et PME genevoises dans leur mise en conformité RGPD et nLPD : bandeau cookies, politique de confidentialité, registre des traitements. Audit livré sous 48h, implémentation complète en 5 jours.
                 </p>
+                <HeroPills
+                  items={[
+                    { label: 'Audit gratuit du site', Icon: Zap },
+                    { label: 'Conformité sous 2 sem', Icon: Clock },
+                    { label: 'Mise à jour 12 mois', Icon: ShieldCheck },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Demander un audit →</LiquidMetalButton>
                   <Link href="#process" className="text-sm text-text-muted hover:text-white transition-colors">
                     Notre méthode ↓
                   </Link>
                 </div>
+                <TrustLine items={['Audit gratuit du site', 'Conformité sous 2 semaines', 'Mise à jour incluse 12 mois']} />
               </div>
               <HeroVisual />
             </div>
@@ -658,6 +669,7 @@ export default function RGPDCookiesPage() {
       </section>
 
       {/* ── CTA ── */}
+      <LogoBanner />
       <CTAFinal />
     </main>
   )

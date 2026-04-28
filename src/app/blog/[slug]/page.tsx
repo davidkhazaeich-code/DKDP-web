@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CTAFinal } from '@/components/sections/CTAFinal'
+import { LogoBanner } from '@/components/sections/LogoBanner'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildArticle, buildBreadcrumbList } from '@/lib/schema'
@@ -601,6 +602,7 @@ export default async function ArticlePage(
       )}
 
       {/* ══ 5. CTA Final ══ */}
+      <LogoBanner />
       <CTAFinal />
     </main>
   )

@@ -2,9 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
+import { MapPin, Users, Clock } from 'lucide-react'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { GradText } from '@/components/ui/GradText'
 import { TrustBadge } from '@/components/ui/TrustBadge'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 
 // Three.js — desktop uniquement, chargé en idle après LCP
 const ParticleWaves = dynamic(
@@ -56,11 +59,23 @@ export function HomeHero() {
           On crée votre site, on optimise votre SEO, on déploie l&apos;IA dans vos équipes
           et on forme vos collaborateurs. Résultats mesurables, pas de blabla.
         </p>
+        <HeroPills
+          align="center"
+          items={[
+            { label: 'Suisse romande', Icon: MapPin },
+            { label: '700+ clients accompagnés', Icon: Users },
+            { label: 'Devis sous 24h', Icon: Clock },
+          ]}
+        />
         <div className="flex justify-center">
           <LiquidMetalButton href="#nos-expertises" size="lg">
             Découvrez nos services →
           </LiquidMetalButton>
         </div>
+        <TrustLine
+          items={['Genève, Suisse romande', '700+ clients accompagnés', 'Devis sous 24h']}
+          align="center"
+        />
       </div>
     </section>
   )

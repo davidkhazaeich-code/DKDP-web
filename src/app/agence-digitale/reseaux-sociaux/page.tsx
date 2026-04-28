@@ -11,11 +11,14 @@ import {
   ShieldCheck,
   BarChart2,
   Video,
+  MapPin,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
@@ -24,6 +27,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 export const metadata: Metadata = {
@@ -159,12 +163,20 @@ export default function ReseauxSociauxPage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   Votre community manager à Genève : DKDP, agence social media, gère votre présence de A à Z. Stratégie, création de contenu, publication et community management. +180% d&apos;engagement moyen en 3 mois. Vous vous concentrez sur votre métier, on s&apos;occupe du reste.
                 </p>
+                <HeroPills
+                  items={[
+                    { label: 'Sans engagement', Icon: CheckCircle2 },
+                    { label: 'Reporting mensuel', Icon: BarChart2 },
+                    { label: 'Production locale Genève', Icon: MapPin },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Demander un devis →</LiquidMetalButton>
                   <Link href="#process" className="text-sm text-text-muted hover:text-white transition-colors">
                     Notre méthode ↓
                   </Link>
                 </div>
+                <TrustLine items={['Sans engagement', 'Reporting mensuel', 'Production locale Genève']} />
               </div>
               <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}>
@@ -617,6 +629,7 @@ export default function ReseauxSociauxPage() {
       </section>
 
       {/* ── CTA ── */}
+      <LogoBanner />
       <CTAFinal />
     </main>
   )

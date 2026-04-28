@@ -2,11 +2,13 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, Zap, Star } from 'lucide-react'
+import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, Zap, Star, FileText, MapPin } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
@@ -16,6 +18,7 @@ import { violet } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
   title: 'Création Vidéo Entreprise Genève · DKDP',
@@ -149,12 +152,20 @@ export default function CreationVideoPage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   Production vidéo professionnelle pour PME et entreprises en Suisse romande. DKDP réalise vos vidéos corporate à Genève : clips sociaux, témoignages clients, brand films. Captation 4K, livrée en 5 jours.
                 </p>
+                <HeroPills
+                  items={[
+                    { label: 'Devis fixe', Icon: FileText },
+                    { label: 'Tournage à Genève', Icon: MapPin },
+                    { label: 'Livraison sous 3 sem', Icon: Clock },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Devis vidéo gratuit →</LiquidMetalButton>
                   <Link href="#process" className="text-sm text-text-muted hover:text-white transition-colors">
                     Notre méthode ↓
                   </Link>
                 </div>
+                <TrustLine items={['Devis fixe', 'Prise de vue à Genève', 'Livraison sous 3 semaines']} />
               </div>
               <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}>
@@ -664,6 +675,7 @@ export default function CreationVideoPage() {
       </section>
 
       {/* ── CTA ── */}
+      <LogoBanner />
       <CTAFinal />
     </main>
   )

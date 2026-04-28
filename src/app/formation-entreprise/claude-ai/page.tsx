@@ -12,10 +12,12 @@ import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
 import { HeroBg } from '@/components/ui/HeroBg'
 import dynamic from 'next/dynamic'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => m.Testimonials))
 const CircularTestimonialsLazy = dynamic(() => import('@/components/ui/circular-testimonials').then(m => m.CircularTestimonials))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
@@ -235,6 +237,7 @@ export default function FormationClaudeAIPage() {
                     Voir le programme ↓
                   </Link>
                 </div>
+                <TrustLine items={['Certifié partenaire Claude', '3h ou journée complète', "Cas d'usage de votre métier"]} accentRgb="167, 139, 250" />
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
 
@@ -1202,6 +1205,7 @@ export default function FormationClaudeAIPage() {
       </section>
 
       {/* ══ 14. CTA Final ══ */}
+      <LogoBanner />
       <CTAFinal accentRgb="167,139,250" />
     </main>
   )

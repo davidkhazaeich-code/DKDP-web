@@ -7,8 +7,11 @@ import {
   User, Briefcase, UserSearch, GraduationCap,
   CalendarCheck, MessageSquare,
   ChevronRight, Star, ExternalLink, MapPin, Phone,
+  Clock,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { GradText } from '@/components/ui/GradText'
 import dynamic from 'next/dynamic'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -16,6 +19,7 @@ import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 
 const CTAFinal   = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 import { buildCourse, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
@@ -221,6 +225,14 @@ export default function FormationParticuliersPage() {
                   <span className="text-text-muted text-sm">· 463+ Genevois satisfaits</span>
                 </div>
 
+                <HeroPills
+                  accentRgb="255, 140, 0"
+                  items={[
+                    { label: 'Cours individuel', Icon: User },
+                    { label: 'À votre rythme', Icon: Clock },
+                    { label: 'Domicile ou en ligne', Icon: MapPin },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center">
                   <a
                     href="https://cours-informatique.ch"
@@ -239,6 +251,7 @@ export default function FormationParticuliersPage() {
                     +41 79 940 79 69
                   </a>
                 </div>
+                <TrustLine items={['Cours à votre rythme', 'Domicile, bureau ou en ligne', "Premier cours d'essai"]} accentRgb="255, 140, 0" />
               </div>
 
               {/* Right: info card */}
@@ -532,6 +545,7 @@ export default function FormationParticuliersPage() {
       </section>
 
       {/* ── CTA Final ── */}
+      <LogoBanner />
       <CTAFinal accentRgb="255,140,0" />
     </main>
   )

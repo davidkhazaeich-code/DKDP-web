@@ -21,11 +21,14 @@ import {
   Settings,
   Map,
   Code2,
+  Zap,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
@@ -33,6 +36,7 @@ import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from
 import { violet } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBlock').then(m => ({ default: m.SiteAuditBlock })))
@@ -273,6 +277,13 @@ export default function RefonteSiteWebPage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   Refonte complète, migration sans perte SEO, design 2026, Core Web Vitals garantis au vert. Pour PME romandes qui veulent un site qui convertit vraiment. <strong className="text-white">+240 % de trafic organique en 12 mois</strong> en moyenne sur les 14 refontes DKDP 2024-2026.
                 </p>
+                <HeroPills
+                  items={[
+                    { label: 'Audit gratuit', Icon: Zap },
+                    { label: 'Livraison 4 à 8 sem', Icon: Clock },
+                    { label: 'SEO préservé', Icon: Search },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     Audit gratuit de mon site
@@ -284,6 +295,7 @@ export default function RefonteSiteWebPage() {
                     Symptômes d&apos;un site à refaire <ArrowRight size={13} />
                   </Link>
                 </div>
+                <TrustLine items={['Audit gratuit du site existant', 'Livraison 4 à 8 semaines', 'Maintien du SEO assuré']} />
                 <p className="text-text-muted text-xs mt-6">
                   Tarif fixe dès CHF 3 900. Audit SEO inclus. Devis en 48 h.
                 </p>
@@ -849,6 +861,7 @@ export default function RefonteSiteWebPage() {
         </div>
       </section>
 
+      <LogoBanner />
       <CTAFinal accentRgb="167,139,250" />
     </main>
   )

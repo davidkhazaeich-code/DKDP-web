@@ -16,11 +16,14 @@ import {
   Bot,
   Workflow,
   Star,
+  MapPin,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import dynamic from 'next/dynamic'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
@@ -28,6 +31,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const AuditScoreCard = dynamic(() => import('./_components/AuditScoreCard').then(m => m.AuditScoreCard))
 
@@ -124,12 +128,21 @@ export default function AuditConseilPage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-8">
                   Notre conseil IA identifie les 3 opportunités d&apos;automatisation à fort ROI pour votre PME en Suisse romande. Résultats concrets en une session, rapport complet sous 48h.
                 </p>
+                <HeroPills
+                  accentRgb="212, 212, 216"
+                  items={[
+                    { label: 'Sous 7 jours', Icon: Clock },
+                    { label: 'Sans engagement', Icon: CheckCircle2 },
+                    { label: 'Genève et Suisse romande', Icon: MapPin },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     Demander un audit IA
                   </LiquidMetalButton>
                   <p className="text-text-muted text-sm">Rapport complet en 48h</p>
                 </div>
+                <TrustLine items={['Audit offert sous 7 jours', 'Sans engagement', 'Genève et Suisse romande']} accentRgb="212, 212, 216" />
                 <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
               </div>
 
@@ -670,6 +683,7 @@ export default function AuditConseilPage() {
       </section>
 
       {/* ── CTAFinal ──────────────────────────────────────────────────────── */}
+      <LogoBanner />
       <CTAFinal accentRgb="212,212,216" />
 
     </main>

@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Bot, Workflow, BrainCircuit, Cpu, ChevronRight, Clock, TrendingUp, ShieldCheck, GraduationCap, CheckCircle2, Layers, GitMerge, Zap, MessageCircle } from 'lucide-react'
+import { Bot, Workflow, BrainCircuit, Cpu, ChevronRight, Clock, TrendingUp, ShieldCheck, GraduationCap, CheckCircle2, Layers, GitMerge, Zap, MessageCircle, Users } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import dynamic from 'next/dynamic'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
@@ -117,6 +119,14 @@ export default function IntelligenceArtificiellePage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   PME en Suisse romande : automatisez ce qui vous ralentit. Déployez l&apos;IA là où ça compte vraiment. On s&apos;occupe de tout, de l&apos;audit à la mise en production.
                 </p>
+                <HeroPills
+                  accentRgb="212, 212, 216"
+                  items={[
+                    { label: 'Audit gratuit 30 min', Icon: Zap },
+                    { label: 'Données Suisse ou UE', Icon: ShieldCheck },
+                    { label: 'Tous secteurs BtoB', Icon: Users },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton href="/intelligence-artificielle/audit-conseil" size="lg">
                     Demander un audit IA →
@@ -125,6 +135,10 @@ export default function IntelligenceArtificiellePage() {
                     Voir nos solutions ↓
                   </Link>
                 </div>
+                <TrustLine
+                  items={['Audit gratuit 30 min', 'Mise en production sous 4 semaines', 'Données hébergées en Suisse ou UE']}
+                  accentRgb="212, 212, 216"
+                />
                 <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
               </div>
               <div className="relative">

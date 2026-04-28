@@ -83,6 +83,7 @@ export const ROUTES: Route[] = [
   { url: '/formation-entreprise/claude-ai',       priority: 0.85, changeFrequency: 'monthly' },
   { url: '/formation-entreprise/ia',              priority: 0.85, changeFrequency: 'monthly' },
   { url: '/formation-entreprise/bureautique',     priority: 0.80, changeFrequency: 'monthly' },
+  { url: '/formation-entreprise/canva',           priority: 0.80, changeFrequency: 'monthly' },
   { url: '/formation-entreprise/web-design',      priority: 0.75, changeFrequency: 'monthly' },
   { url: '/formation-entreprise/cybersecurite',   priority: 0.75, changeFrequency: 'monthly' },
   { url: '/formation-entreprise/reseaux-sociaux', priority: 0.75, changeFrequency: 'monthly' },

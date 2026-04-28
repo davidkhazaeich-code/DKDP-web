@@ -2,15 +2,17 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
-  BrainCircuit, BookOpen, Shield, Share2, Palette, Cpu, Film, Sparkles,
+  BrainCircuit, BookOpen, Shield, Share2, Palette, Cpu, Film, Sparkles, Wand2,
   ChevronRight, Award, CalendarCheck, Users, ExternalLink, User, GraduationCap, Monitor,
-  Clock, BarChart2, Lightbulb, CheckCircle2, Target, BookCheck,
+  Clock, BarChart2, Lightbulb, CheckCircle2, Target, BookCheck, Briefcase, MapPin,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import dynamic from 'next/dynamic'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ParallaxOrangeBlobs } from '@/components/ui/ParallaxOrangeBlobs'
 
@@ -68,8 +70,14 @@ const PROGRAMS = [
     image: '/images/services/dkdp-formation-reseaux-sociaux.webp',
   },
   {
-    Icon: Palette, title: 'Web design & Canva', href: '/formation-entreprise/web-design',
-    description: 'Créez des visuels professionnels sans être graphiste. Maîtrisez Canva, les bases du design et de la charte graphique.',
+    Icon: Wand2, title: 'Formation Canva', href: '/formation-entreprise/canva',
+    description: 'Créez vos visuels professionnels en 5 minutes. Brand Kit, templates, posts sociaux, présentations et IA Magic Studio.',
+    badge: 'Populaire',
+    image: '/images/services/dkdp-formation-canva.webp',
+  },
+  {
+    Icon: Palette, title: 'Formation Web Design', href: '/formation-entreprise/web-design',
+    description: 'Concevez votre site avant de le développer. UI/UX, Figma, wireframes, design system, prototypes interactifs.',
     badge: null,
     image: '/images/services/dkdp-formation-web-design.webp',
   },
@@ -139,12 +147,24 @@ export default function FormationEntreprisePage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   Des formations informatiques sur mesure pour PME et grandes entreprises à Genève. IA, bureautique, cybersécurité : vos équipes progressent en une journée, sur leurs vrais outils.
                 </p>
+                <HeroPills
+                  accentRgb="255, 140, 0"
+                  items={[
+                    { label: '100% sur mesure', Icon: Target },
+                    { label: 'Sur vos vrais outils', Icon: Briefcase },
+                    { label: 'Genève et Suisse romande', Icon: MapPin },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
                   <Link href="#programmes" className="text-sm text-text-muted hover:text-white transition-colors">
                     Voir les programmes ↓
                   </Link>
                 </div>
+                <TrustLine
+                  items={['Sur site ou dans vos locaux', 'Genève et Suisse romande', 'Programme adapté à votre équipe']}
+                  accentRgb="255, 140, 0"
+                />
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <HeroVisual />

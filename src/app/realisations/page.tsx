@@ -4,6 +4,7 @@ import { RealisationsGrid } from '@/components/realisations/RealisationsGrid'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { CTAFinal } from '@/components/sections/CTAFinal'
+import { LogoBanner } from '@/components/sections/LogoBanner'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildBreadcrumbList, buildRealisationsCollection } from '@/lib/schema'
 import { REALISATIONS } from '@/lib/realisations'
@@ -56,6 +57,7 @@ export default function RealisationsHubPage() {
         <RealisationsGrid items={liveItems} />
       </Suspense>
 
+      <LogoBanner />
       <CTAFinal />
     </>
   )

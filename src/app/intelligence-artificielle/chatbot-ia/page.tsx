@@ -14,11 +14,14 @@ import {
   Scale,
   CheckCircle2,
   ArrowRight,
+  ShieldCheck,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
@@ -26,6 +29,9 @@ import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList, build
 import { chrome, violet } from '@/lib/tokens'
 const CTAFinal = dynamic(() =>
   import('@/components/sections/CTAFinal').then((m) => ({ default: m.CTAFinal }))
+)
+const LogoBanner = dynamic(() =>
+  import('@/components/sections/LogoBanner').then((m) => ({ default: m.LogoBanner }))
 )
 const FAQSection = dynamic(() =>
   import('@/components/sections/FAQSection').then((m) => ({ default: m.FAQSection }))
@@ -380,6 +386,14 @@ export default function ChatbotIAPage() {
                   Pas un widget générique : un assistant virtuel intelligent concu pour votre métier, vos questions
                   et vos clients. déployé sur votre site en 2 a 5 semaines, a partir de CHF 2&apos;900.
                 </p>
+                <HeroPills
+                  accentRgb="212, 212, 216"
+                  items={[
+                    { label: 'POC en 2 à 3 sem', Icon: Clock },
+                    { label: 'Données Suisse ou UE', Icon: ShieldCheck },
+                    { label: 'WhatsApp ou Web', Icon: MessageCircle },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=chatbot-ia" size="lg">
                     Discuter de mon projet<span aria-hidden="true"> →</span>
@@ -391,6 +405,7 @@ export default function ChatbotIAPage() {
                     Comment ca marché ↓
                   </Link>
                 </div>
+                <TrustLine items={['POC en 2 à 3 semaines', 'Données hébergées en Suisse ou UE', 'Intégration WhatsApp ou web']} accentRgb="212, 212, 216" />
                 <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
               </div>
 
@@ -982,6 +997,7 @@ export default function ChatbotIAPage() {
       </div>
 
       {/* ── CTA Final ── */}
+      <LogoBanner />
       <CTAFinal />
     </main>
   )

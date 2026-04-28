@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import { ChevronRight, ShieldCheck, Code2, Users, RefreshCw } from 'lucide-react'
+import { ChevronRight, ShieldCheck, Code2, Users, RefreshCw, FileText, Settings } from 'lucide-react'
 import { ParallaxImage } from '@/components/ui/ParallaxImage'
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
@@ -19,6 +21,7 @@ import { TechStack } from './_components/TechStack'
 import { AppGallery } from './_components/AppGallery'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
@@ -186,12 +189,20 @@ export default function DeveloppementApplicationPage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   iOS, Android, web app ou PWA : DKDP développe des applications métier robustes pour les PME qui veulent digitaliser leurs opérations ou créer une nouvelle expérience client. Un seul interlocuteur, de la maquette au store.
                 </p>
+                <HeroPills
+                  items={[
+                    { label: 'Devis fixe sous 48h', Icon: FileText },
+                    { label: 'Données Suisse ou UE', Icon: ShieldCheck },
+                    { label: 'Maintenance incluse', Icon: Settings },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact" size="lg">Discuter de votre projet →</LiquidMetalButton>
                   <Link href="#types" className="text-sm text-text-muted hover:text-white transition-colors">
                     Voir les types d&apos;apps ↓
                   </Link>
                 </div>
+                <TrustLine items={['Devis fixe sous 48h', 'Maintenance incluse', 'Hébergement Suisse ou UE']} />
               </div>
               <HeroVisual />
             </div>
@@ -415,6 +426,7 @@ export default function DeveloppementApplicationPage() {
       </section>
 
       {/* ── CTA Final ── */}
+      <LogoBanner />
       <CTAFinal accentRgb="124,58,237" />
 
       {/* ── FAQ ── */}

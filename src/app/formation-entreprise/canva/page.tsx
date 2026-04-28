@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, BarChart2, Clock, TrendingUp, Zap, Users, Award, Star, BookOpen, Settings, Monitor, Cpu, FileText } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Layers, Wand2, Palette, Share2, Sparkles, Globe2, Zap, FileText } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -10,8 +10,8 @@ import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { TrustLine } from '@/components/ui/TrustLine'
 import { HeroPills } from '@/components/ui/HeroPills'
-import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
+import { SchemaOrg } from '@/components/seo/SchemaOrg'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
@@ -20,96 +20,110 @@ const FormationPricing = dynamic(() => import('@/components/sections/FormationPr
 const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
-import { ExcelSkillsComparison } from './_components/ExcelSkillsComparison'
+import { CanvaFeatureCards } from './_components/CanvaFeatureCards'
 
 export const metadata: Metadata = {
-  title: 'Formation Bureautique et Excel en Entreprise à Genève | DKDP',
+  title: 'Formation Canva en Entreprise à Genève | Brand Kit, Templates, Magic Studio | DKDP',
   description:
-    'Formation bureautique et Excel en entreprise à Genève et Suisse romande. Word, PowerPoint, Microsoft 365. Programme adapté à votre équipe, PME ou grande entreprise. Devis gratuit.',
-  alternates: { canonical: 'https://dkdp.ch/formation-entreprise/bureautique' },
+    'Formation Canva pour PME et entreprises à Genève et en Suisse romande. Brand Kit, templates, posts sociaux, présentations, IA Magic Studio. Vos équipes créent des visuels professionnels en une journée. Devis gratuit.',
+  alternates: { canonical: 'https://dkdp.ch/formation-entreprise/canva' },
   openGraph: {
-    images: [{ url: '/images/og/formation-bureautique.png', width: 1376, height: 768, alt: 'Formation bureautique Excel entreprise Genève DKDP' }],
+    images: [{ url: '/images/og/formation-canva.png', width: 1376, height: 768, alt: 'Formation Canva entreprise Genève DKDP' }],
   },
 }
 
 const FAQ = [
   {
-    question: 'À quel niveau de compétences s\'adresse la formation bureautique ?',
+    question: 'Faut-il être graphiste pour suivre la formation Canva ?',
     answer:
-      'DKDP propose des formations bureautique pour tous les niveaux : débutant (navigation, fichiers, logiciels de base), intermédiaire (Excel formules, mise en forme avancée, publipostage) et avancé (tableaux croisés dynamiques, macros Excel, Power Query). Le niveau du groupe est évalué en amont.',
+      "Non. La formation Canva DKDP est conçue pour des non-graphistes. On part des bases du design (typographie, couleurs, hiérarchie visuelle) et on construit ensemble vos premiers visuels. La majorité des participants n'ont jamais ouvert Canva avant la formation et repartent autonomes le soir même.",
   },
   {
-    question: 'Quels logiciels sont couverts dans la formation bureautique ?',
+    question: 'Quelle différence entre Canva gratuit et Canva Pro ?',
     answer:
-      'La formation couvre Microsoft Excel, Word, PowerPoint et Outlook. On peut aussi inclure Microsoft Teams, SharePoint, OneDrive et les outils de collaboration Microsoft 365 selon vos besoins.',
+      "La version gratuite couvre déjà 80% des besoins d'une PME. Canva Pro (CHF 15/mois par utilisateur ou CHF 30/mois en équipe) débloque le Brand Kit complet (logo, palette, polices d'entreprise), la suppression d'arrière-plan, le redimensionnement automatique (Magic Resize), et plus de 100 millions de templates et photos premium. DKDP vous aide à choisir la formule réellement utile selon vos besoins.",
   },
   {
-    question: 'Combien de temps dure une formation bureautique en entreprise ?',
+    question: "Qu'est-ce que le Brand Kit Canva et pourquoi le configurer ?",
     answer:
-      'Une demi-journée (3h) couvre les bases d\'un logiciel spécifique. Une journée complète (6h) permet d\'aller en profondeur sur Excel ou Microsoft 365. Un programme sur 2 jours est recommandé pour couvrir l\'ensemble de la suite bureautique.',
+      "Le Brand Kit centralise l'identité visuelle de votre entreprise dans Canva : logo, palette de couleurs, polices officielles, dégradés, photos. Une fois configuré, chaque membre de l'équipe accède aux mêmes éléments depuis n'importe quel template. Résultat : vos visuels restent cohérents quelle que soit la personne qui les crée. Configurer le Brand Kit est le premier vrai gain de temps.",
   },
   {
-    question: 'La formation peut-elle se faire sur nos ordinateurs ?',
+    question: 'Quels formats peut-on créer avec Canva ?',
     answer:
-      'Oui, c\'est même préférable. Travailler sur vos propres machines avec vos propres fichiers rend la formation immédiatement applicable. DKDP peut aussi apporter des ordinateurs portables si nécessaire.',
+      "Posts réseaux sociaux (Instagram, LinkedIn, Facebook, TikTok, X), Stories et Reels animés, présentations professionnelles, flyers et affiches imprimables, brochures, newsletters, bannières web, cartes de visite, signatures email, vidéos courtes, documents internes, organigrammes. Plus de 100 formats préformatés sont accessibles dès le démarrage.",
   },
   {
-    question: 'Comment est évalué le niveau des participants avant la formation ?',
+    question: 'Comment fonctionne Magic Studio (IA de Canva) ?',
     answer:
-      'DKDP envoie un questionnaire d\'évaluation simple avant chaque formation. Cela permet d\'adapter le programme au niveau réel du groupe et de ne pas perdre de temps sur des notions déjà maîtrisées.',
+      "Magic Studio regroupe les fonctionnalités d'IA intégrées à Canva : Magic Write génère du texte, Magic Edit modifie une image avec une instruction écrite, Magic Resize adapte un visuel à plusieurs formats en un clic, Magic Eraser supprime un objet d'une photo, Background Remover détoure un sujet. Ces outils accélèrent la production de 3 à 5 fois selon les usages. La formation couvre les 5 outils principaux.",
   },
   {
-    question: 'Les participants reçoivent-ils des supports de formation ?',
+    question: "L'équipe peut-elle travailler à plusieurs sur un même design ?",
     answer:
-      'Oui. Chaque participant reçoit un support de cours numérique (PDF ou Notion) avec les étapes-clés, les raccourcis essentiels et des exercices pratiques à faire en autonomie après la formation.',
+      "Oui. Canva intègre une collaboration en temps réel similaire à Google Docs : commentaires, suggestions, partage de templates internes, espaces de marque communs. La formation inclut un module sur l'organisation d'un workflow d'équipe pour éviter la duplication et garantir la cohérence visuelle.",
+  },
+  {
+    question: 'Combien de temps dure la formation Canva ?',
+    answer:
+      "Une demi-journée (4h) pour les bases : interface, premiers visuels, Brand Kit. Une journée complète (8h) pour aller plus loin : Magic Studio, workflow d'équipe, présentations avancées, vidéos. La majorité des PME optent pour la journée complète, qui rentabilise le plus rapidement.",
+  },
+  {
+    question: 'La formation peut-elle se dérouler dans nos locaux ?',
+    answer:
+      "Oui. DKDP intervient à Genève et dans toute la Suisse romande sur site (vos locaux), dans nos espaces de formation, ou en visio selon votre préférence. La formation sur site est souvent privilégiée pour faciliter la participation de l'équipe complète.",
   },
 ]
 
 const MODULES = [
-  'Excel : formules essentielles (SOMME.SI, RECHERCHEV, INDEX/EQUIV, NB.SI)',
-  'Excel : mise en forme conditionnelle et graphiques dynamiques',
-  'Excel : tableaux croisés dynamiques et Power Query',
-  'Word : modèles, styles et publipostage professionnel',
-  'PowerPoint : design de présentations convaincantes',
-  'Outlook : gestion avancée des emails et règles automatiques',
-  'Microsoft 365 : Teams, SharePoint, OneDrive et collaboration temps réel',
-  'Raccourcis et automatisations pour gagner 3h/semaine',
-]
-
-const STEPS = [
-  {
-    Icon: BookOpen,
-    title: 'Évaluation initiale',
-    desc: 'Questionnaire envoyé en amont pour calibrer le niveau du groupe. Programme adapté le jour J.',
-  },
-  {
-    Icon: Users,
-    title: 'Formation pratique',
-    desc: 'Travail sur vos vrais fichiers et vos vrais cas. Pas d\'exercices fictifs : on améliore vos documents existants.',
-  },
-  {
-    Icon: Award,
-    title: 'Exercices & Quiz',
-    desc: 'Exercices progressifs tout au long de la journée. Quiz de consolidation en fin de session.',
-  },
-  {
-    Icon: CheckCircle2,
-    title: 'Support & attestation',
-    desc: 'Guide de référence numérique livré. Attestation individuelle de formation. Questions et réponses 30 jours après.',
-  },
+  'Découverte de Canva : interface, dashboards, projets et dossiers',
+  "Brand Kit complet : logo, palette de couleurs, polices d'entreprise",
+  'Bibliothèque de templates : 250 000+ designs prêts à personnaliser',
+  'Posts réseaux sociaux : Instagram, LinkedIn, Facebook, TikTok',
+  'Stories et Reels animés en quelques minutes',
+  'Présentations professionnelles : alternative à PowerPoint',
+  'Flyers, brochures et affiches imprimables',
+  'Newsletters et signatures email harmonisées',
+  'Magic Studio : Magic Write, Magic Resize, Magic Edit, Background Remover',
+  'Cohérence visuelle multi-supports et règles de marque',
+  'Canva Pro vs gratuit : choisir la formule adaptée',
+  "Workflow d'équipe : templates partagés, commentaires, validation",
 ]
 
 const color = orange.color, bg = orange.bg, border = orange.border
 
-export default function FormationBureautiquePage() {
+const steps = [
+  {
+    Icon: Layers,
+    title: 'Bases du design',
+    desc: "Théorie essentielle en 45 min : couleurs, typographie, hiérarchie. Ce qui distingue un visuel pro d'un visuel amateur dans Canva.",
+  },
+  {
+    Icon: Palette,
+    title: 'Brand Kit configuré',
+    desc: "Import de votre logo, palette officielle, polices d'entreprise. Vos templates aux couleurs de votre marque, prêts à l'emploi.",
+  },
+  {
+    Icon: Share2,
+    title: 'Templates en pratique',
+    desc: 'Création de vos 5 templates prioritaires : posts, stories, présentations, flyers. Production fluide pour votre quotidien.',
+  },
+  {
+    Icon: Wand2,
+    title: 'Magic Studio et IA',
+    desc: "Maîtrise des outils IA de Canva pour produire 5x plus vite. Workflow d'équipe configuré et prêt à scaler.",
+  },
+]
+
+export default function FormationCanvaPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Bureautique Excel Microsoft 365 Genève', url: '/formation-entreprise/bureautique', description: 'Formation bureautique professionnelle à Genève. Excel, Word, PowerPoint, Outlook et Microsoft 365 pour équipes d\'entreprise.', duration: 'P1D', teaches: ['Excel', 'Word', 'PowerPoint', 'Microsoft 365', 'Tableaux croisés dynamiques'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Canva Entreprise Genève', url: '/formation-entreprise/canva', description: 'Formation Canva pour équipes de PME et entreprises à Genève et en Suisse romande. Brand Kit, templates, posts sociaux, présentations, IA Magic Studio. Devenez autonome sur Canva en une journée.', duration: 'P1D', teaches: ['Canva', 'Brand Kit', 'Magic Studio IA', 'Templates', 'Réseaux sociaux', 'Présentations'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
         { name: 'Formation Entreprise', url: 'https://dkdp.ch/formation-entreprise' },
-        { name: 'Bureautique et Excel', url: 'https://dkdp.ch/formation-entreprise/bureautique' },
+        { name: 'Formation Canva', url: 'https://dkdp.ch/formation-entreprise/canva' },
       ])} />
 
       {/* ── Hero ── */}
@@ -121,23 +135,23 @@ export default function FormationBureautiquePage() {
                 Formation Entreprise
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
-              <span className="text-sm" style={{ color }}>Bureautique et Excel</span>
+              <span className="text-sm" style={{ color }}>Formation Canva</span>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation bureautique et Excel à Genève</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation Canva à Genève</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>3 heures</GradText>{' '}sur Excel. On leur apprend à le faire en <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>30 minutes</GradText>.
+                  Créez vos visuels en 5 minutes. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Aux couleurs de votre marque</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos équipes à Excel, Word, PowerPoint et Microsoft 365 en présentiel à Genève et en Suisse romande. Programme adapté à votre PME ou grande entreprise, à votre niveau et vos usages réels. Vos collaborateurs repartent avec des compétences applicables dès le lendemain.
+                  DKDP forme vos équipes de PME et entreprises à Canva à Genève et en Suisse romande. Posts, présentations, flyers, brochures : vos collaborateurs créent des visuels professionnels sans agence, dès le lendemain de la formation.
                 </p>
                 <HeroPills
                   accentRgb="255, 140, 0"
                   items={[
                     { label: '100% pratique', Icon: Zap },
-                    { label: 'Sur vos vrais fichiers', Icon: FileText },
-                    { label: 'Tous niveaux', Icon: Users },
+                    { label: 'Sur vos visuels réels', Icon: FileText },
+                    { label: 'Toutes industries', Icon: Users },
                   ]}
                 />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
@@ -146,14 +160,14 @@ export default function FormationBureautiquePage() {
                     Voir le programme ↓
                   </Link>
                 </div>
-                <TrustLine items={['Sur site ou dans vos locaux', 'Genève et Suisse romande', 'Programme adapté à votre équipe']} accentRgb="255, 140, 0" />
+                <TrustLine items={['Brand Kit configuré', 'Templates prêts à l\'emploi', 'Genève et Suisse romande']} accentRgb="255, 140, 0" />
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
                   <Image
-                    src="/images/services/dkdp-formation-bureautique.webp"
-                    alt="Formation bureautique et Excel en entreprise à Genève"
+                    src="/images/services/dkdp-formation-canva.webp"
+                    alt="Formation Canva en entreprise à Genève : Brand Kit et templates personnalisés"
                     fill
                     className="object-cover"
                     priority
@@ -172,10 +186,10 @@ export default function FormationBureautiquePage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '3h', l: 'Gagnées / semaine', sub: 'Par collaborateur formé' },
-              { v: '10%', l: 'Fonctions utilisées', sub: "D'Excel en moyenne" },
-              { v: '85%', l: 'Satisfaction', sub: 'Note post-formation' },
-              { v: '1 journée', l: 'Pour tout maîtriser', sub: 'Format intensif pratique' },
+              { v: '250M+', l: 'Utilisateurs', sub: 'Canva dans le monde' },
+              { v: '5 min', l: 'Par visuel', sub: 'Avec Brand Kit configuré' },
+              { v: '80%', l: 'Temps gagné', sub: 'Sur la production graphique' },
+              { v: '1 journée', l: 'Pour devenir autonome', sub: 'Sans aucun prérequis' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -189,51 +203,47 @@ export default function FormationBureautiquePage() {
         </div>
       </section>
 
-      {/* ── Intro definition ── */}
-      <section className="py-8">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-center">
-            La formation bureautique DKDP s&apos;adresse aux PME et entreprises de Genève et Suisse romande qui souhaitent renforcer la maîtrise d&apos;Excel, Word et Microsoft 365 de leurs équipes. En une demi-journée ou une journée, vos collaborateurs apprennent à gagner du temps sur les tâches quotidiennes, des formules Excel aux présentations PowerPoint. Tous les niveaux sont acceptés.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Subnav ── */}
       <ScrollSpyNav
         items={[
-          { label: 'Pourquoi maintenant', href: '#pourquoi' },
           { label: 'Programme', href: '#programme' },
-          { label: 'Profils', href: '#profils' },
-          { label: 'Déroulement', href: '#deroulement' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
         ]}
-        cta={{ label: 'Prendre contact', href: '/contact' }}
         accentColor="#FF8C00"
         accentBg="rgba(255,107,0,0.12)"
         accentBorder="rgba(255,107,0,0.25)"
       />
 
+      {/* ── Intro definition ── */}
+      <section className="py-8">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-center">
+            DKDP forme les PME et entreprises de Genève et de Suisse romande à Canva, l&apos;outil de création graphique le plus utilisé au monde. Vos collaborateurs apprennent à produire des supports de communication professionnels (posts sociaux, présentations, flyers, brochures) sans aucune compétence technique préalable. Formation pratique en une journée.
+          </p>
+        </div>
+      </section>
+
       {/* ── Pourquoi maintenant ── */}
-      <section id="pourquoi" className="scroll-mt-[124px] py-24">
+      <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
               <GradTag className="mb-4">Pourquoi maintenant</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Pourquoi former vos équipes à Excel et la bureautique
+                Pourquoi former vos équipes à Canva en 2026
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
-                La plupart des collaborateurs n&apos;utilisent que 10% des fonctionnalités d&apos;Excel ou de Word. Des heures perdues chaque semaine sur des tâches qui pourraient être automatisées en quelques clics. La formation DKDP cible les 20% de fonctions qui couvrent 80% des besoins quotidiens.
+                Attendre une agence pour un post Instagram. Payer un graphiste freelance pour un flyer. Relancer trois fois pour une présentation client. Ces frictions ralentissent vos équipes commerciales et marketing, et grignotent un budget que vous pourriez investir ailleurs.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
-                On ne travaille pas sur des exercices fictifs. On prend vos vrais tableaux, vos vrais fichiers, et on les améliore ensemble. Dès le lendemain matin, vos équipes appliquent ce qu&apos;elles ont appris.
+                Avec un Brand Kit bien configuré et les bons templates, vos collaborateurs créent des visuels cohérents et professionnels en autonomie complète. En une journée de formation, l&apos;autonomie devient une réalité durable.
               </p>
               <div className="space-y-3">
                 {[
-                  'Les collaborateurs formés à Excel avancé gagnent en moyenne 3h par semaine',
-                  "Moins de 10% des utilisateurs d'Excel maîtrisent les tableaux croisés dynamiques",
-                  'Microsoft 365 est sous-utilisé dans 9 entreprises sur 10 selon Microsoft',
+                  "Les PME suisses dépensent en moyenne CHF 4 000/an en création graphique externalisée",
+                  "Canva est utilisé par plus de 250 millions de personnes dans le monde, dont 95% des Fortune 500",
+                  "Un Brand Kit bien configuré réduit le temps de production visuelle de 70%",
+                  "Magic Studio (IA Canva) accélère encore la production de 3 à 5 fois selon les usages",
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
@@ -248,11 +258,11 @@ export default function FormationBureautiquePage() {
                 style={{ background: bg, borderColor: border, boxShadow: '0 0 50px rgba(255,107,0,0.07)' }}
               >
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6 text-center" style={{ color }}>
-                  Avant vs après la formation
+                  Les 3 piliers de la formation
                 </p>
-                <ExcelSkillsComparison />
+                <CanvaFeatureCards />
                 <p className="text-text-muted text-[11px] text-center mt-4">
-                  La même personne, le même outil. Juste les bonnes techniques.
+                  Chaque pilier est couvert avec des cas pratiques sur vos vrais supports.
                 </p>
               </div>
             </SectionReveal>
@@ -261,19 +271,19 @@ export default function FormationBureautiquePage() {
       </section>
 
       {/* ── Programme ── */}
-      <section id="programme" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
+      <section id="programme" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Programme de formation Excel, Word et Microsoft 365
+                Programme complet de la formation Canva
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
-                La formation commence par une évaluation du niveau du groupe, puis on plonge directement dans la pratique. Chaque module est illustré avec vos cas d&apos;usage réels. On ne fait pas de démo : on travaille sur vos vrais documents.
+                La formation commence par les principes fondamentaux du design (45 minutes, pas plus) puis bascule directement dans Canva. Chaque participant crée ses premiers visuels pendant la session, aux couleurs de son entreprise, sur les formats qu&apos;il utilisera vraiment dès le lendemain.
               </p>
               <p className="text-text-secondary leading-relaxed">
-                En fin de session, chaque participant dispose d&apos;un guide de référence complet et d&apos;une attestation individuelle. Pas de théorie inutile : que ce qui est utilisable le lendemain.
+                À la fin de la session, vous disposez d&apos;un Brand Kit opérationnel et d&apos;un kit de templates prêts à l&apos;emploi. Plus besoin de repartir de zéro à chaque publication : vos templates font le travail, votre équipe gagne du temps.
               </p>
             </SectionReveal>
             <SectionReveal delay={0.1}>
@@ -291,26 +301,26 @@ export default function FormationBureautiquePage() {
       </section>
 
       {/* ── Pour qui ── */}
-      <section id="profils" className="scroll-mt-[124px] py-24">
+      <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Profils</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Pour qui est la formation bureautique en entreprise ?
+                Pour qui est la formation Canva en entreprise
               </h2>
             </div>
           </SectionReveal>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
-              'Assistantes administratives',
-              'Comptables et analystes',
-              'Chargés de projet',
-              'Managers et cadres',
-              'Équipes commerciales',
-              'Tout collaborateur MS365',
-              'Secrétaires médicales',
-              'RH et recruteurs',
+              'Équipes communication et marketing',
+              'Community managers',
+              'Assistantes de direction',
+              'Responsables RH (annonces, livret accueil)',
+              'Commerciaux (présentations clients)',
+              'Indépendants et entrepreneurs solos',
+              'Gérants de PME sans graphiste',
+              'Toute personne qui crée des supports visuels',
             ].map((role, i) => (
               <SectionReveal key={role} delay={i * 0.07}>
                 <div
@@ -326,13 +336,13 @@ export default function FormationBureautiquePage() {
       </section>
 
       {/* ── Déroulement ── */}
-      <section id="deroulement" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
+      <section className="py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Déroulement</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Une journée structurée pour un résultat maximal.
+                Déroulement de la formation Canva
               </h2>
             </div>
           </SectionReveal>
@@ -346,7 +356,7 @@ export default function FormationBureautiquePage() {
               }}
             />
             <div className="relative z-[1] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {STEPS.map((s, i) => (
+              {steps.map((s, i) => (
                 <SectionReveal key={s.title} delay={i * 0.08}>
                   <div className="flex flex-col gap-3 p-7 bg-bg-card border border-border rounded-[16px] h-full">
                     <div
@@ -374,28 +384,28 @@ export default function FormationBureautiquePage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Retours après la formation bureautique
+                Retours après la formation Canva
               </h2>
             </div>
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                quote: 'Après la formation Excel de DKDP, j\'ai automatisé 4 tâches hebdomadaires. Ce que je faisais en 3 heures se fait maintenant en 20 minutes. Magique.',
-                name: 'Sophie B., Comptable',
-                company: 'PME financière, Genève',
+                quote: "Avant la formation, je payais une graphiste freelance pour chaque post Instagram. Maintenant je crée mes visuels en 5 minutes avec mes templates Canva. Rentabilisé en deux semaines.",
+                name: 'Nathalie F., Fondatrice',
+                company: 'Boutique artisanale, Genève',
                 stars: 5,
               },
               {
-                quote: 'Toute notre équipe administrative a suivi la formation. On utilise maintenant Teams et SharePoint efficacement. La collaboration s\'est transformée.',
-                name: 'Marie D., DRH',
-                company: 'Entreprise 120 personnes, Lausanne',
+                quote: "On a formé toute notre équipe communication à Canva, avec un Brand Kit unifié. La cohérence visuelle de notre marque s'est améliorée du jour au lendemain. Fini les visuels disparates entre collègues.",
+                name: 'Thomas L., Responsable marketing',
+                company: 'PME 40 personnes, Vaud',
                 stars: 5,
               },
               {
-                quote: 'J\'utilisais Excel depuis 15 ans mais je ne savais pas ce que c\'était vraiment. La formation m\'a ouvert les yeux sur ce que je ratais.',
-                name: 'Isabelle T., Chargée de projet',
-                company: 'Secteur public, Genève',
+                quote: "Magic Studio a été une vraie révélation. Je redimensionne un visuel pour 5 réseaux sociaux en un clic, je supprime un fond en 2 secondes. Ce qui me prenait 30 minutes prend désormais 2 minutes.",
+                name: 'Sarah M., Community manager',
+                company: 'Agence événementielle, Genève',
                 stars: 5,
               },
             ].map((t, i) => (
@@ -406,7 +416,7 @@ export default function FormationBureautiquePage() {
                 >
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: t.stars }).map((_, j) => (
-                      <span key={j} style={{ color }}>★</span>
+                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
                     ))}
                   </div>
                   <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
@@ -423,16 +433,16 @@ export default function FormationBureautiquePage() {
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
-        <section id="tarifs" className="scroll-mt-[124px] py-24 border-y border-border">
+        <section id="tarifs" className="py-24 border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Tarifs</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Tarifs de la formation bureautique
+                Tarifs de la formation Canva
               </h2>
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).
+                Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h), sur site ou en visio.
               </p>
             </div>
           </SectionReveal>
@@ -442,20 +452,20 @@ export default function FormationBureautiquePage() {
       </HeroBg>
 
       {/* ── FAQ ── */}
-      <div id="faq" className="scroll-mt-[124px]">
-        <FAQSection items={FAQ} title="Vos questions sur la formation bureautique" />
-      </div>
+      <section id="faq" className="scroll-mt-[124px]">
+        <FAQSection items={FAQ} title="Vos questions sur la formation Canva" />
+      </section>
 
       {/* ── Bridge ── */}
       <section className="py-16 border-t border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <Link
-              href="/formation-entreprise/ia"
+              href="/formation-entreprise/reseaux-sociaux"
               className="group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 rounded-[14px] p-6 md:p-8 border transition-all hover:-translate-y-0.5 duration-200"
               style={{
                 background: 'linear-gradient(135deg, rgba(255,107,0,0.06) 0%, rgba(255,107,0,0.02) 100%)',
-                borderColor: 'rgba(255,140,0,0.22)',
+                borderColor: border,
               }}
             >
               <div className="flex items-center gap-4">
@@ -463,13 +473,13 @@ export default function FormationBureautiquePage() {
                   className="flex h-12 w-12 items-center justify-center rounded-[10px] flex-shrink-0"
                   style={{ background: bg, border: `1px solid ${border}` }}
                 >
-                  <Zap size={20} style={{ color }} />
+                  <Globe2 size={20} style={{ color }} />
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Aller plus loin</p>
-                  <p className="text-white font-bold text-lg leading-tight">Formation ChatGPT et Claude</p>
+                  <p className="text-white font-bold text-lg leading-tight">Diffuser vos visuels Canva sur les bons réseaux</p>
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
-                    Vous maîtrisez la bureautique. Pour aller encore plus loin en automatisant vos tâches répétitives avec l&apos;IA, découvrez notre formation ChatGPT et Claude.
+                    Vous créez de beaux visuels avec Canva. Pour les diffuser efficacement sur les bonnes plateformes et bâtir votre audience, découvrez notre formation réseaux sociaux.
                   </p>
                 </div>
               </div>
@@ -477,7 +487,7 @@ export default function FormationBureautiquePage() {
                 className="flex-shrink-0 inline-flex items-center gap-1.5 text-[12px] font-semibold px-4 py-2 rounded-[8px] transition-opacity group-hover:opacity-80"
                 style={{ background: bg, color, border: `1px solid ${border}` }}
               >
-                Voir la formation IA <ChevronRight size={12} />
+                Voir la formation <ChevronRight size={12} />
               </span>
             </Link>
           </SectionReveal>

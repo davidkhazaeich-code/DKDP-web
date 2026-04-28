@@ -19,11 +19,14 @@ import {
   BrainCircuit,
   GraduationCap,
   Star,
+  Clock,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import dynamic from 'next/dynamic'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
@@ -31,6 +34,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const WorkflowDiagram = dynamic(() => import('./_components/WorkflowDiagram').then(m => m.WorkflowDiagram))
 
@@ -237,9 +241,19 @@ export default function AutomationPage() {
                   On connecte votre CRM, vos emails et votre ERP avec des workflows IA sur <strong className="text-white">n8n</strong> (auto-hébergeable en Suisse), <strong className="text-white">Make</strong> ou <strong className="text-white">Zapier</strong>. Intégrations natives Bexio, Abacus, HubSpot, Google Workspace, Slack, WhatsApp Business, Stripe. Pour les PME en Suisse romande qui veulent gagner 10 heures par semaine sans toucher une ligne de code.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
+                  <HeroPills
+                    accentRgb="212, 212, 216"
+                    items={[
+                      { label: 'Audit gratuit', Icon: Zap },
+                      { label: 'Workflow en 4 sem', Icon: Clock },
+                      { label: 'Sans engagement', Icon: CheckCircle2 },
+                    ]}
+                    className="basis-full"
+                  />
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     Planifier un appel gratuit
                   </LiquidMetalButton>
+                  <TrustLine items={['Audit gratuit 30 min', 'Workflow opérationnel sous 4 semaines', 'Sans engagement']} accentRgb="212, 212, 216" className="basis-full mt-2" />
                   <Link
                     href="#comment-ca-marche"
                     className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-white transition-colors"
@@ -793,6 +807,7 @@ export default function AutomationPage() {
       </section>
 
       {/* ── CTA ── */}
+      <LogoBanner />
       <CTAFinal accentRgb="212,212,216" />
     </main>
   )

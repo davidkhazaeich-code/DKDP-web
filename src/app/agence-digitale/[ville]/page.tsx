@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ChevronRight, Globe2, Users, Building2, Phone, CheckCircle2, Bot, Zap, BrainCircuit, GraduationCap, Sparkles, Workflow } from 'lucide-react'
+import { ChevronRight, Globe2, Users, Building2, Phone, CheckCircle2, Bot, Zap, BrainCircuit, GraduationCap, Sparkles, Workflow, MapPin, CalendarCheck } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { VideoHeroBg } from '@/components/ui/VideoHeroBg'
 import { ImageHeroBg } from '@/components/ui/ImageHeroBg'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildBreadcrumbList, buildFAQPage, buildWebPageWithSpeakable, buildService, buildCourse } from '@/lib/schema'
 import { CITIES, getCity } from '@/lib/cities'
@@ -15,6 +17,7 @@ import { violet, chrome, orange } from '@/lib/tokens'
 import dynamic from 'next/dynamic'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
@@ -146,12 +149,21 @@ export default async function CityPage({ params }: Props) {
                 <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-8" data-speakable="true">
                   Création et refonte de sites web, référencement SEO et GEO, intelligence artificielle et formation entreprise. DKDP accompagne les PME de {city.name} depuis 2015. 700+ clients, conforme nLPD 2023.
                 </p>
+                <HeroPills
+                  align="center"
+                  items={[
+                    { label: `Local ${city.name}`, Icon: MapPin },
+                    { label: 'Premier RDV offert', Icon: CalendarCheck },
+                    { label: 'Sans engagement', Icon: CheckCircle2 },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-3 items-center justify-center">
                   <LiquidMetalButton href="/contact" size="lg">Audit IA gratuit →</LiquidMetalButton>
                   <Link href="/intelligence-artificielle" className="text-sm text-text-muted hover:text-white transition-colors px-2 py-1">
                     Nos services IA
                   </Link>
                 </div>
+                <TrustLine items={[`Intervention sur ${city.name}`, 'Premier rendez-vous gratuit', 'Sans engagement']} />
               </div>
             </div>
           </section>
@@ -425,6 +437,7 @@ export default async function CityPage({ params }: Props) {
       </section>
 
       {/* ── CTA Final ── */}
+      <LogoBanner />
       <CTAFinal />
     </main>
   )

@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import { CheckCircle2, Zap, Search, Settings, ChevronRight, TrendingUp, BarChart2, ShieldCheck, Star, Globe2, Clock } from 'lucide-react'
+import { CheckCircle2, Zap, Search, Settings, ChevronRight, TrendingUp, BarChart2, ShieldCheck, Star, Globe2, Clock, FileText } from 'lucide-react'
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
@@ -18,6 +20,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
 const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBlock').then(m => ({ default: m.SiteAuditBlock })))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
@@ -183,12 +186,20 @@ export default function CreationSiteWebPage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP crée des sites web professionnels pour les PME à Genève et en Suisse romande : vitrine, e-commerce ou sur mesure. Chaque projet est pensé pour être rapide, visible sur Google et facile à gérer en autonomie. Les tarifs démarrent à CHF 2&apos;500, avec un devis fixe et sans surprise.
                 </p>
+                <HeroPills
+                  items={[
+                    { label: 'Devis fixe sous 48h', Icon: FileText },
+                    { label: 'Livraison 4 à 8 semaines', Icon: Clock },
+                    { label: 'Hébergement inclus', Icon: ShieldCheck },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/agence-digitale/creation-site-web/estimation" size="lg">Estimer mon projet →</LiquidMetalButton>
                   <Link href="#process" className="text-sm text-text-muted hover:text-white transition-colors">
                     Notre méthode ↓
                   </Link>
                 </div>
+                <TrustLine items={['Devis fixe sous 48h', 'Livraison 4 à 8 semaines', 'Hébergement et maintenance inclus']} />
               </div>
               <HeroVisual />
             </div>
@@ -659,6 +670,7 @@ export default function CreationSiteWebPage() {
           En savoir plus sur l&apos;agence et David Khazaei
         </Link>
       </div>
+      <LogoBanner />
       <CTAFinal />
     </main>
   )

@@ -10,7 +10,7 @@ import {
   Globe, Cpu, GraduationCap, Search, Megaphone, BarChart2,
   Bot, Workflow, BrainCircuit, BookOpen, Users2, Presentation,
   Phone, FileText, ChevronRight, X, Menu,
-  Film, Shield, Share2, Palette, LayoutGrid,
+  Film, Shield, Share2, Palette, LayoutGrid, Wand2,
   Sparkles, CalendarCheck, Monitor, MessageCircle, Smartphone,
 } from 'lucide-react'
 import {
@@ -65,7 +65,8 @@ const FORMATION_MAIN = [
   { title: 'Bureautique', href: '/formation-entreprise/bureautique', icon: BookOpen, description: 'Gagnez du temps sur chaque fichier.' },
   { title: 'Réseaux sociaux', href: '/formation-entreprise/reseaux-sociaux', icon: Share2, description: 'Maîtrisez les plateformes sociales.' },
   { title: 'Cybersécurité', href: '/formation-entreprise/cybersecurite', icon: Shield, description: 'Protégez vos données et vos collaborateurs.' },
-  { title: 'Web design', href: '/formation-entreprise/web-design', icon: Palette, description: 'Créez des interfaces modernes et efficaces.' },
+  { title: 'Formation Canva', href: '/formation-entreprise/canva', icon: Wand2, description: 'Brand Kit, templates et IA Magic Studio en une journée.' },
+  { title: 'Web design Figma', href: '/formation-entreprise/web-design', icon: Palette, description: 'UI/UX, wireframes, design system et prototypes interactifs.' },
   { title: 'Informatique', href: '/formation-entreprise/informatique', icon: Cpu, description: 'Compétences informatiques essentielles.' },
   { title: 'Montage vidéo', href: '/formation-entreprise/montage-video', icon: Film, description: 'Créez des vidéos professionnelles.' },
 ]

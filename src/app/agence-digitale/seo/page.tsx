@@ -2,11 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, TrendingUp, Search, Star } from 'lucide-react'
+import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, TrendingUp, Search, Star, Zap } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
@@ -16,6 +18,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
@@ -173,12 +176,20 @@ export default function SEOPage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP, agence SEO à Genève, construit votre autorité organique avec une stratégie de référencement naturel complète : audit technique, contenu optimisé et netlinking. Notre agence SEO accompagne les PME suisses vers un référencement naturel durable, sans frais par clic.
                 </p>
+                <HeroPills
+                  items={[
+                    { label: 'Audit gratuit', Icon: Zap },
+                    { label: 'Premiers résultats sous 90j', Icon: TrendingUp },
+                    { label: 'Sans engagement', Icon: CheckCircle2 },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Audit SEO gratuit →</LiquidMetalButton>
                   <Link href="#process" className="text-sm text-text-muted hover:text-white transition-colors">
                     Notre méthode ↓
                   </Link>
                 </div>
+                <TrustLine items={['Audit gratuit', 'Premiers résultats sous 90 jours', 'Sans engagement de durée']} />
               </div>
               <HeroVisual />
             </div>
@@ -860,6 +871,7 @@ export default function SEOPage() {
           En savoir plus sur l&apos;agence et David Khazaei
         </Link>
       </div>
+      <LogoBanner />
       <CTAFinal />
     </main>
   )

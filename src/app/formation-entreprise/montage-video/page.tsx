@@ -2,16 +2,19 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Smartphone, BarChart2, Layers, Zap } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Smartphone, BarChart2, Layers, Zap, Video } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
 const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
@@ -122,12 +125,21 @@ export default function FormationMontageVideoPage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme les équipes de PME en Suisse romande à CapCut, DaVinci Resolve et Premiere Pro. Après une journée, vous produisez vos Reels, vidéos YouTube et contenus d&apos;entreprise vous-mêmes.
                 </p>
+                <HeroPills
+                  accentRgb="255, 140, 0"
+                  items={[
+                    { label: '100% pratique', Icon: Zap },
+                    { label: 'Vos vraies images', Icon: Video },
+                    { label: 'Tous secteurs', Icon: Users },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
                   <Link href="#programme" className="text-sm text-text-muted hover:text-white transition-colors">
                     Voir le programme ↓
                   </Link>
                 </div>
+                <TrustLine items={['Cas pratiques métier', 'Genève et Suisse romande', 'Programme sur mesure']} accentRgb="255, 140, 0" />
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">
@@ -446,6 +458,7 @@ export default function FormationMontageVideoPage() {
       </section>
 
       {/* ── CTA ── */}
+      <LogoBanner />
       <CTAFinal accentRgb="255,140,0" />
     </main>
   )

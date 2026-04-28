@@ -2,16 +2,19 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, Clock, Users, Award, ChevronRight, BrainCircuit, Shield } from 'lucide-react'
+import { CheckCircle2, Clock, Users, Award, ChevronRight, BrainCircuit, Shield, Zap, FileText } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const ROICalculatorFormation = dynamic(() => import('@/components/sections/ROICalculatorFormation').then(m => m.ROICalculatorFormation))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
@@ -135,12 +138,21 @@ export default function FormationIAPage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. <strong className="text-white">100% de nos participants sont opérationnels dès J+1</strong> et gagnent en moyenne 8 heures par semaine.
                 </p>
+                <HeroPills
+                  accentRgb="255, 140, 0"
+                  items={[
+                    { label: '100% pratique', Icon: Zap },
+                    { label: 'Sur vos outils IA', Icon: FileText },
+                    { label: 'Tous métiers', Icon: Users },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="#devis" size="lg">Demander un devis →</LiquidMetalButton>
                   <Link href="#programme" className="text-sm text-text-muted hover:text-white transition-colors">
                     Voir le programme ↓
                   </Link>
                 </div>
+                <TrustLine items={['Sur les outils IA de votre quotidien', '3h ou journée complète', 'Genève et Suisse romande']} accentRgb="255, 140, 0" />
                 <p className="text-text-muted text-xs mt-4 flex items-center gap-1.5">
                   <Shield size={11} style={{ color }} />
                   Satisfaction garantie : si aucune compétence n&apos;est appliquée dès J+1, on revient gratuitement.
@@ -532,6 +544,7 @@ export default function FormationIAPage() {
       </section>
 
       {/* ── CTA ── */}
+      <LogoBanner />
       <CTAFinal accentRgb="255,140,0" />
     </main>
   )

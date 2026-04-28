@@ -4,13 +4,15 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import {
   Globe, Search, Megaphone, Share2, Film, Presentation, Shield, Smartphone,
-  ChevronRight, Zap, Users, BarChart2, MapPin,
+  ChevronRight, Zap, Users, BarChart2, MapPin, FileText, Award,
   EyeOff, AlertTriangle, TrendingDown, Target, Rocket,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildBreadcrumbList, buildFAQPage } from '@/lib/schema'
@@ -139,12 +141,22 @@ export default function AgenceDigitalePage() {
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   Agence web spécialisée pour les PME en Suisse romande. De la création de site au référencement, en passant par les campagnes payantes : on construit une stratégie cohérente qui génère de vrais résultats.
                 </p>
+                <HeroPills
+                  items={[
+                    { label: 'Devis fixe sous 48h', Icon: FileText },
+                    { label: 'Sur mesure pour PME', Icon: Target },
+                    { label: '10+ ans d\'expérience', Icon: Award },
+                  ]}
+                />
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton href="/agence-digitale/creation-site-web/estimation" size="lg">Estimer mon projet →</LiquidMetalButton>
                   <Link href="#services" className="text-sm text-text-muted hover:text-white transition-colors">
                     Voir nos services ↓
                   </Link>
                 </div>
+                <TrustLine
+                  items={['Devis fixe sous 48h', '50+ projets livrés', 'Sans engagement']}
+                />
               </div>
               <HeroVisual />
             </div>

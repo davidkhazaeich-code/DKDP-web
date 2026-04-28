@@ -3,6 +3,7 @@ import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { GoogleMapSection } from '@/components/sections/GoogleMapSection'
+import { LogoBanner } from '@/components/sections/LogoBanner'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildBreadcrumbList } from '@/lib/schema'
@@ -42,6 +43,8 @@ export default function ContactPage() {
 
         {/* Google Maps + location info */}
         <GoogleMapSection />
+
+        <LogoBanner />
 
       </main>
     </HeroBg>

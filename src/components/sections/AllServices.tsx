@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { m, AnimatePresence } from 'framer-motion'
 import {
   Globe, Search, Megaphone, Share2, Film, Presentation, Shield,
-  BrainCircuit, BookOpen, Palette, Cpu,
+  BrainCircuit, BookOpen, Palette, Cpu, Wand2,
   Bot, Workflow, MessageCircle, Smartphone,
   ChevronRight, GraduationCap, Sparkles,
 } from 'lucide-react'
@@ -45,7 +45,8 @@ const FORMATION_SERVICES: ServiceItem[] = [
   { icon: BookOpen, title: 'Bureautique & Excel', href: '/formation-entreprise/bureautique', description: 'Maîtrisez Excel, Word, PowerPoint et Microsoft 365.', badge: null, image: '/images/services/dkdp-formation-bureautique.webp', pillar: 'formation' },
   { icon: Shield, title: 'Cybersécurité', href: '/formation-entreprise/cybersecurite', description: 'Sensibilisez vos équipes : phishing, mots de passe, RGPD.', badge: null, image: '/images/services/dkdp-formation-cybersecurite.webp', pillar: 'formation' },
   { icon: Share2, title: 'Réseaux sociaux', href: '/formation-entreprise/reseaux-sociaux', description: 'Stratégie, contenu et analyse de performances.', badge: null, image: '/images/services/dkdp-formation-reseaux-sociaux.webp', pillar: 'formation' },
-  { icon: Palette, title: 'Web design & Canva', href: '/formation-entreprise/web-design', description: 'Créez des visuels professionnels sans être graphiste.', badge: null, image: '/images/services/dkdp-formation-web-design.webp', pillar: 'formation' },
+  { icon: Wand2, title: 'Formation Canva', href: '/formation-entreprise/canva', description: 'Brand Kit, templates, posts sociaux et IA Magic Studio en une journée.', badge: 'Populaire', image: '/images/services/dkdp-formation-canva.webp', pillar: 'formation' },
+  { icon: Palette, title: 'Formation Web Design', href: '/formation-entreprise/web-design', description: 'Concevez votre site avant de le développer : Figma, UI/UX, prototypes.', badge: null, image: '/images/services/dkdp-formation-web-design.webp', pillar: 'formation' },
   { icon: Cpu, title: 'Informatique', href: '/formation-entreprise/informatique', description: 'Compétences informatiques essentielles au quotidien.', badge: null, image: '/images/services/dkdp-formation-informatique.webp', pillar: 'formation' },
   { icon: Film, title: 'Montage vidéo', href: '/formation-entreprise/montage-video', description: 'Créez des vidéos pro avec CapCut, Premiere, Reels.', badge: null, image: '/images/services/dkdp-formation-montage-video.webp', pillar: 'formation' },
 ]

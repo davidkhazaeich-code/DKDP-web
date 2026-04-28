@@ -5,16 +5,20 @@ import {
   Globe, Search, Megaphone, BarChart2,
   GraduationCap, Shield, BookOpen,
   ChevronRight, HelpCircle,
+  FileText, CheckCircle2, Clock,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import dynamic from 'next/dynamic'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import { TrustLine } from '@/components/ui/TrustLine'
+import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { violet, orange, chrome, green } from '@/lib/tokens'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
+const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
   title: 'Tarifs · Création de site, Formation IA, Automatisation · DKDP',
@@ -169,6 +173,15 @@ export default function TarifsPage() {
                   Appel gratuit 30 min
                 </LiquidMetalButton>
               </div>
+              <HeroPills
+                align="center"
+                items={[
+                  { label: 'Devis personnalisé', Icon: FileText },
+                  { label: 'Sans engagement', Icon: CheckCircle2 },
+                  { label: 'Réponse sous 24h', Icon: Clock },
+                ]}
+              />
+              <TrustLine items={['Devis personnalisé gratuit', 'Sans engagement', 'Réponse sous 24h']} align="center" />
               {/* Trust points */}
               <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
                 {['Prix fixe par projet', 'Devis sous 48h', 'Pas d\'engagement'].map((pt) => (
@@ -565,6 +578,7 @@ export default function TarifsPage() {
       </section>
 
       {/* ── CTA Final ── */}
+      <LogoBanner />
       <CTAFinal />
     </main>
   )

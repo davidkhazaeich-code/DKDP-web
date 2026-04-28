@@ -206,7 +206,6 @@ export default function AgentsIAPage() {
             logos={IA_LOGOS}
             durationSeconds={70}
             size="md"
-            eyebrow="Outils IA pour vos agents intelligents"
           />
         </div>
 

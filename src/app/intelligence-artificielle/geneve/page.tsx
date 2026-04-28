@@ -239,7 +239,6 @@ export default function IAGenevePage() {
             logos={IA_LOGOS}
             durationSeconds={75}
             size="md"
-            eyebrow="Outils IA deployes a Geneve et en Suisse romande"
           />
         </div>
 

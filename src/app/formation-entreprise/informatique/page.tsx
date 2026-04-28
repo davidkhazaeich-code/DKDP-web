@@ -155,7 +155,6 @@ export default function FormationInformatiquePage() {
             logos={[...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
             durationSeconds={90}
             size="md"
-            eyebrow="Outils informatiques que vos equipes maitrisent"
           />
         </div>
 

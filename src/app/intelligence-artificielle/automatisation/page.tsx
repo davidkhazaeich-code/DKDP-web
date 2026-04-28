@@ -289,7 +289,6 @@ export default function AutomationPage() {
             logos={IA_LOGOS}
             durationSeconds={75}
             size="md"
-            eyebrow="Outils IA qu'on integre dans vos automatisations"
           />
         </div>
 

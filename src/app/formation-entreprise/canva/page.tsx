@@ -185,7 +185,6 @@ export default function FormationCanvaPage() {
             logos={[...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
             durationSeconds={80}
             size="md"
-            eyebrow="Outils design et social qu'on enseigne"
           />
         </div>
 

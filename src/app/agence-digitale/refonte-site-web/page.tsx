@@ -326,7 +326,6 @@ export default function RefonteSiteWebPage() {
             logos={[...DESIGN_WEB_LOGOS, ...IA_LOGOS.slice(0, 4)]}
             durationSeconds={70}
             size="md"
-            eyebrow="Stack pour la refonte de votre site"
           />
         </div>
 

@@ -185,7 +185,6 @@ export default function FormationWebDesignPage() {
             logos={DESIGN_WEB_LOGOS}
             durationSeconds={60}
             size="md"
-            eyebrow="Outils design et web qu'on enseigne"
           />
         </div>
 

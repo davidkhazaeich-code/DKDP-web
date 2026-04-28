@@ -200,7 +200,6 @@ export default function ReseauxSociauxPage() {
             logos={[...SOCIAL_LOGOS, ...IA_LOGOS.slice(0, 5)]}
             durationSeconds={80}
             size="md"
-            eyebrow="Reseaux sociaux et outils IA qu'on pilote"
           />
         </div>
 

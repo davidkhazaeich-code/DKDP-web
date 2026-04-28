@@ -301,7 +301,6 @@ export default function FormationClaudeAIPage() {
             logos={IA_LOGOS}
             durationSeconds={75}
             size="md"
-            eyebrow="L'ecosysteme IA autour de Claude"
           />
         </div>
 

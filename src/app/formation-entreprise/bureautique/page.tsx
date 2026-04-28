@@ -171,7 +171,6 @@ export default function FormationBureautiquePage() {
             logos={[...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
             durationSeconds={85}
             size="md"
-            eyebrow="Logiciels bureautiques que vos equipes maitrisent"
           />
         </div>
 

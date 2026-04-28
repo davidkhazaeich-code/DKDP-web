@@ -179,7 +179,6 @@ export default function FormationEntreprisePage() {
             logos={[...IA_LOGOS.slice(0, 6), ...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
             durationSeconds={95}
             size="md"
-            eyebrow="Outils enseignes en formation entreprise"
           />
         </div>
 

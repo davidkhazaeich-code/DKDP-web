@@ -174,7 +174,6 @@ export default function ConsultingMarketingPage() {
             logos={[...IA_LOGOS.slice(0, 5), ...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
             durationSeconds={105}
             size="md"
-            eyebrow="Outils marketing qu'on deploie pour vous"
           />
         </div>
 

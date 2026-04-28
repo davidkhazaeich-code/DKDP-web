@@ -180,7 +180,6 @@ export default function MiseEnPlacePage() {
             logos={IA_LOGOS}
             durationSeconds={70}
             size="md"
-            eyebrow="Outils IA qu'on deploie chez vous"
           />
         </div>
 

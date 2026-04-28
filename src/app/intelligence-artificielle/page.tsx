@@ -163,7 +163,6 @@ export default function IntelligenceArtificiellePage() {
             logos={IA_LOGOS}
             durationSeconds={70}
             size="md"
-            eyebrow="Outils IA deployes en entreprise"
           />
         </div>
 

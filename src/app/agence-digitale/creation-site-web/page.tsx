@@ -211,7 +211,6 @@ export default function CreationSiteWebPage() {
             logos={[...DESIGN_WEB_LOGOS, ...IA_LOGOS.slice(0, 4)]}
             durationSeconds={70}
             size="md"
-            eyebrow="Stack pour vos sites web sur mesure"
           />
         </div>
 

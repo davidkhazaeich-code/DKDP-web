@@ -171,7 +171,6 @@ export default function AuditConseilPage() {
             logos={IA_LOGOS}
             durationSeconds={75}
             size="md"
-            eyebrow="Outils IA qu'on audite et compare"
           />
         </div>
 

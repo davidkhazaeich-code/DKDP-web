@@ -181,7 +181,6 @@ export default function FormationIAPage() {
             logos={IA_LOGOS}
             durationSeconds={75}
             size="md"
-            eyebrow="Outils IA qu'on enseigne en entreprise"
           />
         </div>
 

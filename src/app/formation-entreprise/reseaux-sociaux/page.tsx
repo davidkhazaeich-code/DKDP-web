@@ -167,7 +167,6 @@ export default function FormationReseauxSociauxPage() {
             logos={[...SOCIAL_LOGOS, ...DESIGN_WEB_LOGOS]}
             durationSeconds={70}
             size="md"
-            eyebrow="Reseaux sociaux et outils de creation"
           />
         </div>
 

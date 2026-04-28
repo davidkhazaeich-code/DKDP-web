@@ -321,7 +321,6 @@ export default function FormationParticuliersPage() {
             logos={[...IA_LOGOS.slice(0, 5), ...BUREAUTIQUE_LOGOS, ...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
             durationSeconds={100}
             size="md"
-            eyebrow="Outils enseignes en formation particuliers"
           />
         </div>
 

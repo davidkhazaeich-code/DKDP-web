@@ -512,7 +512,6 @@ export default function ChatbotIAPage() {
             logos={IA_LOGOS}
             durationSeconds={70}
             size="md"
-            eyebrow="Modeles IA qu'on integre dans vos chatbots"
           />
         </div>
 

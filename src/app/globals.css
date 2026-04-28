@@ -71,10 +71,10 @@
   --border-strong:   #D4D2CB;
   --divider:         rgba(10, 10, 10, 0.08);
 
-  /* Text — warm gray-black, not pure black */
+  /* Text — warm gray-black, not pure black. Muted bumped to #6E6E6A for WCAG AA on cream (4.5:1). */
   --text:            #1A1A18;
   --text-secondary:  #5A5A57;
-  --text-muted:      #8A8A86;
+  --text-muted:      #6E6E6A;
 
   /* Brand accents — same hex values */
   --orange:          #FF6B00;

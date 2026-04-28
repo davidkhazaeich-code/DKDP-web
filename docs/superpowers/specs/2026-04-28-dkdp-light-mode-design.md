@@ -94,7 +94,7 @@ Ajouter un mode clair (light mode) au site DKDP.ch (Next.js App Router) actuelle
   /* Text — gris-noir chaud, pas noir pur */
   --text:            #1A1A18;
   --text-secondary:  #5A5A57;
-  --text-muted:      #8A8A86;
+  --text-muted:      #6E6E6A;
 
   /* Accents — mêmes hex */
   --orange:          #FF6B00;

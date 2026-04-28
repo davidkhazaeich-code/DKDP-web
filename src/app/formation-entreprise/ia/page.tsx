@@ -188,7 +188,6 @@ export default function FormationIAPage() {
 
       
 
-      <LogoBanner />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -211,6 +210,8 @@ export default function FormationIAPage() {
         </div>
       </section>
 
+
+      <LogoBanner />
       {/* ── Formulaire inline devis ── */}
       <section id="devis" className="scroll-mt-[66px] py-16 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">

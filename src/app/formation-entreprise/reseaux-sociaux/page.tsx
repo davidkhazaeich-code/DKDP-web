@@ -174,7 +174,6 @@ export default function FormationReseauxSociauxPage() {
 
       
 
-      <LogoBanner />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -197,6 +196,8 @@ export default function FormationReseauxSociauxPage() {
         </div>
       </section>
 
+
+      <LogoBanner />
       {/* ══ Subnav sticky ══ */}
       <ScrollSpyNav
         items={[

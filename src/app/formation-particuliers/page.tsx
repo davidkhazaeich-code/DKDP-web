@@ -322,8 +322,6 @@ export default function FormationParticuliersPage() {
 
       </HeroBg>
 
-      <LogoBanner label="Ils nous font confiance" />
-
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -349,6 +347,8 @@ export default function FormationParticuliersPage() {
       
 
 
+
+      <LogoBanner label="Ils nous font confiance" />
       {/* ── Pour qui ── */}
       <section className="py-24 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">

@@ -250,7 +250,6 @@ export default function PubliciteSEAPage() {
       </HeroBg>
 
 
-      <LogoBanner />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -273,6 +272,8 @@ export default function PubliciteSEAPage() {
         </div>
       </section>
 
+
+      <LogoBanner />
       {/* ── Subnav ── */}
       <ScrollSpyNav
         items={[

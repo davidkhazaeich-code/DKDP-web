@@ -307,7 +307,6 @@ export default function FormationClaudeAIPage() {
 
       
 
-      <LogoBanner />
       {/* ══ 2. Stats ══ */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -330,6 +329,8 @@ export default function FormationClaudeAIPage() {
         </div>
       </section>
 
+
+      <LogoBanner />
       {/* ══ 3. Formulaire inline devis ══ */}
       <section className="py-16 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">

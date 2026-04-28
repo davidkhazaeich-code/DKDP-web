@@ -320,7 +320,6 @@ export default function AuditSitePage() {
       </HeroBg>
 
 
-      <LogoBanner />
       {/* ── Section 3 : Ce qu'on analyse ─────────────────────────────────── */}
       <section aria-labelledby="analysis-heading" className="py-20 px-6">
         <div className="max-w-[1100px] mx-auto">
@@ -371,6 +370,8 @@ export default function AuditSitePage() {
         </div>
       </section>
 
+
+      <LogoBanner />
       {/* ── Section 4 : Comment ça marché ────────────────────────────────── */}
       <section aria-labelledby="process-heading" className="py-20 px-6">
         <div className="max-w-[1100px] mx-auto">

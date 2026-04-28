@@ -246,7 +246,6 @@ export default function IAGenevePage() {
 
       
 
-      <LogoBanner />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -269,6 +268,8 @@ export default function IAGenevePage() {
         </div>
       </section>
 
+
+      <LogoBanner />
       {/* ── Estimation CTA (lead-gen haute intention) ── */}
       <section className="py-16">
         <div className="max-w-[1200px] mx-auto px-6">

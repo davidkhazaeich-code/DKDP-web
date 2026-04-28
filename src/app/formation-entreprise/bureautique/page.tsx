@@ -178,7 +178,6 @@ export default function FormationBureautiquePage() {
 
       
 
-      <LogoBanner />
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -201,6 +200,8 @@ export default function FormationBureautiquePage() {
         </div>
       </section>
 
+
+      <LogoBanner />
       {/* ── Intro definition ── */}
       <section className="py-8">
         <div className="max-w-[1200px] mx-auto px-6">

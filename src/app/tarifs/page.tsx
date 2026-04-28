@@ -187,7 +187,6 @@ export default function TarifsPage() {
       </HeroBg>
 
 
-      <LogoBanner />
       {/* ── Philosophy banner ── */}
       <section className="py-10 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -212,6 +211,8 @@ export default function TarifsPage() {
         </div>
       </section>
 
+
+      <LogoBanner />
       {/* ══════════════════════════════════════════════
           FORMATION ENTREPRISE
       ══════════════════════════════════════════════ */}

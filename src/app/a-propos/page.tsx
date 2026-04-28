@@ -301,7 +301,6 @@ export default function AProposPage() {
       </HeroBg>
 
 
-      <LogoBanner label="700+ clients accompagnés" />
       {/* ── Approche / 3 valeurs ── */}
       <section className="py-24 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -336,6 +335,8 @@ export default function AProposPage() {
         </div>
       </section>
 
+
+      <LogoBanner label="700+ clients accompagnés" />
       {/* ── Histoire ── */}
       <section id="histoire" className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">

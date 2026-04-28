@@ -180,8 +180,6 @@ export default function FormationEntreprisePage() {
 
       </HeroBg>
 
-      <LogoBanner label="Équipes déjà formées" />
-
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -201,6 +199,8 @@ export default function FormationEntreprisePage() {
       
 
 
+
+      <LogoBanner label="Équipes déjà formées" />
       {/* ── Défi ── */}
       <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-6">

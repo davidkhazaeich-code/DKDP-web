@@ -200,21 +200,22 @@ export default function AgentsIAPage() {
             </div>
           </div>
         </section>
-      </HeroBg>
-
-
-
-      {/* ── Marquee outils ── */}
-      <section className="py-14 border-b border-border" aria-label="Outils IA pour vos agents intelligents">
-        <SectionReveal>
+        {/* ── Marquee outils integre au hero ── */}
+        <div className="pt-4 pb-12" aria-label="Outils IA pour vos agents intelligents">
           <AppLogoMarquee
             logos={IA_LOGOS}
             durationSeconds={70}
             size="md"
             eyebrow="Outils IA pour vos agents intelligents"
           />
-        </SectionReveal>
-      </section>      {/* ── Stats ── */}
+        </div>
+
+      </HeroBg>
+
+
+
+      
+      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-3 gap-6 md:gap-12">

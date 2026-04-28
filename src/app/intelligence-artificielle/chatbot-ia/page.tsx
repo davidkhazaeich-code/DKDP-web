@@ -506,21 +506,22 @@ export default function ChatbotIAPage() {
             </div>
           </div>
         </section>
-      </HeroBg>
-
-
-
-      {/* ── Marquee outils ── */}
-      <section className="py-14 border-b border-border" aria-label="Modeles IA qu'on integre dans vos chatbots">
-        <SectionReveal>
+        {/* ── Marquee outils integre au hero ── */}
+        <div className="pt-4 pb-12" aria-label="Modeles IA qu'on integre dans vos chatbots">
           <AppLogoMarquee
             logos={IA_LOGOS}
             durationSeconds={70}
             size="md"
             eyebrow="Modeles IA qu'on integre dans vos chatbots"
           />
-        </SectionReveal>
-      </section>      {/* ── Stats ── */}
+        </div>
+
+      </HeroBg>
+
+
+
+      
+      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

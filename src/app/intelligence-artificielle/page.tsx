@@ -154,6 +154,16 @@ export default function IntelligenceArtificiellePage() {
             </div>
           </div>
         </section>
+        {/* ── Marquee outils integre au hero ── */}
+        <div className="pt-4 pb-12" aria-label="Outils IA deployes en entreprise">
+          <AppLogoMarquee
+            logos={IA_LOGOS}
+            durationSeconds={70}
+            size="md"
+            eyebrow="Outils IA deployes en entreprise"
+          />
+        </div>
+
       </HeroBg>
 
       {/* ── Stats ── */}
@@ -172,17 +182,8 @@ export default function IntelligenceArtificiellePage() {
         </div>
       </section>
 
-      {/* ── Marquee outils IA ── */}
-      <section className="py-14 border-b border-border" aria-label="Outils IA deployes en entreprise">
-        <SectionReveal>
-          <AppLogoMarquee
-            logos={IA_LOGOS}
-            durationSeconds={70}
-            size="md"
-            eyebrow="Outils IA qu'on deploie en entreprise"
-          />
-        </SectionReveal>
-      </section>
+      
+
 
       {/* ── Contexte IA ── */}
       <section className="py-24">

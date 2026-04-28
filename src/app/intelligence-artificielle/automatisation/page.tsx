@@ -283,21 +283,22 @@ export default function AutomationPage() {
             </div>
           </div>
         </section>
-      </HeroBg>
-
-
-
-      {/* ── Marquee outils ── */}
-      <section className="py-14 border-b border-border" aria-label="Outils IA qu'on integre dans vos automatisations">
-        <SectionReveal>
+        {/* ── Marquee outils integre au hero ── */}
+        <div className="pt-4 pb-12" aria-label="Outils IA qu'on integre dans vos automatisations">
           <AppLogoMarquee
             logos={IA_LOGOS}
             durationSeconds={75}
             size="md"
             eyebrow="Outils IA qu'on integre dans vos automatisations"
           />
-        </SectionReveal>
-      </section>      {/* ── Stats bar ── */}
+        </div>
+
+      </HeroBg>
+
+
+
+      
+      {/* ── Stats bar ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-3 gap-6 md:gap-12">

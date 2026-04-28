@@ -196,11 +196,12 @@ export function AppLogoMarquee({
   eyebrow,
   className = '',
 }: MarqueeProps) {
-  // Repetition adaptative : si peu de logos, on multiplie la liste pour
-  // s'assurer qu'une "moitie" du track est plus large que l'ecran (sinon
-  // le translateX(-50%) laisse apparaitre du vide entre les cycles).
-  // Cible : au moins 18 elements par moitie de boucle.
-  const minPerHalf = 18
+  // Repetition adaptative : pour eviter tout vide visible quel que soit
+  // l'ecran (jusqu'a 4K = 2560px), on garantit au moins 32 pills par
+  // demi-boucle. Une pill = ~140-180px avec gap 12px, donc 32 pills =
+  // ~5000px de track, largement plus large que n'importe quel viewport.
+  // Le translateX(-50%) reboucle sur lui-meme sans couture.
+  const minPerHalf = 32
   const baseRepeat = Math.max(1, Math.ceil(minPerHalf / logos.length))
   const visible = Array.from({ length: baseRepeat }, () => logos).flat()
   // 1ere demi-boucle = "visible" (premier passage : seul logos.length premiers

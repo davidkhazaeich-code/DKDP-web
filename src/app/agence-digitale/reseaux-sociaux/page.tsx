@@ -194,21 +194,22 @@ export default function ReseauxSociauxPage() {
             </div>
           </div>
         </section>
-      </HeroBg>
-
-
-
-      {/* ── Marquee outils ── */}
-      <section className="py-14 border-b border-border" aria-label="Reseaux sociaux et outils IA qu'on pilote">
-        <SectionReveal>
+        {/* ── Marquee outils integre au hero ── */}
+        <div className="pt-4 pb-12" aria-label="Reseaux sociaux et outils IA qu'on pilote">
           <AppLogoMarquee
             logos={[...SOCIAL_LOGOS, ...IA_LOGOS.slice(0, 5)]}
             durationSeconds={80}
             size="md"
             eyebrow="Reseaux sociaux et outils IA qu'on pilote"
           />
-        </SectionReveal>
-      </section>      {/* ── Stats ── */}
+        </div>
+
+      </HeroBg>
+
+
+
+      
+      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

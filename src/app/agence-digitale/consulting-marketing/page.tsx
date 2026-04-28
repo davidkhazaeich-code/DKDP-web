@@ -168,21 +168,22 @@ export default function ConsultingMarketingPage() {
             </div>
           </div>
         </section>
-      </HeroBg>
-
-
-
-      {/* ── Marquee outils ── */}
-      <section className="py-14 border-b border-border" aria-label="Outils marketing qu'on deploie pour vous">
-        <SectionReveal>
+        {/* ── Marquee outils integre au hero ── */}
+        <div className="pt-4 pb-12" aria-label="Outils marketing qu'on deploie pour vous">
           <AppLogoMarquee
             logos={[...IA_LOGOS.slice(0, 5), ...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
             durationSeconds={105}
             size="md"
             eyebrow="Outils marketing qu'on deploie pour vous"
           />
-        </SectionReveal>
-      </section>      {/* ── Stats ── */}
+        </div>
+
+      </HeroBg>
+
+
+
+      
+      {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

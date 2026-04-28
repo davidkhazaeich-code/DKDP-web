@@ -160,6 +160,16 @@ export default function AgenceDigitalePage() {
             </div>
           </div>
         </section>
+        {/* ── Marquee outils integre au hero ── */}
+        <div className="pt-4 pb-12" aria-label="Stack outils utilises par notre agence digitale">
+          <AppLogoMarquee
+            logos={[...IA_LOGOS.slice(0, 6), ...DESIGN_WEB_LOGOS, ...PRODUCTIVITE_LOGOS.slice(0, 6), ...SOCIAL_LOGOS]}
+            durationSeconds={110}
+            size="md"
+            eyebrow="Stack outils utilises par notre agence digitale"
+          />
+        </div>
+
       </HeroBg>
 
       {/* ── Stats ── */}
@@ -178,17 +188,8 @@ export default function AgenceDigitalePage() {
         </div>
       </section>
 
-      {/* ── Marquee stack agence ── */}
-      <section className="py-14 border-b border-border" aria-label="Stack outils utilises par notre agence digitale">
-        <SectionReveal>
-          <AppLogoMarquee
-            logos={[...IA_LOGOS.slice(0, 6), ...DESIGN_WEB_LOGOS, ...PRODUCTIVITE_LOGOS.slice(0, 6), ...SOCIAL_LOGOS]}
-            durationSeconds={110}
-            size="md"
-            eyebrow="Notre stack pour livrer vos projets"
-          />
-        </SectionReveal>
-      </section>
+      
+
 
       {/* ── Douleurs ── */}
       <section className="py-20">

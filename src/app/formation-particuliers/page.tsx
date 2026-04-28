@@ -310,6 +310,16 @@ export default function FormationParticuliersPage() {
             </div>
           </div>
         </section>
+        {/* ── Marquee outils integre au hero ── */}
+        <div className="pt-4 pb-12" aria-label="Outils enseignes en formation particuliers">
+          <AppLogoMarquee
+            logos={[...IA_LOGOS.slice(0, 5), ...BUREAUTIQUE_LOGOS, ...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
+            durationSeconds={100}
+            size="md"
+            eyebrow="Outils enseignes en formation particuliers"
+          />
+        </div>
+
       </HeroBg>
 
       {/* ── Stats ── */}
@@ -334,17 +344,8 @@ export default function FormationParticuliersPage() {
         </div>
       </section>
 
-      {/* ── Marquee outils enseignes (particuliers) ── */}
-      <section className="py-14 border-b border-border" aria-label="Outils enseignes en formation particuliers">
-        <SectionReveal>
-          <AppLogoMarquee
-            logos={[...IA_LOGOS.slice(0, 5), ...BUREAUTIQUE_LOGOS, ...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
-            durationSeconds={100}
-            size="md"
-            eyebrow="Tous les outils que vous apprendrez avec nous"
-          />
-        </SectionReveal>
-      </section>
+      
+
 
       {/* ── Pour qui ── */}
       <section className="py-24 border-b border-border">

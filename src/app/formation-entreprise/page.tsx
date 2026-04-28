@@ -168,6 +168,16 @@ export default function FormationEntreprisePage() {
             </div>
           </div>
         </section>
+        {/* ── Marquee outils integre au hero ── */}
+        <div className="pt-4 pb-12" aria-label="Outils enseignes en formation entreprise">
+          <AppLogoMarquee
+            logos={[...IA_LOGOS.slice(0, 6), ...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
+            durationSeconds={95}
+            size="md"
+            eyebrow="Outils enseignes en formation entreprise"
+          />
+        </div>
+
       </HeroBg>
 
       {/* ── Stats ── */}
@@ -186,17 +196,8 @@ export default function FormationEntreprisePage() {
         </div>
       </section>
 
-      {/* ── Marquee outils enseignes ── */}
-      <section className="py-14 border-b border-border" aria-label="Outils enseignes en formation entreprise">
-        <SectionReveal>
-          <AppLogoMarquee
-            logos={[...IA_LOGOS.slice(0, 6), ...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
-            durationSeconds={95}
-            size="md"
-            eyebrow="Les outils que vos equipes apprennent avec nous"
-          />
-        </SectionReveal>
-      </section>
+      
+
 
       {/* ── Défi ── */}
       <section className="py-20">

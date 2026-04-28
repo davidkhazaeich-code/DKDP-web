@@ -150,23 +150,21 @@ export default function IntelligenceArtificiellePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
                 </div>
-                <div className="mt-6 lg:mt-8 -mx-2 lg:mx-0">
-                  <LogoBanner label="Entreprises qui nous font confiance" />
+                <div className="mt-6 lg:mt-8" aria-label="Outils IA deployes en entreprise">
+                  <AppLogoMarquee
+                    logos={IA_LOGOS}
+                    durationSeconds={70}
+                    size="md"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </section>
-        {/* ── Marquee outils integre au hero ── */}
-        <div className="pt-4 pb-12" aria-label="Outils IA deployes en entreprise">
-          <AppLogoMarquee
-            logos={IA_LOGOS}
-            durationSeconds={70}
-            size="md"
-          />
-        </div>
 
       </HeroBg>
+
+      <LogoBanner label="Entreprises qui nous font confiance" />
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">

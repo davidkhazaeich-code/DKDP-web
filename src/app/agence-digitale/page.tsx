@@ -158,23 +158,21 @@ export default function AgenceDigitalePage() {
               </div>
               <div>
                 <HeroVisual />
-                <div className="mt-6 lg:mt-8 -mx-2 lg:mx-0">
-                  <LogoBanner label="Ils nous font confiance" />
+                <div className="mt-6 lg:mt-8" aria-label="Stack outils utilises par notre agence digitale">
+                  <AppLogoMarquee
+                    logos={[...IA_LOGOS.slice(0, 6), ...DESIGN_WEB_LOGOS, ...PRODUCTIVITE_LOGOS.slice(0, 6), ...SOCIAL_LOGOS]}
+                    durationSeconds={110}
+                    size="md"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </section>
-        {/* ── Marquee outils integre au hero ── */}
-        <div className="pt-4 pb-12" aria-label="Stack outils utilises par notre agence digitale">
-          <AppLogoMarquee
-            logos={[...IA_LOGOS.slice(0, 6), ...DESIGN_WEB_LOGOS, ...PRODUCTIVITE_LOGOS.slice(0, 6), ...SOCIAL_LOGOS]}
-            durationSeconds={110}
-            size="md"
-          />
-        </div>
 
       </HeroBg>
+
+      <LogoBanner label="Ils nous font confiance" />
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">

@@ -166,23 +166,21 @@ export default function FormationEntreprisePage() {
               </div>
               <div>
                 <HeroVisual />
-                <div className="mt-6 lg:mt-8 -mx-2 lg:mx-0">
-                  <LogoBanner label="Équipes déjà formées" />
+                <div className="mt-6 lg:mt-8" aria-label="Outils enseignes en formation entreprise">
+                  <AppLogoMarquee
+                    logos={[...IA_LOGOS.slice(0, 6), ...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
+                    durationSeconds={95}
+                    size="md"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </section>
-        {/* ── Marquee outils integre au hero ── */}
-        <div className="pt-4 pb-12" aria-label="Outils enseignes en formation entreprise">
-          <AppLogoMarquee
-            logos={[...IA_LOGOS.slice(0, 6), ...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
-            durationSeconds={95}
-            size="md"
-          />
-        </div>
 
       </HeroBg>
+
+      <LogoBanner label="Équipes déjà formées" />
 
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">

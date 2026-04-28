@@ -23,6 +23,7 @@ const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 import { buildCourse, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
+import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, DESIGN_WEB_LOGOS, SOCIAL_LOGOS } from '@/components/ui/AppLogos'
 
 export const metadata: Metadata = {
   title: 'Formation Informatique Particuliers Genève · DKDP',
@@ -331,6 +332,18 @@ export default function FormationParticuliersPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ── Marquee outils enseignes (particuliers) ── */}
+      <section className="py-14 border-b border-border" aria-label="Outils enseignes en formation particuliers">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={[...IA_LOGOS.slice(0, 5), ...BUREAUTIQUE_LOGOS, ...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
+            durationSeconds={100}
+            size="md"
+            eyebrow="Tous les outils que vous apprendrez avec nous"
+          />
+        </SectionReveal>
       </section>
 
       {/* ── Pour qui ── */}

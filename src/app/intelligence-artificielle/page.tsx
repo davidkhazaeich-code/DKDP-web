@@ -21,6 +21,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildBreadcrumbList, buildFAQPage } from '@/lib/schema'
 import { FAQ_IA } from '@/data/faq-ia'
 import { chrome } from '@/lib/tokens'
+import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 
 export const metadata: Metadata = {
   title: 'Agence IA Genève | Intelligence Artificielle pour PME | DKDP',
@@ -169,6 +170,18 @@ export default function IntelligenceArtificiellePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ── Marquee outils IA ── */}
+      <section className="py-14 border-b border-border" aria-label="Outils IA deployes en entreprise">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={IA_LOGOS}
+            durationSeconds={70}
+            size="md"
+            eyebrow="Outils IA qu'on deploie en entreprise"
+          />
+        </SectionReveal>
       </section>
 
       {/* ── Contexte IA ── */}

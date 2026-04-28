@@ -21,6 +21,7 @@ import { CITIES } from '@/lib/cities'
 import { FunnelDiagram } from './_components/FunnelDiagram'
 import { HeroVisual } from './_components/HeroVisual'
 import { violet } from '@/lib/tokens'
+import { AppLogoMarquee, IA_LOGOS, DESIGN_WEB_LOGOS, PRODUCTIVITE_LOGOS, SOCIAL_LOGOS } from '@/components/ui/AppLogos'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
@@ -175,6 +176,18 @@ export default function AgenceDigitalePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ── Marquee stack agence ── */}
+      <section className="py-14 border-b border-border" aria-label="Stack outils utilises par notre agence digitale">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={[...IA_LOGOS.slice(0, 6), ...DESIGN_WEB_LOGOS, ...PRODUCTIVITE_LOGOS.slice(0, 6), ...SOCIAL_LOGOS]}
+            durationSeconds={110}
+            size="md"
+            eyebrow="Notre stack pour livrer vos projets"
+          />
+        </SectionReveal>
       </section>
 
       {/* ── Douleurs ── */}

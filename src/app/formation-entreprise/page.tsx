@@ -28,6 +28,7 @@ import { buildCourse, buildBreadcrumbList, buildFAQPage } from '@/lib/schema'
 import { FAQ_FORMATION } from '@/data/faq-formation'
 import { orange } from '@/lib/tokens'
 import { HeroVisual } from './_components/HeroVisual'
+import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from '@/components/ui/AppLogos'
 
 export const metadata: Metadata = {
   title: 'Formation Informatique Entreprise Genève · PME et Équipes · DKDP',
@@ -183,6 +184,18 @@ export default function FormationEntreprisePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ── Marquee outils enseignes ── */}
+      <section className="py-14 border-b border-border" aria-label="Outils enseignes en formation entreprise">
+        <SectionReveal>
+          <AppLogoMarquee
+            logos={[...IA_LOGOS.slice(0, 6), ...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
+            durationSeconds={95}
+            size="md"
+            eyebrow="Les outils que vos equipes apprennent avec nous"
+          />
+        </SectionReveal>
       </section>
 
       {/* ── Défi ── */}

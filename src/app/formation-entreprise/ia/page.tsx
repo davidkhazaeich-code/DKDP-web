@@ -159,6 +159,13 @@ export default function FormationIAPage() {
                 </p>
               </div>
               <div className="relative">
+                <div className="mb-6 lg:mb-8" aria-label="Outils IA qu'on enseigne en entreprise">
+                  <AppLogoMarquee
+            logos={IA_LOGOS}
+            durationSeconds={75}
+            size="md"
+          />
+                </div>
                 <p className="text-text-muted text-xs mb-2 text-center">Programme mis à jour : avril 2026</p>
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
                   <Image
@@ -172,13 +179,6 @@ export default function FormationIAPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
                 </div>
               
-                <div className="mt-6 lg:mt-8" aria-label="Outils IA qu'on enseigne en entreprise">
-                  <AppLogoMarquee
-            logos={IA_LOGOS}
-            durationSeconds={75}
-            size="md"
-          />
-                </div>
               </div>
             </div>
           </div>

@@ -165,14 +165,14 @@ export default function FormationEntreprisePage() {
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div>
-                <HeroVisual />
-                <div className="mt-6 lg:mt-8" aria-label="Outils enseignes en formation entreprise">
+                <div className="mb-6 lg:mb-8" aria-label="Outils enseignes en formation entreprise">
                   <AppLogoMarquee
                     logos={[...IA_LOGOS.slice(0, 6), ...BUREAUTIQUE_LOGOS, ...PRODUCTIVITE_LOGOS]}
                     durationSeconds={95}
                     size="md"
                   />
                 </div>
+                <HeroVisual />
               </div>
             </div>
           </div>

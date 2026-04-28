@@ -179,6 +179,13 @@ export default function ReseauxSociauxPage() {
                 </div>
               </div>
               <div className="relative">
+                <div className="mb-6 lg:mb-8" aria-label="Reseaux sociaux et outils IA qu'on pilote">
+                  <AppLogoMarquee
+            logos={[...SOCIAL_LOGOS, ...IA_LOGOS.slice(0, 5)]}
+            durationSeconds={80}
+            size="md"
+          />
+                </div>
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}>
                   <Image
                     src="/images/services/dkdp-gestion-reseaux-sociaux-geneve.webp"
@@ -191,13 +198,6 @@ export default function ReseauxSociauxPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
                 </div>
               
-                <div className="mt-6 lg:mt-8" aria-label="Reseaux sociaux et outils IA qu'on pilote">
-                  <AppLogoMarquee
-            logos={[...SOCIAL_LOGOS, ...IA_LOGOS.slice(0, 5)]}
-            durationSeconds={80}
-            size="md"
-          />
-                </div>
               </div>
             </div>
           </div>

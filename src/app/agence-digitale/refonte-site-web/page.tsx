@@ -302,6 +302,13 @@ export default function RefonteSiteWebPage() {
               </div>
 
               <div className="relative">
+                <div className="mb-6 lg:mb-8" aria-label="Stack pour la refonte de votre site">
+                  <AppLogoMarquee
+            logos={[...DESIGN_WEB_LOGOS, ...IA_LOGOS.slice(0, 4)]}
+            durationSeconds={70}
+            size="md"
+          />
+                </div>
                 <div
                   className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden"
                   style={{ boxShadow: '0 0 60px rgba(167,139,250,0.18)' }}
@@ -317,13 +324,6 @@ export default function RefonteSiteWebPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
                 </div>
               
-                <div className="mt-6 lg:mt-8" aria-label="Stack pour la refonte de votre site">
-                  <AppLogoMarquee
-            logos={[...DESIGN_WEB_LOGOS, ...IA_LOGOS.slice(0, 4)]}
-            durationSeconds={70}
-            size="md"
-          />
-                </div>
               </div>
             </div>
           </div>

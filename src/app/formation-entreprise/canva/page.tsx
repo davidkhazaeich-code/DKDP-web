@@ -164,6 +164,13 @@ export default function FormationCanvaPage() {
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">
+                <div className="mb-6 lg:mb-8" aria-label="Outils design et social qu'on enseigne">
+                  <AppLogoMarquee
+            logos={[...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
+            durationSeconds={80}
+            size="md"
+          />
+                </div>
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
                   <Image
                     src="/images/services/dkdp-formation-canva.webp"
@@ -176,13 +183,6 @@ export default function FormationCanvaPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
                 </div>
               
-                <div className="mt-6 lg:mt-8" aria-label="Outils design et social qu'on enseigne">
-                  <AppLogoMarquee
-            logos={[...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
-            durationSeconds={80}
-            size="md"
-          />
-                </div>
               </div>
             </div>
           </div>

@@ -146,6 +146,13 @@ export default function FormationReseauxSociauxPage() {
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">
+                <div className="mb-6 lg:mb-8" aria-label="Reseaux sociaux et outils de creation">
+                  <AppLogoMarquee
+            logos={[...SOCIAL_LOGOS, ...DESIGN_WEB_LOGOS]}
+            durationSeconds={70}
+            size="md"
+          />
+                </div>
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
                   <Image
                     src="/images/services/dkdp-formation-reseaux-sociaux.webp"
@@ -158,13 +165,6 @@ export default function FormationReseauxSociauxPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
                 </div>
               
-                <div className="mt-6 lg:mt-8" aria-label="Reseaux sociaux et outils de creation">
-                  <AppLogoMarquee
-            logos={[...SOCIAL_LOGOS, ...DESIGN_WEB_LOGOS]}
-            durationSeconds={70}
-            size="md"
-          />
-                </div>
               </div>
             </div>
           </div>

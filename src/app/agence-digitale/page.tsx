@@ -157,14 +157,14 @@ export default function AgenceDigitalePage() {
                 </div>
               </div>
               <div>
-                <HeroVisual />
-                <div className="mt-6 lg:mt-8" aria-label="Stack outils utilises par notre agence digitale">
+                <div className="mb-6 lg:mb-8" aria-label="Stack outils utilises par notre agence digitale">
                   <AppLogoMarquee
                     logos={[...IA_LOGOS.slice(0, 6), ...DESIGN_WEB_LOGOS, ...PRODUCTIVITE_LOGOS.slice(0, 6), ...SOCIAL_LOGOS]}
                     durationSeconds={110}
                     size="md"
                   />
                 </div>
+                <HeroVisual />
               </div>
             </div>
           </div>

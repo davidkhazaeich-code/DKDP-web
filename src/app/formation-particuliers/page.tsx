@@ -256,6 +256,13 @@ export default function FormationParticuliersPage() {
 
               {/* Right: info card */}
               <div>
+                <div className="mb-6 lg:mb-8" aria-label="Outils enseignes en formation particuliers">
+                  <AppLogoMarquee
+                    logos={[...IA_LOGOS.slice(0, 5), ...BUREAUTIQUE_LOGOS, ...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
+                    durationSeconds={100}
+                    size="md"
+                  />
+                </div>
               <SectionReveal delay={0.15}>
                 <div
                   className="hidden lg:flex flex-col gap-5 rounded-2xl p-7 border"
@@ -307,13 +314,6 @@ export default function FormationParticuliersPage() {
                   </div>
                 </div>
               </SectionReveal>
-                <div className="mt-6 lg:mt-8" aria-label="Outils enseignes en formation particuliers">
-                  <AppLogoMarquee
-                    logos={[...IA_LOGOS.slice(0, 5), ...BUREAUTIQUE_LOGOS, ...DESIGN_WEB_LOGOS, ...SOCIAL_LOGOS]}
-                    durationSeconds={100}
-                    size="md"
-                  />
-                </div>
               </div>
 
             </div>

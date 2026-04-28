@@ -411,6 +411,13 @@ export default function ChatbotIAPage() {
 
               {/* Chat mockup */}
               <div className="relative">
+                <div className="mb-6 lg:mb-8" aria-label="Modeles IA qu'on integre dans vos chatbots">
+                  <AppLogoMarquee
+            logos={IA_LOGOS}
+            durationSeconds={70}
+            size="md"
+          />
+                </div>
                 <div
                   className="relative w-full rounded-2xl p-6 space-y-4"
                   style={{
@@ -503,13 +510,6 @@ export default function ChatbotIAPage() {
                   </div>
                 </div>
               
-                <div className="mt-6 lg:mt-8" aria-label="Modeles IA qu'on integre dans vos chatbots">
-                  <AppLogoMarquee
-            logos={IA_LOGOS}
-            durationSeconds={70}
-            size="md"
-          />
-                </div>
               </div>
             </div>
           </div>

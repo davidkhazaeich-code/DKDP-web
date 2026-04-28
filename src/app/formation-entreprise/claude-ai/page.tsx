@@ -242,6 +242,13 @@ export default function FormationClaudeAIPage() {
 
               {/* Right - visual */}
               <div className="relative flex flex-col gap-4">
+                <div className="mb-6 lg:mb-8" aria-label="L'ecosysteme IA autour de Claude">
+                  <AppLogoMarquee
+            logos={IA_LOGOS}
+            durationSeconds={75}
+            size="md"
+          />
+                </div>
                 {/* Terminal Claude Code */}
                 <div
                   className="rounded-[14px] p-5"
@@ -291,13 +298,6 @@ export default function FormationClaudeAIPage() {
                   ))}
                 </div>
               
-                <div className="mt-6 lg:mt-8" aria-label="L'ecosysteme IA autour de Claude">
-                  <AppLogoMarquee
-            logos={IA_LOGOS}
-            durationSeconds={75}
-            size="md"
-          />
-                </div>
               </div>
             </div>
           </div>

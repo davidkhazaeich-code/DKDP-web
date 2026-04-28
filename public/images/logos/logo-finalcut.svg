@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Final Cut Pro" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="fcp-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5E6DF2"/>
+      <stop offset="1" stop-color="#2E3AD4"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="24" height="24" rx="5.4" fill="url(#fcp-bg)"/>
+  <!-- Clap/slate (clapper board) - forme iconique Final Cut Pro -->
+  <g fill="#fff">
+    <!-- Corps du clap -->
+    <rect x="5" y="10" width="14" height="9" rx="1"/>
+    <!-- Bande supérieure du clap avec angle -->
+    <path d="M5 10 L6.2 7.2 L20.2 9.4 L19 12.2 Z"/>
+    <!-- Trait noir verticaux sur la bande (diagonaux) -->
+    <g fill="#2E3AD4">
+      <path d="M8.5 7.5 L9.7 7.7 L8.5 10 L7.3 9.8 Z" opacity="0.85"/>
+      <path d="M12 8 L13.2 8.2 L12 10.5 L10.8 10.3 Z" opacity="0.85"/>
+      <path d="M15.5 8.5 L16.7 8.7 L15.5 11 L14.3 10.8 Z" opacity="0.85"/>
+    </g>
+  </g>
+  <!-- Bouton play central -->
+  <path fill="#2E3AD4" d="M10.5 12.8 L14.5 14.5 L10.5 16.2 Z"/>
+</svg>

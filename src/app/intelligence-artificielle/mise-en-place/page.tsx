@@ -122,7 +122,7 @@ export default function MiseEnPlacePage() {
               <span className="text-sm" style={{ color }}>Mise en place IA</span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Mise en place de l&apos;IA en entreprise à Genève</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
@@ -170,20 +170,18 @@ export default function MiseEnPlacePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* ── Marquee outils integre au hero ── */}
-        <div className="pt-4 pb-12" aria-label="Outils IA qu'on deploie chez vous">
-          <AppLogoMarquee
+              
+                <div className="mt-6 lg:mt-8" aria-label="Outils IA qu'on deploie chez vous">
+                  <AppLogoMarquee
             logos={IA_LOGOS}
             durationSeconds={70}
             size="md"
           />
-        </div>
-
-      </HeroBg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>      </HeroBg>
 
 
 

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DaVinci Resolve" viewBox="0 0 128 128">
+  <rect x="0" y="0" width="128" height="128" rx="29" fill="#0F1A2A"/>
+  <!-- Grand cercle extérieur -->
+  <circle cx="64" cy="64" r="42" fill="none" stroke="#E24F4F" stroke-width="5"/>
+  <!-- Cercle intérieur -->
+  <circle cx="64" cy="64" r="26" fill="none" stroke="#E24F4F" stroke-width="5"/>
+  <!-- Point central rouge (color grading wheel signature) -->
+  <circle cx="64" cy="64" r="8" fill="#E24F4F"/>
+  <!-- Barre verticale droite (slider style) -->
+  <rect x="98" y="48" width="6" height="32" rx="2" fill="#E24F4F"/>
+</svg>

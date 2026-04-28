@@ -267,7 +267,7 @@ export default function RefonteSiteWebPage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">
                   Refonte de site web à Genève
@@ -316,20 +316,18 @@ export default function RefonteSiteWebPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* ── Marquee outils integre au hero ── */}
-        <div className="pt-4 pb-12" aria-label="Stack pour la refonte de votre site">
-          <AppLogoMarquee
+              
+                <div className="mt-6 lg:mt-8" aria-label="Stack pour la refonte de votre site">
+                  <AppLogoMarquee
             logos={[...DESIGN_WEB_LOGOS, ...IA_LOGOS.slice(0, 4)]}
             durationSeconds={70}
             size="md"
           />
-        </div>
-
-      </HeroBg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>      </HeroBg>
 
 
 

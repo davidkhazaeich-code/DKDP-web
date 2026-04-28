@@ -75,6 +75,64 @@ export const SOCIAL_LOGOS: AppLogo[] = [
   { file: 'logo-x.svg', name: 'X' },
 ]
 
+export const VIDEO_LOGOS: AppLogo[] = [
+  { file: 'logo-premiere.svg', name: 'Premiere Pro' },
+  { file: 'logo-aftereffects.svg', name: 'After Effects' },
+  { file: 'logo-davinci.svg', name: 'DaVinci Resolve' },
+  { file: 'logo-finalcut.svg', name: 'Final Cut' },
+  { file: 'logo-imovie.svg', name: 'iMovie' },
+  { file: 'logo-capcut.svg', name: 'CapCut' },
+  { file: 'logo-clipchamp.svg', name: 'Clipchamp' },
+]
+
+export const CREATIVE_LOGOS: AppLogo[] = [
+  { file: 'logo-photoshop.svg', name: 'Photoshop' },
+  { file: 'logo-illustrator.svg', name: 'Illustrator' },
+  { file: 'logo-canva.svg', name: 'Canva' },
+  { file: 'logo-figma.svg', name: 'Figma' },
+  { file: 'logo-framer.svg', name: 'Framer' },
+]
+
+export const ECOMMERCE_LOGOS: AppLogo[] = [
+  { file: 'logo-shopify.svg', name: 'Shopify' },
+  { file: 'logo-woocommerce.svg', name: 'WooCommerce' },
+  { file: 'logo-stripe.svg', name: 'Stripe' },
+  { file: 'logo-paypal.svg', name: 'PayPal' },
+]
+
+export const WEB_BUILDERS_LOGOS: AppLogo[] = [
+  { file: 'logo-wordpress.svg', name: 'WordPress' },
+  { file: 'logo-elementor.svg', name: 'Elementor' },
+  { file: 'logo-webflow.svg', name: 'Webflow' },
+  { file: 'logo-framer.svg', name: 'Framer' },
+  { file: 'logo-wix.svg', name: 'Wix' },
+  { file: 'logo-squarespace.svg', name: 'Squarespace' },
+]
+
+export const MARKETING_LOGOS: AppLogo[] = [
+  { file: 'logo-hubspot.svg', name: 'HubSpot' },
+  { file: 'logo-mailchimp.svg', name: 'Mailchimp' },
+  { file: 'logo-brevo.svg', name: 'Brevo' },
+  { file: 'logo-google-ads.svg', name: 'Google Ads' },
+  { file: 'logo-google-analytics.svg', name: 'Google Analytics' },
+  { file: 'logo-google-search-console.svg', name: 'Search Console' },
+]
+
+export const AUTOMATION_LOGOS: AppLogo[] = [
+  { file: 'logo-make.svg', name: 'Make' },
+  { file: 'logo-zapier.svg', name: 'Zapier' },
+  { file: 'logo-n8n.svg', name: 'n8n' },
+  { file: 'logo-airtable.svg', name: 'Airtable' },
+  { file: 'logo-notion.svg', name: 'Notion' },
+]
+
+export const PROJECT_LOGOS: AppLogo[] = [
+  { file: 'logo-asana.svg', name: 'Asana' },
+  { file: 'logo-trello.svg', name: 'Trello' },
+  { file: 'logo-clickup.svg', name: 'ClickUp' },
+  { file: 'logo-notion.svg', name: 'Notion' },
+]
+
 /** Catalogue large pour marquee multi-categories (agence, formation tous publics) */
 export const ALL_TOOLS_LOGOS: AppLogo[] = [
   ...IA_LOGOS,

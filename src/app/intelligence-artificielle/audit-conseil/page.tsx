@@ -112,7 +112,7 @@ export default function AuditConseilPage() {
       >
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-6">
                   <h1 className="grad-tag inline-block text-xs md:text-sm">Audit IA pour entreprise à Genève</h1>
@@ -161,20 +161,18 @@ export default function AuditConseilPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* ── Marquee outils integre au hero ── */}
-        <div className="pt-4 pb-12" aria-label="Outils IA qu'on audite et compare">
-          <AppLogoMarquee
+              
+                <div className="mt-6 lg:mt-8" aria-label="Outils IA qu'on audite et compare">
+                  <AppLogoMarquee
             logos={IA_LOGOS}
             durationSeconds={75}
             size="md"
           />
-        </div>
-
-      </HeroBg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>      </HeroBg>
 
 
 

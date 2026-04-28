@@ -130,7 +130,6 @@ export default function FormationCybersecuritePage() {
                     Voir le programme ↓
                   </Link>
                 </div>
-                <TrustLine items={['Sur site ou en visio', 'Cas pratiques métiers', 'Genève et Suisse romande']} accentRgb="255, 140, 0" />
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">

@@ -253,7 +253,6 @@ export default function AutomationPage() {
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     Planifier un appel gratuit
                   </LiquidMetalButton>
-                  <TrustLine items={['Audit gratuit 30 min', 'Workflow opérationnel sous 4 semaines', 'Sans engagement']} accentRgb="212, 212, 216" className="basis-full mt-2" />
                   <Link
                     href="#comment-ca-marche"
                     className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-white transition-colors"

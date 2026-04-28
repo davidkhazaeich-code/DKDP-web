@@ -162,7 +162,6 @@ export default function ConsultingMarketingPage() {
                     Notre méthode ↓
                   </Link>
                 </div>
-                <TrustLine items={['Audit gratuit', 'Sans engagement', 'Recommandations sous 7 jours']} />
               </div>
               <HeroVisual />
             </div>

@@ -189,7 +189,6 @@ export default function SEOPage() {
                     Notre méthode ↓
                   </Link>
                 </div>
-                <TrustLine items={['Audit gratuit', 'Premiers résultats sous 90 jours', 'Sans engagement de durée']} />
               </div>
               <HeroVisual />
             </div>

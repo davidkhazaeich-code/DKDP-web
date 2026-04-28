@@ -202,7 +202,6 @@ export default function DeveloppementApplicationPage() {
                     Voir les types d&apos;apps ↓
                   </Link>
                 </div>
-                <TrustLine items={['Devis fixe sous 48h', 'Maintenance incluse', 'Hébergement Suisse ou UE']} />
               </div>
               <HeroVisual />
             </div>

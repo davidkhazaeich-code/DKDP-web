@@ -192,7 +192,6 @@ export default function IAGenevePage() {
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     Audit IA gratuit 30 min
                   </LiquidMetalButton>
-                  <TrustLine items={['Eaux-Vives, Genève', 'Audit gratuit 30 min', 'Premier rendez-vous offert']} accentRgb="212, 212, 216" className="basis-full mt-2" />
                   <Link
                     href="#services"
                     className="text-sm text-text-muted hover:text-white transition-colors"

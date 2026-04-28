@@ -139,7 +139,6 @@ export default function FormationMontageVideoPage() {
                     Voir le programme ↓
                   </Link>
                 </div>
-                <TrustLine items={['Cas pratiques métier', 'Genève et Suisse romande', 'Programme sur mesure']} accentRgb="255, 140, 0" />
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">

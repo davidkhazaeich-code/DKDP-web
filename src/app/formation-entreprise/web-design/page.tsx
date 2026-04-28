@@ -160,7 +160,6 @@ export default function FormationWebDesignPage() {
                     Voir le programme ↓
                   </Link>
                 </div>
-                <TrustLine items={['Figma maîtrisé', 'Maquettes responsives', 'Genève et Suisse romande']} accentRgb="255, 140, 0" />
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">

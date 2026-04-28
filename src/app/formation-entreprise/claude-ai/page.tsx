@@ -237,7 +237,6 @@ export default function FormationClaudeAIPage() {
                     Voir le programme ↓
                   </Link>
                 </div>
-                <TrustLine items={['Certifié partenaire Claude', '3h ou journée complète', "Cas d'usage de votre métier"]} accentRgb="167, 139, 250" />
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
 

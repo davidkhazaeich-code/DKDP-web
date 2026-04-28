@@ -163,7 +163,6 @@ export default async function CityPage({ params }: Props) {
                     Nos services IA
                   </Link>
                 </div>
-                <TrustLine items={[`Intervention sur ${city.name}`, 'Premier rendez-vous gratuit', 'Sans engagement']} />
               </div>
             </div>
           </section>

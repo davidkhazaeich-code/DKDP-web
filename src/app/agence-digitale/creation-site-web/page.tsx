@@ -199,7 +199,6 @@ export default function CreationSiteWebPage() {
                     Notre méthode ↓
                   </Link>
                 </div>
-                <TrustLine items={['Devis fixe sous 48h', 'Livraison 4 à 8 semaines', 'Hébergement et maintenance inclus']} />
               </div>
               <HeroVisual />
             </div>

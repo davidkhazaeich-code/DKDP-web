@@ -135,10 +135,6 @@ export default function IntelligenceArtificiellePage() {
                     Voir nos solutions ↓
                   </Link>
                 </div>
-                <TrustLine
-                  items={['Audit gratuit 30 min', 'Mise en production sous 4 semaines', 'Données hébergées en Suisse ou UE']}
-                  accentRgb="212, 212, 216"
-                />
                 <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
               </div>
               <div className="relative">

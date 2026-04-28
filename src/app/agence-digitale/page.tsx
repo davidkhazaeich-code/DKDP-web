@@ -154,9 +154,6 @@ export default function AgenceDigitalePage() {
                     Voir nos services ↓
                   </Link>
                 </div>
-                <TrustLine
-                  items={['Devis fixe sous 48h', '50+ projets livrés', 'Sans engagement']}
-                />
               </div>
               <HeroVisual />
             </div>

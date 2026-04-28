@@ -242,7 +242,6 @@ export default function PubliciteSEAPage() {
                     Notre méthode ↓
                   </Link>
                 </div>
-                <TrustLine items={['Sans engagement', 'Suivi hebdomadaire', 'Optimisation budget garantie']} />
               </div>
               <HeroVisual />
             </div>

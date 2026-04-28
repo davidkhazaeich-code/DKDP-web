@@ -166,7 +166,6 @@ export default function RGPDCookiesPage() {
                     Notre méthode ↓
                   </Link>
                 </div>
-                <TrustLine items={['Audit gratuit du site', 'Conformité sous 2 semaines', 'Mise à jour incluse 12 mois']} />
               </div>
               <HeroVisual />
             </div>

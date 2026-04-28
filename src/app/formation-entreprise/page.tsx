@@ -161,10 +161,6 @@ export default function FormationEntreprisePage() {
                     Voir les programmes ↓
                   </Link>
                 </div>
-                <TrustLine
-                  items={['Sur site ou dans vos locaux', 'Genève et Suisse romande', 'Programme adapté à votre équipe']}
-                  accentRgb="255, 140, 0"
-                />
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <HeroVisual />

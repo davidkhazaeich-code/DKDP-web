@@ -144,7 +144,6 @@ export default function MiseEnPlacePage() {
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     Planifier un appel
                   </LiquidMetalButton>
-                  <TrustLine items={['Audit gratuit 30 min', 'Mise en production sous 4 semaines', 'Formation incluse']} accentRgb="212, 212, 216" className="basis-full mt-2" />
                   <Link
                     href="#llms"
                     className="text-sm text-text-muted hover:text-white transition-colors"

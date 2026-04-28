@@ -405,7 +405,6 @@ export default function ChatbotIAPage() {
                     Comment ca marché ↓
                   </Link>
                 </div>
-                <TrustLine items={['POC en 2 à 3 semaines', 'Données hébergées en Suisse ou UE', 'Intégration WhatsApp ou web']} accentRgb="212, 212, 216" />
                 <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
               </div>
 

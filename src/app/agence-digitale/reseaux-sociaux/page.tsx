@@ -176,7 +176,6 @@ export default function ReseauxSociauxPage() {
                     Notre méthode ↓
                   </Link>
                 </div>
-                <TrustLine items={['Sans engagement', 'Reporting mensuel', 'Production locale Genève']} />
               </div>
               <div className="relative">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}>

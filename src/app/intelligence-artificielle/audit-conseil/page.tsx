@@ -142,7 +142,6 @@ export default function AuditConseilPage() {
                   </LiquidMetalButton>
                   <p className="text-text-muted text-sm">Rapport complet en 48h</p>
                 </div>
-                <TrustLine items={['Audit offert sous 7 jours', 'Sans engagement', 'Genève et Suisse romande']} accentRgb="212, 212, 216" />
                 <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
               </div>
 

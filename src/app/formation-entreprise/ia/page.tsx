@@ -152,7 +152,6 @@ export default function FormationIAPage() {
                     Voir le programme ↓
                   </Link>
                 </div>
-                <TrustLine items={['Sur les outils IA de votre quotidien', '3h ou journée complète', 'Genève et Suisse romande']} accentRgb="255, 140, 0" />
                 <p className="text-text-muted text-xs mt-4 flex items-center gap-1.5">
                   <Shield size={11} style={{ color }} />
                   Satisfaction garantie : si aucune compétence n&apos;est appliquée dès J+1, on revient gratuitement.

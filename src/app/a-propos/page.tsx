@@ -223,10 +223,6 @@ export default function AProposPage() {
                     Notre histoire ↓
                   </Link>
                 </div>
-                <TrustLine
-                  items={['Eaux-Vives, Genève', '700+ clients accompagnés', 'Réponse sous 24h']}
-                  accentRgb="156, 163, 175"
-                />
               </div>
 
               {/* Right: Logo DKDP */}

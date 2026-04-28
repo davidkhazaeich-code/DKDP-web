@@ -160,7 +160,6 @@ export default function FormationCanvaPage() {
                     Voir le programme ↓
                   </Link>
                 </div>
-                <TrustLine items={['Brand Kit configuré', 'Templates prêts à l\'emploi', 'Genève et Suisse romande']} accentRgb="255, 140, 0" />
                 <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
               </div>
               <div className="relative">

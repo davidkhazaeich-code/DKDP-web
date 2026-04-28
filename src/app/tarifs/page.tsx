@@ -181,16 +181,6 @@ export default function TarifsPage() {
                   { label: 'Réponse sous 24h', Icon: Clock },
                 ]}
               />
-              <TrustLine items={['Devis personnalisé gratuit', 'Sans engagement', 'Réponse sous 24h']} align="center" />
-              {/* Trust points */}
-              <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-                {['Prix fixe par projet', 'Devis sous 48h', 'Pas d\'engagement'].map((pt) => (
-                  <div key={pt} className="flex items-center gap-2 text-sm text-text-muted">
-                    <Check size={14} style={{ color: greenColor }} />
-                    {pt}
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>

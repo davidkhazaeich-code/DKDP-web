@@ -72,10 +72,6 @@ export function HomeHero() {
             Découvrez nos services →
           </LiquidMetalButton>
         </div>
-        <TrustLine
-          items={['Genève, Suisse romande', '700+ clients accompagnés', 'Devis sous 24h']}
-          align="center"
-        />
       </div>
     </section>
   )

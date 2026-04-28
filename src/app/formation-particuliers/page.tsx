@@ -251,7 +251,6 @@ export default function FormationParticuliersPage() {
                     +41 79 940 79 69
                   </a>
                 </div>
-                <TrustLine items={['Cours à votre rythme', 'Domicile, bureau ou en ligne', "Premier cours d'essai"]} accentRgb="255, 140, 0" />
               </div>
 
               {/* Right: info card */}

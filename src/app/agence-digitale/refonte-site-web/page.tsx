@@ -295,7 +295,6 @@ export default function RefonteSiteWebPage() {
                     Symptômes d&apos;un site à refaire <ArrowRight size={13} />
                   </Link>
                 </div>
-                <TrustLine items={['Audit gratuit du site existant', 'Livraison 4 à 8 semaines', 'Maintien du SEO assuré']} />
                 <p className="text-text-muted text-xs mt-6">
                   Tarif fixe dès CHF 3 900. Audit SEO inclus. Devis en 48 h.
                 </p>

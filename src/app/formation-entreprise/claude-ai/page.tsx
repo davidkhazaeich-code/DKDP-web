@@ -174,7 +174,7 @@ export default function FormationClaudeAIPage() {
           <div className="max-w-[1200px] mx-auto px-6">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 mb-6">
-              <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-white transition-colors">
+              <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-text transition-colors">
                 Formation Entreprise
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
@@ -233,7 +233,7 @@ export default function FormationClaudeAIPage() {
                   <LiquidMetalButton href="/contact?service=formation-claude" size="lg">
                     Demander un devis gratuit →
                   </LiquidMetalButton>
-                  <Link href="#programme" className="text-sm text-text-muted hover:text-white transition-colors">
+                  <Link href="#programme" className="text-sm text-text-muted hover:text-text transition-colors">
                     Voir le programme ↓
                   </Link>
                 </div>
@@ -290,7 +290,7 @@ export default function FormationClaudeAIPage() {
                     <div
                       key={s.l}
                       className="text-center py-3 rounded-[10px]"
-                      style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
+                      style={{ background: 'var(--surface-subtle)', border: '1px solid var(--surface-border)' }}
                     >
                       <p className="text-xl font-bold" style={{ color: s.c }}>{s.v}</p>
                       <p className="text-[10px] text-text-muted mt-0.5">{s.l}</p>
@@ -366,7 +366,7 @@ export default function FormationClaudeAIPage() {
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Contexte 2026
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
                 Pourquoi Claude est l&apos;outil IA<br />prioritaire pour les entreprises
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
@@ -423,14 +423,14 @@ export default function FormationClaudeAIPage() {
           <SectionReveal>
             <div
               className="rounded-[20px] p-6 md:p-8"
-              style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
+              style={{ background: 'var(--surface-subtle)', border: '1px solid var(--surface-border)' }}
             >
               <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: OR }}>Comparatif rapide</p>
               <p className="text-text-muted text-xs mb-6">Évaluation DKDP basée sur les versions 2026 (Claude Sonnet 4.6, GPT-4o, Microsoft Copilot)</p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
-                    <tr className="border-b border-zinc-800">
+                    <tr className="border-b border-border-strong">
                       <th className="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-text-muted w-[40%]">Critère</th>
                       <th className="text-center py-3 px-4 text-xs font-bold" style={{ color: V }}>
                         <div className="inline-flex items-center gap-1.5">
@@ -517,24 +517,24 @@ export default function FormationClaudeAIPage() {
                             <span
                               key={idx}
                               className="text-[13px] leading-none"
-                              style={{ color: idx < n ? color : '#3f3f46' }}
+                              style={{ color: idx < n ? color : 'var(--surface-border)' }}
                             >
                               ★
                             </span>
                           ))}
                           <span
                             className="ml-1.5 text-[10px] font-bold tabular-nums"
-                            style={{ color: n >= 4 ? color : '#71717a' }}
+                            style={{ color: n >= 4 ? color : 'var(--text-muted)' }}
                           >
                             {n}/5
                           </span>
                         </span>
                       )
                       return (
-                        <tr key={row.crit} className={`border-b border-zinc-800/50 ${i % 2 === 0 ? 'bg-white/[0.015]' : ''}`}>
+                        <tr key={row.crit} className={`border-b border-border ${i % 2 === 0 ? 'bg-[var(--surface-subtle)]' : ''}`}>
                           <td className="py-3 px-4">
-                            <p className="text-zinc-200 font-medium text-[13px] leading-snug">{row.crit}</p>
-                            <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">{row.sub}</p>
+                            <p className="text-text font-medium text-[13px] leading-snug">{row.crit}</p>
+                            <p className="text-text-muted text-[10px] mt-0.5 leading-snug">{row.sub}</p>
                           </td>
                           <td className="py-3 px-4 text-center"><Stars n={row.claude.n} color={row.claude.color} /></td>
                           <td className="py-3 px-4 text-center"><Stars n={row.gpt.n} color={row.gpt.color} /></td>
@@ -545,7 +545,7 @@ export default function FormationClaudeAIPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="text-zinc-600 text-[11px] mt-5 text-right">
+              <p className="text-text-muted text-[11px] mt-5 text-right">
                 Recommandation DKDP : Claude pour l&apos;analyse et la profondeur · ChatGPT pour la créativité et les images · Copilot si Microsoft 365 est votre stack
               </p>
             </div>
@@ -564,7 +564,7 @@ export default function FormationClaudeAIPage() {
                   L&apos;écosystème Claude
                 </span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
                 3 outils, un seul programme de formation
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
@@ -644,7 +644,7 @@ export default function FormationClaudeAIPage() {
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Programme détaillé
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
                 Programme de formation Claude IA : une journée pour maîtriser l&apos;outil
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
@@ -764,7 +764,7 @@ export default function FormationClaudeAIPage() {
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Fonctionnalités couvertes
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
                 Les fonctionnalités Claude que vous apprendrez
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
@@ -845,7 +845,7 @@ export default function FormationClaudeAIPage() {
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Par département
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
                 Cas d&apos;usage Claude IA par département
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
@@ -972,7 +972,7 @@ export default function FormationClaudeAIPage() {
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Modalités
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
                 Présentiel, distanciel ou hybride
               </h2>
             </div>
@@ -1007,7 +1007,7 @@ export default function FormationClaudeAIPage() {
                     <Icon size={18} style={{ color: OR }} />
                   </div>
                   <div>
-                    <p className="text-white font-semibold text-sm mb-1">{title}</p>
+                    <p className="text-text font-semibold text-sm mb-1">{title}</p>
                     <p className="text-text-muted text-xs leading-relaxed">{desc}</p>
                   </div>
                 </div>
@@ -1030,7 +1030,7 @@ export default function FormationClaudeAIPage() {
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 En images
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
                 La formation Claude IA en pratique
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
@@ -1052,7 +1052,7 @@ export default function FormationClaudeAIPage() {
               <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                 Tarifs
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
                 Tarifs de la formation Claude IA
               </h2>
               <p className="text-text-secondary text-lg max-w-xl mx-auto">
@@ -1066,7 +1066,7 @@ export default function FormationClaudeAIPage() {
           <SectionReveal>
             <p className="text-center text-text-muted text-sm mt-8">
               Besoin d&apos;un programme sur 2 jours, d&apos;un format Train-the-Trainer ou d&apos;un suivi coaching ?{' '}
-              <Link href="/contact" className="underline hover:text-white transition-colors" style={{ color: OR }}>
+              <Link href="/contact" className="underline hover:text-text transition-colors" style={{ color: OR }}>
                 Parlons-en
               </Link>
             </p>
@@ -1083,7 +1083,7 @@ export default function FormationClaudeAIPage() {
                 <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
                   Pourquoi DKDP
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-6">
                   Nous formons sur ce que nous<br />
                   <GradText as="span">utilisons nous-mêmes.</GradText>
                 </h2>
@@ -1095,7 +1095,7 @@ export default function FormationClaudeAIPage() {
                 <p className="text-text-secondary leading-relaxed mb-8">
                   Cette expérience de terrain nous permet d&apos;aller bien au-delà des tutoriels génériques :
                   nous savons ce qui fonctionne vraiment, ce qui ne fonctionne pas, et comment adapter
-                  Claude à des contextes professionnels spécifiques. En savoir plus sur <Link href="/blog/claude-code-leak-utiliser-ia-comme-infrastructure" className="underline hover:text-white transition-colors">comment utiliser Claude comme infrastructure IA</Link>.
+                  Claude à des contextes professionnels spécifiques. En savoir plus sur <Link href="/blog/claude-code-leak-utiliser-ia-comme-infrastructure" className="underline hover:text-text transition-colors">comment utiliser Claude comme infrastructure IA</Link>.
                 </p>
                 <div className="space-y-3">
                   {[
@@ -1148,7 +1148,7 @@ export default function FormationClaudeAIPage() {
             <SectionReveal>
               <div className="text-center mb-16">
                 <GradTag className="mb-6">Vos formateurs</GradTag>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] text-white">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] text-text">
                   Formés par des praticiens, pas des théoriciens.
                 </h2>
               </div>
@@ -1185,16 +1185,16 @@ export default function FormationClaudeAIPage() {
         <div className="max-w-[900px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white mb-3">Questions fréquentes sur la formation Claude IA</h2>
+              <h2 className="text-3xl font-bold text-text mb-3">Questions fréquentes sur la formation Claude IA</h2>
               <p className="text-text-muted">Tout ce que vous devez savoir avant de réserver.</p>
             </div>
           </SectionReveal>
           <div className="space-y-4">
             {FAQ.map((item) => (
               <SectionReveal key={item.question}>
-                <details className="group rounded-[14px] border border-zinc-800 bg-zinc-900/40 overflow-hidden">
+                <details className="group rounded-[14px] border border-border bg-bg-card overflow-hidden">
                   <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none">
-                    <span className="text-white text-sm font-semibold leading-snug">{item.question}</span>
+                    <span className="text-text text-sm font-semibold leading-snug">{item.question}</span>
                     <ChevronRight size={16} className="flex-shrink-0 text-text-muted transition-transform duration-200 group-open:rotate-90" />
                   </summary>
                   <div className="px-5 pb-5">

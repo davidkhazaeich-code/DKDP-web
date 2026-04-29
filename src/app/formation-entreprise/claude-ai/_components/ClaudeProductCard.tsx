@@ -27,7 +27,7 @@ export function ClaudeProductCard({
       <div className="flex items-start justify-between gap-3">
         <div
           className="w-11 h-11 rounded-[10px] flex items-center justify-center flex-shrink-0"
-          style={{ background: 'rgba(0,0,0,0.35)', border: `1px solid ${border}` }}
+          style={{ background: 'var(--bg-card)', border: `1px solid ${border}` }}
         >
           <Icon size={20} style={{ color }} />
         </div>
@@ -41,7 +41,7 @@ export function ClaudeProductCard({
         )}
       </div>
       <div>
-        <h3 className="text-white font-bold text-lg leading-tight mb-1">{title}</h3>
+        <h3 className="text-text font-bold text-lg leading-tight mb-1">{title}</h3>
         <p className="text-text-muted text-sm leading-relaxed">{subtitle}</p>
       </div>
       <ul className="space-y-2 mt-auto">

@@ -65,7 +65,7 @@ export function LeadFormInlineClaudeAI() {
         <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: C }}>
           Devis gratuit · Sans engagement
         </p>
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
+        <h2 className="text-2xl md:text-3xl font-bold text-text mb-3 leading-tight">
           Recevez votre programme Claude IA sur mesure sous 48h
         </h2>
         <p className="text-text-secondary text-sm leading-relaxed mb-7">
@@ -89,11 +89,11 @@ export function LeadFormInlineClaudeAI() {
         {/* Guarantee */}
         <div
           className="rounded-[12px] p-4 flex items-start gap-3"
-          style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${CD}` }}
+          style={{ background: 'var(--bg-card)', border: `1px solid ${CD}` }}
         >
           <Shield size={15} style={{ color: C }} className="flex-shrink-0 mt-0.5" />
           <p className="text-[12px] text-text-secondary leading-relaxed">
-            <span className="text-white font-semibold">Satisfaction garantie.</span>{' '}
+            <span className="text-text font-semibold">Satisfaction garantie.</span>{' '}
             Si votre équipe n&apos;applique aucune compétence Claude dès J+1, on revient gratuitement.
           </p>
         </div>
@@ -113,7 +113,7 @@ export function LeadFormInlineClaudeAI() {
           </div>
           <div
             className="ml-auto text-center px-3 py-2 rounded-[8px]"
-            style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${CD}` }}
+            style={{ background: 'var(--bg-card)', border: `1px solid ${CD}` }}
           >
             <p className="text-lg font-bold" style={{ color: C }}>100%</p>
             <p className="text-[9px] text-text-muted uppercase tracking-wide">pratique</p>

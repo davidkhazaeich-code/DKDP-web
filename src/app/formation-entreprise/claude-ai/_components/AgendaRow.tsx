@@ -31,7 +31,7 @@ export function AgendaRow({
       <span className="text-[11px] font-bold w-11 flex-shrink-0" style={{ color: s.color }}>
         {time}
       </span>
-      <span className="text-white text-[12px] font-medium flex-1">{title}</span>
+      <span className="text-text text-[12px] font-medium flex-1">{title}</span>
       <span
         className="hidden sm:inline text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full flex-shrink-0"
         style={{ background: s.bg, color: s.color, border: `1px solid ${s.border}` }}

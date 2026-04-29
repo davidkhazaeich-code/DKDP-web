@@ -802,16 +802,16 @@ export function ChatWidget() {
               <m.button
                 type="submit"
                 disabled={!inputValue.trim()}
-                className="flex-shrink-0 w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default"
+                className="flex-shrink-0 w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-40 disabled:cursor-default"
                 style={{
                   background: inputValue.trim()
                     ? '#7C3AED'
-                    : 'var(--surface-default)',
+                    : 'var(--surface-border)',
                 }}
                 whileHover={inputValue.trim() ? { scale: 1.08 } : {}}
                 whileTap={inputValue.trim() ? { scale: 0.94 } : {}}
               >
-                <Send size={15} className="text-white" />
+                <Send size={15} className={inputValue.trim() ? 'text-white' : 'text-text-secondary'} />
               </m.button>
             </form>
           </m.div>
@@ -1029,16 +1029,16 @@ export function ChatWidget() {
                   <m.button
                     type="submit"
                     disabled={!inputValue.trim() || isLoading}
-                    className="flex-shrink-0 w-11 h-11 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default mb-0.5"
+                    className="flex-shrink-0 w-11 h-11 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-40 disabled:cursor-default mb-0.5"
                     style={{
                       background: inputValue.trim()
                         ? '#7C3AED'
-                        : 'rgba(255,255,255,0.06)',
+                        : 'var(--surface-border)',
                     }}
                     whileHover={inputValue.trim() ? { scale: 1.08 } : {}}
                     whileTap={inputValue.trim() ? { scale: 0.94 } : {}}
                   >
-                    <Send size={14} className="text-white" />
+                    <Send size={14} className={inputValue.trim() ? 'text-white' : 'text-text-secondary'} />
                   </m.button>
                 </form>
               </div>

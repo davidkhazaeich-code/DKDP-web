@@ -22,6 +22,19 @@ function buildGrid(strokeRgba: string, strokeWidth: number = 1) {
   return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='${encoded}' stroke-width='${strokeWidth}'/%3E%3C/svg%3E")`
 }
 
+/**
+ * In light mode, the heavy 70px blur diffuses brand color across many pixels so
+ * the original alphas (designed for dark) read invisible on cream. Bump alpha by
+ * ~2x for any rgba/rgb input string. Pass-through for non-rgba strings.
+ */
+function bumpAlphaForLight(color: string, multiplier: number = 2.2): string {
+  const rgbaMatch = color.match(/^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*([\d.]+))?\s*\)$/)
+  if (!rgbaMatch) return color
+  const [, r, g, b, a = '1'] = rgbaMatch
+  const bumped = Math.min(1, parseFloat(a) * multiplier)
+  return `rgba(${r}, ${g}, ${b}, ${bumped.toFixed(3)})`
+}
+
 interface InfiniteGridProps {
   children?: React.ReactNode
   className?: string
@@ -43,6 +56,9 @@ export function InfiniteGrid({
   const containerRef = useRef<HTMLDivElement>(null)
   const colors = useThemeColors()
   const { theme } = useTheme()
+  const isLight = theme === 'light'
+  const blob1Adjusted = isLight ? bumpAlphaForLight(blob1) : blob1
+  const blob2Adjusted = isLight ? bumpAlphaForLight(blob2) : blob2
   // Delay the rAF loop by 500ms so LCP can paint before the animation thread starts
   const activeRef = useRef(false)
   const mouseThrottleRef = useRef(false)
@@ -113,7 +129,7 @@ export function InfiniteGrid({
             left: '0%',
             width: '38%',
             height: '50%',
-            background: blob1,
+            background: blob1Adjusted,
             borderRadius: '50%',
             filter: 'blur(70px)',
             animation: 'blobFloat 8s ease-in-out infinite',
@@ -126,7 +142,7 @@ export function InfiniteGrid({
             right: '0%',
             width: '35%',
             height: '45%',
-            background: blob2,
+            background: blob2Adjusted,
             borderRadius: '50%',
             filter: 'blur(70px)',
             animation: 'blobFloat 10s ease-in-out infinite reverse',

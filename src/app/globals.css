@@ -60,6 +60,9 @@
 
   /* Filter for monochrome SVG logos (invert dark logos to white) */
   --logo-filter:     invert(1) brightness(1);
+
+  /* Filter for raster client logos (already light/white). None in dark, invert in light. */
+  --client-logo-filter: none;
 }
 
 [data-theme="light"] {
@@ -119,6 +122,9 @@
 
   /* Filter for monochrome SVG logos (none — they stay black on cream) */
   --logo-filter:     none;
+
+  /* Filter for raster client logos: invert white-ish logos to dark on cream. */
+  --client-logo-filter: invert(1);
 }
 
 /* Bridge to Tailwind v4 @theme — Tailwind classes (e.g. bg-bg, text-text) resolve via vars */
@@ -291,6 +297,41 @@ body.chat-open {
   touch-action: none;
 }
 
+/* Chatbot bottom bar (état fermé) — sticky position cross-mobile */
+.chat-bottom-bar {
+  position: fixed;
+  z-index: 40;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: max(16px, env(safe-area-inset-bottom, 16px));
+}
+@media (min-width: 640px) {
+  .chat-bottom-bar {
+    bottom: max(24px, env(safe-area-inset-bottom, 24px));
+  }
+}
+
+/* Chatbot window (état ouvert) — mobile near-fullscreen, desktop flottant */
+.chat-window {
+  position: fixed;
+  z-index: 40;
+  top: max(12px, env(safe-area-inset-top, 12px));
+  left: 8px;
+  right: 8px;
+  bottom: max(12px, env(safe-area-inset-bottom, 12px));
+}
+@media (min-width: 640px) {
+  .chat-window {
+    top: auto;
+    left: 50%;
+    right: auto;
+    bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    transform: translateX(-50%);
+    width: min(580px, calc(100vw - 32px));
+    height: min(576px, 78dvh, calc(100dvh - 80px));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -371,8 +412,8 @@ body.chat-open {
 .hover-grad {
   position: relative;
   border-radius: 12px;
-  background: #141414;
-  border: 1px solid #1E1E1E;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   transition: border-color 300ms ease-out, transform 200ms ease-out;
 }
 .hover-grad::after {
@@ -542,4 +583,13 @@ body.chat-open {
   [data-browser-frame] [data-browser-scroll] {
     animation: none !important;
   }
+}
+
+/* Client logo tiles (LogoBanner, ProofStack). Grayscale by default, theme-aware invert via --client-logo-filter. */
+.client-logo-tile {
+  filter: grayscale(1) var(--client-logo-filter, none);
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.client-logo-tile:hover {
+  filter: grayscale(0) var(--client-logo-filter, none);
 }

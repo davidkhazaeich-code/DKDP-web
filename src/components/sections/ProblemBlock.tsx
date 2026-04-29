@@ -107,7 +107,7 @@ export function ProblemBlock() {
                   <div className="mb-5">
                     <problem.Icon />
                   </div>
-                  <h3 className="text-white font-semibold text-lg mb-3 leading-snug">
+                  <h3 className="text-text font-semibold text-lg mb-3 leading-snug">
                     {problem.title}
                   </h3>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1">

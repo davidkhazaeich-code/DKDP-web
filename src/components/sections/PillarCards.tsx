@@ -123,7 +123,7 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
           </div>
           <Badge variant={pillar.badgeVariant} className="w-fit">{pillar.badge}</Badge>
         </div>
-        <h3 className="text-white text-xl font-bold mb-3">{pillar.title}</h3>
+        <h3 className="text-text text-xl font-bold mb-3">{pillar.title}</h3>
         <p className="text-text-secondary mb-6 leading-relaxed flex-1">{pillar.description}</p>
         <ul className="space-y-2 mb-8">
           {pillar.services.map((s) => (

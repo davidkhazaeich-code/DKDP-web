@@ -98,7 +98,7 @@ export function FeaturedServices() {
                   <s.Icon size={22} style={{ color: s.color }} />
                 </div>
 
-                <h3 className="text-white font-bold text-lg mb-3">{s.title}</h3>
+                <h3 className="text-text font-bold text-lg mb-3">{s.title}</h3>
                 <p className="text-text-secondary text-sm leading-relaxed flex-1">{s.desc}</p>
 
                 <span

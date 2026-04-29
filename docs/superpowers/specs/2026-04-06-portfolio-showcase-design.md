@@ -3,6 +3,12 @@
 **Date** : 6 avril 2026
 **Projet** : DKDP.ch - Realisations portfolio + 10 landing pages demo
 
+> **SUPERSEDED le 2026-04-26** par [`2026-04-26-realisations-design.md`](./2026-04-26-realisations-design.md).
+>
+> Ce spec n'a jamais ete implemente. Le pivot du 26 avril abandonne l'idee des 10 sites demo fictifs deployes sur des sous-domaines, au profit d'un showcase des **vraies realisations clients** (Goldencash, Cours-Informatique, etc.) avec un composant signature `BrowserFrame` cinematique. Le nouveau spec ne reutilise rien d'ici sauf le pattern data layer (1 fichier TS par projet, calque sur le blog).
+>
+> Conserver ce document pour l'historique des decisions. L'idee des sites demo pourra revivre plus tard sous `/demos/` si pertinent, hors scope du nouveau spec.
+
 ---
 
 ## Contexte

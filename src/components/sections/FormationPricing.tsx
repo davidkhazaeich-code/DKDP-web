@@ -73,7 +73,7 @@ export function FormationPricing() {
                 }
               </div>
               <div>
-                <p className="text-white font-bold text-base">{f.label}</p>
+                <p className="text-text font-bold text-base">{f.label}</p>
                 <p className="text-text-muted text-xs">{f.work} + {f.prep}</p>
               </div>
             </div>
@@ -90,7 +90,7 @@ export function FormationPricing() {
             </div>
             <p className="text-text-muted text-[10px] mt-2">
               Programme personnalise selon vos besoins.{' '}
-              <Link href="/contact" className="underline hover:text-white transition-colors" style={{ color: OR }}>
+              <Link href="/contact" className="underline hover:text-text transition-colors" style={{ color: OR }}>
                 Demander un devis
               </Link>
             </p>
@@ -101,7 +101,7 @@ export function FormationPricing() {
       {/* Note */}
       <p className="text-text-muted text-xs mt-4 text-center leading-relaxed">
         Le programme est personnalise pour chaque entreprise.{' '}
-        <Link href="/contact" className="underline hover:text-white transition-colors" style={{ color: OR }}>
+        <Link href="/contact" className="underline hover:text-text transition-colors" style={{ color: OR }}>
           Devis gratuit sous 48h
         </Link>
       </p>

@@ -243,7 +243,7 @@ export default function TarifsPage() {
                 className="px-6 py-4"
                 style={{ background: orangeBg, borderBottom: `1px solid ${orangeBd}` }}
               >
-                <p className="text-white text-sm font-bold">Tarif horaire selon le groupe</p>
+                <p className="text-text text-sm font-bold">Tarif horaire selon le groupe</p>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4">
@@ -288,7 +288,7 @@ export default function TarifsPage() {
                   className="rounded-[16px] border p-6"
                   style={{ background: orangeBg, borderColor: orangeBd }}
                 >
-                  <p className="text-white font-bold text-lg mb-1">{f.label}</p>
+                  <p className="text-text font-bold text-lg mb-1">{f.label}</p>
                   <p className="text-text-muted text-xs mb-3">{f.detail}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-text-secondary text-sm">Tarif</span>
@@ -302,7 +302,7 @@ export default function TarifsPage() {
                   </div>
                   <p className="text-text-muted text-[11px] mt-3">
                     Programme personnalise selon vos besoins.{' '}
-                    <Link href="/contact" className="underline hover:text-white transition-colors" style={{ color: orangeColor }}>
+                    <Link href="/contact" className="underline hover:text-text transition-colors" style={{ color: orangeColor }}>
                       Demander un devis
                     </Link>
                   </p>
@@ -371,7 +371,7 @@ export default function TarifsPage() {
                       <svc.Icon size={20} style={{ color: chromeColor }} />
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-[16px] leading-tight">{svc.title}</h3>
+                      <h3 className="text-text font-bold text-[16px] leading-tight">{svc.title}</h3>
                       <p className="text-text-secondary text-[13px] mt-1.5 leading-relaxed">{svc.desc}</p>
                     </div>
                   </div>
@@ -461,7 +461,7 @@ export default function TarifsPage() {
                       <item.Icon size={20} style={{ color: violetColor }} />
                     </div>
                     <div>
-                      <p className="text-white font-bold text-[15px] leading-tight">{item.title}</p>
+                      <p className="text-text font-bold text-[15px] leading-tight">{item.title}</p>
                       <p className="text-text-muted text-[12.5px] mt-0.5">{item.note}</p>
                     </div>
                   </div>
@@ -484,7 +484,7 @@ export default function TarifsPage() {
               style={{ background: 'rgba(124,58,237,0.04)', borderColor: violetBd }}
             >
               <p className="text-text-muted text-[13.5px] leading-relaxed">
-                <strong className="text-white font-semibold">Sites web :</strong>{' '}
+                <strong className="text-text font-semibold">Sites web :</strong>{' '}
                 les tarifs dépendent du nombre de pages, des fonctionnalités demandées et du niveau de personnalisation graphique.
                 Un site vitrine simple diffère d&apos;une plateforme e-commerce avec espace client. Devis gratuit et sans engagement.
               </p>
@@ -534,7 +534,7 @@ export default function TarifsPage() {
                       <GraduationCap size={15} style={{ color: chromeColor }} />
                     </div>
                     <div>
-                      <p className="text-white font-bold text-[15px] mb-2">{item.q}</p>
+                      <p className="text-text font-bold text-[15px] mb-2">{item.q}</p>
                       <p className="text-text-secondary text-[14px] leading-relaxed">{item.a}</p>
                     </div>
                   </div>

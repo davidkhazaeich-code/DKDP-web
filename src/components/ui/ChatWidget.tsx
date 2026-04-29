@@ -446,7 +446,6 @@ function LimitReachedCTA() {
 export function ChatWidget() {
   const [isEurope, setIsEurope] = useState(true)
   const [isOpen, setIsOpen] = useState(false)
-  const [nearFooter, setNearFooter] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const [placeholderIndex, setPlaceholderIndex] = useState(0)
   const [showPlaceholder, setShowPlaceholder] = useState(true)
@@ -474,18 +473,6 @@ export function ChatWidget() {
   useEffect(() => {
     const match = document.cookie.match(/(?:^|; )geo-eu=([^;]*)/)
     if (match && match[1] === '0') setIsEurope(false)
-  }, [])
-
-  // Cache la barre (état fermé) quand le footer devient visible
-  useEffect(() => {
-    const footer = document.querySelector('footer')
-    if (!footer) return
-    const observer = new IntersectionObserver(
-      ([entry]) => setNearFooter(entry.isIntersecting),
-      { threshold: 0 }
-    )
-    observer.observe(footer)
-    return () => observer.disconnect()
   }, [])
 
   const [chatTransport] = useState(() => new DefaultChatTransport({
@@ -697,21 +684,18 @@ export function ChatWidget() {
           BOTTOM SEARCH BAR (closed state)
          ════════════════════════════════════════════════════════════════════════ */}
       <AnimatePresence>
-        {!isOpen && !nearFooter && (
+        {!isOpen && (
           <m.div
             ref={barRef}
             initial={{ opacity: 0, y: 30 }}
             animate={{
               opacity: 1,
               y: 0,
-              width: barFocused ? 'min(580px, calc(100vw - 32px))' : 'min(410px, calc(100vw - 24px))',
+              width: barFocused ? 'min(580px, calc(100vw - 16px))' : 'min(410px, calc(100vw - 16px))',
             }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
-            className="fixed z-40 left-1/2 -translate-x-1/2"
-            style={{
-              bottom: 'max(24px, env(safe-area-inset-bottom, 24px))',
-            }}
+            className="chat-bottom-bar"
           >
             {speech.error && (
               <m.div
@@ -840,22 +824,14 @@ export function ChatWidget() {
          ════════════════════════════════════════════════════════════════════════ */}
       <AnimatePresence>
         {isOpen && (
-          <div
-            ref={chatWindowRef}
-            className="fixed z-40 left-1/2 -translate-x-1/2"
-            style={{
-              width: 'min(580px, calc(100vw - 16px))',
-              bottom: 'max(8px, env(safe-area-inset-bottom, 8px))',
-            }}
-          >
+          <div ref={chatWindowRef} className="chat-window">
           <m.div
-            initial={{ opacity: 0, y: 60, scale: 0.92 }}
+            initial={{ opacity: 0, y: 32, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.95 }}
-            transition={{ type: 'spring' as const, damping: 22, stiffness: 260 }}
-            className="flex flex-col overflow-hidden rounded-2xl w-full"
+            exit={{ opacity: 0, y: 24, scale: 0.98 }}
+            transition={{ type: 'spring' as const, damping: 24, stiffness: 280 }}
+            className="flex flex-col overflow-hidden rounded-2xl w-full h-full"
             style={{
-              height: 'min(576px, 78dvh, calc(100dvh - 80px))',
               background: '#0A0A0A',
               border: '1px solid rgba(124,58,237,0.15)',
               boxShadow: '0 16px 70px rgba(0,0,0,0.8), 0 0 80px rgba(124,58,237,0.08)',

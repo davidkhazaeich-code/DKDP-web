@@ -48,7 +48,7 @@ function SliderInput({
   return (
     <div className="space-y-2.5">
       <div className="flex items-center justify-between gap-4">
-        <span className="flex items-center gap-2 text-sm font-semibold text-white leading-snug">
+        <span className="flex items-center gap-2 text-sm font-semibold text-text leading-snug">
           {icon && <span style={{ color: 'rgba(212,212,216,0.45)' }}>{icon}</span>}
           {label}
         </span>
@@ -239,7 +239,7 @@ export function ROICalculatorFormation() {
                   <span className="flex items-center gap-2 text-text-muted text-sm">
                     <Tag size={13} style={{ color: 'rgba(212,212,216,0.40)' }} />Coût de la formation
                   </span>
-                  <span className="text-white font-bold text-sm">
+                  <span className="text-text font-bold text-sm">
                     {formatCHF(prixFormation)}
                   </span>
                 </div>

@@ -117,3 +117,41 @@ export type TokenSet = {
   border: string
   glow?: string
 }
+
+// ─── Canvas / Three.js helper ────────────────────────────────────────────────
+
+/**
+ * Returns hex/rgba string values for a given theme. Use this in WebGL/Canvas
+ * components that need string literals (not CSS vars) for THREE.Color, fillStyle,
+ * createRadialGradient stops, etc.
+ *
+ * Usage :
+ *   const { theme } = useTheme()
+ *   const palette = themeColors(theme)
+ *   material.color = new THREE.Color(palette.pointTint)
+ */
+export function themeColors(theme: 'dark' | 'light') {
+  return theme === 'dark'
+    ? {
+        bg:          '#0A0A0A',
+        text:        '#FFFFFF',
+        orange:      '#FF6B00',
+        violet:      '#7C3AED',
+        orangeAlpha: 'rgba(255,107,0,0.40)',
+        violetAlpha: 'rgba(124,58,237,0.30)',
+        pointTint:   '#FFFFFF',
+        gridLine:    'rgba(255,255,255,0.10)',
+      }
+    : {
+        bg:          '#FAFAF7',
+        text:        '#1A1A18',
+        orange:      '#FF6B00',
+        violet:      '#7C3AED',
+        orangeAlpha: 'rgba(255,107,0,0.22)',
+        violetAlpha: 'rgba(124,58,237,0.18)',
+        pointTint:   '#1A1A18',
+        gridLine:    'rgba(10,10,10,0.08)',
+      }
+}
+
+export type ThemePalette = ReturnType<typeof themeColors>

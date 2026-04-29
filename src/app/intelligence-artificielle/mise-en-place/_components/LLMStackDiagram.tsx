@@ -10,10 +10,10 @@ export function LLMStackDiagram() {
     {
       label: 'Votre interface',
       sublabel: 'Site web, app, back-office',
-      icon: <Server size={15} style={{ color: '#ffffff' }} />,
-      bg: 'rgba(255,255,255,0.07)',
-      border: 'rgba(255,255,255,0.18)',
-      textColor: '#ffffff',
+      icon: <Server size={15} style={{ color: 'var(--text)' }} />,
+      bg: 'var(--surface-default)',
+      border: 'var(--surface-border)',
+      textColor: 'var(--text)',
     },
     {
       label: 'Couche orchestration DKDP',

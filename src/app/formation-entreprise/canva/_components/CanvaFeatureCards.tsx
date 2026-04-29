@@ -40,7 +40,7 @@ export function CanvaFeatureCards() {
             <p className="text-text font-bold text-sm mb-1.5">{f.name}</p>
             <span
               className="text-[10px] font-semibold px-2 py-0.5 rounded-full inline-block"
-              style={{ background: 'rgba(255,255,255,0.06)', color: f.c, border: `1px solid ${f.cborder}` }}
+              style={{ background: 'var(--bg-card)', color: f.c, border: `1px solid ${f.cborder}` }}
             >
               {f.tag}
             </span>

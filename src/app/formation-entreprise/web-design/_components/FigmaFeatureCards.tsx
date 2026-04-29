@@ -37,10 +37,10 @@ export function FigmaFeatureCards() {
           style={{ background: f.cbg, border: `1px solid ${f.cborder}` }}
         >
           <div>
-            <p className="text-white font-bold text-sm mb-1.5">{f.name}</p>
+            <p className="text-text font-bold text-sm mb-1.5">{f.name}</p>
             <span
               className="text-[10px] font-semibold px-2 py-0.5 rounded-full inline-block"
-              style={{ background: 'rgba(255,255,255,0.06)', color: f.c, border: `1px solid ${f.cborder}` }}
+              style={{ background: 'var(--bg-card)', color: f.c, border: `1px solid ${f.cborder}` }}
             >
               {f.tag}
             </span>
@@ -52,7 +52,7 @@ export function FigmaFeatureCards() {
             </div>
             <div>
               <p className="text-text-muted text-[10px] uppercase tracking-wide mb-0.5">Bénéfice</p>
-              <p className="text-white text-[12px] leading-snug">{f.detail}</p>
+              <p className="text-text text-[12px] leading-snug">{f.detail}</p>
             </div>
           </div>
         </div>

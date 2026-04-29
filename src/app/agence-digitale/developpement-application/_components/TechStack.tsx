@@ -75,7 +75,7 @@ export function TechStack() {
       {CATEGORIES.map((cat) => (
         <div
           key={cat.label}
-          className="bg-[#0D0D0D] p-6 flex flex-col gap-5"
+          className="bg-bg-card p-6 flex flex-col gap-5"
         >
           {/* Category header */}
           <div className="flex items-center gap-2.5">
@@ -98,7 +98,8 @@ export function TechStack() {
             {cat.techs.map((t) => (
               <div
                 key={t.name}
-                className="flex items-center gap-2.5 px-3 py-2.5 rounded-[8px] bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.05] transition-colors duration-150"
+                className="flex items-center gap-2.5 px-3 py-2.5 rounded-[8px] border transition-colors duration-150"
+                style={{ background: 'var(--surface-default)', borderColor: 'var(--surface-border)' }}
               >
                 <span
                   className="h-2 w-2 rounded-full flex-shrink-0"

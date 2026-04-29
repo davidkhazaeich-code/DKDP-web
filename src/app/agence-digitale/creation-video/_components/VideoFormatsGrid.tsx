@@ -54,7 +54,7 @@ export function VideoFormatsGrid() {
             ].map(({ label, value }) => (
               <div key={label} className="flex flex-col gap-0.5">
                 <span className="text-[11px] uppercase tracking-wider text-text-muted">{label}</span>
-                <span className="text-[13px] font-semibold text-white">{value}</span>
+                <span className="text-[13px] font-semibold text-text">{value}</span>
               </div>
             ))}
           </div>

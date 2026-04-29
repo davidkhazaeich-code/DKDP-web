@@ -236,7 +236,7 @@ export default function AProposPage() {
                   />
                   {/* Logo card */}
                   <div
-                    className="relative w-[380px] h-[280px] rounded-[28px] flex flex-col items-center justify-center gap-7 overflow-hidden"
+                    className="apropos-logo-card relative w-[380px] h-[280px] rounded-[28px] flex flex-col items-center justify-center gap-7 overflow-hidden"
                     style={{
                       background: 'linear-gradient(140deg, rgba(124,58,237,0.14) 0%, rgba(9,9,11,0.80) 50%, rgba(212,212,216,0.06) 100%)',
                       border: '1px solid rgba(124,58,237,0.28)',
@@ -245,7 +245,7 @@ export default function AProposPage() {
                   >
                     {/* Subtle grid */}
                     <div
-                      className="absolute inset-0 opacity-[0.07]"
+                      className="apropos-logo-grid absolute inset-0 opacity-[0.07]"
                       style={{
                         backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,0.06) 39px,rgba(255,255,255,0.06) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,0.06) 39px,rgba(255,255,255,0.06) 40px)',
                       }}
@@ -277,7 +277,7 @@ export default function AProposPage() {
 
                   {/* Floating stat : clients */}
                   <div
-                    className="absolute -top-5 -right-8 px-4 py-2.5 rounded-[14px] text-center"
+                    className="apropos-floating-stat absolute -top-5 -right-8 px-4 py-2.5 rounded-[14px] text-center"
                     style={{ background: 'rgba(9,9,11,0.88)', border: `1px solid ${violetBd}`, backdropFilter: 'blur(12px)' }}
                   >
                     <p className="font-bold text-xl leading-none" style={{ color: violetColor }}>700+</p>
@@ -286,7 +286,7 @@ export default function AProposPage() {
 
                   {/* Floating stat : expérience */}
                   <div
-                    className="absolute -bottom-5 -left-8 px-4 py-2.5 rounded-[14px] text-center"
+                    className="apropos-floating-stat absolute -bottom-5 -left-8 px-4 py-2.5 rounded-[14px] text-center"
                     style={{ background: 'rgba(9,9,11,0.88)', border: `1px solid ${orangeBd}`, backdropFilter: 'blur(12px)' }}
                   >
                     <p className="font-bold text-xl leading-none" style={{ color: orangeColor }}>10+</p>
@@ -471,7 +471,7 @@ export default function AProposPage() {
                   >
                     {/* Portrait */}
                     <div
-                      className="relative h-64 flex items-end justify-center overflow-hidden"
+                      className="apropos-portrait-well relative h-64 flex items-end justify-center overflow-hidden"
                       style={{ background: 'rgba(0,0,0,0.25)' }}
                     >
                       <div
@@ -485,7 +485,7 @@ export default function AProposPage() {
                         className="relative z-10 object-contain object-bottom"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
+                      <div className="apropos-portrait-fade absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
                     </div>
 
                     {/* Contenu */}
@@ -501,7 +501,7 @@ export default function AProposPage() {
                         {member.skills.map((skill) => (
                           <span
                             key={skill}
-                            className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
+                            className="apropos-skill-pill text-[10px] font-semibold px-2.5 py-1 rounded-full"
                             style={{ background: 'rgba(0,0,0,0.30)', border: `1px solid ${member.border}`, color: member.color }}
                           >
                             {skill}

@@ -93,9 +93,9 @@
   --bg:              #FAFAF7;
   --bg-card:         #FFFFFF;
   --bg-card-hover:   #F5F4F0;
-  --border:          #C5C2BA;       /* bumped from #D4D2CB for clearer card edges on cream */
-  --border-strong:   #A8A69E;       /* bumped from #B8B6AE for emphasis dividers */
-  --divider:         rgba(10, 10, 10, 0.16);
+  --border:          #B8B5AC;       /* Pass 14: bumped from #C5C2BA for stronger card edges on cream */
+  --border-strong:   #8E8B82;       /* Pass 14: bumped from #A8A69E for emphasis dividers */
+  --divider:         rgba(10, 10, 10, 0.22);  /* Pass 14: bumped from 0.16 */
 
   /* Text — warm gray-black, not pure black. Muted bumped to #6E6E6A for WCAG AA on cream (4.5:1). */
   --text:            #1A1A18;
@@ -107,32 +107,32 @@
   --orange-light:    #FF8C00;
   --violet:          #7C3AED;
   --violet-light:    #A78BFA;
-  --border-violet:   rgba(124, 58, 237, 0.30);
-  --border-orange:   rgba(255, 107, 0, 0.30);
+  --border-violet:   rgba(124, 58, 237, 0.42);  /* Pass 14: bumped from 0.30 */
+  --border-orange:   rgba(255, 107, 0, 0.42);   /* Pass 14: bumped from 0.30 */
 
-  /* Pillar tokens — alpha bumped 50-100% for visibility on cream */
-  --violet-bg:       rgba(124, 58, 237, 0.10);
-  --violet-border:   rgba(124, 58, 237, 0.30);
-  --violet-glow:     rgba(124, 58, 237, 0.18);
-  --orange-bg:       rgba(255, 107, 0, 0.10);
-  --orange-border:   rgba(255, 107, 0, 0.32);
-  --orange-glow:     rgba(255, 107, 0, 0.15);
-  --chrome-bg:       rgba(80, 80, 80, 0.08);
-  --chrome-border:   rgba(80, 80, 80, 0.25);
-  --gray-bg:         rgba(80, 80, 80, 0.08);
-  --gray-border:     rgba(80, 80, 80, 0.25);
-  --green-bg:        rgba(34, 150, 80, 0.10);
-  --green-border:    rgba(34, 150, 80, 0.32);
-  --blue-bg:         rgba(50, 110, 200, 0.10);
-  --blue-border:     rgba(50, 110, 200, 0.32);
-  --pink-bg:         rgba(220, 80, 150, 0.10);
-  --pink-border:     rgba(220, 80, 150, 0.32);
-  --teal-bg:         rgba(20, 170, 150, 0.10);
-  --teal-border:     rgba(20, 170, 150, 0.32);
-  --amber-bg:        rgba(220, 150, 30, 0.10);
-  --amber-border:    rgba(220, 150, 30, 0.32);
-  --red-bg:          rgba(220, 50, 50, 0.10);
-  --red-border:      rgba(220, 50, 50, 0.32);
+  /* Pillar tokens — Pass 14: bumped alphas for stronger tinted card visibility on cream */
+  --violet-bg:       rgba(124, 58, 237, 0.14);  /* was 0.10 */
+  --violet-border:   rgba(124, 58, 237, 0.40);  /* was 0.30 */
+  --violet-glow:     rgba(124, 58, 237, 0.24);  /* was 0.18 */
+  --orange-bg:       rgba(255, 107, 0, 0.14);   /* was 0.10 */
+  --orange-border:   rgba(255, 107, 0, 0.40);   /* was 0.32 */
+  --orange-glow:     rgba(255, 107, 0, 0.20);   /* was 0.15 */
+  --chrome-bg:       rgba(80, 80, 80, 0.12);    /* was 0.08 */
+  --chrome-border:   rgba(80, 80, 80, 0.32);    /* was 0.25 */
+  --gray-bg:         rgba(80, 80, 80, 0.12);    /* was 0.08 */
+  --gray-border:     rgba(80, 80, 80, 0.32);    /* was 0.25 */
+  --green-bg:        rgba(34, 150, 80, 0.14);   /* was 0.10 */
+  --green-border:    rgba(34, 150, 80, 0.40);   /* was 0.32 */
+  --blue-bg:         rgba(50, 110, 200, 0.14);
+  --blue-border:     rgba(50, 110, 200, 0.40);
+  --pink-bg:         rgba(220, 80, 150, 0.14);
+  --pink-border:     rgba(220, 80, 150, 0.40);
+  --teal-bg:         rgba(20, 170, 150, 0.14);
+  --teal-border:     rgba(20, 170, 150, 0.40);
+  --amber-bg:        rgba(220, 150, 30, 0.14);
+  --amber-border:    rgba(220, 150, 30, 0.40);
+  --red-bg:          rgba(220, 50, 50, 0.14);
+  --red-border:      rgba(220, 50, 50, 0.40);
 
   /* Pillar chip text — dark shade readable on cream cards (AA on tinted bg) */
   --violet-text:     #6D28D9;
@@ -151,13 +151,13 @@
   --chip-4:          #A8442A;
   --chip-5:          #C2410C;
 
-  /* Neutral surfaces — bumped alpha on black for visibility */
-  --surface-subtle:  rgba(10, 10, 10, 0.03);
-  --surface-default: rgba(10, 10, 10, 0.05);
-  --surface-border:  rgba(10, 10, 10, 0.18);
+  /* Neutral surfaces — Pass 14: bumped for visibility of subtle bg cards */
+  --surface-subtle:  rgba(10, 10, 10, 0.04);   /* was 0.03 */
+  --surface-default: rgba(10, 10, 10, 0.07);   /* was 0.05 */
+  --surface-border:  rgba(10, 10, 10, 0.25);   /* was 0.18 */
 
-  /* Canvas grid line — black-ish on cream (visible base, hover reveals brand-colored grid) */
-  --grid-line:       rgba(10, 10, 10, 0.28);
+  /* Canvas grid line — Pass 14: bumped to 0.40 for stronger visibility (mirrors tokens.ts source) */
+  --grid-line:       rgba(10, 10, 10, 0.40);
   --grid-line-rgb:   10, 10, 10;
 
   /* Filter for monochrome SVG logos (none — they stay black on cream) */

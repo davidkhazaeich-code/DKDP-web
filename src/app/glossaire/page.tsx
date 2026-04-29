@@ -440,7 +440,7 @@ export default function GlossairePage() {
           </SectionReveal>
 
           <SectionReveal delay={0.08}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-text leading-tight">
               Le lexique du{' '}
               <GradText as="span" className="grad-text">
                 digital et de l&apos;IA.
@@ -488,7 +488,7 @@ export default function GlossairePage() {
                   <a
                     key={letter}
                     href={`#lettre-${letter}`}
-                    className="flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold text-white transition-colors duration-150"
+                    className="flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold text-text transition-colors duration-150"
                     style={{
                       background: 'rgba(167,139,250,0.10)',
                       border: '1px solid rgba(167,139,250,0.25)',
@@ -524,7 +524,7 @@ export default function GlossairePage() {
                   <a
                     key={letter}
                     href={`#lettre-${letter}`}
-                    className="flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold text-white transition-colors duration-150"
+                    className="flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold text-text transition-colors duration-150"
                     style={{
                       background: 'rgba(167,139,250,0.10)',
                       border: '1px solid rgba(167,139,250,0.25)',
@@ -575,7 +575,7 @@ export default function GlossairePage() {
             }}
           >
             <GradTag>Audit gratuit</GradTag>
-            <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-text leading-tight">
               Votre site est-il{' '}
               <GradText as="span" className="grad-text--ia">
                 optimisé pour 2026 ?

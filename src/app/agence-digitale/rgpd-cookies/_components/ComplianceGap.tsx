@@ -17,7 +17,7 @@ export function ComplianceGap() {
           ].map((item) => (
             <div key={item} className="flex items-start gap-2">
               <XCircle size={12} className="flex-shrink-0 mt-0.5 text-red-400" />
-              <span className="text-red-300 text-[11px] leading-snug">{item}</span>
+              <span className="text-text-secondary text-[11px] leading-snug">{item}</span>
             </div>
           ))}
         </div>
@@ -35,7 +35,7 @@ export function ComplianceGap() {
           ].map((item) => (
             <div key={item} className="flex items-start gap-2">
               <CheckCircle2 size={12} className="flex-shrink-0 mt-0.5" style={{ color: green.color }} />
-              <span className="text-[11px] leading-snug" style={{ color: '#86efac' }}>{item}</span>
+              <span className="text-text-secondary text-[11px] leading-snug">{item}</span>
             </div>
           ))}
         </div>

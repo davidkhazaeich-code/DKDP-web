@@ -29,9 +29,9 @@ export function AuditScoreCard() {
 
       {/* Column headers */}
       <div className="grid grid-cols-4 gap-2 mb-2 px-1">
-        <p className="text-[9px] font-bold uppercase tracking-wider col-span-2" style={{ color: `${color}60` }}>Opportunité</p>
-        <p className="text-[9px] font-bold uppercase tracking-wider text-center" style={{ color: `${color}60` }}>Gain</p>
-        <p className="text-[9px] font-bold uppercase tracking-wider text-right" style={{ color: `${color}60` }}>ROI</p>
+        <p className="text-text-muted text-[9px] font-bold uppercase tracking-wider col-span-2">Opportunité</p>
+        <p className="text-text-muted text-[9px] font-bold uppercase tracking-wider text-center">Gain</p>
+        <p className="text-text-muted text-[9px] font-bold uppercase tracking-wider text-right">ROI</p>
       </div>
 
       {/* Rows */}
@@ -72,7 +72,7 @@ export function AuditScoreCard() {
       </div>
 
       {/* Footer */}
-      <p className="text-[9px] text-center mt-4" style={{ color: `${color}40` }}>
+      <p className="text-text-muted text-[9px] text-center mt-4">
         Exemple de résultat d&apos;audit. Votre situation peut différer.
       </p>
     </div>

@@ -34,7 +34,7 @@ export function ToolComparison() {
           style={{ background: t.cardBg, border: `1px solid ${t.cardBorder}` }}
         >
           <div>
-            <p className="text-white font-bold text-sm">{t.name}</p>
+            <p className="text-text font-bold text-sm">{t.name}</p>
             <p className="text-[10px] font-semibold" style={{ color: t.color }}>{t.maker}</p>
           </div>
           <div className="space-y-1.5">

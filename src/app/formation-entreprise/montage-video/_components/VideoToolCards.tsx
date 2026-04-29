@@ -36,15 +36,15 @@ export function VideoToolCards() {
       {tools.map((t) => (
         <div key={t.name} className="p-4 rounded-[12px] flex flex-col gap-3" style={{ background: t.cbg, border: `1px solid ${t.cborder}` }}>
           <div>
-            <p className="text-white font-bold text-sm mb-1.5">{t.name}</p>
-            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full inline-block" style={{ background: 'rgba(255,255,255,0.06)', color: t.c, border: `1px solid ${t.cborder}` }}>
+            <p className="text-text font-bold text-sm mb-1.5">{t.name}</p>
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full inline-block" style={{ background: 'var(--bg-card)', color: t.c, border: `1px solid ${t.cborder}` }}>
               {t.level}
             </span>
           </div>
           <div className="space-y-2">
             <div>
               <p className="text-text-muted text-[10px] uppercase tracking-wide mb-0.5">Prix</p>
-              <p className="text-white text-[12px] font-semibold">{t.price}</p>
+              <p className="text-text text-[12px] font-semibold">{t.price}</p>
             </div>
             <div>
               <p className="text-text-muted text-[10px] uppercase tracking-wide mb-0.5">Idéal pour</p>
@@ -52,7 +52,7 @@ export function VideoToolCards() {
             </div>
             <div>
               <p className="text-text-muted text-[10px] uppercase tracking-wide mb-0.5">Plateforme</p>
-              <p className="text-white text-[12px]">{t.platforms}</p>
+              <p className="text-text text-[12px]">{t.platforms}</p>
             </div>
           </div>
         </div>

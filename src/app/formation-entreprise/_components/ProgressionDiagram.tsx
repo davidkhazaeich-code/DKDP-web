@@ -10,10 +10,10 @@ export function ProgressionDiagram() {
       {levels.map((lvl, i) => (
         <div key={i}>
           <div className="flex justify-between items-center mb-1.5">
-            <span className="text-white text-xs font-semibold">{lvl.label}</span>
+            <span className="text-text text-xs font-semibold">{lvl.label}</span>
             <span className="text-text-muted text-[10px]">{lvl.sub}</span>
           </div>
-          <div className="h-2.5 rounded-full bg-white/5 overflow-hidden">
+          <div className="h-2.5 rounded-full overflow-hidden" style={{ background: 'var(--border)' }}>
             <div
               className="h-full rounded-full"
               style={{ width: `${lvl.pct}%`, background: `linear-gradient(90deg, ${lvl.color}88, ${lvl.color})` }}

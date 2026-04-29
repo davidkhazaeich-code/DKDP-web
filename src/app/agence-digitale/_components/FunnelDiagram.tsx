@@ -10,7 +10,7 @@ export function FunnelDiagram() {
       {steps.map((s, i) => (
         <div key={i} className="flex flex-col gap-1">
           <div className="flex justify-between items-center mb-0.5">
-            <span className="text-white text-xs font-semibold">{s.label}</span>
+            <span className="text-text text-xs font-semibold">{s.label}</span>
             <span className="text-text-muted text-[10px]">{s.sub}</span>
           </div>
           <div className="h-9 rounded-[6px] flex items-center px-3" style={{ width: s.w, background: `${s.color}22`, border: `1px solid ${s.color}55` }}>

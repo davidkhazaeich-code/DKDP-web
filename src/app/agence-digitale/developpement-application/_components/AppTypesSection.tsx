@@ -50,7 +50,7 @@ export function AppTypesSection() {
 
             {/* Content */}
             <div className="flex-1">
-              <h3 className="text-white font-bold text-lg mb-3">{app.title}</h3>
+              <h3 className="text-text font-bold text-lg mb-3">{app.title}</h3>
               <p className="text-text-secondary leading-relaxed text-sm">{app.desc}</p>
             </div>
 

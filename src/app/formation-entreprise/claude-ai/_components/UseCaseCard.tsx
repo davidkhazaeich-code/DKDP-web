@@ -21,7 +21,7 @@ export function UseCaseCard({
       <div className="flex items-center gap-2.5">
         <div
           className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[8px]"
-          style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${border}` }}
+          style={{ background: 'var(--bg-card)', border: `1px solid ${border}` }}
         >
           <Icon size={15} style={{ color }} aria-hidden="true" />
         </div>
@@ -32,7 +32,7 @@ export function UseCaseCard({
           <span
             key={c}
             className="text-[11px] px-2.5 py-1 rounded-full font-medium"
-            style={{ background: 'rgba(0,0,0,0.20)', border: `1px solid ${border}`, color }}
+            style={{ background: 'var(--bg-card)', border: `1px solid ${border}`, color }}
           >
             {c}
           </span>

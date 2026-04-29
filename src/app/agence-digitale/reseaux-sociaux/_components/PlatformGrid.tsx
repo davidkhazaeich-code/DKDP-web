@@ -52,7 +52,7 @@ export function PlatformGrid() {
           <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: p.color }}>
             {p.name}
           </p>
-          <p className="text-white text-[12px] font-semibold leading-snug mb-1">{p.useCase}</p>
+          <p className="text-text text-[12px] font-semibold leading-snug mb-1">{p.useCase}</p>
           <p className="text-text-muted text-[11px]">{p.metric}</p>
         </div>
       ))}

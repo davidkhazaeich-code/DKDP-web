@@ -41,7 +41,7 @@ export function ROIChart() {
               style={{
                 height: '20px',
                 borderRadius: '4px',
-                background: 'rgba(255,255,255,0.04)',
+                background: 'var(--border)',
                 overflow: 'hidden',
               }}
             >

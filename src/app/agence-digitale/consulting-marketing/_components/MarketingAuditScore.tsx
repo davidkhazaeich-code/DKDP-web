@@ -17,16 +17,16 @@ export function MarketingAuditScore() {
       {pillars.map((p) => (
         <div key={p.label} className="space-y-1.5">
           <div className="flex justify-between items-center">
-            <span className="text-white text-xs font-semibold">{p.label}</span>
+            <span className="text-text text-xs font-semibold">{p.label}</span>
             <span className="text-[11px] font-bold" style={{ color: violet.color }}>+{p.after - p.before}pts</span>
           </div>
-          <div className="relative h-2 w-full rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+          <div className="relative h-2 w-full rounded-full overflow-hidden" style={{ background: 'var(--border)' }}>
             <div
               className="absolute left-0 top-0 h-full rounded-full"
               style={{ width: `${p.before}%`, background: 'rgba(239,68,68,0.55)' }}
             />
           </div>
-          <div className="relative h-2 w-full rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+          <div className="relative h-2 w-full rounded-full overflow-hidden" style={{ background: 'var(--border)' }}>
             <div
               className="absolute left-0 top-0 h-full rounded-full"
               style={{ width: `${p.after}%`, background: 'linear-gradient(90deg, #7C3AED, #A78BFA)' }}

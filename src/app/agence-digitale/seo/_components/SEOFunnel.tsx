@@ -15,7 +15,7 @@ export function SEOFunnel() {
       {positions.map((p) => (
         <div key={p.pos} className="space-y-1">
           <div className="flex justify-between items-center">
-            <span className="text-white text-sm font-semibold">{p.pos}</span>
+            <span className="text-text text-sm font-semibold">{p.pos}</span>
             <span className="font-bold text-sm" style={{ color: violet.color }}>{p.pct}% des clics</span>
           </div>
           <div className="h-2.5 rounded-full" style={{ background: violet.bg }}>

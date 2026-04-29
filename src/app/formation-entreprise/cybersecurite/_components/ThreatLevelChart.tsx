@@ -18,7 +18,7 @@ export function ThreatLevelChart() {
       {threats.map((t) => (
         <div key={t.name} className="space-y-1.5">
           <div className="flex justify-between items-center">
-            <span className="text-white text-sm font-medium">{t.name}</span>
+            <span className="text-text text-sm font-medium">{t.name}</span>
             <span
               className="text-[10px] font-bold px-2 py-0.5 rounded-full"
               style={{

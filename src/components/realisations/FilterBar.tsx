@@ -29,7 +29,7 @@ export function FilterBar({
   const hasFilters = category !== 'all' || activeTag !== null
 
   return (
-    <div className="sticky top-[66px] z-30 -mx-6 border-b border-white/5 px-6 py-3 backdrop-blur-2xl" style={{ background: 'color-mix(in srgb, var(--bg) 85%, transparent)' }}>
+    <div className="sticky top-[66px] z-30 -mx-6 border-b border-border px-6 py-3 backdrop-blur-2xl" style={{ background: 'color-mix(in srgb, var(--bg) 85%, transparent)' }}>
       <div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-2">
         <div className="flex gap-1.5" role="tablist">
           {CATEGORY_TABS.map(t => (
@@ -42,8 +42,8 @@ export function FilterBar({
               className={clsx(
                 'rounded-full px-3 py-1.5 text-sm font-medium transition',
                 category === t.key
-                  ? 'bg-violet-500/20 text-violet-200'
-                  : 'text-text-secondary hover:bg-white/5 hover:text-text-primary',
+                  ? 'bg-[var(--violet-bg)] text-[var(--violet-text)]'
+                  : 'text-text-secondary hover:bg-[var(--surface-default)] hover:text-text',
               )}
             >
               {t.label}
@@ -62,8 +62,8 @@ export function FilterBar({
               className={clsx(
                 'rounded-full border px-2.5 py-1 text-xs uppercase tracking-wide transition',
                 activeTag === tag
-                  ? 'border-violet-400/50 bg-violet-500/10 text-violet-200'
-                  : 'border-white/10 text-text-muted hover:border-white/20 hover:text-text-secondary',
+                  ? 'border-[var(--violet-border)] bg-[var(--violet-bg)] text-[var(--violet-text)]'
+                  : 'border-border text-text-muted hover:border-border-strong hover:text-text-secondary',
               )}
             >
               {tag}
@@ -73,7 +73,7 @@ export function FilterBar({
             <button
               type="button"
               onClick={() => onChange({ category: 'all', tag: null })}
-              className="rounded-full px-2.5 py-1 text-xs text-text-muted underline-offset-2 hover:text-text-primary hover:underline"
+              className="rounded-full px-2.5 py-1 text-xs text-text-muted underline-offset-2 hover:text-text hover:underline"
             >
               Reinitialiser
             </button>

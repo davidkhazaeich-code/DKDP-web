@@ -27,7 +27,7 @@ export default function NotFound() {
             </LiquidMetalButton>
             <Link
               href="/contact"
-              className="text-sm text-text-muted hover:text-white transition-colors"
+              className="text-sm text-text-muted hover:text-text transition-colors"
             >
               Nous contacter
             </Link>

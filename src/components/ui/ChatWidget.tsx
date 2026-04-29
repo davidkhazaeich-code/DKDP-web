@@ -705,7 +705,12 @@ export function ChatWidget() {
               <m.div
                 initial={{ opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] text-red-300 bg-[#1a0e0e] border border-red-500/30 px-3 py-1 rounded-full shadow-lg"
+                className="absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] px-3 py-1 rounded-full shadow-lg"
+                style={{
+                  color: 'var(--red-text)',
+                  background: 'var(--red-bg)',
+                  border: '1px solid var(--red-border)',
+                }}
                 role="alert"
               >
                 {speech.error}
@@ -788,15 +793,16 @@ export function ChatWidget() {
                   className="flex-shrink-0 w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center rounded-full cursor-pointer relative"
                   style={{
                     background: speech.isListening
-                      ? 'rgba(239,68,68,0.14)'
+                      ? 'var(--red-bg)'
                       : 'var(--surface-default)',
                   }}
                   whileTap={{ scale: 0.94 }}
                 >
-                  <Mic size={15} className={speech.isListening ? 'text-red-400' : 'text-text-secondary'} />
+                  <Mic size={15} className={speech.isListening ? 'text-[var(--red-text)]' : 'text-text-secondary'} />
                   {speech.isListening && (
                     <m.span
-                      className="absolute inset-0 rounded-full border border-red-400/60 pointer-events-none"
+                      className="absolute inset-0 rounded-full border pointer-events-none"
+                      style={{ borderColor: 'var(--red-border)' }}
                       animate={{ scale: [1, 1.3], opacity: [0.7, 0] }}
                       transition={{ duration: 1.2, repeat: Infinity, ease: 'easeOut' }}
                     />
@@ -949,7 +955,8 @@ export function ChatWidget() {
                 <m.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="text-xs text-center text-red-400/80 py-2"
+                  className="text-xs text-center py-2"
+                  style={{ color: 'var(--red-text)' }}
                 >
                   Une erreur est survenue. Veuillez reessayer.
                 </m.p>
@@ -971,7 +978,12 @@ export function ChatWidget() {
                   <m.div
                     initial={{ opacity: 0, y: 4 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mb-2 text-[11px] text-red-300 bg-[#1a0e0e] border border-red-500/30 px-3 py-1.5 rounded-lg"
+                    className="mb-2 text-[11px] px-3 py-1.5 rounded-lg"
+                    style={{
+                      color: 'var(--red-text)',
+                      background: 'var(--red-bg)',
+                      border: '1px solid var(--red-border)',
+                    }}
                     role="alert"
                   >
                     {speech.error}
@@ -1016,15 +1028,16 @@ export function ChatWidget() {
                       className="flex-shrink-0 w-11 h-11 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default mb-0.5 relative"
                       style={{
                         background: speech.isListening
-                          ? 'rgba(239,68,68,0.14)'
-                          : 'rgba(255,255,255,0.04)',
+                          ? 'var(--red-bg)'
+                          : 'var(--surface-default)',
                       }}
                       whileTap={{ scale: 0.94 }}
                     >
-                      <Mic size={14} className={speech.isListening ? 'text-red-400' : 'text-text-secondary'} />
+                      <Mic size={14} className={speech.isListening ? 'text-[var(--red-text)]' : 'text-text-secondary'} />
                       {speech.isListening && (
                         <m.span
-                          className="absolute inset-0 rounded-full border border-red-400/60 pointer-events-none"
+                          className="absolute inset-0 rounded-full border pointer-events-none"
+                          style={{ borderColor: 'var(--red-border)' }}
                           animate={{ scale: [1, 1.3], opacity: [0.7, 0] }}
                           transition={{ duration: 1.2, repeat: Infinity, ease: 'easeOut' }}
                         />

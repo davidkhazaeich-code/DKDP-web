@@ -38,7 +38,10 @@ export default function EstimationPage() {
             backgroundSize: '60px 60px',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#09090B]/40 via-transparent to-[#09090B]" />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, color-mix(in srgb, var(--bg) 40%, transparent), transparent, var(--bg))' }}
+        />
       </div>
 
       {/* ── Hero ── */}
@@ -57,15 +60,15 @@ export default function EstimationPage() {
       {/* ── Contexte SEO ── */}
       <section className="relative pb-12">
         <div className="max-w-[860px] mx-auto px-6">
-          <div className="rounded-[16px] border border-zinc-800 bg-zinc-900/40 p-7">
+          <div className="rounded-[16px] border border-border bg-bg-card p-7">
             <h2 className="text-text font-bold text-lg mb-3">Comment fonctionne le simulateur ?</h2>
-            <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+            <p className="text-text-secondary text-sm leading-relaxed mb-4">
               Le simulateur de prix DKDP calcule une fourchette de coût basée sur le type de site (vitrine, e-commerce, application web), le nombre de pages, les fonctionnalités souhaitées (formulaires, blog, espace client, multilangue) et vos besoins en maintenance. Ces critères déterminent le volume de travail et donc le budget.
             </p>
-            <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+            <p className="text-text-secondary text-sm leading-relaxed mb-4">
               Les tarifs indiqués correspondent aux prix pratiqués par DKDP à Genève pour des sites web sur mesure développés en Next.js ou Astro. Un site vitrine standard démarre à partir de CHF 2 500, un site avec CMS à partir de CHF 4 500, et un e-commerce à partir de CHF 6 000.
             </p>
-            <p className="text-zinc-400 text-sm leading-relaxed">
+            <p className="text-text-secondary text-sm leading-relaxed">
               Le résultat est une estimation indicative. Après envoi, un expert DKDP analyse votre projet et vous envoie un devis personnalisé et détaillé sous 48h ouvrées. Aucun engagement, aucune carte bancaire requise.
             </p>
           </div>

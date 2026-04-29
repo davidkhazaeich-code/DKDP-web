@@ -224,7 +224,7 @@ export default function AutomationPage() {
             <div className="flex items-center gap-2 mb-6">
               <Link
                 href="/intelligence-artificielle"
-                className="text-text-muted text-sm hover:text-white transition-colors"
+                className="text-text-muted text-sm hover:text-text transition-colors"
               >
                 Intelligence Artificielle
               </Link>
@@ -235,11 +235,11 @@ export default function AutomationPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Automatisation n8n, Make et Zapier pour PME Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Ce qui vous prend <GradText as="span">3h par jour</GradText>, automatisé en <GradText as="span">2 semaines</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  On connecte votre CRM, vos emails et votre ERP avec des workflows IA sur <strong className="text-white">n8n</strong> (auto-hébergeable en Suisse), <strong className="text-white">Make</strong> ou <strong className="text-white">Zapier</strong>. Intégrations natives Bexio, Abacus, HubSpot, Google Workspace, Slack, WhatsApp Business, Stripe. Pour les PME en Suisse romande qui veulent gagner 10 heures par semaine sans toucher une ligne de code.
+                  On connecte votre CRM, vos emails et votre ERP avec des workflows IA sur <strong className="text-text">n8n</strong> (auto-hébergeable en Suisse), <strong className="text-text">Make</strong> ou <strong className="text-text">Zapier</strong>. Intégrations natives Bexio, Abacus, HubSpot, Google Workspace, Slack, WhatsApp Business, Stripe. Pour les PME en Suisse romande qui veulent gagner 10 heures par semaine sans toucher une ligne de code.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <HeroPills
@@ -256,7 +256,7 @@ export default function AutomationPage() {
                   </LiquidMetalButton>
                   <Link
                     href="#comment-ca-marche"
-                    className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-white transition-colors"
+                    className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-text transition-colors"
                   >
                     Comment ça marche <ArrowRight size={13} />
                   </Link>
@@ -344,7 +344,7 @@ export default function AutomationPage() {
                 Pourquoi automatiser les tâches répétitives de votre PME
               </h2>
               <p className="text-text-secondary leading-relaxed mb-8">
-                Les PME perdent en moyenne 5 heures par semaine et par collaborateur sur des tâches de transfert de données entre outils. Ce n&apos;est pas un problème d&apos;organisation : c&apos;est un problème de connexion entre systèmes. Lire notre article : <Link href="/blog/automatiser-taches-repetitives-ia-pme" className="underline hover:text-white transition-colors">automatiser les tâches répétitives avec l&apos;IA dans votre PME</Link>.
+                Les PME perdent en moyenne 5 heures par semaine et par collaborateur sur des tâches de transfert de données entre outils. Ce n&apos;est pas un problème d&apos;organisation : c&apos;est un problème de connexion entre systèmes. Lire notre article : <Link href="/blog/automatiser-taches-repetitives-ia-pme" className="underline hover:text-text transition-colors">automatiser les tâches répétitives avec l&apos;IA dans votre PME</Link>.
               </p>
               <div className="space-y-3">
                 {[
@@ -390,7 +390,7 @@ export default function AutomationPage() {
                 Pourquoi n8n est la référence pour l&apos;automatisation PME en Suisse.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-4">
-                <strong className="text-white">n8n est la seule plateforme d&apos;automatisation qui peut être auto-hébergée sur serveur Suisse</strong>. Vos données ne quittent jamais le pays. Critique pour la conformité <strong className="text-white">nLPD 2023</strong> et pour les secteurs régulés : fiduciaire, médical, juridique, RH, banques privées, assurances.
+                <strong className="text-text">n8n est la seule plateforme d&apos;automatisation qui peut être auto-hébergée sur serveur Suisse</strong>. Vos données ne quittent jamais le pays. Critique pour la conformité <strong className="text-text">nLPD 2023</strong> et pour les secteurs régulés : fiduciaire, médical, juridique, RH, banques privées, assurances.
               </p>
               <p className="text-text-secondary leading-relaxed mb-6">
                 On déploie n8n (auto-hébergé chez Infomaniak ou cloud managed), Make (ex-Integromat) et Zapier selon votre cas d&apos;usage et votre budget.
@@ -403,7 +403,7 @@ export default function AutomationPage() {
                 ].map((row) => (
                   <div key={row.k} className="flex gap-3">
                     <CheckCircle2 size={14} className="mt-1 flex-shrink-0" style={{ color }} />
-                    <p className="text-sm text-text-secondary"><strong className="text-white">{row.k} :</strong> {row.v}</p>
+                    <p className="text-sm text-text-secondary"><strong className="text-text">{row.k} :</strong> {row.v}</p>
                   </div>
                 ))}
               </div>
@@ -475,7 +475,7 @@ export default function AutomationPage() {
                     <cat.Icon size={20} style={{ color }} />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold text-base mb-1">{cat.title}</h3>
+                    <h3 className="text-text font-semibold text-base mb-1">{cat.title}</h3>
                     <p className="text-text-muted text-sm">{cat.tools}</p>
                   </div>
                 </div>
@@ -524,7 +524,7 @@ export default function AutomationPage() {
                     >
                       <step.Icon size={22} style={{ color }} />
                     </div>
-                    <h3 className="text-white font-bold text-lg">{step.title}</h3>
+                    <h3 className="text-text font-bold text-lg">{step.title}</h3>
                     <p className="text-text-secondary leading-relaxed text-sm flex-1">{step.desc}</p>
                   </div>
                 </SectionReveal>
@@ -611,7 +611,7 @@ export default function AutomationPage() {
                         Le plus complet
                       </span>
                     )}
-                    <p className="text-white font-bold text-xl mb-1">{offer.label}</p>
+                    <p className="text-text font-bold text-xl mb-1">{offer.label}</p>
                     <p
                       className="text-2xl font-bold mb-1"
                       style={{ color: offer.highlight ? violet : color }}
@@ -680,7 +680,7 @@ export default function AutomationPage() {
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
                   <div>
-                    <p className="text-white text-sm font-semibold">{t.author}</p>
+                    <p className="text-text text-sm font-semibold">{t.author}</p>
                     <p className="text-text-muted text-xs mt-0.5">{t.location}</p>
                   </div>
                 </div>
@@ -728,7 +728,7 @@ export default function AutomationPage() {
                     >
                       Service IA
                     </p>
-                    <p className="text-white font-semibold text-sm">Agents IA sur mesure</p>
+                    <p className="text-text font-semibold text-sm">Agents IA sur mesure</p>
                     <p className="text-text-muted text-xs mt-0.5">
                       Des agents qui pensent et agissent pour vous.
                     </p>
@@ -762,7 +762,7 @@ export default function AutomationPage() {
                     >
                       Service IA
                     </p>
-                    <p className="text-white font-semibold text-sm">Audit et Conseil IA</p>
+                    <p className="text-text font-semibold text-sm">Audit et Conseil IA</p>
                     <p className="text-text-muted text-xs mt-0.5">
                       Identifiez vos 3 actions à fort ROI.
                     </p>
@@ -802,7 +802,7 @@ export default function AutomationPage() {
                     >
                       Formation
                     </p>
-                    <p className="text-white font-semibold text-sm">Formation IA en entreprise</p>
+                    <p className="text-text font-semibold text-sm">Formation IA en entreprise</p>
                     <p className="text-text-muted text-xs mt-0.5">
                       Vos équipes autonomes en une journée.
                     </p>

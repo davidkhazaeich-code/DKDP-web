@@ -164,7 +164,7 @@ export default function IAGenevePage() {
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
-              <Link href="/intelligence-artificielle" className="text-text-muted text-sm hover:text-white transition-colors">
+              <Link href="/intelligence-artificielle" className="text-text-muted text-sm hover:text-text transition-colors">
                 Intelligence Artificielle
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
@@ -174,7 +174,7 @@ export default function IAGenevePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Agence IA à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Agence IA à Genève : <GradText as="span">agents, chatbots, automatisation</GradText> pour PME romandes.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
@@ -195,7 +195,7 @@ export default function IAGenevePage() {
                   </LiquidMetalButton>
                   <Link
                     href="#services"
-                    className="text-sm text-text-muted hover:text-white transition-colors"
+                    className="text-sm text-text-muted hover:text-text transition-colors"
                   >
                     Voir les services →
                   </Link>
@@ -207,7 +207,7 @@ export default function IAGenevePage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone size={14} style={{ color }} />
-                    <a href="tel:+41799407969" className="text-text-muted text-xs hover:text-white transition-colors">
+                    <a href="tel:+41799407969" className="text-text-muted text-xs hover:text-text transition-colors">
                       +41 79 940 79 69
                     </a>
                   </div>
@@ -259,7 +259,7 @@ export default function IAGenevePage() {
               <SectionReveal key={s.l}>
                 <div className="text-center">
                   <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.v}</p>
-                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -287,7 +287,7 @@ export default function IAGenevePage() {
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color }}>
                   Budget et délai en 2 minutes
                 </p>
-                <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-white mb-2">
+                <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-text mb-2">
                   Estimez votre projet IA ou digital à Genève.
                 </h2>
                 <p className="text-text-secondary text-sm md:text-base leading-relaxed max-w-xl">
@@ -386,7 +386,7 @@ export default function IAGenevePage() {
                   >
                     <s.Icon size={22} style={{ color: s.accent }} />
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
+                  <h3 className="text-text font-bold text-lg mb-2">{s.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed mb-4 flex-1">{s.desc}</p>
                   <p className="text-text-muted text-xs italic leading-relaxed mb-4">{s.examples}</p>
                   <p
@@ -422,7 +422,7 @@ export default function IAGenevePage() {
                   { k: 'Facturation en CHF', v: "Pas de frais de change, pas d'IVA surprise sur facturation française. Paiement par virement bancaire Suisse ou Twint business." },
                 ].map((row) => (
                   <div key={row.k}>
-                    <p className="text-white font-semibold text-sm mb-1 flex items-center gap-2">
+                    <p className="text-text font-semibold text-sm mb-1 flex items-center gap-2">
                       <CheckCircle2 size={13} style={{ color }} />
                       {row.k}
                     </p>
@@ -464,7 +464,7 @@ export default function IAGenevePage() {
                   <p className="text-[11px] font-bold uppercase tracking-wider mb-2" style={{ color: V }}>
                     Bureaux DKDP
                   </p>
-                  <p className="text-white text-sm font-semibold mb-1">Rue du 31 Décembre 36</p>
+                  <p className="text-text text-sm font-semibold mb-1">Rue du 31 Décembre 36</p>
                   <p className="text-text-secondary text-xs">1207 Genève, Eaux-Vives</p>
                   <div className="flex items-center gap-2 mt-2">
                     <Clock size={11} className="text-text-muted" />
@@ -509,7 +509,7 @@ export default function IAGenevePage() {
                   className="flex flex-col gap-2 p-5 rounded-[12px] border h-full"
                   style={{ background: t.accentBg, borderColor: t.accentBorder }}
                 >
-                  <p className="text-white font-bold text-sm">{t.name}</p>
+                  <p className="text-text font-bold text-sm">{t.name}</p>
                   <p className="text-[10px] uppercase tracking-wider" style={{ color: t.accent }}>
                     {t.provider}
                   </p>
@@ -522,7 +522,7 @@ export default function IAGenevePage() {
           <SectionReveal>
             <p className="text-text-muted text-xs text-center mt-8 max-w-2xl mx-auto leading-relaxed">
               Pour comparer en détail les modèles grand public, lisez{' '}
-              <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-white transition-colors">
+              <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-text transition-colors">
                 ChatGPT, Claude ou Copilot : lequel choisir pour votre PME en 2026
               </Link>
               .
@@ -575,14 +575,14 @@ export default function IAGenevePage() {
                       {c.secteur}
                     </p>
                   </div>
-                  <p className="text-white font-semibold mb-3">{c.quartier}</p>
+                  <p className="text-text font-semibold mb-3">{c.quartier}</p>
                   <div className="mb-4">
                     <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-1">Stack déployée</p>
                     <p className="text-text-secondary text-xs leading-relaxed">{c.stack}</p>
                   </div>
                   <div className="pt-4 border-t" style={{ borderColor: border }}>
                     <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color }}>Résultat</p>
-                    <p className="text-white text-sm leading-relaxed font-medium">{c.resultat}</p>
+                    <p className="text-text text-sm leading-relaxed font-medium">{c.resultat}</p>
                   </div>
                 </div>
               </SectionReveal>
@@ -632,7 +632,7 @@ export default function IAGenevePage() {
                   >
                     <step.Icon size={17} style={{ color }} />
                   </div>
-                  <h3 className="text-white font-semibold text-sm">{step.title}</h3>
+                  <h3 className="text-text font-semibold text-sm">{step.title}</h3>
                   <p className="text-text-muted text-xs leading-relaxed">{step.desc}</p>
                 </div>
               </SectionReveal>
@@ -718,7 +718,7 @@ export default function IAGenevePage() {
                   <p className="text-[11px] font-bold uppercase tracking-widest mb-1" style={{ color }}>
                     {p.name}
                   </p>
-                  <p className="text-3xl font-bold text-white mb-1 mt-2">{p.price}</p>
+                  <p className="text-3xl font-bold text-text mb-1 mt-2">{p.price}</p>
                   <p className="text-text-muted text-xs mb-6">{p.delay}</p>
                   <div className="flex flex-col gap-2.5 flex-1 mb-6">
                     {p.features.map((f) => (
@@ -739,7 +739,7 @@ export default function IAGenevePage() {
           <SectionReveal>
             <p className="text-text-muted text-xs text-center mt-8 max-w-2xl mx-auto">
               Formation IA entreprise facturée séparément : CHF 200/h pour 1 personne, CHF 300/h pour 2. Pour 3 à 10 personnes ou journée entière, voir la{' '}
-              <Link href="/formation-entreprise/ia" className="underline hover:text-white transition-colors">
+              <Link href="/formation-entreprise/ia" className="underline hover:text-text transition-colors">
                 page Formation IA entreprise
               </Link>
               .
@@ -778,7 +778,7 @@ export default function IAGenevePage() {
                   style={{ background: bg, borderColor: border }}
                 >
                   <div>
-                    <p className="text-white font-semibold text-sm">{link.label}</p>
+                    <p className="text-text font-semibold text-sm">{link.label}</p>
                     <p className="text-text-muted text-xs mt-0.5">{link.desc}</p>
                   </div>
                   <ChevronRight size={16} className="flex-shrink-0 transition-transform group-hover:translate-x-1" style={{ color }} />
@@ -808,7 +808,7 @@ export default function IAGenevePage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone size={16} style={{ color }} />
-                  <a href="tel:+41799407969" className="text-text-secondary text-sm hover:text-white transition-colors">
+                  <a href="tel:+41799407969" className="text-text-secondary text-sm hover:text-text transition-colors">
                     +41 79 940 79 69
                   </a>
                 </div>
@@ -824,7 +824,7 @@ export default function IAGenevePage() {
                 style={{ background: bg, borderColor: border, boxShadow: '0 0 50px rgba(212,212,216,0.06)' }}
               >
                 <Star size={28} className="mx-auto mb-4" style={{ color }} />
-                <p className="text-3xl font-bold text-white mb-2">5,0 / 5,0</p>
+                <p className="text-3xl font-bold text-text mb-2">5,0 / 5,0</p>
                 <p className="text-text-secondary text-sm mb-4">18 avis Google vérifiés</p>
                 <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                   Planifier un audit IA

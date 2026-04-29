@@ -114,7 +114,7 @@ export default function MiseEnPlacePage() {
             <div className="flex items-center gap-2 mb-6">
               <Link
                 href="/intelligence-artificielle"
-                className="text-text-muted text-sm hover:text-white transition-colors"
+                className="text-text-muted text-sm hover:text-text transition-colors"
               >
                 Intelligence Artificielle
               </Link>
@@ -125,7 +125,7 @@ export default function MiseEnPlacePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Mise en place de l&apos;IA en entreprise à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Intégrez l&apos;IA dans vos outils existants. <GradText as="span">Sans tout casser</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
@@ -147,7 +147,7 @@ export default function MiseEnPlacePage() {
                   </LiquidMetalButton>
                   <Link
                     href="#llms"
-                    className="text-sm text-text-muted hover:text-white transition-colors"
+                    className="text-sm text-text-muted hover:text-text transition-colors"
                   >
                     Voir les LLMs supportes
                   </Link>
@@ -198,8 +198,8 @@ export default function MiseEnPlacePage() {
             ].map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold mb-1 text-white">{s.value}</p>
-                  <p className="text-white text-sm font-semibold">{s.label}</p>
+                  <p className="text-3xl md:text-4xl font-bold mb-1 text-text">{s.value}</p>
+                  <p className="text-text text-sm font-semibold">{s.label}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -347,7 +347,7 @@ export default function MiseEnPlacePage() {
                   >
                     <uc.Icon size={20} style={{ color }} />
                   </div>
-                  <h3 className="text-white font-bold text-base mb-2">{uc.title}</h3>
+                  <h3 className="text-text font-bold text-base mb-2">{uc.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1">{uc.desc}</p>
                 </div>
               </SectionReveal>
@@ -385,7 +385,7 @@ export default function MiseEnPlacePage() {
                     GPT
                   </div>
                   <div>
-                    <p className="text-white font-bold text-base leading-tight">OpenAI GPT-4o</p>
+                    <p className="text-text font-bold text-base leading-tight">OpenAI GPT-4o</p>
                     <p className="text-[11px] text-text-muted">OpenAI</p>
                   </div>
                 </div>
@@ -429,7 +429,7 @@ export default function MiseEnPlacePage() {
                     CL
                   </div>
                   <div>
-                    <p className="text-white font-bold text-base leading-tight">Anthropic Claude</p>
+                    <p className="text-text font-bold text-base leading-tight">Anthropic Claude</p>
                     <p className="text-[11px] text-text-muted">Anthropic</p>
                   </div>
                 </div>
@@ -463,7 +463,7 @@ export default function MiseEnPlacePage() {
                     MI
                   </div>
                   <div>
-                    <p className="text-white font-bold text-base leading-tight">Mistral</p>
+                    <p className="text-text font-bold text-base leading-tight">Mistral</p>
                     <p className="text-[11px] text-text-muted">Mistral AI (France)</p>
                   </div>
                 </div>
@@ -552,7 +552,7 @@ export default function MiseEnPlacePage() {
                     >
                       <step.Icon size={22} style={{ color }} />
                     </div>
-                    <h3 className="text-white font-bold text-lg">{step.title}</h3>
+                    <h3 className="text-text font-bold text-lg">{step.title}</h3>
                     <p className="text-text-secondary leading-relaxed text-sm flex-1">{step.desc}</p>
                   </div>
                 </SectionReveal>
@@ -589,7 +589,7 @@ export default function MiseEnPlacePage() {
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color }}>
                   Intégration Standard
                 </p>
-                <p className="text-4xl font-bold text-white mb-1">
+                <p className="text-4xl font-bold text-text mb-1">
                   CHF 3&apos;500
                 </p>
                 <p className="text-text-muted text-sm mb-6">paiement unique</p>
@@ -633,7 +633,7 @@ export default function MiseEnPlacePage() {
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: violet }}>
                   Intégration Avancee
                 </p>
-                <p className="text-4xl font-bold text-white mb-1">
+                <p className="text-4xl font-bold text-text mb-1">
                   CHF 6&apos;500
                 </p>
                 <p className="text-text-muted text-sm mb-6">paiement unique</p>
@@ -715,7 +715,7 @@ export default function MiseEnPlacePage() {
                       {t.initial}
                     </div>
                     <div>
-                      <p className="text-white text-sm font-semibold">{t.author}</p>
+                      <p className="text-text text-sm font-semibold">{t.author}</p>
                       <p className="text-text-muted text-xs">{t.company}</p>
                     </div>
                   </div>
@@ -747,7 +747,7 @@ export default function MiseEnPlacePage() {
               >
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: violet }}>Agents IA</p>
-                  <p className="text-white font-semibold">Agents IA sur mesure</p>
+                  <p className="text-text font-semibold">Agents IA sur mesure</p>
                   <p className="text-text-muted text-xs mt-1">Automatisez vos taches repetitives avec des agents intelligents.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 transition-transform group-hover:translate-x-1" style={{ color: violet }} />
@@ -761,7 +761,7 @@ export default function MiseEnPlacePage() {
               >
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color }}>Automatisation</p>
-                  <p className="text-white font-semibold">Automatisation métier</p>
+                  <p className="text-text font-semibold">Automatisation métier</p>
                   <p className="text-text-muted text-xs mt-1">Workflows sans code qui connectent vos outils existants.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 transition-transform group-hover:translate-x-1" style={{ color }} />
@@ -775,7 +775,7 @@ export default function MiseEnPlacePage() {
               >
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: green }}>Audit conseil</p>
-                  <p className="text-white font-semibold">Audit et conseil IA</p>
+                  <p className="text-text font-semibold">Audit et conseil IA</p>
                   <p className="text-text-muted text-xs mt-1">Identifiez les 3 actions a fort ROI dans votre entreprise.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 transition-transform group-hover:translate-x-1" style={{ color: green }} />

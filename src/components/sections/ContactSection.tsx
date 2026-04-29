@@ -55,7 +55,7 @@ export function ContactSection() {
 
             {/* Form */}
             <div className="bg-bg-card border border-border rounded-[20px] p-8 md:p-10">
-              <h2 className="text-xl font-bold text-white mb-1">Décrivez votre projet</h2>
+              <h2 className="text-xl font-bold text-text mb-1">Décrivez votre projet</h2>
               <p className="text-text-muted text-sm mb-8">On vous répond sous 24h avec une proposition adaptée.</p>
               <ContactForm />
             </div>
@@ -77,7 +77,7 @@ export function ContactSection() {
                         </div>
                         <div>
                           <p className="text-[10px] text-text-muted uppercase tracking-[0.08em] mb-0.5">{label}</p>
-                          <p className="text-[13px] font-medium text-white">{value}</p>
+                          <p className="text-[13px] font-medium text-text">{value}</p>
                         </div>
                       </div>
                     )
@@ -99,7 +99,7 @@ export function ContactSection() {
                     <CalendarCheck size={14} className="text-violet-light" />
                   </div>
                   <div>
-                    <p className="text-[13px] font-bold text-white mb-1.5">Préférez un appel ?</p>
+                    <p className="text-[13px] font-bold text-text mb-1.5">Préférez un appel ?</p>
                     <p className="text-text-secondary text-[12.5px] leading-relaxed">
                       Réservez un créneau de 15 ou 30 minutes directement dans mon agenda. Gratuit et sans engagement.
                     </p>
@@ -115,7 +115,7 @@ export function ContactSection() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
                 </span>
                 <p className="text-text-secondary text-[12.5px]">
-                  Disponible · Réponse sous <span className="text-white font-medium">24h ouvrables</span>
+                  Disponible · Réponse sous <span className="text-text font-medium">24h ouvrables</span>
                 </p>
               </div>
 
@@ -127,7 +127,7 @@ export function ContactSection() {
         {tab === 'booking' && (
           <div>
             <div className="mb-6">
-              <h2 className="text-xl font-bold text-white mb-1">Choisissez un créneau</h2>
+              <h2 className="text-xl font-bold text-text mb-1">Choisissez un créneau</h2>
               <p className="text-text-muted text-sm">
                 Appel découverte de 15 min ou 30 min · Gratuit · Sans engagement
               </p>

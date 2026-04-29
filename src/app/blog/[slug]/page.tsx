@@ -480,7 +480,7 @@ export default async function ArticlePage(
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 max-w-5xl mx-auto px-4">
 
           {/* Colonne prose */}
-          <article className="min-w-0">
+          <article data-theme="dark" data-blog-article className="min-w-0">
             {contentParts}
 
             {/* First CTA (main service) inline */}

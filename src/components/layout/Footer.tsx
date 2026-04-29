@@ -108,7 +108,7 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
   return (
     <footer
       className={`border-t border-border overflow-hidden relative flex flex-col${constrained ? ' h-full' : ''}`}
-      style={{ background: '#0e0e0e' }}
+      style={{ background: 'var(--bg-card)' }}
     >
       {/* Subtle background blobs */}
       <div
@@ -139,7 +139,7 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
               IA · Formation · Web
             </p>
             <address className="not-italic space-y-2 flex-1">
-              <a href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+D%C3%A9cembre,1207+Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-text-muted hover:text-white text-xs transition-colors">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+D%C3%A9cembre,1207+Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-text-muted hover:text-text text-xs transition-colors">
                 <MapPin size={12} className="mt-0.5 flex-shrink-0 text-violet-light" />
                 <span>36 Rue du 31 Décembre<br />Quartier des Eaux-Vives<br />1207 Genève, Suisse</span>
               </a>
@@ -147,11 +147,11 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
                 <Clock size={12} className="flex-shrink-0 text-violet-light" />
                 Lun–Ven 09:00–18:00
               </p>
-              <a href="tel:+41799407969" className="flex items-center gap-2 text-text-muted hover:text-white text-xs transition-colors">
+              <a href="tel:+41799407969" className="flex items-center gap-2 text-text-muted hover:text-text text-xs transition-colors">
                 <Phone size={12} className="flex-shrink-0 text-violet-light" />
                 +41 79 940 79 69
               </a>
-              <a href="mailto:dk@dkdp.ch" className="flex items-center gap-2 text-text-muted hover:text-white text-xs transition-colors">
+              <a href="mailto:dk@dkdp.ch" className="flex items-center gap-2 text-text-muted hover:text-text text-xs transition-colors">
                 <Mail size={12} className="flex-shrink-0 text-violet-light" />
                 dk@dkdp.ch
               </a>
@@ -178,7 +178,7 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
               <ul className="space-y-2 flex-1">
                 {pillar.links.map(({ label, href }) => (
                   <li key={href}>
-                    <Link href={href} className="text-text-muted hover:text-white text-[12.5px] transition-colors duration-150 block">
+                    <Link href={href} className="text-text-muted hover:text-text text-[12.5px] transition-colors duration-150 block">
                       {label}
                     </Link>
                   </li>
@@ -214,15 +214,15 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
             </p>
           </div>
           <address className="not-italic space-y-2 sm:text-right">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+D%C3%A9cembre,1207+Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 sm:justify-end text-text-muted hover:text-white text-xs transition-colors">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+D%C3%A9cembre,1207+Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 sm:justify-end text-text-muted hover:text-text text-xs transition-colors">
               <MapPin size={12} className="mt-0.5 flex-shrink-0 text-violet-light sm:order-last sm:ml-0" />
               <span>36 Rue du 31 Décembre · Eaux-Vives · 1207 Genève</span>
             </a>
-            <a href="tel:+41799407969" className="flex items-center gap-2 sm:justify-end text-text-muted hover:text-white text-xs transition-colors">
+            <a href="tel:+41799407969" className="flex items-center gap-2 sm:justify-end text-text-muted hover:text-text text-xs transition-colors">
               <Phone size={12} className="flex-shrink-0 text-violet-light" />
               +41 79 940 79 69
             </a>
-            <a href="mailto:dk@dkdp.ch" className="flex items-center gap-2 sm:justify-end text-text-muted hover:text-white text-xs transition-colors">
+            <a href="mailto:dk@dkdp.ch" className="flex items-center gap-2 sm:justify-end text-text-muted hover:text-text text-xs transition-colors">
               <Mail size={12} className="flex-shrink-0 text-violet-light" />
               dk@dkdp.ch
             </a>
@@ -244,7 +244,7 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
               <ul className="space-y-2 mb-3">
                 {pillar.links.map(({ label, href }) => (
                   <li key={href}>
-                    <Link href={href} className="text-text-muted hover:text-white text-[12px] transition-colors duration-150 block leading-snug">
+                    <Link href={href} className="text-text-muted hover:text-text text-[12px] transition-colors duration-150 block leading-snug">
                       {label}
                     </Link>
                   </li>
@@ -279,7 +279,7 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
             <span className="text-text-muted text-[11px] mr-1">Nos implantations :</span>
             {CITY_LINKS.map(({ label, href }, i) => (
               <span key={href} className="inline-flex items-center">
-                <Link href={href} className="text-text-muted hover:text-white text-[11px] transition-colors">
+                <Link href={href} className="text-text-muted hover:text-text text-[11px] transition-colors">
                   {label}
                 </Link>
                 {i < CITY_LINKS.length - 1 && <span className="text-text-muted text-[11px] ml-1.5">·</span>}
@@ -290,14 +290,14 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
       </div>
 
       {/* ── Bottom bar ── */}
-      <div className="relative z-10 border-t border-border" style={{ background: 'rgba(0,0,0,0.3)' }}>
+      <div className="relative z-10 border-t border-border" style={{ background: 'var(--bg)' }}>
         <div className="max-w-[1200px] mx-auto px-6 py-3 lg:h-11 lg:py-0 flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-0 justify-between">
           <p className="text-text-muted text-[11px]">
             © {year} dkdp.ch · Service digital Eaux-Vives, Genève · Tous droits réservés
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-1">
             {LEGAL_LINKS.map(({ label, href }) => (
-              <Link key={href} href={href} className="text-text-muted hover:text-white text-[11px] transition-colors">
+              <Link key={href} href={href} className="text-text-muted hover:text-text text-[11px] transition-colors">
                 {label}
               </Link>
             ))}

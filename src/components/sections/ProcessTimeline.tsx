@@ -42,7 +42,7 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
         {/* Track line (faint background) */}
         <div
           className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 rounded-full"
-          style={{ background: 'rgba(255,255,255,0.06)' }}
+          style={{ background: 'var(--surface-border)' }}
         />
 
         {/* Gradient line — CSS scroll-driven animation where supported, static otherwise */}

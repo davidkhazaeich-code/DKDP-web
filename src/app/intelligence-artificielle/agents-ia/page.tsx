@@ -151,7 +151,7 @@ export default function AgentsIAPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Agents IA sur mesure à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Un employé virtuel qui bosse <GradText as="span">24/7</GradText>. Et ne se plaint jamais.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
@@ -224,7 +224,7 @@ export default function AgentsIAPage() {
             ].map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold mb-1 text-white">{s.value}</p>
+                  <p className="text-3xl md:text-4xl font-bold mb-1 text-text">{s.value}</p>
                   <p className="text-text-muted text-sm">{s.label}</p>
                 </div>
               </SectionReveal>
@@ -360,7 +360,7 @@ export default function AgentsIAPage() {
                   <div className="flex flex-col gap-4 flex-1">
                     {group.items.map((item) => (
                       <div key={item.name}>
-                        <p className="text-white font-semibold text-sm mb-1">{item.name}</p>
+                        <p className="text-text font-semibold text-sm mb-1">{item.name}</p>
                         <p className="text-text-muted text-xs leading-relaxed">{item.desc}</p>
                       </div>
                     ))}
@@ -376,7 +376,7 @@ export default function AgentsIAPage() {
               style={{ background: 'rgba(212,212,216,0.04)', borderColor: border }}
             >
               <p className="text-text-secondary text-sm leading-relaxed max-w-3xl mx-auto">
-                Pour les secteurs régulés (fiduciaire, médical, juridique, RH), on propose également <strong className="text-white">Mistral Large 2</strong> et <strong className="text-white">Llama 4</strong> auto-hébergés sur serveur Suisse, ainsi que les solutions souveraines <strong className="text-white">Infomaniak Euria</strong> et <strong className="text-white">Swisscom Swiss AI Assistant</strong>. Vos données ne quittent jamais le territoire. Pour comparer les 3 modèles grand public, consultez notre guide{' '}
+                Pour les secteurs régulés (fiduciaire, médical, juridique, RH), on propose également <strong className="text-text">Mistral Large 2</strong> et <strong className="text-text">Llama 4</strong> auto-hébergés sur serveur Suisse, ainsi que les solutions souveraines <strong className="text-text">Infomaniak Euria</strong> et <strong className="text-text">Swisscom Swiss AI Assistant</strong>. Vos données ne quittent jamais le territoire. Pour comparer les 3 modèles grand public, consultez notre guide{' '}
                 <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-white transition-colors">
                   ChatGPT, Claude ou Copilot : lequel choisir pour votre PME
                 </Link>
@@ -461,7 +461,7 @@ export default function AgentsIAPage() {
                   >
                     <agent.Icon size={22} style={{ color: agent.accent }} />
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">{agent.title}</h3>
+                  <h3 className="text-text font-bold text-lg mb-2">{agent.title}</h3>
                   <p
                     className="text-[10px] font-medium mb-3 leading-snug"
                     style={{ color: agent.accent }}
@@ -486,7 +486,7 @@ export default function AgentsIAPage() {
                     <p className="text-[11px] font-bold uppercase tracking-wider mb-1" style={{ color: agent.accent }}>
                       ROI estimé
                     </p>
-                    <p className="text-white text-sm font-semibold">{agent.roi}</p>
+                    <p className="text-text text-sm font-semibold">{agent.roi}</p>
                   </div>
                 </div>
               </SectionReveal>
@@ -560,7 +560,7 @@ export default function AgentsIAPage() {
                     >
                       <step.Icon size={22} style={{ color }} />
                     </div>
-                    <h3 className="text-white font-bold text-lg">{step.title}</h3>
+                    <h3 className="text-text font-bold text-lg">{step.title}</h3>
                     <p className="text-text-secondary leading-relaxed text-sm flex-1">{step.desc}</p>
                   </div>
                 </SectionReveal>
@@ -594,7 +594,7 @@ export default function AgentsIAPage() {
                     Agent Starter
                   </p>
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-4xl font-bold text-white">CHF 2&apos;500</span>
+                    <span className="text-4xl font-bold text-text">CHF 2&apos;500</span>
                   </div>
                   <p className="text-text-muted text-xs">Tarif fixe, projet clé en main</p>
                 </div>
@@ -638,7 +638,7 @@ export default function AgentsIAPage() {
                     Agent Pro
                   </p>
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-4xl font-bold text-white">CHF 4&apos;900</span>
+                    <span className="text-4xl font-bold text-text">CHF 4&apos;900</span>
                   </div>
                   <p className="text-text-muted text-xs">Tarif fixe, projet clé en main</p>
                 </div>
@@ -696,7 +696,7 @@ export default function AgentsIAPage() {
                   par semaine sur une tâche qui n&apos;avait aucune valeur ajoutée.&rdquo;
                 </p>
                 <div>
-                  <p className="text-white font-semibold text-sm">Marc-Antoine V.</p>
+                  <p className="text-text font-semibold text-sm">Marc-Antoine V.</p>
                   <p className="text-text-muted text-xs">Directeur commercial, agence immobilière, Genève</p>
                 </div>
               </div>
@@ -719,7 +719,7 @@ export default function AgentsIAPage() {
                   vraiment complexes. Le score de satisfaction a augmenté de 22 points.&rdquo;
                 </p>
                 <div>
-                  <p className="text-white font-semibold text-sm">Sophie B.</p>
+                  <p className="text-text font-semibold text-sm">Sophie B.</p>
                   <p className="text-text-muted text-xs">Head of Customer Success, SaaS B2B, Lausanne</p>
                 </div>
               </div>
@@ -754,7 +754,7 @@ export default function AgentsIAPage() {
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color }}>
                     Automatisation métier
                   </p>
-                  <p className="text-white font-semibold text-sm">Connectez vos outils sans coder</p>
+                  <p className="text-text font-semibold text-sm">Connectez vos outils sans coder</p>
                   <p className="text-text-muted text-xs mt-1">
                     Workflows automatisés entre CRM, email, ERP et vos apps.
                   </p>
@@ -777,7 +777,7 @@ export default function AgentsIAPage() {
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: green }}>
                     Audit et Conseil IA
                   </p>
-                  <p className="text-white font-semibold text-sm">Identifiez vos 3 priorités IA</p>
+                  <p className="text-text font-semibold text-sm">Identifiez vos 3 priorités IA</p>
                   <p className="text-text-muted text-xs mt-1">
                     Audit de potentiel, ROI estimé, plan d&apos;action. Sans engagement.
                   </p>
@@ -800,7 +800,7 @@ export default function AgentsIAPage() {
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#FF8C00' }}>
                     Formation IA
                   </p>
-                  <p className="text-white font-semibold text-sm">Formez vos équipes en une journée</p>
+                  <p className="text-text font-semibold text-sm">Formez vos équipes en une journée</p>
                   <p className="text-text-muted text-xs mt-1">
                     ChatGPT, Claude, Copilot. Autonomes dès le lendemain.
                   </p>

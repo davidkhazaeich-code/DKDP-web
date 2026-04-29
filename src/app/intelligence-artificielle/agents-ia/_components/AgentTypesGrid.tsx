@@ -62,7 +62,7 @@ export function AgentTypesGrid() {
             >
               <t.Icon size={16} style={{ color: t.accent }} />
             </div>
-            <p className="text-white font-semibold text-sm">{t.label}</p>
+            <p className="text-text font-semibold text-sm">{t.label}</p>
           </div>
           <div className="flex flex-col gap-1.5 mb-3">
             {t.lines.map((line) => (

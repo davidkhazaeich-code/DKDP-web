@@ -124,7 +124,7 @@ export default function FormationIAPage() {
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
-              <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-white transition-colors">
+              <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-text transition-colors">
                 Formation Entreprise
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
@@ -149,7 +149,7 @@ export default function FormationIAPage() {
                 />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="#devis" size="lg">Demander un devis →</LiquidMetalButton>
-                  <Link href="#programme" className="text-sm text-text-muted hover:text-white transition-colors">
+                  <Link href="#programme" className="text-sm text-text-muted hover:text-text transition-colors">
                     Voir le programme ↓
                   </Link>
                 </div>
@@ -252,7 +252,7 @@ export default function FormationIAPage() {
                 La plupart des collaborateurs ont testé ChatGPT une fois, obtenu un résultat décevant, et sont passés à autre chose. Pourtant, former ses équipes à l&apos;IA avec les bonnes techniques de prompting réduit de 60 à 80% le temps de traitement des tâches répétitives.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
-                DKDP ne fait pas de démonstrations génériques. On travaille sur vos vrais documents, vos vrais emails et vos vrais cas d&apos;usage. Dès le lendemain matin, vous avez des prompts personnels et une routine IA opérationnelle. Pour comparer les outils, consultez notre guide <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-white transition-colors">ChatGPT vs Claude vs Copilot pour les PME</Link>.
+                DKDP ne fait pas de démonstrations génériques. On travaille sur vos vrais documents, vos vrais emails et vos vrais cas d&apos;usage. Dès le lendemain matin, vous avez des prompts personnels et une routine IA opérationnelle. Pour comparer les outils, consultez notre guide <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-text transition-colors">ChatGPT vs Claude vs Copilot pour les PME</Link>.
               </p>
               <div className="space-y-3">
                 {[
@@ -455,7 +455,7 @@ export default function FormationIAPage() {
               <SectionReveal key={i} delay={i * 0.1}>
                 <div
                   className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: 'rgba(255,255,255,0.025)', borderColor: 'rgba(255,255,255,0.07)' }}
+                  style={{ background: 'var(--surface-default)', borderColor: 'var(--surface-border)' }}
                 >
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: t.stars }).map((_, j) => (
@@ -463,7 +463,7 @@ export default function FormationIAPage() {
                     ))}
                   </div>
                   <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                  <div className="mt-6 pt-4" style={{ borderTop: '1px solid var(--surface-border)' }}>
                     <p className="text-text font-semibold text-sm">{t.name}</p>
                     <p className="text-text-muted text-xs">{t.company}</p>
                   </div>

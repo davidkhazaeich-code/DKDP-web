@@ -246,7 +246,7 @@ export default function FormationParticuliersPage() {
                   </a>
                   <a
                     href="tel:+41799407969"
-                    className="flex items-center gap-1.5 text-sm text-text-muted hover:text-white transition-colors"
+                    className="flex items-center gap-1.5 text-sm text-text-muted hover:text-text transition-colors"
                   >
                     <Phone size={13} aria-hidden="true" />
                     +41 79 940 79 69

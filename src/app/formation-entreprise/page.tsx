@@ -158,7 +158,7 @@ export default function FormationEntreprisePage() {
                 />
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
-                  <Link href="#programmes" className="text-sm text-text-muted hover:text-white transition-colors">
+                  <Link href="#programmes" className="text-sm text-text-muted hover:text-text transition-colors">
                     Voir les programmes ↓
                   </Link>
                 </div>
@@ -245,7 +245,7 @@ export default function FormationEntreprisePage() {
                     <item.Icon size={22} style={{ color }} />
                   </div>
                   <p className="text-[2.2rem] font-bold leading-none" style={{ color }}>{item.stat}</p>
-                  <h3 className="text-white font-bold text-lg">{item.title}</h3>
+                  <h3 className="text-text font-bold text-lg">{item.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1">{item.desc}</p>
                 </div>
               </SectionReveal>
@@ -257,7 +257,7 @@ export default function FormationEntreprisePage() {
               style={{ background: 'rgba(255,107,0,0.05)', borderColor: 'rgba(255,107,0,0.20)' }}
             >
               <p className="text-text-secondary leading-relaxed max-w-2xl mx-auto">
-                Nos formations informatiques en entreprise sont conçues pour un impact immédiat : chaque collaborateur repart avec des compétences utilisables le lendemain, sur ses vrais outils, dans son vrai contexte professionnel. Que vous soyez une PME de 5 personnes ou une équipe de 50, le programme s&apos;adapte. Découvrez comment <Link href="/blog/formation-ia-collaborateurs-roi" className="underline hover:text-white transition-colors">la formation IA booste le ROI de vos collaborateurs</Link>.
+                Nos formations informatiques en entreprise sont conçues pour un impact immédiat : chaque collaborateur repart avec des compétences utilisables le lendemain, sur ses vrais outils, dans son vrai contexte professionnel. Que vous soyez une PME de 5 personnes ou une équipe de 50, le programme s&apos;adapte. Découvrez comment <Link href="/blog/formation-ia-collaborateurs-roi" className="underline hover:text-text transition-colors">la formation IA booste le ROI de vos collaborateurs</Link>.
               </p>
             </div>
           </SectionReveal>
@@ -316,7 +316,7 @@ export default function FormationEntreprisePage() {
                     >
                       <p.Icon size={16} style={{ color }} />
                     </div>
-                    <h3 className="text-white font-semibold mb-2">{p.title}</h3>
+                    <h3 className="text-text font-semibold mb-2">{p.title}</h3>
                     <p className="text-text-secondary text-sm leading-relaxed flex-1">{p.description}</p>
                     <span
                       className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold transition-opacity group-hover:opacity-70"
@@ -373,7 +373,7 @@ export default function FormationEntreprisePage() {
                     style={{ background: bg, borderColor: border }}
                   >
                     <p className="text-3xl font-bold mb-2 leading-none" style={{ color }}>{kpi.v}</p>
-                    <p className="text-white text-sm font-semibold leading-snug">{kpi.l}</p>
+                    <p className="text-text text-sm font-semibold leading-snug">{kpi.l}</p>
                     <p className="text-text-muted text-xs mt-1 leading-snug">{kpi.sub}</p>
                   </div>
                 </SectionReveal>
@@ -411,7 +411,7 @@ export default function FormationEntreprisePage() {
                     >
                       {c.tag}
                     </span>
-                    <p className="text-white font-bold mt-3">{c.title}</p>
+                    <p className="text-text font-bold mt-3">{c.title}</p>
                   </div>
                   <div className="p-5 flex flex-col gap-4 flex-1 bg-bg-card">
                     <div>
@@ -420,7 +420,7 @@ export default function FormationEntreprisePage() {
                     </div>
                     <div>
                       <p className="text-xs font-semibold mb-1" style={{ color }}>Après DKDP</p>
-                      <p className="text-white text-sm">{c.after}</p>
+                      <p className="text-text text-sm">{c.after}</p>
                     </div>
                   </div>
                 </div>
@@ -457,7 +457,7 @@ export default function FormationEntreprisePage() {
                         <f.Icon size={22} style={{ color }} />
                       </div>
                       <div>
-                        <h3 className="text-white font-bold text-lg mb-2">{f.title}</h3>
+                        <h3 className="text-text font-bold text-lg mb-2">{f.title}</h3>
                         <p className="text-text-secondary leading-relaxed">{f.desc}</p>
                       </div>
                     </div>
@@ -543,7 +543,7 @@ export default function FormationEntreprisePage() {
                   >
                     <step.Icon size={22} style={{ color }} />
                   </div>
-                  <h3 className="text-white font-bold text-lg">{step.title}</h3>
+                  <h3 className="text-text font-bold text-lg">{step.title}</h3>
                   <p className="text-text-secondary leading-relaxed text-sm flex-1">{step.desc}</p>
                 </div>
               </SectionReveal>
@@ -578,7 +578,7 @@ export default function FormationEntreprisePage() {
               >
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1 text-[#D4D4D8]">Intelligence Artificielle</p>
-                  <p className="text-white font-semibold">Automatiser vos processus avec l&apos;IA</p>
+                  <p className="text-text font-semibold">Automatiser vos processus avec l&apos;IA</p>
                   <p className="text-text-muted text-xs mt-1">Agents IA, automatisation, audit offert. ROI en moins de 3 mois.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 text-[#D4D4D8] transition-transform group-hover:translate-x-1" />
@@ -592,7 +592,7 @@ export default function FormationEntreprisePage() {
               >
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#A78BFA' }}>Service Digital</p>
-                  <p className="text-white font-semibold">Un site et un SEO qui ramènent des clients</p>
+                  <p className="text-text font-semibold">Un site et un SEO qui ramènent des clients</p>
                   <p className="text-text-muted text-xs mt-1">Création de sites, SEO, Google Ads. Un seul interlocuteur.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 text-[#A78BFA] transition-transform group-hover:translate-x-1" />
@@ -629,12 +629,12 @@ export default function FormationEntreprisePage() {
                     Notre marque partenaire
                   </div>
 
-                  <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.02em] mb-4 text-white">
+                  <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.02em] mb-4 text-text">
                     Vous êtes un particulier ou un indépendant ?
                   </h2>
                   <p className="text-text-secondary text-base leading-relaxed mb-8 max-w-xl">
                     Les formations DKDP sont pensées pour les équipes d&apos;entreprise. Pour les particuliers, seniors ou débutants qui souhaitent apprendre à leur propre rythme, nous avons fondé{' '}
-                    <span className="text-white font-semibold">cours-informatique.ch</span>{' '}
+                    <span className="text-text font-semibold">cours-informatique.ch</span>{' '}
                     : cours individuels en présentiel à Genève ou à domicile, animés par les mêmes formateurs. L&apos;informatique en toute simplicité.
                   </p>
 

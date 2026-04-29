@@ -132,7 +132,7 @@ export default function FormationCanvaPage() {
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
-              <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-white transition-colors">
+              <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-text transition-colors">
                 Formation Entreprise
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
@@ -157,7 +157,7 @@ export default function FormationCanvaPage() {
                 />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
-                  <Link href="#programme" className="text-sm text-text-muted hover:text-white transition-colors">
+                  <Link href="#programme" className="text-sm text-text-muted hover:text-text transition-colors">
                     Voir le programme ↓
                   </Link>
                 </div>

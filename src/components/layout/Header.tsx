@@ -584,9 +584,14 @@ export function Header() {
           className={cn(
             'pointer-events-auto max-w-[1200px] mx-auto mt-2 rounded-2xl border transition-all duration-300',
             scrolled || mobileOpen
-              ? 'bg-[#0A0A0A]/90 backdrop-blur-2xl border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)]'
+              ? 'backdrop-blur-2xl border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)]'
               : 'bg-transparent border-transparent'
           )}
+          style={
+            scrolled || mobileOpen
+              ? { background: 'color-mix(in srgb, var(--bg) 90%, transparent)' }
+              : undefined
+          }
         >
         <div className="px-4 sm:px-5 h-14 flex items-center justify-between">
           {/* Logo */}

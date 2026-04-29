@@ -80,9 +80,9 @@
   --bg:              #FAFAF7;
   --bg-card:         #FFFFFF;
   --bg-card-hover:   #F5F4F0;
-  --border:          #D4D2CB;       /* bumped from #E8E6DF, ex-border-strong */
-  --border-strong:   #B8B6AE;       /* bumped from #D4D2CB, deeper for emphasis */
-  --divider:         rgba(10, 10, 10, 0.12);
+  --border:          #C5C2BA;       /* bumped from #D4D2CB for clearer card edges on cream */
+  --border-strong:   #A8A69E;       /* bumped from #B8B6AE for emphasis dividers */
+  --divider:         rgba(10, 10, 10, 0.16);
 
   /* Text — warm gray-black, not pure black. Muted bumped to #6E6E6A for WCAG AA on cream (4.5:1). */
   --text:            #1A1A18;
@@ -134,7 +134,7 @@
   /* Neutral surfaces — bumped alpha on black for visibility */
   --surface-subtle:  rgba(10, 10, 10, 0.03);
   --surface-default: rgba(10, 10, 10, 0.05);
-  --surface-border:  rgba(10, 10, 10, 0.12);
+  --surface-border:  rgba(10, 10, 10, 0.18);
 
   /* Canvas grid line — black-ish on cream (visible base, hover reveals brand-colored grid) */
   --grid-line:       rgba(10, 10, 10, 0.28);

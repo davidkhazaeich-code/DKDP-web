@@ -26,7 +26,7 @@ export function Navigation() {
           href={href}
           aria-current={isActive(href) ? 'page' : undefined}
           className={`px-3 py-2 text-[13px] font-medium rounded-lg transition-colors duration-[150ms] hover-grad-text ${
-            isActive(href) ? 'grad-text' : 'text-text-secondary hover:text-white'
+            isActive(href) ? 'grad-text' : 'text-text-secondary hover:text-text'
           }`}
         >
           {label}
@@ -41,7 +41,7 @@ export function Navigation() {
           href={href}
           aria-current={isActive(href) ? 'page' : undefined}
           className={`px-3 py-2 text-[13px] rounded-lg transition-colors duration-[150ms] ${
-            isActive(href) ? 'text-violet-light' : 'text-text-muted hover:text-white'
+            isActive(href) ? 'text-violet-light' : 'text-text-muted hover:text-text'
           }`}
         >
           {label}

@@ -33,7 +33,7 @@ export function CTAFinal({ accentRgb }: { accentRgb?: string } = {}) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-px max-w-sm mx-auto mb-8 sm:mb-12 border border-border rounded-2xl sm:rounded-full overflow-hidden">
               <a
                 href="tel:+41799407969"
-                className="flex items-center justify-center gap-2 px-6 py-3 text-sm text-text-muted hover:text-white hover:bg-bg-card transition-all duration-150"
+                className="flex items-center justify-center gap-2 px-6 py-3 text-sm text-text-muted hover:text-text hover:bg-bg-card transition-all duration-150"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <path d="M2 2.5C2 2.5 3 1 4.5 1c.5 0 1 .5 1.5 1.5S7 4 7 4s-.5.5-1 1c.5 1 1.5 2 2.5 2.5.5-.5 1-1 1-1s1 .5 2 1 1.5 1 1.5 1.5C13 10.5 12 12 12 12c-4 1-9.5-4.5-10-9.5z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
@@ -42,7 +42,7 @@ export function CTAFinal({ accentRgb }: { accentRgb?: string } = {}) {
               </a>
               <a
                 href="mailto:dk@dkdp.ch"
-                className="flex items-center justify-center gap-2 px-6 py-3 text-sm text-text-muted hover:text-white hover:bg-bg-card transition-all duration-150"
+                className="flex items-center justify-center gap-2 px-6 py-3 text-sm text-text-muted hover:text-text hover:bg-bg-card transition-all duration-150"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <rect x="1" y="2.5" width="12" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>

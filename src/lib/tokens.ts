@@ -150,7 +150,9 @@ export function themeColors(theme: 'dark' | 'light') {
         orangeAlpha: 'rgba(255,107,0,0.22)',
         violetAlpha: 'rgba(124,58,237,0.18)',
         pointTint:   '#1A1A18',
-        gridLine:    'rgba(10,10,10,0.28)',
+        // Pass 13: bump light grid line alpha 0.28 -> 0.36 for visibility on cream,
+        // especially on mobile where pixel density compresses thin strokes.
+        gridLine:    'rgba(10,10,10,0.36)',
       }
 }
 

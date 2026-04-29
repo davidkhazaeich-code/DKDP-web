@@ -1,15 +1,16 @@
 import { clsx } from 'clsx'
 import type { RealisationStackChip, StackColor } from '@/lib/realisations/types'
 
+// Theme-aware via project tokens. text uses --*-text vars (light shade on dark, dark shade on light).
 const COLOR_CLASSES: Record<StackColor, string> = {
-  violet: 'border-violet-500/40 bg-violet-500/10 text-violet-200',
-  orange: 'border-orange-500/40 bg-orange-500/10 text-orange-200',
-  chrome: 'border-zinc-500/40 bg-zinc-500/10 text-zinc-200',
-  green:  'border-emerald-500/40 bg-emerald-500/10 text-emerald-200',
-  blue:   'border-sky-500/40 bg-sky-500/10 text-sky-200',
-  pink:   'border-pink-500/40 bg-pink-500/10 text-pink-200',
-  teal:   'border-teal-500/40 bg-teal-500/10 text-teal-200',
-  amber:  'border-amber-500/40 bg-amber-500/10 text-amber-200',
+  violet: 'border-[color:var(--violet-border)] bg-[color:var(--violet-bg)] text-[color:var(--violet-text)]',
+  orange: 'border-[color:var(--orange-border)] bg-[color:var(--orange-bg)] text-[color:var(--orange-text)]',
+  chrome: 'border-[color:var(--chrome-border)] bg-[color:var(--chrome-bg)] text-text-secondary',
+  green:  'border-[color:var(--green-border)] bg-[color:var(--green-bg)] text-[color:var(--green-text)]',
+  blue:   'border-[color:var(--blue-border)] bg-[color:var(--blue-bg)] text-[color:var(--blue-text)]',
+  pink:   'border-[color:var(--pink-border)] bg-[color:var(--pink-bg)] text-[color:var(--pink-text)]',
+  teal:   'border-[color:var(--teal-border)] bg-[color:var(--teal-bg)] text-[color:var(--teal-text)]',
+  amber:  'border-[color:var(--amber-border)] bg-[color:var(--amber-bg)] text-[color:var(--amber-text)]',
 }
 
 export function StackChips({ chips }: { chips: RealisationStackChip[] }) {

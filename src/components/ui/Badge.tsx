@@ -8,7 +8,7 @@ interface BadgeProps {
 const variantClasses = {
   violet: 'text-violet-light',
   orange: 'text-orange',
-  chrome: 'text-[#D4D4D8]',
+  chrome: 'text-text-secondary',
   muted: 'text-text-muted',
 }
 

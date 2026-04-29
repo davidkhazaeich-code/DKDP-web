@@ -49,6 +49,16 @@
   --red-bg:          rgba(239, 68, 68, 0.08);
   --red-border:      rgba(239, 68, 68, 0.22);
 
+  /* Pillar chip text — light shade readable on dark cards */
+  --violet-text:     #C4B5FD;
+  --orange-text:     #FFB74D;
+  --green-text:      #86EFAC;
+  --blue-text:       #93C5FD;
+  --pink-text:       #F9A8D4;
+  --teal-text:       #5EEAD4;
+  --amber-text:      #FCD34D;
+  --red-text:        #FCA5A5;
+
   /* Neutral surfaces */
   --surface-subtle:  rgba(255, 255, 255, 0.02);
   --surface-default: rgba(255, 255, 255, 0.04);
@@ -110,6 +120,16 @@
   --amber-border:    rgba(220, 150, 30, 0.32);
   --red-bg:          rgba(220, 50, 50, 0.10);
   --red-border:      rgba(220, 50, 50, 0.32);
+
+  /* Pillar chip text — dark shade readable on cream cards (AA on tinted bg) */
+  --violet-text:     #6D28D9;
+  --orange-text:     #C2410C;
+  --green-text:      #15803D;
+  --blue-text:       #1D4ED8;
+  --pink-text:       #BE185D;
+  --teal-text:       #0F766E;
+  --amber-text:      #B45309;
+  --red-text:        #B91C1C;
 
   /* Neutral surfaces — bumped alpha on black for visibility */
   --surface-subtle:  rgba(10, 10, 10, 0.03);

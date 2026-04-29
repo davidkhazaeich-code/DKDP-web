@@ -73,13 +73,13 @@ export default function BlogPage() {
                 Conseils digitaux, IA et{' '}
                 <GradText as="span" className="grad-text">formation pour PME.</GradText>
               </h1>
-              <p className="text-zinc-400 text-lg md:text-xl leading-relaxed mb-10">
+              <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                 Ressources pratiques publiées par l&apos;équipe DKDP. SEO, automatisation, outils IA, stratégie web.
               </p>
               <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                 Discuter de votre projet
               </LiquidMetalButton>
-              <p className="mt-8 text-zinc-500 text-sm">
+              <p className="mt-8 text-text-muted text-sm">
                 {ARTICLES.length} articles · 4 catégories · Mise à jour mensuelle
               </p>
             </div>

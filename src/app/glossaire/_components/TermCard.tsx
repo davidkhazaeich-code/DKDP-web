@@ -19,13 +19,13 @@ export function TermCard({ item, delay }: { item: Term; delay: number }) {
         id={termId(item.term)}
         className="group rounded-[14px] border p-5 flex flex-col gap-3 h-full transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5"
         style={{
-          background: 'rgba(18,18,24,0.80)',
-          borderColor: 'rgba(212,212,216,0.14)',
+          background: 'var(--bg-card)',
+          borderColor: 'var(--border)',
         }}
       >
         {/* Header */}
         <div className="flex items-start justify-between gap-2">
-          <h3 className="text-white font-bold text-lg leading-snug">{item.term}</h3>
+          <h3 className="text-text font-bold text-lg leading-snug">{item.term}</h3>
           <CategoryBadge category={item.category} />
         </div>
 

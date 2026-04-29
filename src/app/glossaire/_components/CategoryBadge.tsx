@@ -16,7 +16,7 @@ export function CategoryBadge({ category }: { category: Category }) {
       style={{
         color,
         border: `1px solid ${border}`,
-        background: 'rgba(10,10,10,0.84)',
+        background: 'var(--surface-default)',
       }}
     >
       {label}

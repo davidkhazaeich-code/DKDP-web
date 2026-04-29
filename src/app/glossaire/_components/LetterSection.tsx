@@ -8,7 +8,8 @@ export function LetterSection({ letter, terms }: { letter: string; terms: Term[]
       <div className="flex items-center gap-4 mb-6 pb-4 border-b border-border">
         <div className="relative select-none">
           <span
-            className="absolute inset-0 flex items-center justify-center text-6xl font-black text-white/10 leading-none pointer-events-none"
+            className="absolute inset-0 flex items-center justify-center text-6xl font-black leading-none pointer-events-none"
+            style={{ color: 'var(--surface-border)' }}
             aria-hidden="true"
           >
             {letter}

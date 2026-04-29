@@ -747,6 +747,7 @@ export function ChatWidget() {
                   type="text"
                   value={inputValue}
                   maxLength={MAX_CHAR_LENGTH}
+                  aria-label="Posez votre question a notre IA"
                   onChange={(e) => {
                     if (e.target.value.length <= MAX_CHAR_LENGTH) setInputValue(e.target.value)
                   }}
@@ -813,6 +814,7 @@ export function ChatWidget() {
               <m.button
                 type="submit"
                 disabled={!inputValue.trim()}
+                aria-label="Envoyer le message"
                 className="flex-shrink-0 w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-40 disabled:cursor-default"
                 style={{
                   background: inputValue.trim()
@@ -1047,6 +1049,7 @@ export function ChatWidget() {
                   <m.button
                     type="submit"
                     disabled={!inputValue.trim() || isLoading}
+                    aria-label="Envoyer le message"
                     className="flex-shrink-0 w-11 h-11 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-40 disabled:cursor-default mb-0.5"
                     style={{
                       background: inputValue.trim()

@@ -21,7 +21,7 @@ function FAQItem({ item, index }: { item: FAQItemType; index: number }) {
           className="w-full flex items-start justify-between gap-4 py-5 text-left group"
           aria-expanded={open}
         >
-          <span className="text-white font-medium text-base leading-snug group-hover:text-violet-light transition-colors duration-150">
+          <span className="text-text font-medium text-base leading-snug group-hover:text-violet-light transition-colors duration-150">
             {item.question}
           </span>
           <span

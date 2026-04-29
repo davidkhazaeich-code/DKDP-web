@@ -29,7 +29,7 @@ const SOURCES = [
 const VALID_SERVICES = new Set(SERVICES.map(s => s.value))
 
 const input =
-  'w-full bg-bg border border-border rounded-[8px] px-4 py-3 text-[13px] text-white ' +
+  'w-full bg-bg border border-border rounded-[8px] px-4 py-3 text-[13px] text-text ' +
   'placeholder:text-text-muted focus:outline-none focus:border-violet transition-colors duration-150'
 
 const labelCls = 'flex items-center gap-1.5 text-[11px] font-semibold text-text-muted uppercase tracking-[0.08em] mb-2'
@@ -314,7 +314,7 @@ function ContactFormInner() {
             <button
               type="button"
               onClick={() => setStep(1)}
-              className="flex items-center gap-1.5 px-4 py-3.5 text-[13px] font-semibold text-text-muted hover:text-white transition-colors duration-150 rounded-full border border-border hover:border-white/20"
+              className="flex items-center gap-1.5 px-4 py-3.5 text-[13px] font-semibold text-text-muted hover:text-text transition-colors duration-150 rounded-full border border-border hover:border-white/20"
             >
               <ArrowLeft size={14} /> Retour
             </button>
@@ -344,7 +344,7 @@ function ContactFormInner() {
             <CheckCircle2 size={32} style={{ color: '#86efac' }} />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-white mb-2">Message envoyé !</h3>
+            <h3 className="text-xl font-bold text-text mb-2">Message envoyé !</h3>
             <p className="text-text-secondary text-sm">On vous recontacte sous 24h ouvrables.</p>
           </div>
         </div>

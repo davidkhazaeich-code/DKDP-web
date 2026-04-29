@@ -67,7 +67,7 @@ function EstimatorInner() {
 
       {/* Wizard card */}
       <div className="mt-4 sm:mt-5">
-        <div className="relative rounded-2xl border border-white/[0.07] bg-[#0A0A0A]/80 backdrop-blur-md overflow-hidden">
+        <div className="relative rounded-2xl border border-white/[0.07] backdrop-blur-md overflow-hidden" style={{ background: 'color-mix(in srgb, var(--bg) 80%, transparent)' }}>
 
           {/* Progress bar — tight padding */}
           <div className="px-3 sm:px-5 lg:px-6 pt-4 sm:pt-5 lg:pt-6 pb-3 sm:pb-4 border-b border-white/[0.05]">

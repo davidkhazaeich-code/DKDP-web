@@ -13,6 +13,47 @@
 
 import Image from 'next/image'
 
+// Generated from tools/output/monochrome-logos.json (Task 4.1).
+// Logos with fill=black or no fill, get filter:invert in dark mode.
+// Colored logos render natively (no filter).
+const MONOCHROME_LOGOS = new Set<string>([
+  'logo-aftereffects.svg',
+  'logo-airtable.svg',
+  'logo-anthropic.svg',
+  'logo-apple.svg',
+  'logo-asana.svg',
+  'logo-brevo.svg',
+  'logo-chatgpt.svg',
+  'logo-clickup.svg',
+  'logo-copilot.svg',
+  'logo-framer.svg',
+  'logo-github.svg',
+  'logo-google-ads.svg',
+  'logo-google-analytics.svg',
+  'logo-google-search-console.svg',
+  'logo-hubspot.svg',
+  'logo-illustrator.svg',
+  'logo-mailchimp.svg',
+  'logo-make.svg',
+  'logo-midjourney.svg',
+  'logo-n8n.svg',
+  'logo-openai.svg',
+  'logo-paypal.svg',
+  'logo-photoshop.svg',
+  'logo-pinterest.svg',
+  'logo-premiere-pro.svg',
+  'logo-shopify.svg',
+  'logo-squarespace.svg',
+  'logo-stripe.svg',
+  'logo-trello.svg',
+  'logo-vercel.svg',
+  'logo-webflow.svg',
+  'logo-wix.svg',
+  'logo-woocommerce.svg',
+  'logo-x.svg',
+  'logo-zapier.svg',
+])
+
 export interface AppLogo {
   /** Chemin SVG dans public/images/logos/ (ex: 'logo-chatgpt.svg') */
   file: string
@@ -159,8 +200,8 @@ export function AppLogoBadge({ logo, size = 56, className = '' }: BadgeProps) {
       style={{
         width: size,
         height: size,
-        background: 'rgba(255,255,255,0.04)',
-        borderColor: 'rgba(255,255,255,0.10)',
+        background: 'var(--surface-default)',
+        borderColor: 'var(--surface-border)',
       }}
       title={logo.name}
     >
@@ -171,6 +212,7 @@ export function AppLogoBadge({ logo, size = 56, className = '' }: BadgeProps) {
         height={inner}
         loading="lazy"
         decoding="async"
+        style={MONOCHROME_LOGOS.has(logo.file) ? { filter: 'var(--logo-filter)' } : undefined}
       />
     </div>
   )
@@ -200,8 +242,8 @@ export function AppLogoPill({ logo, size = 'md', className = '', ariaHidden = fa
         paddingLeft: s.px - 4,
         paddingRight: s.px,
         gap: s.gap,
-        background: 'rgba(255,255,255,0.04)',
-        borderColor: 'rgba(255,255,255,0.10)',
+        background: 'var(--surface-default)',
+        borderColor: 'var(--surface-border)',
       }}
       aria-hidden={ariaHidden || undefined}
     >
@@ -212,13 +254,16 @@ export function AppLogoPill({ logo, size = 'md', className = '', ariaHidden = fa
         height={s.icon}
         loading="lazy"
         decoding="async"
-        style={{ flexShrink: 0 }}
+        style={{
+          flexShrink: 0,
+          ...(MONOCHROME_LOGOS.has(logo.file) ? { filter: 'var(--logo-filter)' } : {}),
+        }}
       />
       <span
         style={{
           fontSize: s.font,
           fontWeight: 500,
-          color: '#e4e4e7',
+          color: 'var(--text-secondary)',
           whiteSpace: 'nowrap',
           letterSpacing: '0.005em',
         }}

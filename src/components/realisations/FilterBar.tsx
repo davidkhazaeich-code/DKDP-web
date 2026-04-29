@@ -29,7 +29,7 @@ export function FilterBar({
   const hasFilters = category !== 'all' || activeTag !== null
 
   return (
-    <div className="sticky top-[66px] z-30 -mx-6 border-b border-white/5 bg-[#0A0A0A]/85 px-6 py-3 backdrop-blur-2xl">
+    <div className="sticky top-[66px] z-30 -mx-6 border-b border-white/5 px-6 py-3 backdrop-blur-2xl" style={{ background: 'color-mix(in srgb, var(--bg) 85%, transparent)' }}>
       <div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-2">
         <div className="flex gap-1.5" role="tablist">
           {CATEGORY_TABS.map(t => (

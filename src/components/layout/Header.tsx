@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { createPortal } from 'react-dom'
 import { m, AnimatePresence } from 'framer-motion'
@@ -20,6 +19,8 @@ import {
 import { cn } from '@/lib/utils'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { ClaudeIcon } from '@/components/icons/ClaudeIcon'
+import { DkdpLogo } from '@/components/ui/DkdpLogo'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 // ─── Mega-menu data ───────────────────────────────────────────────────────────
 
@@ -583,14 +584,19 @@ export function Header() {
           className={cn(
             'pointer-events-auto max-w-[1200px] mx-auto mt-2 rounded-2xl border transition-all duration-300',
             scrolled || mobileOpen
-              ? 'bg-[#0A0A0A]/90 backdrop-blur-2xl border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)]'
+              ? 'backdrop-blur-2xl border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)]'
               : 'bg-transparent border-transparent'
           )}
+          style={
+            scrolled || mobileOpen
+              ? { background: 'color-mix(in srgb, var(--bg) 90%, transparent)' }
+              : undefined
+          }
         >
         <div className="px-4 sm:px-5 h-14 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0" aria-label="DKDP - Accueil">
-            <Image src="/images/logo/dkdp_blanc-croped.png" alt="DKDP" width={108} height={36} priority />
+            <DkdpLogo width={108} height={36} priority />
           </Link>
 
           {/* Desktop nav (xl+) */}
@@ -701,7 +707,8 @@ export function Header() {
           </div>
 
           {/* Desktop CTA (xl+) */}
-          <div className="hidden xl:block">
+          <div className="hidden xl:flex items-center gap-3">
+            <ThemeToggle />
             <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="md" shaderDelay={1000}><CalendarCheck size={14} />Réservez un appel</LiquidMetalButton>
           </div>
 
@@ -805,23 +812,26 @@ export function Header() {
             </NavigationMenu>
           </div>
 
-          {/* Hamburger (mobile + tablet, below xl) */}
-          <button
-            type="button"
-            aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-            onClick={() => {
-              try { navigator.vibrate?.(10) } catch {}
-              setMobileOpen((v) => !v)
-            }}
-            className="xl:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-border hover:bg-white/5 active:scale-95 transition-all"
-          >
-            {mobileOpen
-              ? <X size={18} />
-              : <Menu size={18} />
-            }
-          </button>
+          {/* Mobile + tablet right-side controls (theme toggle + hamburger, below xl) */}
+          <div className="xl:hidden flex items-center gap-2">
+            <ThemeToggle compact />
+            <button
+              type="button"
+              aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              onClick={() => {
+                try { navigator.vibrate?.(10) } catch {}
+                setMobileOpen((v) => !v)
+              }}
+              className="flex items-center justify-center w-11 h-11 rounded-lg border border-border hover:bg-white/5 active:scale-95 transition-all"
+            >
+              {mobileOpen
+                ? <X size={18} />
+                : <Menu size={18} />
+              }
+            </button>
+          </div>
         </div>
 
         </div>

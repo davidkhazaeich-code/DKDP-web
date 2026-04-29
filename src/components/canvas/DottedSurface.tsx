@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useThemeColors } from '@/hooks/useThemeColors'
 
 interface DottedSurfaceProps {
   className?: string
@@ -14,6 +15,12 @@ export function DottedSurface({
   orangeRatio = 0.004,
 }: DottedSurfaceProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const colors = useThemeColors()
+  const materialsRef = useRef<Array<{ color: { set: (hex: string) => void } }>>([])
+  // Keep latest tint accessible from inside init() without making it a useEffect dep
+  // (would cause a full scene rebuild on every theme switch).
+  const pointTintRef = useRef(colors.pointTint)
+  pointTintRef.current = colors.pointTint
 
   useEffect(() => {
     const container = containerRef.current
@@ -147,6 +154,9 @@ export function DottedSurface({
         alphaTest: 0.02,
         depthWrite: false,
       })
+      materialsRef.current.push(material)
+      // Apply current theme tint immediately (vertex colors are multiplied by material.color)
+      material.color.set(pointTintRef.current)
       const points = new THREE.Points(geometry, material)
       scene.add(points)
 
@@ -165,6 +175,8 @@ export function DottedSurface({
         map: spikesTexture,
         alphaTest: 0.003,
       })
+      materialsRef.current.push(spikeMaterial)
+      spikeMaterial.color.set(pointTintRef.current)
       const spikePoints = new THREE.Points(spikeGeometry, spikeMaterial)
       scene.add(spikePoints)
 
@@ -183,6 +195,8 @@ export function DottedSurface({
         map: spikesTexture,
         alphaTest: 0.003,
       })
+      materialsRef.current.push(pulseMaterial)
+      pulseMaterial.color.set(pointTintRef.current)
       const pulsePoints = new THREE.Points(pulseGeometry, pulseMaterial)
       scene.add(pulsePoints)
 
@@ -366,6 +380,7 @@ export function DottedSurface({
         renderer.domElement.remove()
         dotTexture.dispose()
         spikesTexture.dispose()
+        materialsRef.current = []
       }
     }
 
@@ -381,6 +396,17 @@ export function DottedSurface({
       cleanupFn?.()
     }
   }, [violetRatio, orangeRatio])
+
+  // React to theme switch, mutate material color without rebuilding the scene.
+  // THREE.Color.set() accepts hex strings ("#1A1A18") since r130. Our generic
+  // ref typing requires a cast, but the runtime call is correct.
+  useEffect(() => {
+    materialsRef.current.forEach(mat => {
+      if (mat && mat.color && typeof mat.color.set === 'function') {
+        mat.color.set(colors.pointTint)
+      }
+    })
+  }, [colors.pointTint])
 
   return (
     <div

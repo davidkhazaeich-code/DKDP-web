@@ -45,7 +45,7 @@ function Slider({ label, value, min, max, step, display, onChange }: SliderProps
         <span className="text-sm font-bold" style={{ color: chrome }}>{display}</span>
       </div>
       <div className="relative h-5 flex items-center">
-        <div className="w-full h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.07)' }}>
+        <div className="w-full h-1.5 rounded-full" style={{ background: 'var(--surface-border)' }}>
           <div
             className="h-full rounded-full"
             style={{ width: `${pct}%`, background: `linear-gradient(90deg, rgba(255,107,0,0.5), ${accent})` }}
@@ -195,7 +195,7 @@ export function FormationROICalculator() {
                         <span className="text-text-muted text-xs">Avant formation</span>
                         <span className="text-text-secondary text-xs font-semibold">{heuresParSemaine}h / sem.</span>
                       </div>
-                      <div className="h-2.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                      <div className="h-2.5 rounded-full overflow-hidden" style={{ background: 'var(--surface-border)' }}>
                         <div
                           className="h-full rounded-full transition-all duration-500"
                           style={{ width: '100%', background: 'rgba(239,68,68,0.55)' }}
@@ -209,7 +209,7 @@ export function FormationROICalculator() {
                           {(heuresParSemaine * 0.4).toFixed(1)}h / sem.
                         </span>
                       </div>
-                      <div className="h-2.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                      <div className="h-2.5 rounded-full overflow-hidden" style={{ background: 'var(--surface-border)' }}>
                         <div
                           className="h-full rounded-full transition-all duration-500"
                           style={{ width: '40%', background: `linear-gradient(90deg, ${green}66, ${green})` }}
@@ -274,7 +274,7 @@ export function FormationROICalculator() {
                 {/* Investment vs ROI */}
                 <div
                   className="rounded-[16px] p-5 border backdrop-blur-sm"
-                  style={{ background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.09)' }}
+                  style={{ background: 'var(--surface-default)', borderColor: 'var(--surface-border)' }}
                 >
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div>
@@ -301,7 +301,7 @@ export function FormationROICalculator() {
                         {results.paybackSemaines} semaine{results.paybackSemaines > 1 ? 's' : ''}
                       </span>
                     </div>
-                    <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                    <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'var(--surface-border)' }}>
                       <div
                         className="h-full rounded-full transition-all duration-500"
                         style={{

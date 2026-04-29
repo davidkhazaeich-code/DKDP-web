@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Smartphone, BarChart2, TrendingUp, Zap, Target, Layers, Share2 } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Smartphone, BarChart2, TrendingUp, Zap, Target, Layers, Share2, Briefcase, Megaphone, Store, GraduationCap, Heart, Hammer, User, Palette } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -78,15 +78,39 @@ const MODULES = [
   'Analyse des performances : métriques qui comptent vraiment',
 ]
 
-const ROLES = [
-  'Indépendants et entrepreneurs',
-  'Équipes communication PME',
-  'Community managers débutants',
-  'Gérants de petits commerces',
-  'Professionnels libéraux',
-  'Associations et institutions',
-  'Artisans et commerçants',
-  'Tout professionnel voulant s\'afficher en ligne',
+const ROLES: { label: string; Icon: typeof Briefcase }[] = [
+  { label: 'Indépendants et entrepreneurs', Icon: Briefcase },
+  { label: 'Équipes communication PME', Icon: Megaphone },
+  { label: 'Community managers débutants', Icon: Users },
+  { label: 'Gérants de petits commerces', Icon: Store },
+  { label: 'Professionnels libéraux', Icon: GraduationCap },
+  { label: 'Associations et institutions', Icon: Heart },
+  { label: 'Artisans et commerçants', Icon: Hammer },
+  { label: 'Tout professionnel voulant s\'afficher en ligne', Icon: User },
+]
+
+const TESTIMONIALS = [
+  {
+    quote: 'J\'avais un compte Instagram inactif depuis des mois. Après la formation, je poste 3 fois par semaine avec un vrai calendrier. Mes abonnés ont doublé en 6 semaines.',
+    name: 'Caroline P., Thérapeute indépendante',
+    company: 'Genève',
+    initials: 'CP',
+    stars: 5,
+  },
+  {
+    quote: 'DKDP nous a appris à utiliser Canva et Meta Business Suite. Notre équipe gère maintenant nos 3 comptes en 2 heures par semaine.',
+    name: 'Laurent G., Responsable communication',
+    company: 'Association culturelle, Lausanne',
+    initials: 'LG',
+    stars: 5,
+  },
+  {
+    quote: 'La partie LinkedIn m\'a particulièrement aidé. J\'ai maintenant une vraie stratégie B2B et je génère des leads directement depuis mes posts.',
+    name: 'Philippe V., Consultant indépendant',
+    company: 'Genève',
+    initials: 'PV',
+    stars: 5,
+  },
 ]
 
 const steps = [
@@ -253,9 +277,18 @@ export default function FormationReseauxSociauxPage() {
                 className="rounded-[20px] p-5 md:p-7 border"
                 style={{ background: bg, borderColor: border, boxShadow: '0 0 50px rgba(255,107,0,0.07)' }}
               >
-                <p className="text-[11px] font-bold uppercase tracking-widest mb-6 text-center" style={{ color }}>
+                <p className="text-[11px] font-bold uppercase tracking-widest mb-5 text-center" style={{ color }}>
                   Avant / Après formation
                 </p>
+                <div className="relative w-full aspect-[16/9] rounded-[12px] overflow-hidden mb-5 border" style={{ borderColor: border }}>
+                  <Image
+                    src="/images/services/dkdp-formation-reseaux-sociaux-feed-comparaison.webp"
+                    alt="Formation réseaux sociaux Genève PME : feed Instagram avant et après formation DKDP, palette cohérente, calendrier éditorial 2026"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 600px"
+                  />
+                </div>
                 <SocialBeforeAfter />
                 <p className="text-text-muted text-[11px] text-center mt-4">
                   Résultats observés sur nos groupes de participants en Suisse romande.
@@ -296,25 +329,86 @@ export default function FormationReseauxSociauxPage() {
         </div>
       </section>
 
+      {/* ── Showcase templates Canva ── */}
+      <section className="py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <GradTag className="mb-4">Livrables concrets</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-5">
+                Vous repartez avec votre kit visuel
+              </h2>
+              <p className="text-text-secondary leading-relaxed max-w-2xl mx-auto">
+                Pendant la formation, on crée 6 templates Canva aux couleurs de votre marque : citations, statistiques, conseils, annonces, témoignages, carrousels. Cohérence visuelle assurée sur tous vos posts dès le lendemain.
+              </p>
+            </div>
+          </SectionReveal>
+          <SectionReveal delay={0.1}>
+            <div
+              className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border"
+              style={{ borderColor: border, boxShadow: '0 0 60px rgba(255,107,0,0.10)' }}
+            >
+              <Image
+                src="/images/services/dkdp-formation-reseaux-sociaux-canva-templates.webp"
+                alt="Formation réseaux sociaux Genève 2026 : kit de templates Canva créés en formation, posts Instagram et LinkedIn aux couleurs de votre marque"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 1200px"
+              />
+            </div>
+          </SectionReveal>
+          <SectionReveal delay={0.2}>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mt-6">
+              {[
+                { label: 'Citations', Icon: Star },
+                { label: 'Statistiques', Icon: BarChart2 },
+                { label: 'Conseils', Icon: Zap },
+                { label: 'Annonces', Icon: Megaphone },
+                { label: 'Témoignages', Icon: Heart },
+                { label: 'Carrousels', Icon: Layers },
+              ].map((t) => (
+                <div
+                  key={t.label}
+                  className="flex items-center gap-2 px-3 py-2.5 rounded-[10px] border"
+                  style={{ background: bg, borderColor: border }}
+                >
+                  <t.Icon size={14} style={{ color }} />
+                  <span className="text-white text-xs font-medium">{t.label}</span>
+                </div>
+              ))}
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       {/* ── Pour qui ── */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
               <GradTag className="mb-4">Profils</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-3">
                 Pour qui est la formation réseaux sociaux en entreprise ?
               </h2>
+              <p className="text-text-secondary leading-relaxed max-w-xl mx-auto text-sm">
+                La formation s&apos;adapte à votre niveau et à votre activité. Aucun prérequis technique.
+              </p>
             </div>
           </SectionReveal>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4">
             {ROLES.map((role, i) => (
-              <SectionReveal key={role} delay={i * 0.07}>
+              <SectionReveal key={role.label} delay={i * 0.07}>
                 <div
-                  className="flex items-center justify-center text-center p-4 rounded-[12px] border h-full"
+                  className="flex flex-col items-center justify-start text-center p-5 rounded-[12px] border h-full gap-3"
                   style={{ background: bg, borderColor: border }}
                 >
-                  <p className="text-white font-medium text-sm">{role}</p>
+                  <div
+                    className="flex h-10 w-10 items-center justify-center rounded-full flex-shrink-0"
+                    style={{ background: 'rgba(255,107,0,0.12)', border: `1px solid ${border}` }}
+                  >
+                    <role.Icon size={18} style={{ color }} />
+                  </div>
+                  <p className="text-white font-medium text-sm leading-tight">{role.label}</p>
                 </div>
               </SectionReveal>
             ))}
@@ -368,26 +462,7 @@ export default function FormationReseauxSociauxPage() {
             </div>
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'J\'avais un compte Instagram inactif depuis des mois. Après la formation, je poste 3 fois par semaine avec un vrai calendrier. Mes abonnés ont doublé en 6 semaines.',
-                name: 'Caroline P., Thérapeute indépendante',
-                company: 'Genève',
-                stars: 5,
-              },
-              {
-                quote: 'DKDP nous a appris à utiliser Canva et Meta Business Suite. Notre équipe gère maintenant nos 3 comptes en 2 heures par semaine.',
-                name: 'Laurent G., Responsable communication',
-                company: 'Association culturelle, Lausanne',
-                stars: 5,
-              },
-              {
-                quote: 'La partie LinkedIn m\'a particulièrement aidé. J\'ai maintenant une vraie stratégie B2B et je génère des leads directement depuis mes posts.',
-                name: 'Philippe V., Consultant indépendant',
-                company: 'Genève',
-                stars: 5,
-              },
-            ].map((t, i) => (
+            {TESTIMONIALS.map((t, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
                 <div
                   className="flex flex-col h-full rounded-[16px] border p-7"
@@ -399,9 +474,21 @@ export default function FormationReseauxSociauxPage() {
                     ))}
                   </div>
                   <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-white font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
+                  <div className="mt-6 pt-4 flex items-center gap-3" style={{ borderTop: `1px solid ${border}` }}>
+                    <div
+                      className="flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center text-white font-bold text-[12px] tracking-wide"
+                      style={{
+                        background: 'linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%)',
+                        boxShadow: '0 4px 14px rgba(255,107,0,0.25)',
+                      }}
+                      aria-hidden="true"
+                    >
+                      {t.initials}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-white font-semibold text-sm truncate">{t.name}</p>
+                      <p className="text-text-muted text-xs truncate">{t.company}</p>
+                    </div>
                   </div>
                 </div>
               </SectionReveal>

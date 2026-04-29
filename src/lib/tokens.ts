@@ -1,104 +1,104 @@
 /**
  * DKDP Design Tokens
  *
- * Source unique pour toutes les couleurs, backgrounds et borders du site.
- * Chaque token = { color, bg, border }
+ * Pointers to CSS variables defined in globals.css under :root, [data-theme="dark"],
+ * and [data-theme="light"]. Switching the data-theme attribute on <html> swaps all
+ * tokens automatically, components consuming these tokens are theme-aware for free.
  *
  * Usage :
  *   import { violet, orange } from '@/lib/tokens'
  *   style={{ color: violet.color, background: violet.bg, border: `1px solid ${violet.border}` }}
  *
- * Ou avec alias courts pour les pages denses :
+ * Or with short aliases for dense pages :
  *   import { violet as V, orange as OR } from '@/lib/tokens'
  */
 
-// ─── Piliers principaux ───────────────────────────────────────────────────────
+// ─── Pillar tokens ────────────────────────────────────────────────────────────
 
 /** Agence digitale / Claude / Violet */
 export const violet = {
-  color:  '#A78BFA',
-  bg:     'rgba(124,58,237,0.10)',
-  border: 'rgba(124,58,237,0.25)',
-  glow:   'rgba(124,58,237,0.15)',
+  color:  'var(--violet-light)',
+  bg:     'var(--violet-bg)',
+  border: 'var(--violet-border)',
+  glow:   'var(--violet-glow)',
 } as const
 
 /** Formation / Orange */
 export const orange = {
-  color:  '#FF8C00',
-  bg:     'rgba(255,107,0,0.08)',
-  border: 'rgba(255,107,0,0.20)',
-  glow:   'rgba(255,107,0,0.15)',
+  color:  'var(--orange)',
+  bg:     'var(--orange-bg)',
+  border: 'var(--orange-border)',
+  glow:   'var(--orange-glow)',
 } as const
 
 /** Intelligence artificielle / Chrome */
 export const chrome = {
-  color:  '#D4D4D8',
-  bg:     'rgba(212,212,216,0.08)',
-  border: 'rgba(212,212,216,0.18)',
+  color:  'var(--text-secondary)',
+  bg:     'var(--chrome-bg)',
+  border: 'var(--chrome-border)',
 } as const
 
 /** À propos / Gris */
 export const gray = {
-  color:  '#9CA3AF',
-  bg:     'rgba(156,163,175,0.08)',
-  border: 'rgba(156,163,175,0.18)',
+  color:  'var(--text-secondary)',
+  bg:     'var(--gray-bg)',
+  border: 'var(--gray-border)',
 } as const
 
-// ─── Couleurs produits / sémantiques ─────────────────────────────────────────
+// ─── Product / semantic colors ───────────────────────────────────────────────
 
 /** Claude Code / Vert */
 export const green = {
   color:  '#4ade80',
-  bg:     'rgba(74,222,128,0.08)',
-  border: 'rgba(74,222,128,0.22)',
+  bg:     'var(--green-bg)',
+  border: 'var(--green-border)',
 } as const
 
 /** Commercial / Bleu */
 export const blue = {
   color:  '#60a5fa',
-  bg:     'rgba(96,165,250,0.08)',
-  border: 'rgba(96,165,250,0.22)',
+  bg:     'var(--blue-bg)',
+  border: 'var(--blue-border)',
 } as const
 
 /** RH / Rose */
 export const pink = {
   color:  '#f472b6',
-  bg:     'rgba(244,114,182,0.08)',
-  border: 'rgba(244,114,182,0.22)',
+  bg:     'var(--pink-bg)',
+  border: 'var(--pink-border)',
 } as const
 
 /** Finance / Teal */
 export const teal = {
   color:  '#2dd4bf',
-  bg:     'rgba(45,212,191,0.08)',
-  border: 'rgba(45,212,191,0.22)',
+  bg:     'var(--teal-bg)',
+  border: 'var(--teal-border)',
 } as const
 
 /** Juridique / Ambre */
 export const amber = {
   color:  '#fbbf24',
-  bg:     'rgba(251,191,36,0.07)',
-  border: 'rgba(251,191,36,0.22)',
+  bg:     'var(--amber-bg)',
+  border: 'var(--amber-border)',
 } as const
 
 /** Alerte / Rouge */
 export const red = {
   color:  '#ef4444',
-  bg:     'rgba(239,68,68,0.08)',
-  border: 'rgba(239,68,68,0.22)',
+  bg:     'var(--red-bg)',
+  border: 'var(--red-border)',
 } as const
 
-// ─── Surfaces neutres ─────────────────────────────────────────────────────────
+// ─── Neutral surfaces ────────────────────────────────────────────────────────
 
-/** Fonds de cartes et sections */
 export const surface = {
-  subtle:  'rgba(255,255,255,0.02)',
-  default: 'rgba(255,255,255,0.04)',
-  border:  'rgba(255,255,255,0.07)',
-  divider: 'rgba(255,255,255,0.06)',
+  subtle:  'var(--surface-subtle)',
+  default: 'var(--surface-default)',
+  border:  'var(--surface-border)',
+  divider: 'var(--divider)',
 } as const
 
-// ─── Map piliers (utile pour Header, nav) ─────────────────────────────────────
+// ─── Pillar map (used by Header, nav) ────────────────────────────────────────
 
 export const PILLAR = {
   agence:    violet,
@@ -117,3 +117,41 @@ export type TokenSet = {
   border: string
   glow?: string
 }
+
+// ─── Canvas / Three.js helper ────────────────────────────────────────────────
+
+/**
+ * Returns hex/rgba string values for a given theme. Use this in WebGL/Canvas
+ * components that need string literals (not CSS vars) for THREE.Color, fillStyle,
+ * createRadialGradient stops, etc.
+ *
+ * Usage :
+ *   const { theme } = useTheme()
+ *   const palette = themeColors(theme)
+ *   material.color = new THREE.Color(palette.pointTint)
+ */
+export function themeColors(theme: 'dark' | 'light') {
+  return theme === 'dark'
+    ? {
+        bg:          '#0A0A0A',
+        text:        '#FFFFFF',
+        orange:      '#FF6B00',
+        violet:      '#7C3AED',
+        orangeAlpha: 'rgba(255,107,0,0.40)',
+        violetAlpha: 'rgba(124,58,237,0.30)',
+        pointTint:   '#FFFFFF',
+        gridLine:    'rgba(255,255,255,0.10)',
+      }
+    : {
+        bg:          '#FAFAF7',
+        text:        '#1A1A18',
+        orange:      '#FF6B00',
+        violet:      '#7C3AED',
+        orangeAlpha: 'rgba(255,107,0,0.22)',
+        violetAlpha: 'rgba(124,58,237,0.18)',
+        pointTint:   '#1A1A18',
+        gridLine:    'rgba(10,10,10,0.08)',
+      }
+}
+
+export type ThemePalette = ReturnType<typeof themeColors>

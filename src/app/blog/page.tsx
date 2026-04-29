@@ -88,7 +88,7 @@ export default function BlogPage() {
       </HeroBg>
 
       {/* ══ 2. Filtres catégories ══ */}
-      <div className="sticky top-[66px] z-30 border-b border-white/[0.06] bg-[#0A0A0A]/85 backdrop-blur-2xl">
+      <div className="sticky top-[66px] z-30 border-b border-white/[0.06] backdrop-blur-2xl" style={{ background: 'color-mix(in srgb, var(--bg) 85%, transparent)' }}>
         <div className="max-w-[1200px] mx-auto px-6">
           <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Filtres categories">
             <a href="#articles" className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold transition-colors"

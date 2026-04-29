@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useThemeColors } from '@/hooks/useThemeColors'
 
 interface ParticleWavesProps {
   className?: string
@@ -30,6 +31,12 @@ export function ParticleWaves({
   orangeRatio = 0.004,
 }: ParticleWavesProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const colors = useThemeColors()
+  const materialsRef = useRef<Array<{ color: { set: (hex: string) => void } }>>([])
+  // Keep latest tint accessible from inside init() without making it a useEffect dep
+  // (would cause a full scene rebuild on every theme switch).
+  const pointTintRef = useRef(colors.pointTint)
+  pointTintRef.current = colors.pointTint
 
   useEffect(() => {
     const container = containerRef.current
@@ -157,6 +164,9 @@ export function ParticleWaves({
         alphaTest: 0.02,
         depthWrite: false,
       })
+      materialsRef.current.push(material)
+      // Apply current theme tint immediately (vertex colors are multiplied by material.color)
+      material.color.set(pointTintRef.current)
       scene.add(new THREE.Points(geometry, material))
 
       // Spikes layer (small, always-on for colored dots)
@@ -174,6 +184,8 @@ export function ParticleWaves({
         map: spikesTexture,
         alphaTest: 0.003,
       })
+      materialsRef.current.push(spikeMaterial)
+      spikeMaterial.color.set(pointTintRef.current)
       scene.add(new THREE.Points(spikeGeometry, spikeMaterial))
 
       // Pulse spikes layer (larger, only at breath peak)
@@ -191,6 +203,8 @@ export function ParticleWaves({
         map: spikesTexture,
         alphaTest: 0.003,
       })
+      materialsRef.current.push(pulseMaterial)
+      pulseMaterial.color.set(pointTintRef.current)
       scene.add(new THREE.Points(pulseGeometry, pulseMaterial))
 
       // Per-point color state
@@ -374,6 +388,7 @@ export function ParticleWaves({
         spikeMaterial.dispose()
         pulseMaterial.dispose()
         renderer.dispose()
+        materialsRef.current = []
       }
     }
 
@@ -392,6 +407,17 @@ export function ParticleWaves({
       cleanupFn?.()
     }
   }, [violetRatio, orangeRatio])
+
+  // React to theme switch, mutate material color without rebuilding the scene.
+  // THREE.Color.set() accepts hex strings ("#1A1A18") since r130. Our generic
+  // ref typing requires a cast, but the runtime call is correct.
+  useEffect(() => {
+    materialsRef.current.forEach(mat => {
+      if (mat && mat.color && typeof mat.color.set === 'function') {
+        mat.color.set(colors.pointTint)
+      }
+    })
+  }, [colors.pointTint])
 
   return (
     <div

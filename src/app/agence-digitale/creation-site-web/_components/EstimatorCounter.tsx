@@ -142,7 +142,7 @@ export function EstimatorTopBanner() {
   const hasPrice = totalMin > 0
 
   return (
-    <div className="rounded-2xl border border-white/[0.07] bg-[#0A0A0A]/80 backdrop-blur-md px-5 py-4 flex items-center gap-5">
+    <div className="rounded-2xl border border-white/[0.07] backdrop-blur-md px-5 py-4 flex items-center gap-5" style={{ background: 'color-mix(in srgb, var(--bg) 80%, transparent)' }}>
 
       {/* Label block */}
       <div className="flex-shrink-0 min-w-[140px]">

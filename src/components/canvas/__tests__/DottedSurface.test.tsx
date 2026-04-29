@@ -26,31 +26,35 @@ vi.mock('three', () => {
     Float32BufferAttribute: class {
       constructor(public array: Float32Array, _: number) {}
     },
-    PointsMaterial: class {},
+    PointsMaterial: class { color = { set() {} } },
     Points: class { constructor() {} },
   }
 })
 
 import { DottedSurface } from '../DottedSurface'
+import { ThemeProvider } from '@/components/providers/ThemeProvider'
+
+const renderWithTheme = (ui: React.ReactElement) =>
+  render(<ThemeProvider>{ui}</ThemeProvider>)
 
 describe('DottedSurface', () => {
   it('renders a container div', () => {
-    render(<DottedSurface />)
+    renderWithTheme(<DottedSurface />)
     expect(screen.getByTestId('dotted-surface')).toBeInTheDocument()
   })
 
   it('is aria-hidden', () => {
-    render(<DottedSurface />)
+    renderWithTheme(<DottedSurface />)
     expect(screen.getByTestId('dotted-surface')).toHaveAttribute('aria-hidden', 'true')
   })
 
   it('accepts className', () => {
-    render(<DottedSurface className="absolute inset-0" />)
+    renderWithTheme(<DottedSurface className="absolute inset-0" />)
     expect(screen.getByTestId('dotted-surface')).toHaveClass('absolute', 'inset-0')
   })
 
   it('accepts violetRatio and orangeRatio without error', () => {
-    render(<DottedSurface violetRatio={0.15} orangeRatio={0.06} />)
+    renderWithTheme(<DottedSurface violetRatio={0.15} orangeRatio={0.06} />)
     expect(screen.getByTestId('dotted-surface')).toBeInTheDocument()
   })
 })

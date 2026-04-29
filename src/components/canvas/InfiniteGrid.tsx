@@ -67,13 +67,12 @@ export function InfiniteGrid({
     return () => clearTimeout(t)
   }, [])
 
-  // Light mode base: subtle 1.5px gris clair pour ne pas être agressif.
-  // Light mode hover: 2.5px brand color full alpha pour que l'effet de couleur cursor
-  // ressorte clairement par-dessus le base et soit bien visible sur cream.
-  // Dark mode: 1px stroke + 0.80 alpha hover comme avant.
+  // Light mode base: 1.5px stroke + 14% alpha pour un BG ultra-discret.
+  // Light mode hover: 3.5px brand color full alpha pour un coloriage cursor très voyant.
+  // Dark mode: 1px stroke + 0.80 alpha comme avant.
   const baseStrokeWidth  = theme === 'light' ? 1.5 : 1
-  const hoverStrokeWidth = theme === 'light' ? 2.5 : 1
-  const hoverAlpha       = theme === 'light' ? 0.95 : 0.80
+  const hoverStrokeWidth = theme === 'light' ? 3.5 : 1
+  const hoverAlpha       = theme === 'light' ? 1.0  : 0.80
   const BASE_GRID  = buildGrid(colors.gridLine, baseStrokeWidth)
   const HOVER_GRID = buildGrid(`rgba(${accentRgb},${hoverAlpha})`, hoverStrokeWidth)
 
@@ -97,7 +96,8 @@ export function InfiniteGrid({
   })
   const blobY = useTransform(scrollYProgress, [0, 1], [40, -40])
 
-  const radialMask = useMotionTemplate`radial-gradient(450px circle at ${mouseX}px ${mouseY}px, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)`
+  const radialMaskRadius = isLight ? 600 : 450
+  const radialMask = useMotionTemplate`radial-gradient(${radialMaskRadius}px circle at ${mouseX}px ${mouseY}px, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)`
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     if (mouseThrottleRef.current) return

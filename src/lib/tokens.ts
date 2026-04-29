@@ -152,7 +152,7 @@ export function themeColors(theme: 'dark' | 'light') {
         pointTint:   '#1A1A18',
         // Pass 14: bump light grid line alpha 0.36 -> 0.40 to match globals.css
         // --grid-line and improve decoration visibility on cream backgrounds.
-        gridLine:    'rgba(10,10,10,0.22)',
+        gridLine:    'rgba(10,10,10,0.14)',
       }
 }
 

@@ -1,12 +1,34 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useThemeColors } from '@/hooks/useThemeColors'
+import { useTheme } from '@/components/providers/ThemeProvider'
 
 interface DottedSurfaceProps {
   className?: string
   violetRatio?: number
   orangeRatio?: number
+}
+
+// Brand sparkle palette per theme.
+// material.color stays white in both themes — these vertex colors paint directly,
+// preserving the brand hue without a tint multiplier killing it on cream.
+type SparklePalette = {
+  VR: number; VG: number; VB: number   // violet
+  OR: number; OG: number; OB: number   // orange
+  GRAY_R: number; GRAY_G: number; GRAY_B: number   // neutral
+}
+
+const SPARKLES: Record<'dark' | 'light', SparklePalette> = {
+  dark: {
+    VR: 0.55, VG: 0.22, VB: 1.00,    // violet (vivid for dark bg)
+    OR: 1.00, OG: 0.48, OB: 0.00,    // orange
+    GRAY_R: 0.48, GRAY_G: 0.48, GRAY_B: 0.48,
+  },
+  light: {
+    VR: 0.30, VG: 0.10, VB: 0.65,    // darker violet, still readably brand
+    OR: 0.75, OG: 0.35, OB: 0.00,    // darker orange, still readably brand
+    GRAY_R: 0.18, GRAY_G: 0.18, GRAY_B: 0.16,    // warm dark gray on cream
+  },
 }
 
 export function DottedSurface({
@@ -15,12 +37,14 @@ export function DottedSurface({
   orangeRatio = 0.004,
 }: DottedSurfaceProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const colors = useThemeColors()
-  const materialsRef = useRef<Array<{ color: { set: (hex: string) => void } }>>([])
-  // Keep latest tint accessible from inside init() without making it a useEffect dep
-  // (would cause a full scene rebuild on every theme switch).
-  const pointTintRef = useRef(colors.pointTint)
-  pointTintRef.current = colors.pointTint
+  const { theme } = useTheme()
+  // Ref so closures inside init() always read the current theme palette
+  // without rebuilding the scene on theme switch.
+  const paletteRef = useRef<SparklePalette>(SPARKLES[theme])
+  paletteRef.current = SPARKLES[theme]
+  // Set by init() so the theme-change effect can force one paint when the
+  // scene has prefers-reduced-motion (no rAF loop) or to make the switch instant.
+  const repaintRef = useRef<(() => void) | null>(null)
 
   useEffect(() => {
     const container = containerRef.current
@@ -154,9 +178,8 @@ export function DottedSurface({
         alphaTest: 0.02,
         depthWrite: false,
       })
-      materialsRef.current.push(material)
-      // Apply current theme tint immediately (vertex colors are multiplied by material.color)
-      material.color.set(pointTintRef.current)
+      // material.color stays white in both themes — vertex colors carry the brand hue.
+      // (Previously multiplied by pointTint, which killed brand hue in light mode.)
       const points = new THREE.Points(geometry, material)
       scene.add(points)
 
@@ -175,8 +198,6 @@ export function DottedSurface({
         map: spikesTexture,
         alphaTest: 0.003,
       })
-      materialsRef.current.push(spikeMaterial)
-      spikeMaterial.color.set(pointTintRef.current)
       const spikePoints = new THREE.Points(spikeGeometry, spikeMaterial)
       scene.add(spikePoints)
 
@@ -195,8 +216,6 @@ export function DottedSurface({
         map: spikesTexture,
         alphaTest: 0.003,
       })
-      materialsRef.current.push(pulseMaterial)
-      pulseMaterial.color.set(pointTintRef.current)
       const pulsePoints = new THREE.Points(pulseGeometry, pulseMaterial)
       scene.add(pulsePoints)
 
@@ -205,11 +224,6 @@ export function DottedSurface({
       const pointT       = new Float32Array(totalPoints)
       const pointPhase   = new Float32Array(totalPoints)
       const pointExiting = new Uint8Array(totalPoints)
-
-      // Brand colors
-      const VR = 0.55, VG = 0.22, VB = 1.0   // violet
-      const OR = 1.0,  OG = 0.48, OB = 0.0   // orange
-      const GRAY = 0.48
 
       for (let i = 0; i < totalPoints; i++) {
         pointPhase[i] = Math.random() * Math.PI * 2
@@ -238,6 +252,9 @@ export function DottedSurface({
         const ppos  = pulseGeometry.attributes.position.array as Float32Array
         const pos   = geometry.attributes.position.array as Float32Array
 
+        // Read theme palette once per frame so a theme switch repaints next tick.
+        const { VR, VG, VB, OR, OG, OB, GRAY_R, GRAY_G, GRAY_B } = paletteRef.current
+
         for (let idx = 0; idx < totalPoints; idx++) {
           const j    = idx * 3
           const type = pointType[idx]
@@ -245,7 +262,7 @@ export function DottedSurface({
           if (type === 0 && !pointExiting[idx]) {
             if (pointT[idx] > 0) pointT[idx] = Math.max(pointT[idx] - FADE_SPEED, 0)
             if (pointT[idx] === 0) {
-              col[j] = col[j + 1] = col[j + 2] = GRAY
+              col[j] = GRAY_R; col[j + 1] = GRAY_G; col[j + 2] = GRAY_B
               scol[j] = scol[j + 1] = scol[j + 2] = 0
               spos[j] = 0; spos[j + 1] = -99999; spos[j + 2] = 0
               pcol[j] = pcol[j + 1] = pcol[j + 2] = 0
@@ -258,7 +275,7 @@ export function DottedSurface({
             pointT[idx] = Math.max(pointT[idx] - FADE_SPEED, 0)
             if (pointT[idx] <= 0) {
               pointExiting[idx] = 0; pointType[idx] = 0
-              col[j] = col[j + 1] = col[j + 2] = GRAY
+              col[j] = GRAY_R; col[j + 1] = GRAY_G; col[j + 2] = GRAY_B
               scol[j] = scol[j + 1] = scol[j + 2] = 0
               spos[j] = 0; spos[j + 1] = -99999; spos[j + 2] = 0
               pcol[j] = pcol[j + 1] = pcol[j + 2] = 0
@@ -276,13 +293,13 @@ export function DottedSurface({
           const cg = type === 1 ? VG : OG
           const cb = type === 1 ? VB : OB
 
-          // Main dot color
+          // Main dot color — interpolate gray → brand by breath/lifecycle t
           const finalR = cr + (1.0 - cr) * breath * 0.65
           const finalG = cg + (1.0 - cg) * breath * 0.65
           const finalB = cb + (1.0 - cb) * breath * 0.65
-          col[j]     = GRAY + (finalR - GRAY) * t
-          col[j + 1] = GRAY + (finalG - GRAY) * t
-          col[j + 2] = GRAY + (finalB - GRAY) * t
+          col[j]     = GRAY_R + (finalR - GRAY_R) * t
+          col[j + 1] = GRAY_G + (finalG - GRAY_G) * t
+          col[j + 2] = GRAY_B + (finalB - GRAY_B) * t
 
           // Small spikes - always present, slightly dimmer at low breath
           const spikeStr = (0.5 + breath * 0.5) * t
@@ -359,6 +376,14 @@ export function DottedSurface({
 
       window.addEventListener('resize', handleResize, { passive: true })
 
+      // Allow the parent component to force one repaint when the theme switches
+      // (the rAF loop already reads paletteRef each frame, but reduced-motion
+      // mode renders once — so we expose this for both paths to converge).
+      repaintRef.current = () => {
+        updateColors(performance.now() / 1000)
+        renderer.render(scene, camera)
+      }
+
       if (prefersReducedMotion) {
         const posArr = geometry.attributes.position.array as Float32Array
         let i = 0
@@ -380,7 +405,7 @@ export function DottedSurface({
         renderer.domElement.remove()
         dotTexture.dispose()
         spikesTexture.dispose()
-        materialsRef.current = []
+        repaintRef.current = null
       }
     }
 
@@ -397,16 +422,13 @@ export function DottedSurface({
     }
   }, [violetRatio, orangeRatio])
 
-  // React to theme switch, mutate material color without rebuilding the scene.
-  // THREE.Color.set() accepts hex strings ("#1A1A18") since r130. Our generic
-  // ref typing requires a cast, but the runtime call is correct.
+  // React to theme switch — paletteRef is already updated synchronously above.
+  // The animation loop's updateColors() reads paletteRef every frame, so dots
+  // will retint on the next rAF tick. For reduced-motion (single render path),
+  // force one repaint so the swap is visible.
   useEffect(() => {
-    materialsRef.current.forEach(mat => {
-      if (mat && mat.color && typeof mat.color.set === 'function') {
-        mat.color.set(colors.pointTint)
-      }
-    })
-  }, [colors.pointTint])
+    repaintRef.current?.()
+  }, [theme])
 
   return (
     <div

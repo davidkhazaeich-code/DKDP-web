@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { createPortal } from 'react-dom'
 import { m, AnimatePresence } from 'framer-motion'
@@ -20,6 +19,7 @@ import {
 import { cn } from '@/lib/utils'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { ClaudeIcon } from '@/components/icons/ClaudeIcon'
+import { DkdpLogo } from '@/components/ui/DkdpLogo'
 
 // ─── Mega-menu data ───────────────────────────────────────────────────────────
 
@@ -590,7 +590,7 @@ export function Header() {
         <div className="px-4 sm:px-5 h-14 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0" aria-label="DKDP - Accueil">
-            <Image src="/images/logo/dkdp_blanc-croped.png" alt="DKDP" width={108} height={36} priority />
+            <DkdpLogo width={108} height={36} priority />
           </Link>
 
           {/* Desktop nav (xl+) */}

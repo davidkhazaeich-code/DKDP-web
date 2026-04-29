@@ -148,7 +148,7 @@ export function SkillsBento() {
               <s.Icon size={18} style={{ color }} />
             </div>
             <div className="flex-1 min-w-0">
-              <h3 className="text-white font-bold text-[15px] mb-1">{s.title}</h3>
+              <h3 className="text-text font-bold text-[15px] mb-1">{s.title}</h3>
               <p className="text-text-muted text-xs leading-relaxed">{s.desc}</p>
             </div>
           </div>

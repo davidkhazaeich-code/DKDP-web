@@ -65,7 +65,7 @@ export function LeadFormInline() {
         <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: O }}>
           Devis gratuit · Sans engagement
         </p>
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
+        <h2 className="text-2xl md:text-3xl font-bold text-text mb-3 leading-tight">
           Recevez votre programme sur mesure sous 48h
         </h2>
         <p className="text-text-secondary text-sm leading-relaxed mb-7">
@@ -93,7 +93,7 @@ export function LeadFormInline() {
         >
           <Shield size={15} style={{ color: O }} className="flex-shrink-0 mt-0.5" />
           <p className="text-[12px] text-text-secondary leading-relaxed">
-            <span className="text-white font-semibold">Satisfaction garantie.</span>{' '}
+            <span className="text-text font-semibold">Satisfaction garantie.</span>{' '}
             Si votre équipe n&apos;applique aucune compétence dès J+1, on revient gratuitement.
           </p>
         </div>
@@ -132,7 +132,7 @@ export function LeadFormInline() {
               <CheckCircle2 size={24} className="text-green-400" />
             </div>
             <div>
-              <h3 className="text-white font-bold text-xl mb-2">Message envoyé !</h3>
+              <h3 className="text-text font-bold text-xl mb-2">Message envoyé !</h3>
               <p className="text-text-secondary text-sm leading-relaxed">
                 Nous vous répondons sous 48h avec un programme personnalisé et un devis détaillé.
               </p>
@@ -140,7 +140,7 @@ export function LeadFormInline() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 h-full flex flex-col justify-center">
-            <h3 className="text-white font-bold text-lg mb-1">Demander un devis gratuit</h3>
+            <h3 className="text-text font-bold text-lg mb-1">Demander un devis gratuit</h3>
             <p className="text-text-muted text-xs mb-4">Réponse en moins de 48h ouvrés.</p>
 
             {/* Honeypot */}
@@ -165,7 +165,7 @@ export function LeadFormInline() {
                 value={form.firstName}
                 onChange={(e) => setForm((f) => ({ ...f, firstName: e.target.value }))}
                 placeholder="Marie"
-                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-white placeholder-text-muted bg-bg border border-border focus:border-orange-500 focus:outline-none transition-colors"
+                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-text placeholder-text-muted bg-bg border border-border focus:border-orange-500 focus:outline-none transition-colors"
               />
             </div>
 
@@ -180,7 +180,7 @@ export function LeadFormInline() {
                 value={form.email}
                 onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                 placeholder="marie@votre-entreprise.ch"
-                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-white placeholder-text-muted bg-bg border border-border focus:border-orange-500 focus:outline-none transition-colors"
+                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-text placeholder-text-muted bg-bg border border-border focus:border-orange-500 focus:outline-none transition-colors"
               />
             </div>
 
@@ -195,7 +195,7 @@ export function LeadFormInline() {
                 onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                 placeholder="Taille de l'équipe, secteur, outils utilisés..."
                 rows={3}
-                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-white placeholder-text-muted bg-bg border border-border focus:border-orange-500 focus:outline-none transition-colors resize-none"
+                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-text placeholder-text-muted bg-bg border border-border focus:border-orange-500 focus:outline-none transition-colors resize-none"
               />
             </div>
 

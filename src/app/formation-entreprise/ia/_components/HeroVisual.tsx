@@ -51,7 +51,7 @@ export function HeroVisual() {
               ].map((tool) => (
                 <div key={tool.name} className="rounded-lg p-2.5" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-bold text-white">{tool.name}</span>
+                    <span className="text-[10px] font-bold text-text">{tool.name}</span>
                     <span className="text-[8px] text-zinc-500">{tool.version}</span>
                   </div>
                   <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">

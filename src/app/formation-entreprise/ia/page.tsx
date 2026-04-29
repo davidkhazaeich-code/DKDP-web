@@ -133,11 +133,11 @@ export default function FormationIAPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation IA en entreprise à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>1 jour</GradText>{' '}chez nous. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>8 heures</GradText>{' '}gagnées chaque semaine.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. <strong className="text-white">100% de nos participants sont opérationnels dès J+1</strong> et gagnent en moyenne 8 heures par semaine.
+                  DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. <strong className="text-text">100% de nos participants sont opérationnels dès J+1</strong> et gagnent en moyenne 8 heures par semaine.
                 </p>
                 <HeroPills
                   accentRgb="255, 140, 0"
@@ -201,7 +201,7 @@ export default function FormationIAPage() {
               <SectionReveal key={s.l}>
                 <div className="text-center">
                   <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.v}</p>
-                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -407,7 +407,7 @@ export default function FormationIAPage() {
                   >
                     <f.Icon size={22} style={{ color }} />
                   </div>
-                  <h3 className="text-white font-bold text-lg">{f.title}</h3>
+                  <h3 className="text-text font-bold text-lg">{f.title}</h3>
                   <p className="text-text-secondary leading-relaxed text-sm">{f.desc}</p>
                 </div>
               </SectionReveal>
@@ -464,7 +464,7 @@ export default function FormationIAPage() {
                   </div>
                   <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
                   <div className="mt-6 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                    <p className="text-white font-semibold text-sm">{t.name}</p>
+                    <p className="text-text font-semibold text-sm">{t.name}</p>
                     <p className="text-text-muted text-xs">{t.company}</p>
                   </div>
                 </div>
@@ -539,7 +539,7 @@ export default function FormationIAPage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5 text-[#D4D4D8]">Aller plus loin</p>
-                  <p className="text-white font-bold text-lg leading-tight">Déployer l&apos;IA dans vos processus</p>
+                  <p className="text-text font-bold text-lg leading-tight">Déployer l&apos;IA dans vos processus</p>
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
                     La formation donne les bases. Pour automatiser vos vrais processus avec des agents IA sur mesure : voyez notre offre Intelligence Artificielle.
                   </p>

@@ -120,7 +120,7 @@ export function FormateursSection() {
                   {/* Nom + LinkedIn */}
                   <div className="flex items-center justify-between gap-3 mb-0.5">
                     <div className="flex items-center gap-2">
-                      <h3 className="text-white font-bold text-[17px] leading-tight">{t.name}</h3>
+                      <h3 className="text-text font-bold text-[17px] leading-tight">{t.name}</h3>
                       <BadgeCheck size={15} style={{ color }} className="flex-shrink-0" />
                     </div>
                     {t.linkedin && (
@@ -193,7 +193,7 @@ export function FormateursSection() {
             {/* Info */}
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-0.5">
-                <p className="text-white font-bold text-sm">{SUPPORT.name}</p>
+                <p className="text-text font-bold text-sm">{SUPPORT.name}</p>
                 <BadgeCheck size={13} style={{ color }} />
               </div>
               <p className="text-xs mb-2" style={{ color }}>{SUPPORT.role}</p>

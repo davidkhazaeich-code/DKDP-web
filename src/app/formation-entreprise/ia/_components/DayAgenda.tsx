@@ -28,7 +28,7 @@ export function DayAgenda() {
             style={{ background: ts.bg, border: `1px solid ${ts.border}` }}
           >
             <span className="text-[11px] font-bold w-11 flex-shrink-0" style={{ color: ts.color }}>{s.time}</span>
-            <span className="text-white text-[12px] font-medium flex-1">{s.title}</span>
+            <span className="text-text text-[12px] font-medium flex-1">{s.title}</span>
             <span
               className="hidden sm:inline text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full flex-shrink-0"
               style={{ background: ts.bg, color: ts.color, border: `1px solid ${ts.border}` }}

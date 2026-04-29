@@ -50,7 +50,7 @@ export function InfiniteGrid({
   }, [])
 
   const BASE_GRID  = buildGrid(colors.gridLine)
-  const HOVER_GRID = buildGrid(`rgba(${accentRgb},0.70)`)
+  const HOVER_GRID = buildGrid(`rgba(${accentRgb},0.80)`)
 
   // Mouse position for the radial mask
   const mouseX = useMotionValue(-9999)

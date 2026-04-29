@@ -150,7 +150,7 @@ export function themeColors(theme: 'dark' | 'light') {
         orangeAlpha: 'rgba(255,107,0,0.22)',
         violetAlpha: 'rgba(124,58,237,0.18)',
         pointTint:   '#1A1A18',
-        gridLine:    'rgba(10,10,10,0.08)',
+        gridLine:    'rgba(10,10,10,0.16)',
       }
 }
 

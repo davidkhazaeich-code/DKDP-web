@@ -127,12 +127,12 @@ export function LeadFormInlineClaudeAI() {
           <div className="flex flex-col items-center justify-center h-full text-center gap-5 py-8">
             <div
               className="w-14 h-14 rounded-full flex items-center justify-center"
-              style={{ background: 'rgba(74,222,128,0.1)', border: '1px solid rgba(74,222,128,0.25)' }}
+              style={{ background: 'var(--green-bg)', border: '1px solid var(--green-border)' }}
             >
-              <CheckCircle2 size={24} className="text-green-400" />
+              <CheckCircle2 size={24} style={{ color: 'var(--green-text)' }} />
             </div>
             <div>
-              <h3 className="text-white font-bold text-xl mb-2">Message envoyé !</h3>
+              <h3 className="text-text font-bold text-xl mb-2">Message envoyé !</h3>
               <p className="text-text-secondary text-sm leading-relaxed">
                 Nous vous répondons sous 48h avec un programme Claude IA personnalisé et un devis détaillé.
               </p>
@@ -140,7 +140,7 @@ export function LeadFormInlineClaudeAI() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 h-full flex flex-col justify-center">
-            <h3 className="text-white font-bold text-lg mb-1">Demander un devis gratuit</h3>
+            <h3 className="text-text font-bold text-lg mb-1">Demander un devis gratuit</h3>
             <p className="text-text-muted text-xs mb-4">Réponse en moins de 48h ouvrés.</p>
 
             {/* Honeypot */}
@@ -201,7 +201,7 @@ export function LeadFormInlineClaudeAI() {
             </div>
 
             {status === 'error' && (
-              <p className="text-red-500 text-xs">
+              <p className="text-xs" style={{ color: 'var(--red-text)' }}>
                 Une erreur est survenue. Contactez-nous directement à{' '}
                 <a href="mailto:dk@dkdp.ch" className="underline">
                   dk@dkdp.ch

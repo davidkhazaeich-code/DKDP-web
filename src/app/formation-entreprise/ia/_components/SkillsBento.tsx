@@ -14,12 +14,12 @@ const SKILLS = [
     visual: (
       <div className="mt-4 space-y-2 font-mono text-[11px]">
         <div className="flex items-center gap-2">
-          <span className="text-orange-400">{'>'}</span>
-          <span className="text-zinc-400">Agis comme un expert RH senior. Analyse ce CV...</span>
+          <span style={{ color: 'var(--orange-text)' }}>{'>'}</span>
+          <span className="text-text-secondary">Agis comme un expert RH senior. Analyse ce CV...</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-green-400">{'✓'}</span>
-          <span className="text-zinc-300">Synthese structuree en 30s au lieu de 15min</span>
+          <span style={{ color: 'var(--green-text)' }}>{'✓'}</span>
+          <span className="text-text">Synthese structuree en 30s au lieu de 15min</span>
         </div>
       </div>
     ),
@@ -42,7 +42,7 @@ const SKILLS = [
             </div>
           ))}
         </div>
-        <span className="text-[10px] text-zinc-500">Analyses en secondes</span>
+        <span className="text-[10px] text-text-muted">Analyses en secondes</span>
       </div>
     ),
   },
@@ -65,7 +65,7 @@ const SKILLS = [
                 style={{ height: `${t.pct}%`, background: `linear-gradient(to top, rgba(255,107,0,0.4), rgba(255,107,0,0.15))` }}
               />
             </div>
-            <span className="text-[9px] text-zinc-500 mt-1 block">{t.name}</span>
+            <span className="text-[9px] text-text-muted mt-1 block">{t.name}</span>
           </div>
         ))}
       </div>
@@ -84,9 +84,9 @@ const SKILLS = [
           { task: 'Synthese de rapport', before: '45 min', after: '1 min' },
         ].map((r) => (
           <div key={r.task} className="flex items-center justify-between text-[10px]">
-            <span className="text-zinc-400">{r.task}</span>
+            <span className="text-text-secondary">{r.task}</span>
             <div className="flex items-center gap-2">
-              <span className="text-zinc-600 line-through">{r.before}</span>
+              <span className="text-text-muted line-through">{r.before}</span>
               <span className="font-bold" style={{ color: '#FF8C00' }}>{r.after}</span>
             </div>
           </div>
@@ -101,11 +101,11 @@ const SKILLS = [
     span: '',
     visual: (
       <div className="mt-4 flex gap-2">
-        <div className="flex-1 rounded-lg p-2 text-center" style={{ background: 'rgba(74,222,128,0.06)', border: '1px solid rgba(74,222,128,0.15)' }}>
-          <span className="text-[10px] text-green-400 font-medium">A envoyer</span>
+        <div className="flex-1 rounded-lg p-2 text-center" style={{ background: 'var(--green-bg)', border: '1px solid var(--green-border)' }}>
+          <span className="text-[10px] font-medium" style={{ color: 'var(--green-text)' }}>A envoyer</span>
         </div>
-        <div className="flex-1 rounded-lg p-2 text-center" style={{ background: 'rgba(252,165,165,0.06)', border: '1px solid rgba(252,165,165,0.15)' }}>
-          <span className="text-[10px] text-red-300 font-medium">A ne pas envoyer</span>
+        <div className="flex-1 rounded-lg p-2 text-center" style={{ background: 'var(--red-bg)', border: '1px solid var(--red-border)' }}>
+          <span className="text-[10px] font-medium" style={{ color: 'var(--red-text)' }}>A ne pas envoyer</span>
         </div>
       </div>
     ),

@@ -46,7 +46,7 @@ export function SiteAuditBlock() {
   }
 
   const inputCls =
-    'w-full bg-bg border border-border rounded-[8px] py-3 text-[13px] text-white ' +
+    'w-full bg-bg border border-border rounded-[8px] py-3 text-[13px] text-text ' +
     'placeholder:text-text-muted focus:outline-none focus:border-violet transition-colors duration-150'
 
   return (
@@ -55,8 +55,8 @@ export function SiteAuditBlock() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div
-              className="rounded-[24px] border overflow-hidden"
-              style={{ background: 'rgba(12,8,18,0.7)', borderColor: border }}
+              className="rounded-[24px] border overflow-hidden bg-bg-card"
+              style={{ borderColor: border }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-2">
 
@@ -92,7 +92,7 @@ export function SiteAuditBlock() {
                         <CheckCircle2 size={32} style={{ color }} />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-2">Demande reçue !</h3>
+                        <h3 className="text-xl font-bold text-text mb-2">Demande reçue !</h3>
                         <p className="text-text-secondary text-sm">
                           On analyse votre site et vous envoyons le rapport sous 24–48h ouvrables.
                         </p>
@@ -146,7 +146,7 @@ export function SiteAuditBlock() {
                       </div>
 
                       {error && (
-                        <p className="text-red-400 text-[12px]">{error}</p>
+                        <p className="text-[12px]" style={{ color: 'var(--red-text)' }}>{error}</p>
                       )}
 
                       <button

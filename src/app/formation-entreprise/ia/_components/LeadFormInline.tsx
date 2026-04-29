@@ -127,9 +127,9 @@ export function LeadFormInline() {
           <div className="flex flex-col items-center justify-center h-full text-center gap-5 py-8">
             <div
               className="w-14 h-14 rounded-full flex items-center justify-center"
-              style={{ background: 'rgba(74,222,128,0.1)', border: '1px solid rgba(74,222,128,0.25)' }}
+              style={{ background: 'var(--green-bg)', border: '1px solid var(--green-border)' }}
             >
-              <CheckCircle2 size={24} className="text-green-400" />
+              <CheckCircle2 size={24} style={{ color: 'var(--green-text)' }} />
             </div>
             <div>
               <h3 className="text-text font-bold text-xl mb-2">Message envoyé !</h3>
@@ -200,7 +200,7 @@ export function LeadFormInline() {
             </div>
 
             {status === 'error' && (
-              <p className="text-red-400 text-xs">
+              <p className="text-xs" style={{ color: 'var(--red-text)' }}>
                 Une erreur est survenue. Contactez-nous directement à{' '}
                 <a href="mailto:dk@dkdp.ch" className="underline">
                   dk@dkdp.ch

@@ -2,6 +2,11 @@
 import { SunIcon, MoonIcon } from '@radix-ui/react-icons'
 import { useTheme } from '@/components/providers/ThemeProvider'
 
+// Set to true once light mode polish is complete (top gradient strip, DottedSurface
+// vertex-color dimming, etc.). When false, the button is not rendered and the
+// inline anti-FOUC script in layout.tsx forces dark theme on every load.
+const ENABLE_LIGHT_MODE = false
+
 interface ThemeToggleProps {
   /** Tailwind classes appended to the wrapping <button> */
   className?: string
@@ -18,6 +23,7 @@ interface ThemeToggleProps {
  * server then syncs to actual localStorage value in useEffect.
  */
 export function ThemeToggle({ className = '', compact = false }: ThemeToggleProps) {
+  if (!ENABLE_LIGHT_MODE) return null
   const { theme, toggle, mounted } = useTheme()
   const isDark = theme === 'dark'
   const size = compact ? 'h-8 w-8' : 'h-9 w-9'

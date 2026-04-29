@@ -63,11 +63,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr-CH" className={inter.variable} suppressHydrationWarning>
       <head>
-        {/* Anti-FOUC theme init, must run synchronously before any paint */}
+        {/*
+          Anti-FOUC theme init. While light mode is being polished, this script
+          forces dark theme regardless of localStorage value. To re-enable the
+          toggle, also flip ENABLE_LIGHT_MODE in src/components/ui/ThemeToggle.tsx
+          AND restore the original script body that reads localStorage.
+        */}
         <script
           id="dkdp-theme-init"
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('dkdp-theme');var d=document.documentElement;if(t==='light'){d.setAttribute('data-theme','light');d.style.colorScheme='light';}else{d.setAttribute('data-theme','dark');d.style.colorScheme='dark';}}catch(e){document.documentElement.setAttribute('data-theme','dark');document.documentElement.style.colorScheme='dark';}})();`,
+            __html: `(function(){try{var d=document.documentElement;d.setAttribute('data-theme','dark');d.style.colorScheme='dark';try{localStorage.removeItem('dkdp-theme');}catch(e){}}catch(e){}})();`,
           }}
         />
         {/* Google Tag Manager */}

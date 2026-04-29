@@ -34,8 +34,8 @@ export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { 
           <CheckCircle2 size={28} style={{ color: '#A78BFA' }} />
         </div>
         <div>
-          <p className="text-white font-bold text-lg mb-1">Demande reçue !</p>
-          <p className="text-zinc-400 text-sm">On analyse votre site et vous envoyons le rapport sous 48h ouvrées.</p>
+          <p className="text-text font-bold text-lg mb-1">Demande reçue !</p>
+          <p className="text-text-secondary text-sm">On analyse votre site et vous envoyons le rapport sous 48h ouvrées.</p>
         </div>
       </div>
     )
@@ -45,11 +45,11 @@ export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { 
     <form onSubmit={handleSubmit}>
       {/* URL */}
       <div className="mb-4">
-        <label htmlFor="url" className="block text-sm font-semibold text-white mb-2">
+        <label htmlFor="url" className="block text-sm font-semibold text-text mb-2">
           URL de votre site web
         </label>
         <div className="relative">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none" aria-hidden="true">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
               <path d="M8 1.5C8 1.5 6 4.5 6 8s2 6.5 2 6.5M8 1.5C8 1.5 10 4.5 10 8s-2 6.5-2 6.5M1.5 8h13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
@@ -63,15 +63,14 @@ export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { 
             value={url}
             onChange={e => setUrl(e.target.value)}
             placeholder="https://votre-site.ch"
-            className="w-full rounded-[12px] border border-[rgba(212,212,216,0.14)] focus:border-[#A78BFA] px-4 py-4 pl-12 text-white text-base placeholder:text-zinc-500 outline-none transition-colors"
-            style={{ background: 'rgba(212,212,216,0.04)' }}
+            className="w-full rounded-[12px] border border-[color:var(--border)] focus:border-[#A78BFA] px-4 py-4 pl-12 text-text text-base placeholder:text-text-muted outline-none transition-colors bg-[var(--surface-default)]"
           />
         </div>
       </div>
 
       {/* Email */}
       <div className="mb-6">
-        <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
+        <label htmlFor="email" className="block text-sm font-semibold text-text mb-2">
           Votre adresse email
         </label>
         <input
@@ -81,13 +80,12 @@ export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { 
           value={email}
           onChange={e => setEmail(e.target.value)}
           placeholder="vous@entreprise.ch"
-          className="w-full rounded-[12px] border border-[rgba(212,212,216,0.14)] focus:border-[#A78BFA] px-4 py-4 text-white text-base placeholder:text-zinc-500 outline-none transition-colors"
-          style={{ background: 'rgba(212,212,216,0.04)' }}
+          className="w-full rounded-[12px] border border-[color:var(--border)] focus:border-[#A78BFA] px-4 py-4 text-text text-base placeholder:text-text-muted outline-none transition-colors bg-[var(--surface-default)]"
         />
       </div>
 
       {status === 'error' && (
-        <p className="text-red-400 text-sm mb-4 text-center">
+        <p className="text-red-500 text-sm mb-4 text-center">
           Une erreur est survenue. Réessayez ou écrivez à dk@dkdp.ch
         </p>
       )}
@@ -105,7 +103,7 @@ export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { 
         }
       </button>
 
-      <p className="text-center text-xs text-zinc-500 mt-4">
+      <p className="text-center text-xs text-text-muted mt-4">
         Gratuit · Sans engagement · Résultats sous 48h · Données confidentielles
       </p>
     </form>

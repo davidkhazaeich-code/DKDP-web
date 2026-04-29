@@ -3,8 +3,6 @@
 import { useState } from 'react'
 import { Send, CheckCircle2, Loader2 } from 'lucide-react'
 
-const chromeBd = 'rgba(212,212,216,0.16)'
-
 export function NewsletterForm() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -34,8 +32,8 @@ export function NewsletterForm() {
         >
           <CheckCircle2 size={24} style={{ color: '#86efac' }} />
         </div>
-        <p className="text-white font-semibold">C&apos;est noté !</p>
-        <p className="text-zinc-400 text-sm">On vous enverra le prochain article.</p>
+        <p className="text-text font-semibold">C&apos;est noté !</p>
+        <p className="text-text-secondary text-sm">On vous enverra le prochain article.</p>
       </div>
     )
   }
@@ -54,8 +52,7 @@ export function NewsletterForm() {
         onChange={e => setEmail(e.target.value)}
         placeholder="votre@email.ch"
         aria-label="Adresse email"
-        className="flex-1 rounded-[10px] border px-4 py-3 text-sm bg-transparent text-white placeholder:text-zinc-500 outline-none focus:border-[rgba(167,139,250,0.50)] transition-colors"
-        style={{ borderColor: chromeBd }}
+        className="flex-1 rounded-[10px] border border-[color:var(--border)] px-4 py-3 text-sm bg-transparent text-text placeholder:text-text-muted outline-none focus:border-[rgba(167,139,250,0.50)] transition-colors"
       />
       <button
         type="submit"
@@ -71,7 +68,7 @@ export function NewsletterForm() {
       </button>
 
       {status === 'error' && (
-        <p className="w-full text-red-400 text-xs text-center mt-1">
+        <p className="w-full text-red-500 text-xs text-center mt-1">
           Erreur. Écrivez-nous à dk@dkdp.ch
         </p>
       )}

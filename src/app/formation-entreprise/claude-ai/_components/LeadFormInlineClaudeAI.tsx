@@ -165,7 +165,7 @@ export function LeadFormInlineClaudeAI() {
                 value={form.firstName}
                 onChange={(e) => setForm((f) => ({ ...f, firstName: e.target.value }))}
                 placeholder="Marie"
-                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-white placeholder-text-muted bg-bg border border-border focus:outline-none transition-colors"
+                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-text placeholder-text-muted bg-bg border border-border focus:outline-none transition-colors"
                 style={{ '--tw-ring-color': C } as React.CSSProperties}
               />
             </div>
@@ -181,7 +181,7 @@ export function LeadFormInlineClaudeAI() {
                 value={form.email}
                 onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                 placeholder="marie@votre-entreprise.ch"
-                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-white placeholder-text-muted bg-bg border border-border focus:outline-none transition-colors"
+                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-text placeholder-text-muted bg-bg border border-border focus:outline-none transition-colors"
               />
             </div>
 
@@ -196,12 +196,12 @@ export function LeadFormInlineClaudeAI() {
                 onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                 placeholder="Taille de l'équipe, département, niveau actuel..."
                 rows={3}
-                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-white placeholder-text-muted bg-bg border border-border focus:outline-none transition-colors resize-none"
+                className="w-full rounded-[10px] px-4 py-2.5 text-sm text-text placeholder-text-muted bg-bg border border-border focus:outline-none transition-colors resize-none"
               />
             </div>
 
             {status === 'error' && (
-              <p className="text-red-400 text-xs">
+              <p className="text-red-500 text-xs">
                 Une erreur est survenue. Contactez-nous directement à{' '}
                 <a href="mailto:dk@dkdp.ch" className="underline">
                   dk@dkdp.ch

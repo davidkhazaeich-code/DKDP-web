@@ -188,8 +188,8 @@ function InputField({
       <label htmlFor={id} className="text-sm font-medium text-zinc-400 mb-1 flex items-center gap-1.5">
         {icon && <span className="text-zinc-500">{icon}</span>}
         {label}
-        {required && <span className="text-violet-400 ml-1">*</span>}
-        {optional && <span className="text-zinc-600 ml-1 font-normal text-xs">(optionnel)</span>}
+        {required && <span className="text-violet-500 ml-1">*</span>}
+        {optional && <span className="text-text-muted ml-1 font-normal text-xs">(optionnel)</span>}
       </label>
       {children}
     </div>
@@ -197,7 +197,7 @@ function InputField({
 }
 
 const inputClass =
-  'w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder-zinc-500 focus:border-violet-500/50 focus:outline-none focus:ring-1 focus:ring-violet-500/30'
+  'w-full rounded-xl border border-[color:var(--border)] bg-[var(--surface-default)] px-4 py-3 text-text placeholder:text-text-muted focus:border-violet-500/50 focus:outline-none focus:ring-1 focus:ring-violet-500/30'
 
 // ── Main component ──
 

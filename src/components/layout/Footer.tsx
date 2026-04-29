@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { Monitor, GraduationCap, Sparkles, ChevronRight, Phone, Mail, MapPin, Clock, LayoutGrid } from 'lucide-react'
+import { DkdpLogo } from '@/components/ui/DkdpLogo'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -128,13 +128,11 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
 
           {/* Brand column */}
           <div className="flex flex-col pb-6">
-            <Image
-              src="/images/logo/dkdp_blanc-croped.png"
+            <DkdpLogo
               alt="DKDP, Service Digital Genève"
               width={80}
               height={14}
-              style={{ height: 'auto' }}
-              className="mb-4"
+              className="h-auto mb-4"
             />
             <p className="text-text-secondary text-sm leading-relaxed mb-5">
               Service digital à Genève.<br />
@@ -204,13 +202,11 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
         {/* Brand section */}
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 pb-8 border-b border-border">
           <div>
-            <Image
-              src="/images/logo/dkdp_blanc-croped.png"
+            <DkdpLogo
               alt="DKDP, Service Digital Genève"
               width={80}
               height={14}
-              style={{ height: 'auto' }}
-              className="mb-3"
+              className="h-auto mb-3"
             />
             <p className="text-text-secondary text-sm leading-relaxed">
               Service digital à Genève.<br />

@@ -156,7 +156,7 @@ export function AllServices() {
                     onClick={() => { setHasInteracted(true); setActive(isActive ? null : pillar.key) }}
                     className={`group relative flex flex-col overflow-hidden rounded-[12px] sm:rounded-[16px] transition-all duration-300 cursor-pointer backdrop-blur-lg ${isActive ? '' : 'hover:scale-[1.02] active:scale-[0.98]'}`}
                     style={{
-                      background: isActive ? `${pillar.color}18` : 'rgba(9,9,11,0.45)',
+                      background: isActive ? `${pillar.color}18` : 'var(--bg-card)',
                       border: `2px solid ${pillar.color}${isActive ? '' : shouldAnimate ? '40' : '25'}`,
                       boxShadow: isActive ? `0 0 30px ${pillar.color}20, inset 0 1px 0 ${pillar.color}20` : shouldAnimate ? `0 0 16px ${pillar.color}12` : 'none',
                       animation: shouldAnimate ? `pillarNudge 2.8s ease-in-out infinite` : 'none',
@@ -166,14 +166,14 @@ export function AllServices() {
                       if (isActive) return
                       const el = e.currentTarget
                       el.style.borderColor = `${pillar.color}70`
-                      el.style.background = `rgba(9,9,11,0.35)`
+                      el.style.background = `var(--bg-card-hover)`
                       el.style.boxShadow = `0 0 20px ${pillar.color}15`
                     }}
                     onMouseLeave={(e) => {
                       if (isActive) return
                       const el = e.currentTarget
                       el.style.borderColor = `${pillar.color}${shouldAnimate ? '40' : '25'}`
-                      el.style.background = 'rgba(9,9,11,0.45)'
+                      el.style.background = 'var(--bg-card)'
                       el.style.boxShadow = shouldAnimate ? `0 0 16px ${pillar.color}12` : 'none'
                     }}
                   >
@@ -188,7 +188,7 @@ export function AllServices() {
                       />
                       <div
                         className="absolute inset-0"
-                        style={{ background: `linear-gradient(to top, rgba(9,9,11,0.6) 0%, rgba(9,9,11,0.05) 60%), linear-gradient(to top, ${pillar.color}15 0%, transparent 40%)` }}
+                        style={{ background: `linear-gradient(to top, var(--bg) 0%, transparent 60%), linear-gradient(to top, ${pillar.color}15 0%, transparent 40%)` }}
                       />
                     </div>
 
@@ -224,7 +224,7 @@ export function AllServices() {
                       <div className="text-center">
                         <p
                           className="text-[11px] sm:text-sm font-semibold transition-colors duration-300 leading-tight"
-                          style={{ color: isActive ? pillar.color : '#e4e4e7' }}
+                          style={{ color: isActive ? pillar.color : 'var(--text)' }}
                         >
                           <span className="hidden sm:inline">{pillar.label}</span>
                           <span className="sm:hidden">{pillar.shortLabel}</span>
@@ -389,7 +389,7 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
       <Link
         href={service.href}
         className="group flex flex-col h-full rounded-[14px] border overflow-hidden hover:-translate-y-0.5 transition-transform duration-200 backdrop-blur-lg"
-        style={{ background: 'rgba(9,9,11,0.45)', borderColor: service.badge ? `${color}40` : border, boxShadow: service.badge ? `0 0 28px ${color}10` : undefined }}
+        style={{ background: 'var(--bg-card)', borderColor: service.badge ? `${color}40` : border, boxShadow: service.badge ? `0 0 28px ${color}10` : undefined }}
       >
         {/* Image */}
         <div className="relative h-36 sm:h-40 overflow-hidden">
@@ -419,7 +419,7 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
           >
             <service.icon size={15} style={{ color }} />
           </div>
-          <h3 className="text-white font-semibold text-[15px] sm:text-base mb-1.5 sm:mb-2">{service.title}</h3>
+          <h3 className="text-text font-semibold text-[15px] sm:text-base mb-1.5 sm:mb-2">{service.title}</h3>
           <p className="text-text-secondary text-xs sm:text-sm leading-relaxed flex-1">{service.description}</p>
           <span
             className="mt-4 inline-flex items-center gap-1 text-[11px] sm:text-[12px] font-semibold transition-opacity group-hover:opacity-70"

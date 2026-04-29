@@ -141,7 +141,7 @@ export default function FormationCanvaPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation Canva à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Créez vos visuels en 5 minutes. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Aux couleurs de votre marque</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
@@ -205,7 +205,7 @@ export default function FormationCanvaPage() {
               <SectionReveal key={s.l}>
                 <div className="text-center">
                   <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.v}</p>
-                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -340,7 +340,7 @@ export default function FormationCanvaPage() {
                   className="flex items-center justify-center text-center p-4 rounded-[12px] border h-full"
                   style={{ background: bg, borderColor: border }}
                 >
-                  <p className="text-white font-medium text-sm">{role}</p>
+                  <p className="text-text font-medium text-sm">{role}</p>
                 </div>
               </SectionReveal>
             ))}
@@ -378,7 +378,7 @@ export default function FormationCanvaPage() {
                     >
                       <s.Icon size={20} style={{ color }} />
                     </div>
-                    <h3 className="text-white font-semibold text-sm">{s.title}</h3>
+                    <h3 className="text-text font-semibold text-sm">{s.title}</h3>
                     <p className="text-text-muted text-xs leading-relaxed">{s.desc}</p>
                   </div>
                 </SectionReveal>
@@ -434,7 +434,7 @@ export default function FormationCanvaPage() {
                   </div>
                   <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
                   <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-white font-semibold text-sm">{t.name}</p>
+                    <p className="text-text font-semibold text-sm">{t.name}</p>
                     <p className="text-text-muted text-xs">{t.company}</p>
                   </div>
                 </div>
@@ -490,7 +490,7 @@ export default function FormationCanvaPage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Aller plus loin</p>
-                  <p className="text-white font-bold text-lg leading-tight">Diffuser vos visuels Canva sur les bons réseaux</p>
+                  <p className="text-text font-bold text-lg leading-tight">Diffuser vos visuels Canva sur les bons réseaux</p>
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
                     Vous créez de beaux visuels avec Canva. Pour les diffuser efficacement sur les bonnes plateformes et bâtir votre audience, découvrez notre formation réseaux sociaux.
                   </p>

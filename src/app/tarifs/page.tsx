@@ -202,7 +202,7 @@ export default function TarifsPage() {
                 <HelpCircle size={20} style={{ color: chromeColor }} />
               </div>
               <p className="text-text-secondary leading-relaxed text-[15px]">
-                <strong className="text-white font-semibold">Nos tarifs sont indicatifs.</strong>{' '}
+                <strong className="text-text font-semibold">Nos tarifs sont indicatifs.</strong>{' '}
                 Chaque projet est unique. Après votre appel découverte (gratuit, 30 min), vous recevez un devis
                 détaillé et sans engagement. Ce que vous voyez ici vous donne une idée claire de l\'ordre de grandeur.
               </p>

@@ -32,7 +32,7 @@ export function ProjectCard({ realisation: r }: ProjectCardProps) {
               className="h-6 w-auto opacity-80"
             />
           ) : (
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-violet-500/15 text-xs font-bold text-violet-300">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--violet-bg)] text-xs font-bold text-[var(--violet-text)]">
               {initial}
             </span>
           )}
@@ -53,14 +53,14 @@ export function ProjectCard({ realisation: r }: ProjectCardProps) {
             {r.tags.slice(0, 3).map(t => (
               <span
                 key={t}
-                className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] uppercase tracking-wide text-text-muted"
+                className="rounded-full border border-border px-2 py-0.5 text-[10px] uppercase tracking-wide text-text-muted"
               >
                 {t}
               </span>
             ))}
           </div>
           {featuredMetric ? (
-            <span className="text-xs font-semibold text-violet-300">
+            <span className="text-xs font-semibold text-[var(--violet-text)]">
               {featuredMetric.value}
             </span>
           ) : !r.liveUrl ? (

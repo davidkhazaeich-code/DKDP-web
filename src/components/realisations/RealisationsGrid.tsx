@@ -54,7 +54,7 @@ export function RealisationsGrid({ items }: Props) {
             </p>
             <button
               type="button"
-              className="mt-4 rounded-full border border-white/10 px-4 py-2 text-sm text-text-primary hover:bg-white/5"
+              className="mt-4 rounded-full border border-border px-4 py-2 text-sm text-text hover:bg-[var(--surface-default)]"
               onClick={() => setFilter({ category: 'all', tag: null })}
             >
               Reinitialiser les filtres

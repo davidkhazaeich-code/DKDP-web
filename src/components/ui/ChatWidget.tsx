@@ -724,8 +724,8 @@ export function ChatWidget() {
                 background: 'var(--bg-card)',
                 border: '1px solid var(--border-violet)',
                 boxShadow: barFocused
-                  ? '0 8px 40px rgba(124,58,237,0.20), 0 0 0 1px rgba(124,58,237,0.30)'
-                  : '0 8px 28px color-mix(in srgb, var(--text) 18%, transparent), 0 0 0 1px var(--surface-border)',
+                  ? '0 0 0 1px rgba(124,58,237,0.30)'
+                  : '0 0 0 1px var(--surface-border)',
               }}
             >
               <AnimatedOrb size={28} animated />
@@ -847,7 +847,7 @@ export function ChatWidget() {
             style={{
               background: 'var(--bg-card)',
               border: '1px solid var(--border-violet)',
-              boxShadow: '0 16px 70px color-mix(in srgb, var(--text) 30%, transparent), 0 0 80px rgba(124,58,237,0.08)',
+              boxShadow: '0 0 0 1px var(--border-violet)',
               overscrollBehavior: 'contain',
               touchAction: 'auto',
               WebkitOverflowScrolling: 'touch',

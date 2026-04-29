@@ -9,6 +9,7 @@ import {
   useScroll,
   motion,
 } from 'framer-motion'
+import { useThemeColors } from '@/hooks/useThemeColors'
 
 // Default (homepage) colours
 const DEFAULT_ACCENT_RGB = '167,139,250'   // violet
@@ -39,6 +40,7 @@ export function InfiniteGrid({
   blob2     = DEFAULT_BLOB2,
 }: InfiniteGridProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const colors = useThemeColors()
   // Delay the rAF loop by 500ms so LCP can paint before the animation thread starts
   const activeRef = useRef(false)
   const mouseThrottleRef = useRef(false)
@@ -47,7 +49,7 @@ export function InfiniteGrid({
     return () => clearTimeout(t)
   }, [])
 
-  const BASE_GRID  = buildGrid('rgba(255,255,255,0.10)')
+  const BASE_GRID  = buildGrid(colors.gridLine)
   const HOVER_GRID = buildGrid(`rgba(${accentRgb},0.70)`)
 
   // Mouse position for the radial mask

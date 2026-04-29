@@ -591,7 +591,7 @@ export function Header() {
           className={cn(
             'pointer-events-auto max-w-[1200px] mx-auto mt-2 rounded-2xl border transition-all duration-300',
             scrolled || mobileOpen
-              ? 'backdrop-blur-2xl border-border shadow-[0_4px_30px_color-mix(in_srgb,var(--text)_25%,transparent),0_0_0_1px_var(--surface-border)]'
+              ? 'backdrop-blur-2xl border-border shadow-[0_1px_6px_color-mix(in_srgb,var(--text)_8%,transparent),0_0_0_1px_var(--surface-border)]'
               : 'bg-transparent border-transparent'
           )}
           style={

@@ -62,9 +62,9 @@ export function GoogleMapSection() {
                   </div>
                   <div className="min-w-0">
                     {'href' in rest && rest.href ? (
-                      <a href={rest.href} className="text-white text-sm font-medium hover:text-violet-light transition-colors">{title}</a>
+                      <a href={rest.href} className="text-text text-sm font-medium hover:text-violet-light transition-colors">{title}</a>
                     ) : (
-                      <p className="text-white text-sm font-medium">{title}</p>
+                      <p className="text-text text-sm font-medium">{title}</p>
                     )}
                     <p className="text-text-muted text-[11px]">{sub}</p>
                   </div>

@@ -148,7 +148,7 @@ export function FormationTrainer({ accentColor = '#FF8C00' }: { accentColor?: st
                 <div className="flex flex-col flex-1 p-5">
                   {/* Name + badges */}
                   <div className="flex items-center gap-1.5 mb-1">
-                    <p className="text-white font-bold text-lg leading-tight">{t.name}</p>
+                    <p className="text-text font-bold text-lg leading-tight">{t.name}</p>
                     <BadgeCheck size={16} style={{ color: accentColor }} className="flex-shrink-0" />
                     {t.linkedin && (
                       <Link
@@ -201,7 +201,7 @@ export function FormationTrainer({ accentColor = '#FF8C00' }: { accentColor?: st
                     <Star key={i} size={15} fill={accentColor} color={accentColor} />
                   ))}
                 </div>
-                <span className="text-white font-bold text-lg">4.9/5</span>
+                <span className="text-text font-bold text-lg">4.9/5</span>
               </div>
               <div className="h-4 w-px bg-border hidden sm:block" />
               <p className="text-text-muted text-sm">
@@ -222,7 +222,7 @@ export function FormationTrainer({ accentColor = '#FF8C00' }: { accentColor?: st
                     className="absolute top-4 right-4 opacity-[0.07]"
                     style={{ color: accentColor }}
                   />
-                  <p className="text-white/90 text-sm leading-relaxed mb-3">
+                  <p className="text-text text-sm leading-relaxed mb-3">
                     &ldquo;{r.quote}&rdquo;
                   </p>
                   <div className="flex items-center gap-2">

@@ -279,7 +279,7 @@ export function FormationROICalculator() {
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div>
                       <p className="text-text-muted text-[10px] mb-0.5">Investissement formation</p>
-                      <p className="text-white font-bold text-lg">{fmtChf(results.investissement)}</p>
+                      <p className="text-text font-bold text-lg">{fmtChf(results.investissement)}</p>
                       <p className="text-text-muted text-[10px]">
                         {results.sessions} session{results.sessions > 1 ? 's' : ''} · jusqu&apos;à {results.sessions * 10} pers.
                       </p>

@@ -101,7 +101,7 @@ export function GlossaireSearch({ terms }: { terms: TermEntry[] }) {
           aria-autocomplete="list"
           aria-expanded={showDropdown}
           autoComplete="off"
-          className="w-full rounded-[10px] px-4 py-3 pl-10 pr-9 text-sm text-white placeholder:text-text-muted outline-none transition-all"
+          className="w-full rounded-[10px] px-4 py-3 pl-10 pr-9 text-sm text-text placeholder:text-text-muted outline-none transition-all"
           style={{
             background: 'rgba(212,212,216,0.06)',
             border: `1px solid ${showDropdown ? 'rgba(167,139,250,0.45)' : 'rgba(212,212,216,0.14)'}`,
@@ -124,7 +124,7 @@ export function GlossaireSearch({ terms }: { terms: TermEntry[] }) {
         {query && (
           <button
             onClick={() => { setQuery(''); setOpen(false); inputRef.current?.focus() }}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 flex items-center justify-center rounded-full text-text-muted hover:text-white transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 flex items-center justify-center rounded-full text-text-muted hover:text-text transition-colors"
             aria-label="Effacer la recherche"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="w-3 h-3" aria-hidden="true">
@@ -140,7 +140,7 @@ export function GlossaireSearch({ terms }: { terms: TermEntry[] }) {
           role="listbox"
           className="absolute left-0 right-0 z-50 overflow-hidden rounded-b-[10px]"
           style={{
-            background: '#111118',
+            background: 'var(--bg-card)',
             border: '1px solid rgba(167,139,250,0.45)',
             borderTop: 'none',
           }}
@@ -158,7 +158,7 @@ export function GlossaireSearch({ terms }: { terms: TermEntry[] }) {
                 borderTop: i > 0 ? '1px solid rgba(255,255,255,0.05)' : 'none',
               }}
             >
-              <span className="text-sm text-white font-medium">{s.term}</span>
+              <span className="text-sm text-text font-medium">{s.term}</span>
               <span
                 className="text-[10px] font-bold uppercase tracking-wider flex-shrink-0"
                 style={{ color: CATEGORY_COLORS[s.category] }}
@@ -175,7 +175,7 @@ export function GlossaireSearch({ terms }: { terms: TermEntry[] }) {
         <div
           className="absolute left-0 right-0 z-50 px-4 py-3 rounded-b-[10px]"
           style={{
-            background: '#111118',
+            background: 'var(--bg-card)',
             border: '1px solid rgba(167,139,250,0.45)',
             borderTop: 'none',
           }}

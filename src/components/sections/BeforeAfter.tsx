@@ -68,7 +68,7 @@ export function BeforeAfter({ accentRgb }: { accentRgb?: string } = {}) {
                         className="mb-4"
                         aspectRatio="4/3"
                       />
-                      <p className="text-white text-sm leading-relaxed font-medium">
+                      <p className="text-text text-sm leading-relaxed font-medium">
                         {t.after.description}
                       </p>
                     </div>

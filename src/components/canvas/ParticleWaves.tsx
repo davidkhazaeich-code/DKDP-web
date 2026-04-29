@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useThemeColors } from '@/hooks/useThemeColors'
+import { useTheme } from '@/components/providers/ThemeProvider'
 
 interface ParticleWavesProps {
   className?: string
@@ -20,10 +20,27 @@ const SHUFFLE_INTERVAL = 4500
 const FADE_SPEED = 0.028
 const BREATH_SPEED = 2.2
 
-// Brand colors (same as DottedSurface)
-const VR = 0.55, VG = 0.22, VB = 1.0   // violet #a78bfa approx
-const OR = 1.0,  OG = 0.48, OB = 0.0   // orange #FF8C00
-const GRAY = 0.75
+// Brand sparkle palette per theme (mirror of DottedSurface).
+// material.color stays white in both themes — vertex colors paint the brand hue
+// directly so light mode does not multiply the violet/orange to near-black.
+type SparklePalette = {
+  VR: number; VG: number; VB: number   // violet
+  OR: number; OG: number; OB: number   // orange
+  GRAY_R: number; GRAY_G: number; GRAY_B: number   // neutral
+}
+
+const SPARKLES: Record<'dark' | 'light', SparklePalette> = {
+  dark: {
+    VR: 0.55, VG: 0.22, VB: 1.00,
+    OR: 1.00, OG: 0.48, OB: 0.00,
+    GRAY_R: 0.75, GRAY_G: 0.75, GRAY_B: 0.75,
+  },
+  light: {
+    VR: 0.30, VG: 0.10, VB: 0.65,
+    OR: 0.75, OG: 0.35, OB: 0.00,
+    GRAY_R: 0.18, GRAY_G: 0.18, GRAY_B: 0.16,
+  },
+}
 
 export function ParticleWaves({
   className = '',
@@ -31,12 +48,12 @@ export function ParticleWaves({
   orangeRatio = 0.004,
 }: ParticleWavesProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const colors = useThemeColors()
-  const materialsRef = useRef<Array<{ color: { set: (hex: string) => void } }>>([])
-  // Keep latest tint accessible from inside init() without making it a useEffect dep
-  // (would cause a full scene rebuild on every theme switch).
-  const pointTintRef = useRef(colors.pointTint)
-  pointTintRef.current = colors.pointTint
+  const { theme } = useTheme()
+  // Ref so closures inside init() always read the current theme palette.
+  const paletteRef = useRef<SparklePalette>(SPARKLES[theme])
+  paletteRef.current = SPARKLES[theme]
+  // Set by init() so the theme-change effect can force a repaint.
+  const repaintRef = useRef<(() => void) | null>(null)
 
   useEffect(() => {
     const container = containerRef.current
@@ -135,7 +152,8 @@ export function ParticleWaves({
       renderer.setClearColor(0x000000, 0)
       container.appendChild(renderer.domElement)
 
-      // Build position + color arrays
+      // Build position + color arrays. Initial colors are zeroed and overwritten
+      // by updateColors() on the first tick (which reads paletteRef).
       const positions: number[] = []
       const colors: number[] = []
       for (let ix = 0; ix < DENSITY; ix++) {
@@ -145,7 +163,7 @@ export function ParticleWaves({
             -400,
             iy * SEPARATION - (DENSITY * SEPARATION) / 2,
           )
-          colors.push(GRAY, GRAY, GRAY)
+          colors.push(0, 0, 0)
         }
       }
 
@@ -164,9 +182,7 @@ export function ParticleWaves({
         alphaTest: 0.02,
         depthWrite: false,
       })
-      materialsRef.current.push(material)
-      // Apply current theme tint immediately (vertex colors are multiplied by material.color)
-      material.color.set(pointTintRef.current)
+      // material.color stays white — vertex colors carry brand hue.
       scene.add(new THREE.Points(geometry, material))
 
       // Spikes layer (small, always-on for colored dots)
@@ -184,8 +200,6 @@ export function ParticleWaves({
         map: spikesTexture,
         alphaTest: 0.003,
       })
-      materialsRef.current.push(spikeMaterial)
-      spikeMaterial.color.set(pointTintRef.current)
       scene.add(new THREE.Points(spikeGeometry, spikeMaterial))
 
       // Pulse spikes layer (larger, only at breath peak)
@@ -203,8 +217,6 @@ export function ParticleWaves({
         map: spikesTexture,
         alphaTest: 0.003,
       })
-      materialsRef.current.push(pulseMaterial)
-      pulseMaterial.color.set(pointTintRef.current)
       scene.add(new THREE.Points(pulseGeometry, pulseMaterial))
 
       // Per-point color state
@@ -240,6 +252,9 @@ export function ParticleWaves({
         const ppos = pulseGeometry.attributes.position.array as Float32Array
         const pos = geometry.attributes.position.array as Float32Array
 
+        // Read theme palette once per frame so a theme switch repaints next tick.
+        const { VR, VG, VB, OR, OG, OB, GRAY_R, GRAY_G, GRAY_B } = paletteRef.current
+
         for (let idx = 0; idx < totalPoints; idx++) {
           const j = idx * 3
           const type = pointType[idx]
@@ -247,7 +262,7 @@ export function ParticleWaves({
           if (type === 0 && !pointExiting[idx]) {
             if (pointT[idx] > 0) pointT[idx] = Math.max(pointT[idx] - FADE_SPEED, 0)
             if (pointT[idx] === 0) {
-              col[j] = col[j + 1] = col[j + 2] = GRAY
+              col[j] = GRAY_R; col[j + 1] = GRAY_G; col[j + 2] = GRAY_B
               scol[j] = scol[j + 1] = scol[j + 2] = 0
               spos[j] = 0; spos[j + 1] = -99999; spos[j + 2] = 0
               pcol[j] = pcol[j + 1] = pcol[j + 2] = 0
@@ -260,7 +275,7 @@ export function ParticleWaves({
             pointT[idx] = Math.max(pointT[idx] - FADE_SPEED, 0)
             if (pointT[idx] <= 0) {
               pointExiting[idx] = 0; pointType[idx] = 0
-              col[j] = col[j + 1] = col[j + 2] = GRAY
+              col[j] = GRAY_R; col[j + 1] = GRAY_G; col[j + 2] = GRAY_B
               scol[j] = scol[j + 1] = scol[j + 2] = 0
               spos[j] = 0; spos[j + 1] = -99999; spos[j + 2] = 0
               pcol[j] = pcol[j + 1] = pcol[j + 2] = 0
@@ -281,9 +296,9 @@ export function ParticleWaves({
           const finalR = cr + (1.0 - cr) * breath * 0.65
           const finalG = cg + (1.0 - cg) * breath * 0.65
           const finalB = cb + (1.0 - cb) * breath * 0.65
-          col[j] = GRAY + (finalR - GRAY) * t
-          col[j + 1] = GRAY + (finalG - GRAY) * t
-          col[j + 2] = GRAY + (finalB - GRAY) * t
+          col[j] = GRAY_R + (finalR - GRAY_R) * t
+          col[j + 1] = GRAY_G + (finalG - GRAY_G) * t
+          col[j + 2] = GRAY_B + (finalB - GRAY_B) * t
 
           const spikeStr = (0.5 + breath * 0.5) * t
           scol[j] = cr * spikeStr
@@ -375,6 +390,14 @@ export function ParticleWaves({
 
       document.addEventListener('mousemove', onMouseMove)
       window.addEventListener('resize', onResize, { passive: true })
+
+      // Expose a single-frame repaint for the theme-change effect (also makes
+      // the swap feel instant rather than waiting for the next rAF tick).
+      repaintRef.current = () => {
+        updateColors(performance.now() / 1000)
+        renderer.render(scene, camera)
+      }
+
       animate()
 
       cleanupFn = () => {
@@ -388,7 +411,7 @@ export function ParticleWaves({
         spikeMaterial.dispose()
         pulseMaterial.dispose()
         renderer.dispose()
-        materialsRef.current = []
+        repaintRef.current = null
       }
     }
 
@@ -408,16 +431,12 @@ export function ParticleWaves({
     }
   }, [violetRatio, orangeRatio])
 
-  // React to theme switch, mutate material color without rebuilding the scene.
-  // THREE.Color.set() accepts hex strings ("#1A1A18") since r130. Our generic
-  // ref typing requires a cast, but the runtime call is correct.
+  // React to theme switch — paletteRef updates synchronously in render, the
+  // running rAF loop will retint on the next tick. Force one repaint so the
+  // swap is immediate (and the only path on prefers-reduced-motion).
   useEffect(() => {
-    materialsRef.current.forEach(mat => {
-      if (mat && mat.color && typeof mat.color.set === 'function') {
-        mat.color.set(colors.pointTint)
-      }
-    })
-  }, [colors.pointTint])
+    repaintRef.current?.()
+  }, [theme])
 
   return (
     <div

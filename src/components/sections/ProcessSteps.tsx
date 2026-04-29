@@ -11,6 +11,16 @@ const STEP_COLORS = [
   '#FF6B00', // 05 - pure orange
 ]
 
+// Per-theme variants exposed as CSS vars (--chip-1..5) defined in globals.css.
+// Dark bg → light tints, light bg → darker shades, both ≥ 4.5:1 WCAG AA.
+const CHIP_TEXT_VARS = [
+  'var(--chip-1)',
+  'var(--chip-2)',
+  'var(--chip-3)',
+  'var(--chip-4)',
+  'var(--chip-5)',
+]
+
 function IconChat({ color }: { color: string }) {
   return (
     <svg width="32" height="32" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -135,6 +145,7 @@ export function ProcessSteps() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 md:gap-6">
             {STEPS.map((step, i) => {
               const color = STEP_COLORS[i]
+              const chipText = CHIP_TEXT_VARS[i]
               return (
                 <SectionReveal key={step.number} delay={i * 0.1}>
                   <div className="flex flex-col items-center text-center">
@@ -147,7 +158,7 @@ export function ProcessSteps() {
                       </div>
                       <span
                         className="absolute -top-1.5 -right-1.5 z-20 text-[11px] font-bold bg-bg border rounded-full w-7 h-7 flex items-center justify-center"
-                        style={{ color, borderColor: `${color}60` }}
+                        style={{ color: chipText, borderColor: `${color}60` }}
                       >
                         {step.number}
                       </span>

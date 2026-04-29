@@ -186,9 +186,11 @@ export function AllServices() {
                         sizes="400px"
                         className={`object-cover transition-all duration-500 ${isActive ? 'opacity-80 scale-105' : 'opacity-60 group-hover:opacity-75 group-hover:scale-105'}`}
                       />
+                      {/* Image overlay: dark scene + branded color, theme-independent.
+                          The IMAGE is its own local context, no cream veil over it. */}
                       <div
                         className="absolute inset-0"
-                        style={{ background: `linear-gradient(to top, var(--bg) 0%, transparent 60%), linear-gradient(to top, ${pillar.color}15 0%, transparent 40%)` }}
+                        style={{ background: `linear-gradient(to top, rgba(9,9,11,0.55) 0%, rgba(9,9,11,0.05) 60%), linear-gradient(to top, ${pillar.color}15 0%, transparent 40%)` }}
                       />
                     </div>
 
@@ -400,7 +402,8 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg/80" />
+          {/* Subtle dark fade at bottom of image, theme-independent so cream pages don't bleach the image. */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
           {service.badge && (
             <span
               className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"

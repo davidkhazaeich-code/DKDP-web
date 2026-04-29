@@ -137,7 +137,7 @@
   --surface-border:  rgba(10, 10, 10, 0.12);
 
   /* Canvas grid line — black-ish on cream (visible base, hover reveals brand-colored grid) */
-  --grid-line:       rgba(10, 10, 10, 0.16);
+  --grid-line:       rgba(10, 10, 10, 0.28);
   --grid-line-rgb:   10, 10, 10;
 
   /* Filter for monochrome SVG logos (none — they stay black on cream) */

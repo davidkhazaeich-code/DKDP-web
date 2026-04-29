@@ -10,15 +10,16 @@ import {
   motion,
 } from 'framer-motion'
 import { useThemeColors } from '@/hooks/useThemeColors'
+import { useTheme } from '@/components/providers/ThemeProvider'
 
 // Default (homepage) colours
 const DEFAULT_ACCENT_RGB = '167,139,250'   // violet
 const DEFAULT_BLOB1      = 'rgba(124,58,237,0.12)'
 const DEFAULT_BLOB2      = 'rgba(255,107,0,0.09)'
 
-function buildGrid(strokeRgba: string) {
+function buildGrid(strokeRgba: string, strokeWidth: number = 1) {
   const encoded = encodeURIComponent(strokeRgba)
-  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='${encoded}' stroke-width='1'/%3E%3C/svg%3E")`
+  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='${encoded}' stroke-width='${strokeWidth}'/%3E%3C/svg%3E")`
 }
 
 interface InfiniteGridProps {
@@ -41,6 +42,7 @@ export function InfiniteGrid({
 }: InfiniteGridProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const colors = useThemeColors()
+  const { theme } = useTheme()
   // Delay the rAF loop by 500ms so LCP can paint before the animation thread starts
   const activeRef = useRef(false)
   const mouseThrottleRef = useRef(false)
@@ -49,8 +51,11 @@ export function InfiniteGrid({
     return () => clearTimeout(t)
   }, [])
 
-  const BASE_GRID  = buildGrid(colors.gridLine)
-  const HOVER_GRID = buildGrid(`rgba(${accentRgb},0.80)`)
+  // Light mode: thicker stroke (1.5) on top of higher alpha for clearly visible grid on cream.
+  // Dark mode: keep stroke at 1 (subtle is intentional on near-black bg).
+  const baseStrokeWidth = theme === 'light' ? 1.5 : 1
+  const BASE_GRID  = buildGrid(colors.gridLine, baseStrokeWidth)
+  const HOVER_GRID = buildGrid(`rgba(${accentRgb},0.80)`, baseStrokeWidth)
 
   // Mouse position for the radial mask
   const mouseX = useMotionValue(-9999)

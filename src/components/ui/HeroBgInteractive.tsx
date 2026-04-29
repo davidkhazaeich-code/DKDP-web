@@ -12,14 +12,17 @@
  */
 
 import { useRef } from 'react'
+import { useThemeColors } from '@/hooks/useThemeColors'
+import { useTheme } from '@/components/providers/ThemeProvider'
 
-// Base grid — white 10%
-const BASE_GRID =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(255%2C255%2C255%2C0.10)' stroke-width='1'/%3E%3C/svg%3E\")"
+function buildBaseGrid(strokeRgba: string, strokeWidth: number) {
+  const encoded = encodeURIComponent(strokeRgba)
+  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='${encoded}' stroke-width='${strokeWidth}'/%3E%3C/svg%3E")`
+}
 
-function buildHoverGrid(rgb: string) {
+function buildHoverGrid(rgb: string, strokeWidth: number) {
   const encoded = encodeURIComponent(`rgba(${rgb},0.70)`)
-  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='${encoded}' stroke-width='1'/%3E%3C/svg%3E")`
+  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='${encoded}' stroke-width='${strokeWidth}'/%3E%3C/svg%3E")`
 }
 
 interface HeroBgInteractiveProps {
@@ -41,7 +44,11 @@ export function HeroBgInteractive({
   accentRgb = '167,139,250',
 }: HeroBgInteractiveProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const HOVER_GRID = buildHoverGrid(accentRgb)
+  const colors = useThemeColors()
+  const { theme } = useTheme()
+  const baseStrokeWidth = theme === 'light' ? 1.5 : 1
+  const BASE_GRID  = buildBaseGrid(colors.gridLine, baseStrokeWidth)
+  const HOVER_GRID = buildHoverGrid(accentRgb, baseStrokeWidth)
 
   function onMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     const el = ref.current

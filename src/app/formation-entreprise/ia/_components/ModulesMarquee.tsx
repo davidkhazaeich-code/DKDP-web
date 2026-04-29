@@ -46,19 +46,19 @@ export function ModulesMarquee() {
   return (
     <div className="relative w-full overflow-hidden rounded-[12px] border py-4"
       style={{
-        background: 'rgba(255,255,255,0.025)',
-        borderColor: 'rgba(255,255,255,0.07)',
+        background: 'var(--surface-default)',
+        borderColor: 'var(--surface-border)',
       }}
     >
       {/* Left fade */}
       <div
         className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-        style={{ background: 'linear-gradient(to right, #0D0D0D, transparent)' }}
+        style={{ background: 'linear-gradient(to right, var(--bg), transparent)' }}
       />
       {/* Right fade */}
       <div
         className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-        style={{ background: 'linear-gradient(to left, #0D0D0D, transparent)' }}
+        style={{ background: 'linear-gradient(to left, var(--bg), transparent)' }}
       />
 
       {/* Scrolling track */}

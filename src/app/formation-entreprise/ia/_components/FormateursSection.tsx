@@ -79,8 +79,8 @@ export function FormateursSection() {
               <div
                 className="group relative rounded-[20px] border overflow-hidden transition-all duration-300 hover:-translate-y-1"
                 style={{
-                  background: 'rgba(255,255,255,0.025)',
-                  borderColor: 'rgba(255,255,255,0.08)',
+                  background: 'var(--surface-default)',
+                  borderColor: 'var(--surface-border)',
                 }}
               >
                 {/* Hover glow */}
@@ -145,16 +145,16 @@ export function FormateursSection() {
                   {/* Skills */}
                   <div
                     className="flex flex-wrap gap-2 pt-4"
-                    style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+                    style={{ borderTop: '1px solid var(--surface-border)' }}
                   >
                     {t.skills.map((s) => (
                       <span
                         key={s}
                         className="text-[11px] font-medium px-2.5 py-1 rounded-md"
                         style={{
-                          background: 'rgba(255,255,255,0.04)',
-                          color: '#9CA3AF',
-                          border: '1px solid rgba(255,255,255,0.07)',
+                          background: 'var(--surface-default)',
+                          color: 'var(--text-muted)',
+                          border: '1px solid var(--surface-border)',
                         }}
                       >
                         {s}
@@ -172,8 +172,8 @@ export function FormateursSection() {
           <div
             className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 p-5 sm:p-6 rounded-[16px] border"
             style={{
-              background: 'rgba(255,255,255,0.02)',
-              borderColor: 'rgba(255,255,255,0.07)',
+              background: 'var(--surface-default)',
+              borderColor: 'var(--surface-border)',
             }}
           >
             {/* Avatar circulaire */}
@@ -207,9 +207,9 @@ export function FormateursSection() {
                   key={s}
                   className="text-[11px] font-medium px-2.5 py-1 rounded-md whitespace-nowrap"
                   style={{
-                    background: 'rgba(255,255,255,0.04)',
-                    color: '#9CA3AF',
-                    border: '1px solid rgba(255,255,255,0.07)',
+                    background: 'var(--surface-default)',
+                    color: 'var(--text-muted)',
+                    border: '1px solid var(--surface-border)',
                   }}
                 >
                   {s}

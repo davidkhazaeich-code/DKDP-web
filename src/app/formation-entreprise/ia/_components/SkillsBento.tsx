@@ -59,7 +59,7 @@ const SKILLS = [
           { name: 'Copilot', pct: 78 },
         ].map((t) => (
           <div key={t.name} className="text-center">
-            <div className="h-12 rounded-md overflow-hidden flex flex-col justify-end" style={{ background: 'rgba(255,255,255,0.03)' }}>
+            <div className="h-12 rounded-md overflow-hidden flex flex-col justify-end" style={{ background: 'var(--surface-default)' }}>
               <div
                 className="rounded-t-sm transition-all"
                 style={{ height: `${t.pct}%`, background: `linear-gradient(to top, rgba(255,107,0,0.4), rgba(255,107,0,0.15))` }}
@@ -138,7 +138,7 @@ export function SkillsBento() {
         <div
           key={s.title}
           className={`group rounded-[16px] p-6 border transition-all duration-300 hover:translate-y-[-2px] ${s.span}`}
-          style={{ background: 'rgba(255,255,255,0.025)', borderColor: 'rgba(255,255,255,0.07)' }}
+          style={{ background: 'var(--surface-default)', borderColor: 'var(--surface-border)' }}
         >
           <div className="flex items-start gap-4">
             <div

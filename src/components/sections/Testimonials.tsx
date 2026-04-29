@@ -109,7 +109,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-bg border border-border rounded-[16px] p-5 sm:p-8 md:p-10"
+              className="bg-bg-card border border-border rounded-[16px] p-5 sm:p-8 md:p-10"
             >
               <svg
                 className="w-8 h-8 text-violet mb-6 opacity-50"
@@ -129,7 +129,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     style={{ overflow: 'hidden' }}
                   >
-                    <p className="text-white text-lg leading-relaxed italic">
+                    <p className="text-text text-lg leading-relaxed italic">
                       &ldquo;{testimonial.quote}&rdquo;
                     </p>
                   </m.div>
@@ -150,7 +150,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
                     <span className="text-sm font-bold text-violet-light">{testimonial.initials}</span>
                   </div>
                   <div>
-                    <p className="text-white font-semibold text-sm">{testimonial.name}</p>
+                    <p className="text-text font-semibold text-sm">{testimonial.name}</p>
                     <p className="text-text-muted text-xs">
                       {testimonial.title}
                       {testimonial.company ? ` · ${testimonial.company}` : ''}
@@ -167,7 +167,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
               type="button"
               onClick={prev}
               aria-label="Témoignage précédent"
-              className="w-10 h-10 rounded-full border border-border hover:border-violet transition-colors flex items-center justify-center text-text-muted hover:text-white"
+              className="w-10 h-10 rounded-full border border-border hover:border-violet transition-colors flex items-center justify-center text-text-muted hover:text-text"
             >
               <span aria-hidden="true">←</span>
             </button>
@@ -196,7 +196,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
               type="button"
               onClick={next}
               aria-label="Témoignage suivant"
-              className="w-10 h-10 rounded-full border border-border hover:border-violet transition-colors flex items-center justify-center text-text-muted hover:text-white"
+              className="w-10 h-10 rounded-full border border-border hover:border-violet transition-colors flex items-center justify-center text-text-muted hover:text-text"
             >
               <span aria-hidden="true">→</span>
             </button>

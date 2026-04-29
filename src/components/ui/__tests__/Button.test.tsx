@@ -9,14 +9,14 @@ describe('Button', () => {
     expect(screen.getByRole('button', { name: 'Réservez un appel' })).toBeInTheDocument()
   })
 
-  it('primary variant has white background', () => {
+  it('primary variant uses theme-inverted background', () => {
     render(<Button variant="primary">Primary</Button>)
-    expect(screen.getByRole('button')).toHaveClass('bg-white')
+    expect(screen.getByRole('button')).toHaveClass('bg-text')
   })
 
-  it('primary variant has black text', () => {
+  it('primary variant uses theme-inverted text color', () => {
     render(<Button variant="primary">Primary</Button>)
-    expect(screen.getByRole('button')).toHaveClass('text-black')
+    expect(screen.getByRole('button')).toHaveClass('text-bg')
   })
 
   it('ghost variant has violet border', () => {

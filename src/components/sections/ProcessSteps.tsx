@@ -152,7 +152,7 @@ export function ProcessSteps() {
                         {step.number}
                       </span>
                     </div>
-                    <h3 className="text-white font-semibold text-base mb-3">{step.title}</h3>
+                    <h3 className="text-text font-semibold text-base mb-3">{step.title}</h3>
                     <p className="text-text-muted text-sm leading-relaxed">{step.description}</p>
                   </div>
                 </SectionReveal>

@@ -82,7 +82,7 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
                         <div className="flex items-start justify-end gap-3 mb-4">
                           <div className="flex-1 text-right">
                             <span className="inline-block text-xs px-2 py-0.5 rounded-full mb-2 font-semibold text-text-muted" style={{ background: 'rgba(39,39,42,1)' }}>{step.duration}</span>
-                            <h3 className="text-white font-bold text-lg">{step.title}</h3>
+                            <h3 className="text-text font-bold text-lg">{step.title}</h3>
                             <p className="text-xs font-semibold mt-0.5" style={{ color: acc.color }}>{step.week}</p>
                           </div>
                           <div className="flex h-11 w-11 items-center justify-center rounded-[10px] flex-shrink-0" style={{ background: acc.bg, border: `1px solid ${acc.bd}` }}>
@@ -108,7 +108,7 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
                           </div>
                           <div>
                             <span className="inline-block text-xs px-2 py-0.5 rounded-full mb-2 font-semibold text-text-muted" style={{ background: 'rgba(39,39,42,1)' }}>{step.duration}</span>
-                            <h3 className="text-white font-bold text-lg">{step.title}</h3>
+                            <h3 className="text-text font-bold text-lg">{step.title}</h3>
                             <p className="text-xs font-semibold mt-0.5" style={{ color: acc.color }}>{step.week}</p>
                           </div>
                         </div>
@@ -140,7 +140,7 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2 flex-wrap mb-1">
-                      <h3 className="text-white font-bold text-base">{step.title}</h3>
+                      <h3 className="text-text font-bold text-base">{step.title}</h3>
                       <span className="text-xs px-2 py-0.5 rounded-full font-semibold text-text-muted" style={{ background: 'rgba(39,39,42,1)' }}>{step.duration}</span>
                     </div>
                     <p className="text-xs font-semibold" style={{ color: acc.color }}>{step.week}</p>

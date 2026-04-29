@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# tools — ephemeral screenshot outputs (regenerable via scripts in tools/)
+tools/screenshots
+tools/screenshots-fix
+tools/screenshots-services

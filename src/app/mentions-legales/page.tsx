@@ -68,7 +68,7 @@ export default function MentionsLegalesPage() {
                   className="rounded-[16px] p-7 border"
                   style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}
                 >
-                  <h2 className="text-white font-bold text-lg mb-5">{section.title}</h2>
+                  <h2 className="font-bold text-lg mb-5" style={{ color: 'var(--text)' }}>{section.title}</h2>
                   {'items' in section && section.items && (
                     <div className="space-y-2.5">
                       {section.items.map((item) => (

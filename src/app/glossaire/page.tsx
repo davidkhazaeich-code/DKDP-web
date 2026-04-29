@@ -455,7 +455,7 @@ export default function GlossairePage() {
           </SectionReveal>
 
           <SectionReveal delay={0.18}>
-            <p className="text-sm font-medium" style={{ color: '#D4D4D8' }}>
+            <p className="text-sm font-medium text-text-secondary">
               65 termes · 5 catégories · Mis à jour en 2026
             </p>
           </SectionReveal>
@@ -466,9 +466,9 @@ export default function GlossairePage() {
       {/* STICKY SEARCH + ALPHABETIC NAV                                      */}
       {/* ------------------------------------------------------------------ */}
       <div
-        className="sticky top-[66px] z-40 w-full border-b border-white/[0.06]"
+        className="sticky top-[66px] z-40 w-full border-b border-border"
         style={{
-          background: 'rgba(10,10,10,0.85)',
+          background: 'color-mix(in srgb, var(--bg) 85%, transparent)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
         }}
@@ -480,7 +480,7 @@ export default function GlossairePage() {
             <div className="w-56 flex-shrink-0">
               <GlossaireSearch terms={TERMS.map(t => ({ term: t.term, category: t.category }))} />
             </div>
-            <div className="h-5 w-px flex-shrink-0" style={{ background: 'rgba(212,212,216,0.18)' }} />
+            <div className="h-5 w-px flex-shrink-0" style={{ background: 'var(--border-strong)' }} />
             <nav aria-label="Navigation alphabétique" className="flex flex-wrap gap-1 items-center">
               {ALL_LETTERS.map((letter) => {
                 const isPresent = presentLetters.has(letter)
@@ -502,8 +502,8 @@ export default function GlossairePage() {
                     key={letter}
                     className="flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold text-text-muted cursor-default select-none"
                     style={{
-                      background: 'rgba(212,212,216,0.04)',
-                      border: '1px solid rgba(212,212,216,0.08)',
+                      background: 'var(--surface-subtle)',
+                      border: '1px solid var(--border)',
                     }}
                     aria-hidden="true"
                   >
@@ -538,8 +538,8 @@ export default function GlossairePage() {
                     key={letter}
                     className="flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold text-text-muted cursor-default select-none"
                     style={{
-                      background: 'rgba(212,212,216,0.04)',
-                      border: '1px solid rgba(212,212,216,0.08)',
+                      background: 'var(--surface-subtle)',
+                      border: '1px solid var(--border)',
                     }}
                     aria-hidden="true"
                   >

@@ -34,10 +34,10 @@ export default function RealisationsHubPage() {
       ])} />
       <SchemaOrg schema={buildRealisationsCollection({ items: liveItems })} />
 
-      <section className="border-b border-white/5">
+      <section className="border-b border-border">
         <div className="mx-auto max-w-[1200px] px-6 py-20 md:py-28">
           <GradTag>Realisations</GradTag>
-          <h1 className="mt-6 text-4xl tracking-[-0.02em] text-white md:text-5xl lg:text-6xl">
+          <h1 className="mt-6 text-4xl tracking-[-0.02em] text-text md:text-5xl lg:text-6xl">
             <GradText as="span">Etudes de cas client</GradText>
           </h1>
           <p className="mt-6 max-w-[68ch] text-lg leading-[1.7] text-text-secondary">
@@ -46,9 +46,9 @@ export default function RealisationsHubPage() {
             resultats mesures.
           </p>
           <div className="mt-8 flex flex-wrap gap-6 text-sm text-text-muted">
-            <span><b className="text-violet-300">{liveItems.length}</b> projets</span>
-            <span><b className="text-violet-300">{sectorsCount}</b> secteurs</span>
-            <span><b className="text-violet-300">5</b> annees</span>
+            <span><b style={{ color: 'var(--violet)' }}>{liveItems.length}</b> projets</span>
+            <span><b style={{ color: 'var(--violet)' }}>{sectorsCount}</b> secteurs</span>
+            <span><b style={{ color: 'var(--violet)' }}>5</b> annees</span>
           </div>
         </div>
       </section>

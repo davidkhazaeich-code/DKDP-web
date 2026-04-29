@@ -40,7 +40,7 @@ export function LogoBanner({ label = 'Ils nous font confiance' }: LogoBannerProp
           {[...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS].map((logo, i) => (
             <div
               key={i}
-              className="flex-shrink-0 grayscale opacity-40 hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+              className="flex-shrink-0 client-logo-tile opacity-40 hover:opacity-80 transition-all duration-300"
             >
               <Image
                 src={`/images/clients/${logo.file}`}

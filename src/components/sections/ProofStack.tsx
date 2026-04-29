@@ -58,7 +58,7 @@ function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {
   }, [end, isDecimal])
 
   return (
-    <span ref={ref} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white" aria-label={`${end}${suffix}`}>
+    <span ref={ref} className="text-3xl sm:text-4xl md:text-5xl font-bold text-text" aria-label={`${end}${suffix}`}>
       {isDecimal ? count.toFixed(1) : count}{suffix}
     </span>
   )
@@ -82,7 +82,7 @@ export function ProofStack() {
             <SectionReveal key={stat.label}>
               <div className="text-center">
                 <AnimatedCounter end={stat.end} suffix={stat.suffix} />
-                <p className="text-white font-semibold mt-2 text-sm">{stat.label}</p>
+                <p className="text-text font-semibold mt-2 text-sm">{stat.label}</p>
                 <p className="text-text-muted text-xs mt-1">{stat.description}</p>
               </div>
             </SectionReveal>
@@ -94,7 +94,7 @@ export function ProofStack() {
             {LOGO_GRID.map((logo) => (
               <div
                 key={logo.name}
-                className="grayscale opacity-40 hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+                className="client-logo-tile opacity-40 hover:opacity-80 transition-all duration-300"
               >
                 <Image
                   src={`/images/clients/${logo.file}`}

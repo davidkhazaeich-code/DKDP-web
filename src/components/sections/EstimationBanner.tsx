@@ -39,15 +39,15 @@ export function EstimationBanner() {
                   </p>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-bold text-zinc-100 mb-3">
+                <h3 className="text-2xl sm:text-3xl font-bold text-text mb-3">
                   Estimez le coût de votre site web
                 </h3>
-                <p className="text-zinc-400 text-base leading-relaxed max-w-xl mb-5">
+                <p className="text-text-secondary text-base leading-relaxed max-w-xl mb-5">
                   Configurez votre projet en quelques clics et recevez une estimation transparente.
                   Site vitrine, e-commerce ou sur mesure.
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-500">
+                <div className="flex flex-wrap items-center gap-4 text-xs text-text-muted">
                   <span className="flex items-center gap-1.5">
                     <Clock size={13} className="text-violet-400/70" />
                     2 minutes

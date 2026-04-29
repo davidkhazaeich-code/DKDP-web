@@ -141,7 +141,7 @@ function MegaPanel({
               <span key={tag.href} className="inline-flex items-center gap-1">
                 {i > 0 && <span className="opacity-40">·</span>}
                 <NavigationMenuLink asChild>
-                  <Link href={tag.href} className="hover:text-white transition-colors">{tag.text}</Link>
+                  <Link href={tag.href} className="hover:text-text transition-colors">{tag.text}</Link>
                 </NavigationMenuLink>
               </span>
             ))}
@@ -153,7 +153,7 @@ function MegaPanel({
               <NavigationMenuLink asChild>
                 <Link
                   href={item.href}
-                  className="group flex items-start gap-3 rounded-[8px] p-2.5 transition-colors hover:bg-white/[0.04]"
+                  className="group flex items-start gap-3 rounded-[8px] p-2.5 transition-colors hover:bg-[var(--surface-default)]"
                 >
                   <div
                     className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[6px]"
@@ -162,7 +162,7 @@ function MegaPanel({
                     <item.icon size={15} style={{ color }} />
                   </div>
                   <div>
-                    <p className="text-[13px] font-semibold text-white leading-snug group-hover:text-white">
+                    <p className="text-[13px] font-semibold text-text leading-snug group-hover:text-text">
                       {item.title}
                     </p>
                     {item.description && (
@@ -199,9 +199,9 @@ function MegaPanel({
               <NavigationMenuLink asChild>
                 <Link
                   href={item.href}
-                  className="flex items-center gap-2 rounded-[6px] px-2 py-1.5 text-[12px] text-text-secondary hover:bg-white/[0.04] hover:text-white transition-colors group"
+                  className="flex items-center gap-2 rounded-[6px] px-2 py-1.5 text-[12px] text-text-secondary hover:bg-[var(--surface-default)] hover:text-text transition-colors group"
                 >
-                  <item.icon size={13} className="flex-shrink-0 text-text-muted group-hover:text-white transition-colors" />
+                  <item.icon size={13} className="flex-shrink-0 text-text-muted group-hover:text-text transition-colors" />
                   <span>{item.title}</span>
                   <ChevronRight size={11} className="ml-auto opacity-0 group-hover:opacity-60 transition-opacity" />
                 </Link>
@@ -332,7 +332,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
           className="fixed left-0 right-0 bottom-0 z-40 xl:hidden flex flex-col"
           style={{
             top: 'calc(66px + env(safe-area-inset-top, 0px))',
-            background: 'rgba(8,8,8,0.97)',
+            background: 'color-mix(in srgb, var(--bg) 97%, transparent)',
             backdropFilter: 'blur(18px)',
             WebkitBackdropFilter: 'blur(18px)',
             willChange: 'transform, opacity',
@@ -340,7 +340,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
         >
           {/* ── Tab bar ── */}
           <div className="flex-shrink-0 px-4 pt-4 pb-3">
-            <div className="flex gap-1.5 p-1 rounded-[14px] bg-white/[0.04] border border-border">
+            <div className="flex gap-1.5 p-1 rounded-[14px] bg-[var(--surface-default)] border border-border">
               {MOBILE_TABS.map(t => {
                 const isActive = activeTab === t.key
                 return (
@@ -351,7 +351,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                     className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-[10px] text-[12px] font-semibold transition-all duration-200"
                     style={isActive
                       ? { color: t.color, background: t.bg, border: `1px solid ${t.border}` }
-                      : { color: '#A1A1AA' }
+                      : { color: 'var(--text-secondary)' }
                     }
                   >
                     <t.tabIcon size={13} />
@@ -401,7 +401,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                       <Link
                         href={tag.href}
                         onClick={onClose}
-                        className="text-xs text-text-muted hover:text-white transition-colors"
+                        className="text-xs text-text-muted hover:text-text transition-colors"
                       >
                         {tag.text}
                       </Link>
@@ -427,12 +427,12 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                       >
                         <div
                           className="flex h-9 w-9 items-center justify-center rounded-[8px]"
-                          style={{ background: 'rgba(0,0,0,0.35)', border: `1px solid ${tab.border}` }}
+                          style={{ background: 'var(--bg-card)', border: `1px solid ${tab.border}` }}
                         >
                           <item.icon size={16} style={{ color: tab.color }} />
                         </div>
                         <div>
-                          <p className="text-[13px] font-semibold text-white leading-snug">{item.title}</p>
+                          <p className="text-[13px] font-semibold text-text leading-snug">{item.title}</p>
                           {item.description && (
                             <p className="text-[11px] text-text-muted leading-snug mt-0.5 line-clamp-2">{item.description}</p>
                           )}
@@ -467,7 +467,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                           href={item.href}
                           prefetch
                           onClick={() => { haptic(); onClose() }}
-                          className="flex items-center gap-3 px-2 py-2.5 rounded-[8px] text-[13px] text-text-secondary hover:bg-white/[0.05] hover:text-white active:bg-white/[0.08] transition-colors group"
+                          className="flex items-center gap-3 px-2 py-2.5 rounded-[8px] text-[13px] text-text-secondary hover:bg-[var(--surface-default)] hover:text-text active:bg-[var(--bg-card-hover)] transition-colors group"
                         >
                           <item.icon size={14} className="flex-shrink-0 transition-colors" style={{ color: tab.color }} />
                           <span>{item.title}</span>
@@ -486,7 +486,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
             className="flex-shrink-0 px-4 pt-3"
             style={{
               paddingBottom: 'max(24px, env(safe-area-inset-bottom, 24px))',
-              borderTop: '1px solid rgba(255,255,255,0.06)',
+              borderTop: '1px solid var(--border)',
             }}
           >
             <button
@@ -495,7 +495,11 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
               data-cal-link="david-khazaei/planifier-un-appel"
               data-cal-namespace="planifier-un-appel"
               data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-              className="flex items-center justify-center w-full px-5 py-3.5 bg-white text-black font-bold rounded-full text-[15px] active:scale-[0.98] transition-all hover:bg-gray-100"
+              className="flex items-center justify-center w-full px-5 py-3.5 font-bold rounded-full text-[15px] active:scale-[0.98] transition-all hover:opacity-90"
+              style={{
+                background: 'linear-gradient(135deg, #7C3AED, #FF6B00)',
+                color: '#FFFFFF',
+              }}
             >
               Réservez un appel →
             </button>
@@ -587,7 +591,7 @@ export function Header() {
           className={cn(
             'pointer-events-auto max-w-[1200px] mx-auto mt-2 rounded-2xl border transition-all duration-300',
             scrolled || mobileOpen
-              ? 'backdrop-blur-2xl border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)]'
+              ? 'backdrop-blur-2xl border-border shadow-[0_4px_30px_color-mix(in_srgb,var(--text)_25%,transparent),0_0_0_1px_var(--surface-border)]'
               : 'bg-transparent border-transparent'
           )}
           style={
@@ -698,7 +702,7 @@ export function Header() {
                   <NavigationMenuLink asChild>
                     <Link
                       href="/contact"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium text-text-secondary hover:text-white transition-colors duration-150"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium text-text-secondary hover:text-text transition-colors duration-150"
                     >
                       <Phone size={13} />
                       Contact
@@ -804,7 +808,7 @@ export function Header() {
                   <NavigationMenuLink asChild>
                     <Link
                       href="/contact"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium text-text-secondary hover:text-white transition-colors duration-150"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium text-text-secondary hover:text-text transition-colors duration-150"
                     >
                       <Phone size={13} />
                       Contact
@@ -827,7 +831,7 @@ export function Header() {
                 try { navigator.vibrate?.(10) } catch {}
                 setMobileOpen((v) => !v)
               }}
-              className="flex items-center justify-center w-11 h-11 rounded-lg border border-border hover:bg-white/5 active:scale-95 transition-all"
+              className="flex items-center justify-center w-11 h-11 rounded-lg border border-border text-text hover:bg-[var(--surface-default)] active:scale-95 transition-all"
             >
               {mobileOpen
                 ? <X size={18} />

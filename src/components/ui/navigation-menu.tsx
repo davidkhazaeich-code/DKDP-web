@@ -36,7 +36,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
 const navigationMenuTriggerStyle = cva(
-  'group inline-flex h-9 w-max items-center justify-center rounded-lg px-3 py-2 text-[13px] font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 text-text-secondary hover:text-white data-[active]:text-violet-light data-[state=open]:text-white bg-transparent hover:bg-[var(--trigger-hover-bg,rgba(255,255,255,0.05))] data-[state=open]:bg-[var(--trigger-hover-bg,rgba(255,255,255,0.05))]'
+  'group inline-flex h-9 w-max items-center justify-center rounded-lg px-3 py-2 text-[13px] font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 text-text-secondary hover:text-text data-[active]:text-violet-light data-[state=open]:text-text bg-transparent hover:bg-[var(--trigger-hover-bg,var(--surface-default))] data-[state=open]:bg-[var(--trigger-hover-bg,var(--surface-default))]'
 )
 
 const NavigationMenuTrigger = React.forwardRef<
@@ -81,9 +81,9 @@ const NavigationMenuViewport = React.forwardRef<
   <div className="absolute left-1/2 -translate-x-1/2 top-full flex justify-center perspective-[2000px]">
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        'origin-[top_center] relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-2xl border border-white/[0.08] text-white md:w-[var(--radix-navigation-menu-viewport-width)]',
+        'origin-[top_center] relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-2xl border border-border text-text md:w-[var(--radix-navigation-menu-viewport-width)]',
         'backdrop-blur-2xl',
-        'shadow-[0_4px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.03)]',
+        'shadow-[0_4px_30px_color-mix(in_srgb,var(--text)_25%,transparent),0_0_0_1px_var(--surface-border)]',
         'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-[0.97]',
         'transition-[width,height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
         className

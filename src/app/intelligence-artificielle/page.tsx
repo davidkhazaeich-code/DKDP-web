@@ -114,7 +114,7 @@ export default function IntelligenceArtificiellePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Intelligence artificielle pour PME à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Déployez l&apos;IA <GradText as="span">là où ça compte</GradText>. Pas partout pour l&apos;effet.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
@@ -171,7 +171,7 @@ export default function IntelligenceArtificiellePage() {
             {STATS.map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold mb-1 text-white">{s.value}</p>
+                  <p className="text-3xl md:text-4xl font-bold mb-1 text-text">{s.value}</p>
                   <p className="text-text-muted text-sm">{s.label}</p>
                 </div>
               </SectionReveal>

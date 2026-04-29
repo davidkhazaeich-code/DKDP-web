@@ -272,11 +272,11 @@ export default function RefonteSiteWebPage() {
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">
                   Refonte de site web à Genève
                 </h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Votre site vous <GradText as="span">coûte des clients</GradText>. On le refait avec de vrais résultats.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  Refonte complète, migration sans perte SEO, design 2026, Core Web Vitals garantis au vert. Pour PME romandes qui veulent un site qui convertit vraiment. <strong className="text-white">+240 % de trafic organique en 12 mois</strong> en moyenne sur les 14 refontes DKDP 2024-2026.
+                  Refonte complète, migration sans perte SEO, design 2026, Core Web Vitals garantis au vert. Pour PME romandes qui veulent un site qui convertit vraiment. <strong className="text-text">+240 % de trafic organique en 12 mois</strong> en moyenne sur les 14 refontes DKDP 2024-2026.
                 </p>
                 <HeroPills
                   items={[
@@ -348,7 +348,7 @@ export default function RefonteSiteWebPage() {
                   <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color: V }}>
                     {s.v}
                   </p>
-                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -376,7 +376,7 @@ export default function RefonteSiteWebPage() {
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: V }}>
                   Budget et délai en 2 minutes
                 </p>
-                <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-white mb-2">
+                <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-text mb-2">
                   Combien coûtera la refonte de votre site ?
                 </h2>
                 <p className="text-text-secondary text-sm md:text-base leading-relaxed max-w-xl">
@@ -440,7 +440,7 @@ export default function RefonteSiteWebPage() {
                   >
                     <s.Icon size={18} style={{ color: V }} />
                   </div>
-                  <h3 className="text-white font-semibold text-base mb-2">{s.title}</h3>
+                  <h3 className="text-text font-semibold text-base mb-2">{s.title}</h3>
                   <p className="text-text-muted text-sm leading-relaxed">{s.desc}</p>
                 </div>
               </SectionReveal>
@@ -476,7 +476,7 @@ export default function RefonteSiteWebPage() {
                   >
                     <a.Icon size={18} style={{ color: V }} />
                   </div>
-                  <h3 className="text-white font-semibold text-base mb-2">{a.title}</h3>
+                  <h3 className="text-text font-semibold text-base mb-2">{a.title}</h3>
                   <p className="text-text-muted text-sm leading-relaxed">{a.desc}</p>
                 </div>
               </SectionReveal>
@@ -514,9 +514,9 @@ export default function RefonteSiteWebPage() {
                 ],
                 href: '/agence-digitale/creation-site-web',
                 cta: 'Voir la création',
-                accent: 'rgba(255,255,255,0.03)',
-                accentBorder: 'rgba(255,255,255,0.10)',
-                accentText: '#FFFFFF',
+                accent: 'var(--surface-default)',
+                accentBorder: 'var(--surface-border)',
+                accentText: 'var(--text)',
               },
               {
                 title: 'Refonte',
@@ -553,7 +553,7 @@ export default function RefonteSiteWebPage() {
                   >
                     {card.tag}
                   </p>
-                  <h3 className="text-white font-bold text-2xl mb-3">{card.title}</h3>
+                  <h3 className="text-text font-bold text-2xl mb-3">{card.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed mb-5">{card.desc}</p>
                   <div className="space-y-2 mb-7 flex-1">
                     {card.points.map((p) => (
@@ -600,7 +600,7 @@ export default function RefonteSiteWebPage() {
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <Code2 size={16} style={{ color: V }} />
-                    <p className="text-white font-semibold text-sm">{t.name}</p>
+                    <p className="text-text font-semibold text-sm">{t.name}</p>
                   </div>
                   <p className="text-[10px] font-bold uppercase tracking-wider mb-2" style={{ color: V }}>
                     {t.cat}
@@ -644,14 +644,14 @@ export default function RefonteSiteWebPage() {
                   </div>
                   <div className="mb-6">
                     <p className="text-text-muted text-[10px] uppercase tracking-wider mb-1">Après</p>
-                    <p className="text-white text-sm leading-relaxed font-medium">{c.result}</p>
+                    <p className="text-text text-sm leading-relaxed font-medium">{c.result}</p>
                   </div>
                   <div className="flex flex-col gap-3 mt-auto pt-4 border-t" style={{ borderColor: VD }}>
                     {c.kpis.map((k) => (
                       <div key={k.label} className="flex items-baseline justify-between gap-3">
                         <p className="text-text-muted text-xs leading-tight">{k.label}</p>
                         <div className="text-right">
-                          <p className="text-white text-lg font-bold leading-none">{k.v}</p>
+                          <p className="text-text text-lg font-bold leading-none">{k.v}</p>
                           <p className="text-text-muted text-[10px] mt-0.5">{k.sub}</p>
                         </div>
                       </div>
@@ -747,7 +747,7 @@ export default function RefonteSiteWebPage() {
                       <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: V }}>
                         Refonte {t.tier}
                       </p>
-                      <p className="text-3xl font-bold text-white mb-1">{t.price}</p>
+                      <p className="text-3xl font-bold text-text mb-1">{t.price}</p>
                       <p className="text-text-muted text-xs">{t.volume}</p>
                     </div>
                     <div className="flex flex-col gap-2.5 flex-1 mb-8">
@@ -797,7 +797,7 @@ export default function RefonteSiteWebPage() {
                   >
                     {s.n}
                   </span>
-                  <h3 className="text-white font-semibold text-base mb-2 pr-8">{s.title}</h3>
+                  <h3 className="text-text font-semibold text-base mb-2 pr-8">{s.title}</h3>
                   <p className="text-text-muted text-sm leading-relaxed">{s.desc}</p>
                 </div>
               </SectionReveal>
@@ -854,7 +854,7 @@ export default function RefonteSiteWebPage() {
                   <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: V }}>
                     {a.tag}
                   </p>
-                  <p className="text-white font-semibold text-sm">{a.title}</p>
+                  <p className="text-text font-semibold text-sm">{a.title}</p>
                   <p className="text-text-muted text-xs leading-relaxed flex-1">{a.desc}</p>
                   <p className="text-xs font-medium inline-flex items-center gap-1 mt-2" style={{ color: V }}>
                     Lire l&apos;article

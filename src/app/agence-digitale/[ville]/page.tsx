@@ -128,14 +128,14 @@ export default async function CityPage({ params }: Props) {
       {/* ── Hero ── */}
       {(() => {
         const heroContent = (
-          <section className="pt-28 pb-24 md:pt-36 md:pb-32 lg:pt-40 lg:pb-36 min-h-[70vh] md:min-h-[75vh] flex flex-col justify-center">
+          <section className="pt-28 pb-24 md:pt-36 md:pb-32 lg:pt-40 lg:pb-36 min-h-[70vh] md:min-h-[75vh] flex flex-col justify-center" style={{ color: '#FFFFFF' }}>
             <div className="max-w-[1200px] mx-auto px-5 md:px-6 flex flex-col items-center text-center">
               <nav className="flex items-center justify-center gap-1.5 mb-5 md:mb-6" aria-label="Fil d'Ariane">
-                <Link href="/agence-digitale" className="text-text-muted text-xs md:text-sm hover:text-text transition-colors">
+                <Link href="/agence-digitale" className="text-xs md:text-sm hover:opacity-80 transition-opacity" style={{ color: 'rgba(255,255,255,0.7)' }}>
                   Agence Digitale
                 </Link>
-                <ChevronRight size={12} className="text-text-muted" />
-                <span className="text-text text-xs md:text-sm font-medium">{city.name}</span>
+                <ChevronRight size={12} style={{ color: 'rgba(255,255,255,0.7)' }} />
+                <span className="text-xs md:text-sm font-medium">{city.name}</span>
               </nav>
               <div className="max-w-2xl">
                 <GradTag className="mb-5">
@@ -146,7 +146,7 @@ export default async function CityPage({ params }: Props) {
                   <GradText as="span">{city.name}</GradText>{' '}
                   : sites web, SEO, IA et formation pour PME.
                 </h1>
-                <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-8" data-speakable="true">
+                <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.85)' }} data-speakable="true">
                   Création et refonte de sites web, référencement SEO et GEO, intelligence artificielle et formation entreprise. DKDP accompagne les PME de {city.name} depuis 2015. 700+ clients, conforme nLPD 2023.
                 </p>
                 <HeroPills
@@ -159,7 +159,7 @@ export default async function CityPage({ params }: Props) {
                 />
                 <div className="flex flex-wrap gap-3 items-center justify-center">
                   <LiquidMetalButton href="/contact" size="lg">Audit IA gratuit →</LiquidMetalButton>
-                  <Link href="/intelligence-artificielle" className="text-sm text-text-muted hover:text-text transition-colors px-2 py-1">
+                  <Link href="/intelligence-artificielle" className="text-sm hover:opacity-80 transition-opacity px-2 py-1" style={{ color: 'rgba(255,255,255,0.75)' }}>
                     Nos services IA
                   </Link>
                 </div>

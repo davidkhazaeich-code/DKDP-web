@@ -596,7 +596,7 @@ export default function RefonteSiteWebPage() {
               <SectionReveal key={t.name} delay={i * 0.05}>
                 <div
                   className="flex flex-col h-full rounded-[14px] border p-5"
-                  style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.08)' }}
+                  style={{ background: 'var(--surface-subtle)', borderColor: 'var(--surface-border)' }}
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <Code2 size={16} style={{ color: V }} />

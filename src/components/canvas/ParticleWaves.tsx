@@ -36,9 +36,10 @@ const SPARKLES: Record<'dark' | 'light', SparklePalette> = {
     GRAY_R: 0.75, GRAY_G: 0.75, GRAY_B: 0.75,
   },
   light: {
-    VR: 0.30, VG: 0.10, VB: 0.65,
-    OR: 0.75, OG: 0.35, OB: 0.00,
-    GRAY_R: 0.18, GRAY_G: 0.18, GRAY_B: 0.16,
+    // Pass 13: vivid violet/orange + near-black neutral for visibility on cream.
+    VR: 0.42, VG: 0.12, VB: 0.85,    // vivid brand violet (~#6B1ED9)
+    OR: 0.92, OG: 0.35, OB: 0.00,    // vivid brand orange (~#EB5900)
+    GRAY_R: 0.08, GRAY_G: 0.08, GRAY_B: 0.07,    // near-black warm (~#141412)
   },
 }
 

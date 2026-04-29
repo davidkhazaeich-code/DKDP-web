@@ -65,7 +65,7 @@ function Slider({ label, value, min, max, step, display, onChange }: SliderProps
           className="absolute w-4 h-4 rounded-full border-2 pointer-events-none"
           style={{
             left: `calc(${pct}% - 8px)`,
-            background: '#0A0A0A',
+            background: 'var(--bg-card)',
             borderColor: accent,
             boxShadow: `0 0 8px ${accent}66`,
           }}
@@ -224,7 +224,7 @@ export function FormationROICalculator() {
               </div>
 
               {/* ── Right: results ── */}
-              <div className="p-8 md:p-10 flex flex-col gap-5 backdrop-blur-sm" style={{ background: 'rgba(0,0,0,0.15)' }}>
+              <div className="p-8 md:p-10 flex flex-col gap-5 backdrop-blur-sm" style={{ background: 'var(--surface-default)' }}>
                 <p className="text-[11px] font-bold uppercase tracking-widest" style={{ color: accent }}>
                   Impact estimé pour votre entreprise
                 </p>

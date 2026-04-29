@@ -1,8 +1,3 @@
-import { chrome, green } from '@/lib/tokens'
-
-const color = chrome.color
-const greenColor = green.color
-
 export function WorkflowDiagram() {
   const beforeSteps = [
     'Email recu',
@@ -21,7 +16,7 @@ export function WorkflowDiagram() {
   return (
     <div className="grid grid-cols-2 gap-4 w-full">
       <div>
-        <p className="text-[10px] font-bold uppercase tracking-widest text-red-400 mb-3 text-center">
+        <p className="text-[10px] font-bold uppercase tracking-widest mb-3 text-center" style={{ color: 'var(--red-text)' }}>
           Avant
         </p>
         <div className="flex flex-col gap-2">
@@ -29,24 +24,24 @@ export function WorkflowDiagram() {
             <div
               key={i}
               className="flex items-center gap-2 p-2 rounded-[6px]"
-              style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.20)' }}
+              style={{ background: 'var(--red-bg)', border: '1px solid var(--red-border)' }}
             >
               <span
                 className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold flex-shrink-0"
-                style={{ background: 'rgba(239,68,68,0.20)', color: '#f87171' }}
+                style={{ background: 'var(--red-border)', color: 'var(--red-text)' }}
               >
                 {i + 1}
               </span>
               <span className="text-text-muted text-[11px]">{s}</span>
             </div>
           ))}
-          <p className="text-red-400 text-[10px] text-center mt-2 font-semibold">3h / tâche</p>
+          <p className="text-[10px] text-center mt-2 font-semibold" style={{ color: 'var(--red-text)' }}>3h / tâche</p>
         </div>
       </div>
       <div>
         <p
           className="text-[10px] font-bold uppercase tracking-widest mb-3 text-center"
-          style={{ color: greenColor }}
+          style={{ color: 'var(--green-text)' }}
         >
           Après IA
         </p>
@@ -55,20 +50,20 @@ export function WorkflowDiagram() {
             <div
               key={i}
               className="flex items-center gap-2 p-2 rounded-[6px]"
-              style={{ background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.20)' }}
+              style={{ background: 'var(--green-bg)', border: '1px solid var(--green-border)' }}
             >
               <span
                 className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold flex-shrink-0"
-                style={{ background: 'rgba(74,222,128,0.20)', color: greenColor }}
+                style={{ background: 'var(--green-border)', color: 'var(--green-text)' }}
               >
                 {i + 1}
               </span>
-              <span className="text-[11px]" style={{ color }}>{s}</span>
+              <span className="text-text-secondary text-[11px]">{s}</span>
             </div>
           ))}
           <p
             className="text-[10px] text-center mt-2 font-semibold"
-            style={{ color: greenColor }}
+            style={{ color: 'var(--green-text)' }}
           >
             4 min / tâche
           </p>

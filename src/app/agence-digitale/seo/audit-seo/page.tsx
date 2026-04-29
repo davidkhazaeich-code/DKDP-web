@@ -295,7 +295,7 @@ export default function AuditSEOPage() {
                   className="rounded-[24px] p-8 md:p-10 bg-bg-card border border-border"
                   style={{
                     backdropFilter: 'blur(20px)',
-                    boxShadow: '0 0 60px rgba(124,58,237,0.10), 0 24px 64px rgba(0,0,0,0.18)',
+                    boxShadow: '0 0 60px rgba(124,58,237,0.10), var(--shadow-card-xl)',
                   }}
                 >
                   <h2

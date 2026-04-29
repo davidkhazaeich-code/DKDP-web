@@ -196,7 +196,7 @@ export default function FormationClaudeAIPage() {
                     Nouveau 2026
                   </span>
                 </div>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Vos équipes testent Claude. On leur apprend à <GradText as="span">s&apos;en servir</GradText>.
                 </p>
 
@@ -320,7 +320,7 @@ export default function FormationClaudeAIPage() {
               <SectionReveal key={s.l}>
                 <div className="text-center">
                   <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color: OR }}>{s.v}</p>
-                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>

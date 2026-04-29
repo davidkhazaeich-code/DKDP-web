@@ -142,19 +142,19 @@ function CategoryBlock({ title, step, items }: CategoryBlockProps) {
       <button
         type="button"
         onClick={() => dispatch({ type: 'SET_STEP', step })}
-        className="flex items-center gap-1.5 text-sm font-semibold text-zinc-300 cursor-pointer hover:text-violet-400 transition-colors"
+        className="flex items-center gap-1.5 text-sm font-semibold text-text-secondary cursor-pointer hover:text-violet-500 transition-colors"
       >
         <Pencil size={12} className="opacity-70" />
         {title}
       </button>
-      <div className="space-y-1 rounded-xl border border-white/5 bg-white/[0.02] px-4 py-3">
+      <div className="space-y-1 rounded-xl border border-border bg-[var(--surface-subtle)] px-4 py-3">
         {items.map((item, i) => (
           <div key={i} className="flex items-center justify-between gap-4">
-            <span className="text-sm text-zinc-400">{item.label}</span>
+            <span className="text-sm text-text-secondary">{item.label}</span>
             <span
               className={[
                 'text-sm font-medium whitespace-nowrap',
-                isIncluded(item.price) ? 'text-emerald-400' : 'text-zinc-300',
+                isIncluded(item.price) ? 'text-emerald-500' : 'text-text',
               ].join(' ')}
             >
               {item.price}
@@ -185,8 +185,8 @@ function InputField({
 }) {
   return (
     <div className="flex flex-col gap-1">
-      <label htmlFor={id} className="text-sm font-medium text-zinc-400 mb-1 flex items-center gap-1.5">
-        {icon && <span className="text-zinc-500">{icon}</span>}
+      <label htmlFor={id} className="text-sm font-medium text-text-secondary mb-1 flex items-center gap-1.5">
+        {icon && <span className="text-text-muted">{icon}</span>}
         {label}
         {required && <span className="text-violet-500 ml-1">*</span>}
         {optional && <span className="text-text-muted ml-1 font-normal text-xs">(optionnel)</span>}
@@ -459,13 +459,13 @@ export function Step8Summary() {
         className="flex flex-col items-center justify-center gap-6 py-12 text-center"
       >
         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/30">
-          <CheckCircle size={40} className="text-emerald-400" />
+          <CheckCircle size={40} className="text-emerald-500" />
         </div>
         <div className="space-y-2">
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-bold text-text">
             Merci, {state.contact.firstName || 'vous'}&nbsp;!
           </h3>
-          <p className="text-zinc-400 max-w-sm leading-relaxed">
+          <p className="text-text-secondary max-w-sm leading-relaxed">
             Votre estimation a été envoyée avec succès. Vous recevrez un devis détaillé sous 48h.
           </p>
         </div>
@@ -494,10 +494,10 @@ export function Step8Summary() {
       {/* Totals block at the top */}
       <div className="rounded-2xl border border-violet-500/30 bg-violet-500/5 p-5 space-y-3">
         <div>
-          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500 mb-1.5">
+          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-text-muted mb-1.5">
             Investissement unique
           </p>
-          <p className="text-2xl lg:text-xl xl:text-2xl font-bold text-white leading-tight tabular-nums">
+          <p className="text-2xl lg:text-xl xl:text-2xl font-bold text-text leading-tight tabular-nums">
             <AnimatedCounter value={estimate.totalMin} prefix="CHF" />
             {estimate.totalMin !== estimate.totalMax && (
               <>
@@ -509,27 +509,27 @@ export function Step8Summary() {
         </div>
         {estimate.monthlyMin > 0 && (
           <div>
-            <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500 mb-1">
+            <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-text-muted mb-1">
               Coûts récurrents
             </p>
-            <p className="text-base font-semibold text-violet-400 tabular-nums">
+            <p className="text-base font-semibold text-violet-500 tabular-nums">
               +{formatCHF(estimate.monthlyMin, estimate.monthlyMax)} /mois
             </p>
           </div>
         )}
         {estimate.weeksMin > 0 && (
           <div>
-            <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500 mb-1">
+            <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-text-muted mb-1">
               Délai estimé
             </p>
-            <p className="text-base font-semibold text-emerald-400 tabular-nums">
+            <p className="text-base font-semibold text-emerald-500 tabular-nums">
               ~{estimate.weeksMin}
               {estimate.weeksMin !== estimate.weeksMax && `-${estimate.weeksMax}`}{' '}
               semaines
             </p>
           </div>
         )}
-        <p className="text-xs text-zinc-500 border-t border-violet-500/10 pt-3 leading-relaxed">
+        <p className="text-xs text-text-muted border-t border-violet-500/10 pt-3 leading-relaxed">
           Estimation indicative. Devis personnalisé sous 48h.
         </p>
       </div>
@@ -556,8 +556,8 @@ export function Step8Summary() {
 
         {/* ── Contact form ── */}
         <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-        <p className="text-xs text-zinc-500">
-          <span className="text-violet-400">*</span> Champs obligatoires
+        <p className="text-xs text-text-muted">
+          <span className="text-violet-500">*</span> Champs obligatoires
         </p>
         {/* Honeypot */}
         <input
@@ -655,14 +655,14 @@ export function Step8Summary() {
               onChange={setField('launchDate')}
               className={inputClass}
             >
-              <option value="" className="bg-zinc-900">Sélectionnez un mois...</option>
+              <option value="" className="bg-bg-card text-text">Sélectionnez un mois...</option>
               {Array.from({ length: 12 }, (_, i) => {
                 const d = new Date()
                 d.setMonth(d.getMonth() + i + 1)
                 const label = d.toLocaleDateString('fr-CH', { month: 'long', year: 'numeric' })
                 const value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
                 return (
-                  <option key={value} value={value} className="bg-zinc-900">
+                  <option key={value} value={value} className="bg-bg-card text-text">
                     {label.charAt(0).toUpperCase() + label.slice(1)}
                   </option>
                 )

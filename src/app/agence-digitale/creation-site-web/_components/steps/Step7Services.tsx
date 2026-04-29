@@ -81,12 +81,12 @@ export function Step7Services() {
           </span>
           <div className="min-w-0 flex-1">
             <div className="flex items-baseline justify-between gap-2 flex-wrap">
-              <span className="text-sm font-semibold text-zinc-100 leading-snug">
+              <span className="text-sm font-semibold text-text leading-snug">
                 Livraison express (-1 mois)
               </span>
-              <span className="text-xs font-semibold text-orange-400 shrink-0">+30%</span>
+              <span className="text-xs font-semibold text-orange-500 shrink-0">+30%</span>
             </div>
-            <p className="mt-1 text-xs text-orange-400/80 leading-relaxed">
+            <p className="mt-1 text-xs text-orange-500/90 leading-relaxed">
               Votre projet livré en moins d&apos;un mois, +30% sur le coût total
             </p>
           </div>

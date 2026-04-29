@@ -71,25 +71,25 @@ export function Step3Scope() {
                   'group w-full text-left rounded-xl px-4 py-3 transition-all duration-200 border cursor-pointer min-h-[60px] flex items-center',
                   isSelected
                     ? 'border-violet-500/60 bg-violet-500/[0.08] shadow-[0_0_0_1px_rgba(139,92,246,0.2)]'
-                    : 'border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]',
+                    : 'border-border bg-[var(--surface-subtle)] hover:border-border-strong hover:bg-[var(--surface-default)]',
                 ].join(' ')}
               >
                 <div className="flex items-center justify-between gap-3 w-full">
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
-                      {isUnsure && <HelpCircle size={14} className="text-zinc-500 flex-shrink-0" />}
+                      {isUnsure && <HelpCircle size={14} className="text-text-muted flex-shrink-0" />}
                       <span className={[
                         'text-sm font-semibold leading-snug',
-                        isUnsure ? 'text-zinc-300' : 'text-zinc-100',
+                        isUnsure ? 'text-text-secondary' : 'text-text',
                       ].join(' ')}>
                         {opt.label}
                       </span>
                     </div>
-                    <p className="text-xs text-zinc-500 mt-0.5 leading-relaxed">{opt.hint}</p>
+                    <p className="text-xs text-text-muted mt-0.5 leading-relaxed">{opt.hint}</p>
                   </div>
                   <div className="flex items-center gap-2.5 flex-shrink-0">
                     {!isUnsure && (
-                      <span className="text-xs text-zinc-500 font-medium whitespace-nowrap tabular-nums">
+                      <span className="text-xs text-text-muted font-medium whitespace-nowrap tabular-nums">
                         x{PAGE_MULTIPLIERS[opt.value]}
                       </span>
                     )}
@@ -98,7 +98,7 @@ export function Step3Scope() {
                         'flex h-5 w-5 items-center justify-center rounded-full transition-all duration-200',
                         isSelected
                           ? 'bg-violet-500 border border-violet-400 opacity-100 scale-100'
-                          : 'border border-white/15 opacity-0 scale-75',
+                          : 'border border-[color:var(--surface-border)] opacity-0 scale-75',
                       ].join(' ')}
                     >
                       {isSelected && <Check size={12} className="text-white" strokeWidth={3} />}
@@ -127,13 +127,13 @@ export function Step3Scope() {
                   'min-h-[60px] flex flex-col items-center justify-center gap-0.5',
                   isSelected
                     ? 'border-violet-500/60 bg-violet-500/[0.08] shadow-[0_0_0_1px_rgba(139,92,246,0.2)]'
-                    : 'border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]',
+                    : 'border-border bg-[var(--surface-subtle)] hover:border-border-strong hover:bg-[var(--surface-default)]',
                 ].join(' ')}
               >
-                <span className={['text-sm font-semibold', isSelected ? 'text-violet-200' : 'text-zinc-100'].join(' ')}>
+                <span className={['text-sm font-semibold', isSelected ? 'text-violet-500' : 'text-text'].join(' ')}>
                   {opt.label}
                 </span>
-                <span className="text-[10px] sm:text-xs text-zinc-500 font-medium tabular-nums">
+                <span className="text-[10px] sm:text-xs text-text-muted font-medium tabular-nums">
                   {opt.mult}
                 </span>
               </button>
@@ -178,21 +178,21 @@ export function Step3Scope() {
         'rounded-xl p-4 border transition-colors',
         previewResult
           ? 'border-violet-500/20 bg-violet-500/[0.04]'
-          : 'border-white/10 bg-white/[0.02]',
+          : 'border-border bg-[var(--surface-subtle)]',
       ].join(' ')}>
         {previewResult ? (
           <div className="flex items-center justify-between gap-3 flex-wrap">
-            <p className="text-xs uppercase tracking-wider font-semibold text-zinc-500">
+            <p className="text-xs uppercase tracking-wider font-semibold text-text-muted">
               Sous-total provisoire
             </p>
-            <p className="text-lg font-bold text-white tabular-nums">
+            <p className="text-lg font-bold text-text tabular-nums">
               CHF {formatChf(previewResult.resultMin)}
-              <span className="text-zinc-600 mx-1.5">–</span>
+              <span className="text-text-muted mx-1.5">–</span>
               {formatChf(previewResult.resultMax)}
             </p>
           </div>
         ) : (
-          <p className="text-xs sm:text-sm text-zinc-500 text-center leading-relaxed">
+          <p className="text-xs sm:text-sm text-text-muted text-center leading-relaxed">
             Sélectionnez les options ci-dessus pour voir l&apos;estimation en temps réel.
           </p>
         )}

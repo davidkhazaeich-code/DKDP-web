@@ -16,7 +16,7 @@ export function Step6Acquisition() {
   const automationSelectedCount = state.automation.length
 
   return (
-    <div className="divide-y divide-white/[0.06]">
+    <div className="divide-y divide-[color:var(--border)]">
 
       {/* SEO */}
       <div className="pb-1 first:pt-0">
@@ -25,12 +25,12 @@ export function Step6Acquisition() {
             {/* Always included */}
             <div className="rounded-xl p-3.5 sm:p-4 border border-emerald-500/20 bg-emerald-500/[0.04]">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-sm font-semibold text-zinc-100">SEO technique de base</span>
-                <span className="text-[10px] font-semibold px-2 py-0.5 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
+                <span className="text-sm font-semibold text-text">SEO technique de base</span>
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-500">
                   Toujours inclus
                 </span>
               </div>
-              <p className="mt-1 text-xs text-zinc-500 leading-relaxed">
+              <p className="mt-1 text-xs text-text-muted leading-relaxed">
                 Optimisation on-page, meta tags, sitemap, performance
               </p>
             </div>

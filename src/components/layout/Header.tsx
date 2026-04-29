@@ -510,11 +510,14 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
 // ─── Scroll progress gradient per pillar ─────────────────────────────────────
 
 function getPillarGradient(pathname: string): string {
+  // Use color-mix on --text-secondary so the gradient start is theme-aware
+  // (white-ish in dark, dark gray in light) and blends on either background.
+  const start = 'color-mix(in srgb, var(--text-secondary) 70%, transparent)'
   if (pathname.startsWith('/intelligence-artificielle'))
-    return 'linear-gradient(to right, rgba(255,255,255,0.70), #D4D4D8)'
+    return `linear-gradient(to right, ${start}, #D4D4D8)`
   if (pathname.startsWith('/formation-entreprise') || pathname.startsWith('/formation-particuliers'))
-    return 'linear-gradient(to right, rgba(255,255,255,0.70), #FF8C00)'
-  return 'linear-gradient(to right, rgba(255,255,255,0.70), #A78BFA)'
+    return `linear-gradient(to right, ${start}, #FF8C00)`
+  return `linear-gradient(to right, ${start}, #A78BFA)`
 }
 
 // ─── Main Header ─────────────────────────────────────────────────────────────

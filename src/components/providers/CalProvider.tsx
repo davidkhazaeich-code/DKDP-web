@@ -2,23 +2,28 @@
 
 import { useEffect } from 'react'
 import { getCalApi } from '@calcom/embed-react'
+import { useTheme } from './ThemeProvider'
 
 export function CalProvider() {
+  const { theme, mounted } = useTheme()
+
   useEffect(() => {
     // Différer l'initialisation Cal.com après la première interaction utilisateur
     // pour ne pas bloquer le thread principal au chargement initial (impact LCP)
     let initiated = false
+    let cancelled = false
     const init = async () => {
-      if (initiated) return
+      if (initiated || cancelled) return
       initiated = true
       window.removeEventListener('mousemove', init)
       window.removeEventListener('scroll', init, { capture: true })
       window.removeEventListener('touchstart', init)
       const cal = await getCalApi({ namespace: 'planifier-un-appel' })
+      if (cancelled) return
       cal('ui', {
         hideEventTypeDetails: false,
         layout: 'month_view',
-        theme: 'dark',
+        theme,
         cssVarsPerTheme: {
           dark: {
             'cal-brand':          '#A78BFA',
@@ -51,11 +56,15 @@ export function CalProvider() {
     window.addEventListener('scroll', init, { capture: true, once: true })
     window.addEventListener('touchstart', init, { once: true })
     return () => {
+      cancelled = true
       window.removeEventListener('mousemove', init)
       window.removeEventListener('scroll', init, { capture: true })
       window.removeEventListener('touchstart', init)
     }
-  }, [])
+    // mounted is needed to gate first init to the post-mount theme value
+    // theme triggers a refresh when the user toggles light/dark
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mounted, theme])
 
   return null
 }

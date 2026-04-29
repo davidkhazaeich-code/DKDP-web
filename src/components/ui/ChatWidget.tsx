@@ -19,9 +19,14 @@ import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 // emet le token [BOOK] dans son message.
 async function openBookingModal() {
   const cal = await getCalApi({ namespace: 'planifier-un-appel' })
+  const theme =
+    typeof document !== 'undefined' &&
+    document.documentElement.getAttribute('data-theme') === 'light'
+      ? 'light'
+      : 'dark'
   cal('modal', {
     calLink: 'david-khazaei/planifier-un-appel',
-    config: { layout: 'month_view', theme: 'dark' },
+    config: { layout: 'month_view', theme },
   })
 }
 

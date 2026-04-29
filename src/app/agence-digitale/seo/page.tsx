@@ -170,7 +170,7 @@ export default function SEOPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Référencement SEO à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   La <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>première page</GradText>{' '}de Google. Pas la troisième.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
@@ -210,7 +210,7 @@ export default function SEOPage() {
               <SectionReveal key={s.l}>
                 <div className="text-center">
                   <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.v}</p>
-                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -296,7 +296,7 @@ export default function SEOPage() {
                 ChatGPT, Perplexity, Google AI Overviews et Copilot répondent directement aux questions de vos prospects, sans clic Google. Si votre contenu n&apos;est pas citable par ces IA, vous êtes absent là où une part croissante des décisions d&apos;achat se forme.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
-                Le <span className="text-white font-semibold">GEO (Generative Engine Optimization)</span>, aussi appelé AEO (Answer Engine Optimization), optimisé votre contenu pour être cité comme source de référence. DKDP intègre cette dimension à chaque mission SEO.
+                Le <span className="text-text font-semibold">GEO (Generative Engine Optimization)</span>, aussi appelé AEO (Answer Engine Optimization), optimisé votre contenu pour être cité comme source de référence. DKDP intègre cette dimension à chaque mission SEO.
               </p>
               <div className="space-y-3">
                 {[
@@ -329,7 +329,7 @@ export default function SEOPage() {
                     { name: 'Copilot', maker: 'Microsoft', c: '#60a5fa', cbg: 'rgba(96,165,250,0.08)', cbd: 'rgba(96,165,250,0.22)', note: 'Intégré Bing & Edge' },
                   ].map((p) => (
                     <div key={p.name} className="p-3.5 rounded-[10px] border" style={{ background: p.cbg, borderColor: p.cbd }}>
-                      <p className="text-white font-bold text-sm">{p.name}</p>
+                      <p className="text-text font-bold text-sm">{p.name}</p>
                       <p className="text-[10px] font-semibold mb-1" style={{ color: p.c }}>{p.maker}</p>
                       <p className="text-text-muted text-[10px]">{p.note}</p>
                     </div>
@@ -384,7 +384,7 @@ export default function SEOPage() {
                         <item.Icon size={16} style={{ color }} />
                       </div>
                       <div>
-                        <p className="text-white text-sm font-semibold leading-snug">{item.title}</p>
+                        <p className="text-text text-sm font-semibold leading-snug">{item.title}</p>
                         <p className="text-text-muted text-[11px] mt-0.5">{item.sub}</p>
                       </div>
                     </div>
@@ -426,7 +426,7 @@ export default function SEOPage() {
                     <b.Icon size={22} style={{ color }} />
                   </div>
                   <div className="text-3xl font-bold" style={{ color }}>{b.value}</div>
-                  <h3 className="text-white font-bold text-lg">{b.title}</h3>
+                  <h3 className="text-text font-bold text-lg">{b.title}</h3>
                   <p className="text-text-secondary leading-relaxed text-sm">{b.desc}</p>
                 </div>
               </SectionReveal>
@@ -445,10 +445,10 @@ export default function SEOPage() {
                 SEO local à Genève : Google Business Profile, citations locales et pack local.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-4">
-                À Genève, 46 % des recherches commerciales sont locales (source : Think with Google 2026). Sur mobile, 78 % des requêtes &laquo; près de moi &raquo; finissent par un appel ou un trajet dans les 24 h. Si vous n&apos;apparaissez pas dans le <strong className="text-white">pack local</strong> (les 3 fiches Google Maps au-dessus des résultats bleus), vous êtes invisibles pour la moitié de vos prospects genevois.
+                À Genève, 46 % des recherches commerciales sont locales (source : Think with Google 2026). Sur mobile, 78 % des requêtes &laquo; près de moi &raquo; finissent par un appel ou un trajet dans les 24 h. Si vous n&apos;apparaissez pas dans le <strong className="text-text">pack local</strong> (les 3 fiches Google Maps au-dessus des résultats bleus), vous êtes invisibles pour la moitié de vos prospects genevois.
               </p>
               <p className="text-text-secondary leading-relaxed mb-6">
-                DKDP déploie une stratégie SEO local complète : optimisation de votre <strong className="text-white">Google Business Profile</strong> (ex-Google My Business), construction d&apos;un réseau de citations locales cohérentes (NAP : Name, Address, Phone), récolte structurée d&apos;avis clients, schema <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded">LocalBusiness</code> sur toutes vos pages et optimisation mobile Core Web Vitals (LCP, CLS, INP) pour le ranking mobile-first. Pour un guide complet, lisez <Link href="/blog/seo-local-geneve-2026" className="underline hover:text-white transition-colors">SEO local Genève 2026 : dominer Google Maps</Link>.
+                DKDP déploie une stratégie SEO local complète : optimisation de votre <strong className="text-text">Google Business Profile</strong> (ex-Google My Business), construction d&apos;un réseau de citations locales cohérentes (NAP : Name, Address, Phone), récolte structurée d&apos;avis clients, schema <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded">LocalBusiness</code> sur toutes vos pages et optimisation mobile Core Web Vitals (LCP, CLS, INP) pour le ranking mobile-first. Pour un guide complet, lisez <Link href="/blog/seo-local-geneve-2026" className="underline hover:text-white transition-colors">SEO local Genève 2026 : dominer Google Maps</Link>.
               </p>
               <div className="space-y-3">
                 {[
@@ -462,7 +462,7 @@ export default function SEOPage() {
                   <div key={row.k} className="flex gap-3">
                     <CheckCircle2 size={14} className="mt-1 flex-shrink-0" style={{ color }} />
                     <p className="text-sm text-text-secondary">
-                      <strong className="text-white">{row.k} :</strong> {row.v}
+                      <strong className="text-text">{row.k} :</strong> {row.v}
                     </p>
                   </div>
                 ))}
@@ -508,7 +508,7 @@ export default function SEOPage() {
                       <p className="text-text-secondary text-xs flex-1 leading-tight">{row.label}</p>
                       <div className="flex items-center gap-2 text-xs">
                         <span className="text-text-muted line-through">{row.before}</span>
-                        <span className="text-white font-semibold">{row.after}</span>
+                        <span className="text-text font-semibold">{row.after}</span>
                         <span
                           className="px-1.5 py-0.5 rounded-full font-bold text-[10px]"
                           style={{ background: 'rgba(74,222,128,0.12)', color: '#4ade80', border: '1px solid rgba(74,222,128,0.25)' }}
@@ -610,7 +610,7 @@ export default function SEOPage() {
                         Le plus demandé
                       </span>
                     )}
-                    <p className="text-white font-bold text-xl mb-1">{offer.label}</p>
+                    <p className="text-text font-bold text-xl mb-1">{offer.label}</p>
                     <p className="text-2xl font-bold mb-1" style={{ color }}>{offer.price}</p>
                     <p className="text-text-muted text-xs mb-6">{offer.duration}</p>
                     <div className="space-y-2.5 flex-1">
@@ -657,7 +657,7 @@ export default function SEOPage() {
               <SectionReveal key={p.step} delay={i * 0.08}>
                 <div className="flex flex-col gap-3 p-5 bg-bg rounded-[14px] border border-border h-full">
                   <div className="text-[11px] font-bold tracking-widest" style={{ color }}>{p.step}</div>
-                  <h3 className="text-white font-semibold text-sm">{p.title}</h3>
+                  <h3 className="text-text font-semibold text-sm">{p.title}</h3>
                   <p className="text-text-muted text-xs leading-relaxed">{p.desc}</p>
                 </div>
               </SectionReveal>
@@ -707,7 +707,7 @@ export default function SEOPage() {
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div>
-                    <p className="text-white text-sm font-semibold">{t.author}</p>
+                    <p className="text-text text-sm font-semibold">{t.author}</p>
                     <p className="text-text-muted text-xs">{t.location}</p>
                   </div>
                 </div>
@@ -775,12 +775,12 @@ export default function SEOPage() {
                     </span>
                   </div>
                   <div className="p-6 flex flex-col flex-1" style={{ background: bg }}>
-                    <p className="text-white font-bold mb-4">{r.client}</p>
+                    <p className="text-text font-bold mb-4">{r.client}</p>
                     <div className="space-y-2 flex-1">
                       {r.results.map((res) => (
                         <div key={res} className="flex items-center gap-2">
                           <Star size={11} style={{ color }} className="flex-shrink-0" />
-                          <span className="text-white text-sm font-semibold">{res}</span>
+                          <span className="text-text text-sm font-semibold">{res}</span>
                         </div>
                       ))}
                     </div>
@@ -811,7 +811,7 @@ export default function SEOPage() {
                     >
                       <g.Icon size={22} style={{ color }} />
                     </div>
-                    <p className="text-white font-bold text-sm mb-2">{g.title}</p>
+                    <p className="text-text font-bold text-sm mb-2">{g.title}</p>
                     <p className="text-text-muted text-xs leading-relaxed">{g.desc}</p>
                   </div>
                 ))}
@@ -850,7 +850,7 @@ export default function SEOPage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Étape suivante</p>
-                  <p className="text-white font-bold text-lg leading-tight">Publicité Google Ads</p>
+                  <p className="text-text font-bold text-lg leading-tight">Publicité Google Ads</p>
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
                     Le SEO prend du temps. Pour générer des leads immédiatement pendant que votre référencement monte en puissance, découvrez la publicité Google Ads.
                   </p>

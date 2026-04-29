@@ -36,7 +36,10 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
 const navigationMenuTriggerStyle = cva(
-  'group inline-flex h-9 w-max items-center justify-center rounded-lg px-3 py-2 text-[13px] font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 text-text-secondary hover:text-text data-[active]:text-violet-light data-[state=open]:text-text bg-transparent hover:bg-[var(--trigger-hover-bg,var(--surface-default))] data-[state=open]:bg-[var(--trigger-hover-bg,var(--surface-default))]'
+  // Selected/active state: text-violet (full --violet) is readable on both cream and dark.
+  // Open state bg: --violet-bg (theme-aware 10% dark / 14% light) provides strong visual
+  // feedback on cream where --surface-default is too subtle.
+  'group inline-flex h-9 w-max items-center justify-center rounded-lg px-3 py-2 text-[13px] font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 text-text-secondary hover:text-text data-[active]:text-violet data-[active]:bg-[var(--violet-bg)] data-[state=open]:text-violet data-[state=open]:bg-[var(--violet-bg)] bg-transparent hover:bg-[var(--trigger-hover-bg,var(--surface-default))]'
 )
 
 const NavigationMenuTrigger = React.forwardRef<

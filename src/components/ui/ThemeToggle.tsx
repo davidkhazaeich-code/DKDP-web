@@ -2,10 +2,10 @@
 import { SunIcon, MoonIcon } from '@radix-ui/react-icons'
 import { useTheme } from '@/components/providers/ThemeProvider'
 
-// Set to true once light mode polish is complete (top gradient strip, DottedSurface
-// vertex-color dimming, etc.). When false, the button is not rendered and the
-// inline anti-FOUC script in layout.tsx forces dark theme on every load.
-const ENABLE_LIGHT_MODE = false
+// Light mode shipped after polish pass on homepage + 11 service pages.
+// To pause the toggle (e.g., during a regression), set this to false AND restore
+// the dark-forcing variant of the inline anti-FOUC script in layout.tsx.
+const ENABLE_LIGHT_MODE = true
 
 interface ThemeToggleProps {
   /** Tailwind classes appended to the wrapping <button> */

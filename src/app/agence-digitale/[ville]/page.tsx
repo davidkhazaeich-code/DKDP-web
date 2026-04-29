@@ -131,11 +131,11 @@ export default async function CityPage({ params }: Props) {
           <section className="pt-28 pb-24 md:pt-36 md:pb-32 lg:pt-40 lg:pb-36 min-h-[70vh] md:min-h-[75vh] flex flex-col justify-center">
             <div className="max-w-[1200px] mx-auto px-5 md:px-6 flex flex-col items-center text-center">
               <nav className="flex items-center justify-center gap-1.5 mb-5 md:mb-6" aria-label="Fil d'Ariane">
-                <Link href="/agence-digitale" className="text-text-muted text-xs md:text-sm hover:text-white transition-colors">
+                <Link href="/agence-digitale" className="text-text-muted text-xs md:text-sm hover:text-text transition-colors">
                   Agence Digitale
                 </Link>
                 <ChevronRight size={12} className="text-text-muted" />
-                <span className="text-white text-xs md:text-sm font-medium">{city.name}</span>
+                <span className="text-text text-xs md:text-sm font-medium">{city.name}</span>
               </nav>
               <div className="max-w-2xl">
                 <GradTag className="mb-5">
@@ -159,7 +159,7 @@ export default async function CityPage({ params }: Props) {
                 />
                 <div className="flex flex-wrap gap-3 items-center justify-center">
                   <LiquidMetalButton href="/contact" size="lg">Audit IA gratuit →</LiquidMetalButton>
-                  <Link href="/intelligence-artificielle" className="text-sm text-text-muted hover:text-white transition-colors px-2 py-1">
+                  <Link href="/intelligence-artificielle" className="text-sm text-text-muted hover:text-text transition-colors px-2 py-1">
                     Nos services IA
                   </Link>
                 </div>
@@ -208,7 +208,7 @@ export default async function CityPage({ params }: Props) {
       <SectionReveal>
         <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-16 md:py-20">
           <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: CH }}>Intelligence artificielle</p>
-          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-text">
             Agents IA et automatisation pour {city.name}
           </h2>
           <p className="text-text-secondary text-sm md:text-base mb-10 max-w-2xl">
@@ -231,7 +231,7 @@ export default async function CityPage({ params }: Props) {
                     <cap.Icon size={18} style={{ color: CH }} />
                   </div>
                   <div>
-                    <p className="text-white font-semibold text-sm mb-1.5">{cap.title}</p>
+                    <p className="text-text font-semibold text-sm mb-1.5">{cap.title}</p>
                     <p className="text-text-muted text-xs leading-relaxed">{cap.desc}</p>
                   </div>
                 </div>
@@ -272,7 +272,7 @@ export default async function CityPage({ params }: Props) {
           <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: OR }}>Formation IA</p>
-              <h2 className="text-2xl md:text-3xl font-bold mb-5 text-white">
+              <h2 className="text-2xl md:text-3xl font-bold mb-5 text-text">
                 Formation intelligence artificielle a {city.name}
               </h2>
               <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-6">
@@ -314,7 +314,7 @@ export default async function CityPage({ params }: Props) {
       <SectionReveal>
         <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border">
           <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: V }}>Nos services</p>
-          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-text">
             Solutions digitales completes a {city.name}
           </h2>
           <p className="text-text-secondary text-sm md:text-base mb-10 max-w-xl">
@@ -327,7 +327,7 @@ export default async function CityPage({ params }: Props) {
                 href={s.href}
                 className="group p-4 md:p-5 rounded-xl border border-border bg-white/[0.02] transition-all hover:-translate-y-0.5 hover:border-violet-500/40 duration-200"
               >
-                <p className="text-white font-semibold text-sm mb-1.5 group-hover:opacity-80 transition-opacity">{s.label}</p>
+                <p className="text-text font-semibold text-sm mb-1.5 group-hover:opacity-80 transition-opacity">{s.label}</p>
                 <p className="text-text-muted text-xs leading-relaxed">{s.desc}</p>
                 <span className="inline-flex items-center gap-1 text-[11px] font-semibold mt-3 text-text-secondary group-hover:text-violet-400 transition-colors">
                   En savoir plus <ChevronRight size={10} />
@@ -344,7 +344,7 @@ export default async function CityPage({ params }: Props) {
           <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: V }}>Expertise locale</p>
-              <h2 className="text-2xl md:text-3xl font-bold mb-5 text-white">
+              <h2 className="text-2xl md:text-3xl font-bold mb-5 text-text">
                 Pourquoi les entreprises de {city.name} nous font confiance
               </h2>
               <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-8">
@@ -361,7 +361,7 @@ export default async function CityPage({ params }: Props) {
                       <item.Icon size={14} style={{ color: V }} />
                     </div>
                     <div>
-                      <p className="text-white text-sm font-medium">{item.title}</p>
+                      <p className="text-text text-sm font-medium">{item.title}</p>
                       <p className="text-text-muted text-xs mt-0.5">{item.text}</p>
                     </div>
                   </div>
@@ -371,14 +371,14 @@ export default async function CityPage({ params }: Props) {
 
             {/* Key services for this city */}
             <div className="p-5 md:p-6 rounded-2xl border border-violet-500/20 bg-white/[0.02]">
-              <h3 className="text-base md:text-lg font-semibold text-white mb-5">Ce qu'on fait pour vous a {city.name}</h3>
+              <h3 className="text-base md:text-lg font-semibold text-text mb-5">Ce qu'on fait pour vous a {city.name}</h3>
               <ul className="space-y-4">
                 {SERVICES.slice(0, 4).map(s => (
                   <li key={s.href}>
                     <Link href={s.href} className="group flex items-start gap-3">
                       <CheckCircle2 size={15} className="mt-0.5 flex-shrink-0 transition-colors" style={{ color: V }} />
                       <div>
-                        <p className="text-white text-sm font-medium group-hover:opacity-80 transition-opacity">{s.label}</p>
+                        <p className="text-text text-sm font-medium group-hover:opacity-80 transition-opacity">{s.label}</p>
                         <p className="text-text-muted text-xs mt-0.5 leading-relaxed">{s.desc}</p>
                       </div>
                     </Link>
@@ -394,7 +394,7 @@ export default async function CityPage({ params }: Props) {
       <SectionReveal>
         <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-12 md:py-16">
           <div className="p-6 md:p-10 rounded-2xl border border-border bg-white/[0.02] text-center">
-            <h2 className="text-xl md:text-2xl font-bold mb-3 text-white">
+            <h2 className="text-xl md:text-2xl font-bold mb-3 text-text">
               Pret a automatiser votre entreprise a {city.name} ?
             </h2>
             <p className="text-text-secondary text-sm md:text-base mb-6 max-w-md mx-auto">
@@ -404,7 +404,7 @@ export default async function CityPage({ params }: Props) {
               <LiquidMetalButton href="/contact" size="lg">Audit IA gratuit →</LiquidMetalButton>
               <a
                 href="tel:+41799407969"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-medium text-text-secondary border border-border hover:border-violet-500/40 hover:text-white transition-all min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-medium text-text-secondary border border-border hover:border-violet-500/40 hover:text-text transition-all min-h-[44px]"
               >
                 <Phone size={14} /> +41 79 940 79 69
               </a>
@@ -427,7 +427,7 @@ export default async function CityPage({ params }: Props) {
             <Link
               key={c.slug}
               href={`/agence-digitale/${c.slug}`}
-              className="px-3.5 py-2 rounded-lg border border-border bg-white/[0.02] text-sm text-text-secondary hover:text-white hover:border-violet-500/40 transition-all"
+              className="px-3.5 py-2 rounded-lg border border-border bg-white/[0.02] text-sm text-text-secondary hover:text-text hover:border-violet-500/40 transition-all"
             >
               {c.name}
             </Link>

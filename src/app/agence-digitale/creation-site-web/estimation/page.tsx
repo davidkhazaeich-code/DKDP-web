@@ -47,7 +47,7 @@ export default function EstimationPage() {
           <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#A78BFA' }}>
             Simulateur de prix
           </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.03em] text-white mb-10 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.03em] text-text mb-10 leading-tight">
             Combien coûte votre site web ?
           </h1>
           <EstimationStarter />
@@ -58,7 +58,7 @@ export default function EstimationPage() {
       <section className="relative pb-12">
         <div className="max-w-[860px] mx-auto px-6">
           <div className="rounded-[16px] border border-zinc-800 bg-zinc-900/40 p-7">
-            <h2 className="text-white font-bold text-lg mb-3">Comment fonctionne le simulateur ?</h2>
+            <h2 className="text-text font-bold text-lg mb-3">Comment fonctionne le simulateur ?</h2>
             <p className="text-zinc-400 text-sm leading-relaxed mb-4">
               Le simulateur de prix DKDP calcule une fourchette de coût basée sur le type de site (vitrine, e-commerce, application web), le nombre de pages, les fonctionnalités souhaitées (formulaires, blog, espace client, multilangue) et vos besoins en maintenance. Ces critères déterminent le volume de travail et donc le budget.
             </p>

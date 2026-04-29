@@ -149,7 +149,7 @@ export default function ReseauxSociauxPage() {
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
-              <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-white transition-colors">
+              <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-text transition-colors">
                 Service Digital
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
@@ -158,7 +158,7 @@ export default function ReseauxSociauxPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Gestion de réseaux sociaux à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Des posts <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>qui bossent</GradText>, pas de la présence pour la présence.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
@@ -173,7 +173,7 @@ export default function ReseauxSociauxPage() {
                 />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Demander un devis →</LiquidMetalButton>
-                  <Link href="#process" className="text-sm text-text-muted hover:text-white transition-colors">
+                  <Link href="#process" className="text-sm text-text-muted hover:text-text transition-colors">
                     Notre méthode ↓
                   </Link>
                 </div>
@@ -220,7 +220,7 @@ export default function ReseauxSociauxPage() {
               <SectionReveal key={s.l}>
                 <div className="text-center">
                   <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.v}</p>
-                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -313,7 +313,7 @@ export default function ReseauxSociauxPage() {
                         <item.Icon size={16} style={{ color }} />
                       </div>
                       <div>
-                        <p className="text-white text-sm font-semibold leading-snug">{item.title}</p>
+                        <p className="text-text text-sm font-semibold leading-snug">{item.title}</p>
                         <p className="text-text-muted text-[11px] mt-0.5">{item.sub}</p>
                       </div>
                     </div>
@@ -367,7 +367,7 @@ export default function ReseauxSociauxPage() {
                       <b.Icon size={22} style={{ color }} />
                     </div>
                     <div className="text-3xl font-bold" style={{ color }}>{b.value}</div>
-                    <h3 className="text-white font-bold text-lg">{b.title}</h3>
+                    <h3 className="text-text font-bold text-lg">{b.title}</h3>
                     <p className="text-text-secondary leading-relaxed text-sm">{b.desc}</p>
                   </div>
                 </SectionReveal>
@@ -455,7 +455,7 @@ export default function ReseauxSociauxPage() {
                         Le plus demandé
                       </span>
                     )}
-                    <p className="text-white font-bold text-xl mb-1">{offer.label}</p>
+                    <p className="text-text font-bold text-xl mb-1">{offer.label}</p>
                     <p className="text-2xl font-bold mb-1" style={{ color }}>{offer.price}</p>
                     <p className="text-text-muted text-xs mb-6">{offer.duration}</p>
                     <div className="space-y-2.5 flex-1">
@@ -502,7 +502,7 @@ export default function ReseauxSociauxPage() {
               <SectionReveal key={p.step} delay={i * 0.08}>
                 <div className="flex flex-col gap-3 p-5 bg-bg rounded-[14px] border border-border h-full">
                   <div className="text-[11px] font-bold tracking-widest" style={{ color }}>{p.step}</div>
-                  <h3 className="text-white font-semibold text-sm">{p.title}</h3>
+                  <h3 className="text-text font-semibold text-sm">{p.title}</h3>
                   <p className="text-text-muted text-xs leading-relaxed">{p.desc}</p>
                 </div>
               </SectionReveal>
@@ -555,7 +555,7 @@ export default function ReseauxSociauxPage() {
                   </div>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1 mb-6">&quot;{t.quote}&quot;</p>
                   <div>
-                    <p className="text-white font-semibold text-sm">{t.name}</p>
+                    <p className="text-text font-semibold text-sm">{t.name}</p>
                     <p className="text-text-muted text-xs mt-0.5">{t.company}</p>
                   </div>
                 </div>
@@ -588,7 +588,7 @@ export default function ReseauxSociauxPage() {
                     >
                       <g.Icon size={22} style={{ color }} />
                     </div>
-                    <p className="text-white font-bold text-sm mb-2">{g.title}</p>
+                    <p className="text-text font-bold text-sm mb-2">{g.title}</p>
                     <p className="text-text-muted text-xs leading-relaxed">{g.desc}</p>
                   </div>
                 ))}
@@ -624,7 +624,7 @@ export default function ReseauxSociauxPage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Service complémentaire</p>
-                  <p className="text-white font-bold text-lg leading-tight">Création vidéo professionnelle</p>
+                  <p className="text-text font-bold text-lg leading-tight">Création vidéo professionnelle</p>
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
                     Les réseaux sociaux performent 2.7x mieux avec de la vidéo. Découvrez notre service de création vidéo professionnelle pour amplifier votre présence.
                   </p>

@@ -174,7 +174,7 @@ export default function DeveloppementApplicationPage() {
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
-              <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-white transition-colors">
+              <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-text transition-colors">
                 Agence digitale
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
@@ -183,7 +183,7 @@ export default function DeveloppementApplicationPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Développement d&apos;application à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Une app qui <GradText as="span">fait tourner votre métier</GradText>, pas votre patience.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
@@ -198,7 +198,7 @@ export default function DeveloppementApplicationPage() {
                 />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact" size="lg">Discuter de votre projet →</LiquidMetalButton>
-                  <Link href="#types" className="text-sm text-text-muted hover:text-white transition-colors">
+                  <Link href="#types" className="text-sm text-text-muted hover:text-text transition-colors">
                     Voir les types d&apos;apps ↓
                   </Link>
                 </div>
@@ -223,7 +223,7 @@ export default function DeveloppementApplicationPage() {
               <SectionReveal key={s.l}>
                 <div className="text-center">
                   <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.v}</p>
-                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -282,9 +282,9 @@ export default function DeveloppementApplicationPage() {
               </p>
               <p className="text-text-secondary leading-relaxed">
                 Une application métier bien conçue automatise les tâches répétitives, centralise les données et offre à vos équipes et à vos clients une expérience à la hauteur de votre activité. Couplée à nos solutions d&apos;{' '}
-                <Link href="/intelligence-artificielle/automatisation" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color }}>automatisation IA</Link>
+                <Link href="/intelligence-artificielle/automatisation" className="underline underline-offset-2 hover:text-text transition-colors" style={{ color }}>automatisation IA</Link>
                 {' '}ou d&apos;{' '}
-                <Link href="/intelligence-artificielle/agents-ia" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color }}>agents IA</Link>
+                <Link href="/intelligence-artificielle/agents-ia" className="underline underline-offset-2 hover:text-text transition-colors" style={{ color }}>agents IA</Link>
                 , votre application gagne en intelligence sans alourdir vos équipes.
               </p>
             </SectionReveal>
@@ -417,7 +417,7 @@ export default function DeveloppementApplicationPage() {
                     <w.Icon size={22} style={{ color }} />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-lg mb-2">{w.title}</h3>
+                    <h3 className="text-text font-bold text-lg mb-2">{w.title}</h3>
                     <p className="text-text-secondary leading-relaxed text-sm">{w.desc}</p>
                   </div>
                 </div>

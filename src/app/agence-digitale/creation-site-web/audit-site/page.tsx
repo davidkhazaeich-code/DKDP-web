@@ -260,7 +260,7 @@ export default function AuditSitePage() {
 
                 <h1
                   id="hero-heading"
-                  className="text-4xl md:text-5xl lg:text-[3.2rem] font-bold tracking-[-0.03em] text-white mb-6 leading-[1.08]"
+                  className="text-4xl md:text-5xl lg:text-[3.2rem] font-bold tracking-[-0.03em] text-text mb-6 leading-[1.08]"
                 >
                   Votre site mérite mieux.{' '}
                   <GradText as="span">Découvrez pourquoi en 48h.</GradText>
@@ -302,7 +302,7 @@ export default function AuditSitePage() {
                 >
                   <h2
                     id="form-heading"
-                    className="text-2xl font-bold text-white mb-2 tracking-[-0.02em]"
+                    className="text-2xl font-bold text-text mb-2 tracking-[-0.02em]"
                   >
                     Analysez votre site gratuitement
                   </h2>
@@ -328,7 +328,7 @@ export default function AuditSitePage() {
               <GradTag className="mb-4">Rapport complet</GradTag>
               <h2
                 id="analysis-heading"
-                className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em]"
+                className="text-3xl md:text-4xl font-bold text-text tracking-[-0.02em]"
               >
                 Ce qu&apos;on analyse sur votre site
               </h2>
@@ -357,7 +357,7 @@ export default function AuditSitePage() {
                     {point.icon}
                   </div>
 
-                  <h3 className="text-white font-bold text-base mb-2">
+                  <h3 className="text-text font-bold text-base mb-2">
                     {point.title}
                   </h3>
                   <p className="text-zinc-400 text-sm leading-relaxed">
@@ -380,7 +380,7 @@ export default function AuditSitePage() {
               <GradTag className="mb-4">Simple &amp; rapide</GradTag>
               <h2
                 id="process-heading"
-                className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em]"
+                className="text-3xl md:text-4xl font-bold text-text tracking-[-0.02em]"
               >
                 3 étapes, 48 heures
               </h2>
@@ -405,7 +405,7 @@ export default function AuditSitePage() {
                   >
                     {step.n}
                   </p>
-                  <h3 className="text-white font-bold text-lg mb-2">
+                  <h3 className="text-text font-bold text-lg mb-2">
                     {step.title}
                   </h3>
                   <p className="text-zinc-400 text-sm leading-relaxed">
@@ -474,7 +474,7 @@ export default function AuditSitePage() {
               >
                 &ldquo;
               </span>
-              <blockquote className="text-white text-base md:text-lg leading-relaxed font-medium mb-6">
+              <blockquote className="text-text text-base md:text-lg leading-relaxed font-medium mb-6">
                 L&apos;audit DKDP a mis le doigt sur 5 problèmes qu&apos;on avait depuis des années sans le savoir. En 3 semaines on a tout corrigé.
               </blockquote>
               <figcaption className="text-zinc-500 text-sm">
@@ -493,7 +493,7 @@ export default function AuditSitePage() {
               <GradTag className="mb-4">Questions fréquentes</GradTag>
               <h2
                 id="faq-heading"
-                className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4"
+                className="text-3xl md:text-4xl font-bold text-text tracking-[-0.02em] mb-4"
               >
                 Tout ce que vous voulez savoir
               </h2>
@@ -511,7 +511,7 @@ export default function AuditSitePage() {
                   style={{ background: chromeBg, borderColor: chromeBd }}
                 >
                   <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer select-none [list-style:none] [&::marker]:hidden [&::-webkit-details-marker]:hidden hover:bg-white/[0.03] transition-colors duration-150">
-                    <h3 className="text-white font-semibold text-[15px] leading-snug text-left">
+                    <h3 className="text-text font-semibold text-[15px] leading-snug text-left">
                       {item.q}
                     </h3>
                     <svg

@@ -379,7 +379,7 @@ export default function ChatbotIAPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Chatbot IA sur mesure à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Pas un chatbot générique. Un assistant qui <GradText as="span">connaît votre métier</GradText>.
                 </p>
                 <p data-speakable className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
@@ -435,7 +435,7 @@ export default function ChatbotIAPage() {
                       <MessageCircle size={14} style={{ color }} />
                     </div>
                     <div>
-                      <p className="text-white text-sm font-semibold">Assistant Votre Entreprise</p>
+                      <p className="text-text text-sm font-semibold">Assistant Votre Entreprise</p>
                       <p className="text-text-muted text-xs">En ligne</p>
                     </div>
                     <div className="ml-auto w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -445,7 +445,7 @@ export default function ChatbotIAPage() {
                   <div className="space-y-3">
                     <div className="flex justify-end">
                       <div className="bg-white/[0.07] rounded-2xl rounded-br-md px-4 py-2.5 max-w-[75%]">
-                        <p className="text-sm text-white">
+                        <p className="text-sm text-text">
                           Bonjour, quels sont vos horaires cette semaine ?
                         </p>
                       </div>
@@ -464,7 +464,7 @@ export default function ChatbotIAPage() {
                     </div>
                     <div className="flex justify-end">
                       <div className="bg-white/[0.07] rounded-2xl rounded-br-md px-4 py-2.5 max-w-[75%]">
-                        <p className="text-sm text-white">Oui, jeudi apres-midi si possible</p>
+                        <p className="text-sm text-text">Oui, jeudi apres-midi si possible</p>
                       </div>
                     </div>
                     <div className="flex justify-start">
@@ -531,10 +531,10 @@ export default function ChatbotIAPage() {
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>
+                  <p className="text-3xl md:text-4xl font-bold mb-1 text-text">
                     {s.v}
                   </p>
-                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -592,7 +592,7 @@ export default function ChatbotIAPage() {
                     </p>
                     <p className="text-text-muted text-xs flex-1">{item.metricLabel}</p>
                   </div>
-                  <p className="text-white font-semibold mb-2">{item.problem}</p>
+                  <p className="text-text font-semibold mb-2">{item.problem}</p>
                   <p className="text-text-secondary text-sm leading-relaxed">{item.solution}</p>
                 </div>
               </SectionReveal>
@@ -661,7 +661,7 @@ export default function ChatbotIAPage() {
                   style={{ background: m.accentBg, borderColor: m.accentBorder }}
                 >
                   <div className="mb-3">
-                    <p className="text-white font-bold text-base">{m.name}</p>
+                    <p className="text-text font-bold text-base">{m.name}</p>
                     <p className="text-[11px] uppercase tracking-wider mt-0.5" style={{ color: m.accentColor }}>
                       {m.provider}
                     </p>
@@ -680,7 +680,7 @@ export default function ChatbotIAPage() {
 
           <SectionReveal>
             <p className="text-text-muted text-sm text-center mt-8 max-w-2xl mx-auto leading-relaxed">
-              On propose également <strong className="text-white">Mistral Large 2</strong> et <strong className="text-white">Llama 4</strong> auto-hébergés sur serveur Suisse quand la souveraineté est contractuelle. Pour comparer les modèles grand public, lisez notre guide{' '}
+              On propose également <strong className="text-text">Mistral Large 2</strong> et <strong className="text-text">Llama 4</strong> auto-hébergés sur serveur Suisse quand la souveraineté est contractuelle. Pour comparer les modèles grand public, lisez notre guide{' '}
               <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-white transition-colors">
                 ChatGPT, Claude ou Copilot pour votre PME
               </Link>
@@ -811,7 +811,7 @@ export default function ChatbotIAPage() {
                     >
                       {step.num}
                     </div>
-                    <h3 className="text-white font-semibold mb-2">{step.title}</h3>
+                    <h3 className="text-text font-semibold mb-2">{step.title}</h3>
                     <p className="text-text-secondary text-sm leading-relaxed mb-3">{step.desc}</p>
                     <p className="text-text-muted text-xs" style={{ color }}>
                       {step.duration}
@@ -850,7 +850,7 @@ export default function ChatbotIAPage() {
                       }}
                     />
                     <div className="mt-2 sm:mt-3">
-                      <p className="text-white text-xs font-semibold">{phase.label}</p>
+                      <p className="text-text text-xs font-semibold">{phase.label}</p>
                       <p className="text-text-muted text-[10px]">{phase.weeks}</p>
                     </div>
                   </div>
@@ -895,7 +895,7 @@ export default function ChatbotIAPage() {
                     <ind.Icon size={22} style={{ color }} />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2">{ind.title}</h3>
+                    <h3 className="text-text font-semibold mb-2">{ind.title}</h3>
                     <p className="text-text-secondary text-sm leading-relaxed">{ind.scenario}</p>
                   </div>
                   <div
@@ -955,7 +955,7 @@ export default function ChatbotIAPage() {
                       Recommande
                     </div>
                   )}
-                  <h3 className="text-white text-xl font-bold mb-1">{offer.name}</h3>
+                  <h3 className="text-text text-xl font-bold mb-1">{offer.name}</h3>
                   <p className="mb-4">
                     <span className="text-3xl font-bold" style={{ color }}>
                       {offer.price.startsWith('Sur') ? '' : 'CHF '}

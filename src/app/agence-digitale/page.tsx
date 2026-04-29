@@ -136,7 +136,7 @@ export default function AgenceDigitalePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Agence digitale à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Votre présence en ligne, pensée pour <GradText as="span">ramener des clients</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
@@ -151,7 +151,7 @@ export default function AgenceDigitalePage() {
                 />
                 <div className="flex flex-wrap gap-4 items-center">
                   <LiquidMetalButton href="/agence-digitale/creation-site-web/estimation" size="lg">Estimer mon projet →</LiquidMetalButton>
-                  <Link href="#services" className="text-sm text-text-muted hover:text-white transition-colors">
+                  <Link href="#services" className="text-sm text-text-muted hover:text-text transition-colors">
                     Voir nos services ↓
                   </Link>
                 </div>
@@ -179,7 +179,7 @@ export default function AgenceDigitalePage() {
             {STATS.map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold mb-1 text-white">{s.value}</p>
+                  <p className="text-3xl md:text-4xl font-bold mb-1 text-text">{s.value}</p>
                   <p className="text-text-muted text-sm">{s.label}</p>
                 </div>
               </SectionReveal>
@@ -237,7 +237,7 @@ export default function AgenceDigitalePage() {
                     <item.Icon size={22} style={{ color }} />
                   </div>
                   <p className="text-[2.2rem] font-bold leading-none" style={{ color }}>{item.stat}</p>
-                  <h3 className="text-white font-bold text-lg">{item.title}</h3>
+                  <h3 className="text-text font-bold text-lg">{item.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1">{item.desc}</p>
                 </div>
               </SectionReveal>
@@ -297,7 +297,7 @@ export default function AgenceDigitalePage() {
                     >
                       <s.Icon size={16} style={{ color }} />
                     </div>
-                    <h3 className="text-white font-semibold mb-2">{s.title}</h3>
+                    <h3 className="text-text font-semibold mb-2">{s.title}</h3>
                     <p className="text-text-secondary text-sm leading-relaxed flex-1">{s.description}</p>
                     <span className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold transition-opacity group-hover:opacity-70" style={{ color }}>
                       En savoir plus <ChevronRight size={12} />
@@ -339,7 +339,7 @@ export default function AgenceDigitalePage() {
                 >
                   Audit site internet
                 </span>
-                <h3 className="text-white text-[1.75rem] font-bold mb-4 leading-[1.15]">Audit de site gratuit</h3>
+                <h3 className="text-text text-[1.75rem] font-bold mb-4 leading-[1.15]">Audit de site gratuit</h3>
                 <p className="text-text-secondary text-base leading-relaxed flex-1">
                   Performance, SEO on-page, UX, compatibilité mobile, sécurité HTTPS. Rapport PDF avec recommandations prioritaires envoyé sous 48h.
                 </p>
@@ -361,7 +361,7 @@ export default function AgenceDigitalePage() {
                 >
                   Audit SEO
                 </span>
-                <h3 className="text-white text-[1.75rem] font-bold mb-4 leading-[1.15]">Audit SEO gratuit</h3>
+                <h3 className="text-text text-[1.75rem] font-bold mb-4 leading-[1.15]">Audit SEO gratuit</h3>
                 <p className="text-text-secondary text-base leading-relaxed flex-1">
                   Mots-clés, backlinks, SEO technique, contenu, visibilité locale Genève et Suisse romande. Identifiez vos opportunités SEO concrètes.
                 </p>
@@ -402,7 +402,7 @@ export default function AgenceDigitalePage() {
                   >
                     Simulateur gratuit
                   </span>
-                  <h3 className="text-white text-2xl md:text-[1.75rem] font-bold mb-2 leading-[1.15]">
+                  <h3 className="text-text text-2xl md:text-[1.75rem] font-bold mb-2 leading-[1.15]">
                     Estimez le coût de votre site web en 2 minutes
                   </h3>
                   <p className="text-text-secondary text-base leading-relaxed max-w-xl">
@@ -457,7 +457,7 @@ export default function AgenceDigitalePage() {
                         <w.Icon size={22} style={{ color }} />
                       </div>
                       <div>
-                        <h3 className="text-white font-bold text-lg mb-2">{w.title}</h3>
+                        <h3 className="text-text font-bold text-lg mb-2">{w.title}</h3>
                         <p className="text-text-secondary leading-relaxed">{w.desc}</p>
                       </div>
                     </div>
@@ -507,7 +507,7 @@ export default function AgenceDigitalePage() {
                         {step.n}
                       </span>
                       <div>
-                        <p className="text-white font-semibold text-sm">{step.title}</p>
+                        <p className="text-text font-semibold text-sm">{step.title}</p>
                         <p className="text-text-muted text-sm leading-relaxed">{step.desc}</p>
                       </div>
                     </div>
@@ -593,7 +593,7 @@ export default function AgenceDigitalePage() {
                   <div className="p-6 flex-1" style={{ background: bg }}>
                     <div className="flex items-center justify-between mb-4">
                       <div>
-                        <p className="text-white font-bold">{c.client}</p>
+                        <p className="text-text font-bold">{c.client}</p>
                         <p className="text-text-muted text-xs">{c.sector}</p>
                       </div>
                       <span
@@ -607,13 +607,13 @@ export default function AgenceDigitalePage() {
                       {c.results.map((r) => (
                         <div key={r} className="flex items-center gap-2">
                           <Target size={12} style={{ color }} className="flex-shrink-0" />
-                          <span className="text-white text-sm font-semibold">{r}</span>
+                          <span className="text-text text-sm font-semibold">{r}</span>
                         </div>
                       ))}
                     </div>
                     <div className="space-y-2 pt-4" style={{ borderTop: `1px solid ${border}` }}>
                       <p className="text-text-muted text-xs"><span className="text-text-secondary font-medium">Avant :</span> {c.before}</p>
-                      <p className="text-text-muted text-xs"><span className="text-white font-medium">Après :</span> {c.after}</p>
+                      <p className="text-text-muted text-xs"><span className="text-text font-medium">Après :</span> {c.after}</p>
                     </div>
                   </div>
                 </div>
@@ -659,7 +659,7 @@ export default function AgenceDigitalePage() {
           <SectionReveal>
             <div className="mb-8">
               <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Suisse romande</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
+              <h2 className="text-2xl md:text-3xl font-bold text-text">
                 Agence web active dans toute la Suisse romande.
               </h2>
             </div>
@@ -671,9 +671,9 @@ export default function AgenceDigitalePage() {
                   href={`/agence-digitale/${city.slug}`}
                   className="group flex items-center gap-2.5 p-3.5 rounded-xl border border-border bg-white/[0.02] hover:-translate-y-0.5 transition-all duration-200"
                 >
-                  <MapPin size={13} className="flex-shrink-0 text-text-muted group-hover:text-white transition-colors" />
+                  <MapPin size={13} className="flex-shrink-0 text-text-muted group-hover:text-text transition-colors" />
                   <div className="min-w-0">
-                    <p className="text-white text-sm font-medium truncate">{city.name}</p>
+                    <p className="text-text text-sm font-medium truncate">{city.name}</p>
                     <p className="text-text-muted text-[11px]">{city.canton} · {city.distance}</p>
                   </div>
                 </Link>
@@ -700,7 +700,7 @@ export default function AgenceDigitalePage() {
               >
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1 text-[#D4D4D8]">Intelligence Artificielle</p>
-                  <p className="text-white font-semibold">Automatisez vos processus avec l&apos;IA</p>
+                  <p className="text-text font-semibold">Automatisez vos processus avec l&apos;IA</p>
                   <p className="text-text-muted text-xs mt-1">Agents IA, automatisation et conseil. 10h économisées par semaine en moyenne.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 text-[#D4D4D8] transition-transform group-hover:translate-x-1" />
@@ -714,7 +714,7 @@ export default function AgenceDigitalePage() {
               >
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#FF8C00' }}>Formation Entreprise</p>
-                  <p className="text-white font-semibold">Formez vos équipes au digital et à l&apos;IA</p>
+                  <p className="text-text font-semibold">Formez vos équipes au digital et à l&apos;IA</p>
                   <p className="text-text-muted text-xs mt-1">Sessions sur mesure, en présentiel ou à distance. 200+ personnes formées.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 transition-transform group-hover:translate-x-1" style={{ color: '#FF8C00' }} />

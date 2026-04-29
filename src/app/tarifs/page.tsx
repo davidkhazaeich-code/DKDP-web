@@ -552,14 +552,14 @@ export default function TarifsPage() {
               <div className="flex flex-wrap justify-center gap-4">
                 <a
                   href="tel:+41799407969"
-                  className="inline-flex items-center gap-2 text-[13px] text-text-muted hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 text-[13px] text-text-muted hover:text-text transition-colors"
                 >
                   <Phone size={13} />
                   +41 79 940 79 69
                 </a>
                 <a
                   href="mailto:dk@dkdp.ch"
-                  className="inline-flex items-center gap-2 text-[13px] text-text-muted hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 text-[13px] text-text-muted hover:text-text transition-colors"
                 >
                   <Mail size={13} />
                   dk@dkdp.ch

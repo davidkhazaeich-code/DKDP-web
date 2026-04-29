@@ -132,7 +132,7 @@ export default function IntelligenceArtificiellePage() {
                   <LiquidMetalButton href="/intelligence-artificielle/audit-conseil" size="lg">
                     Demander un audit IA →
                   </LiquidMetalButton>
-                  <Link href="#services" className="text-sm text-text-muted hover:text-white transition-colors">
+                  <Link href="#services" className="text-sm text-text-muted hover:text-text transition-colors">
                     Voir nos solutions ↓
                   </Link>
                 </div>
@@ -280,7 +280,7 @@ export default function IntelligenceArtificiellePage() {
                     >
                       <s.Icon size={16} style={{ color }} />
                     </div>
-                    <h3 className="text-white font-semibold text-[16px] mb-2">{s.title}</h3>
+                    <h3 className="text-text font-semibold text-[16px] mb-2">{s.title}</h3>
                     <p className="text-text-secondary text-sm leading-relaxed flex-1">{s.description}</p>
                     <span
                       className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold transition-opacity group-hover:opacity-70"
@@ -315,7 +315,7 @@ export default function IntelligenceArtificiellePage() {
                   <p className="text-[11px] font-bold uppercase tracking-widest mb-0.5" style={{ color: '#FF8C00' }}>
                     Passez à l&apos;action
                   </p>
-                  <p className="text-white font-semibold">
+                  <p className="text-text font-semibold">
                     Formation IA pour vos équipes
                   </p>
                   <p className="text-text-muted text-[12.5px] mt-0.5">
@@ -372,7 +372,7 @@ export default function IntelligenceArtificiellePage() {
                         <b.Icon size={22} style={{ color }} />
                       </div>
                       <div>
-                        <h3 className="text-white font-bold text-lg mb-2">{b.title}</h3>
+                        <h3 className="text-text font-bold text-lg mb-2">{b.title}</h3>
                         <p className="text-text-secondary leading-relaxed">{b.desc}</p>
                       </div>
                     </div>
@@ -448,7 +448,7 @@ export default function IntelligenceArtificiellePage() {
                   >
                     <step.Icon size={22} style={{ color }} />
                   </div>
-                  <h3 className="text-white font-bold text-lg">{step.title}</h3>
+                  <h3 className="text-text font-bold text-lg">{step.title}</h3>
                   <p className="text-text-secondary leading-relaxed text-sm flex-1">{step.desc}</p>
                 </div>
               </SectionReveal>
@@ -480,7 +480,7 @@ export default function IntelligenceArtificiellePage() {
               <SectionReveal key={kpi.l} delay={i * 0.08} className="h-full">
                 <div className="flex flex-col justify-center text-center h-full p-6 rounded-[14px] border" style={{ background: bg, borderColor: border }}>
                   <p className="text-3xl md:text-4xl font-bold mb-2 leading-none" style={{ color }}>{kpi.v}</p>
-                  <p className="text-white text-sm font-semibold leading-snug">{kpi.l}</p>
+                  <p className="text-text text-sm font-semibold leading-snug">{kpi.l}</p>
                   <p className="text-text-muted text-xs mt-1 leading-snug">{kpi.sub}</p>
                 </div>
               </SectionReveal>
@@ -523,7 +523,7 @@ export default function IntelligenceArtificiellePage() {
                       <p className="text-text-secondary text-sm">{c.solution}</p>
                     </div>
                     <div className="pt-3 border-t border-border">
-                      <p className="text-white text-sm font-semibold">{c.result}</p>
+                      <p className="text-text text-sm font-semibold">{c.result}</p>
                     </div>
                   </div>
                 </div>
@@ -556,7 +556,7 @@ export default function IntelligenceArtificiellePage() {
               >
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#FF8C00' }}>Formation IA</p>
-                  <p className="text-white font-semibold">Formez vos équipes en une journée</p>
+                  <p className="text-text font-semibold">Formez vos équipes en une journée</p>
                   <p className="text-text-muted text-xs mt-1">ChatGPT, Claude, Copilot. Vos collaborateurs autonomes dès demain.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 transition-transform group-hover:translate-x-1" style={{ color: '#FF8C00' }} />
@@ -570,7 +570,7 @@ export default function IntelligenceArtificiellePage() {
               >
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#A78BFA' }}>Service Digital</p>
-                  <p className="text-white font-semibold">Votre site et votre SEO optimisés</p>
+                  <p className="text-text font-semibold">Votre site et votre SEO optimisés</p>
                   <p className="text-text-muted text-xs mt-1">Création de sites, SEO, Google Ads. Présence digitale mesurable.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 text-[#A78BFA] transition-transform group-hover:translate-x-1" />

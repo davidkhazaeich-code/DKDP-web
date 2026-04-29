@@ -119,7 +119,7 @@ function AnimatedPlaceholder({ index, visible }: { index: number; visible: boole
       {visible && (
         <m.span
           key={index}
-          className="absolute inset-0 flex items-center text-[#71717a] text-base md:text-sm select-none pointer-events-none whitespace-nowrap overflow-hidden"
+          className="absolute inset-0 flex items-center text-text-muted text-base md:text-sm select-none pointer-events-none whitespace-nowrap overflow-hidden"
           initial="initial"
           animate="animate"
           exit="exit"
@@ -172,7 +172,7 @@ function TypingIndicator() {
       className="flex items-center gap-1.5 px-4 py-2"
     >
       <AnimatedOrb size={20} />
-      <span className="text-xs text-[#71717a]">en train d&apos;ecrire</span>
+      <span className="text-xs text-text-muted">en train d&apos;ecrire</span>
     </m.div>
   )
 }
@@ -197,8 +197,8 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
       <div
         className={`max-w-[85%] text-[13.5px] leading-relaxed ${
           isUser
-            ? 'bg-[rgba(124,58,237,0.12)] border border-[rgba(124,58,237,0.2)] text-white rounded-2xl rounded-br-sm px-4 py-2.5'
-            : 'text-[#d4d4d8]'
+            ? 'bg-[rgba(124,58,237,0.12)] border border-[rgba(124,58,237,0.25)] text-text rounded-2xl rounded-br-sm px-4 py-2.5'
+            : 'text-text-secondary'
         }`}
       >
         {isUser ? (
@@ -207,7 +207,7 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
           <Markdown
             components={{
               p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
-              strong: ({ children }) => <strong className="text-white font-semibold">{children}</strong>,
+              strong: ({ children }) => <strong className="text-text font-semibold">{children}</strong>,
               ul: ({ children }) => <ul className="list-disc pl-4 mb-2 last:mb-0 space-y-1">{children}</ul>,
               ol: ({ children }) => <ol className="list-decimal pl-4 mb-2 last:mb-0 space-y-1">{children}</ol>,
               a: ({ href, children }) => {
@@ -359,7 +359,7 @@ function SmartCTABar({ lastAssistantContent }: { lastAssistantContent: string })
         const baseClasses = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-medium cursor-pointer transition-all duration-200'
         const primaryClasses = 'text-white border border-[rgba(124,58,237,0.4)] font-semibold hover:border-[rgba(124,58,237,0.6)] hover:brightness-110'
         const primaryStyle = { background: 'linear-gradient(135deg, rgba(124,58,237,0.35), rgba(167,139,250,0.20))' }
-        const secondaryClasses = 'bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] text-[#9CA3AF] hover:bg-[rgba(124,58,237,0.08)] hover:border-[rgba(124,58,237,0.25)] hover:text-white'
+        const secondaryClasses = 'bg-[var(--surface-default)] border border-[var(--surface-border)] text-text-secondary hover:bg-[rgba(124,58,237,0.10)] hover:border-[rgba(124,58,237,0.30)] hover:text-text'
 
         const inner = (
           <>
@@ -412,7 +412,7 @@ function LimitReachedCTA() {
         border: '1px solid rgba(124,58,237,0.2)',
       }}
     >
-      <p className="text-sm text-[#d4d4d8] mb-4">
+      <p className="text-sm text-text-secondary mb-4">
         Pour approfondir votre projet, prenons quelques minutes ensemble.
       </p>
       <button
@@ -428,11 +428,11 @@ function LimitReachedCTA() {
         <Link href="/contact" className="text-xs text-[#A78BFA] hover:text-[#c4b5fd] underline underline-offset-2 transition-colors">
           Nous contacter
         </Link>
-        <span className="text-xs text-[#52525b]">{'\u00B7'}</span>
+        <span className="text-xs text-text-muted">{'\u00B7'}</span>
         <Link href="/tarifs" className="text-xs text-[#A78BFA] hover:text-[#c4b5fd] underline underline-offset-2 transition-colors">
           Voir les tarifs
         </Link>
-        <span className="text-xs text-[#52525b]">{'\u00B7'}</span>
+        <span className="text-xs text-text-muted">{'\u00B7'}</span>
         <Link href="/agence-digitale" className="text-xs text-[#A78BFA] hover:text-[#c4b5fd] underline underline-offset-2 transition-colors">
           Nos services
         </Link>
@@ -712,11 +712,11 @@ export function ChatWidget() {
               onClick={() => { if (messages.length > 0) setIsOpen(true) }}
               className="relative flex items-center gap-3 rounded-full px-3 py-2 transition-shadow duration-300 cursor-text"
               style={{
-                background: '#111111',
-                border: '1px solid rgba(124,58,237,0.15)',
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border-violet)',
                 boxShadow: barFocused
-                  ? '0 8px 40px rgba(124,58,237,0.2), 0 0 0 1px rgba(124,58,237,0.3)'
-                  : '0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04)',
+                  ? '0 8px 40px rgba(124,58,237,0.20), 0 0 0 1px rgba(124,58,237,0.30)'
+                  : '0 8px 28px color-mix(in srgb, var(--text) 18%, transparent), 0 0 0 1px var(--surface-border)',
               }}
             >
               <AnimatedOrb size={28} animated />
@@ -754,7 +754,7 @@ export function ChatWidget() {
                       handleBarSubmit()
                     }
                   }}
-                  className="w-full bg-transparent text-sm text-white outline-none placeholder-transparent py-1.5"
+                  className="w-full bg-transparent text-sm text-text outline-none placeholder-transparent py-1.5"
                 />
                 {!inputValue && (
                   <div className="absolute inset-0 flex items-center pointer-events-none">
@@ -767,7 +767,7 @@ export function ChatWidget() {
                           visible={showPlaceholder && !barFocused}
                         />
                         {barFocused && (
-                          <span className="text-base md:text-sm text-[#71717a]">Posez votre question...</span>
+                          <span className="text-base md:text-sm text-text-muted">Posez votre question...</span>
                         )}
                       </>
                     )}
@@ -785,11 +785,11 @@ export function ChatWidget() {
                   style={{
                     background: speech.isListening
                       ? 'rgba(239,68,68,0.14)'
-                      : 'rgba(255,255,255,0.04)',
+                      : 'var(--surface-default)',
                   }}
                   whileTap={{ scale: 0.94 }}
                 >
-                  <Mic size={15} className={speech.isListening ? 'text-red-400' : 'text-[#9CA3AF]'} />
+                  <Mic size={15} className={speech.isListening ? 'text-red-400' : 'text-text-secondary'} />
                   {speech.isListening && (
                     <m.span
                       className="absolute inset-0 rounded-full border border-red-400/60 pointer-events-none"
@@ -807,7 +807,7 @@ export function ChatWidget() {
                 style={{
                   background: inputValue.trim()
                     ? '#7C3AED'
-                    : 'rgba(255,255,255,0.06)',
+                    : 'var(--surface-default)',
                 }}
                 whileHover={inputValue.trim() ? { scale: 1.08 } : {}}
                 whileTap={inputValue.trim() ? { scale: 0.94 } : {}}
@@ -832,39 +832,40 @@ export function ChatWidget() {
             transition={{ type: 'spring' as const, damping: 24, stiffness: 280 }}
             className="flex flex-col overflow-hidden rounded-2xl w-full h-full"
             style={{
-              background: '#0A0A0A',
-              border: '1px solid rgba(124,58,237,0.15)',
-              boxShadow: '0 16px 70px rgba(0,0,0,0.8), 0 0 80px rgba(124,58,237,0.08)',
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-violet)',
+              boxShadow: '0 16px 70px color-mix(in srgb, var(--text) 30%, transparent), 0 0 80px rgba(124,58,237,0.08)',
               overscrollBehavior: 'contain',
               touchAction: 'auto',
               WebkitOverflowScrolling: 'touch',
             }}
           >
             {/* ── Header ── */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-[#1E1E1E] flex-shrink-0">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-border flex-shrink-0">
               <div className="flex items-center gap-3">
                 <AnimatedOrb size={32} />
                 <div>
-                  <Image src="/images/logo/dkdp_blanc-croped.png" alt="DKDP" width={36} height={12} className="h-2.5 w-auto -ml-[5px]" />
-                  <p className="text-[11px] text-[#71717a]">Assistant IA</p>
+                  <Image src="/images/logo/dkdp_blanc-croped.png" alt="DKDP" width={36} height={12} className="h-2.5 w-auto -ml-[5px] dark-only" />
+                  <Image src="/images/logo/dkdp_noir-croped.png" alt="DKDP" width={36} height={12} className="h-2.5 w-auto -ml-[5px] light-only" />
+                  <p className="text-[11px] text-text-muted">Assistant IA</p>
                 </div>
               </div>
               <div className="flex items-center gap-0.5">
                 {messages.length > 0 && (
                   <button
                     onClick={handleReset}
-                    className="p-3 sm:p-2.5 rounded-full hover:bg-[rgba(255,255,255,0.05)] transition-colors cursor-pointer"
+                    className="p-3 sm:p-2.5 rounded-full hover:bg-[var(--surface-default)] transition-colors cursor-pointer"
                     title="Effacer la conversation"
                     aria-label="Effacer la conversation"
                   >
-                    <RotateCcw size={16} className="text-[#71717a] sm:w-[14px] sm:h-[14px]" />
+                    <RotateCcw size={16} className="text-text-muted sm:w-[14px] sm:h-[14px]" />
                   </button>
                 )}
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-3 sm:p-2.5 rounded-full hover:bg-[rgba(255,255,255,0.08)] active:bg-[rgba(255,255,255,0.12)] transition-colors cursor-pointer"
+                  className="p-3 sm:p-2.5 rounded-full hover:bg-[var(--surface-default)] active:bg-[var(--bg-card-hover)] transition-colors cursor-pointer"
                 >
-                  <X size={20} className="text-white sm:w-[18px] sm:h-[18px]" />
+                  <X size={20} className="text-text sm:w-[18px] sm:h-[18px]" />
                 </button>
               </div>
             </div>
@@ -888,7 +889,7 @@ export function ChatWidget() {
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 }}
-                    className="text-[13.5px] text-[#d4d4d8] leading-relaxed"
+                    className="text-[13.5px] text-text-secondary leading-relaxed"
                   >
                     {WELCOME_MESSAGE}
                   </m.p>
@@ -908,11 +909,11 @@ export function ChatWidget() {
                       key={label}
                       onClick={() => handleSuggestionClick(label)}
                       className="group flex items-center gap-2.5 px-4 py-3 sm:py-2.5 rounded-xl text-left text-[13px] cursor-pointer transition-all duration-200 active:scale-[0.98]
-                        bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)]
-                        hover:bg-[rgba(124,58,237,0.08)] hover:border-[rgba(124,58,237,0.25)]"
+                        bg-[var(--surface-default)] border border-[var(--surface-border)]
+                        hover:bg-[rgba(124,58,237,0.10)] hover:border-[rgba(124,58,237,0.30)]"
                     >
                       <span className="text-[#A78BFA] group-hover:text-[#c4b5fd] transition-colors">{icon}</span>
-                      <span className="text-[#9CA3AF] group-hover:text-white transition-colors">{label}</span>
+                      <span className="text-text-secondary group-hover:text-text transition-colors">{label}</span>
                     </button>
                   ))}
                 </m.div>
@@ -975,8 +976,8 @@ export function ChatWidget() {
                   onSubmit={handleChatSubmit}
                   className="flex items-end gap-2 rounded-2xl px-3 py-2"
                   style={{
-                    background: '#111111',
-                    border: '1px solid rgba(124,58,237,0.12)',
+                    background: 'var(--bg-card-hover)',
+                    border: '1px solid var(--border-violet)',
                   }}
                 >
                   <div className="relative flex-1 min-w-0">
@@ -996,7 +997,7 @@ export function ChatWidget() {
                       maxLength={MAX_CHAR_LENGTH}
                       disabled={isLoading}
                       placeholder="Ecrivez votre message..."
-                      className="w-full bg-transparent text-sm text-white placeholder-[#71717a] outline-none resize-none py-1.5"
+                      className="w-full bg-transparent text-sm text-text placeholder-text-muted outline-none resize-none py-1.5"
                       style={{ minHeight: '28px', maxHeight: '100px' }}
                     />
                   </div>
@@ -1015,7 +1016,7 @@ export function ChatWidget() {
                       }}
                       whileTap={{ scale: 0.94 }}
                     >
-                      <Mic size={14} className={speech.isListening ? 'text-red-400' : 'text-[#9CA3AF]'} />
+                      <Mic size={14} className={speech.isListening ? 'text-red-400' : 'text-text-secondary'} />
                       {speech.isListening && (
                         <m.span
                           className="absolute inset-0 rounded-full border border-red-400/60 pointer-events-none"

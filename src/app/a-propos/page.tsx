@@ -15,6 +15,7 @@ import {
   Users,
 } from 'lucide-react'
 import Image from 'next/image'
+import { DkdpLogo } from '@/components/ui/DkdpLogo'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -249,13 +250,11 @@ export default function AProposPage() {
                         backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,0.06) 39px,rgba(255,255,255,0.06) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,0.06) 39px,rgba(255,255,255,0.06) 40px)',
                       }}
                     />
-                    <Image
-                      src="/images/logo/dkdp_blanc-croped.png"
+                    <DkdpLogo
                       alt="DKDP Genève"
                       width={220}
                       height={80}
-                      className="relative z-10 h-auto opacity-95"
-                      style={{ width: '210px' }}
+                      className="relative z-10 h-auto w-[210px] opacity-95"
                       priority
                     />
                     {/* Pillar tags */}

@@ -94,10 +94,10 @@ const APROPOS_SECONDARY = [
 // ─── Pillar accent colours ────────────────────────────────────────────────────
 
 const PILLAR_ACCENT = {
-  agence:    { color: '#A78BFA', bg: 'rgba(124,58,237,0.12)',  border: 'rgba(124,58,237,0.25)' },
-  ia:        { color: '#D4D4D8', bg: 'rgba(212,212,216,0.08)', border: 'rgba(212,212,216,0.18)' },
-  formation: { color: '#FF8C00', bg: 'rgba(255,107,0,0.10)',   border: 'rgba(255,107,0,0.22)'  },
-  apropos:   { color: '#9CA3AF', bg: 'rgba(156,163,175,0.08)', border: 'rgba(156,163,175,0.18)' },
+  agence:    { color: 'var(--violet-light)', bg: 'var(--violet-bg)',  border: 'var(--violet-border)' },
+  ia:        { color: 'var(--text-secondary)', bg: 'var(--chrome-bg)', border: 'var(--chrome-border)' },
+  formation: { color: 'var(--orange-light)', bg: 'var(--orange-bg)',   border: 'var(--orange-border)' },
+  apropos:   { color: 'var(--text-secondary)', bg: 'var(--gray-bg)', border: 'var(--gray-border)' },
 }
 
 // ─── MegaMenu panel ───────────────────────────────────────────────────────────
@@ -656,7 +656,7 @@ export function Header() {
 
                 {/* ── Intelligence Artificielle ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={{ '--trigger-hover-bg': 'rgba(212,212,216,0.10)' } as React.CSSProperties}><Sparkles size={13} style={{ color: '#D4D4D8' }} className="mr-1" />Intelligence Artificielle</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={{ '--trigger-hover-bg': 'rgba(212,212,216,0.10)' } as React.CSSProperties}><Sparkles size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />Intelligence Artificielle</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="ia"
@@ -677,7 +677,7 @@ export function Header() {
 
                 {/* ── À propos ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={{ '--trigger-hover-bg': 'rgba(156,163,175,0.12)' } as React.CSSProperties}><LayoutGrid size={13} style={{ color: '#9CA3AF' }} className="mr-1" />À propos</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={{ '--trigger-hover-bg': 'rgba(156,163,175,0.12)' } as React.CSSProperties}><LayoutGrid size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />À propos</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="apropos"
@@ -764,7 +764,7 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={{ '--trigger-hover-bg': 'rgba(212,212,216,0.10)' } as React.CSSProperties}><Sparkles size={13} style={{ color: '#D4D4D8' }} className="mr-1" />IA</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={{ '--trigger-hover-bg': 'rgba(212,212,216,0.10)' } as React.CSSProperties}><Sparkles size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />IA</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="ia"
@@ -783,7 +783,7 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={{ '--trigger-hover-bg': 'rgba(156,163,175,0.12)' } as React.CSSProperties}><LayoutGrid size={13} style={{ color: '#9CA3AF' }} className="mr-1" />Agence</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={{ '--trigger-hover-bg': 'rgba(156,163,175,0.12)' } as React.CSSProperties}><LayoutGrid size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />Agence</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="apropos"

@@ -47,9 +47,9 @@ const PILLARS = [
   },
   {
     label: 'IA',
-    color: '#D4D4D8',
-    bg: 'rgba(212,212,216,0.06)',
-    border: 'rgba(212,212,216,0.14)',
+    color: 'var(--text-secondary)',
+    bg: 'var(--chrome-bg)',
+    border: 'var(--chrome-border)',
     Icon: Sparkles,
     links: [
       { label: 'Agence IA à Genève', href: '/intelligence-artificielle/geneve' },
@@ -63,9 +63,9 @@ const PILLARS = [
   },
   {
     label: 'À propos',
-    color: '#9CA3AF',
-    bg: 'rgba(156,163,175,0.06)',
-    border: 'rgba(156,163,175,0.14)',
+    color: 'var(--text-secondary)',
+    bg: 'var(--gray-bg)',
+    border: 'var(--gray-border)',
     Icon: LayoutGrid,
     links: [
       { label: 'À propos de l\'agence', href: '/a-propos' },

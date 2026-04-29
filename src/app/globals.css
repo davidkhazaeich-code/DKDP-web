@@ -70,9 +70,9 @@
   --bg:              #FAFAF7;
   --bg-card:         #FFFFFF;
   --bg-card-hover:   #F5F4F0;
-  --border:          #E8E6DF;
-  --border-strong:   #D4D2CB;
-  --divider:         rgba(10, 10, 10, 0.08);
+  --border:          #D4D2CB;       /* bumped from #E8E6DF, ex-border-strong */
+  --border-strong:   #B8B6AE;       /* bumped from #D4D2CB, deeper for emphasis */
+  --divider:         rgba(10, 10, 10, 0.12);
 
   /* Text — warm gray-black, not pure black. Muted bumped to #6E6E6A for WCAG AA on cream (4.5:1). */
   --text:            #1A1A18;
@@ -87,34 +87,34 @@
   --border-violet:   rgba(124, 58, 237, 0.30);
   --border-orange:   rgba(255, 107, 0, 0.30);
 
-  /* Pillar tokens — alpha rebalanced for cream backgrounds */
-  --violet-bg:       rgba(124, 58, 237, 0.07);
-  --violet-border:   rgba(124, 58, 237, 0.20);
-  --violet-glow:     rgba(124, 58, 237, 0.12);
-  --orange-bg:       rgba(255, 107, 0, 0.06);
-  --orange-border:   rgba(255, 107, 0, 0.22);
-  --orange-glow:     rgba(255, 107, 0, 0.10);
-  --chrome-bg:       rgba(80, 80, 80, 0.05);
-  --chrome-border:   rgba(80, 80, 80, 0.18);
-  --gray-bg:         rgba(80, 80, 80, 0.05);
-  --gray-border:     rgba(80, 80, 80, 0.18);
-  --green-bg:        rgba(34, 150, 80, 0.06);
-  --green-border:    rgba(34, 150, 80, 0.22);
-  --blue-bg:         rgba(50, 110, 200, 0.06);
-  --blue-border:     rgba(50, 110, 200, 0.22);
-  --pink-bg:         rgba(220, 80, 150, 0.06);
-  --pink-border:     rgba(220, 80, 150, 0.22);
-  --teal-bg:         rgba(20, 170, 150, 0.06);
-  --teal-border:     rgba(20, 170, 150, 0.22);
-  --amber-bg:        rgba(220, 150, 30, 0.06);
-  --amber-border:    rgba(220, 150, 30, 0.22);
-  --red-bg:          rgba(220, 50, 50, 0.06);
-  --red-border:      rgba(220, 50, 50, 0.22);
+  /* Pillar tokens — alpha bumped 50-100% for visibility on cream */
+  --violet-bg:       rgba(124, 58, 237, 0.10);
+  --violet-border:   rgba(124, 58, 237, 0.30);
+  --violet-glow:     rgba(124, 58, 237, 0.18);
+  --orange-bg:       rgba(255, 107, 0, 0.10);
+  --orange-border:   rgba(255, 107, 0, 0.32);
+  --orange-glow:     rgba(255, 107, 0, 0.15);
+  --chrome-bg:       rgba(80, 80, 80, 0.08);
+  --chrome-border:   rgba(80, 80, 80, 0.25);
+  --gray-bg:         rgba(80, 80, 80, 0.08);
+  --gray-border:     rgba(80, 80, 80, 0.25);
+  --green-bg:        rgba(34, 150, 80, 0.10);
+  --green-border:    rgba(34, 150, 80, 0.32);
+  --blue-bg:         rgba(50, 110, 200, 0.10);
+  --blue-border:     rgba(50, 110, 200, 0.32);
+  --pink-bg:         rgba(220, 80, 150, 0.10);
+  --pink-border:     rgba(220, 80, 150, 0.32);
+  --teal-bg:         rgba(20, 170, 150, 0.10);
+  --teal-border:     rgba(20, 170, 150, 0.32);
+  --amber-bg:        rgba(220, 150, 30, 0.10);
+  --amber-border:    rgba(220, 150, 30, 0.32);
+  --red-bg:          rgba(220, 50, 50, 0.10);
+  --red-border:      rgba(220, 50, 50, 0.32);
 
-  /* Neutral surfaces — alpha on black instead of white */
-  --surface-subtle:  rgba(10, 10, 10, 0.02);
-  --surface-default: rgba(10, 10, 10, 0.03);
-  --surface-border:  rgba(10, 10, 10, 0.08);
+  /* Neutral surfaces — bumped alpha on black for visibility */
+  --surface-subtle:  rgba(10, 10, 10, 0.03);
+  --surface-default: rgba(10, 10, 10, 0.05);
+  --surface-border:  rgba(10, 10, 10, 0.12);
 
   /* Canvas grid line — black-ish on cream (visible base, hover reveals brand-colored grid) */
   --grid-line:       rgba(10, 10, 10, 0.16);

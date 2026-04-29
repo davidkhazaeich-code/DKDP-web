@@ -18,7 +18,7 @@ export function AuditScoreCard() {
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
-        <p className="text-white font-bold text-[15px]">Résultat de votre audit IA</p>
+        <p className="text-text font-bold text-[15px]">Résultat de votre audit IA</p>
         <span
           className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
           style={{ background: 'rgba(74,222,128,0.12)', color: greenColor, border: `1px solid rgba(74,222,128,0.25)` }}
@@ -43,7 +43,7 @@ export function AuditScoreCard() {
             style={{ background: 'rgba(212,212,216,0.05)', border: `1px solid ${border}` }}
           >
             <div className="col-span-2">
-              <p className="text-white text-[12px] font-semibold leading-tight">{row.label}</p>
+              <p className="text-text text-[12px] font-semibold leading-tight">{row.label}</p>
               <span
                 className="text-[9px] font-bold uppercase tracking-wider"
                 style={{ color: row.niveauColor }}

@@ -123,7 +123,7 @@ export default function AuditConseilPage() {
                     Sans engagement
                   </span>
                 </div>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   3 opportunités concrètes <GradText as="span">sous 48h</GradText>. Pas un rapport qui dort.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-8">
@@ -189,7 +189,7 @@ export default function AuditConseilPage() {
             ].map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold mb-1 text-white">{s.value}</p>
+                  <p className="text-3xl md:text-4xl font-bold mb-1 text-text">{s.value}</p>
                   <p className="text-text-muted text-sm">{s.label}</p>
                 </div>
               </SectionReveal>
@@ -261,7 +261,7 @@ export default function AuditConseilPage() {
                         <item.Icon size={18} style={{ color }} />
                       </div>
                       <div>
-                        <p className="text-white font-semibold text-[15px] mb-1">{item.title}</p>
+                        <p className="text-text font-semibold text-[15px] mb-1">{item.title}</p>
                         <p className="text-text-secondary text-sm leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
@@ -355,7 +355,7 @@ export default function AuditConseilPage() {
                   >
                     {d.num}
                   </span>
-                  <h3 className="text-white font-bold text-lg mb-4">{d.title}</h3>
+                  <h3 className="text-text font-bold text-lg mb-4">{d.title}</h3>
                   <ul className="space-y-2.5 flex-1">
                     {d.items.map((item) => (
                       <li key={item} className="flex items-start gap-2.5">
@@ -447,7 +447,7 @@ export default function AuditConseilPage() {
                       >
                         {step.duration}
                       </span>
-                      <h3 className="text-white font-bold text-lg mt-1">{step.title}</h3>
+                      <h3 className="text-text font-bold text-lg mt-1">{step.title}</h3>
                     </div>
                     <p className="text-text-secondary leading-relaxed text-sm flex-1">{step.desc}</p>
                   </div>
@@ -482,7 +482,7 @@ export default function AuditConseilPage() {
               >
                 <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color }}>Audit Standard</p>
                 <div className="flex items-end gap-2 mb-1">
-                  <span className="text-4xl font-bold text-white">CHF 490</span>
+                  <span className="text-4xl font-bold text-text">CHF 490</span>
                 </div>
                 <p className="text-text-muted text-sm mb-8">Idéal pour les PME souhaitant tester l&apos;IA sur un département précis</p>
 
@@ -526,7 +526,7 @@ export default function AuditConseilPage() {
 
                 <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: violet }}>Audit Complet</p>
                 <div className="flex items-end gap-2 mb-1">
-                  <span className="text-4xl font-bold text-white">CHF 890</span>
+                  <span className="text-4xl font-bold text-text">CHF 890</span>
                 </div>
                 <p className="text-text-muted text-sm mb-8">Pour les entreprises prêtes à déployer l&apos;IA à l&apos;échelle de toute la structuré</p>
 
@@ -596,7 +596,7 @@ export default function AuditConseilPage() {
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div>
-                    <p className="text-white font-semibold text-[14px]">{t.name}</p>
+                    <p className="text-text font-semibold text-[14px]">{t.name}</p>
                     <p className="text-text-muted text-xs mt-0.5">{t.role}</p>
                   </div>
                 </div>
@@ -680,7 +680,7 @@ export default function AuditConseilPage() {
                   >
                     {link.label}
                   </p>
-                  <h3 className="text-white font-bold text-lg mb-3">{link.title}</h3>
+                  <h3 className="text-text font-bold text-lg mb-3">{link.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1">{link.desc}</p>
                   <span
                     className="mt-5 inline-flex items-center gap-1 text-[12px] font-semibold transition-opacity group-hover:opacity-70"

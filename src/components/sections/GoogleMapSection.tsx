@@ -29,8 +29,7 @@ export function GoogleMapSection() {
 
           {/* Info card */}
           <div
-            className="flex flex-col gap-6 p-6 sm:p-8 rounded-[20px] backdrop-blur-lg border border-border self-start"
-            style={{ background: 'rgba(20,20,20,0.60)' }}
+            className="flex flex-col gap-6 p-6 sm:p-8 rounded-[20px] backdrop-blur-lg border border-border self-start bg-bg-card"
           >
             <div>
               <div className="flex items-center gap-2.5 mb-3">
@@ -40,7 +39,7 @@ export function GoogleMapSection() {
                 >
                   <MapPin size={14} className="text-violet-light" />
                 </div>
-                <h2 className="text-lg sm:text-xl font-bold">Nous trouver</h2>
+                <h2 className="text-lg sm:text-xl font-bold text-text">Nous trouver</h2>
               </div>
               <p className="text-text-secondary text-sm leading-relaxed">
                 Au cœur du quartier des Eaux-Vives, à deux pas du lac Léman.
@@ -88,7 +87,7 @@ export function GoogleMapSection() {
             </a>
           </div>
 
-          {/* Map iframe with dark overlay */}
+          {/* Map iframe with subtle overlay */}
           <div
             className="relative rounded-[20px] overflow-hidden"
             style={{
@@ -97,23 +96,12 @@ export function GoogleMapSection() {
               boxShadow: '0 0 40px rgba(167,139,250,0.06), 0 0 80px rgba(167,139,250,0.03)',
             }}
           >
-            {/* Dark color filter over the iframe */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 z-10 pointer-events-none"
-              style={{
-                background: 'rgba(9,9,11,0.05)',
-                mixBlendMode: 'multiply',
-              }}
-            />
-
             <iframe
               src={EMBED_SRC}
               title="DKDP, Service Digital Genève, 36 Rue du 31 Décembre, 1207 Genève"
               className="absolute inset-0 w-full h-full"
               style={{
                 border: 0,
-                filter: 'invert(0.93) hue-rotate(230deg) saturate(0.4) brightness(1.0) contrast(1.15)',
                 opacity: iframeLoaded ? 1 : 0,
                 transition: 'opacity 0.6s ease',
               }}
@@ -133,12 +121,12 @@ export function GoogleMapSection() {
               </div>
             )}
 
-            {/* Violet tint overlay for brand consistency */}
+            {/* Subtle violet tint overlay for brand consistency */}
             <div
               aria-hidden="true"
               className="absolute inset-0 z-10 pointer-events-none"
               style={{
-                background: 'linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(167,139,250,0.04) 50%, rgba(124,58,237,0.08) 100%)',
+                background: 'linear-gradient(135deg, rgba(124,58,237,0.06) 0%, rgba(167,139,250,0.02) 50%, rgba(124,58,237,0.04) 100%)',
               }}
             />
           </div>

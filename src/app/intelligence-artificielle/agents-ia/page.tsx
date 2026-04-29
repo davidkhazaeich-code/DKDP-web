@@ -141,7 +141,7 @@ export default function AgentsIAPage() {
           <div className="max-w-[1200px] mx-auto px-6">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 mb-6">
-              <Link href="/intelligence-artificielle" className="text-text-muted text-sm hover:text-white transition-colors">
+              <Link href="/intelligence-artificielle" className="text-text-muted text-sm hover:text-text transition-colors">
                 Intelligence Artificielle
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
@@ -173,7 +173,7 @@ export default function AgentsIAPage() {
                   </LiquidMetalButton>
                   <Link
                     href="#types-agents"
-                    className="text-sm text-text-muted hover:text-white transition-colors"
+                    className="text-sm text-text-muted hover:text-text transition-colors"
                   >
                     Voir les agents →
                   </Link>
@@ -377,7 +377,7 @@ export default function AgentsIAPage() {
             >
               <p className="text-text-secondary text-sm leading-relaxed max-w-3xl mx-auto">
                 Pour les secteurs régulés (fiduciaire, médical, juridique, RH), on propose également <strong className="text-text">Mistral Large 2</strong> et <strong className="text-text">Llama 4</strong> auto-hébergés sur serveur Suisse, ainsi que les solutions souveraines <strong className="text-text">Infomaniak Euria</strong> et <strong className="text-text">Swisscom Swiss AI Assistant</strong>. Vos données ne quittent jamais le territoire. Pour comparer les 3 modèles grand public, consultez notre guide{' '}
-                <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-white transition-colors">
+                <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-text transition-colors">
                   ChatGPT, Claude ou Copilot : lequel choisir pour votre PME
                 </Link>
                 .

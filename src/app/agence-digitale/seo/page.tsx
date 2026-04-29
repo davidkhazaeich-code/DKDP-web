@@ -161,7 +161,7 @@ export default function SEOPage() {
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
-              <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-white transition-colors">
+              <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-text transition-colors">
                 Service Digital
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
@@ -185,7 +185,7 @@ export default function SEOPage() {
                 />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=service-digital" size="lg">Audit SEO gratuit →</LiquidMetalButton>
-                  <Link href="#process" className="text-sm text-text-muted hover:text-white transition-colors">
+                  <Link href="#process" className="text-sm text-text-muted hover:text-text transition-colors">
                     Notre méthode ↓
                   </Link>
                 </div>
@@ -251,7 +251,7 @@ export default function SEOPage() {
                 Le SEO ne se limite pas à quelques balises bien remplies. DKDP combine audit technique rigoureux, contenu optimisé pour les intentions de recherche de vos clients, et acquisition progressive d&apos;autorité. Le résultat : un trafic qualifié qui croît mois après mois.
               </p>
               <p className="text-text-secondary leading-relaxed">
-                On travaille essentiellement sur le marché genevois et suisse romand, ce qui nous donne une connaissance précise des requêtes locales, des comportements de recherche et de la concurrence en ligne dans votre secteur. Consultez notre guide <Link href="/blog/seo-local-geneve-2026" className="underline hover:text-white transition-colors">SEO local à Genève en 2026</Link>.
+                On travaille essentiellement sur le marché genevois et suisse romand, ce qui nous donne une connaissance précise des requêtes locales, des comportements de recherche et de la concurrence en ligne dans votre secteur. Consultez notre guide <Link href="/blog/seo-local-geneve-2026" className="underline hover:text-text transition-colors">SEO local à Genève en 2026</Link>.
               </p>
             </SectionReveal>
             <SectionReveal delay={0.1}>
@@ -448,7 +448,7 @@ export default function SEOPage() {
                 À Genève, 46 % des recherches commerciales sont locales (source : Think with Google 2026). Sur mobile, 78 % des requêtes &laquo; près de moi &raquo; finissent par un appel ou un trajet dans les 24 h. Si vous n&apos;apparaissez pas dans le <strong className="text-text">pack local</strong> (les 3 fiches Google Maps au-dessus des résultats bleus), vous êtes invisibles pour la moitié de vos prospects genevois.
               </p>
               <p className="text-text-secondary leading-relaxed mb-6">
-                DKDP déploie une stratégie SEO local complète : optimisation de votre <strong className="text-text">Google Business Profile</strong> (ex-Google My Business), construction d&apos;un réseau de citations locales cohérentes (NAP : Name, Address, Phone), récolte structurée d&apos;avis clients, schema <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded">LocalBusiness</code> sur toutes vos pages et optimisation mobile Core Web Vitals (LCP, CLS, INP) pour le ranking mobile-first. Pour un guide complet, lisez <Link href="/blog/seo-local-geneve-2026" className="underline hover:text-white transition-colors">SEO local Genève 2026 : dominer Google Maps</Link>.
+                DKDP déploie une stratégie SEO local complète : optimisation de votre <strong className="text-text">Google Business Profile</strong> (ex-Google My Business), construction d&apos;un réseau de citations locales cohérentes (NAP : Name, Address, Phone), récolte structurée d&apos;avis clients, schema <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded">LocalBusiness</code> sur toutes vos pages et optimisation mobile Core Web Vitals (LCP, CLS, INP) pour le ranking mobile-first. Pour un guide complet, lisez <Link href="/blog/seo-local-geneve-2026" className="underline hover:text-text transition-colors">SEO local Genève 2026 : dominer Google Maps</Link>.
               </p>
               <div className="space-y-3">
                 {[
@@ -869,7 +869,7 @@ export default function SEOPage() {
 
       {/* ── CTA ── */}
       <div className="text-center pb-2">
-        <Link href="/a-propos" className="text-text-muted hover:text-white text-sm transition-colors mt-3 block">
+        <Link href="/a-propos" className="text-text-muted hover:text-text text-sm transition-colors mt-3 block">
           En savoir plus sur l&apos;agence et David Khazaei
         </Link>
       </div>

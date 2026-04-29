@@ -258,7 +258,7 @@ export default function RefonteSiteWebPage() {
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
-              <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-white transition-colors">
+              <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-text transition-colors">
                 Agence Digitale
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
@@ -291,7 +291,7 @@ export default function RefonteSiteWebPage() {
                   </LiquidMetalButton>
                   <Link
                     href="#symptomes"
-                    className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-white transition-colors"
+                    className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-text transition-colors"
                   >
                     Symptômes d&apos;un site à refaire <ArrowRight size={13} />
                   </Link>

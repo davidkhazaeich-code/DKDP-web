@@ -367,7 +367,7 @@ export default function ChatbotIAPage() {
             <div className="flex items-center gap-2 mb-6">
               <Link
                 href="/intelligence-artificielle"
-                className="text-text-muted text-sm hover:text-white transition-colors"
+                className="text-text-muted text-sm hover:text-text transition-colors"
               >
                 Intelligence Artificielle
               </Link>
@@ -401,7 +401,7 @@ export default function ChatbotIAPage() {
                   </LiquidMetalButton>
                   <Link
                     href="#comment-ca-marche"
-                    className="text-sm text-text-muted hover:text-white transition-colors"
+                    className="text-sm text-text-muted hover:text-text transition-colors"
                   >
                     Comment ca marché ↓
                   </Link>
@@ -681,7 +681,7 @@ export default function ChatbotIAPage() {
           <SectionReveal>
             <p className="text-text-muted text-sm text-center mt-8 max-w-2xl mx-auto leading-relaxed">
               On propose également <strong className="text-text">Mistral Large 2</strong> et <strong className="text-text">Llama 4</strong> auto-hébergés sur serveur Suisse quand la souveraineté est contractuelle. Pour comparer les modèles grand public, lisez notre guide{' '}
-              <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-white transition-colors">
+              <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-text transition-colors">
                 ChatGPT, Claude ou Copilot pour votre PME
               </Link>
               .

@@ -172,7 +172,7 @@ export default function CreationSiteWebPage() {
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
-              <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-white transition-colors">
+              <Link href="/agence-digitale" className="text-text-muted text-sm hover:text-text transition-colors">
                 Service Digital
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
@@ -196,7 +196,7 @@ export default function CreationSiteWebPage() {
                 />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/agence-digitale/creation-site-web/estimation" size="lg">Estimer mon projet →</LiquidMetalButton>
-                  <Link href="#process" className="text-sm text-text-muted hover:text-white transition-colors">
+                  <Link href="#process" className="text-sm text-text-muted hover:text-text transition-colors">
                     Notre méthode ↓
                   </Link>
                 </div>
@@ -273,7 +273,7 @@ export default function CreationSiteWebPage() {
                 Un site web beau mais lent, mal référencé ou difficile à mettre à jour ne rapporte rien. DKDP conçoit des sites qui combinent design soigné, performance technique et fondamentaux SEO, pour que votre investissement soit rentable dès le premier mois.
               </p>
               <p className="text-text-secondary leading-relaxed">
-                Chaque projet démarre par un brief approfondi. On comprend votre marché, vos clients et vos objectifs avant d&apos;ouvrir Figma. Le résultat est un site pensé pour votre audience, pas pour impressionner des designers. Combien coûte un site web ? Notre article détaillé : <Link href="/blog/cout-site-web-geneve-2026" className="underline hover:text-white transition-colors">le coût d&apos;un site web à Genève en 2026</Link>.
+                Chaque projet démarre par un brief approfondi. On comprend votre marché, vos clients et vos objectifs avant d&apos;ouvrir Figma. Le résultat est un site pensé pour votre audience, pas pour impressionner des designers. Combien coûte un site web ? Notre article détaillé : <Link href="/blog/cout-site-web-geneve-2026" className="underline hover:text-text transition-colors">le coût d&apos;un site web à Genève en 2026</Link>.
               </p>
             </SectionReveal>
             <SectionReveal delay={0.1}>
@@ -681,7 +681,7 @@ export default function CreationSiteWebPage() {
 
       {/* ── CTA ── */}
       <div className="text-center pb-2">
-        <Link href="/a-propos" className="text-text-muted hover:text-white text-sm transition-colors mt-3 block">
+        <Link href="/a-propos" className="text-text-muted hover:text-text text-sm transition-colors mt-3 block">
           En savoir plus sur l&apos;agence et David Khazaei
         </Link>
       </div>

@@ -33,10 +33,10 @@ export const metadata: Metadata = {
 }
 
 const accent          = orange.color
-const cardBg          = 'rgba(18,18,24,0.85)'
-const cardBorder      = 'rgba(212,212,216,0.10)'
-const highlightBg     = 'rgba(255,107,0,0.07)'
-const highlightBorder = 'rgba(255,107,0,0.22)'
+const cardBg          = 'var(--bg-card)'
+const cardBorder      = 'var(--border)'
+const highlightBg     = 'var(--orange-bg)'
+const highlightBorder = 'var(--orange-border)'
 
 // ── Thématiques ───────────────────────────────────────────────────────────────
 
@@ -222,7 +222,7 @@ export default function FormationParticuliersPage() {
                       <Star key={i} size={13} style={{ color: accent, fill: accent }} aria-hidden="true" />
                     ))}
                   </div>
-                  <span className="text-white font-semibold text-sm">4.6/5</span>
+                  <span className="text-text font-semibold text-sm">4.6/5</span>
                   <span className="text-text-muted text-sm">· 463+ Genevois satisfaits</span>
                 </div>
 
@@ -239,7 +239,7 @@ export default function FormationParticuliersPage() {
                     href="https://cours-informatique.ch"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-[12px] font-semibold text-sm text-white transition-opacity hover:opacity-85"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-[12px] font-semibold text-sm text-text transition-opacity hover:opacity-85"
                     style={{ background: accent }}
                   >
                     Visiter cours-informatique.ch <ExternalLink size={14} aria-hidden="true" />
@@ -280,7 +280,7 @@ export default function FormationParticuliersPage() {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-1">
                         Notre plateforme dédiée
                       </p>
-                      <p className="text-white font-bold text-xl">cours-informatique.ch</p>
+                      <p className="text-text font-bold text-xl">cours-informatique.ch</p>
                     </div>
                   </div>
 
@@ -294,7 +294,7 @@ export default function FormationParticuliersPage() {
                       { val: 'Lun–Sam', lbl: '8h00 – 19h00' },
                     ].map(({ val, lbl }) => (
                       <div key={lbl}>
-                        <p className="font-bold text-lg text-white leading-tight">{val}</p>
+                        <p className="font-bold text-lg text-text leading-tight">{val}</p>
                         <p className="text-text-muted text-xs">{lbl}</p>
                       </div>
                     ))}
@@ -334,8 +334,8 @@ export default function FormationParticuliersPage() {
             ].map((s) => (
               <SectionReveal key={s.label}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-bold text-white mb-1">{s.value}</p>
-                  <p className="text-white text-sm font-medium">{s.label}</p>
+                  <p className="text-3xl md:text-4xl font-bold text-text mb-1">{s.value}</p>
+                  <p className="text-text text-sm font-medium">{s.label}</p>
                   <p className="text-text-muted text-xs mt-1">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -387,7 +387,7 @@ export default function FormationParticuliersPage() {
                     >
                       <p.Icon size={16} style={{ color: accent }} aria-hidden="true" />
                     </div>
-                    <p className="text-white font-semibold text-sm leading-tight">{p.title}</p>
+                    <p className="text-text font-semibold text-sm leading-tight">{p.title}</p>
                     <p className="text-text-muted text-xs leading-relaxed">{p.desc}</p>
                   </div>
                 </SectionReveal>
@@ -436,7 +436,7 @@ export default function FormationParticuliersPage() {
                   >
                     <t.Icon size={18} style={{ color: accent }} aria-hidden="true" />
                   </div>
-                  <h3 className="text-white font-bold text-base mb-2">{t.title}</h3>
+                  <h3 className="text-text font-bold text-base mb-2">{t.title}</h3>
                   <p className="text-text-muted text-xs leading-relaxed flex-1">{t.desc}</p>
                   <div className="flex flex-wrap gap-1 mt-3 mb-3">
                     {t.tags.map((tag) => (
@@ -517,7 +517,7 @@ export default function FormationParticuliersPage() {
                       <m.Icon size={16} style={{ color: accent }} aria-hidden="true" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold text-sm mb-0.5">{m.title}</p>
+                      <p className="text-text font-semibold text-sm mb-0.5">{m.title}</p>
                       <p className="text-text-muted text-xs leading-relaxed">{m.desc}</p>
                     </div>
                   </div>

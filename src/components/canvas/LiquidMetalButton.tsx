@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { useTheme } from '@/components/providers/ThemeProvider'
 
 interface LiquidMetalButtonProps {
   children: React.ReactNode
@@ -41,6 +42,8 @@ export function LiquidMetalButton({
   const rippleId = useRef(0)
   const s = sizeMap[size]
   const radius = '100px'
+  const { theme } = useTheme()
+  const isLight = theme === 'light'
 
   // Measure actual button dimensions
   useEffect(() => {
@@ -89,11 +92,17 @@ export function LiquidMetalButton({
     onClick?.()
   }
 
-  const shadow = isPressed
-    ? '0 0 0 1px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.4)'
-    : isHovered
-      ? '0 0 0 1px rgba(0,0,0,0.4), 0 8px 20px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.15)'
-      : '0 0 0 1px rgba(0,0,0,0.35), 0 20px 12px rgba(0,0,0,0.08), 0 9px 9px rgba(0,0,0,0.12), 0 2px 5px rgba(0,0,0,0.15)'
+  const shadow = isLight
+    ? (isPressed
+        ? '0 0 0 1px rgba(0,0,0,0.10), 0 1px 3px rgba(15,15,15,0.10)'
+        : isHovered
+          ? '0 0 0 1px rgba(0,0,0,0.08), 0 8px 20px rgba(15,15,15,0.12), 0 4px 8px rgba(15,15,15,0.08)'
+          : '0 0 0 1px rgba(0,0,0,0.06), 0 12px 24px rgba(15,15,15,0.10), 0 4px 8px rgba(15,15,15,0.06)')
+    : (isPressed
+        ? '0 0 0 1px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.4)'
+        : isHovered
+          ? '0 0 0 1px rgba(0,0,0,0.4), 0 8px 20px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.15)'
+          : '0 0 0 1px rgba(0,0,0,0.35), 0 20px 12px rgba(0,0,0,0.08), 0 9px 9px rgba(0,0,0,0.12), 0 2px 5px rgba(0,0,0,0.15)')
 
   const transform = isPressed
     ? 'translateY(1px) scale(0.98)'
@@ -142,17 +151,23 @@ export function LiquidMetalButton({
         )}
       </div>
 
-      {/* Dark pill - 2px inset creates visible metal ring */}
+      {/* Inner pill - 2px inset creates visible metal ring. Theme-aware. */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 2,
           borderRadius: radius,
-          background: isPressed
-            ? 'linear-gradient(180deg, #0e0e0e 0%, #080808 100%)'
-            : 'linear-gradient(180deg, #1c1c1e 0%, #0A0A0A 100%)',
-          boxShadow: isPressed ? 'inset 0 2px 4px rgba(0,0,0,0.5)' : 'none',
+          background: isLight
+            ? (isPressed
+                ? 'linear-gradient(180deg, #EDE9DD 0%, #DCD7C9 100%)'
+                : 'linear-gradient(180deg, #FFFFFF 0%, #F0EDE5 100%)')
+            : (isPressed
+                ? 'linear-gradient(180deg, #0e0e0e 0%, #080808 100%)'
+                : 'linear-gradient(180deg, #1c1c1e 0%, #0A0A0A 100%)'),
+          boxShadow: isPressed
+            ? (isLight ? 'inset 0 2px 4px rgba(15,15,15,0.10)' : 'inset 0 2px 4px rgba(0,0,0,0.5)')
+            : 'none',
           transition: 'background 0.15s, box-shadow 0.15s',
           pointerEvents: 'none',
         }}
@@ -169,8 +184,8 @@ export function LiquidMetalButton({
           padding: `${s.py}px ${s.px}px`,
           fontSize: s.fontSize,
           fontWeight: 600,
-          color: 'rgba(210, 210, 210, 0.92)',
-          textShadow: '0 1px 2px rgba(0,0,0,0.7)',
+          color: isLight ? 'rgba(40, 40, 36, 0.95)' : 'rgba(210, 210, 210, 0.92)',
+          textShadow: isLight ? '0 1px 0 rgba(255,255,255,0.6)' : '0 1px 2px rgba(0,0,0,0.7)',
           whiteSpace: 'nowrap',
           pointerEvents: 'none',
           transition: 'color 0.15s',
@@ -191,7 +206,9 @@ export function LiquidMetalButton({
             width: 20,
             height: 20,
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%)',
+            background: isLight
+              ? 'radial-gradient(circle, rgba(124,58,237,0.35) 0%, transparent 70%)'
+              : 'radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%)',
             pointerEvents: 'none',
             animation: 'lmb-ripple 0.6s ease-out',
           }}

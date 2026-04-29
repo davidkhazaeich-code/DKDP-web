@@ -50,7 +50,7 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
           aria-hidden="true"
           className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 rounded-full timeline-progress-line"
           style={{
-            background: 'linear-gradient(to bottom, #A78BFA 0%, #ffffff 50%, #FF8C00 100%)',
+            background: 'linear-gradient(to bottom, #A78BFA 0%, #C7B8F7 50%, #FF8C00 100%)',
             boxShadow: '0 0 8px 2px rgba(167,139,250,0.4)',
           }}
         />
@@ -66,10 +66,10 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
                   <div
                     className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full z-10 font-black text-base"
                     style={{
-                      background: '#0e0e0e',
+                      background: 'var(--bg)',
                       border: `2px solid ${acc.color}`,
                       color: acc.color,
-                      boxShadow: `0 0 0 4px #0e0e0e, 0 0 16px ${acc.bg}`,
+                      boxShadow: `0 0 0 4px var(--bg), 0 0 16px ${acc.bg}`,
                     }}
                   >
                     {step.num}
@@ -81,7 +81,7 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
                       <div className="rounded-[16px] p-6 border bg-bg-card/60 transition-all duration-300 hover:-translate-y-0.5" style={{ borderColor: acc.bd }}>
                         <div className="flex items-start justify-end gap-3 mb-4">
                           <div className="flex-1 text-right">
-                            <span className="inline-block text-xs px-2 py-0.5 rounded-full mb-2 font-semibold text-text-muted" style={{ background: 'rgba(39,39,42,1)' }}>{step.duration}</span>
+                            <span className="inline-block text-xs px-2 py-0.5 rounded-full mb-2 font-semibold text-text-muted" style={{ background: 'var(--surface-default)' }}>{step.duration}</span>
                             <h3 className="text-text font-bold text-lg">{step.title}</h3>
                             <p className="text-xs font-semibold mt-0.5" style={{ color: acc.color }}>{step.week}</p>
                           </div>
@@ -107,7 +107,7 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
                             <StepIcon icon={step.icon} c={acc.color} />
                           </div>
                           <div>
-                            <span className="inline-block text-xs px-2 py-0.5 rounded-full mb-2 font-semibold text-text-muted" style={{ background: 'rgba(39,39,42,1)' }}>{step.duration}</span>
+                            <span className="inline-block text-xs px-2 py-0.5 rounded-full mb-2 font-semibold text-text-muted" style={{ background: 'var(--surface-default)' }}>{step.duration}</span>
                             <h3 className="text-text font-bold text-lg">{step.title}</h3>
                             <p className="text-xs font-semibold mt-0.5" style={{ color: acc.color }}>{step.week}</p>
                           </div>
@@ -141,7 +141,7 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 flex-wrap mb-1">
                       <h3 className="text-text font-bold text-base">{step.title}</h3>
-                      <span className="text-xs px-2 py-0.5 rounded-full font-semibold text-text-muted" style={{ background: 'rgba(39,39,42,1)' }}>{step.duration}</span>
+                      <span className="text-xs px-2 py-0.5 rounded-full font-semibold text-text-muted" style={{ background: 'var(--surface-default)' }}>{step.duration}</span>
                     </div>
                     <p className="text-xs font-semibold" style={{ color: acc.color }}>{step.week}</p>
                   </div>

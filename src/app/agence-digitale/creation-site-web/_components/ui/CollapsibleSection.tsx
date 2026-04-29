@@ -28,7 +28,7 @@ export function CollapsibleSection({
         className="flex w-full items-center justify-between gap-3 py-3.5 text-left cursor-pointer"
       >
         <div className="flex items-center gap-2.5">
-          <span className="text-[11px] sm:text-xs font-semibold text-zinc-300 uppercase tracking-[0.12em]">
+          <span className="text-[11px] sm:text-xs font-semibold text-text-secondary uppercase tracking-[0.12em]">
             {title}
           </span>
           {selectedCount !== undefined && selectedCount > 0 && (
@@ -40,7 +40,7 @@ export function CollapsibleSection({
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
-          className="flex-shrink-0 text-zinc-500"
+          className="flex-shrink-0 text-text-muted"
         >
           <ChevronDown size={16} />
         </motion.span>

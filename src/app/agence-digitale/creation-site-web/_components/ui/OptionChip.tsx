@@ -16,7 +16,7 @@ export function OptionChip({ label, selected, onClick }: OptionChipProps) {
         'min-h-[40px] sm:min-h-[38px]',
         selected
           ? 'border-violet-500/60 bg-violet-500/[0.12] text-violet-200 shadow-[0_0_0_1px_rgba(139,92,246,0.15)]'
-          : 'border-white/10 bg-white/[0.02] text-zinc-400 hover:border-white/20 hover:text-zinc-200 hover:bg-white/[0.04]',
+          : 'border-border bg-[var(--surface-subtle)] text-text-secondary hover:border-border-strong hover:text-text hover:bg-[var(--surface-default)]',
       ].join(' ')}
     >
       {label}

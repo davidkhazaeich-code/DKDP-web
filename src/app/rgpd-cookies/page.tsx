@@ -57,7 +57,7 @@ export default function RGPDCookiesPage() {
           {/* Qu'est-ce qu'un cookie */}
           <SectionReveal delay={0.05}>
             <div className="rounded-[16px] p-7 border mb-6" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-              <h2 className="text-white font-bold text-lg mb-4">Qu&apos;est-ce qu&apos;un cookie ?</h2>
+              <h2 className="text-text font-bold text-lg mb-4">Qu&apos;est-ce qu&apos;un cookie ?</h2>
               <p className="text-text-secondary text-sm leading-relaxed">
                 Un cookie est un petit fichier texte déposé sur votre navigateur lors de votre visite sur un site web. Il permet au site de mémoriser certaines informations sur votre passage (langue, préférences, identifiant de session) et de vous reconnaître lors d&apos;une prochaine visite.
               </p>
@@ -70,7 +70,7 @@ export default function RGPDCookiesPage() {
               <SectionReveal key={cookie.nom} delay={0.05 + i * 0.05}>
                 <div className="rounded-[16px] p-7 border" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
                   <div className="flex items-start justify-between gap-4 mb-4">
-                    <h2 className="text-white font-bold text-base">{cookie.nom}</h2>
+                    <h2 className="text-text font-bold text-base">{cookie.nom}</h2>
                     <div className="flex gap-2 flex-shrink-0">
                       <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full" style={{ background: 'rgba(212,212,216,0.08)', color: '#D4D4D8' }}>
                         {cookie.base}
@@ -92,7 +92,7 @@ export default function RGPDCookiesPage() {
           {/* Gérer les préférences */}
           <SectionReveal delay={0.25}>
             <div className="rounded-[16px] p-7 border mb-6" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-              <h2 className="text-white font-bold text-lg mb-4">Gérer vos préférences</h2>
+              <h2 className="text-text font-bold text-lg mb-4">Gérer vos préférences</h2>
               <p className="text-text-secondary text-sm leading-relaxed mb-4">
                 Lors de votre première visite, une bannière vous permet d&apos;accepter ou refuser les cookies non essentiels. Vous pouvez modifier vos préférences à tout moment.
               </p>
@@ -105,7 +105,7 @@ export default function RGPDCookiesPage() {
           {/* Vos droits RGPD */}
           <SectionReveal delay={0.28}>
             <div className="rounded-[16px] p-7 border mb-6" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-              <h2 className="text-white font-bold text-lg mb-4">Vos droits RGPD</h2>
+              <h2 className="text-text font-bold text-lg mb-4">Vos droits RGPD</h2>
               <p className="text-text-secondary text-sm leading-relaxed mb-4">
                 Conformément au Règlement Général sur la Protection des Données (RGPD) et à la Loi fédérale suisse sur la protection des données (LPD), vous disposez des droits suivants :
               </p>
@@ -125,7 +125,7 @@ export default function RGPDCookiesPage() {
                 ))}
               </ul>
               <p className="text-text-muted text-xs mt-4">
-                Pour exercer vos droits : <a href="mailto:dk@dkdp.ch" className="text-white hover:underline">dk@dkdp.ch</a>
+                Pour exercer vos droits : <a href="mailto:dk@dkdp.ch" className="text-text hover:underline">dk@dkdp.ch</a>
               </p>
             </div>
           </SectionReveal>
@@ -133,12 +133,12 @@ export default function RGPDCookiesPage() {
           {/* Lien politique confidentialité */}
           <SectionReveal delay={0.30}>
             <div className="rounded-[16px] p-7 border" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-              <h2 className="text-white font-bold text-lg mb-4">Pour aller plus loin</h2>
+              <h2 className="text-text font-bold text-lg mb-4">Pour aller plus loin</h2>
               <p className="text-text-secondary text-sm leading-relaxed">
                 Pour une information complète sur le traitement de vos données personnelles, consultez notre{' '}
-                <a href="/politique-de-confidentialite" className="text-white hover:underline">politique de confidentialité</a>{' '}
+                <a href="/politique-de-confidentialite" className="text-text hover:underline">politique de confidentialité</a>{' '}
                 et nos{' '}
-                <a href="/mentions-legales" className="text-white hover:underline">mentions légales</a>.
+                <a href="/mentions-legales" className="text-text hover:underline">mentions légales</a>.
               </p>
             </div>
           </SectionReveal>

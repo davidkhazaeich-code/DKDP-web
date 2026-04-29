@@ -219,7 +219,7 @@ export default function AProposPage() {
                   </LiquidMetalButton>
                   <Link
                     href="#histoire"
-                    className="text-sm text-text-muted hover:text-white transition-colors"
+                    className="text-sm text-text-muted hover:text-text transition-colors"
                   >
                     Notre histoire ↓
                   </Link>
@@ -325,7 +325,7 @@ export default function AProposPage() {
                   >
                     <v.Icon size={22} style={{ color: chromeColor }} />
                   </div>
-                  <h3 className="text-white font-bold text-lg">{v.title}</h3>
+                  <h3 className="text-text font-bold text-lg">{v.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1">{v.desc}</p>
                 </div>
               </SectionReveal>
@@ -428,7 +428,7 @@ export default function AProposPage() {
                     <p.Icon size={22} style={{ color: p.color }} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-white font-bold text-lg mb-2">{p.title}</h3>
+                    <h3 className="text-text font-bold text-lg mb-2">{p.title}</h3>
                     <p className="text-text-secondary text-sm leading-relaxed">{p.desc}</p>
                   </div>
                   <span
@@ -491,7 +491,7 @@ export default function AProposPage() {
                     {/* Contenu */}
                     <div className="flex flex-col gap-4 p-6 flex-1">
                       <div>
-                        <p className="text-white font-bold text-lg leading-tight">{member.name}</p>
+                        <p className="text-text font-bold text-lg leading-tight">{member.name}</p>
                         <p className="text-[11px] font-semibold mt-1 uppercase tracking-wider" style={{ color: member.color }}>{member.role}</p>
                       </div>
                       <p className="text-text-secondary text-sm leading-relaxed">{member.bio}</p>
@@ -518,7 +518,7 @@ export default function AProposPage() {
                           {member.email && (
                             <a
                               href={`mailto:${member.email}`}
-                              className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-white transition-colors"
+                              className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-text transition-colors"
                             >
                               <Mail size={12} style={{ color: member.color }} />
                               {member.email}
@@ -529,7 +529,7 @@ export default function AProposPage() {
                               href={member.linkedin}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-white transition-colors"
+                              className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-text transition-colors"
                             >
                               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style={{ color: member.color }}>
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -573,7 +573,7 @@ export default function AProposPage() {
                     style={{ color: chromeColor }}
                   />
                   <div>
-                    <h3 className="text-white font-bold text-base mb-2">{r.title}</h3>
+                    <h3 className="text-text font-bold text-base mb-2">{r.title}</h3>
                     <p className="text-text-secondary text-sm leading-relaxed">{r.desc}</p>
                   </div>
                 </div>

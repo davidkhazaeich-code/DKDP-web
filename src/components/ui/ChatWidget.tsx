@@ -685,8 +685,8 @@ export function ChatWidget() {
          ════════════════════════════════════════════════════════════════════════ */}
       <AnimatePresence>
         {!isOpen && (
+          <div ref={barRef} className="chat-bottom-bar-wrapper">
           <m.div
-            ref={barRef}
             initial={{ opacity: 0, y: 30 }}
             animate={{
               opacity: 1,
@@ -695,7 +695,6 @@ export function ChatWidget() {
             }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4, ease: DKDP_BOUNCE }}
-            className="chat-bottom-bar"
           >
             {speech.error && (
               <m.div
@@ -816,6 +815,7 @@ export function ChatWidget() {
               </m.button>
             </form>
           </m.div>
+          </div>
         )}
       </AnimatePresence>
 

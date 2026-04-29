@@ -297,25 +297,33 @@ body.chat-open {
   touch-action: none;
 }
 
-/* Chatbot bottom bar (état fermé) — sticky position cross-mobile */
-.chat-bottom-bar {
+/* Chatbot bottom bar (état fermé) — wrapper de centrage, n'anime jamais */
+/* Le centrage est sur le wrapper (jamais transformé par framer-motion) */
+/* pour ne pas être écrasé par les transforms y/scale du m.div enfant */
+.chat-bottom-bar-wrapper {
   position: fixed;
   z-index: 40;
   left: 50%;
   transform: translateX(-50%);
   bottom: max(16px, env(safe-area-inset-bottom, 16px));
+  pointer-events: none; /* le wrapper laisse passer les clics, le m.div les capte */
+}
+.chat-bottom-bar-wrapper > * {
+  pointer-events: auto;
 }
 @media (min-width: 640px) {
-  .chat-bottom-bar {
+  .chat-bottom-bar-wrapper {
     bottom: max(24px, env(safe-area-inset-bottom, 24px));
   }
 }
 
-/* Chatbot window (état ouvert) — mobile near-fullscreen, desktop flottant */
+/* Chatbot window (état ouvert) — mobile fullscreen sous le header, desktop flottant */
+/* Header mobile = top 0 + mt-2 + h-14 = 64px de hauteur. On démarre à 76px */
+/* pour laisser un gap visuel propre entre header et chat. */
 .chat-window {
   position: fixed;
   z-index: 40;
-  top: max(12px, env(safe-area-inset-top, 12px));
+  top: calc(env(safe-area-inset-top, 0px) + 76px);
   left: 8px;
   right: 8px;
   bottom: max(12px, env(safe-area-inset-bottom, 12px));

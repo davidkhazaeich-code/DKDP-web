@@ -81,7 +81,7 @@ export function ScrollSpyNav({ items, cta, accentColor, accentBg, accentBorder }
 
   return (
     <div className="sticky top-[66px] z-30 px-6 pt-1.5">
-      <div className="max-w-[1200px] mx-auto rounded-2xl bg-[#0A0A0A]/90 backdrop-blur-2xl px-5">
+      <div className="max-w-[1200px] mx-auto rounded-2xl backdrop-blur-2xl px-5" style={{ background: 'color-mix(in srgb, var(--bg) 90%, transparent)' }}>
         <div className="flex items-center justify-between gap-2">
           <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none" aria-label="Navigation sections">
             {items.map(({ label, href }) => {

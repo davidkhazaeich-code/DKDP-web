@@ -145,21 +145,21 @@ export function CircularTestimonials({
       zIndex: 3, opacity: 1, pointerEvents: 'auto',
       transform: 'translateX(0) translateY(0) scale(1) rotateY(0deg)',
       transition: 'all 0.75s cubic-bezier(.4,2,.3,1)',
-      boxShadow: '0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06)',
+      boxShadow: 'var(--shadow-card-xl), 0 0 0 1px var(--surface-border)',
     }
     if (isLeft) return {
       ...base,
       zIndex: 2, opacity: 0.75, pointerEvents: 'auto',
       transform: `translateX(-${gap}px) translateY(-${maxStickUp}px) scale(0.82) rotateY(14deg)`,
       transition: 'all 0.75s cubic-bezier(.4,2,.3,1)',
-      boxShadow: '0 10px 30px rgba(0,0,0,0.35)',
+      boxShadow: 'var(--shadow-card-md)',
     }
     if (isRight) return {
       ...base,
       zIndex: 2, opacity: 0.75, pointerEvents: 'auto',
       transform: `translateX(${gap}px) translateY(-${maxStickUp}px) scale(0.82) rotateY(-14deg)`,
       transition: 'all 0.75s cubic-bezier(.4,2,.3,1)',
-      boxShadow: '0 10px 30px rgba(0,0,0,0.35)',
+      boxShadow: 'var(--shadow-card-md)',
     }
     return { ...base, zIndex: 1, opacity: 0, pointerEvents: 'none', transition: 'all 0.75s cubic-bezier(.4,2,.3,1)' }
   }
@@ -186,8 +186,8 @@ export function CircularTestimonials({
               key={item.src}
               style={{
                 ...getCardStyle(i),
-                background: item.cardBg ?? 'rgba(255,255,255,0.04)',
-                border: `1px solid ${item.cardBorder ?? 'rgba(255,255,255,0.08)'}`,
+                background: item.cardBg ?? 'var(--surface-default)',
+                border: `1px solid ${item.cardBorder ?? 'var(--surface-border)'}`,
                 backdropFilter: 'blur(16px)',
               }}
             >

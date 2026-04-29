@@ -93,7 +93,7 @@ export function ScrollSpyNav({ items, cta, accentColor, accentBg, accentBorder }
                   key={href}
                   href={href}
                   className={`flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold transition-all duration-200 whitespace-nowrap ${
-                    isActive ? '' : 'text-text-muted hover:text-white'
+                    isActive ? '' : 'text-text-muted hover:text-text'
                   }`}
                   style={
                     isActive

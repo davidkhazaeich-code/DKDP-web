@@ -155,7 +155,7 @@ export function GlossaireSearch({ terms }: { terms: TermEntry[] }) {
               className="flex items-center justify-between gap-3 px-4 py-2.5 cursor-pointer transition-colors"
               style={{
                 background: active === i ? 'rgba(167,139,250,0.10)' : 'transparent',
-                borderTop: i > 0 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                borderTop: i > 0 ? '1px solid var(--surface-border)' : 'none',
               }}
             >
               <span className="text-sm text-text font-medium">{s.term}</span>

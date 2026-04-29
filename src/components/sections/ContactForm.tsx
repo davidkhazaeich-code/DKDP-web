@@ -280,9 +280,9 @@ function ContactFormInner() {
                     )}
                     className="group px-3 py-1.5 rounded-full text-[12px] font-medium transition-all duration-150"
                     style={{
-                      background: active ? 'rgba(124,58,237,0.25)' : 'rgba(255,255,255,0.05)',
-                      color: active ? '#A78BFA' : '#6B7280',
-                      border: active ? '1px solid rgba(124,58,237,0.50)' : '1px solid rgba(255,255,255,0.08)',
+                      background: active ? 'rgba(124,58,237,0.25)' : 'var(--surface-default)',
+                      color: active ? '#A78BFA' : 'var(--text-muted)',
+                      border: active ? '1px solid rgba(124,58,237,0.50)' : '1px solid var(--surface-border)',
                     }}
                     onMouseEnter={e => {
                       if (!active) {
@@ -295,9 +295,9 @@ function ContactFormInner() {
                     onMouseLeave={e => {
                       if (!active) {
                         const t = e.currentTarget
-                        t.style.background = 'rgba(255,255,255,0.05)'
-                        t.style.color = '#6B7280'
-                        t.style.border = '1px solid rgba(255,255,255,0.08)'
+                        t.style.background = 'var(--surface-default)'
+                        t.style.color = 'var(--text-muted)'
+                        t.style.border = '1px solid var(--surface-border)'
                       }
                     }}
                   >

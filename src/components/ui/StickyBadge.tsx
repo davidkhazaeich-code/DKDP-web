@@ -37,7 +37,7 @@ export function StickyBadge() {
           exit={{ opacity: 0, scale: 0.85, y: 12, transition: { duration: 0.28, ease: [0.4, 0, 1, 1] } }}
           transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
           className="fixed bottom-6 left-6 z-30 hidden md:block drop-shadow-2xl"
-          style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.5))' }}
+          style={{ filter: 'drop-shadow(var(--shadow-card-md))' }}
         >
           <h2 className="sr-only">Service Digital · Service 100% Suisse</h2>
           <TrustBadge variant="dark" />

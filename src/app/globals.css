@@ -12,10 +12,10 @@
   --border-strong:   #2A2A2A;
   --divider:         rgba(255,255,255,0.06);
 
-  /* Text */
+  /* Text — muted bumped from #71717A (4.09:1) to #8E8E96 (~5.2:1) for WCAG AA on #0A0A0A. */
   --text:            #FFFFFF;
   --text-secondary:  #9CA3AF;
-  --text-muted:      #71717A;
+  --text-muted:      #8E8E96;
 
   /* Brand accents (identical in both themes) */
   --orange:          #FF6B00;
@@ -58,6 +58,13 @@
   --teal-text:       #5EEAD4;
   --amber-text:      #FCD34D;
   --red-text:        #FCA5A5;
+
+  /* ProcessSteps chip text (11px bold on --bg) — WCAG AA ≥ 4.5:1 on dark */
+  --chip-1:          #A78BFA;
+  --chip-2:          #C77ED9;
+  --chip-3:          #E78AA8;
+  --chip-4:          #F08A6A;
+  --chip-5:          #FF9A40;
 
   /* Neutral surfaces */
   --surface-subtle:  rgba(255, 255, 255, 0.02);
@@ -136,6 +143,13 @@
   --teal-text:       #0F766E;
   --amber-text:      #B45309;
   --red-text:        #B91C1C;
+
+  /* ProcessSteps chip text (11px bold on --bg #FAFAF7) — WCAG AA ≥ 4.5:1 on cream */
+  --chip-1:          #6D28D9;
+  --chip-2:          #7E2A93;
+  --chip-3:          #9D3D5E;
+  --chip-4:          #A8442A;
+  --chip-5:          #C2410C;
 
   /* Neutral surfaces — bumped alpha on black for visibility */
   --surface-subtle:  rgba(10, 10, 10, 0.03);
@@ -329,6 +343,13 @@ html {
 body {
   overflow-x: clip;
   overscroll-behavior-x: none;
+}
+
+/* Visited link reset — prevent UA visited color (e.g. #9E9EFF) from leaking
+   into footer/header/CTA links and breaking WCAG contrast. We inherit color
+   from class utilities, then re-apply on visited. */
+a:visited {
+  color: inherit;
 }
 
 /* Chat open — lock body scroll on all platforms */

@@ -67,11 +67,15 @@ export function InfiniteGrid({
     return () => clearTimeout(t)
   }, [])
 
-  // Light mode: thicker stroke (1.5) on top of higher alpha for clearly visible grid on cream.
-  // Dark mode: keep stroke at 1 (subtle is intentional on near-black bg).
-  const baseStrokeWidth = theme === 'light' ? 1.5 : 1
+  // Light mode base: subtle 1.5px gris clair pour ne pas être agressif.
+  // Light mode hover: 2.5px brand color full alpha pour que l'effet de couleur cursor
+  // ressorte clairement par-dessus le base et soit bien visible sur cream.
+  // Dark mode: 1px stroke + 0.80 alpha hover comme avant.
+  const baseStrokeWidth  = theme === 'light' ? 1.5 : 1
+  const hoverStrokeWidth = theme === 'light' ? 2.5 : 1
+  const hoverAlpha       = theme === 'light' ? 0.95 : 0.80
   const BASE_GRID  = buildGrid(colors.gridLine, baseStrokeWidth)
-  const HOVER_GRID = buildGrid(`rgba(${accentRgb},0.80)`, baseStrokeWidth)
+  const HOVER_GRID = buildGrid(`rgba(${accentRgb},${hoverAlpha})`, hoverStrokeWidth)
 
   // Mouse position for the radial mask
   const mouseX = useMotionValue(-9999)

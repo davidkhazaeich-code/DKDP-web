@@ -29,6 +29,6 @@ describe('useThemeColors', () => {
     await act(async () => { await Promise.resolve() })
     expect(screen.getByTestId('bg').textContent).toBe('#FAFAF7')
     expect(screen.getByTestId('point').textContent).toBe('#1A1A18')
-    expect(screen.getByTestId('grid').textContent).toBe('rgba(10,10,10,0.28)')
+    expect(screen.getByTestId('grid').textContent).toBe('rgba(10,10,10,0.22)')
   })
 })

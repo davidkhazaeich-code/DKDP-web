@@ -156,8 +156,9 @@
   --surface-default: rgba(10, 10, 10, 0.07);   /* was 0.05 */
   --surface-border:  rgba(10, 10, 10, 0.25);   /* was 0.18 */
 
-  /* Canvas grid line — Pass 14: bumped to 0.40 for stronger visibility (mirrors tokens.ts source) */
-  --grid-line:       rgba(10, 10, 10, 0.40);
+  /* Canvas grid line — Pass 15: ramené à 0.22 (était 0.40 trop dense). Plus light, l'effet
+     de couleur brand au hover reste visible grâce au stroke 2px + 0.80 alpha en light. */
+  --grid-line:       rgba(10, 10, 10, 0.22);
   --grid-line-rgb:   10, 10, 10;
 
   /* Filter for monochrome SVG logos (none — they stay black on cream) */
@@ -362,29 +363,37 @@ body.chat-open {
   touch-action: none;
 }
 
-/* Chatbot bottom bar (état fermé) — wrapper de centrage, n'anime jamais */
-/* Le centrage est sur le wrapper (jamais transformé par framer-motion) */
-/* pour ne pas être écrasé par les transforms y/scale du m.div enfant */
+/* Chatbot bottom bar (état fermé) — wrapper full-width, centrage par flex */
+/* Pattern le plus robuste cross-browser mobile (Chrome Android, Safari iOS, */
+/* Firefox, Samsung Internet) : pas de transform sur le wrapper, donc rien */
+/* que framer-motion puisse écraser. Le wrapper colle parfaitement en bas */
+/* via left/right:0 et un padding-bottom qui prend la safe-area-inset. */
 .chat-bottom-bar-wrapper {
   position: fixed;
   z-index: 40;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: max(16px, env(safe-area-inset-bottom, 16px));
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 8px;
+  padding-bottom: max(16px, env(safe-area-inset-bottom, 16px));
   pointer-events: none; /* le wrapper laisse passer les clics, le m.div les capte */
 }
 .chat-bottom-bar-wrapper > * {
   pointer-events: auto;
+  max-width: 100%; /* clamp ultime si la width animate dépasse */
 }
 @media (min-width: 640px) {
   .chat-bottom-bar-wrapper {
-    bottom: max(24px, env(safe-area-inset-bottom, 24px));
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 24px));
   }
 }
 
-/* Chatbot window (état ouvert) — mobile fullscreen sous le header, desktop flottant */
-/* Header mobile = top 0 + mt-2 + h-14 = 64px de hauteur. On démarre à 76px */
-/* pour laisser un gap visuel propre entre header et chat. */
+/* Chatbot window (état ouvert) — pattern flex-center robuste cross-browser */
+/* Mobile = inset précis (sous le header, marges 8px, safe-area en bas). */
+/* Desktop = wrapper full-width avec flex/flex-end-bottom + padding pour */
+/* centrer un container largeur fixe sans transform. */
 .chat-window {
   position: fixed;
   z-index: 40;
@@ -395,13 +404,25 @@ body.chat-open {
 }
 @media (min-width: 640px) {
   .chat-window {
+    /* Reset des inset mobile */
     top: auto;
-    left: 50%;
-    right: auto;
-    bottom: max(16px, env(safe-area-inset-bottom, 16px));
-    transform: translateX(-50%);
-    width: min(580px, calc(100vw - 32px));
-    height: min(576px, 78dvh, calc(100dvh - 80px));
+    left: 0;
+    right: 0;
+    /* Wrapper full-width qui centre son contenu via flex */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 16px;
+    padding-bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    /* Hauteur disponible pour que le m.div enfant puisse prendre 576px max */
+    height: min(calc(576px + 16px), 78dvh, calc(100dvh - 80px));
+    bottom: 0;
+    pointer-events: none;
+  }
+  .chat-window > * {
+    pointer-events: auto;
+    width: min(580px, 100%);
+    height: min(576px, 100%);
   }
 }
 

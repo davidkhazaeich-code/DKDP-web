@@ -30,7 +30,7 @@ export function EstimatorNav({
           <button
             type="button"
             onClick={() => dispatch({ type: 'PREV_STEP' })}
-            className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors duration-150 font-medium text-sm"
+            className="flex items-center gap-1 text-text-secondary hover:text-text transition-colors duration-150 font-medium text-sm"
           >
             <ChevronLeft className="w-4 h-4" />
             Retour
@@ -44,7 +44,7 @@ export function EstimatorNav({
           <button
             type="button"
             onClick={() => dispatch({ type: 'SKIP_STEP' })}
-            className="text-zinc-500 hover:text-zinc-300 transition-colors duration-150 font-medium text-sm"
+            className="text-text-muted hover:text-text-secondary transition-colors duration-150 font-medium text-sm"
           >
             Pas pour l&apos;instant
           </button>

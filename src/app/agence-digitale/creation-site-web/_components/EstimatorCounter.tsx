@@ -40,8 +40,8 @@ export function StickyBottomBar() {
       style={{
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        background: 'rgba(10,10,10,0.93)',
-        borderTop: '1px solid rgba(255,255,255,0.10)',
+        background: 'color-mix(in srgb, var(--bg) 93%, transparent)',
+        borderTop: '1px solid var(--border)',
       }}
     >
       <div className="max-w-[1100px] mx-auto px-3 sm:px-5 lg:px-6 py-2.5 sm:py-3">
@@ -53,7 +53,7 @@ export function StickyBottomBar() {
               <button
                 type="button"
                 onClick={() => dispatch({ type: 'PREV_STEP' })}
-                className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-xs sm:text-sm font-medium px-2 py-2 -ml-2 rounded-lg hover:bg-white/[0.04]"
+                className="flex items-center gap-1 text-text-secondary hover:text-text transition-colors text-xs sm:text-sm font-medium px-2 py-2 -ml-2 rounded-lg hover:bg-[var(--surface-default)]"
                 aria-label="Retour"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -66,19 +66,19 @@ export function StickyBottomBar() {
           <div className="flex-1 text-center min-w-0 px-1">
             {hasPrice ? (
               <>
-                <p className="text-sm sm:text-base lg:text-lg font-bold text-white tabular-nums leading-tight">
+                <p className="text-sm sm:text-base lg:text-lg font-bold text-text tabular-nums leading-tight">
                   CHF {formatCHF(totalMin)}
-                  <span className="text-zinc-600 mx-1.5">–</span>
+                  <span className="text-text-muted mx-1.5">–</span>
                   {formatCHF(totalMax)}
                 </p>
-                <div className="flex items-center justify-center gap-2 sm:gap-3 text-[10px] sm:text-xs text-zinc-500 mt-0.5">
+                <div className="flex items-center justify-center gap-2 sm:gap-3 text-[10px] sm:text-xs text-text-muted mt-0.5">
                   {monthlyMin > 0 && (
-                    <span className="text-violet-400 tabular-nums">
+                    <span className="text-violet-500 tabular-nums">
                       +{formatCHF(monthlyMin)}/mois
                     </span>
                   )}
                   {weeksMin > 0 && (
-                    <span className="text-emerald-400 tabular-nums">
+                    <span className="text-emerald-500 tabular-nums">
                       ~{weeksMin}-{weeksMax} semaines
                     </span>
                   )}
@@ -88,7 +88,7 @@ export function StickyBottomBar() {
                 </div>
               </>
             ) : (
-              <div className="flex items-center justify-center gap-1.5 text-xs sm:text-sm text-zinc-500">
+              <div className="flex items-center justify-center gap-1.5 text-xs sm:text-sm text-text-muted">
                 <Calculator className="w-3.5 h-3.5" />
                 <span>Étape {currentStep} sur 8</span>
               </div>
@@ -101,7 +101,7 @@ export function StickyBottomBar() {
               <button
                 type="button"
                 onClick={() => dispatch({ type: 'SKIP_STEP' })}
-                className="text-zinc-400 hover:text-zinc-100 transition-colors text-xs sm:text-sm font-medium px-3 py-2 sm:py-2.5 rounded-lg border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.04]"
+                className="text-text-secondary hover:text-text transition-colors text-xs sm:text-sm font-medium px-3 py-2 sm:py-2.5 rounded-lg border border-border hover:border-border-strong hover:bg-[var(--surface-default)]"
               >
                 Passer
               </button>
@@ -115,7 +115,7 @@ export function StickyBottomBar() {
                   'flex items-center gap-1 sm:gap-1.5 px-3.5 sm:px-5 lg:px-6 py-2 sm:py-2.5 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200 shrink-0',
                   canProceed
                     ? 'bg-violet-600 hover:bg-violet-500 text-white cursor-pointer shadow-[0_0_0_1px_rgba(139,92,246,0.3)]'
-                    : 'bg-zinc-800 text-zinc-500 cursor-not-allowed',
+                    : 'bg-[var(--surface-default)] text-text-muted cursor-not-allowed',
                 ].join(' ')}
               >
                 <span className="whitespace-nowrap">
@@ -142,40 +142,40 @@ export function EstimatorTopBanner() {
   const hasPrice = totalMin > 0
 
   return (
-    <div className="rounded-2xl border border-white/[0.07] backdrop-blur-md px-5 py-4 flex items-center gap-5" style={{ background: 'color-mix(in srgb, var(--bg) 80%, transparent)' }}>
+    <div className="rounded-2xl border border-border backdrop-blur-md px-5 py-4 flex items-center gap-5" style={{ background: 'color-mix(in srgb, var(--bg-card) 90%, transparent)' }}>
 
       {/* Label block */}
       <div className="flex-shrink-0 min-w-[140px]">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-500">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-text-muted">
           Estimation en direct
         </p>
         {hasPrice ? (
-          <p className="text-lg font-bold text-white leading-tight tabular-nums mt-1">
+          <p className="text-lg font-bold text-text leading-tight tabular-nums mt-1">
             <AnimatedCounter value={totalMin} prefix="CHF" />
-            <span className="text-zinc-600 mx-1.5">–</span>
+            <span className="text-text-muted mx-1.5">–</span>
             <AnimatedCounter value={totalMax} prefix="" />
           </p>
         ) : (
-          <p className="text-sm text-zinc-500 mt-1">Calcul en cours...</p>
+          <p className="text-sm text-text-muted mt-1">Calcul en cours...</p>
         )}
       </div>
 
-      <div className="w-px self-stretch bg-white/[0.06]" />
+      <div className="w-px self-stretch bg-[var(--border)]" />
 
       {/* Metrics */}
       <div className="flex items-center gap-4 flex-shrink-0">
         {monthlyMin > 0 && (
           <div>
-            <p className="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">Récurrent</p>
-            <p className="text-sm font-semibold text-violet-400 tabular-nums">
+            <p className="text-[10px] uppercase tracking-wider text-text-muted font-medium">Récurrent</p>
+            <p className="text-sm font-semibold text-violet-500 tabular-nums">
               +{formatCHF(monthlyMin)}/mois
             </p>
           </div>
         )}
         {weeksMin > 0 && (
           <div>
-            <p className="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">Délai</p>
-            <p className="text-sm font-semibold text-emerald-400 tabular-nums">
+            <p className="text-[10px] uppercase tracking-wider text-text-muted font-medium">Délai</p>
+            <p className="text-sm font-semibold text-emerald-500 tabular-nums">
               ~{weeksMin}–{weeksMax} semaines
             </p>
           </div>
@@ -193,13 +193,13 @@ export function EstimatorTopBanner() {
               key={dot}
               className="h-1 flex-1 rounded-full transition-all duration-300"
               style={{
-                background: dot <= currentStep ? 'rgba(139,92,246,0.7)' : 'rgba(255,255,255,0.08)',
+                background: dot <= currentStep ? 'rgba(139,92,246,0.7)' : 'var(--surface-border)',
               }}
             />
           ))}
         </div>
-        <p className="text-xs text-zinc-500 whitespace-nowrap">
-          <span className="text-zinc-300 font-semibold">{currentStep}</span>/8
+        <p className="text-xs text-text-muted whitespace-nowrap">
+          <span className="text-text font-semibold">{currentStep}</span>/8
         </p>
       </div>
     </div>

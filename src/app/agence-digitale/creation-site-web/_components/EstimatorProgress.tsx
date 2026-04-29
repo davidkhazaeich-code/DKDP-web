@@ -30,18 +30,18 @@ export function EstimatorProgress() {
             <span className="text-xs font-semibold text-violet-400">
               {currentStep}/8
             </span>
-            <span className="text-sm font-medium text-zinc-200">
+            <span className="text-sm font-medium text-text">
               {currentStepData?.label}
             </span>
             {currentStepData?.optional && (
-              <span className="text-[10px] text-zinc-500 border border-zinc-700 rounded px-1.5 py-0.5">
+              <span className="text-[10px] text-text-muted border border-border rounded px-1.5 py-0.5">
                 optionnel
               </span>
             )}
           </div>
         </div>
         {/* Thin progress bar */}
-        <div className="h-1 w-full rounded-full bg-zinc-800 overflow-hidden">
+        <div className="h-1 w-full rounded-full bg-[var(--surface-default)] overflow-hidden">
           <motion.div
             className="h-full rounded-full bg-violet-600"
             initial={false}
@@ -89,7 +89,7 @@ export function EstimatorProgress() {
                       ? 'bg-emerald-600 text-white cursor-pointer hover:bg-emerald-500'
                       : isActive
                         ? 'bg-violet-600 text-white cursor-default'
-                        : 'bg-zinc-800 text-zinc-500 cursor-default',
+                        : 'bg-[var(--surface-default)] text-text-muted cursor-default',
                   ].join(' ')}
                   aria-label={`${step.label} (étape ${index + 1})`}
                 >
@@ -121,13 +121,13 @@ export function EstimatorProgress() {
                 <span
                   className={[
                     'text-[9px] font-medium leading-tight',
-                    isCompleted ? 'text-emerald-400' : isActive ? 'text-violet-300' : 'text-zinc-600',
+                    isCompleted ? 'text-emerald-500' : isActive ? 'text-violet-500' : 'text-text-muted',
                   ].join(' ')}
                 >
                   {step.label}
                 </span>
                 {step.optional && !isCompleted && (
-                  <span className="text-[7px] text-zinc-600 leading-tight mt-px">optionnel</span>
+                  <span className="text-[7px] text-text-muted leading-tight mt-px">optionnel</span>
                 )}
               </div>
             </div>
@@ -173,7 +173,7 @@ export function EstimatorProgress() {
                       ? 'bg-emerald-600 text-white cursor-pointer hover:bg-emerald-500'
                       : isActive
                         ? 'bg-violet-600 text-white cursor-default'
-                        : 'bg-zinc-800 text-zinc-500 cursor-default',
+                        : 'bg-[var(--surface-default)] text-text-muted cursor-default',
                   ].join(' ')}
                   aria-label={`${step.label} (étape ${index + 1})`}
                 >
@@ -205,13 +205,13 @@ export function EstimatorProgress() {
                 <span
                   className={[
                     'text-[11px] font-medium leading-tight',
-                    isCompleted ? 'text-emerald-400' : isActive ? 'text-violet-300' : 'text-zinc-600',
+                    isCompleted ? 'text-emerald-500' : isActive ? 'text-violet-500' : 'text-text-muted',
                   ].join(' ')}
                 >
                   {step.label}
                 </span>
                 {step.optional && !isCompleted && (
-                  <span className="text-[9px] text-zinc-600 leading-tight mt-0.5">optionnel</span>
+                  <span className="text-[9px] text-text-muted leading-tight mt-0.5">optionnel</span>
                 )}
               </div>
             </div>

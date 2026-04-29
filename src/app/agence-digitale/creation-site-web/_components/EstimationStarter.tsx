@@ -44,7 +44,8 @@ export function EstimationStarter() {
           // Opacity-only : évite transform qui casse les enfants `position:fixed` (StickyBottomBar)
           <motion.div
             ref={overlayRef}
-            className="fixed inset-0 z-50 bg-[#09090B] overflow-y-auto overscroll-contain"
+            className="fixed inset-0 z-50 overflow-y-auto overscroll-contain"
+            style={{ background: 'var(--bg)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -62,17 +63,20 @@ export function EstimationStarter() {
                   backgroundSize: '60px 60px',
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-[#09090B]/60 via-transparent to-[#09090B]" />
+              <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(to bottom, color-mix(in srgb, var(--bg) 60%, transparent), transparent, var(--bg))' }}
+              />
             </div>
 
             {/* Bouton fermer — sticky dans le scroll de l'overlay */}
             <div
               className="sticky top-0 z-10 flex justify-end px-4 pt-4 pb-2"
-              style={{ background: 'rgba(9,9,11,0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
+              style={{ background: 'color-mix(in srgb, var(--bg) 85%, transparent)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
             >
               <button
                 onClick={() => setStarted(false)}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-zinc-400 border border-zinc-800 bg-zinc-900/60 hover:text-white hover:border-zinc-600 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-text-secondary border border-border bg-bg-card/60 hover:text-text hover:border-border-strong transition-all duration-200"
               >
                 <X size={15} />
                 Fermer

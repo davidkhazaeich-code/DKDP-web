@@ -67,10 +67,10 @@ function EstimatorInner() {
 
       {/* Wizard card */}
       <div className="mt-4 sm:mt-5">
-        <div className="relative rounded-2xl border border-white/[0.07] backdrop-blur-md overflow-hidden" style={{ background: 'color-mix(in srgb, var(--bg) 80%, transparent)' }}>
+        <div className="relative rounded-2xl border border-border backdrop-blur-md overflow-hidden" style={{ background: 'color-mix(in srgb, var(--bg-card) 90%, transparent)' }}>
 
           {/* Progress bar — tight padding */}
-          <div className="px-3 sm:px-5 lg:px-6 pt-4 sm:pt-5 lg:pt-6 pb-3 sm:pb-4 border-b border-white/[0.05]">
+          <div className="px-3 sm:px-5 lg:px-6 pt-4 sm:pt-5 lg:pt-6 pb-3 sm:pb-4 border-b border-border">
             <EstimatorProgress />
           </div>
 
@@ -78,11 +78,11 @@ function EstimatorInner() {
           <div className="px-3 sm:px-5 lg:px-6 py-5 sm:py-6 lg:py-7">
             {/* Step title */}
             <div className="mb-5 sm:mb-6">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white leading-tight">
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-text leading-tight">
                 {STEP_TITLES[currentStep]}
               </h2>
               {STEP_SUBTITLES[currentStep] && (
-                <p className="mt-1 text-xs sm:text-sm text-zinc-500 leading-relaxed">
+                <p className="mt-1 text-xs sm:text-sm text-text-muted leading-relaxed">
                   {STEP_SUBTITLES[currentStep]}
                 </p>
               )}

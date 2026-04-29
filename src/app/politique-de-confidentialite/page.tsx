@@ -30,7 +30,7 @@ export default function PolitiqueDeConfidentialitePage() {
             {/* 1. Responsable du traitement */}
             <SectionReveal delay={0.05}>
               <div className="rounded-[16px] p-7 border" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-                <h2 className="text-white font-bold text-lg mb-5">1. Responsable du traitement</h2>
+                <h2 className="font-bold text-lg mb-5" style={{ color: 'var(--text)' }}>1. Responsable du traitement</h2>
                 <div className="space-y-2.5">
                   {[
                     { label: 'Responsable', value: 'David Khazaei (DKDP)' },
@@ -50,7 +50,7 @@ export default function PolitiqueDeConfidentialitePage() {
             {/* 2. Données collectées */}
             <SectionReveal delay={0.08}>
               <div className="rounded-[16px] p-7 border" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-                <h2 className="text-white font-bold text-lg mb-5">2. Données collectées</h2>
+                <h2 className="font-bold text-lg mb-5" style={{ color: 'var(--text)' }}>2. Données collectées</h2>
                 <p className="text-text-secondary text-sm leading-relaxed mb-4">
                   Nous collectons uniquement les données nécessaires à la fourniture de nos services et à la gestion de notre relation commerciale :
                 </p>
@@ -61,10 +61,10 @@ export default function PolitiqueDeConfidentialitePage() {
                     { type: 'Données de navigation', detail: 'Adresse IP, type de navigateur, pages visitées, durée de visite, via cookies analytiques (voir section 6).' },
                     { type: 'Correspondance', detail: 'Emails et messages échangés dans le cadre d\'une prestation ou d\'un devis.' },
                   ].map((item, i) => (
-                    <div key={i} className="flex gap-4 p-4 rounded-[10px]" style={{ background: 'rgba(255,255,255,0.03)' }}>
+                    <div key={i} className="flex gap-4 p-4 rounded-[10px]" style={{ background: 'var(--surface-default)' }}>
                       <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#D4D4D8' }} />
                       <div>
-                        <p className="text-white text-sm font-semibold mb-1">{item.type}</p>
+                        <p className="text-sm font-semibold mb-1" style={{ color: 'var(--text)' }}>{item.type}</p>
                         <p className="text-text-muted text-xs leading-relaxed">{item.detail}</p>
                       </div>
                     </div>
@@ -76,7 +76,7 @@ export default function PolitiqueDeConfidentialitePage() {
             {/* 3. Finalités */}
             <SectionReveal delay={0.1}>
               <div className="rounded-[16px] p-7 border" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-                <h2 className="text-white font-bold text-lg mb-5">3. Finalités du traitement</h2>
+                <h2 className="font-bold text-lg mb-5" style={{ color: 'var(--text)' }}>3. Finalités du traitement</h2>
                 <div className="space-y-3">
                   {[
                     { finalite: 'Répondre à vos demandes de contact et devis', base: 'Intérêt légitime / Exécution du contrat' },
@@ -97,7 +97,7 @@ export default function PolitiqueDeConfidentialitePage() {
             {/* 4. Conservation */}
             <SectionReveal delay={0.12}>
               <div className="rounded-[16px] p-7 border" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-                <h2 className="text-white font-bold text-lg mb-5">4. Durée de conservation</h2>
+                <h2 className="font-bold text-lg mb-5" style={{ color: 'var(--text)' }}>4. Durée de conservation</h2>
                 <div className="space-y-2.5">
                   {[
                     { type: 'Données de contact (non-client)', duree: '12 mois après le dernier contact' },
@@ -117,7 +117,7 @@ export default function PolitiqueDeConfidentialitePage() {
             {/* 5. Partage des données */}
             <SectionReveal delay={0.14}>
               <div className="rounded-[16px] p-7 border" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-                <h2 className="text-white font-bold text-lg mb-5">5. Partage des données</h2>
+                <h2 className="font-bold text-lg mb-5" style={{ color: 'var(--text)' }}>5. Partage des données</h2>
                 <p className="text-text-secondary text-sm leading-relaxed mb-4">
                   Vos données ne sont jamais vendues. Elles peuvent être transmises à des sous-traitants techniques strictement nécessaires à nos services :
                 </p>
@@ -127,9 +127,9 @@ export default function PolitiqueDeConfidentialitePage() {
                     { name: 'Cal.com', role: 'Réservation de rendez-vous en ligne', pays: 'USA (clauses contractuelles types)' },
                     { name: 'Google Analytics', role: 'Analyse d\'audience anonymisée (si activé)', pays: 'USA (clauses contractuelles types)' },
                   ].map((item, i) => (
-                    <div key={i} className="flex gap-4 p-4 rounded-[10px]" style={{ background: 'rgba(255,255,255,0.03)' }}>
+                    <div key={i} className="flex gap-4 p-4 rounded-[10px]" style={{ background: 'var(--surface-default)' }}>
                       <div>
-                        <p className="text-white text-sm font-semibold mb-0.5">{item.name}</p>
+                        <p className="text-sm font-semibold mb-0.5" style={{ color: 'var(--text)' }}>{item.name}</p>
                         <p className="text-text-muted text-xs">{item.role}</p>
                         <p className="text-text-muted text-[11px] mt-0.5 opacity-70">{item.pays}</p>
                       </div>
@@ -142,7 +142,7 @@ export default function PolitiqueDeConfidentialitePage() {
             {/* 6. Cookies */}
             <SectionReveal delay={0.16}>
               <div className="rounded-[16px] p-7 border" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-                <h2 className="text-white font-bold text-lg mb-5">6. Cookies</h2>
+                <h2 className="font-bold text-lg mb-5" style={{ color: 'var(--text)' }}>6. Cookies</h2>
                 <p className="text-text-secondary text-sm leading-relaxed mb-4">
                   Ce site utilise des cookies pour son bon fonctionnement et l&apos;analyse d&apos;audience. Vous pouvez gérer vos préférences via la bannière de consentement affichée lors de votre première visite.
                 </p>
@@ -152,10 +152,10 @@ export default function PolitiqueDeConfidentialitePage() {
                     { type: 'Cookies analytiques', desc: 'Mesure d\'audience anonymisée pour améliorer le site.', base: 'Consentement' },
                     { type: 'Cookies marketing', desc: 'Publicité ciblée et suivi des conversions (Google Ads).', base: 'Consentement' },
                   ].map((item, i) => (
-                    <div key={i} className="flex gap-4 p-4 rounded-[10px] border" style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(212,212,216,0.08)' }}>
+                    <div key={i} className="flex gap-4 p-4 rounded-[10px] border" style={{ background: 'var(--surface-subtle)', borderColor: 'rgba(212,212,216,0.08)' }}>
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-1">
-                          <p className="text-white text-sm font-semibold">{item.type}</p>
+                          <p className="text-sm font-semibold" style={{ color: 'var(--text)' }}>{item.type}</p>
                           <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: 'rgba(212,212,216,0.08)', color: '#D4D4D8' }}>{item.base}</span>
                         </div>
                         <p className="text-text-muted text-xs leading-relaxed">{item.desc}</p>
@@ -169,7 +169,7 @@ export default function PolitiqueDeConfidentialitePage() {
             {/* 7. Vos droits */}
             <SectionReveal delay={0.18}>
               <div className="rounded-[16px] p-7 border" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-                <h2 className="text-white font-bold text-lg mb-5">7. Vos droits</h2>
+                <h2 className="font-bold text-lg mb-5" style={{ color: 'var(--text)' }}>7. Vos droits</h2>
                 <p className="text-text-secondary text-sm leading-relaxed mb-5">
                   Conformément au RGPD (UE 2016/679) et à la Loi fédérale suisse sur la protection des données (LPD), vous disposez des droits suivants :
                 </p>
@@ -182,15 +182,15 @@ export default function PolitiqueDeConfidentialitePage() {
                     { droit: 'Droit d\'opposition', desc: 'Vous opposer à certains traitements.' },
                     { droit: 'Droit à la limitation', desc: 'Restreindre l\'utilisation de vos données.' },
                   ].map((item, i) => (
-                    <div key={i} className="p-4 rounded-[10px]" style={{ background: 'rgba(255,255,255,0.03)' }}>
-                      <p className="text-white text-sm font-semibold mb-1">{item.droit}</p>
+                    <div key={i} className="p-4 rounded-[10px]" style={{ background: 'var(--surface-default)' }}>
+                      <p className="text-sm font-semibold mb-1" style={{ color: 'var(--text)' }}>{item.droit}</p>
                       <p className="text-text-muted text-xs">{item.desc}</p>
                     </div>
                   ))}
                 </div>
                 <p className="text-text-secondary text-sm leading-relaxed">
                   Pour exercer vos droits, contactez-nous à{' '}
-                  <a href="mailto:dk@dkdp.ch" className="text-white hover:underline">dk@dkdp.ch</a>.
+                  <a href="mailto:dk@dkdp.ch" className="hover:underline" style={{ color: 'var(--text)' }}>dk@dkdp.ch</a>.
                   Nous répondrons dans un délai de 30 jours. En cas de litige, vous pouvez saisir le Préposé fédéral à la protection des données et à la transparence (PFPDT) en Suisse.
                 </p>
               </div>
@@ -199,7 +199,7 @@ export default function PolitiqueDeConfidentialitePage() {
             {/* 8. Sécurité */}
             <SectionReveal delay={0.20}>
               <div className="rounded-[16px] p-7 border" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-                <h2 className="text-white font-bold text-lg mb-4">8. Sécurité</h2>
+                <h2 className="font-bold text-lg mb-4" style={{ color: 'var(--text)' }}>8. Sécurité</h2>
                 <p className="text-text-secondary text-sm leading-relaxed">
                   Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, perte ou altération : chiffrement HTTPS, accès restreint aux données, hébergement sécurisé, sauvegardes régulières.
                 </p>
@@ -209,7 +209,7 @@ export default function PolitiqueDeConfidentialitePage() {
             {/* 9. Modifications */}
             <SectionReveal delay={0.22}>
               <div className="rounded-[16px] p-7 border" style={{ background: 'rgba(212,212,216,0.04)', borderColor: 'rgba(212,212,216,0.12)' }}>
-                <h2 className="text-white font-bold text-lg mb-4">9. Modifications de cette politique</h2>
+                <h2 className="font-bold text-lg mb-4" style={{ color: 'var(--text)' }}>9. Modifications de cette politique</h2>
                 <p className="text-text-secondary text-sm leading-relaxed">
                   Nous nous réservons le droit de modifier cette politique à tout moment. La date de dernière mise à jour est indiquée ci-dessous. En cas de modification substantielle, nous vous en informerons par email si vous êtes client.
                 </p>

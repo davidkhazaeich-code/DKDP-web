@@ -110,7 +110,7 @@ export default function FormationMontageVideoPage() {
         <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
-              <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-white transition-colors">
+              <Link href="/formation-entreprise" className="text-text-muted text-sm hover:text-text transition-colors">
                 Formation Entreprise
               </Link>
               <ChevronRight size={14} className="text-text-muted" />
@@ -119,7 +119,7 @@ export default function FormationMontageVideoPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation montage vidéo à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Des Reels et vidéos pro, produits <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>en interne</GradText>. En <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>une journée</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
@@ -135,7 +135,7 @@ export default function FormationMontageVideoPage() {
                 />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
                   <LiquidMetalButton href="/contact?service=formation" size="lg">Demander un devis →</LiquidMetalButton>
-                  <Link href="#programme" className="text-sm text-text-muted hover:text-white transition-colors">
+                  <Link href="#programme" className="text-sm text-text-muted hover:text-text transition-colors">
                     Voir le programme ↓
                   </Link>
                 </div>
@@ -173,7 +173,7 @@ export default function FormationMontageVideoPage() {
               <SectionReveal key={s.l}>
                 <div className="text-center">
                   <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.v}</p>
-                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -300,7 +300,7 @@ export default function FormationMontageVideoPage() {
                   className="flex items-center justify-center text-center p-4 rounded-[12px] border h-full"
                   style={{ background: bg, borderColor: border }}
                 >
-                  <p className="text-white font-medium text-sm">{role}</p>
+                  <p className="text-text font-medium text-sm">{role}</p>
                 </div>
               </SectionReveal>
             ))}
@@ -330,7 +330,7 @@ export default function FormationMontageVideoPage() {
                       style={{ background: bg, border: `1px solid ${border}` }}>
                       <s.Icon size={20} style={{ color }} />
                     </div>
-                    <h3 className="text-white font-semibold text-sm">{s.title}</h3>
+                    <h3 className="text-text font-semibold text-sm">{s.title}</h3>
                     <p className="text-text-muted text-xs leading-relaxed">{s.desc}</p>
                   </div>
                 </SectionReveal>
@@ -386,7 +386,7 @@ export default function FormationMontageVideoPage() {
                   </div>
                   <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
                   <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-white font-semibold text-sm">{t.name}</p>
+                    <p className="text-text font-semibold text-sm">{t.name}</p>
                     <p className="text-text-muted text-xs">{t.company}</p>
                   </div>
                 </div>
@@ -442,7 +442,7 @@ export default function FormationMontageVideoPage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Aller plus loin</p>
-                  <p className="text-white font-bold text-lg leading-tight">Diffuser vos vidéos avec impact</p>
+                  <p className="text-text font-bold text-lg leading-tight">Diffuser vos vidéos avec impact</p>
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
                     Vous produisez vos vidéos. Pour les diffuser efficacement sur les bonnes plateformes et maximiser l&apos;engagement, découvrez notre formation réseaux sociaux.
                   </p>

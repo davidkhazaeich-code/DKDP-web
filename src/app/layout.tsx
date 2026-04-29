@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider'
 import { CalProvider } from '@/components/providers/CalProvider'
 import { MotionProvider } from '@/components/providers/MotionProvider'
+import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { Header } from '@/components/layout/Header'
 import { FooterWrapper } from '@/components/layout/FooterWrapper'
 import { LazyChatWidget } from '@/components/ui/LazyChatWidget'
@@ -55,16 +56,20 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
-  ],
+  themeColor: '#0A0A0A',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr-CH" className={inter.variable}>
+    <html lang="fr-CH" className={inter.variable} suppressHydrationWarning>
       <head>
+        {/* Anti-FOUC theme init, must run synchronously before any paint */}
+        <script
+          id="dkdp-theme-init"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('dkdp-theme');var d=document.documentElement;if(t==='light'){d.setAttribute('data-theme','light');d.style.colorScheme='light';}else{d.setAttribute('data-theme','dark');d.style.colorScheme='dark';}}catch(e){document.documentElement.setAttribute('data-theme','dark');document.documentElement.style.colorScheme='dark';}})();`,
+          }}
+        />
         {/* Google Tag Manager */}
         <Script id="gtm-head" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NDMXZL8');`}
@@ -84,7 +89,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
-      <body className="bg-bg text-white font-sans antialiased">
+      <body
+        className="font-sans antialiased"
+        style={{ background: 'var(--bg)', color: 'var(--text)' }}
+      >
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -95,13 +103,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         </noscript>
         <MotionProvider>
-        <SmoothScrollProvider>
-          <CalProvider />
-          <Header />
-          {children}
-          <FooterWrapper />
-          <LazyChatWidget />
-        </SmoothScrollProvider>
+          <ThemeProvider>
+            <SmoothScrollProvider>
+              <CalProvider />
+              <Header />
+              {children}
+              <FooterWrapper />
+              <LazyChatWidget />
+            </SmoothScrollProvider>
+          </ThemeProvider>
         </MotionProvider>
         <Analytics />
         {/* Google tag (gtag.js) */}

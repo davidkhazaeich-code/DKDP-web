@@ -62,11 +62,11 @@ export function TeamSection() {
             items={TEAM}
             autoplay={true}
             colors={{
-              name: '#ffffff',
+              name: 'var(--text)',
               designation: '#A78BFA',
-              quote: '#9CA3AF',
-              arrowBackground: '#1E1E1E',
-              arrowForeground: '#ffffff',
+              quote: 'var(--text-secondary)',
+              arrowBackground: 'var(--bg-card-hover)',
+              arrowForeground: 'var(--text)',
               arrowHoverBackground: '#7C3AED',
             }}
             fontSizes={{

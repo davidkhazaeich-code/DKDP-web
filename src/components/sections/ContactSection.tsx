@@ -134,7 +134,7 @@ export function ContactSection() {
             </div>
             <div
               className="border border-border rounded-[20px] overflow-hidden backdrop-blur-sm"
-              style={{ background: 'rgba(255,255,255,0.02)' }}
+              style={{ background: 'var(--surface-subtle)' }}
             >
               <CalBooking />
             </div>

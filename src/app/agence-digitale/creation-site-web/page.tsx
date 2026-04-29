@@ -181,7 +181,7 @@ export default function CreationSiteWebPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Création de site web à Genève</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-white mb-6">
+                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Un site qui <GradText as="span">ramène des clients</GradText>, pas des compliments.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
@@ -233,7 +233,7 @@ export default function CreationSiteWebPage() {
               <SectionReveal key={s.l}>
                 <div className="text-center">
                   <p className="text-3xl md:text-4xl font-bold mb-1" style={{ color }}>{s.v}</p>
-                  <p className="text-white text-sm font-semibold">{s.l}</p>
+                  <p className="text-text text-sm font-semibold">{s.l}</p>
                   <p className="text-text-muted text-xs mt-0.5">{s.sub}</p>
                 </div>
               </SectionReveal>
@@ -325,7 +325,7 @@ export default function CreationSiteWebPage() {
                         <item.Icon size={16} style={{ color }} />
                       </div>
                       <div>
-                        <p className="text-white text-sm font-semibold leading-snug">{item.title}</p>
+                        <p className="text-text text-sm font-semibold leading-snug">{item.title}</p>
                         <p className="text-text-muted text-[11px] mt-0.5">{item.sub}</p>
                       </div>
                     </div>
@@ -373,7 +373,7 @@ export default function CreationSiteWebPage() {
                     <b.Icon size={22} style={{ color }} />
                   </div>
                   <div className="text-3xl font-bold" style={{ color }}>{b.value}</div>
-                  <h3 className="text-white font-bold text-lg">{b.title}</h3>
+                  <h3 className="text-text font-bold text-lg">{b.title}</h3>
                   <p className="text-text-secondary leading-relaxed text-sm">{b.desc}</p>
                 </div>
               </SectionReveal>
@@ -463,7 +463,7 @@ export default function CreationSiteWebPage() {
                         Le plus demandé
                       </span>
                     )}
-                    <p className="text-white font-bold text-xl mb-1">{offer.label}</p>
+                    <p className="text-text font-bold text-xl mb-1">{offer.label}</p>
                     <p className="text-2xl font-bold mb-1" style={{ color }}>{offer.price}</p>
                     <p className="text-text-muted text-xs mb-6">{offer.duration}</p>
                     <div className="space-y-2.5 flex-1">
@@ -584,12 +584,12 @@ export default function CreationSiteWebPage() {
                     </span>
                   </div>
                   <div className="p-6 flex flex-col flex-1" style={{ background: bg }}>
-                    <p className="text-white font-bold mb-4">{r.client}</p>
+                    <p className="text-text font-bold mb-4">{r.client}</p>
                     <div className="space-y-2 flex-1">
                       {r.results.map((res) => (
                         <div key={res} className="flex items-center gap-2">
                           <Star size={11} style={{ color }} className="flex-shrink-0" />
-                          <span className="text-white text-sm font-semibold">{res}</span>
+                          <span className="text-text text-sm font-semibold">{res}</span>
                         </div>
                       ))}
                     </div>
@@ -620,7 +620,7 @@ export default function CreationSiteWebPage() {
                     >
                       <g.Icon size={22} style={{ color }} />
                     </div>
-                    <p className="text-white font-bold text-sm mb-2">{g.title}</p>
+                    <p className="text-text font-bold text-sm mb-2">{g.title}</p>
                     <p className="text-text-muted text-xs leading-relaxed">{g.desc}</p>
                   </div>
                 ))}
@@ -662,7 +662,7 @@ export default function CreationSiteWebPage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Étape suivante</p>
-                  <p className="text-white font-bold text-lg leading-tight">Référencement SEO</p>
+                  <p className="text-text font-bold text-lg leading-tight">Référencement SEO</p>
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
                     Votre site est livré SEO-ready. Pour dominer Google sur vos mots-clés cibles, une stratégie de contenu et de netlinking est nécessaire.
                   </p>

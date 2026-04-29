@@ -314,7 +314,7 @@ function ContactFormInner() {
             <button
               type="button"
               onClick={() => setStep(1)}
-              className="flex items-center gap-1.5 px-4 py-3.5 text-[13px] font-semibold text-text-muted hover:text-text transition-colors duration-150 rounded-full border border-border hover:border-white/20"
+              className="flex items-center gap-1.5 px-4 py-3.5 text-[13px] font-semibold text-text-muted hover:text-text transition-colors duration-150 rounded-full border border-border hover:border-border-strong"
             >
               <ArrowLeft size={14} /> Retour
             </button>

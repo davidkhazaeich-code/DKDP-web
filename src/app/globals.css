@@ -153,6 +153,7 @@
   --color-bg-card:         var(--bg-card);
   --color-bg-card-hover:   var(--bg-card-hover);
   --color-border:          var(--border);
+  --color-border-strong:   var(--border-strong);
   --color-border-violet:   var(--border-violet);
   --color-border-orange:   var(--border-orange);
   --color-orange:          var(--orange);

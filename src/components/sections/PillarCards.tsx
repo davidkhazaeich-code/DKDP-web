@@ -110,7 +110,8 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
           className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           sizes="(max-width: 768px) 100vw, 33vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg opacity-90" />
+        {/* Image bottom fade: dark/theme-independent so cream theme doesn't bleach the photo. */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70 opacity-90" />
       </Link>
 
       <div className="p-5 sm:p-8 flex flex-col flex-1">

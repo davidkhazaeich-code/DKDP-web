@@ -155,7 +155,7 @@ export default function IntelligenceArtificiellePage() {
                     priority
                     sizes="50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
                 </div>
               </div>
             </div>
@@ -262,7 +262,7 @@ export default function IntelligenceArtificiellePage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg/80" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
                     {s.badge && (
                       <span
                         className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
@@ -349,7 +349,7 @@ export default function IntelligenceArtificiellePage() {
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
             </SectionReveal>
             <div>

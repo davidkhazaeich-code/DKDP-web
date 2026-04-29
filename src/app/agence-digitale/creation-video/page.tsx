@@ -176,7 +176,7 @@ export default function CreationVideoPage() {
                     priority
                     sizes="50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
                 </div>
               </div>
             </div>
@@ -578,7 +578,7 @@ export default function CreationVideoPage() {
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg/80" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
                     <span
                       className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full"
                       style={{ background: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(6px)', color, border: `1px solid ${border}` }}

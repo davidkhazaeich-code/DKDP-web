@@ -321,7 +321,7 @@ export default function RefonteSiteWebPage() {
                     priority
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
                 </div>
               
               </div>

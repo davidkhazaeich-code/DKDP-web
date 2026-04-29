@@ -267,7 +267,7 @@ export default function AuditSEOPage() {
                   <GradText as="span">Découvrez pourquoi.</GradText>
                 </h1>
 
-                <p className="text-zinc-400 text-lg leading-relaxed mb-8 max-w-lg">
+                <p className="text-text-secondary text-lg leading-relaxed mb-8 max-w-lg">
                   Entrez l&apos;URL de votre site. On analyse votre positionnement SEO, vos mots-clés, vos backlinks, les erreurs techniques et votre contenu. Rapport détaillé envoyé par email sous 48h. Gratuit, sans engagement.
                 </p>
 
@@ -292,12 +292,10 @@ export default function AuditSEOPage() {
               {/* Right: form card */}
               <SectionReveal delay={0.15}>
                 <div
-                  className="rounded-[24px] p-8 md:p-10"
+                  className="rounded-[24px] p-8 md:p-10 bg-bg-card border border-border"
                   style={{
-                    background: 'rgba(18,18,21,0.75)',
-                    border: '1px solid rgba(39,39,42,1)',
                     backdropFilter: 'blur(20px)',
-                    boxShadow: '0 0 60px rgba(124,58,237,0.10), 0 24px 64px rgba(0,0,0,0.40)',
+                    boxShadow: '0 0 60px rgba(124,58,237,0.10), 0 24px 64px rgba(0,0,0,0.18)',
                   }}
                 >
                   <h2
@@ -305,7 +303,7 @@ export default function AuditSEOPage() {
                   >
                     Analysez votre SEO gratuitement
                   </h2>
-                  <p className="text-zinc-400 text-sm mb-8">
+                  <p className="text-text-secondary text-sm mb-8">
                     Résultats envoyés par email sous 48h ouvrées.
                   </p>
 
@@ -340,8 +338,8 @@ export default function AuditSEOPage() {
                 <div
                   className="rounded-[16px] border p-6 h-full"
                   style={{
-                    background: 'rgba(24,24,27,0.40)',
-                    borderColor: 'rgba(39,39,42,1)',
+                    background: 'var(--bg-card)',
+                    borderColor: 'var(--border)',
                   }}
                 >
                   {/* Icon */}
@@ -359,7 +357,7 @@ export default function AuditSEOPage() {
                   <h3 className="text-text font-bold text-base mb-2">
                     {point.title}
                   </h3>
-                  <p className="text-zinc-400 text-sm leading-relaxed">
+                  <p className="text-text-secondary text-sm leading-relaxed">
                     {point.desc}
                   </p>
                 </div>
@@ -408,7 +406,7 @@ export default function AuditSEOPage() {
                     {step.title}
                   </h3>
                   <p
-                    className="text-zinc-400 text-sm leading-relaxed"
+                    className="text-text-secondary text-sm leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: step.desc }}
                   />
 
@@ -416,7 +414,7 @@ export default function AuditSEOPage() {
                   {i < STEPS.length - 1 && (
                     <div
                       className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 items-center justify-center rounded-full"
-                      style={{ background: '#18181b', border: `1px solid ${chromeBd}` }}
+                      style={{ background: 'var(--bg-card)', border: `1px solid ${chromeBd}` }}
                       aria-hidden="true"
                     >
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -449,7 +447,7 @@ export default function AuditSEOPage() {
                   >
                     {stat.value}
                   </p>
-                  <p className="text-zinc-400 text-sm leading-snug">
+                  <p className="text-text-secondary text-sm leading-snug">
                     {stat.label}
                   </p>
                 </div>
@@ -477,7 +475,7 @@ export default function AuditSEOPage() {
               <blockquote className="text-text text-base md:text-lg leading-relaxed font-medium mb-6">
                 L&apos;audit SEO DKDP a révélé qu&apos;on était absent sur nos 8 mots-clés principaux. 4 mois plus tard, on est en première page sur 6.
               </blockquote>
-              <figcaption className="text-zinc-500 text-sm">
+              <figcaption className="text-text-muted text-sm">
                 Directeur commercial, PME genevoise
               </figcaption>
             </figure>
@@ -497,7 +495,7 @@ export default function AuditSEOPage() {
               >
                 Tout ce que vous voulez savoir
               </h2>
-              <p className="text-zinc-400 text-sm max-w-xl mx-auto">
+              <p className="text-text-secondary text-sm max-w-xl mx-auto">
                 Tout savoir sur l&apos;audit SEO gratuit pour les PME de Suisse romande.
               </p>
             </div>
@@ -510,13 +508,13 @@ export default function AuditSEOPage() {
                   className="group rounded-[14px] border overflow-hidden"
                   style={{ background: chromeBg, borderColor: chromeBd }}
                 >
-                  <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer select-none [list-style:none] [&::marker]:hidden [&::-webkit-details-marker]:hidden hover:bg-white/[0.03] transition-colors duration-150">
+                  <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer select-none [list-style:none] [&::marker]:hidden [&::-webkit-details-marker]:hidden hover:bg-bg-card-hover transition-colors duration-150">
                     <h3 className="text-text font-semibold text-[15px] leading-snug text-left">
                       {item.q}
                     </h3>
                     <svg
                       width="16" height="16" viewBox="0 0 16 16" fill="none"
-                      className="flex-shrink-0 text-zinc-500 transition-transform duration-200 group-open:rotate-180"
+                      className="flex-shrink-0 text-text-muted transition-transform duration-200 group-open:rotate-180"
                       aria-hidden="true"
                     >
                       <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -526,7 +524,7 @@ export default function AuditSEOPage() {
                     className="px-6 pb-6 border-t"
                     style={{ borderColor: chromeBd }}
                   >
-                    <p className="text-zinc-400 text-sm leading-relaxed pt-4">
+                    <p className="text-text-secondary text-sm leading-relaxed pt-4">
                       {item.a}
                     </p>
                   </div>

@@ -177,7 +177,7 @@ function TypingIndicator() {
       className="flex items-center gap-1.5 px-4 py-2"
     >
       <AnimatedOrb size={20} />
-      <span className="text-xs text-text-muted">en train d&apos;ecrire</span>
+      <span className="text-xs sm:text-[13px] text-text-muted">en train d&apos;ecrire</span>
     </m.div>
   )
 }
@@ -200,7 +200,7 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
       className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}
     >
       <div
-        className={`max-w-[85%] text-[13.5px] leading-relaxed ${
+        className={`max-w-[85%] text-[13.5px] sm:text-[15px] leading-relaxed ${
           isUser
             ? 'bg-[rgba(124,58,237,0.12)] border border-[rgba(124,58,237,0.25)] text-text rounded-2xl rounded-br-sm px-4 py-2.5'
             : 'text-text-secondary'
@@ -361,7 +361,7 @@ function SmartCTABar({ lastAssistantContent }: { lastAssistantContent: string })
         const Icon = def.icon
         // Premier CTA : mis en valeur avec gradient violet (primary)
         const isPrimary = idx === 0 && key === 'book'
-        const baseClasses = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-medium cursor-pointer transition-all duration-200'
+        const baseClasses = 'inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-[11.5px] sm:text-[13px] font-medium cursor-pointer transition-all duration-200'
         const primaryClasses = 'text-white border border-[rgba(124,58,237,0.4)] font-semibold hover:border-[rgba(124,58,237,0.6)] hover:brightness-110'
         const primaryStyle = { background: 'linear-gradient(135deg, rgba(124,58,237,0.35), rgba(167,139,250,0.20))' }
         const secondaryClasses = 'bg-[var(--surface-default)] border border-[var(--surface-border)] text-text-secondary hover:bg-[rgba(124,58,237,0.10)] hover:border-[rgba(124,58,237,0.30)] hover:text-text'
@@ -417,28 +417,28 @@ function LimitReachedCTA() {
         border: '1px solid rgba(124,58,237,0.2)',
       }}
     >
-      <p className="text-sm text-text-secondary mb-4">
+      <p className="text-sm sm:text-[15px] text-text-secondary mb-4">
         Pour approfondir votre projet, prenons quelques minutes ensemble.
       </p>
       <button
         data-cal-link="david-khazaei/planifier-un-appel"
         data-cal-namespace="planifier-un-appel"
-        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-white text-sm font-semibold hover:opacity-90 transition-opacity cursor-pointer"
+        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-white text-sm sm:text-[15px] font-semibold hover:opacity-90 transition-opacity cursor-pointer"
         style={{ background: 'linear-gradient(135deg, #7C3AED, #FF6B00)' }}
       >
         <CalendarCheck size={15} />
         Planifier un appel gratuit
       </button>
       <div className="flex flex-wrap justify-center gap-2 mt-4">
-        <Link href="/contact" className="text-xs text-[#A78BFA] hover:text-[#c4b5fd] underline underline-offset-2 transition-colors">
+        <Link href="/contact" className="text-xs sm:text-[13px] text-[#A78BFA] hover:text-[#c4b5fd] underline underline-offset-2 transition-colors">
           Nous contacter
         </Link>
-        <span className="text-xs text-text-muted">{'\u00B7'}</span>
-        <Link href="/tarifs" className="text-xs text-[#A78BFA] hover:text-[#c4b5fd] underline underline-offset-2 transition-colors">
+        <span className="text-xs sm:text-[13px] text-text-muted">{'\u00B7'}</span>
+        <Link href="/tarifs" className="text-xs sm:text-[13px] text-[#A78BFA] hover:text-[#c4b5fd] underline underline-offset-2 transition-colors">
           Voir les tarifs
         </Link>
-        <span className="text-xs text-text-muted">{'\u00B7'}</span>
-        <Link href="/agence-digitale" className="text-xs text-[#A78BFA] hover:text-[#c4b5fd] underline underline-offset-2 transition-colors">
+        <span className="text-xs sm:text-[13px] text-text-muted">{'\u00B7'}</span>
+        <Link href="/agence-digitale" className="text-xs sm:text-[13px] text-[#A78BFA] hover:text-[#c4b5fd] underline underline-offset-2 transition-colors">
           Nos services
         </Link>
       </div>
@@ -878,7 +878,7 @@ export function ChatWidget() {
                 <div>
                   <Image src="/images/logo/dkdp_blanc-croped.png" alt="DKDP" width={36} height={12} className="h-2.5 w-auto -ml-[5px] dark-only" />
                   <Image src="/images/logo/dkdp_noir-croped.png" alt="DKDP" width={36} height={12} className="h-2.5 w-auto -ml-[5px] light-only" />
-                  <p className="text-[11px] text-text-muted">Assistant IA</p>
+                  <p className="text-[11px] sm:text-[12.5px] text-text-muted">Assistant IA</p>
                 </div>
               </div>
               <div className="flex items-center gap-0.5">
@@ -920,7 +920,7 @@ export function ChatWidget() {
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 }}
-                    className="text-[13.5px] text-text-secondary leading-relaxed"
+                    className="text-[13.5px] sm:text-[15px] text-text-secondary leading-relaxed"
                   >
                     {WELCOME_MESSAGE}
                   </m.p>
@@ -939,7 +939,7 @@ export function ChatWidget() {
                     <button
                       key={label}
                       onClick={() => handleSuggestionClick(label)}
-                      className="group flex items-center gap-2.5 px-4 py-3 sm:py-2.5 rounded-xl text-left text-[13px] cursor-pointer transition-all duration-200 active:scale-[0.98]
+                      className="group flex items-center gap-2.5 px-4 py-3 sm:py-3 rounded-xl text-left text-[13px] sm:text-[14.5px] cursor-pointer transition-all duration-200 active:scale-[0.98]
                         bg-[var(--surface-default)] border border-[var(--surface-border)]
                         hover:bg-[rgba(124,58,237,0.10)] hover:border-[rgba(124,58,237,0.30)]"
                     >
@@ -1034,7 +1034,7 @@ export function ChatWidget() {
                       maxLength={MAX_CHAR_LENGTH}
                       disabled={isLoading}
                       placeholder="Ecrivez votre message..."
-                      className="w-full bg-transparent text-sm text-text placeholder-text-muted outline-none resize-none py-1.5"
+                      className="w-full bg-transparent text-sm sm:text-[15px] text-text placeholder-text-muted outline-none resize-none py-1.5"
                       style={{ minHeight: '28px', maxHeight: '100px' }}
                     />
                   </div>

@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   title: 'Glossaire Digital et IA · Définitions pour PME · DKDP',
   description: 'Lexique complet du web, du SEO et de l\'intelligence artificielle. 65 termes expliqués simplement pour les PME en Suisse romande.',
   alternates: { canonical: 'https://dkdp.ch/glossaire' },
+  openGraph: {
+    title: 'Glossaire Digital et IA · Définitions pour PME · DKDP',
+    description: "Lexique complet du web, du SEO et de l'intelligence artificielle. 65+ termes expliqués pour les PME de Suisse romande.",
+    url: 'https://dkdp.ch/glossaire',
+    images: [{ url: '/images/og/glossaire.png', width: 1376, height: 768, alt: 'Glossaire DKDP : lexique IA et digital, 65+ termes expliqués pour PME romandes' }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/images/og/glossaire.png'] },
 }
 
 // ---------------------------------------------------------------------------

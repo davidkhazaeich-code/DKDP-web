@@ -11,6 +11,16 @@ export const metadata: Metadata = {
   title: 'Contact · DKDP · Service Digital Genève',
   description: 'Contactez DKDP pour votre projet digital. Réponse sous 24h. Réservez un appel découverte gratuit de 15 ou 30 minutes.',
   alternates: { canonical: 'https://dkdp.ch/contact' },
+  openGraph: {
+    title: 'Contact · DKDP · Service Digital Genève',
+    description: 'Contactez DKDP pour votre projet digital. Réponse sous 24h. Appel découverte gratuit.',
+    url: 'https://dkdp.ch/contact',
+    images: [{ url: '/images/og/contact.png', width: 1376, height: 768, alt: 'Contact DKDP : parlons de votre projet digital, réponse sous 24h' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/og/contact.png'],
+  },
 }
 
 export default function ContactPage() {

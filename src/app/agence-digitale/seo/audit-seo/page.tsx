@@ -22,7 +22,9 @@ export const metadata: Metadata = {
       'Analyse complète de votre SEO : mots-clés, positionnement, backlinks, SEO technique, contenu. Résultats sous 48h.',
     url: 'https://dkdp.ch/agence-digitale/seo/audit-seo',
     type: 'website',
+    images: [{ url: '/images/og/audit-seo.png', width: 1376, height: 768, alt: 'Audit SEO gratuit DKDP Genève : analyse mots-clés, technique, contenu et backlinks sous 48h' }],
   },
+  twitter: { card: 'summary_large_image', images: ['/images/og/audit-seo.png'] },
 }
 
 // Design tokens

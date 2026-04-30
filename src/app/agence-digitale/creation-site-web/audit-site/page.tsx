@@ -23,7 +23,9 @@ export const metadata: Metadata = {
       'Analyse complète de votre site web : performance, SEO, UX, mobile, sécurité. Résultats sous 48h.',
     url: 'https://dkdp.ch/agence-digitale/creation-site-web/audit-site',
     type: 'website',
+    images: [{ url: '/images/og/audit-site.png', width: 1376, height: 768, alt: 'Audit site web gratuit DKDP Genève : performance, SEO, UX, mobile et sécurité sous 48h' }],
   },
+  twitter: { card: 'summary_large_image', images: ['/images/og/audit-site.png'] },
 }
 
 // ─── Design tokens ────────────────────────────────────────────────────────────

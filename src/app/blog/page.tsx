@@ -24,6 +24,13 @@ export const metadata: Metadata = {
   description:
     "Conseils pratiques sur le SEO, l'intelligence artificielle, la formation en entreprise et la stratégie digitale pour PME en Suisse romande.",
   alternates: { canonical: 'https://dkdp.ch/blog' },
+  openGraph: {
+    title: 'Blog DKDP : ressources IA, SEO et formation pour PME suisses',
+    description: "Conseils pratiques sur le SEO, l'IA, la formation entreprise et la stratégie digitale pour PME en Suisse romande.",
+    url: 'https://dkdp.ch/blog',
+    images: [{ url: '/images/og/blog.png', width: 1376, height: 768, alt: 'Blog DKDP : ressources IA, SEO et formation pour PME Suisse romande' }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/images/og/blog.png'] },
 }
 
 /* ── Design tokens (aliases) ── */

@@ -30,6 +30,13 @@ export const metadata: Metadata = {
   description:
     "Cours d'informatique à domicile pour particuliers à Genève. 463+ clients satisfaits, 4.6/5 étoiles. Excel, IA, smartphone, cybersécurité. CHF 150/h, sans engagement.",
   alternates: { canonical: 'https://dkdp.ch/formation-particuliers' },
+  openGraph: {
+    title: 'Formation Informatique Particuliers Genève · DKDP',
+    description: "Cours d'informatique à domicile pour particuliers à Genève : Excel, IA, smartphone, cybersécurité. CHF 150/h, sans engagement.",
+    url: 'https://dkdp.ch/formation-particuliers',
+    images: [{ url: '/images/og/formation-particuliers.png', width: 1376, height: 768, alt: 'Formation informatique particuliers Genève : cours à domicile Excel, IA, smartphone, cybersécurité par DKDP' }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/images/og/formation-particuliers.png'] },
 }
 
 const accent          = orange.color

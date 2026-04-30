@@ -25,6 +25,16 @@ export const metadata: Metadata = {
   description:
     'Tarifs transparents pour la création de site web, la formation en entreprise et l\'automatisation IA à Genève. Prix fixes, devis gratuit sous 48h, sans engagement.',
   alternates: { canonical: 'https://dkdp.ch/tarifs' },
+  openGraph: {
+    title: 'Tarifs · Site web, Formation IA, Automatisation · DKDP',
+    description: 'Tarifs transparents pour les PME suisses : site web, formation IA, automatisation. Devis gratuit sous 48h.',
+    url: 'https://dkdp.ch/tarifs',
+    images: [{ url: '/images/og/tarifs.png', width: 1376, height: 768, alt: 'Tarifs DKDP Genève : prix transparents site web, formation IA et automatisation pour PME romandes' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/og/tarifs.png'],
+  },
 }
 
 /* ── Design tokens (aliases) ── */

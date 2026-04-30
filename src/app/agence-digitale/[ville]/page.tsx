@@ -48,7 +48,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       url: `https://dkdp.ch/agence-digitale/${city.slug}`,
+      images: [{ url: '/images/og/agence-digitale-ville.png', width: 1376, height: 768, alt: `Agence digitale à ${city.name} : sites web, SEO et IA pour PME de ${city.canton} par DKDP` }],
     },
+    twitter: { card: 'summary_large_image', images: ['/images/og/agence-digitale-ville.png'] },
   }
 }
 

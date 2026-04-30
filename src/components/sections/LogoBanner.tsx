@@ -3,6 +3,7 @@ import Image from 'next/image'
 const LOGOS = [
   { name: 'SwissLife',               file: 'swisslife.webp',                width: 120, height: 40, small: true },
   { name: 'Fondation Hans Wilsdorf', file: 'fondation-hans-wilsdorf.webp',  width: 130, height: 40 },
+  { name: 'Eli Lilly',               file: 'lilly.svg',                     width: 145, height: 40, small: true },
   { name: 'Howden',                  file: 'howden.avif',                   width: 100, height: 40 },
   { name: 'OCAS',                    file: 'ocas.avif',                     width: 80,  height: 40 },
   { name: 'Swiss Mutual Trust',      file: 'swiss-mutual-trust.avif',       width: 130, height: 40 },

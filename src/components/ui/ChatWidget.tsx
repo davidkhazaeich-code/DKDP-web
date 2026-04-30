@@ -833,6 +833,24 @@ export function ChatWidget() {
       </AnimatePresence>
 
       {/* ════════════════════════════════════════════════════════════════════════
+          BACKDROP (click outside to close)
+         ════════════════════════════════════════════════════════════════════════ */}
+      <AnimatePresence>
+        {isOpen && (
+          <m.div
+            key="chat-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 z-30 bg-black/40 backdrop-blur-sm"
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
+
+      {/* ════════════════════════════════════════════════════════════════════════
           CHAT WINDOW (open state)
          ════════════════════════════════════════════════════════════════════════ */}
       <AnimatePresence>

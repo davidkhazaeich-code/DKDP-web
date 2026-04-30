@@ -414,15 +414,25 @@ body.chat-open {
     align-items: flex-end;
     padding: 0 16px;
     padding-bottom: max(16px, env(safe-area-inset-bottom, 16px));
-    /* Hauteur disponible pour que le m.div enfant puisse prendre 576px max */
-    height: min(calc(576px + 16px), 78dvh, calc(100dvh - 80px));
+    /* Hauteur disponible pour que le m.div enfant puisse prendre 720px max */
+    height: min(calc(720px + 16px), 86dvh, calc(100dvh - 64px));
     bottom: 0;
     pointer-events: none;
   }
   .chat-window > * {
     pointer-events: auto;
-    width: min(580px, 100%);
-    height: min(576px, 100%);
+    width: min(720px, 100%);
+    height: min(720px, 100%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .chat-window {
+    height: min(calc(800px + 16px), 88dvh, calc(100dvh - 64px));
+  }
+  .chat-window > * {
+    width: min(800px, 100%);
+    height: min(800px, 100%);
   }
 }
 

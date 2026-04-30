@@ -21,6 +21,7 @@ const LOGO_GRID = [
   { name: 'WellWays', file: 'wellways.avif', width: 100 },
   { name: 'Strike', file: 'strike.avif', width: 80 },
   { name: 'Intown', file: 'intown.avif', width: 90 },
+  { name: 'Eli Lilly', file: 'lilly.svg', width: 110 },
 ]
 
 function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {

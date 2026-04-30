@@ -630,6 +630,7 @@ export default function AgenceDigitalePage() {
                 { name: 'OCAS', file: 'ocas.avif', h: 28 },
                 { name: 'WellWays', file: 'wellways.avif', h: 28 },
                 { name: 'Intown', file: 'intown.avif', h: 24 },
+                { name: 'Eli Lilly', file: 'lilly.svg', h: 28 },
                 { name: 'Strike', file: 'strike.avif', h: 24 },
               ].map((logo) => (
                 <Image

@@ -34,10 +34,10 @@ export function LLMStackDiagram() {
     {
       label: 'Vos données',
       sublabel: 'CRM, docs, base de données',
-      icon: <Database size={15} style={{ color: '#6b7280' }} />,
-      bg: 'rgba(107,114,128,0.10)',
-      border: 'rgba(107,114,128,0.22)',
-      textColor: '#9ca3af',
+      icon: <Database size={15} style={{ color: 'var(--text-secondary)' }} />,
+      bg: 'var(--surface-default)',
+      border: 'var(--surface-border)',
+      textColor: 'var(--text-secondary)',
     },
   ]
 

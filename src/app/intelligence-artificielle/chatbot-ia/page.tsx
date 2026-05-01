@@ -15,6 +15,12 @@ import {
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
+  Activity,
+  Sparkles,
+  Bell,
+  Database,
+  Mail,
+  Phone,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
@@ -135,6 +141,16 @@ const FAQ = [
       "Oui. Calendriers de réservation (Cal.com, Calendly), CRM (HubSpot, Pipedrive, Salesforce, Zoho), systèmes de ticketing (Zendesk, Intercom), ERP (Bexio, Abacus), bases de données internes, Google Workspace, Microsoft 365. On s'adapte à votre stack existant sans tout reconstruire, via API ou webhooks n8n/Make.",
   },
   {
+    question: 'Comment je vois ce que mon chatbot fait au quotidien ?',
+    answer:
+      "Chaque chatbot DKDP est livré avec un tableau de bord privé accessible par token : nombre de conversations, taux de résolution automatique, durée moyenne, pic horaire et sujets dominants, mis à jour en continu. Chaque session est synthétisée automatiquement par Claude Haiku (intention, ton, urgence, prochaine étape). Les coordonnées laissées par les visiteurs (email, téléphone, demande) sont extraites automatiquement et envoyées dans votre CRM ou par email. Vous pouvez recevoir des alertes en temps réel sur les leads chauds ou les sujets sensibles. Aucune installation côté client, accès depuis un simple lien sécurisé.",
+  },
+  {
+    question: 'Combien de temps les conversations sont-elles conservées ?',
+    answer:
+      "Par défaut, les conversations sont conservées 90 jours dans une base européenne ou suisse, puis purgées automatiquement. Cette durée est paramétrable (30, 60, 90 jours, ou jusqu'à 1 an pour les secteurs régulés). Les résumés IA et les leads captés peuvent être conservés plus longtemps de manière anonymisée pour piloter la performance dans la durée. Tout est conforme nLPD 2023 et RGPD, et un DPA est signé avant le déploiement.",
+  },
+  {
     question: 'Avec quelles plateformes et CMS le chatbot est-il compatible ?',
     answer:
       "Le chatbot s'intègre via un simple script à coller dans votre site, sans refonte. Compatible avec Webflow, WordPress, Shopify, Wix, Squarespace, HubSpot CMS, Framer, ainsi que les sites sur mesure (Next.js, Astro, Laravel, PHP). L'installation prend 15 minutes et DKDP s'occupe de l'intégration de bout en bout.",
@@ -241,12 +257,13 @@ const OFFERS = [
   {
     name: 'Essentiel',
     price: '2\'900',
-    desc: 'Pour les entreprises qui veulent répondre aux questions frequentes sans mobiliser leur équipe.',
+    desc: 'Pour les entreprises qui veulent répondre aux questions fréquentes sans mobiliser leur équipe.',
     features: [
       'Chatbot sur votre site web',
-      'Jusqu\'a 50 questions-reponses configurees',
-      'Design intégré a votre charte graphique',
+      'Jusqu\'à 50 questions-réponses configurées',
+      'Design intégré à votre charte graphique',
       'Transfert vers email si question complexe',
+      'Tableau de bord d\'activité (conversations et statistiques)',
       '1 mois de suivi inclus',
     ],
     recommended: false,
@@ -257,10 +274,11 @@ const OFFERS = [
     desc: 'Pour les entreprises qui veulent automatiser la prise de rendez-vous et qualifier leurs leads.',
     features: [
       'Tout ce qui est inclus dans Essentiel',
-      'Connexion a votre calendrier de reservation',
-      'Qualification de leads automatique',
-      'Base de connaissances sur mesure (FAQ, produits, procedures)',
-      'Tableau de bord des conversations',
+      'Connexion à votre calendrier de réservation',
+      'Qualification de leads automatique avec extraction des contacts',
+      'Base de connaissances sur mesure (FAQ, produits, procédures)',
+      'Tableau de bord avancé : résumé IA par session, top intentions, leads captés',
+      'Alertes email pour les leads chauds',
       '3 mois de suivi et ajustements inclus',
     ],
     recommended: true,
@@ -271,11 +289,12 @@ const OFFERS = [
     desc: 'Pour les entreprises avec des besoins spécifiques : CRM, base de données, multi-canal, multi-langue.',
     features: [
       'Tout ce qui est inclus dans Pro',
-      'Connecte a vos outils existants (CRM, ERP, ticketing)',
+      'Connecté à vos outils existants (CRM, ERP, ticketing)',
       'Déploiement multi-canal sur devis (site, WhatsApp Business, Messenger)',
       'Chatbot multilingue (FR, EN, DE)',
-      'Logique métier avancee et workflows personnalisés',
-      'Suivi continu et evolution mensuelle',
+      'Logique métier avancée et workflows personnalisés',
+      'Tableau de bord sur mesure et exports automatisés',
+      'Suivi continu et évolution mensuelle',
     ],
     recommended: false,
   },
@@ -551,6 +570,7 @@ export default function ChatbotIAPage() {
           { label: 'Bénéfices', href: '#benefices' },
           { label: 'Modèle IA', href: '#modele-ia' },
           { label: 'Processus', href: '#comment-ca-marche' },
+          { label: 'Pilotage', href: '#pilotage' },
           { label: "Cas d'usage", href: '#cas-usage' },
           { label: 'Offres', href: '#offres' },
           { label: 'FAQ', href: '#faq' },
@@ -858,6 +878,198 @@ export default function ChatbotIAPage() {
               </div>
               <p className="text-text-muted text-xs mt-4">
                 Duree totale moyenne : 2 a 5 semaines selon la complexite. Vous validez a chaque etape.
+              </p>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ── Pilotage & données : dashboard + extraction auto ── */}
+      <section id="pilotage" className="py-24 scroll-mt-[124px]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-14">
+              <GradTag className="mb-4">Pilotage et données</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
+                Vous voyez tout ce que fait votre chatbot. <GradText as="span">En temps réel.</GradText>
+              </h2>
+              <p data-speakable className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+                Chaque conversation est journalisée, résumée par IA et indexée. Un tableau de bord
+                privé vous donne accès aux statistiques d&apos;activité, aux leads captés et aux
+                tendances détectées. Sans installation, sans manipulation technique.
+              </p>
+            </div>
+          </SectionReveal>
+
+          {/* 4 features cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+            {[
+              {
+                Icon: Activity,
+                title: "Tableau de bord d'activité",
+                desc: "Conversations actives, taux de résolution automatique, pic horaire, durée moyenne, sujets dominants. Mis à jour en continu.",
+              },
+              {
+                Icon: Sparkles,
+                title: 'Résumé IA par session',
+                desc: 'Chaque échange est synthétisé par Claude Haiku : intention du visiteur, ton, niveau d\'urgence, prochaine étape recommandée.',
+              },
+              {
+                Icon: Database,
+                title: 'Extraction auto des contacts',
+                desc: 'Email, téléphone, nom, demande, contexte : extraits sans formulaire, envoyés en temps réel dans votre CRM ou par email.',
+              },
+              {
+                Icon: Bell,
+                title: 'Alertes intelligentes',
+                desc: 'Notification immédiate quand un lead chaud est qualifié, qu\'un sujet sensible apparaît ou qu\'un client VIP entre en conversation.',
+              },
+            ].map((f, i) => (
+              <SectionReveal key={f.title} delay={i * 0.08}>
+                <div
+                  className="rounded-xl p-6 h-full"
+                  style={{ background: 'rgba(212,212,216,0.04)', border: `1px solid ${bd}` }}
+                >
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
+                    style={{ background: bg }}
+                  >
+                    <f.Icon size={18} style={{ color }} />
+                  </div>
+                  <h3 className="text-text font-semibold mb-2">{f.title}</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed">{f.desc}</p>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+
+          {/* Mockup dashboard */}
+          <SectionReveal delay={0.2}>
+            <div
+              className="rounded-2xl p-6 md:p-8"
+              style={{
+                background: 'rgba(212,212,216,0.03)',
+                border: `1px solid ${bd}`,
+                boxShadow: '0 0 60px rgba(212,212,216,0.05)',
+              }}
+            >
+              {/* Dashboard header */}
+              <div className="flex items-center justify-between mb-6 pb-4" style={{ borderBottom: `1px solid ${bd}` }}>
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-9 h-9 rounded-lg flex items-center justify-center"
+                    style={{ background: bg }}
+                  >
+                    <Activity size={16} style={{ color }} />
+                  </div>
+                  <div>
+                    <p className="text-text font-semibold text-sm">Tableau de bord chatbot</p>
+                    <p className="text-text-muted text-xs">7 derniers jours · accès privé</p>
+                  </div>
+                </div>
+                <div className="hidden md:flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                  <span className="text-text-muted text-xs">Données en direct</span>
+                </div>
+              </div>
+
+              {/* KPIs */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                {[
+                  { v: '247', l: 'Conversations', sub: '+18% vs sem. -1' },
+                  { v: '82%', l: 'Résolution auto', sub: 'sans intervention humaine' },
+                  { v: '31', l: 'Leads qualifiés', sub: '12 transmis CRM' },
+                  { v: '1m 24s', l: 'Durée moyenne', sub: 'par session' },
+                ].map((k) => (
+                  <div
+                    key={k.l}
+                    className="rounded-lg p-4"
+                    style={{ background: 'rgba(212,212,216,0.04)', border: `1px solid ${bd}` }}
+                  >
+                    <p className="text-2xl font-bold text-text mb-1">{k.v}</p>
+                    <p className="text-text-secondary text-xs font-semibold">{k.l}</p>
+                    <p className="text-text-muted text-[11px] mt-0.5">{k.sub}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* 2-column body */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Top intentions */}
+                <div
+                  className="rounded-lg p-5"
+                  style={{ background: 'rgba(212,212,216,0.04)', border: `1px solid ${bd}` }}
+                >
+                  <p className="text-[10px] font-bold uppercase tracking-[0.12em] mb-4" style={{ color }}>
+                    Top intentions détectées
+                  </p>
+                  <div className="space-y-3">
+                    {[
+                      { label: 'Demande de devis', pct: 38 },
+                      { label: 'Prise de rendez-vous', pct: 27 },
+                      { label: 'Question tarif', pct: 18 },
+                      { label: 'Support produit', pct: 12 },
+                      { label: 'Autres', pct: 5 },
+                    ].map((row) => (
+                      <div key={row.label}>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-text-secondary text-xs">{row.label}</span>
+                          <span className="text-text-muted text-xs">{row.pct}%</span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
+                          <div
+                            className="h-full rounded-full"
+                            style={{ width: `${row.pct}%`, background: chrome.color, opacity: 0.7 }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Recent leads */}
+                <div
+                  className="rounded-lg p-5"
+                  style={{ background: 'rgba(212,212,216,0.04)', border: `1px solid ${bd}` }}
+                >
+                  <p className="text-[10px] font-bold uppercase tracking-[0.12em] mb-4" style={{ color }}>
+                    Leads captés récemment
+                  </p>
+                  <div className="space-y-3">
+                    {[
+                      { name: 'Sophie B.', intent: 'Devis site e-commerce', via: Mail, meta: 'sophie.b@…' },
+                      { name: 'Marc D.', intent: 'RDV consultation IA', via: Phone, meta: '+41 79 …' },
+                      { name: 'Laura M.', intent: 'Tarif chatbot Pro', via: Mail, meta: 'laura.m@…' },
+                      { name: 'Jean P.', intent: 'Audit SEO', via: Mail, meta: 'jean.p@…' },
+                    ].map((lead) => (
+                      <div
+                        key={lead.name}
+                        className="flex items-center gap-3 pb-3"
+                        style={{ borderBottom: `1px solid rgba(212,212,216,0.06)` }}
+                      >
+                        <div
+                          className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                          style={{ background: bg }}
+                        >
+                          <lead.via size={13} style={{ color }} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-text text-sm font-medium truncate">{lead.name}</p>
+                          <p className="text-text-muted text-xs truncate">{lead.intent}</p>
+                        </div>
+                        <span className="text-text-muted text-[11px] truncate hidden sm:inline-block max-w-[110px]">
+                          {lead.meta}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-text-muted text-xs text-center mt-6">
+                Tableau de bord protégé par token, accès limité à votre équipe. Hébergement européen
+                ou Suisse, conforme nLPD 2023 et RGPD. Conservation des conversations paramétrable
+                (30, 60 ou 90 jours par défaut).
               </p>
             </div>
           </SectionReveal>

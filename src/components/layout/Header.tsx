@@ -534,6 +534,9 @@ export function Header() {
   const progressGradient = getPillarGradient(pathname)
   const progressBarRef = React.useRef<HTMLDivElement>(null)
 
+  // Pas de header sur les pages d'administration interne (dashboard chatbot, etc).
+  const isAdminPage = pathname?.startsWith('/admin')
+
   React.useEffect(() => {
     const bar = progressBarRef.current
     const handler = () => {
@@ -572,6 +575,8 @@ export function Header() {
       window.scrollTo(0, scrollY)
     }
   }, [mobileOpen])
+
+  if (isAdminPage) return null
 
   return (
     <>

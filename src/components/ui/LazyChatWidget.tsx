@@ -14,6 +14,7 @@ export function LazyChatWidget() {
   const pathname = usePathname()
 
   if (HIDDEN_PATHS.includes(pathname)) return null
+  if (pathname?.startsWith('/admin')) return null
 
   return <ChatWidget />
 }

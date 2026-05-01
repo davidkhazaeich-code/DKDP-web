@@ -69,3 +69,17 @@ select
   count(*) filter (where outcome = 'abandon')      as abandons
 from public.chat_sessions
 where started_at >= now() - interval '7 days';
+
+-- ── Auto-purge nocturne : sessions et messages > 30 jours ─────────────────
+-- Bon compromis entre retention analytique et minimisation RGPD.
+-- Tourne tous les jours a 03:00 UTC (heure creuse).
+create extension if not exists pg_cron;
+
+select cron.schedule(
+  'purge-old-chat-data',
+  '0 3 * * *',
+  $$
+    delete from public.chat_sessions where started_at < now() - interval '30 days';
+    delete from public.chat_messages where ts < now() - interval '30 days';
+  $$
+);

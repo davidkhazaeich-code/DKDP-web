@@ -117,6 +117,32 @@ Note : si `CHAT_LOG_VERBATIM=false`, la fonction `generateSummary` n'a plus de t
 - **Option A (max RGPD)** : `CHAT_LOG_VERBATIM=false`, plus de resumes ni intent. On a juste les metriques quanti.
 - **Option B (recommandee)** : laisser `CHAT_LOG_VERBATIM=true` mais purger `chat_messages` periodiquement (cron Supabase, daily delete des rows > 2h). On garde les resumes qualitatifs sans accumulation longue duree.
 
+## Retention et auto-purge
+
+Un cron `pg_cron` tourne tous les jours a 03:00 UTC dans Supabase et supprime tout ce qui a plus de 30 jours dans `chat_sessions` et `chat_messages`. Bon compromis entre :
+
+- garder assez d'historique pour comparer "ce mois-ci vs le mois dernier"
+- minimiser la donnee stockee (RGPD : ne garder que ce qui est utile au business)
+
+Modifier la retention :
+```sql
+-- Lister les jobs
+select * from cron.job;
+
+-- Supprimer le job actuel
+select cron.unschedule('purge-old-chat-data');
+
+-- Recreer avec une retention differente (ex: 60 jours)
+select cron.schedule(
+  'purge-old-chat-data',
+  '0 3 * * *',
+  $$
+    delete from public.chat_sessions where started_at < now() - interval '60 days';
+    delete from public.chat_messages where ts < now() - interval '60 days';
+  $$
+);
+```
+
 ## Limitations connues
 
 - **sendBeacon best-effort** : sur certains mobiles ou navigateurs avec batterie faible, le beacon de cloture peut etre dropped. La session reste alors en "ouvert" indefiniment. Mitigation a venir : un cron Supabase qui clos automatiquement les sessions dont la derniere activite > 1h.

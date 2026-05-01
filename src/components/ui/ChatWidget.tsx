@@ -463,6 +463,68 @@ export function ChatWidget() {
   const chatInputRef = useRef<HTMLTextAreaElement>(null)
   const barRef = useRef<HTMLDivElement>(null)
 
+  // ── Analytics : session_id genere paresseusement au 1er message ──
+  // On stocke en ref pour que le transport callback lise toujours la
+  // valeur courante sans recreer le transport. Le sessionId est aussi
+  // persiste dans localStorage avec les messages (meme TTL 24h) pour
+  // qu'un reload mid-conversation continue la meme session analytics.
+  const sessionIdRef = useRef<string | null>(null)
+  const lastActivityRef = useRef<number>(0)
+  const inactivityTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  function getOrCreateSessionId(): string {
+    if (sessionIdRef.current) return sessionIdRef.current
+    const id =
+      typeof crypto !== 'undefined' && crypto.randomUUID
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`
+    sessionIdRef.current = id
+    return id
+  }
+
+  function closeAnalyticsSession() {
+    const id = sessionIdRef.current
+    if (!id) return
+    sessionIdRef.current = null
+
+    // Nettoie le sessionId du localStorage tout en gardant les messages.
+    // Si le visiteur revient (TTL 24h), il voit toujours sa conversation,
+    // mais analytics-wise un nouveau sessionId sera genere au prochain
+    // message envoye. Evite l'orphelinat de chat_messages apres
+    // closeSession + reload.
+    try {
+      const saved = localStorage.getItem('dkdp-chat')
+      if (saved) {
+        const parsed = JSON.parse(saved) as { ts?: number; messages?: unknown }
+        if (parsed.messages) {
+          localStorage.setItem(
+            'dkdp-chat',
+            JSON.stringify({ ts: parsed.ts ?? Date.now(), messages: parsed.messages }),
+          )
+        }
+      }
+    } catch { /* ignore */ }
+
+    if (typeof navigator === 'undefined') return
+    const payload = JSON.stringify({
+      sessionId: id,
+      referrer: typeof window !== 'undefined' ? window.location.pathname : undefined,
+    })
+    try {
+      if (navigator.sendBeacon) {
+        const blob = new Blob([payload], { type: 'text/plain;charset=UTF-8' })
+        navigator.sendBeacon('/api/chat/close', blob)
+      } else {
+        fetch('/api/chat/close', {
+          method: 'POST',
+          body: payload,
+          keepalive: true,
+          headers: { 'Content-Type': 'text/plain' },
+        }).catch(() => {})
+      }
+    } catch { /* ignore */ }
+  }
+
   // ── Dictée vocale (Web Speech API) ──
   const speech = useSpeechRecognition({ lang: 'fr-FR' })
   useEffect(() => {
@@ -480,8 +542,16 @@ export function ChatWidget() {
     if (match && match[1] === '0') setIsEurope(false)
   }, [])
 
+  // Le callback body est invoque a chaque envoi de message (PAS pendant render).
+  // L'acces aux refs est donc safe : on disable react-hooks/refs qui flag
+  // toute fonction lisant un ref passee a un constructeur, sans distinguer
+  // l'invocation differee de l'invocation pendant render.
+  // eslint-disable-next-line react-hooks/refs
   const [chatTransport] = useState(() => new DefaultChatTransport({
-    body: () => ({ _hp: honeypotRef.current }),
+    body: () => ({
+      _hp: honeypotRef.current,
+      sessionId: getOrCreateSessionId(),
+    }),
   }))
 
   const { messages, sendMessage, status, error, setMessages } = useChat({
@@ -504,11 +574,14 @@ export function ChatWidget() {
     try {
       const saved = localStorage.getItem(CHAT_STORAGE_KEY)
       if (!saved) return
-      const parsed = JSON.parse(saved) as { ts?: number; messages?: unknown }
+      const parsed = JSON.parse(saved) as { ts?: number; messages?: unknown; sessionId?: unknown }
       const age = parsed.ts ? Date.now() - parsed.ts : Infinity
       if (age > CHAT_TTL_MS) {
         localStorage.removeItem(CHAT_STORAGE_KEY)
         return
+      }
+      if (typeof parsed.sessionId === 'string' && parsed.sessionId.length > 0) {
+        sessionIdRef.current = parsed.sessionId
       }
       if (Array.isArray(parsed.messages) && parsed.messages.length > 0) {
         setMessages(parsed.messages as typeof messages)
@@ -523,7 +596,7 @@ export function ChatWidget() {
       if (messages.length > 0) {
         localStorage.setItem(
           CHAT_STORAGE_KEY,
-          JSON.stringify({ ts: Date.now(), messages }),
+          JSON.stringify({ ts: Date.now(), messages, sessionId: sessionIdRef.current }),
         )
       } else {
         localStorage.removeItem(CHAT_STORAGE_KEY)
@@ -625,6 +698,58 @@ export function ChatWidget() {
     return () => document.removeEventListener('keydown', handleKey)
   }, [])
 
+  // ── Analytics : ferme la session sur unload, hide tab, ou inactivite ──
+  // Trois triggers pour maximiser la chance de generer un resume :
+  //   1. beforeunload : visiteur ferme l'onglet ou navigue ailleurs
+  //   2. visibilitychange (hidden) : passe a un autre onglet > 30s
+  //   3. inactivite cote chat : 5 min sans nouveau message
+  useEffect(() => {
+    const INACTIVITY_MS = 5 * 60 * 1000
+
+    function bumpActivity() {
+      lastActivityRef.current = Date.now()
+      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current)
+      inactivityTimerRef.current = setTimeout(() => {
+        closeAnalyticsSession()
+      }, INACTIVITY_MS)
+    }
+
+    function handleUnload() {
+      closeAnalyticsSession()
+    }
+
+    function handleVisibility() {
+      if (document.visibilityState === 'hidden') {
+        // Petit delai : un alt-tab rapide ne doit pas couper la session.
+        setTimeout(() => {
+          if (document.visibilityState === 'hidden') closeAnalyticsSession()
+        }, 30 * 1000)
+      }
+    }
+
+    bumpActivity()
+    window.addEventListener('beforeunload', handleUnload)
+    window.addEventListener('pagehide', handleUnload)
+    document.addEventListener('visibilitychange', handleVisibility)
+
+    return () => {
+      window.removeEventListener('beforeunload', handleUnload)
+      window.removeEventListener('pagehide', handleUnload)
+      document.removeEventListener('visibilitychange', handleVisibility)
+      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current)
+    }
+  }, [])
+
+  // Bump l'activite a chaque nouveau message (relance le timer 5 min).
+  useEffect(() => {
+    if (messages.length === 0) return
+    lastActivityRef.current = Date.now()
+    if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current)
+    inactivityTimerRef.current = setTimeout(() => {
+      closeAnalyticsSession()
+    }, 5 * 60 * 1000)
+  }, [messages.length])
+
   // Close chat when any internal link inside the chat window is clicked
   const chatWindowRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -676,9 +801,11 @@ export function ChatWidget() {
   }
 
   function handleReset() {
+    // Cloture la session analytics courante avant de repartir a zero.
+    closeAnalyticsSession()
     setMessages([])
     setInputValue('')
-    try { sessionStorage.removeItem('dkdp-chat') } catch { /* ignore */ }
+    try { localStorage.removeItem(CHAT_STORAGE_KEY) } catch { /* ignore */ }
   }
 
   if (!isEurope) return null

@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
         // Tous les crawlers : acces complet sauf /api/ et /_next/
         userAgent: "*",
         allow: ["/", "/agence-digitale/", "/formation-entreprise/", "/intelligence-artificielle/", "/blog/", "/contact", "/a-propos", "/tarifs"],
-        disallow: ["/api/", "/private/", "/temp/"],
+        disallow: ["/api/", "/admin/", "/private/", "/temp/"],
       },
       {
         // Googlebot : acces total, pas de crawl-delay

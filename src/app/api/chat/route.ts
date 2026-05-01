@@ -3,6 +3,7 @@ import { anthropic } from '@ai-sdk/anthropic'
 import { NextRequest } from 'next/server'
 import { rateLimit, rateLimitDaily, getIp } from '@/lib/rate-limit'
 import { DKDP_SYSTEM_PROMPT } from '@/lib/chat-system-prompt'
+import { logMessage, isVerbatimMode } from '@/lib/chat-analytics'
 
 const MAX_MESSAGE_LENGTH = 500
 const MAX_MESSAGES_PER_CONVERSATION = 12
@@ -16,6 +17,8 @@ const ALLOWED_COUNTRIES = new Set([
   'CH', // Switzerland
   'GB', // UK
 ])
+
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 export async function POST(req: NextRequest) {
   // Geo-blocking: only allow European countries
@@ -48,7 +51,7 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json()
-  const { messages, _hp } = body
+  const { messages, _hp, sessionId } = body
 
   // Honeypot: if the hidden field is filled, it's a bot
   if (_hp) {
@@ -95,8 +98,26 @@ export async function POST(req: NextRequest) {
     })
   }
 
+  // ── Analytics : logging du message utilisateur ───────────────────────
+  // On accepte un sessionId UUID v4 envoye par le widget. Si absent ou
+  // invalide, on skip le logging mais on continue la conversation.
+  const validSessionId = typeof sessionId === 'string' && UUID_REGEX.test(sessionId)
+    ? sessionId
+    : null
+
+  if (validSessionId) {
+    // Fire-and-forget : ne pas await pour ne pas ralentir la reponse.
+    void logMessage({
+      sessionId: validSessionId,
+      role: 'user',
+      verbatimText: isVerbatimMode() ? lastText : undefined,
+    })
+  }
+
   // Convert UI messages (parts format) to model messages (content format)
   const modelMessages = await convertToModelMessages(messages)
+
+  const startedAt = Date.now()
 
   const result = streamText({
     model: anthropic('claude-haiku-4-5-20251001'),
@@ -116,6 +137,17 @@ export async function POST(req: NextRequest) {
     ],
     messages: modelMessages,
     maxOutputTokens: 500,
+    onFinish: ({ text, usage }) => {
+      if (!validSessionId) return
+      void logMessage({
+        sessionId: validSessionId,
+        role: 'assistant',
+        tokensIn: usage?.inputTokens,
+        tokensOut: usage?.outputTokens,
+        latencyMs: Date.now() - startedAt,
+        verbatimText: isVerbatimMode() ? text : undefined,
+      })
+    },
   })
 
   return result.toUIMessageStreamResponse()

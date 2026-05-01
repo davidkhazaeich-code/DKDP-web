@@ -79,7 +79,7 @@ select cron.schedule(
   'purge-old-chat-data',
   '0 3 * * *',
   $$
-    delete from public.chat_sessions where started_at < now() - interval '30 days';
-    delete from public.chat_messages where ts < now() - interval '30 days';
+    delete from public.chat_sessions where started_at < now() - interval '90 days';
+    delete from public.chat_messages where ts < now() - interval '90 days';
   $$
 );

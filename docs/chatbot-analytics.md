@@ -119,7 +119,7 @@ Note : si `CHAT_LOG_VERBATIM=false`, la fonction `generateSummary` n'a plus de t
 
 ## Retention et auto-purge
 
-Un cron `pg_cron` tourne tous les jours a 03:00 UTC dans Supabase et supprime tout ce qui a plus de 30 jours dans `chat_sessions` et `chat_messages`. Bon compromis entre :
+Un cron `pg_cron` tourne tous les jours a 03:00 UTC dans Supabase et supprime tout ce qui a plus de 90 jours dans `chat_sessions` et `chat_messages`. Bon compromis entre :
 
 - garder assez d'historique pour comparer "ce mois-ci vs le mois dernier"
 - minimiser la donnee stockee (RGPD : ne garder que ce qui est utile au business)
@@ -132,13 +132,13 @@ select * from cron.job;
 -- Supprimer le job actuel
 select cron.unschedule('purge-old-chat-data');
 
--- Recreer avec une retention differente (ex: 60 jours)
+-- Recreer avec une retention differente (ex: 30 ou 180 jours)
 select cron.schedule(
   'purge-old-chat-data',
   '0 3 * * *',
   $$
-    delete from public.chat_sessions where started_at < now() - interval '60 days';
-    delete from public.chat_messages where ts < now() - interval '60 days';
+    delete from public.chat_sessions where started_at < now() - interval '180 days';
+    delete from public.chat_messages where ts < now() - interval '180 days';
   $$
 );
 ```

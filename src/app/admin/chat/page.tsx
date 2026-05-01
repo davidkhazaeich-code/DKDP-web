@@ -27,6 +27,10 @@ interface SessionRow {
   verbatim_question: string | null
   referrer: string | null
   ip_country: string | null
+  contact_phone: string | null
+  contact_email: string | null
+  contact_name: string | null
+  contact_company: string | null
 }
 
 interface StatsRow {
@@ -282,9 +286,16 @@ function StatCard({
 }
 
 // LeadCard : carte mise en avant pour les leads chauds/froids.
-// Affiche le verbatim en gros, le resume, les meta, et un CTA "marquer rappele" futur.
+// Si Haiku a extrait des coordonnees, on les met en haut avec liens cliquables
+// (tel: et mailto: marchent depuis iPhone, Mac et la plupart des navigateurs).
 function LeadCard({ session, priority }: { session: SessionRow; priority?: boolean }) {
   const accent = priority ? '#FF6B00' : '#60a5fa'
+  const phoneTel = session.contact_phone?.replace(/[^+0-9]/g, '') ?? ''
+  const headline = [session.contact_name, session.contact_company].filter(Boolean).join(' · ')
+  const hasContact = Boolean(
+    session.contact_phone || session.contact_email || session.contact_name || session.contact_company,
+  )
+
   return (
     <div
       className="rounded-2xl p-5 border"
@@ -328,6 +339,43 @@ function LeadCard({ session, priority }: { session: SessionRow; priority?: boole
           </>
         )}
       </div>
+
+      {/* Bloc coordonnees : visible uniquement si Haiku a extrait quelque chose */}
+      {hasContact && (
+        <div
+          className="mb-3 p-3 rounded-xl border"
+          style={{
+            background: priority ? 'rgba(255,107,0,0.08)' : 'rgba(96,165,250,0.06)',
+            borderColor: priority ? 'rgba(255,107,0,0.25)' : 'rgba(96,165,250,0.20)',
+          }}
+        >
+          <div className="text-[10px] font-semibold uppercase tracking-wider mb-2" style={{ color: accent }}>
+            Coordonnees laissees
+          </div>
+          {headline && (
+            <p className="text-base font-semibold text-white mb-2">{headline}</p>
+          )}
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+            {session.contact_phone && (
+              <a
+                href={`tel:${phoneTel}`}
+                className="text-white hover:opacity-80 transition-opacity font-medium"
+              >
+                {session.contact_phone}
+              </a>
+            )}
+            {session.contact_email && (
+              <a
+                href={`mailto:${session.contact_email}`}
+                className="hover:underline transition-opacity font-medium"
+                style={{ color: '#A78BFA' }}
+              >
+                {session.contact_email}
+              </a>
+            )}
+          </div>
+        </div>
+      )}
 
       {session.verbatim_question && (
         <div className="mb-3">

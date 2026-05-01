@@ -84,16 +84,28 @@ interface SummaryJson {
   summary: string
   intent: 'devis' | 'question_service' | 'support' | 'hors_sujet' | 'autre'
   outcome: 'resolu' | 'abandon' | 'lead_chaud' | 'lead_froid' | 'court'
+  contact?: {
+    phone?: string | null
+    email?: string | null
+    name?: string | null
+    company?: string | null
+  }
 }
 
 const SUMMARY_PROMPT = `Tu es un analyste qui resume des conversations de chatbot DKDP (agence digitale Geneve).
 
-Analyse la conversation ci-dessous et reponds STRICTEMENT en JSON valide, sans markdown, sans texte avant ou apres, avec ces 3 cles exactes :
+Analyse la conversation ci-dessous et reponds STRICTEMENT en JSON valide, sans markdown, sans texte avant ou apres, avec ces 4 cles exactes :
 
 {
   "summary": "1-2 phrases factuelles : sujet + besoin du visiteur. Pas de jugement.",
   "intent": "devis" | "question_service" | "support" | "hors_sujet" | "autre",
-  "outcome": "resolu" | "abandon" | "lead_chaud" | "lead_froid" | "court"
+  "outcome": "resolu" | "abandon" | "lead_chaud" | "lead_froid" | "court",
+  "contact": {
+    "phone": "<numero formate ex +41 79 123 45 67> | null",
+    "email": "<email valide> | null",
+    "name": "<prenom + nom si donne, sinon prenom seul> | null",
+    "company": "<nom de l'entreprise> | null"
+  }
 }
 
 Definitions outcome :
@@ -102,6 +114,15 @@ Definitions outcome :
 - resolu : question reponse, pas de suite attendue
 - abandon : conversation interrompue sans resolution
 - court : moins de 3 echanges, intention pas claire
+
+Regles STRICTES pour le bloc contact :
+- N'extrais QUE ce que le visiteur a EXPLICITEMENT donne dans ses messages (pas le bot).
+- Ne devine JAMAIS, ne reformule pas. Si pas mentionne -> null.
+- Pas de fausse extraction : "j'ai 79 ans" n'est PAS un numero de telephone.
+- Telephone : formate avec espaces si possible (+41 79 123 45 67), garde le format international du visiteur.
+- Email : doit contenir un @ et un domaine valide.
+- Name : prenom et/ou nom de famille seulement, pas de titre ("Mr Dupont" -> "Dupont").
+- Company : nom raisonnable de societe, pas un domaine d'activite.
 
 Reponds en francais.`
 
@@ -151,6 +172,10 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
     let summary: string | null = null
     let intent: string | null = null
     let outcome: string | null = null
+    let contactPhone: string | null = null
+    let contactEmail: string | null = null
+    let contactName: string | null = null
+    let contactCompany: string | null = null
 
     const tooShort =
       messagesCount < SUMMARY_MIN_MESSAGES || durationSec < SUMMARY_MIN_DURATION_SEC
@@ -163,6 +188,10 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
         summary = summaryResult.summary
         intent = summaryResult.intent
         outcome = summaryResult.outcome
+        contactPhone = summaryResult.contact?.phone ?? null
+        contactEmail = summaryResult.contact?.email ?? null
+        contactName = summaryResult.contact?.name ?? null
+        contactCompany = summaryResult.contact?.company ?? null
       }
     }
 
@@ -180,6 +209,10 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
       verbatim_question: verbatimQuestion,
       referrer: input.referrer ?? null,
       ip_country: input.ipCountry ?? null,
+      contact_phone: contactPhone,
+      contact_email: contactEmail,
+      contact_name: contactName,
+      contact_company: contactCompany,
     })
 
     // En production (pas calibration), on supprime les messages bruts apres resume.
@@ -196,6 +229,10 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
         referrer: input.referrer,
         ipCountry: input.ipCountry,
         messagesCount,
+        contactPhone,
+        contactEmail,
+        contactName,
+        contactCompany,
       })
     }
   } catch (err) {
@@ -212,6 +249,10 @@ interface LeadNotifyInput {
   referrer?: string
   ipCountry?: string
   messagesCount: number
+  contactPhone?: string | null
+  contactEmail?: string | null
+  contactName?: string | null
+  contactCompany?: string | null
 }
 
 async function notifyLeadChaud(input: LeadNotifyInput): Promise<void> {
@@ -225,10 +266,16 @@ async function notifyLeadChaud(input: LeadNotifyInput): Promise<void> {
       ? `https://dkdp.ch/admin/chat?token=${adminToken}`
       : 'https://dkdp.ch/admin/chat'
 
+    const headline = [input.contactName, input.contactCompany].filter(Boolean).join(' - ')
+    const subjectSuffix = headline || input.verbatimQuestion?.slice(0, 50) || 'nouvelle conversation'
+
+    const hasContact = Boolean(input.contactPhone || input.contactEmail)
+    const phoneTel = input.contactPhone?.replace(/[^+0-9]/g, '') ?? ''
+
     await resend.emails.send({
       from: 'DKDP Chatbot <contact@dkdp.ch>',
       to: 'dk@dkdp.ch',
-      subject: `[Lead chaud] Chatbot DKDP - ${input.verbatimQuestion?.slice(0, 50) ?? 'nouvelle conversation'}`,
+      subject: `[Lead chaud] ${subjectSuffix}`,
       html: `
         <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a">
           <div style="background:#FF6B00;padding:14px 20px;border-radius:8px 8px 0 0">
@@ -236,6 +283,14 @@ async function notifyLeadChaud(input: LeadNotifyInput): Promise<void> {
             <p style="margin:4px 0 0;color:#ffe5d0;font-size:13px">A rappeler dans l'heure pour maximiser la conversion</p>
           </div>
           <div style="padding:20px;background:#fafafa;border-radius:0 0 8px 8px">
+            ${headline ? `<p style="margin:0 0 14px;font-size:17px;font-weight:700;color:#1a1a1a">${escapeHtml(headline)}</p>` : ''}
+            ${hasContact ? `
+              <div style="margin:0 0 18px;padding:14px 16px;background:#fff7f0;border:1px solid #FF6B0030;border-radius:8px">
+                <p style="margin:0 0 8px;font-size:11px;font-weight:700;color:#FF6B00;text-transform:uppercase;letter-spacing:0.05em">Coordonnees laissees</p>
+                ${input.contactPhone ? `<p style="margin:4px 0;font-size:15px"><a href="tel:${escapeHtml(phoneTel)}" style="color:#1a1a1a;text-decoration:none;font-weight:600">${escapeHtml(input.contactPhone)}</a></p>` : ''}
+                ${input.contactEmail ? `<p style="margin:4px 0;font-size:15px"><a href="mailto:${escapeHtml(input.contactEmail)}" style="color:#7C3AED;font-weight:600">${escapeHtml(input.contactEmail)}</a></p>` : ''}
+              </div>
+            ` : ''}
             ${input.verbatimQuestion ? `
               <p style="margin:0 0 6px;font-size:11px;font-weight:700;color:#71717a;text-transform:uppercase;letter-spacing:0.05em">Question initiale du visiteur</p>
               <p style="margin:0 0 16px;padding:12px 14px;background:#fff;border-left:3px solid #FF6B00;font-style:italic;color:#1a1a1a">${escapeHtml(input.verbatimQuestion)}</p>

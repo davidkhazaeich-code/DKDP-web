@@ -100,6 +100,17 @@ const PILLAR_ACCENT = {
   apropos:   { color: 'var(--text-secondary)', bg: 'var(--gray-bg)', border: 'var(--gray-border)' },
 }
 
+// Trigger CSS vars consumed by navigation-menu.tsx :
+//   --trigger-hover-bg   : background on hover
+//   --trigger-active-bg  : background when dropdown is open / active route
+//   --trigger-active-color : text + chevron color when open / active
+const TRIGGER_STYLE: Record<'agence' | 'ia' | 'formation' | 'apropos', React.CSSProperties> = {
+  agence:    { '--trigger-hover-bg': 'var(--violet-bg)', '--trigger-active-bg': 'var(--violet-bg)', '--trigger-active-color': 'var(--violet)' } as React.CSSProperties,
+  formation: { '--trigger-hover-bg': 'var(--orange-bg)', '--trigger-active-bg': 'var(--orange-bg)', '--trigger-active-color': 'var(--orange)' } as React.CSSProperties,
+  ia:        { '--trigger-hover-bg': 'var(--chrome-bg)', '--trigger-active-bg': 'var(--chrome-bg)', '--trigger-active-color': 'var(--text)' } as React.CSSProperties,
+  apropos:   { '--trigger-hover-bg': 'var(--gray-bg)',   '--trigger-active-bg': 'var(--gray-bg)',   '--trigger-active-color': 'var(--text)' } as React.CSSProperties,
+}
+
 // ─── MegaMenu panel ───────────────────────────────────────────────────────────
 
 type MegaItem = { title: string; href: string; icon: React.ElementType; description?: string }
@@ -141,7 +152,13 @@ function MegaPanel({
               <span key={tag.href} className="inline-flex items-center gap-1">
                 {i > 0 && <span className="opacity-40">·</span>}
                 <NavigationMenuLink asChild>
-                  <Link href={tag.href} className="hover:text-text transition-colors">{tag.text}</Link>
+                  <Link
+                    href={tag.href}
+                    className="transition-colors hover:text-[var(--pillar-color)]"
+                    style={{ '--pillar-color': color } as React.CSSProperties}
+                  >
+                    {tag.text}
+                  </Link>
                 </NavigationMenuLink>
               </span>
             ))}
@@ -153,16 +170,17 @@ function MegaPanel({
               <NavigationMenuLink asChild>
                 <Link
                   href={item.href}
-                  className="group flex items-start gap-3 rounded-[8px] p-2.5 transition-colors hover:bg-[var(--surface-default)]"
+                  className="group flex items-start gap-3 rounded-[8px] p-2.5 border border-transparent transition-all duration-200 hover:bg-[var(--pillar-bg)] hover:border-[var(--pillar-border)] hover:-translate-y-[1px]"
+                  style={{ '--pillar-bg': bg, '--pillar-border': border, '--pillar-color': color } as React.CSSProperties}
                 >
                   <div
-                    className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[6px]"
+                    className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[6px] transition-transform duration-200 group-hover:scale-105"
                     style={{ background: bg, border: `1px solid ${border}` }}
                   >
                     <item.icon size={15} style={{ color }} />
                   </div>
                   <div>
-                    <p className="text-[13px] font-semibold text-text leading-snug group-hover:text-text">
+                    <p className="text-[13px] font-semibold text-text leading-snug transition-colors duration-200 group-hover:text-[var(--pillar-color)]">
                       {item.title}
                     </p>
                     {item.description && (
@@ -199,11 +217,16 @@ function MegaPanel({
               <NavigationMenuLink asChild>
                 <Link
                   href={item.href}
-                  className="flex items-center gap-2 rounded-[6px] px-2 py-1.5 text-[12px] text-text-secondary hover:bg-[var(--surface-default)] hover:text-text transition-colors group"
+                  className="flex items-center gap-2 rounded-[6px] px-2 py-1.5 text-[12px] text-text-secondary transition-all duration-200 hover:bg-[var(--pillar-bg)] hover:text-[var(--pillar-color)] hover:translate-x-0.5 group"
+                  style={{ '--pillar-bg': bg, '--pillar-color': color } as React.CSSProperties}
                 >
-                  <item.icon size={13} className="flex-shrink-0 text-text-muted group-hover:text-text transition-colors" />
+                  <item.icon size={13} className="flex-shrink-0 text-text-muted transition-colors group-hover:text-[var(--pillar-color)]" />
                   <span>{item.title}</span>
-                  <ChevronRight size={11} className="ml-auto opacity-0 group-hover:opacity-60 transition-opacity" />
+                  <ChevronRight
+                    size={11}
+                    className="ml-auto opacity-0 transition-opacity group-hover:opacity-90"
+                    style={{ color }}
+                  />
                 </Link>
               </NavigationMenuLink>
             </li>
@@ -401,7 +424,8 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                       <Link
                         href={tag.href}
                         onClick={onClose}
-                        className="text-xs text-text-muted hover:text-text transition-colors"
+                        className="text-xs text-text-muted transition-colors active:text-[var(--pillar-color)]"
+                        style={{ '--pillar-color': tab.color } as React.CSSProperties}
                       >
                         {tag.text}
                       </Link>
@@ -467,11 +491,16 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                           href={item.href}
                           prefetch
                           onClick={() => { haptic(); onClose() }}
-                          className="flex items-center gap-3 px-2 py-2.5 rounded-[8px] text-[13px] text-text-secondary hover:bg-[var(--surface-default)] hover:text-text active:bg-[var(--bg-card-hover)] transition-colors group"
+                          className="flex items-center gap-3 px-2 py-2.5 rounded-[8px] text-[13px] text-text-secondary transition-colors group active:bg-[var(--pillar-bg)] active:text-[var(--pillar-color)]"
+                          style={{ '--pillar-bg': tab.bg, '--pillar-color': tab.color } as React.CSSProperties}
                         >
                           <item.icon size={14} className="flex-shrink-0 transition-colors" style={{ color: tab.color }} />
                           <span>{item.title}</span>
-                          <ChevronRight size={11} className="ml-auto opacity-0 group-hover:opacity-60 transition-opacity" />
+                          <ChevronRight
+                            size={11}
+                            className="ml-auto opacity-30 transition-opacity group-active:opacity-90"
+                            style={{ color: tab.color }}
+                          />
                         </Link>
                       ))}
                     </div>
@@ -617,7 +646,7 @@ export function Header() {
               <NavigationMenuList>
                 {/* ── Service Digital ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')} style={{ '--trigger-hover-bg': 'rgba(124,58,237,0.12)' } as React.CSSProperties}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')} style={TRIGGER_STYLE.agence}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="agence"
@@ -639,7 +668,7 @@ export function Header() {
 
                 {/* ── Formation ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')} style={{ '--trigger-hover-bg': 'rgba(255,107,0,0.12)' } as React.CSSProperties}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')} style={TRIGGER_STYLE.formation}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="formation"
@@ -661,7 +690,7 @@ export function Header() {
 
                 {/* ── Intelligence Artificielle ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={{ '--trigger-hover-bg': 'rgba(212,212,216,0.10)' } as React.CSSProperties}><Sparkles size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />Intelligence Artificielle</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={TRIGGER_STYLE.ia}><Sparkles size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />Intelligence Artificielle</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="ia"
@@ -682,7 +711,7 @@ export function Header() {
 
                 {/* ── À propos ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={{ '--trigger-hover-bg': 'rgba(156,163,175,0.12)' } as React.CSSProperties}><LayoutGrid size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />À propos</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={TRIGGER_STYLE.apropos}><LayoutGrid size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />À propos</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="apropos"
@@ -729,7 +758,7 @@ export function Header() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')} style={{ '--trigger-hover-bg': 'rgba(124,58,237,0.12)' } as React.CSSProperties}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')} style={TRIGGER_STYLE.agence}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="agence"
@@ -749,7 +778,7 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')} style={{ '--trigger-hover-bg': 'rgba(255,107,0,0.12)' } as React.CSSProperties}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')} style={TRIGGER_STYLE.formation}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="formation"
@@ -769,7 +798,7 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={{ '--trigger-hover-bg': 'rgba(212,212,216,0.10)' } as React.CSSProperties}><Sparkles size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />IA</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={TRIGGER_STYLE.ia}><Sparkles size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />IA</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="ia"
@@ -788,7 +817,7 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={{ '--trigger-hover-bg': 'rgba(156,163,175,0.12)' } as React.CSSProperties}><LayoutGrid size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />Agence</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={TRIGGER_STYLE.apropos}><LayoutGrid size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />Agence</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <MegaPanel
                       pillar="apropos"

@@ -188,7 +188,7 @@ export default function FormationClaudeAIPage() {
               {/* Left */}
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <h1 className="grad-tag inline-block text-xs md:text-sm">Formation Claude IA à Genève</h1>
+                  <h1 className="grad-tag inline-block text-xs md:text-sm">Formation Claude IA en Suisse romande</h1>
                   <span
                     className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
                     style={{ color: OR, background: ORB, border: `1px solid ${ORD}` }}

@@ -270,7 +270,7 @@ export default function RefonteSiteWebPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">
-                  Refonte de site web à Genève
+                  Refonte de site web en Suisse romande
                 </h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Votre site vous <GradText as="span">coûte des clients</GradText>. On le refait avec de vrais résultats.

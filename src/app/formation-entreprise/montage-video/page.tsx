@@ -118,7 +118,7 @@ export default function FormationMontageVideoPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation montage vidéo à Genève</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation montage vidéo en Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Des Reels et vidéos pro, produits <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>en interne</GradText>. En <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>une journée</GradText>.
                 </p>

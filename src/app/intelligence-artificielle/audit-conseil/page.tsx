@@ -115,7 +115,7 @@ export default function AuditConseilPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <h1 className="grad-tag inline-block text-xs md:text-sm">Audit IA pour entreprise à Genève</h1>
+                  <h1 className="grad-tag inline-block text-xs md:text-sm">Audit IA pour entreprise en Suisse romande</h1>
                   <span
                     className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
                     style={{ background: 'rgba(74,222,128,0.12)', color: green, border: `1px solid rgba(74,222,128,0.25)` }}

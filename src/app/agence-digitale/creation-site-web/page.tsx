@@ -26,7 +26,7 @@ const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBloc
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
-  title: 'Création de Site Web en Suisse romande | Sur mesure et performant | DKDP',
+  title: 'Création Site Web Genève & Suisse romande | Sur mesure | DKDP',
   description:
     'Création de sites web professionnels à Genève. Site vitrine, e-commerce ou sur mesure. Rapide, SEO-ready, livré en 3 à 5 semaines. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-site-web' },
@@ -159,7 +159,7 @@ const border = violet.border
 export default function CreationSiteWebPage() {
   return (
     <main>
-      <SchemaOrg schema={buildService({ name: 'Création de site web en Suisse romande', url: '/agence-digitale/creation-site-web', description: 'Création de sites web professionnels sur mesure pour PME à Genève. Site vitrine, e-commerce, Next.js, Astro, WordPress.' })} />
+      <SchemaOrg schema={buildService({ name: 'Création de site web Genève & Suisse romande', url: '/agence-digitale/creation-site-web', description: 'Création de sites web professionnels sur mesure pour PME à Genève. Site vitrine, e-commerce, Next.js, Astro, WordPress.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
@@ -180,7 +180,7 @@ export default function CreationSiteWebPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Création de site web en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Création de site web Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Un site qui <GradText as="span">ramène des clients</GradText>, pas des compliments.
                 </p>

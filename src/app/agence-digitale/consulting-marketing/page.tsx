@@ -23,7 +23,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
-  title: 'Consulting Marketing Digital Suisse romande · DKDP',
+  title: 'Consulting Marketing Genève & Suisse romande · DKDP',
   description:
     'Consulting marketing digital pour PME à Genève. Audit de présence digitale, stratégie sur mesure et accompagnement. Clarifiez votre cap digital.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/consulting-marketing' },
@@ -143,7 +143,7 @@ export default function ConsultingMarketingPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Consulting marketing digital en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Consulting marketing digital Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Des actions, des KPIs, <GradText as="span">des résultats</GradText>. Pas un rapport de 50 pages.
                 </p>

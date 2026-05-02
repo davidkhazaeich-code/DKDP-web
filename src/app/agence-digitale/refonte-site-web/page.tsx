@@ -43,7 +43,7 @@ const Testimonials = dynamic(() => import('@/components/sections/Testimonials').
 const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBlock').then(m => ({ default: m.SiteAuditBlock })))
 
 export const metadata: Metadata = {
-  title: 'Refonte de site web en Suisse romande | Migration sans perte SEO | DKDP',
+  title: 'Refonte site web Genève & Suisse romande | Sans perte SEO | DKDP',
   description:
     "Refonte de sites web obsolètes à Genève : design moderne, UX repensée, migration WordPress ou Next.js sans perte SEO. +240 % trafic en 6 mois en moyenne. Audit gratuit, devis 48 h.",
   alternates: {
@@ -235,7 +235,7 @@ export default function RefonteSiteWebPage() {
     <main>
       <SchemaOrg
         schema={buildServiceWithLocalBusiness({
-          name: 'Refonte de site web en Suisse romande',
+          name: 'Refonte de site web Genève & Suisse romande',
           url: '/agence-digitale/refonte-site-web',
           description:
             "Refonte de sites web obsolètes à Genève et en Suisse romande : design moderne, UX repensée, migration WordPress, Next.js, Shopify ou Astro sans perte de référencement SEO. Audit SEO pré-refonte, plan de redirections 301, Core Web Vitals garantis au vert. Conforme nLPD 2023 et RGPD.",
@@ -270,7 +270,7 @@ export default function RefonteSiteWebPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">
-                  Refonte de site web en Suisse romande
+                  Refonte de site web Genève & Suisse romande
                 </h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Votre site vous <GradText as="span">coûte des clients</GradText>. On le refait avec de vrais résultats.

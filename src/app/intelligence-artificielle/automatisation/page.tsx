@@ -234,7 +234,7 @@ export default function AutomationPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Automatisation n8n, Make et Zapier pour PME en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Automatisation n8n, Make et Zapier PME Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Ce qui vous prend <GradText as="span">3h par jour</GradText>, automatisé en <GradText as="span">2 semaines</GradText>.
                 </p>

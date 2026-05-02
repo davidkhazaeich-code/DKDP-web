@@ -24,7 +24,7 @@ import { chrome } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 
 export const metadata: Metadata = {
-  title: 'Agence IA Suisse romande | Intelligence Artificielle pour PME | DKDP',
+  title: 'Agence IA Genève & Suisse romande | IA pour PME | DKDP',
   description: 'Agence IA à Genève pour PME et entreprises. Agents IA sur mesure, automatisation des processus, audit et conseil. 700+ entreprises accompagnées en Suisse romande. Audit gratuit.',
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle' },
   openGraph: {
@@ -113,7 +113,7 @@ export default function IntelligenceArtificiellePage() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Intelligence artificielle pour PME en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Intelligence artificielle pour PME Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Déployez l&apos;IA <GradText as="span">là où ça compte</GradText>. Pas partout pour l&apos;effet.
                 </p>
@@ -149,7 +149,7 @@ export default function IntelligenceArtificiellePage() {
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(212,212,216,0.10)' }}>
                   <Image
                     src="/images/pillars/intelligence-artificielle.webp"
-                    alt="Intelligence artificielle pour PME en Suisse romande"
+                    alt="Intelligence artificielle pour PME Genève & Suisse romande"
                     fill
                     className="object-cover"
                     priority

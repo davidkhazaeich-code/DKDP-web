@@ -22,7 +22,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
-  title: 'Mise en conformité RGPD et nLPD Suisse romande | Bandeau cookies | DKDP',
+  title: 'RGPD et nLPD Genève & Suisse romande | Bandeau cookies | DKDP',
   description:
     'Mise en conformité RGPD et nLPD pour entreprises et PME à Genève. Bandeau cookies, politique de confidentialité, registre des traitements. Audit sous 48h, dès CHF 800.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/rgpd-cookies' },
@@ -146,7 +146,7 @@ export default function RGPDCookiesPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Conformité RGPD et nLPD en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Conformité RGPD et nLPD Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Conforme en <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>5 jours</GradText>. Tranquille pour <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>des années</GradText>.
                 </p>

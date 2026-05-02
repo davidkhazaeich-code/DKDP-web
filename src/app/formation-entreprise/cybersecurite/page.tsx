@@ -23,7 +23,7 @@ import { orange } from '@/lib/tokens'
 import { ThreatLevelChart } from './_components/ThreatLevelChart'
 
 export const metadata: Metadata = {
-  title: 'Formation Cybersécurité Entreprise Suisse romande · DKDP',
+  title: 'Formation Cybersécurité Genève & Suisse romande · DKDP',
   description:
     'Formation cybersécurité pour PME et entreprises en Suisse romande. Phishing, ransomware, social engineering. Simulations réelles, bonnes pratiques et plan d\'urgence. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/cybersecurite' },
@@ -109,7 +109,7 @@ export default function FormationCybersecuritePage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation cybersécurité entreprise en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation cybersécurité entreprise Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Un clic mal placé coûte <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>plus cher</GradText>{' '}qu&apos;une journée de formation.
                 </p>

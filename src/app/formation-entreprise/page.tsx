@@ -31,7 +31,7 @@ import { HeroVisual } from './_components/HeroVisual'
 import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from '@/components/ui/AppLogos'
 
 export const metadata: Metadata = {
-  title: 'Formation Informatique Entreprise Suisse romande · PME et Équipes · DKDP',
+  title: 'Formation Entreprise Genève & Suisse romande · PME et Équipes · DKDP',
   description: 'Formation informatique pour entreprises et PME à Genève. Formez vos collaborateurs en IA, Excel, cybersécurité. Sessions sur mesure, en présentiel ou en ligne. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise' },
   openGraph: {
@@ -141,7 +141,7 @@ export default function FormationEntreprisePage() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation entreprise en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation entreprise Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Vos équipes compétentes <GradText as="span">dès demain</GradText>. Pas dans six mois.
                 </p>

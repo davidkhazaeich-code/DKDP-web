@@ -23,7 +23,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
-  title: 'Agence SEO Suisse romande | SEO local, GEO & AI Overviews | DKDP',
+  title: 'Agence SEO Genève & Suisse romande | Local, GEO, AI | DKDP',
   description:
     "Agence SEO et GEO à Genève : audit SEO, SEO local (Google Business Profile, citations), stratégie contenu, E-E-A-T. Dominez Google, ChatGPT, Perplexity et les AI Overviews. PME Suisse romande, résultats 6-12 semaines.",
   alternates: {
@@ -169,7 +169,7 @@ export default function SEOPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Référencement SEO en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Référencement SEO Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   La <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>première page</GradText>{' '}de Google. Pas la troisième.
                 </p>

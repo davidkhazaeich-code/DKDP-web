@@ -30,7 +30,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBlock').then(m => ({ default: m.SiteAuditBlock })))
 
 export const metadata: Metadata = {
-  title: 'Agence Digitale Suisse romande · Site web, SEO, Google Ads · DKDP',
+  title: 'Agence Digitale Genève & Suisse romande · Web, SEO, Ads · DKDP',
   description: 'Agence digitale à Genève. Création de site web, SEO, Google Ads et réseaux sociaux pour PME en Suisse romande. 100+ sites livrés, devis gratuit sous 48h.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale' },
   openGraph: {
@@ -135,7 +135,7 @@ export default function AgenceDigitalePage() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Agence digitale en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Agence digitale Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Votre présence en ligne, pensée pour <GradText as="span">ramener des clients</GradText>.
                 </p>

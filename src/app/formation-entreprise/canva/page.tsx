@@ -24,7 +24,7 @@ import { AppLogoMarquee, DESIGN_WEB_LOGOS, SOCIAL_LOGOS } from '@/components/ui/
 import { CanvaFeatureCards } from './_components/CanvaFeatureCards'
 
 export const metadata: Metadata = {
-  title: 'Formation Canva Entreprise Suisse romande | Brand Kit, Templates, Magic Studio | DKDP',
+  title: 'Formation Canva Genève & Suisse romande | Brand Kit, Magic Studio | DKDP',
   description:
     'Formation Canva pour PME et entreprises à Genève et en Suisse romande. Brand Kit, templates, posts sociaux, présentations, IA Magic Studio. Vos équipes créent des visuels professionnels en une journée. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/canva' },
@@ -140,7 +140,7 @@ export default function FormationCanvaPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation Canva en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation Canva Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Créez vos visuels en 5 minutes. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Aux couleurs de votre marque</GradText>.
                 </p>

@@ -35,7 +35,7 @@ import { LeadFormInlineClaudeAI } from './_components/LeadFormInlineClaudeAI'
 import { GalleryFormationClaudeAI } from './_components/GalleryFormationClaudeAI'
 
 export const metadata: Metadata = {
-  title: 'Formation Claude IA Suisse romande | Entreprise et Équipes | DKDP',
+  title: 'Formation Claude IA Genève & Suisse romande | Entreprise | DKDP',
   description:
     'Formation Claude IA pour entreprises à Genève et en Suisse romande. Claude.ai, Projects collaboratifs, Claude Code. Programme sur mesure, 1 à 2 jours, présentiel ou distanciel.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/claude-ai' },
@@ -188,7 +188,7 @@ export default function FormationClaudeAIPage() {
               {/* Left */}
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <h1 className="grad-tag inline-block text-xs md:text-sm">Formation Claude IA en Suisse romande</h1>
+                  <h1 className="grad-tag inline-block text-xs md:text-sm">Formation Claude IA Genève & Suisse romande</h1>
                   <span
                     className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
                     style={{ color: OR, background: ORB, border: `1px solid ${ORD}` }}

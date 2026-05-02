@@ -37,7 +37,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const AuditScoreCard = dynamic(() => import('./_components/AuditScoreCard').then(m => m.AuditScoreCard))
 
 export const metadata: Metadata = {
-  title: 'Audit et Conseil IA pour Entreprises en Suisse romande | DKDP',
+  title: 'Audit IA Entreprises Genève & Suisse romande | DKDP',
   description: "Conseil en intelligence artificielle pour PME en Suisse romande. Audit IA structuré : 3 actions à fort ROI identifiées. Dès CHF 490, rapport complet sous 48h.",
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/audit-conseil' },
   openGraph: {
@@ -115,7 +115,7 @@ export default function AuditConseilPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <h1 className="grad-tag inline-block text-xs md:text-sm">Audit IA pour entreprise en Suisse romande</h1>
+                  <h1 className="grad-tag inline-block text-xs md:text-sm">Audit IA entreprise Genève & Suisse romande</h1>
                   <span
                     className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
                     style={{ background: 'rgba(74,222,128,0.12)', color: green, border: `1px solid rgba(74,222,128,0.25)` }}

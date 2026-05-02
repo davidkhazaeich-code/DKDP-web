@@ -35,7 +35,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const AgentTypesGrid = dynamic(() => import('./_components/AgentTypesGrid').then(m => m.AgentTypesGrid))
 
 export const metadata: Metadata = {
-  title: 'Agents IA sur mesure Suisse romande | Claude, GPT-5, LangChain | DKDP',
+  title: 'Agents IA Genève & Suisse romande | Claude, GPT-5 | DKDP',
   description:
     "Développement d'agents IA autonomes pour PME romandes : assistants virtuels, agents commerciaux, RAG. Technologies Claude Anthropic, GPT-5, LangChain, n8n. Devis 48 h.",
   alternates: {
@@ -113,7 +113,7 @@ export default function AgentsIAPage() {
     <main>
       <SchemaOrg
         schema={buildServiceWithLocalBusiness({
-          name: 'Agents IA sur mesure en Suisse romande',
+          name: 'Agents IA sur mesure Genève & Suisse romande',
           url: '/intelligence-artificielle/agents-ia',
           description:
             "Développement d'agents IA autonomes pour PME romandes : assistants virtuels, agents commerciaux, agents de support et RAG. Technologies Claude (Anthropic), GPT-5 (OpenAI), LangChain, LangGraph, n8n. Hébergement Suisse possible, conforme nLPD 2023 et RGPD.",
@@ -150,7 +150,7 @@ export default function AgentsIAPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Agents IA sur mesure en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Agents IA sur mesure Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Un employé virtuel qui bosse <GradText as="span">24/7</GradText>. Et ne se plaint jamais.
                 </p>

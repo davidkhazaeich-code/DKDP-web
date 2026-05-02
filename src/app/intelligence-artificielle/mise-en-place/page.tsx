@@ -37,7 +37,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const LLMStackDiagram = dynamic(() => import('./_components/LLMStackDiagram').then(m => m.LLMStackDiagram))
 
 export const metadata: Metadata = {
-  title: 'Mise en place IA en Entreprise Suisse romande | Intégration ChatGPT Claude | DKDP',
+  title: 'Mise en place IA Genève & Suisse romande | ChatGPT Claude | DKDP',
   description: "Intégration IA sur mesure pour entreprises et PME à Genève. ChatGPT, Claude, Mistral connectés à vos outils existants. Déploiement rapide, sans tout reconstruire. Devis gratuit.",
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/mise-en-place' },
   openGraph: {
@@ -124,7 +124,7 @@ export default function MiseEnPlacePage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Mise en place de l&apos;IA en entreprise en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Mise en place IA entreprise Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Intégrez l&apos;IA dans vos outils existants. <GradText as="span">Sans tout casser</GradText>.
                 </p>

@@ -35,7 +35,7 @@ const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 export const metadata: Metadata = {
-  title: 'Publicité Google Ads Suisse romande · Campagnes SEA · DKDP',
+  title: 'Google Ads Genève & Suisse romande · Campagnes SEA · DKDP',
   description:
     'Agence Google Ads à Genève. Campagnes Search et Display rentables, avec suivi précis du ROI. Résultats dès la première semaine.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/publicite-sea' },
@@ -222,7 +222,7 @@ export default function PubliciteSEAPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Campagnes Google Ads en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Campagnes Google Ads Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Chaque franc investi, <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>mesuré</GradText>. Chaque lead, <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>compté</GradText>.
                 </p>

@@ -48,7 +48,7 @@ const Testimonials = dynamic(() =>
 )
 
 export const metadata: Metadata = {
-  title: 'Chatbot IA Suisse romande | Claude, GPT-5, WhatsApp | DKDP',
+  title: 'Chatbot IA Genève & Suisse romande | Claude, GPT-5 | DKDP',
   description:
     'Création de chatbots IA pour PME Genève : support 24/7, qualification leads, prise RDV. Basés Claude (Anthropic), GPT-5. Intégration WhatsApp, site web, Messenger. Déploiement 2 semaines.',
   alternates: {
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Chatbot IA Suisse romande | Claude, GPT-5, WhatsApp | DKDP',
+    title: 'Chatbot IA Genève & Suisse romande | Claude, GPT-5 | DKDP',
     description:
       "Chatbot IA conçu pour votre métier : support client 24/7, qualification de leads, prise de rendez-vous automatique. Moteurs Claude Opus 4.7, GPT-5, Gemini 3. Agence DKDP, Genève.",
     url: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Chatbot IA Suisse romande | Claude, GPT-5, WhatsApp | DKDP',
+    title: 'Chatbot IA Genève & Suisse romande | Claude, GPT-5 | DKDP',
     description:
       "Chatbot IA conçu pour votre métier : support 24/7, leads qualifiés, RDV automatiques. Dès CHF 2'900. Agence DKDP Genève.",
   },
@@ -312,7 +312,7 @@ export default function ChatbotIAPage() {
       {/* ── Schema.org ── */}
       <SchemaOrg
         schema={buildServiceWithLocalBusiness({
-          name: 'Chatbot IA sur mesure en Suisse romande',
+          name: 'Chatbot IA sur mesure Genève & Suisse romande',
           url: '/intelligence-artificielle/chatbot-ia',
           description:
             "Conception et déploiement de chatbots IA sur mesure pour PME à Genève et en Suisse romande. Propulsés par Claude Opus 4.7 (Anthropic), GPT-5 (OpenAI) ou Gemini 3 (Google). Intégration WhatsApp Business, site web, Messenger. RAG sur base documentaire privée. Conforme nLPD 2023, hébergement Suisse disponible.",
@@ -397,7 +397,7 @@ export default function ChatbotIAPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Chatbot IA sur mesure en Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Chatbot IA sur mesure Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Pas un chatbot générique. Un assistant qui <GradText as="span">connaît votre métier</GradText>.
                 </p>

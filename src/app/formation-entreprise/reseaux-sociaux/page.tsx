@@ -24,7 +24,7 @@ import { AppLogoMarquee, SOCIAL_LOGOS, DESIGN_WEB_LOGOS } from '@/components/ui/
 import { SocialBeforeAfter } from './_components/SocialBeforeAfter'
 
 export const metadata: Metadata = {
-  title: 'Formation Réseaux Sociaux Entreprise Genève · DKDP',
+  title: 'Formation Réseaux Sociaux Entreprise Suisse romande · DKDP',
   description:
     'Formation réseaux sociaux pour PME en Suisse romande et à Genève. Instagram, LinkedIn, TikTok, Facebook. Stratégie, Canva, calendrier éditorial. Demandez votre devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/reseaux-sociaux' },
@@ -125,7 +125,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationReseauxSociauxPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Réseaux Sociaux Entreprise Genève', url: '/formation-entreprise/reseaux-sociaux', description: 'Formation réseaux sociaux professionnels à Genève. Instagram, LinkedIn, TikTok, Facebook. Stratégie, Canva, calendrier éditorial. Autonomie dès le lendemain.', duration: 'P1D', teaches: ['Stratégie réseaux sociaux', 'Création de contenu', 'Calendrier éditorial', 'Instagram', 'LinkedIn', 'TikTok'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Réseaux Sociaux Entreprise Suisse romande', url: '/formation-entreprise/reseaux-sociaux', description: 'Formation réseaux sociaux professionnels à Genève. Instagram, LinkedIn, TikTok, Facebook. Stratégie, Canva, calendrier éditorial. Autonomie dès le lendemain.', duration: 'P1D', teaches: ['Stratégie réseaux sociaux', 'Création de contenu', 'Calendrier éditorial', 'Instagram', 'LinkedIn', 'TikTok'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

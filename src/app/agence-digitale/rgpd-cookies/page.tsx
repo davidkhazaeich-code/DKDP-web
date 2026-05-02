@@ -22,7 +22,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
-  title: 'Mise en conformité RGPD et nLPD Genève | Bandeau cookies | DKDP',
+  title: 'Mise en conformité RGPD et nLPD Suisse romande | Bandeau cookies | DKDP',
   description:
     'Mise en conformité RGPD et nLPD pour entreprises et PME à Genève. Bandeau cookies, politique de confidentialité, registre des traitements. Audit sous 48h, dès CHF 800.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/rgpd-cookies' },
@@ -125,7 +125,7 @@ const border = violet.border
 export default function RGPDCookiesPage() {
   return (
     <main>
-      <SchemaOrg schema={buildService({ name: 'Mise en conformité RGPD et LPD Genève', url: '/agence-digitale/rgpd-cookies', description: 'Conformité RGPD et revLPD pour PME à Genève. Audit 48h, banner cookies, politique de confidentialité, registre des traitements, certificat de conformité.' })} />
+      <SchemaOrg schema={buildService({ name: 'Mise en conformité RGPD et LPD Suisse romande', url: '/agence-digitale/rgpd-cookies', description: 'Conformité RGPD et revLPD pour PME à Genève. Audit 48h, banner cookies, politique de confidentialité, registre des traitements, certificat de conformité.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

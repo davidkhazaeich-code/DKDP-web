@@ -35,7 +35,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const AgentTypesGrid = dynamic(() => import('./_components/AgentTypesGrid').then(m => m.AgentTypesGrid))
 
 export const metadata: Metadata = {
-  title: 'Agents IA sur mesure Genève | Claude, GPT-5, LangChain | DKDP',
+  title: 'Agents IA sur mesure Suisse romande | Claude, GPT-5, LangChain | DKDP',
   description:
     "Développement d'agents IA autonomes pour PME romandes : assistants virtuels, agents commerciaux, RAG. Technologies Claude Anthropic, GPT-5, LangChain, n8n. Devis 48 h.",
   alternates: {
@@ -113,7 +113,7 @@ export default function AgentsIAPage() {
     <main>
       <SchemaOrg
         schema={buildServiceWithLocalBusiness({
-          name: 'Agents IA sur mesure à Genève',
+          name: 'Agents IA sur mesure en Suisse romande',
           url: '/intelligence-artificielle/agents-ia',
           description:
             "Développement d'agents IA autonomes pour PME romandes : assistants virtuels, agents commerciaux, agents de support et RAG. Technologies Claude (Anthropic), GPT-5 (OpenAI), LangChain, LangGraph, n8n. Hébergement Suisse possible, conforme nLPD 2023 et RGPD.",

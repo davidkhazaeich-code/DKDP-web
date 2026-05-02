@@ -35,7 +35,7 @@ const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 export const metadata: Metadata = {
-  title: 'Publicité Google Ads Genève · Campagnes SEA · DKDP',
+  title: 'Publicité Google Ads Suisse romande · Campagnes SEA · DKDP',
   description:
     'Agence Google Ads à Genève. Campagnes Search et Display rentables, avec suivi précis du ROI. Résultats dès la première semaine.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/publicite-sea' },
@@ -201,7 +201,7 @@ const border = violet.border
 export default function PubliciteSEAPage() {
   return (
     <main>
-      <SchemaOrg schema={buildService({ name: 'Publicité Google Ads Genève', url: '/agence-digitale/publicite-sea', description: 'Gestion de campagnes Google Ads pour PME à Genève. Search, Display et remarketing avec suivi ROI précis.' })} />
+      <SchemaOrg schema={buildService({ name: 'Publicité Google Ads Suisse romande', url: '/agence-digitale/publicite-sea', description: 'Gestion de campagnes Google Ads pour PME à Genève. Search, Display et remarketing avec suivi ROI précis.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

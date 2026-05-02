@@ -23,7 +23,7 @@ import { orange } from '@/lib/tokens'
 import { VideoToolCards } from './_components/VideoToolCards'
 
 export const metadata: Metadata = {
-  title: 'Formation Montage Vidéo Entreprise Genève · DKDP',
+  title: 'Formation Montage Vidéo Entreprise Suisse romande · DKDP',
   description:
     'Formation montage vidéo pour PME en Suisse romande. CapCut, DaVinci Resolve, Premiere Pro. Vos équipes produisent en interne. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/montage-video' },
@@ -97,7 +97,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationMontageVideoPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Montage Vidéo Entreprise Genève', url: '/formation-entreprise/montage-video', description: 'Formation montage vidéo pour équipes d\'entreprise à Genève. CapCut, DaVinci Resolve et Premiere Pro. Produisez vos vidéos professionnelles en interne.', duration: 'P1D', teaches: ['CapCut', 'DaVinci Resolve', 'Premiere Pro', 'Tournage smartphone', 'Export multi-format'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Montage Vidéo Entreprise Suisse romande', url: '/formation-entreprise/montage-video', description: 'Formation montage vidéo pour équipes d\'entreprise à Genève. CapCut, DaVinci Resolve et Premiere Pro. Produisez vos vidéos professionnelles en interne.', duration: 'P1D', teaches: ['CapCut', 'DaVinci Resolve', 'Premiere Pro', 'Tournage smartphone', 'Export multi-format'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

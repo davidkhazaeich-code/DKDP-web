@@ -48,7 +48,7 @@ const Testimonials = dynamic(() =>
 )
 
 export const metadata: Metadata = {
-  title: 'Chatbot IA Genève | Claude, GPT-5, WhatsApp | DKDP',
+  title: 'Chatbot IA Suisse romande | Claude, GPT-5, WhatsApp | DKDP',
   description:
     'Création de chatbots IA pour PME Genève : support 24/7, qualification leads, prise RDV. Basés Claude (Anthropic), GPT-5. Intégration WhatsApp, site web, Messenger. Déploiement 2 semaines.',
   alternates: {
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Chatbot IA Genève | Claude, GPT-5, WhatsApp | DKDP',
+    title: 'Chatbot IA Suisse romande | Claude, GPT-5, WhatsApp | DKDP',
     description:
       "Chatbot IA conçu pour votre métier : support client 24/7, qualification de leads, prise de rendez-vous automatique. Moteurs Claude Opus 4.7, GPT-5, Gemini 3. Agence DKDP, Genève.",
     url: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Chatbot IA Genève | Claude, GPT-5, WhatsApp | DKDP',
+    title: 'Chatbot IA Suisse romande | Claude, GPT-5, WhatsApp | DKDP',
     description:
       "Chatbot IA conçu pour votre métier : support 24/7, leads qualifiés, RDV automatiques. Dès CHF 2'900. Agence DKDP Genève.",
   },
@@ -312,7 +312,7 @@ export default function ChatbotIAPage() {
       {/* ── Schema.org ── */}
       <SchemaOrg
         schema={buildServiceWithLocalBusiness({
-          name: 'Chatbot IA sur mesure à Genève',
+          name: 'Chatbot IA sur mesure en Suisse romande',
           url: '/intelligence-artificielle/chatbot-ia',
           description:
             "Conception et déploiement de chatbots IA sur mesure pour PME à Genève et en Suisse romande. Propulsés par Claude Opus 4.7 (Anthropic), GPT-5 (OpenAI) ou Gemini 3 (Google). Intégration WhatsApp Business, site web, Messenger. RAG sur base documentaire privée. Conforme nLPD 2023, hébergement Suisse disponible.",
@@ -331,7 +331,7 @@ export default function ChatbotIAPage() {
       />
       <SchemaOrg
         schema={buildWebPageWithSpeakable({
-          name: 'Chatbot IA sur mesure pour entreprises à Genève',
+          name: 'Chatbot IA sur mesure pour entreprises en Suisse romande',
           url: '/intelligence-artificielle/chatbot-ia',
           description: 'DKDP concoit et déploie des chatbots IA sur mesure pour PME à Genève. Support client 24/7, qualification de leads, prise de rendez-vous automatique. Des CHF 2900, déployé en 2 a 5 semaines.',
         })}

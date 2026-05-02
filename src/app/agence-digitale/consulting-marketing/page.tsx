@@ -23,7 +23,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
-  title: 'Consulting Marketing Digital Genève · DKDP',
+  title: 'Consulting Marketing Digital Suisse romande · DKDP',
   description:
     'Consulting marketing digital pour PME à Genève. Audit de présence digitale, stratégie sur mesure et accompagnement. Clarifiez votre cap digital.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/consulting-marketing' },
@@ -122,7 +122,7 @@ const border = violet.border
 export default function ConsultingMarketingPage() {
   return (
     <main>
-      <SchemaOrg schema={buildService({ name: 'Consulting Marketing Digital Genève', url: '/agence-digitale/consulting-marketing', description: 'Audit de présence digitale et consulting stratégique pour PME à Genève. Plan d\'actions priorisé et accompagnement.' })} />
+      <SchemaOrg schema={buildService({ name: 'Consulting Marketing Digital Suisse romande', url: '/agence-digitale/consulting-marketing', description: 'Audit de présence digitale et consulting stratégique pour PME à Genève. Plan d\'actions priorisé et accompagnement.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

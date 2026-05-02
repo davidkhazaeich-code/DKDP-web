@@ -194,7 +194,7 @@ export default function AutomationPage() {
     <main>
       <SchemaOrg
         schema={buildServiceWithLocalBusiness({
-          name: 'Automatisation n8n, Make, Zapier à Genève',
+          name: 'Automatisation n8n, Make, Zapier en Suisse romande',
           url: '/intelligence-artificielle/automatisation',
           description:
             'Automatisation des processus métier via n8n (auto-hébergé ou cloud), Make et Zapier. Connecte Bexio, Abacus, HubSpot, Salesforce, Google Workspace, Slack, WhatsApp Business, Stripe. Conforme nLPD 2023, hébergement Suisse possible.',

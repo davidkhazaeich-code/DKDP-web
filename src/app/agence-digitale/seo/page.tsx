@@ -23,7 +23,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
-  title: 'Agence SEO Genève | SEO local, GEO & AI Overviews | DKDP',
+  title: 'Agence SEO Suisse romande | SEO local, GEO & AI Overviews | DKDP',
   description:
     "Agence SEO et GEO à Genève : audit SEO, SEO local (Google Business Profile, citations), stratégie contenu, E-E-A-T. Dominez Google, ChatGPT, Perplexity et les AI Overviews. PME Suisse romande, résultats 6-12 semaines.",
   alternates: {
@@ -140,7 +140,7 @@ export default function SEOPage() {
     <main>
       <SchemaOrg
         schema={buildServiceWithLocalBusiness({
-          name: 'Agence SEO et GEO à Genève',
+          name: 'Agence SEO et GEO en Suisse romande',
           url: '/agence-digitale/seo',
           description:
             "Agence de référencement naturel (SEO) et Generative Engine Optimization (GEO) à Genève. Audit SEO technique, SEO local (Google Business Profile, citations locales, reviews), stratégie de contenu, E-E-A-T, Schema.org, netlinking. Optimisation pour Google, ChatGPT, Perplexity, Claude, Copilot et les AI Overviews. PME Suisse romande.",

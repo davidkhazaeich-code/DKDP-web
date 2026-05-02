@@ -30,7 +30,7 @@ import { ModulesMarquee } from './_components/ModulesMarquee'
 import { DayAgenda } from './_components/DayAgenda'
 
 export const metadata: Metadata = {
-  title: 'Formation IA entreprise Genève · ChatGPT, Claude, Copilot en 1 jour · DKDP',
+  title: 'Formation IA entreprise Suisse romande · ChatGPT, Claude, Copilot en 1 jour · DKDP',
   description:
     "Former ses équipes à l'IA en 1 jour. Formation entreprise à Genève et en Suisse romande : ChatGPT, Claude, Copilot. 100% opérationnels dès J+1. Programme sur mesure pour PME.",
   alternates: {
@@ -111,7 +111,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationIAPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Intelligence Artificielle en entreprise Genève', url: '/formation-entreprise/ia', description: 'Formation IA pratique pour équipes d\'entreprise à Genève et Suisse romande. ChatGPT, Claude, Copilot maîtrisés en 1 jour. Programme sur mesure.', duration: 'P1D', teaches: ['Prompting avancé', 'ChatGPT', 'Claude', 'Copilot', 'Automatisation IA', 'Confidentialité IA'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: 4.9, ratingCount: 500, image: 'https://dkdp.ch/images/og/formation-ia.png' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Intelligence Artificielle Entreprise Suisse romande', url: '/formation-entreprise/ia', description: 'Formation IA pratique pour équipes d\'entreprise à Genève et Suisse romande. ChatGPT, Claude, Copilot maîtrisés en 1 jour. Programme sur mesure.', duration: 'P1D', teaches: ['Prompting avancé', 'ChatGPT', 'Claude', 'Copilot', 'Automatisation IA', 'Confidentialité IA'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: 4.9, ratingCount: 500, image: 'https://dkdp.ch/images/og/formation-ia.png' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

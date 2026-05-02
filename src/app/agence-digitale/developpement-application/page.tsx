@@ -26,7 +26,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
-  title: 'Développement Application Genève | iOS, Android, Web App | DKDP',
+  title: 'Développement Application Suisse romande | iOS, Android, Web App | DKDP',
   description:
     'Développement d\'applications mobiles et web pour PME à Genève. iOS, Android, React Native, Web App sur mesure. Du cahier des charges au lancement, devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/developpement-application' },
@@ -158,7 +158,7 @@ export default function DeveloppementApplicationPage() {
   return (
     <main>
       <SchemaOrg schema={buildService({
-        name: 'Développement d\'application à Genève',
+        name: 'Développement d\'application en Suisse romande',
         url: '/agence-digitale/developpement-application',
         description: 'Développement d\'applications mobiles iOS, Android et web app sur mesure pour PME à Genève. React Native, Next.js, Supabase.',
       })} />

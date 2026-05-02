@@ -26,7 +26,7 @@ const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBloc
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
-  title: 'Création de Site Web à Genève | Sur mesure et performant | DKDP',
+  title: 'Création de Site Web en Suisse romande | Sur mesure et performant | DKDP',
   description:
     'Création de sites web professionnels à Genève. Site vitrine, e-commerce ou sur mesure. Rapide, SEO-ready, livré en 3 à 5 semaines. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-site-web' },
@@ -159,7 +159,7 @@ const border = violet.border
 export default function CreationSiteWebPage() {
   return (
     <main>
-      <SchemaOrg schema={buildService({ name: 'Création de site web à Genève', url: '/agence-digitale/creation-site-web', description: 'Création de sites web professionnels sur mesure pour PME à Genève. Site vitrine, e-commerce, Next.js, Astro, WordPress.' })} />
+      <SchemaOrg schema={buildService({ name: 'Création de site web en Suisse romande', url: '/agence-digitale/creation-site-web', description: 'Création de sites web professionnels sur mesure pour PME à Genève. Site vitrine, e-commerce, Next.js, Astro, WordPress.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

@@ -24,7 +24,7 @@ import { chrome } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 
 export const metadata: Metadata = {
-  title: 'Agence IA Genève | Intelligence Artificielle pour PME | DKDP',
+  title: 'Agence IA Suisse romande | Intelligence Artificielle pour PME | DKDP',
   description: 'Agence IA à Genève pour PME et entreprises. Agents IA sur mesure, automatisation des processus, audit et conseil. 700+ entreprises accompagnées en Suisse romande. Audit gratuit.',
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle' },
   openGraph: {
@@ -99,7 +99,7 @@ const badgeColors: Record<string, { background: string; color: string; border: s
 export default function IntelligenceArtificiellePage() {
   return (
     <main>
-      <SchemaOrg schema={buildService({ name: 'Intelligence Artificielle pour PME Genève', url: '/intelligence-artificielle', description: 'Agents IA sur mesure, automatisation des processus et conseil IA pour PME en Suisse romande.' })} />
+      <SchemaOrg schema={buildService({ name: 'Intelligence Artificielle pour PME Suisse romande', url: '/intelligence-artificielle', description: 'Agents IA sur mesure, automatisation des processus et conseil IA pour PME en Suisse romande.' })} />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Intelligence Artificielle', url: '/intelligence-artificielle' }])} />
       <SchemaOrg schema={buildFAQPage(FAQ_IA)} />
 

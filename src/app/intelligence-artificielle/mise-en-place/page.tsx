@@ -37,7 +37,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const LLMStackDiagram = dynamic(() => import('./_components/LLMStackDiagram').then(m => m.LLMStackDiagram))
 
 export const metadata: Metadata = {
-  title: 'Mise en place IA en Entreprise Genève | Intégration ChatGPT Claude | DKDP',
+  title: 'Mise en place IA en Entreprise Suisse romande | Intégration ChatGPT Claude | DKDP',
   description: "Intégration IA sur mesure pour entreprises et PME à Genève. ChatGPT, Claude, Mistral connectés à vos outils existants. Déploiement rapide, sans tout reconstruire. Devis gratuit.",
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/mise-en-place' },
   openGraph: {
@@ -87,7 +87,7 @@ export default function MiseEnPlacePage() {
     <main>
       <SchemaOrg
         schema={buildService({
-          name: 'Mise en place IÀ Genève : Intégration ChatGPT Claude LLM',
+          name: 'Mise en place IA Suisse romande : Intégration ChatGPT Claude LLM',
           url: '/intelligence-artificielle/mise-en-place',
           description:
             'Intégration de ChatGPT, Claude et autres LLMs dans votre stack existant. Couche d\'orchestration sur mesure, prompt engineering, connexion a vos données. Sans tout reconstruire.',

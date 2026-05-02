@@ -24,7 +24,7 @@ import { AppLogoMarquee, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from '@/compone
 import { ITProblemsComparison } from './_components/ITProblemsComparison'
 
 export const metadata: Metadata = {
-  title: 'Formation Informatique Entreprise Genève · DKDP',
+  title: 'Formation Informatique Entreprise Suisse romande · DKDP',
   description:
     'Formation informatique pour PME à Genève et en Suisse romande. Windows, emails, réseau, outils collaboratifs. Tous niveaux, en présentiel. Demandez votre devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/informatique' },
@@ -89,7 +89,7 @@ const steps = [
 export default function FormationInformatiquePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Informatique Entreprise Genève', url: '/formation-entreprise/informatique', description: 'Formation informatique pour PME à Genève. Windows, emails, réseau, outils collaboratifs. Tous niveaux, en présentiel.', duration: 'P1D', teaches: ['Windows', 'Gestion fichiers', 'Emails professionnels', 'Outils collaboratifs', 'Cloud'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Informatique Entreprise Suisse romande', url: '/formation-entreprise/informatique', description: 'Formation informatique pour PME à Genève. Windows, emails, réseau, outils collaboratifs. Tous niveaux, en présentiel.', duration: 'P1D', teaches: ['Windows', 'Gestion fichiers', 'Emails professionnels', 'Outils collaboratifs', 'Cloud'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

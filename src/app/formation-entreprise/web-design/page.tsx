@@ -24,7 +24,7 @@ import { AppLogoMarquee, DESIGN_WEB_LOGOS } from '@/components/ui/AppLogos'
 import { FigmaFeatureCards } from './_components/FigmaFeatureCards'
 
 export const metadata: Metadata = {
-  title: 'Formation Web Design et Figma à Genève | UI/UX, Wireframes, Prototypes | DKDP',
+  title: 'Formation Web Design et Figma Suisse romande | UI/UX, Wireframes, Prototypes | DKDP',
   description:
     'Formation Web Design et Figma pour PME et entreprises à Genève et en Suisse romande. UI/UX, wireframes, maquettes, design system, prototypes interactifs. Concevez votre site avant de le développer. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/web-design' },
@@ -119,7 +119,7 @@ const steps = [
 export default function FormationWebDesignPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Web Design et Figma Entreprise Genève', url: '/formation-entreprise/web-design', description: "Formation Web Design et Figma pour équipes produit, marketing et fondateurs à Genève et en Suisse romande. UI/UX, wireframes, maquettes, design system, prototypes. Concevez votre site avant de le développer.", duration: 'P1D', teaches: ['Figma', 'UI/UX Design', 'Wireframes', 'Auto Layout', 'Design System', 'Prototypes interactifs', 'Dev Mode'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Web Design et Figma Entreprise Suisse romande', url: '/formation-entreprise/web-design', description: "Formation Web Design et Figma pour équipes produit, marketing et fondateurs à Genève et en Suisse romande. UI/UX, wireframes, maquettes, design system, prototypes. Concevez votre site avant de le développer.", duration: 'P1D', teaches: ['Figma', 'UI/UX Design', 'Wireframes', 'Auto Layout', 'Design System', 'Prototypes interactifs', 'Dev Mode'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

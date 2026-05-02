@@ -23,7 +23,7 @@ import { orange } from '@/lib/tokens'
 import { ThreatLevelChart } from './_components/ThreatLevelChart'
 
 export const metadata: Metadata = {
-  title: 'Formation Cybersécurité Entreprise Genève · DKDP',
+  title: 'Formation Cybersécurité Entreprise Suisse romande · DKDP',
   description:
     'Formation cybersécurité pour PME et entreprises en Suisse romande. Phishing, ransomware, social engineering. Simulations réelles, bonnes pratiques et plan d\'urgence. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/cybersecurite' },
@@ -88,7 +88,7 @@ const steps = [
 export default function FormationCybersecuritePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Cybersécurité en entreprise Genève', url: '/formation-entreprise/cybersecurite', description: 'Formation cybersécurité pour PME à Genève. Phishing, ransomware, social engineering et bonnes pratiques pour équipes non-techniques.', duration: 'PT3H30M', teaches: ['Phishing', 'Ransomware', 'Mots de passe', 'RGPD', 'Plan urgence cyber'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Cybersécurité Entreprise Suisse romande', url: '/formation-entreprise/cybersecurite', description: 'Formation cybersécurité pour PME à Genève. Phishing, ransomware, social engineering et bonnes pratiques pour équipes non-techniques.', duration: 'PT3H30M', teaches: ['Phishing', 'Ransomware', 'Mots de passe', 'RGPD', 'Plan urgence cyber'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

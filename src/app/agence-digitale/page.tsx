@@ -30,7 +30,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBlock').then(m => ({ default: m.SiteAuditBlock })))
 
 export const metadata: Metadata = {
-  title: 'Agence Digitale Genève · Site web, SEO, Google Ads · DKDP',
+  title: 'Agence Digitale Suisse romande · Site web, SEO, Google Ads · DKDP',
   description: 'Agence digitale à Genève. Création de site web, SEO, Google Ads et réseaux sociaux pour PME en Suisse romande. 100+ sites livrés, devis gratuit sous 48h.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale' },
   openGraph: {
@@ -122,7 +122,7 @@ const badgeColors: Record<string, { background: string; color: string; border: s
 export default function AgenceDigitalePage() {
   return (
     <main>
-      <SchemaOrg schema={buildService({ name: 'Agence Digitale Genève', url: '/agence-digitale', description: 'Création de sites web, SEO, Google Ads et réseaux sociaux pour entreprises à Genève et en Suisse romande.' })} />
+      <SchemaOrg schema={buildService({ name: 'Agence Digitale Suisse romande', url: '/agence-digitale', description: 'Création de sites web, SEO, Google Ads et réseaux sociaux pour entreprises à Genève et en Suisse romande.' })} />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Agence Digitale', url: '/agence-digitale' }])} />
       <SchemaOrg schema={buildFAQPage(FAQ_AGENCE)} />
 

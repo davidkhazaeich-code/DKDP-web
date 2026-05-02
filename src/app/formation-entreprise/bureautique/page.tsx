@@ -24,7 +24,7 @@ import { AppLogoMarquee, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from '@/compone
 import { ExcelSkillsComparison } from './_components/ExcelSkillsComparison'
 
 export const metadata: Metadata = {
-  title: 'Formation Bureautique et Excel en Entreprise à Genève | DKDP',
+  title: 'Formation Bureautique et Excel Entreprise Suisse romande | DKDP',
   description:
     'Formation bureautique et Excel en entreprise à Genève et Suisse romande. Word, PowerPoint, Microsoft 365. Programme adapté à votre équipe, PME ou grande entreprise. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/bureautique' },
@@ -105,7 +105,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationBureautiquePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Bureautique Excel Microsoft 365 Genève', url: '/formation-entreprise/bureautique', description: 'Formation bureautique professionnelle à Genève. Excel, Word, PowerPoint, Outlook et Microsoft 365 pour équipes d\'entreprise.', duration: 'P1D', teaches: ['Excel', 'Word', 'PowerPoint', 'Microsoft 365', 'Tableaux croisés dynamiques'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Bureautique Excel Microsoft 365 Suisse romande', url: '/formation-entreprise/bureautique', description: 'Formation bureautique professionnelle à Genève. Excel, Word, PowerPoint, Outlook et Microsoft 365 pour équipes d\'entreprise.', duration: 'P1D', teaches: ['Excel', 'Word', 'PowerPoint', 'Microsoft 365', 'Tableaux croisés dynamiques'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

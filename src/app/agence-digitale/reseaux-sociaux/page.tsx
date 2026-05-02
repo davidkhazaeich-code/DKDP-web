@@ -32,7 +32,7 @@ const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 export const metadata: Metadata = {
-  title: 'Gestion Réseaux Sociaux Genève · Instagram, LinkedIn · DKDP',
+  title: 'Gestion Réseaux Sociaux Suisse romande · Instagram, LinkedIn · DKDP',
   description:
     'Agence social media à Genève : community management, création de contenu et Social Ads pour PME. Instagram, LinkedIn, TikTok, YouTube.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/reseaux-sociaux' },
@@ -136,7 +136,7 @@ const border = violet.border
 export default function ReseauxSociauxPage() {
   return (
     <main>
-      <SchemaOrg schema={buildService({ name: 'Gestion réseaux sociaux Genève', url: '/agence-digitale/reseaux-sociaux', description: 'Gestion des réseaux sociaux pour PME à Genève. Stratégie, contenu, community management et Social Ads.' })} />
+      <SchemaOrg schema={buildService({ name: 'Gestion réseaux sociaux Suisse romande', url: '/agence-digitale/reseaux-sociaux', description: 'Gestion des réseaux sociaux pour PME à Genève. Stratégie, contenu, community management et Social Ads.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

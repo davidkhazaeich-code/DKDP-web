@@ -35,7 +35,7 @@ import { LeadFormInlineClaudeAI } from './_components/LeadFormInlineClaudeAI'
 import { GalleryFormationClaudeAI } from './_components/GalleryFormationClaudeAI'
 
 export const metadata: Metadata = {
-  title: 'Formation Claude IA Genève | Entreprise et Équipes | DKDP',
+  title: 'Formation Claude IA Suisse romande | Entreprise et Équipes | DKDP',
   description:
     'Formation Claude IA pour entreprises à Genève et en Suisse romande. Claude.ai, Projects collaboratifs, Claude Code. Programme sur mesure, 1 à 2 jours, présentiel ou distanciel.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/claude-ai' },
@@ -151,7 +151,7 @@ export default function FormationClaudeAIPage() {
   return (
     <main>
       <SchemaOrg schema={buildCourse({
-        name: 'Formation Claude IA en entreprise Genève',
+        name: 'Formation Claude IA Entreprise Suisse romande',
         url: '/formation-entreprise/claude-ai',
         description: 'Formation spécialisée Claude AI pour équipes d\'entreprise à Genève. Claude.ai, Projects collaboratifs, Extended Thinking et Claude Code. Programme sur mesure.',
         duration: 'P2D',

@@ -21,7 +21,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
-  title: 'Création Vidéo Entreprise Genève · DKDP',
+  title: 'Création Vidéo Entreprise Suisse romande · DKDP',
   description:
     'Production vidéo professionnelle à Genève. Vidéos institutionnelles, témoignages clients, Reels et contenus courts. Captez l\'attention et restez en mémoire.',
   alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-video' },
@@ -124,7 +124,7 @@ const PROCESS = [
 export default function CreationVideoPage() {
   return (
     <main>
-      <SchemaOrg schema={buildService({ name: 'Création vidéo d\'entreprise Genève', url: '/agence-digitale/creation-video', description: 'Production vidéo professionnelle à Genève. Institutionnel, témoignages clients, Reels et contenus courts.' })} />
+      <SchemaOrg schema={buildService({ name: 'Création vidéo d\'entreprise Suisse romande', url: '/agence-digitale/creation-video', description: 'Production vidéo professionnelle à Genève. Institutionnel, témoignages clients, Reels et contenus courts.' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

@@ -24,7 +24,7 @@ import { AppLogoMarquee, DESIGN_WEB_LOGOS, SOCIAL_LOGOS } from '@/components/ui/
 import { CanvaFeatureCards } from './_components/CanvaFeatureCards'
 
 export const metadata: Metadata = {
-  title: 'Formation Canva en Entreprise à Genève | Brand Kit, Templates, Magic Studio | DKDP',
+  title: 'Formation Canva Entreprise Suisse romande | Brand Kit, Templates, Magic Studio | DKDP',
   description:
     'Formation Canva pour PME et entreprises à Genève et en Suisse romande. Brand Kit, templates, posts sociaux, présentations, IA Magic Studio. Vos équipes créent des visuels professionnels en une journée. Devis gratuit.',
   alternates: { canonical: 'https://dkdp.ch/formation-entreprise/canva' },
@@ -119,7 +119,7 @@ const steps = [
 export default function FormationCanvaPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Canva Entreprise Genève', url: '/formation-entreprise/canva', description: 'Formation Canva pour équipes de PME et entreprises à Genève et en Suisse romande. Brand Kit, templates, posts sociaux, présentations, IA Magic Studio. Devenez autonome sur Canva en une journée.', duration: 'P1D', teaches: ['Canva', 'Brand Kit', 'Magic Studio IA', 'Templates', 'Réseaux sociaux', 'Présentations'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Canva Entreprise Suisse romande', url: '/formation-entreprise/canva', description: 'Formation Canva pour équipes de PME et entreprises à Genève et en Suisse romande. Brand Kit, templates, posts sociaux, présentations, IA Magic Studio. Devenez autonome sur Canva en une journée.', duration: 'P1D', teaches: ['Canva', 'Brand Kit', 'Magic Studio IA', 'Templates', 'Réseaux sociaux', 'Présentations'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

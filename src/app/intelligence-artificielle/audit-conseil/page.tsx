@@ -37,7 +37,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const AuditScoreCard = dynamic(() => import('./_components/AuditScoreCard').then(m => m.AuditScoreCard))
 
 export const metadata: Metadata = {
-  title: 'Audit et Conseil IA pour Entreprises à Genève | DKDP',
+  title: 'Audit et Conseil IA pour Entreprises en Suisse romande | DKDP',
   description: "Conseil en intelligence artificielle pour PME en Suisse romande. Audit IA structuré : 3 actions à fort ROI identifiées. Dès CHF 490, rapport complet sous 48h.",
   alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/audit-conseil' },
   openGraph: {
@@ -85,7 +85,7 @@ const FAQ_ITEMS = [
 
 export default function AuditConseilPage() {
   const schemaService = buildService({
-    name: 'Audit et Conseil IA Genève',
+    name: 'Audit et Conseil IA Suisse romande',
     url: '/intelligence-artificielle/audit-conseil',
     description: "Audit de votre potentiel d'automatisation. On identifie les 3 actions à fort ROI dans votre entreprise. Sans engagement.",
   })

@@ -67,7 +67,7 @@ function formatRelative(iso: string): string {
   if (diffH < 24) return `il y a ${diffH}h`
   const diffD = Math.floor(diffH / 24)
   if (diffD < 7) return `il y a ${diffD}j`
-  return d.toLocaleDateString('fr-CH', { day: '2-digit', month: '2-digit' })
+  return d.toLocaleDateString('fr-CH', { day: '2-digit', month: '2-digit', timeZone: 'Europe/Zurich' })
 }
 
 export default async function AdminChatPage({
@@ -124,6 +124,7 @@ export default async function AdminChatPage({
   const generatedAt = new Date().toLocaleTimeString('fr-CH', {
     hour: '2-digit',
     minute: '2-digit',
+    timeZone: 'Europe/Zurich',
   })
 
   return (

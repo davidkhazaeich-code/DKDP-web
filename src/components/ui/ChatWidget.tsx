@@ -12,6 +12,7 @@ import {
   Mail, Mic, Search, Megaphone, Bot, Workflow, BrainCircuit, GraduationCap, FileText,
 } from 'lucide-react'
 import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { getCalApi } from '@calcom/embed-react'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 
@@ -210,14 +211,17 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
           <p className="whitespace-pre-wrap">{content}</p>
         ) : (
           <Markdown
+            remarkPlugins={[remarkGfm]}
             components={{
               p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
               strong: ({ children }) => <strong className="text-text font-semibold">{children}</strong>,
               ul: ({ children }) => <ul className="list-disc pl-4 mb-2 last:mb-0 space-y-1">{children}</ul>,
               ol: ({ children }) => <ol className="list-decimal pl-4 mb-2 last:mb-0 space-y-1">{children}</ol>,
               a: ({ href, children }) => {
-                // Internal links use Next.js Link
-                if (href?.startsWith('/')) {
+                // Internal links use Next.js Link, external open in new tab.
+                // Anchor links (#hash) and protocol links (mailto:, tel:) stay as <a>.
+                const isInternal = typeof href === 'string' && href.startsWith('/') && !href.startsWith('//')
+                if (isInternal) {
                   return (
                     <Link
                       href={href}
@@ -228,8 +232,14 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
                     </Link>
                   )
                 }
+                const isProtocol = typeof href === 'string' && /^(mailto:|tel:|sms:)/i.test(href)
                 return (
-                  <a href={href} target="_blank" rel="noopener noreferrer" className="text-[#A78BFA] underline underline-offset-2 hover:text-[#c4b5fd] transition-colors">
+                  <a
+                    href={href}
+                    target={isProtocol ? undefined : '_blank'}
+                    rel={isProtocol ? undefined : 'noopener noreferrer'}
+                    className="text-[#A78BFA] underline underline-offset-2 hover:text-[#c4b5fd] transition-colors break-all"
+                  >
                     {children}
                   </a>
                 )
@@ -604,13 +614,17 @@ export function ChatWidget() {
     } catch { /* ignore */ }
   }, [messages])
 
-  // Close chat on route change
+  // Close chat on route change.
+  // closedByNavRef signale au useEffect du body-lock qu'il ne doit PAS
+  // restaurer la position de scroll de l'ancienne page sur la nouvelle.
+  const closedByNavRef = useRef(false)
   useEffect(() => {
     if (pathname !== prevPathnameRef.current) {
       prevPathnameRef.current = pathname
+      if (isOpen) closedByNavRef.current = true
       setIsOpen(false)
     }
-  }, [pathname])
+  }, [pathname, isOpen])
 
   // Lock body scroll when chat is open (prevents background scroll on mobile)
   const scrollYRef = useRef(0)
@@ -626,7 +640,15 @@ export function ChatWidget() {
       document.body.classList.remove('chat-open')
       document.body.style.top = ''
       html.classList.remove('lenis-stopped')
-      window.scrollTo(0, scrollYRef.current)
+      // Skip scroll restore if the chat closed because the user navigated:
+      // scrollYRef belongs to the previous page and would land them at a random
+      // position on the new page (felt like "the link is broken").
+      if (closedByNavRef.current) {
+        closedByNavRef.current = false
+        scrollYRef.current = 0
+      } else {
+        window.scrollTo(0, scrollYRef.current)
+      }
     }
     return () => {
       document.body.classList.remove('chat-open')

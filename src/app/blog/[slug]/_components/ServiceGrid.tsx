@@ -42,7 +42,7 @@ export function ServiceGrid({ services }: { services: ServiceLink[] }) {
           <Link
             href="/contact"
             className="inline-block text-sm font-bold px-6 py-2.5 rounded-[10px] transition-opacity hover:opacity-80"
-            style={{ background: violet.color, color: '#09090B' }}
+            style={{ background: 'var(--violet)', color: '#fff' }}
           >
             Planifier un appel gratuit
           </Link>

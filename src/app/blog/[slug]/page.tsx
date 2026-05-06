@@ -546,7 +546,7 @@ export default async function ArticlePage(
                 <Link
                   href="/contact"
                   className="block w-full text-center text-xs font-bold py-2 px-4 rounded-[8px] transition-opacity hover:opacity-80"
-                  style={{ background: violetColor, color: '#09090B' }}
+                  style={{ background: 'var(--violet)', color: '#fff' }}
                 >
                   Appel gratuit
                 </Link>

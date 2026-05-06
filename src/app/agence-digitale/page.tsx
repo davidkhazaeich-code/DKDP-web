@@ -412,7 +412,7 @@ export default function AgenceDigitalePage() {
               </div>
               <span
                 className="flex-shrink-0 inline-flex items-center gap-2 text-sm font-bold px-6 py-3 rounded-xl transition-opacity group-hover:opacity-80"
-                style={{ background: color, color: '#000' }}
+                style={{ background: 'var(--violet)', color: '#fff' }}
               >
                 Estimer mon projet <ChevronRight size={16} />
               </span>

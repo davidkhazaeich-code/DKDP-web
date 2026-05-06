@@ -385,7 +385,7 @@ export default function RefonteSiteWebPage() {
               </div>
               <div
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm shrink-0 transition-transform group-hover:translate-x-1"
-                style={{ background: V, color: '#09090B' }}
+                style={{ background: 'var(--violet)', color: '#fff' }}
               >
                 Obtenir mon estimation
                 <ChevronRight size={16} />

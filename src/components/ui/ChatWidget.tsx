@@ -709,9 +709,9 @@ export function ChatWidget() {
     const ctrl = new AbortController()
     suggestionsAbortRef.current = ctrl
 
-    const tail = messages.slice(-4).map((m) => ({
-      role: m.role,
-      content: getMessageText(m),
+    const tail = messages.slice(-4).map((msg) => ({
+      role: msg.role,
+      content: getMessageText(msg),
     }))
 
     fetch('/api/chat/suggestions', {
@@ -1184,14 +1184,14 @@ export function ChatWidget() {
               </AnimatePresence>
 
               {/* Chat messages */}
-              {messages.map((m, idx) => {
-                const text = getMessageText(m)
+              {messages.map((msg, idx) => {
+                const text = getMessageText(msg)
                 if (!text) return null
-                const isLastAssistant = m.role === 'assistant' && idx === lastAssistantIdx && !isLoading
+                const isLastAssistant = msg.role === 'assistant' && idx === lastAssistantIdx && !isLoading
                 return (
-                  <div key={m.id}>
+                  <div key={msg.id}>
                     <MessageBubble
-                      role={m.role as 'user' | 'assistant'}
+                      role={msg.role as 'user' | 'assistant'}
                       content={text}
                     />
                     {/* CTA bar adaptatif sous le dernier message assistant */}

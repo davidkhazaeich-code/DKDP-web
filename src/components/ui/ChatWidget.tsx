@@ -228,7 +228,7 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
               a: ({ href, children }) => {
                 // Liens rendus en pill button : couleur violette, pas de souligne,
                 // une petite marge horizontale et verticale pour respirer dans le texte.
-                const linkClasses = 'inline-flex items-center gap-1 mx-1 my-0.5 px-2.5 py-0.5 rounded-full text-[12px] sm:text-[13px] font-medium align-middle whitespace-nowrap bg-[var(--violet-bg)] border border-[var(--violet-border)] text-[var(--violet-text)] hover:bg-[var(--violet-glow)] hover:text-[var(--violet)] transition-colors'
+                const linkClasses = 'inline-flex items-center gap-1 mx-1 my-1 px-2.5 py-0.5 rounded-full text-[12px] sm:text-[13px] font-medium align-middle whitespace-nowrap bg-[var(--violet-bg)] border border-[var(--violet-border)] text-[var(--violet-text)] hover:bg-[var(--violet-glow)] hover:text-[var(--violet)] transition-colors'
 
                 // Anchor links (#hash) and protocol links (mailto:, tel:) stay as <a>.
                 const isInternal = typeof href === 'string' && href.startsWith('/') && !href.startsWith('//')
@@ -373,7 +373,7 @@ function SmartCTABar({ lastAssistantContent }: { lastAssistantContent: string })
       initial={{ opacity: 0, y: 4 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.15 }}
-      className="flex flex-wrap gap-2 mt-4"
+      className="flex flex-wrap gap-2 mt-5"
     >
       {ctas.map((key, idx) => {
         const def = CTA_CATALOG[key]
@@ -1202,7 +1202,7 @@ export function ChatWidget() {
                         initial={{ opacity: 0, y: 4 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: 0.25 }}
-                        className="flex flex-col gap-2 mt-3"
+                        className="flex flex-col gap-2.5 mt-5"
                       >
                         <p className="text-[11px] sm:text-[12px] text-text-muted uppercase tracking-wider font-medium">
                           Vous pouvez aussi demander

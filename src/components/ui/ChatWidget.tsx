@@ -213,22 +213,22 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
           <Markdown
             remarkPlugins={[remarkGfm]}
             components={{
-              p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+              p: ({ children }) => <p className="mb-2.5 last:mb-0">{children}</p>,
               strong: ({ children }) => <strong className="text-text font-semibold">{children}</strong>,
-              ul: ({ children }) => <ul className="list-disc pl-4 mb-2 last:mb-0 space-y-1">{children}</ul>,
-              ol: ({ children }) => <ol className="list-decimal pl-4 mb-2 last:mb-0 space-y-1">{children}</ol>,
+              ul: ({ children }) => <ul className="list-disc pl-4 mb-2.5 last:mb-0 space-y-1">{children}</ul>,
+              ol: ({ children }) => <ol className="list-decimal pl-4 mb-2.5 last:mb-0 space-y-1">{children}</ol>,
               a: ({ href, children }) => {
-                // Internal links use Next.js Link, external open in new tab.
+                // Liens rendus en pill button : couleur violette, pas de souligne,
+                // une petite marge horizontale et verticale pour respirer dans le texte.
+                const linkClasses = 'inline-flex items-center gap-1 mx-1 my-0.5 px-2.5 py-0.5 rounded-full text-[12px] sm:text-[13px] font-medium align-middle whitespace-nowrap bg-[var(--violet-bg)] border border-[var(--violet-border)] text-[var(--violet-text)] hover:bg-[var(--violet-glow)] hover:text-[var(--violet)] transition-colors'
+
                 // Anchor links (#hash) and protocol links (mailto:, tel:) stay as <a>.
                 const isInternal = typeof href === 'string' && href.startsWith('/') && !href.startsWith('//')
                 if (isInternal) {
                   return (
-                    <Link
-                      href={href}
-                      className="inline-flex items-center gap-1 text-[#A78BFA] font-medium underline underline-offset-2 hover:text-[#c4b5fd] transition-colors"
-                    >
+                    <Link href={href} className={linkClasses}>
                       {children}
-                      <ArrowRight size={12} />
+                      <ArrowRight size={11} />
                     </Link>
                   )
                 }
@@ -238,9 +238,10 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
                     href={href}
                     target={isProtocol ? undefined : '_blank'}
                     rel={isProtocol ? undefined : 'noopener noreferrer'}
-                    className="text-[#A78BFA] underline underline-offset-2 hover:text-[#c4b5fd] transition-colors break-all"
+                    className={linkClasses}
                   >
                     {children}
+                    <ArrowRight size={11} />
                   </a>
                 )
               },

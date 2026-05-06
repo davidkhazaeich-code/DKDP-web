@@ -1,4 +1,4 @@
-import { streamText, convertToModelMessages } from 'ai'
+import { streamText, generateText, convertToModelMessages } from 'ai'
 import { anthropic } from '@ai-sdk/anthropic'
 import { NextRequest } from 'next/server'
 import { rateLimit, rateLimitDaily, getIp } from '@/lib/rate-limit'
@@ -7,6 +7,30 @@ import { logMessage, isVerbatimMode } from '@/lib/chat-analytics'
 
 const MAX_MESSAGE_LENGTH = 500
 const MAX_MESSAGES_PER_CONVERSATION = 12
+
+// Pre-warm le prompt cache Anthropic au cold start de la fonction Vercel.
+// Le system prompt fait 5-10k tokens : sans cache, le 1er user paie 1-2 s
+// de TTFB pour le tokenizing. Avec ce ping, Anthropic ecrit le cache des
+// le boot, et le 1er user touche un cache hit (~10 % du cout, latence
+// reduite). Best-effort : si le ping echoue, on continue sans bruit.
+let prewarmFired = false
+function prewarmPromptCache() {
+  if (prewarmFired) return
+  prewarmFired = true
+  void generateText({
+    model: anthropic('claude-haiku-4-5-20251001'),
+    system: [
+      {
+        role: 'system',
+        content: DKDP_SYSTEM_PROMPT,
+        providerOptions: { anthropic: { cacheControl: { type: 'ephemeral' } } },
+      },
+    ],
+    messages: [{ role: 'user', content: 'ping' }],
+    maxOutputTokens: 1,
+  }).catch(() => { /* best-effort */ })
+}
+prewarmPromptCache()
 
 // European country codes (EU + EEA + CH + UK)
 const ALLOWED_COUNTRIES = new Set([

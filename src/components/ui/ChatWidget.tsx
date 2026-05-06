@@ -663,6 +663,13 @@ export function ChatWidget() {
   const isLimitReached = userMessageCount >= MESSAGE_LIMIT
   const isLoading = status === 'submitted' || status === 'streaming'
 
+  // ── Follow-ups dynamiques ──
+  // Apres chaque reponse de l'assistant, on appelle /api/chat/suggestions
+  // pour proposer 3 questions de relance contextualisees.
+  const [suggestions, setSuggestions] = useState<string[]>([])
+  const suggestionsAbortRef = useRef<AbortController | null>(null)
+  const lastFetchedIdRef = useRef<string | null>(null)
+
   // Find the last assistant message index to show CTAs only on it
   const lastAssistantIdx = (() => {
     for (let i = messages.length - 1; i >= 0; i--) {
@@ -677,6 +684,60 @@ export function ChatWidget() {
       .map((p) => p.text)
       .join('') ?? ''
   }
+
+  // Fetch des follow-ups quand un message assistant vient de finir
+  useEffect(() => {
+    if (status !== 'ready') return
+    if (messages.length === 0) return
+    if (isLimitReached) return
+    const lastMsg = messages[messages.length - 1]
+    if (lastMsg.role !== 'assistant') return
+    if (lastFetchedIdRef.current === lastMsg.id) return
+    const lastText = getMessageText(lastMsg)
+    if (!lastText.trim()) return
+
+    lastFetchedIdRef.current = lastMsg.id
+    suggestionsAbortRef.current?.abort()
+    const ctrl = new AbortController()
+    suggestionsAbortRef.current = ctrl
+
+    const tail = messages.slice(-4).map((m) => ({
+      role: m.role,
+      content: getMessageText(m),
+    }))
+
+    fetch('/api/chat/suggestions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: tail }),
+      signal: ctrl.signal,
+    })
+      .then((r) => r.ok ? r.json() : { suggestions: [] })
+      .then((data: { suggestions?: unknown }) => {
+        if (ctrl.signal.aborted) return
+        if (Array.isArray(data.suggestions)) {
+          const list = data.suggestions
+            .filter((s): s is string => typeof s === 'string')
+            .slice(0, 3)
+          setSuggestions(list)
+        }
+      })
+      .catch(() => { /* abort ou reseau, ignore */ })
+  }, [status, messages, isLimitReached])
+
+  // Quand l'utilisateur envoie un nouveau message, on cache les
+  // suggestions precedentes (elles ne refletent plus le contexte).
+  useEffect(() => {
+    if (messages.length === 0) {
+      setSuggestions([])
+      return
+    }
+    const lastMsg = messages[messages.length - 1]
+    if (lastMsg.role === 'user') {
+      setSuggestions([])
+      suggestionsAbortRef.current?.abort()
+    }
+  }, [messages])
 
   // Cycle placeholder on the bottom bar
   useEffect(() => {
@@ -828,6 +889,9 @@ export function ChatWidget() {
     closeAnalyticsSession()
     setMessages([])
     setInputValue('')
+    setSuggestions([])
+    suggestionsAbortRef.current?.abort()
+    lastFetchedIdRef.current = null
     try { localStorage.removeItem(CHAT_STORAGE_KEY) } catch { /* ignore */ }
   }
 
@@ -1060,45 +1124,56 @@ export function ChatWidget() {
                 WebkitOverflowScrolling: 'touch',
               }}
             >
-              {/* Welcome */}
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 mt-0.5">
-                  <AnimatedOrb size={24} />
-                </div>
-                <div>
-                  <m.p
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.1 }}
-                    className="text-[13.5px] sm:text-[15px] text-text-secondary leading-relaxed"
+              {/* Welcome + suggestions : disparaissent au 1er message user */}
+              <AnimatePresence initial={false}>
+                {messages.length === 0 && (
+                  <m.div
+                    key="welcome-block"
+                    exit={{ opacity: 0, height: 0, marginTop: 0, marginBottom: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    style={{ overflow: 'hidden' }}
+                    className="space-y-4"
                   >
-                    {WELCOME_MESSAGE}
-                  </m.p>
-                </div>
-              </div>
+                    {/* Welcome */}
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-0.5">
+                        <AnimatedOrb size={24} />
+                      </div>
+                      <div>
+                        <m.p
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: 0.1 }}
+                          className="text-[13.5px] sm:text-[15px] text-text-secondary leading-relaxed"
+                        >
+                          {WELCOME_MESSAGE}
+                        </m.p>
+                      </div>
+                    </div>
 
-              {/* Suggestion buttons (visible if no messages) */}
-              {messages.length === 0 && (
-                <m.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.25 }}
-                  className="flex flex-col gap-2 pl-0 sm:pl-9"
-                >
-                  {QUICK_SUGGESTIONS.map(({ icon, label }) => (
-                    <button
-                      key={label}
-                      onClick={() => handleSuggestionClick(label)}
-                      className="group flex items-center gap-2.5 px-4 py-3 sm:py-3 rounded-xl text-left text-[13px] sm:text-[14.5px] cursor-pointer transition-all duration-200 active:scale-[0.98]
-                        bg-[var(--surface-default)] border border-[var(--surface-border)]
-                        hover:bg-[rgba(124,58,237,0.10)] hover:border-[rgba(124,58,237,0.30)]"
+                    {/* Suggestion buttons */}
+                    <m.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.25 }}
+                      className="flex flex-col gap-2 pl-0 sm:pl-9"
                     >
-                      <span className="text-[#A78BFA] group-hover:text-[#c4b5fd] transition-colors">{icon}</span>
-                      <span className="text-text-secondary group-hover:text-text transition-colors">{label}</span>
-                    </button>
-                  ))}
-                </m.div>
-              )}
+                      {QUICK_SUGGESTIONS.map(({ icon, label }) => (
+                        <button
+                          key={label}
+                          onClick={() => handleSuggestionClick(label)}
+                          className="group flex items-center gap-2.5 px-4 py-3 sm:py-3 rounded-xl text-left text-[13px] sm:text-[14.5px] cursor-pointer transition-all duration-200 active:scale-[0.98]
+                            bg-[var(--surface-default)] border border-[var(--surface-border)]
+                            hover:bg-[rgba(124,58,237,0.10)] hover:border-[rgba(124,58,237,0.30)]"
+                        >
+                          <span className="text-[#A78BFA] group-hover:text-[#c4b5fd] transition-colors">{icon}</span>
+                          <span className="text-text-secondary group-hover:text-text transition-colors">{label}</span>
+                        </button>
+                      ))}
+                    </m.div>
+                  </m.div>
+                )}
+              </AnimatePresence>
 
               {/* Chat messages */}
               {messages.map((m, idx) => {
@@ -1113,6 +1188,36 @@ export function ChatWidget() {
                     />
                     {/* CTA bar adaptatif sous le dernier message assistant */}
                     {isLastAssistant && <SmartCTABar lastAssistantContent={text} />}
+                    {/* Follow-ups dynamiques generes par l'API */}
+                    {isLastAssistant && suggestions.length > 0 && (
+                      <m.div
+                        initial={{ opacity: 0, y: 4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.25 }}
+                        className="flex flex-col gap-2 mt-3"
+                      >
+                        <p className="text-[11px] sm:text-[12px] text-text-muted uppercase tracking-wider font-medium">
+                          Vous pouvez aussi demander
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {suggestions.map((s, i) => (
+                            <button
+                              key={`${s}-${i}`}
+                              type="button"
+                              onClick={() => {
+                                setSuggestions([])
+                                speech.stop()
+                                sendMessage({ text: s })
+                              }}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] sm:text-[13px] font-medium cursor-pointer transition-all duration-200 bg-[var(--surface-default)] border border-[var(--surface-border)] text-text-secondary hover:bg-[rgba(124,58,237,0.10)] hover:border-[rgba(124,58,237,0.30)] hover:text-text"
+                            >
+                              {s}
+                              <ArrowRight size={11} />
+                            </button>
+                          ))}
+                        </div>
+                      </m.div>
+                    )}
                   </div>
                 )
               })}

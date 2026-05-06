@@ -213,10 +213,18 @@ function MessageBubble({ role, content }: { role: 'user' | 'assistant'; content:
           <Markdown
             remarkPlugins={[remarkGfm]}
             components={{
-              p: ({ children }) => <p className="mb-2.5 last:mb-0">{children}</p>,
+              // mb-4 par defaut entre paragraphes ; quand un paragraphe ne
+              // contient qu'un lien-bouton, on lui donne my-5 supplementaire
+              // (~1 ligne vide) pour bien le detacher du texte au-dessus et
+              // au-dessous, comme le demande la lecture en bulle de chat.
+              p: ({ children }) => (
+                <p className="mb-4 last:mb-0 [&:has(>a:only-child)]:my-5 [&:has(>a:only-child)]:first:mt-2">
+                  {children}
+                </p>
+              ),
               strong: ({ children }) => <strong className="text-text font-semibold">{children}</strong>,
-              ul: ({ children }) => <ul className="list-disc pl-4 mb-2.5 last:mb-0 space-y-1">{children}</ul>,
-              ol: ({ children }) => <ol className="list-decimal pl-4 mb-2.5 last:mb-0 space-y-1">{children}</ol>,
+              ul: ({ children }) => <ul className="list-disc pl-4 mb-4 last:mb-0 space-y-1">{children}</ul>,
+              ol: ({ children }) => <ol className="list-decimal pl-4 mb-4 last:mb-0 space-y-1">{children}</ol>,
               a: ({ href, children }) => {
                 // Liens rendus en pill button : couleur violette, pas de souligne,
                 // une petite marge horizontale et verticale pour respirer dans le texte.

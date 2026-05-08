@@ -9,7 +9,7 @@ import {
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
-import { SectionReveal } from '@/components/ui/SectionReveal'
+import { SectionRevealCss as SectionReveal } from '@/components/ui/SectionRevealCss'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { TrustLine } from '@/components/ui/TrustLine'
 import { HeroPills } from '@/components/ui/HeroPills'

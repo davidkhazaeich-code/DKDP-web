@@ -1,62 +1,13 @@
-'use client'
-
-import { useState, useEffect, useMemo } from 'react'
-import dynamic from 'next/dynamic'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { GradText } from '@/components/ui/GradText'
 import { TrustBadge } from '@/components/ui/TrustBadge'
-import { useThemeColors } from '@/hooks/useThemeColors'
-import { useTheme } from '@/components/providers/ThemeProvider'
-
-// Three.js — desktop uniquement, chargé en idle après LCP
-const ParticleWaves = dynamic(
-  () => import('@/components/canvas/ParticleWaves').then((m) => ({ default: m.ParticleWaves })),
-  { ssr: false, loading: () => null }
-)
-
-// Pass 13: SVG grid theme-aware. Was hardcoded rgba(255,255,255,0.10) which
-// rendered invisible white-on-cream in light mode. Now reads from the theme
-// gridLine token (light = rgba(10,10,10,0.36), dark = rgba(255,255,255,0.10)).
-function buildGridSvg(strokeRgba: string, strokeWidth: number) {
-  const encoded = encodeURIComponent(strokeRgba)
-  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='${encoded}' stroke-width='${strokeWidth}'/%3E%3C/svg%3E")`
-}
+import { HomeHeroBackground } from './HomeHeroBackground'
 
 export function HomeHero() {
-  // null = SSR/hydratation, true = desktop ≥768px, false = mobile
-  const [isDesktop, setIsDesktop] = useState<boolean | null>(null)
-  useEffect(() => {
-    setIsDesktop(window.matchMedia('(min-width: 768px)').matches)
-  }, [])
-
-  const colors = useThemeColors()
-  const { theme } = useTheme()
-  const gridSvg = useMemo(
-    () => buildGridSvg(colors.gridLine, theme === 'light' ? 1.5 : 1),
-    [colors.gridLine, theme]
-  )
-
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-14 pb-16 md:pb-0">
+      <HomeHeroBackground />
 
-      {/* ── Grille CSS mobile uniquement ── */}
-      <div
-        aria-hidden="true"
-        className="md:hidden pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage: gridSvg,
-          backgroundSize: '60px 60px',
-          animation: 'gridScrollUp 2s linear infinite',
-          zIndex: 1,
-        }}
-      />
-
-      {/* ── Desktop uniquement : Three.js particle waves ── */}
-      {isDesktop === true && (
-        <ParticleWaves className="absolute inset-0 z-[2] opacity-60" />
-      )}
-
-      {/* ── Contenu — toujours dans le HTML SSR, jamais conditionnel ── */}
       <div className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 text-center">
         <div className="mb-5 sm:mb-8 flex flex-col items-center gap-4">
           <TrustBadge variant="light" />

@@ -62,6 +62,20 @@ describe('buildBreadcrumbList', () => {
     const bc = buildBreadcrumbList([{ name: 'Accueil', url: 'https://dkdp.ch' }])
     expect(bc['@type']).toBe('BreadcrumbList')
   })
+
+  it('converts relative urls to absolute in item field', () => {
+    const bc = buildBreadcrumbList([
+      { name: 'Accueil', url: '/' },
+      { name: 'Contact', url: '/contact' },
+    ])
+    expect(bc.itemListElement[0].item).toBe('https://dkdp.ch/')
+    expect(bc.itemListElement[1].item).toBe('https://dkdp.ch/contact')
+  })
+
+  it('preserves absolute urls as-is', () => {
+    const bc = buildBreadcrumbList([{ name: 'Accueil', url: 'https://dkdp.ch/' }])
+    expect(bc.itemListElement[0].item).toBe('https://dkdp.ch/')
+  })
 })
 
 describe('buildCourse', () => {

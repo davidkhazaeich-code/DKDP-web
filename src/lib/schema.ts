@@ -251,7 +251,7 @@ export function buildBreadcrumbList(items: { name: string; url: string }[]) {
       '@type': 'ListItem',
       position: i + 1,
       name,
-      item: url,
+      item: url.startsWith('http') ? url : `${BASE_URL}${url}`,
     })),
   }
 }

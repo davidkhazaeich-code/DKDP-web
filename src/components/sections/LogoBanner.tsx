@@ -17,7 +17,7 @@ const LOGOS = [
   { name: 'Sketchiz',                file: 'sketchiz.avif',                 width: 100, height: 40 },
   { name: 'Swiss Medishop',          file: 'swiss-medishop.avif',           width: 120, height: 40 },
   { name: 'Polomarco',               file: 'polomarco.png',                 width: 100, height: 40, small: true },
-  { name: 'Genève Sports',           file: 'geneve-sports.svg',             width: 160, height: 40, small: true, scale: 0.7 },
+  { name: 'Genève Sports',           file: 'geneve-sports.svg',             width: 160, height: 40, small: true, shrink: 0.63 },
 ]
 
 interface LogoBannerProps {
@@ -51,8 +51,8 @@ export function LogoBanner({ label = 'Ils nous font confiance' }: LogoBannerProp
                 width={logo.width}
                 height={logo.height}
                 sizes={`${logo.width}px`}
-                className={`object-contain w-auto ${logo.small ? 'h-[30px]' : 'h-[78px]'}`}
-                style={'scale' in logo && logo.scale ? { transform: `scale(${logo.scale})` } : undefined}
+                className={`object-contain w-auto ${'shrink' in logo && logo.shrink ? '' : logo.small ? 'h-[30px]' : 'h-[78px]'}`}
+                style={'shrink' in logo && logo.shrink ? { height: `${(logo.small ? 30 : 78) * logo.shrink}px` } : undefined}
               />
             </div>
           ))}

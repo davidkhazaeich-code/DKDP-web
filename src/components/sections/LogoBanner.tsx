@@ -7,6 +7,7 @@ const LOGOS = [
   { name: 'OCAS',                    file: 'ocas.avif',                     width: 80,  height: 40 },
   { name: 'Swiss Mutual Trust',      file: 'swiss-mutual-trust.avif',       width: 130, height: 40 },
   { name: 'WellWays',                file: 'wellways.avif',                 width: 100, height: 40 },
+  { name: 'Servette FC',             file: 'servette-fc.svg',               width: 80,  height: 80 },
   { name: 'Strike',                  file: 'strike.avif',                   width: 80,  height: 40 },
   { name: 'Intown',                  file: 'intown.avif',                   width: 90,  height: 40 },
   { name: 'Eli Lilly',               file: 'lilly.svg',                     width: 145, height: 40, small: true },
@@ -17,7 +18,6 @@ const LOGOS = [
   { name: 'Swiss Medishop',          file: 'swiss-medishop.avif',           width: 120, height: 40 },
   { name: 'Polomarco',               file: 'polomarco.png',                 width: 100, height: 40, small: true },
   { name: 'Genève Sports',           file: 'geneve-sports.svg',             width: 160, height: 40, small: true },
-  { name: 'Servette FC',             file: 'servette-fc.svg',               width: 80,  height: 80 },
 ]
 
 interface LogoBannerProps {

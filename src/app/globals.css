@@ -662,15 +662,20 @@ body.chat-open {
 
 /* Logo scroll animation - seamless infinite marquee */
 @keyframes logo-scroll {
-  from { transform: translateX(0) }
-  to   { transform: translateX(-25%) }
+  from { transform: translate3d(0, 0, 0) }
+  to   { transform: translate3d(-25%, 0, 0) }
 }
 
 .logo-scroll {
   display: flex;
   width: max-content;
   backface-visibility: hidden;
-  animation: logo-scroll 36s linear infinite;
+  will-change: transform;
+  animation: logo-scroll 40s linear infinite;
+}
+
+.logo-scroll:hover {
+  animation-play-state: paused;
 }
 
 /* ═══ ProcessTimeline — CSS scroll-driven progress line ═══ */

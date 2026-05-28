@@ -426,7 +426,7 @@ export default function AuditConseilPage() {
                 <SectionReveal key={step.n} delay={i * 0.1}>
                   <div
                     className="relative flex flex-col gap-4 p-7 rounded-[16px] border h-full"
-                    style={{ background: bg, borderColor: border }}
+                    style={{ background: `linear-gradient(${bg}, ${bg}), var(--bg)`, borderColor: border }}
                   >
                     <span
                       className="absolute top-4 right-4 text-[11px] font-bold"

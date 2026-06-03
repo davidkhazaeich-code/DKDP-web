@@ -345,7 +345,7 @@ function FooterInner({
               </Link>
             ))}
             <span className="hidden lg:inline-block w-px h-4 bg-border" aria-hidden="true" />
-            <LanguageSwitcher />
+            <LanguageSwitcher placement="top" />
           </div>
         </div>
       </div>

@@ -518,7 +518,10 @@ function MobileNav({ open, onClose, lang }: { open: boolean; onClose: () => void
               borderTop: '1px solid var(--border)',
             }}
           >
-            <div className="flex justify-center">
+            <div className="flex items-center justify-center gap-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-text-muted">
+                {lang === 'en' ? 'Language' : 'Langue'}
+              </span>
               <LanguageSwitcher onNavigate={onClose} />
             </div>
             <button

@@ -47,22 +47,23 @@ export function LanguageSwitcher({
   }
 
   const sizeClasses = compact
-    ? 'h-9 px-2 text-[11px]'
-    : 'h-9 px-2.5 text-[11.5px]'
+    ? 'h-9 px-1.5 text-[11.5px]'
+    : 'h-9 px-2 text-[12px]'
 
   return (
     <div
       role="group"
       aria-label={currentLocale === 'en' ? 'Change language' : 'Changer de langue'}
-      className={`inline-flex items-center gap-0.5 rounded-lg border border-border bg-[var(--surface-default)] ${sizeClasses}`}
+      className={`inline-flex items-center gap-1 rounded-lg border border-border bg-[var(--surface-default)] shadow-[0_0_0_1px_var(--surface-border)] ${sizeClasses}`}
     >
       <button
         type="button"
         onClick={() => swap('fr')}
         aria-pressed={currentLocale === 'fr'}
-        className={`px-2 py-1 rounded-md font-semibold uppercase tracking-wider transition-colors ${
+        aria-label="Francais"
+        className={`px-2.5 py-1 rounded-md font-bold uppercase tracking-wider transition-all ${
           currentLocale === 'fr'
-            ? 'bg-[var(--bg-card)] text-text'
+            ? 'bg-[var(--bg-card)] text-text shadow-sm'
             : 'text-text-muted hover:text-text'
         }`}
       >
@@ -72,9 +73,10 @@ export function LanguageSwitcher({
         type="button"
         onClick={() => swap('en')}
         aria-pressed={currentLocale === 'en'}
-        className={`px-2 py-1 rounded-md font-semibold uppercase tracking-wider transition-colors ${
+        aria-label="English"
+        className={`px-2.5 py-1 rounded-md font-bold uppercase tracking-wider transition-all ${
           currentLocale === 'en'
-            ? 'bg-[var(--bg-card)] text-text'
+            ? 'bg-[var(--bg-card)] text-text shadow-sm'
             : 'text-text-muted hover:text-text'
         }`}
       >

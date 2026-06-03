@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Monitor, GraduationCap, Sparkles, ChevronRight, Phone, Mail, MapPin, Clock, LayoutGrid } from 'lucide-react'
 import { DkdpLogo } from '@/components/ui/DkdpLogo'
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 import type { Locale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { localizedPath } from '@/i18n/slugs'
@@ -192,6 +193,13 @@ function FooterInner({
             >
               {t.bookCall} <ChevronRight size={11} />
             </Link>
+            {/* Language switcher (desktop brand column) */}
+            <div className="mt-3">
+              <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-text-muted mb-1.5">
+                {lang === 'en' ? 'Language' : 'Langue'}
+              </p>
+              <LanguageSwitcher />
+            </div>
           </div>
 
           {/* Pillar columns */}
@@ -290,14 +298,20 @@ function FooterInner({
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="pt-6">
+        {/* CTA + Language switcher mobile */}
+        <div className="pt-6 flex flex-wrap items-center justify-between gap-3">
           <Link
             href={localizedPath('/contact', lang)}
             className="inline-flex items-center gap-1 text-[12px] font-semibold text-violet-light transition-opacity hover:opacity-70"
           >
             {t.bookCall} <ChevronRight size={12} />
           </Link>
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-text-muted">
+              {lang === 'en' ? 'Language' : 'Langue'}
+            </span>
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>}
 
@@ -324,12 +338,14 @@ function FooterInner({
           <p className="text-text-muted text-[11px]">
             {copyrightText}
           </p>
-          <div className="flex flex-wrap gap-x-5 gap-y-1">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
             {legalLinks.map(({ label, href }) => (
               <Link key={href} href={href} className="text-text-muted hover:text-text text-[11px] transition-colors">
                 {label}
               </Link>
             ))}
+            <span className="hidden lg:inline-block w-px h-4 bg-border" aria-hidden="true" />
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

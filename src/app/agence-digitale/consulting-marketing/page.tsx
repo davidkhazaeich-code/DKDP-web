@@ -26,7 +26,14 @@ export const metadata: Metadata = {
   title: 'Consulting Marketing Genève & Suisse romande · DKDP',
   description:
     'Consulting marketing digital pour PME à Genève. Audit de présence digitale, stratégie sur mesure et accompagnement. Clarifiez votre cap digital.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale/consulting-marketing' },
+  alternates: {
+    canonical: 'https://dkdp.ch/agence-digitale/consulting-marketing',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/agence-digitale/consulting-marketing',
+      en: 'https://dkdp.ch/en/digital-agency/marketing-consulting',
+      'x-default': 'https://dkdp.ch/agence-digitale/consulting-marketing',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/consulting-marketing.png', width: 1376, height: 768, alt: 'Consulting marketing digital Genève DKDP' }],
   },

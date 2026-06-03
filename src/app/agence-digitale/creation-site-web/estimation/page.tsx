@@ -8,7 +8,14 @@ export const metadata: Metadata = {
   title: 'Estimation gratuite site web · Simulateur de prix en ligne · DKDP',
   description:
     'Estimez le coût de votre site web en quelques clics. Simulateur interactif avec prix transparents. Site vitrine, e-commerce ou sur mesure. Devis détaillé sous 48h.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-site-web/estimation' },
+  alternates: {
+    canonical: 'https://dkdp.ch/agence-digitale/creation-site-web/estimation',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/agence-digitale/creation-site-web/estimation',
+      en: 'https://dkdp.ch/en/digital-agency/web-design/quote',
+      'x-default': 'https://dkdp.ch/agence-digitale/creation-site-web/estimation',
+    },
+  },
   openGraph: {
     title: 'Estimation gratuite site web · Simulateur · DKDP',
     description: "Estimez le coût de votre site web en quelques clics. Simulateur interactif. Devis détaillé sous 48h.",

@@ -29,7 +29,14 @@ export const metadata: Metadata = {
   title: 'Création Site Web Genève & Suisse romande | Sur mesure | DKDP',
   description:
     'Création de sites web professionnels à Genève. Site vitrine, e-commerce ou sur mesure. Rapide, SEO-ready, livré en 3 à 5 semaines. Devis gratuit.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-site-web' },
+  alternates: {
+    canonical: 'https://dkdp.ch/agence-digitale/creation-site-web',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/agence-digitale/creation-site-web',
+      en: 'https://dkdp.ch/en/digital-agency/web-design',
+      'x-default': 'https://dkdp.ch/agence-digitale/creation-site-web',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/creation-site-web.png', width: 1376, height: 768, alt: 'Création site web Genève DKDP' }],
   },

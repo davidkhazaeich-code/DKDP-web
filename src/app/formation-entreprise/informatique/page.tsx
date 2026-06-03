@@ -27,7 +27,14 @@ export const metadata: Metadata = {
   title: 'Formation Informatique Genève & Suisse romande · DKDP',
   description:
     'Formation informatique pour PME à Genève et en Suisse romande. Windows, emails, réseau, outils collaboratifs. Tous niveaux, en présentiel. Demandez votre devis gratuit.',
-  alternates: { canonical: 'https://dkdp.ch/formation-entreprise/informatique' },
+  alternates: {
+    canonical: 'https://dkdp.ch/formation-entreprise/informatique',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/formation-entreprise/informatique',
+      en: 'https://dkdp.ch/en/corporate-training/it-skills',
+      'x-default': 'https://dkdp.ch/formation-entreprise/informatique',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/formation-informatique.png', width: 1376, height: 768, alt: 'Formation informatique entreprise Genève DKDP' }],
   },

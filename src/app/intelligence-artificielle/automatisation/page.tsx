@@ -48,6 +48,7 @@ export const metadata: Metadata = {
     canonical: 'https://dkdp.ch/intelligence-artificielle/automatisation',
     languages: {
       'fr-CH': 'https://dkdp.ch/intelligence-artificielle/automatisation',
+      en: 'https://dkdp.ch/en/artificial-intelligence/automation',
       'x-default': 'https://dkdp.ch/intelligence-artificielle/automatisation',
     },
   },

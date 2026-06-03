@@ -55,6 +55,7 @@ export const metadata: Metadata = {
     canonical: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
     languages: {
       'fr-CH': 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
+      en: 'https://dkdp.ch/en/artificial-intelligence/ai-chatbot',
       'x-default': 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
     },
   },

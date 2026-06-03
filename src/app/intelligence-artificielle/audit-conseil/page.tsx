@@ -39,7 +39,14 @@ const AuditScoreCard = dynamic(() => import('./_components/AuditScoreCard').then
 export const metadata: Metadata = {
   title: 'Audit IA Entreprises Genève & Suisse romande | DKDP',
   description: "Conseil en intelligence artificielle pour PME en Suisse romande. Audit IA structuré : 3 actions à fort ROI identifiées. Dès CHF 490, rapport complet sous 48h.",
-  alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/audit-conseil' },
+  alternates: {
+    canonical: 'https://dkdp.ch/intelligence-artificielle/audit-conseil',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/intelligence-artificielle/audit-conseil',
+      en: 'https://dkdp.ch/en/artificial-intelligence/audit-consulting',
+      'x-default': 'https://dkdp.ch/intelligence-artificielle/audit-conseil',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/audit-conseil-ia.png', width: 1376, height: 768, alt: 'Audit et conseil IA entreprise Genève DKDP' }],
   },

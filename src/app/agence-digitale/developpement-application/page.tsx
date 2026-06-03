@@ -29,7 +29,14 @@ export const metadata: Metadata = {
   title: 'Développement Application Genève & Suisse romande | iOS, Android | DKDP',
   description:
     'Développement d\'applications mobiles et web pour PME à Genève. iOS, Android, React Native, Web App sur mesure. Du cahier des charges au lancement, devis gratuit.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale/developpement-application' },
+  alternates: {
+    canonical: 'https://dkdp.ch/agence-digitale/developpement-application',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/agence-digitale/developpement-application',
+      en: 'https://dkdp.ch/en/digital-agency/app-development',
+      'x-default': 'https://dkdp.ch/agence-digitale/developpement-application',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/developpement-application.webp', width: 1376, height: 768, alt: 'Développement application Genève DKDP' }],
   },

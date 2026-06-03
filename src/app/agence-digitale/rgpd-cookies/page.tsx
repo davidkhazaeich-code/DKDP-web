@@ -25,7 +25,14 @@ export const metadata: Metadata = {
   title: 'RGPD et nLPD Genève & Suisse romande | Bandeau cookies | DKDP',
   description:
     'Mise en conformité RGPD et nLPD pour entreprises et PME à Genève. Bandeau cookies, politique de confidentialité, registre des traitements. Audit sous 48h, dès CHF 800.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale/rgpd-cookies' },
+  alternates: {
+    canonical: 'https://dkdp.ch/agence-digitale/rgpd-cookies',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/agence-digitale/rgpd-cookies',
+      en: 'https://dkdp.ch/en/digital-agency/gdpr-cookies',
+      'x-default': 'https://dkdp.ch/agence-digitale/rgpd-cookies',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/rgpd-cookies.png', width: 1376, height: 768, alt: 'Mise en conformité RGPD nLPD Genève DKDP' }],
   },

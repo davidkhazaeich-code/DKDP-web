@@ -36,7 +36,14 @@ export const metadata: Metadata = {
   title: 'À propos · David Khazaei · DKDP Genève',
   description:
     "DKDP est une service digital genevoise fondée par David Khazaei. Spécialiste en intelligence artificielle, formation entreprise et web pour les PME de Suisse romande.",
-  alternates: { canonical: 'https://dkdp.ch/a-propos' },
+  alternates: {
+    canonical: 'https://dkdp.ch/a-propos',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/a-propos',
+      en: 'https://dkdp.ch/en/about',
+      'x-default': 'https://dkdp.ch/a-propos',
+    },
+  },
   openGraph: {
     title: 'À propos · David Khazaei · DKDP Genève',
     description: "Agence digitale genevoise fondée par David Khazaei : IA, formation entreprise et web pour PME romandes depuis 2015.",

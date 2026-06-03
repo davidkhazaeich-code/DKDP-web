@@ -26,7 +26,14 @@ export const metadata: Metadata = {
   title: 'Formation Cybersécurité Genève & Suisse romande · DKDP',
   description:
     'Formation cybersécurité pour PME et entreprises en Suisse romande. Phishing, ransomware, social engineering. Simulations réelles, bonnes pratiques et plan d\'urgence. Devis gratuit.',
-  alternates: { canonical: 'https://dkdp.ch/formation-entreprise/cybersecurite' },
+  alternates: {
+    canonical: 'https://dkdp.ch/formation-entreprise/cybersecurite',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/formation-entreprise/cybersecurite',
+      en: 'https://dkdp.ch/en/corporate-training/cybersecurity',
+      'x-default': 'https://dkdp.ch/formation-entreprise/cybersecurite',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/formation-cybersecurite.png', width: 1376, height: 768, alt: 'Formation cybersécurité entreprise Genève DKDP' }],
   },

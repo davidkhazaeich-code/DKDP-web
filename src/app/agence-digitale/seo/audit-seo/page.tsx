@@ -15,7 +15,14 @@ export const metadata: Metadata = {
   title: 'Audit SEO gratuit · DKDP Genève',
   description:
     'Recevez une analyse complète de votre SEO en 48h : mots-clés, positionnement, backlinks, erreurs techniques, contenu. Gratuit pour les PME de Suisse romande.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale/seo/audit-seo' },
+  alternates: {
+    canonical: 'https://dkdp.ch/agence-digitale/seo/audit-seo',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/agence-digitale/seo/audit-seo',
+      en: 'https://dkdp.ch/en/digital-agency/seo/seo-audit',
+      'x-default': 'https://dkdp.ch/agence-digitale/seo/audit-seo',
+    },
+  },
   openGraph: {
     title: 'Audit SEO gratuit · DKDP Genève',
     description:

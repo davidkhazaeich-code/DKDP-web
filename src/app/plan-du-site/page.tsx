@@ -8,7 +8,14 @@ export const metadata: Metadata = {
   title: 'Plan du site · DKDP Genève',
   description:
     'Plan du site DKDP : retrouvez toutes les pages de notre agence digitale à Genève - services, formations, IA, blog et ressources.',
-  alternates: { canonical: 'https://dkdp.ch/plan-du-site' },
+  alternates: {
+    canonical: 'https://dkdp.ch/plan-du-site',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/plan-du-site',
+      en: 'https://dkdp.ch/en/sitemap',
+      'x-default': 'https://dkdp.ch/plan-du-site',
+    },
+  },
 }
 
 const violet   = '#A78BFA'

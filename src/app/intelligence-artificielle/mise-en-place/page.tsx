@@ -39,7 +39,14 @@ const LLMStackDiagram = dynamic(() => import('./_components/LLMStackDiagram').th
 export const metadata: Metadata = {
   title: 'Mise en place IA Genève & Suisse romande | ChatGPT Claude | DKDP',
   description: "Intégration IA sur mesure pour entreprises et PME à Genève. ChatGPT, Claude, Mistral connectés à vos outils existants. Déploiement rapide, sans tout reconstruire. Devis gratuit.",
-  alternates: { canonical: 'https://dkdp.ch/intelligence-artificielle/mise-en-place' },
+  alternates: {
+    canonical: 'https://dkdp.ch/intelligence-artificielle/mise-en-place',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/intelligence-artificielle/mise-en-place',
+      en: 'https://dkdp.ch/en/artificial-intelligence/implementation',
+      'x-default': 'https://dkdp.ch/intelligence-artificielle/mise-en-place',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/mise-en-place-ia.png', width: 1376, height: 768, alt: 'Mise en place IA entreprise Genève DKDP' }],
   },

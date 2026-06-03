@@ -50,6 +50,7 @@ export const metadata: Metadata = {
     canonical: 'https://dkdp.ch/agence-digitale/refonte-site-web',
     languages: {
       'fr-CH': 'https://dkdp.ch/agence-digitale/refonte-site-web',
+      en: 'https://dkdp.ch/en/digital-agency/website-redesign',
       'x-default': 'https://dkdp.ch/agence-digitale/refonte-site-web',
     },
   },

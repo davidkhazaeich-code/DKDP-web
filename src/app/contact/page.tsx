@@ -10,7 +10,14 @@ import { buildLocalBusiness, buildBreadcrumbList } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Contact · DKDP · Service Digital Genève',
   description: 'Contactez DKDP pour votre projet digital. Réponse sous 24h. Réservez un appel découverte gratuit de 15 ou 30 minutes.',
-  alternates: { canonical: 'https://dkdp.ch/contact' },
+  alternates: {
+    canonical: 'https://dkdp.ch/contact',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/contact',
+      en: 'https://dkdp.ch/en/contact',
+      'x-default': 'https://dkdp.ch/contact',
+    },
+  },
   openGraph: {
     title: 'Contact · DKDP · Service Digital Genève',
     description: 'Contactez DKDP pour votre projet digital. Réponse sous 24h. Appel découverte gratuit.',

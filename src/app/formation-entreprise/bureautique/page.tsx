@@ -27,7 +27,14 @@ export const metadata: Metadata = {
   title: 'Formation Bureautique Excel Genève & Suisse romande | DKDP',
   description:
     'Formation bureautique et Excel en entreprise à Genève et Suisse romande. Word, PowerPoint, Microsoft 365. Programme adapté à votre équipe, PME ou grande entreprise. Devis gratuit.',
-  alternates: { canonical: 'https://dkdp.ch/formation-entreprise/bureautique' },
+  alternates: {
+    canonical: 'https://dkdp.ch/formation-entreprise/bureautique',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/formation-entreprise/bureautique',
+      en: 'https://dkdp.ch/en/corporate-training/office-tools',
+      'x-default': 'https://dkdp.ch/formation-entreprise/bureautique',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/formation-bureautique.png', width: 1376, height: 768, alt: 'Formation bureautique Excel entreprise Genève DKDP' }],
   },

@@ -27,7 +27,14 @@ export const metadata: Metadata = {
   title: 'Formation Figma Web Design Genève & Suisse romande | UI/UX | DKDP',
   description:
     'Formation Web Design et Figma pour PME et entreprises à Genève et en Suisse romande. UI/UX, wireframes, maquettes, design system, prototypes interactifs. Concevez votre site avant de le développer. Devis gratuit.',
-  alternates: { canonical: 'https://dkdp.ch/formation-entreprise/web-design' },
+  alternates: {
+    canonical: 'https://dkdp.ch/formation-entreprise/web-design',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/formation-entreprise/web-design',
+      en: 'https://dkdp.ch/en/corporate-training/web-design',
+      'x-default': 'https://dkdp.ch/formation-entreprise/web-design',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/formation-web-design.png', width: 1376, height: 768, alt: 'Formation Web Design et Figma entreprise Genève DKDP' }],
   },

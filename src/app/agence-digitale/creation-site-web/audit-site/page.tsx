@@ -16,7 +16,14 @@ export const metadata: Metadata = {
   title: 'Audit de site internet gratuit · Genève & Suisse romande · DKDP',
   description:
     'Recevez une analyse complète de votre site web en 48h : performance, SEO, UX, sécurité, accessibilité. Gratuit pour les PME de Suisse romande.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-site-web/audit-site' },
+  alternates: {
+    canonical: 'https://dkdp.ch/agence-digitale/creation-site-web/audit-site',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/agence-digitale/creation-site-web/audit-site',
+      en: 'https://dkdp.ch/en/digital-agency/web-design/site-audit',
+      'x-default': 'https://dkdp.ch/agence-digitale/creation-site-web/audit-site',
+    },
+  },
   openGraph: {
     title: 'Audit de site internet gratuit · DKDP Genève',
     description:

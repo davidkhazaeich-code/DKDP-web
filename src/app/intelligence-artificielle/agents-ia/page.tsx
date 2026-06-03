@@ -42,6 +42,7 @@ export const metadata: Metadata = {
     canonical: 'https://dkdp.ch/intelligence-artificielle/agents-ia',
     languages: {
       'fr-CH': 'https://dkdp.ch/intelligence-artificielle/agents-ia',
+      en: 'https://dkdp.ch/en/artificial-intelligence/ai-agents',
       'x-default': 'https://dkdp.ch/intelligence-artificielle/agents-ia',
     },
   },

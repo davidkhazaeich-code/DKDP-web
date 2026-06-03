@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     canonical: 'https://dkdp.ch/agence-digitale/seo',
     languages: {
       'fr-CH': 'https://dkdp.ch/agence-digitale/seo',
+      en: 'https://dkdp.ch/en/digital-agency/seo',
       'x-default': 'https://dkdp.ch/agence-digitale/seo',
     },
   },

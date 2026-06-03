@@ -24,7 +24,14 @@ export const metadata: Metadata = {
   title: 'Création Vidéo Entreprise Genève & Suisse romande · DKDP',
   description:
     'Production vidéo professionnelle à Genève. Vidéos institutionnelles, témoignages clients, Reels et contenus courts. Captez l\'attention et restez en mémoire.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale/creation-video' },
+  alternates: {
+    canonical: 'https://dkdp.ch/agence-digitale/creation-video',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/agence-digitale/creation-video',
+      en: 'https://dkdp.ch/en/digital-agency/video-production',
+      'x-default': 'https://dkdp.ch/agence-digitale/creation-video',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/creation-video.png', width: 1376, height: 768, alt: 'Création vidéo entreprise Genève DKDP' }],
   },

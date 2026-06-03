@@ -38,7 +38,14 @@ export const metadata: Metadata = {
   title: 'Google Ads Genève & Suisse romande · Campagnes SEA · DKDP',
   description:
     'Agence Google Ads à Genève. Campagnes Search et Display rentables, avec suivi précis du ROI. Résultats dès la première semaine.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale/publicite-sea' },
+  alternates: {
+    canonical: 'https://dkdp.ch/agence-digitale/publicite-sea',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/agence-digitale/publicite-sea',
+      en: 'https://dkdp.ch/en/digital-agency/google-ads',
+      'x-default': 'https://dkdp.ch/agence-digitale/publicite-sea',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/publicite-sea.png', width: 1376, height: 768, alt: 'Google Ads publicité SEA Genève DKDP' }],
   },

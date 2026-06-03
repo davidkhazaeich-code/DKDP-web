@@ -32,7 +32,14 @@ const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBloc
 export const metadata: Metadata = {
   title: 'Agence Digitale Genève & Suisse romande · Web, SEO, Ads · DKDP',
   description: 'Agence digitale à Genève. Création de site web, SEO, Google Ads et réseaux sociaux pour PME en Suisse romande. 100+ sites livrés, devis gratuit sous 48h.',
-  alternates: { canonical: 'https://dkdp.ch/agence-digitale' },
+  alternates: {
+    canonical: 'https://dkdp.ch/agence-digitale',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/agence-digitale',
+      en: 'https://dkdp.ch/en/digital-agency',
+      'x-default': 'https://dkdp.ch/agence-digitale',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/agence-digitale.png', width: 1376, height: 768, alt: 'Agence digitale Genève DKDP' }],
   },

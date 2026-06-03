@@ -27,7 +27,14 @@ export const metadata: Metadata = {
   title: 'Formation Canva Genève & Suisse romande | Brand Kit, Magic Studio | DKDP',
   description:
     'Formation Canva pour PME et entreprises à Genève et en Suisse romande. Brand Kit, templates, posts sociaux, présentations, IA Magic Studio. Vos équipes créent des visuels professionnels en une journée. Devis gratuit.',
-  alternates: { canonical: 'https://dkdp.ch/formation-entreprise/canva' },
+  alternates: {
+    canonical: 'https://dkdp.ch/formation-entreprise/canva',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/formation-entreprise/canva',
+      en: 'https://dkdp.ch/en/corporate-training/canva',
+      'x-default': 'https://dkdp.ch/formation-entreprise/canva',
+    },
+  },
   openGraph: {
     images: [{ url: '/images/og/formation-canva.png', width: 1376, height: 768, alt: 'Formation Canva entreprise Genève DKDP' }],
   },

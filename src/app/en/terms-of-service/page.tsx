@@ -2,10 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
+import { SchemaOrg } from '@/components/seo/SchemaOrg'
+import { buildBreadcrumbList, buildOrganization } from '@/lib/schema'
 import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 
 export const metadata: Metadata = buildServiceMetadata({
-  title: 'Terms of Service · DKDP',
+  title: 'Terms of Service · DKDP Digital Agency Geneva',
   description:
     'Terms of service for engagements with DKDP, a Geneva-based digital agency. Quotes, deliverables, payment terms, intellectual property, governing law.',
   enPath: '/en/terms-of-service',
@@ -15,6 +17,13 @@ export const metadata: Metadata = buildServiceMetadata({
 export default function Page() {
   return (
     <main className="pt-28 sm:pt-36 pb-20 sm:pb-24">
+      <SchemaOrg schema={buildOrganization()} />
+      <SchemaOrg
+        schema={buildBreadcrumbList([
+          { name: 'Home', url: '/en' },
+          { name: 'Terms of service', url: '/en/terms-of-service' },
+        ])}
+      />
       <div className="max-w-[820px] mx-auto px-6">
         <GradTag>Legal</GradTag>
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mt-3 mb-5">Terms of service</h1>

@@ -3,7 +3,7 @@ import { ServicePage } from '@/app/en/_components/ServicePage'
 import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 
 export const metadata = buildServiceMetadata({
-  title: 'Video Editing Training Geneva · Premiere, DaVinci, Phone Edit | DKDP',
+  title: 'Video Editing Training Geneva · Premiere, DaVinci | DKDP',
   description:
     'Video editing training in Geneva. Premiere Pro, DaVinci Resolve, CapCut on phone. Produce shareable, brand-aligned videos. From CHF 1,500 per half-day.',
   enPath: '/en/corporate-training/video-editing',

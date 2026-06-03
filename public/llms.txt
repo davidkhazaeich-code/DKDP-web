@@ -118,3 +118,97 @@ Prise de rendez-vous : https://dkdp.ch/contact
 Les moteurs de recherche IA (GPTBot, ClaudeBot, PerplexityBot, Bingbot, Google-Extended) sont autorisés à indexer et citer le contenu de ce site.
 Les crawlers d'entraînement pur (CCBot, anthropic-ai, cohere-ai) sont bloqués via robots.txt.
 Citation avec attribution à DKDP encouragée pour usage non-commercial.
+
+
+---
+
+# DKDP - Digital Agency Geneva (English)
+
+> DKDP is a digital agency in Geneva, Switzerland, specialised in custom web design, SEO, artificial intelligence and corporate AI training for Swiss SMBs. 700+ Swiss clients trust DKDP. Founded by David Khazaei in 2015, the team works hands-on in plain sight, no agency middlemen.
+
+DKDP helps Swiss SMBs with their digital transformation: custom websites built on Next.js or Astro, local and AI search SEO, custom AI agents and automation, and hands-on corporate AI training. Based in the Eaux-Vives district in Geneva, serving Geneva, Lausanne, Zurich, Basel and all of Switzerland.
+
+Founder: David Khazaei, agency director and certified AI trainer, based in Geneva since 2015. Expertise in web development (Next.js, Astro, WordPress), SEO strategy, AI agents and corporate training.
+Working languages: French (primary), English, Farsi.
+Geographic coverage: Geneva, Lausanne, Fribourg, Sion, Neuchatel, French-speaking Switzerland, plus English-speaking clients across Switzerland and Europe.
+
+## Digital Agency Services
+
+- [Web design](https://dkdp.ch/en/digital-agency/web-design): Custom websites on Next.js, Astro, headless CMS. From CHF 6,000. Modern 2026 design, fast Core Web Vitals, SEO-ready, multilingual.
+- [Website redesign](https://dkdp.ch/en/digital-agency/website-redesign): Migration without SEO loss. URL mapping, 301 redirects, performance overhaul. 0% measurable SEO drop on 50+ projects.
+- [App development](https://dkdp.ch/en/digital-agency/app-development): iOS, Android, web apps and PWAs. React Native, Expo, Next.js. From CHF 15,000.
+- [SEO](https://dkdp.ch/en/digital-agency/seo): Technical SEO, content strategy, AI search optimisation (ChatGPT, Perplexity, Google AI Overviews). From CHF 800/month.
+- [Google Ads](https://dkdp.ch/en/digital-agency/google-ads): Search, Performance Max, YouTube. Fixed management fee, no margin on ad spend. From CHF 1,200/month.
+- [Social media](https://dkdp.ch/en/digital-agency/social-media): LinkedIn, Instagram, TikTok strategy and management. From CHF 1,500/month.
+- [Video production](https://dkdp.ch/en/digital-agency/video-production): Brand films, product videos, training content. From CHF 3,500.
+- [Marketing consulting](https://dkdp.ch/en/digital-agency/marketing-consulting): Strategy plus hands-on execution. Fractional CMO option. From CHF 2,500.
+- [GDPR & cookies](https://dkdp.ch/en/digital-agency/gdpr-cookies): GDPR and Swiss nLPD compliance. Cookie banner with Consent Mode v2. From CHF 1,500.
+
+## Artificial Intelligence
+
+- [Custom AI agents](https://dkdp.ch/en/artificial-intelligence/ai-agents): Agents trained on your docs, your tone, your processes. Built on Claude, ChatGPT or Gemini. From CHF 8,000.
+- [Business automation](https://dkdp.ch/en/artificial-intelligence/automation): No-code workflows on n8n, Make, Zapier. Lead routing, invoice automation, CRM sync. From CHF 2,500.
+- [AI audit & consulting](https://dkdp.ch/en/artificial-intelligence/audit-consulting): Find where AI moves the needle in your business. 2-4 week audit, prioritised 90-day roadmap. From CHF 4,000.
+- [AI implementation](https://dkdp.ch/en/artificial-intelligence/implementation): Deploy AI inside your existing stack and train your team. SSO, audit logs, IT-friendly. From CHF 6,000.
+- [AI chatbot](https://dkdp.ch/en/artificial-intelligence/ai-chatbot): 24/7 assistant grounded in your docs. Lead capture, calendar booking, voice input. From CHF 5,000.
+
+## Corporate Training
+
+- [Corporate AI training](https://dkdp.ch/en/corporate-training/ai): Hands-on team training on Claude, ChatGPT, Copilot, Gemini. From CHF 1,500 per half-day.
+- [Claude training](https://dkdp.ch/en/corporate-training/claude-ai): Specialised Claude.ai, Projects, Cowork and Claude Code training. From beginner to advanced agents.
+- [Office tools](https://dkdp.ch/en/corporate-training/office-tools): Excel, Word, PowerPoint, Microsoft 365 Copilot, Google Workspace.
+- [Social media training](https://dkdp.ch/en/corporate-training/social-media): LinkedIn, Instagram, TikTok mastery for marketing and sales teams.
+- [Cybersecurity](https://dkdp.ch/en/corporate-training/cybersecurity): Phishing, password hygiene, MFA, social engineering, AI-specific risks.
+- [Canva](https://dkdp.ch/en/corporate-training/canva): Brand Kit, templates, Magic Studio AI. Build a design system in one day.
+- [Web design with Figma](https://dkdp.ch/en/corporate-training/web-design): UI/UX, wireframes, design systems, interactive prototypes.
+- [IT skills](https://dkdp.ch/en/corporate-training/it-skills): Cloud collaboration, productivity, automation, AI literacy for non-tech teams.
+- [Video editing](https://dkdp.ch/en/corporate-training/video-editing): Premiere Pro, DaVinci Resolve, CapCut. Phone-first option available.
+- [Individual training](https://dkdp.ch/en/individual-training): Private 1-to-1 lessons. CHF 200/h.
+
+## Free tools
+
+- [Free SEO audit](https://dkdp.ch/en/digital-agency/seo/seo-audit): Real SEO audit by a senior team, delivered in 48 hours. Yours to keep, no commitment.
+- [Free website audit](https://dkdp.ch/en/digital-agency/web-design/site-audit): Performance, UX, accessibility, SEO. Delivered in 48 hours by a senior team.
+- [Free website quote](https://dkdp.ch/en/digital-agency/web-design/quote): Scope, price and timeline within 24 hours of your message. Fixed, no surprises.
+
+## About
+
+- [About DKDP](https://dkdp.ch/en/about): A small senior team that ships in plain sight. Web, AI, training under one roof.
+- [Pricing](https://dkdp.ch/en/pricing): Transparent fixed-quote pricing for digital, AI and training services.
+- [Contact](https://dkdp.ch/en/contact): Book a 30-minute call, email or phone. Free quote in 24 hours.
+
+## Why DKDP for English-speaking clients in Switzerland
+
+- Fully bilingual team, working daily with expat-led companies and international organisations in Geneva, Lausanne, Zurich and Basel.
+- Senior craft only: you talk directly to the people who design, code, train and ship. No relay race, no offshore subcontracting.
+- Web and AI under one roof: the website, the AI agent and the team that uses both are built and trained by the same crew.
+- Fixed scope, fixed price, on time. The quote you sign at kickoff is the invoice you pay at launch.
+- Swiss hosting and GDPR + nLPD compliance built in. Sensitive sectors (health, finance) covered.
+
+## Frequently Asked Questions (English)
+
+**What services does DKDP offer in Geneva?**
+DKDP is a Geneva-based digital agency covering three pillars: digital services (web design, redesign, SEO, Google Ads, social media, video, GDPR), artificial intelligence (custom AI agents, business automation, AI audits, chatbots, AI implementation) and corporate training (Claude, ChatGPT, Copilot, Canva, Figma, cybersecurity, video editing, office tools).
+
+**How long does it take to deliver a website?**
+A typical showcase website is delivered in 4 to 6 weeks. Complex projects with custom development, e-commerce or AI features take 8 to 12 weeks. We always give a fixed quote upfront and stick to the agreed timeline.
+
+**Do you work in English with international clients in Geneva?**
+Yes. Our team is fully bilingual French and English. We work daily with expat-led companies, international organisations and Swiss SMBs serving global markets. Meetings, deliverables, documentation and training can all be delivered in English.
+
+**How much does corporate AI training cost?**
+AI training for teams starts at CHF 1,500 per half-day session for up to 10 people, including a custom playbook. Company-wide rollouts range from CHF 8,000 to CHF 20,000 depending on team size.
+
+**What makes DKDP different from other Geneva agencies?**
+A small senior team that ships code itself. No account managers, no offshoring, no PowerPoint theatre. You talk directly to the people who design, build, train and ship.
+
+**Do you offer free audits before engagement?**
+Yes. We offer a free SEO audit and a free site audit, both delivered within 48 hours. The reports are concrete and yours to keep with no engagement on your side.
+
+## Contact information
+
+Address: Rue du 31 Decembre 36, 1207 Geneva, Switzerland
+Phone: +41 79 940 79 69
+Email: dk@dkdp.ch
+Website: https://dkdp.ch
+Booking: https://dkdp.ch/en/contact

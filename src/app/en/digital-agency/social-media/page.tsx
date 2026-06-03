@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Social Media Agency Geneva · LinkedIn, Instagram, TikTok | DKDP',
   description:
-    'Social media management in Geneva. LinkedIn, Instagram, TikTok content production and community management. Brand-consistent, engagement-focused. From CHF 1,500 per month.',
+    'Social media management in Geneva. LinkedIn, Instagram, TikTok content and community management. Brand-consistent, engagement-focused. From CHF 1,500/month.',
   enPath: '/en/digital-agency/social-media',
   frPath: '/agence-digitale/reseaux-sociaux',
 })

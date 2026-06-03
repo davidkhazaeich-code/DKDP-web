@@ -3,7 +3,7 @@ import { ServicePage } from '@/app/en/_components/ServicePage'
 import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 
 export const metadata = buildServiceMetadata({
-  title: 'Claude AI Training Geneva · Claude.ai, Projects, Cowork, Claude Code | DKDP',
+  title: 'Claude Training Geneva · Claude.ai, Projects, Code | DKDP',
   description:
     'Hands-on Claude AI training for your team. Claude.ai, Projects, Cowork and Claude Code. From first prompt to autonomous agents. Delivered in Geneva or remote.',
   enPath: '/en/corporate-training/claude-ai',

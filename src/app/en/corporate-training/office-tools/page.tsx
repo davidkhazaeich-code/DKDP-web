@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Office Tools Training Geneva · Excel, Word, PowerPoint, AI | DKDP',
   description:
-    'Office tools training in Geneva. Excel, Word, PowerPoint, Outlook, Microsoft 365 and Copilot. Save hours every week on the files you already use. From CHF 1,500 per half-day.',
+    'Office tools training in Geneva: Excel, Word, PowerPoint, Microsoft 365 and Copilot. Save hours every week on the files you use daily. From CHF 1,500.',
   enPath: '/en/corporate-training/office-tools',
   frPath: '/formation-entreprise/bureautique',
 })

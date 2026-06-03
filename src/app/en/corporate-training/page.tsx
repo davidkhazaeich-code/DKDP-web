@@ -11,7 +11,7 @@ import { buildBreadcrumbList, buildOrganization } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Corporate AI Training Geneva · Claude, ChatGPT, Copilot | DKDP',
   description:
-    'Corporate AI training in Geneva and across Switzerland. Hands-on sessions on Claude, ChatGPT, Copilot, Canva, Figma, cybersecurity and office tools. Delivered in English. From CHF 1,500.',
+    'Corporate AI training in Geneva and across Switzerland. Hands-on Claude, ChatGPT, Copilot, Canva, Figma, cybersecurity. From CHF 1,500 per half-day.',
   alternates: {
     canonical: 'https://dkdp.ch/en/corporate-training',
     languages: {

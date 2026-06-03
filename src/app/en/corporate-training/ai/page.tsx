@@ -3,9 +3,9 @@ import { ServicePage } from '@/app/en/_components/ServicePage'
 import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 
 export const metadata = buildServiceMetadata({
-  title: 'Corporate AI Training Geneva · Claude, ChatGPT, Copilot | DKDP',
+  title: 'AI Team Training Geneva · ChatGPT, Claude, Copilot | DKDP',
   description:
-    'Corporate AI training in Geneva. Hands-on sessions on Claude, ChatGPT, Copilot, Gemini and the daily workflows your team actually uses. From CHF 1,500 per half-day.',
+    'Hands-on AI team training in Geneva. ChatGPT, Claude, Copilot, Gemini and the daily workflows your team uses. From CHF 1,500 per half-day, on-site or remote.',
   enPath: '/en/corporate-training/ai',
   frPath: '/formation-entreprise/ia',
 })

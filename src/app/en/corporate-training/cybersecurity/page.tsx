@@ -3,7 +3,7 @@ import { ServicePage } from '@/app/en/_components/ServicePage'
 import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 
 export const metadata = buildServiceMetadata({
-  title: 'Cybersecurity Training Geneva · Practical Drills, No Slides | DKDP',
+  title: 'Cybersecurity Training Geneva · Real Drills | DKDP',
   description:
     'Cybersecurity training in Geneva. Phishing, password hygiene, MFA, social engineering, AI threats. Practical drills, real attacks, take-home checklist. From CHF 1,500.',
   enPath: '/en/corporate-training/cybersecurity',

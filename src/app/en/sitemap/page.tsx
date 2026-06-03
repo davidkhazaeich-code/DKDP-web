@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { GradTag } from '@/components/ui/GradTag'
+import { SchemaOrg } from '@/components/seo/SchemaOrg'
+import { buildBreadcrumbList, buildOrganization } from '@/lib/schema'
 import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 
 export const metadata: Metadata = buildServiceMetadata({
-  title: 'Sitemap · DKDP',
+  title: 'Sitemap · DKDP Digital Agency Geneva',
   description:
-    'Complete sitemap of the English version of dkdp.ch. Digital agency, AI, training, pricing, contact and legal pages.',
+    'Complete sitemap of the English version of dkdp.ch. Browse every digital agency service, AI solution, corporate training, pricing, contact and legal page in one list.',
   enPath: '/en/sitemap',
   frPath: '/plan-du-site',
 })
@@ -80,6 +82,13 @@ const SECTIONS: { title: string; links: { label: string; href: string }[] }[] = 
 export default function Page() {
   return (
     <main className="pt-28 sm:pt-36 pb-20 sm:pb-24">
+      <SchemaOrg schema={buildOrganization()} />
+      <SchemaOrg
+        schema={buildBreadcrumbList([
+          { name: 'Home', url: '/en' },
+          { name: 'Sitemap', url: '/en/sitemap' },
+        ])}
+      />
       <div className="max-w-[1100px] mx-auto px-6">
         <GradTag>Sitemap</GradTag>
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mt-3 mb-5">Sitemap</h1>

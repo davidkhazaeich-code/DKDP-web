@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         // Tous les crawlers : acces complet sauf /api/ et /_next/
         userAgent: "*",
-        allow: ["/", "/agence-digitale/", "/formation-entreprise/", "/intelligence-artificielle/", "/blog/", "/contact", "/a-propos", "/tarifs"],
+        allow: ["/", "/agence-digitale/", "/formation-entreprise/", "/intelligence-artificielle/", "/blog/", "/contact", "/a-propos", "/tarifs", "/en/", "/en/digital-agency/", "/en/artificial-intelligence/", "/en/corporate-training/"],
         disallow: ["/api/", "/admin/", "/private/", "/temp/"],
       },
       {

@@ -12,7 +12,7 @@ import { buildLocalBusiness, buildOrganization, buildWebSite, buildWebPageWithSp
 export const metadata: Metadata = {
   title: 'Digital Agency Geneva · Web, AI & Training | DKDP',
   description:
-    'Geneva-based digital agency specialised in web design, SEO, artificial intelligence and corporate AI training. 700+ clients across French-speaking Switzerland. Free quote in 24 hours.',
+    'Geneva digital agency for web design, SEO, AI rollouts and corporate AI training. 700+ Swiss clients. Free quote in 24 hours, fixed price, ships in weeks.',
   alternates: {
     canonical: 'https://dkdp.ch/en',
     languages: {

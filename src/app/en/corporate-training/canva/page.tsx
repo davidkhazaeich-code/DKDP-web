@@ -3,7 +3,7 @@ import { ServicePage } from '@/app/en/_components/ServicePage'
 import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 
 export const metadata = buildServiceMetadata({
-  title: 'Canva Training Geneva · Brand Kit, Templates, Magic Studio AI | DKDP',
+  title: 'Canva Training Geneva · Brand Kit, AI Magic Studio | DKDP',
   description:
     'Canva training in Geneva. Brand Kit setup, templates, Magic Studio AI, video editing. Build a brand-consistent design system in one day. From CHF 1,500 per half-day.',
   enPath: '/en/corporate-training/canva',

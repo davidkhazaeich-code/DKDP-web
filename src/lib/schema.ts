@@ -1,20 +1,104 @@
 const BASE_URL = 'https://dkdp.ch'
 
-export function buildLocalBusiness() {
+export type SchemaLang = 'fr' | 'en'
+
+/** Map our internal lang code to schema.org inLanguage tags. */
+const IN_LANGUAGE: Record<SchemaLang, string> = {
+  fr: 'fr-CH',
+  en: 'en',
+}
+
+/** Localized locality name (Genève vs Geneva). */
+const LOCALITY: Record<SchemaLang, string> = {
+  fr: 'Genève',
+  en: 'Geneva',
+}
+
+/** Localized region name. */
+const REGION: Record<SchemaLang, string> = {
+  fr: 'Suisse romande',
+  en: 'French-speaking Switzerland',
+}
+
+const COUNTRY: Record<SchemaLang, string> = {
+  fr: 'Suisse',
+  en: 'Switzerland',
+}
+
+/** Localized descriptions for the agency. */
+const ORG_DESCRIPTION: Record<SchemaLang, string> = {
+  fr: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME suisses.',
+  en: 'Digital agency in Geneva, Switzerland, specialised in web design, SEO, artificial intelligence and corporate training for Swiss SMBs.',
+}
+
+const LOCAL_BUSINESS_DESCRIPTION: Record<SchemaLang, string> = {
+  fr: "Agence digitale à Genève (quartier des Eaux-Vives) spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME. 700+ clients accompagnés en Suisse romande depuis 2015.",
+  en: 'Digital agency based in Geneva (Eaux-Vives district), specialised in web design, SEO, artificial intelligence and corporate training for SMBs. 700+ clients served across French-speaking Switzerland since 2015.',
+}
+
+const WEBSITE_DESCRIPTION: Record<SchemaLang, string> = {
+  fr: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise.',
+  en: 'Digital agency in Geneva specialised in web design, SEO, artificial intelligence and corporate training.',
+}
+
+const PERSON_JOB_TITLE: Record<SchemaLang, string> = {
+  fr: 'Fondateur et Directeur',
+  en: 'Founder and Director',
+}
+
+const TRAINER_JOB_TITLE: Record<SchemaLang, string> = {
+  fr: 'Fondateur et formateur principal',
+  en: 'Founder and lead trainer',
+}
+
+const ABOUT_PATH: Record<SchemaLang, string> = {
+  fr: '/a-propos',
+  en: '/en/about',
+}
+
+const BLOG_PATH: Record<SchemaLang, string> = {
+  fr: '/blog',
+  en: '/blog',
+}
+
+const CITIES_LOCALIZED: Record<SchemaLang, { '@type': string; name: string }[]> = {
+  fr: [
+    { '@type': 'City', name: 'Genève' },
+    { '@type': 'City', name: 'Lausanne' },
+    { '@type': 'City', name: 'Nyon' },
+    { '@type': 'City', name: 'Morges' },
+    { '@type': 'City', name: 'Fribourg' },
+    { '@type': 'City', name: 'Neuchâtel' },
+    { '@type': 'City', name: 'Sion' },
+    { '@type': 'AdministrativeArea', name: 'Suisse romande' },
+  ],
+  en: [
+    { '@type': 'City', name: 'Geneva' },
+    { '@type': 'City', name: 'Lausanne' },
+    { '@type': 'City', name: 'Nyon' },
+    { '@type': 'City', name: 'Morges' },
+    { '@type': 'City', name: 'Fribourg' },
+    { '@type': 'City', name: 'Neuchatel' },
+    { '@type': 'City', name: 'Sion' },
+    { '@type': 'AdministrativeArea', name: 'French-speaking Switzerland' },
+  ],
+}
+
+export function buildLocalBusiness(lang: SchemaLang = 'fr') {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': 'https://dkdp.ch/#local-business',
     name: 'DKDP',
-    description: "Agence digitale à Genève (quartier des Eaux-Vives) spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME. 700+ clients accompagnés en Suisse romande depuis 2015.",
+    description: LOCAL_BUSINESS_DESCRIPTION[lang],
     url: BASE_URL,
     telephone: '+41799407969',
     email: 'dk@dkdp.ch',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Rue du 31 Décembre 36',
-      addressLocality: 'Genève',
-      addressRegion: 'Genève',
+      addressLocality: LOCALITY[lang],
+      addressRegion: LOCALITY[lang],
       postalCode: '1207',
       addressCountry: 'CH',
     },
@@ -40,16 +124,7 @@ export function buildLocalBusiness() {
     },
     priceRange: '$$',
     currenciesAccepted: 'CHF',
-    areaServed: [
-      { '@type': 'City', name: 'Genève' },
-      { '@type': 'City', name: 'Lausanne' },
-      { '@type': 'City', name: 'Nyon' },
-      { '@type': 'City', name: 'Morges' },
-      { '@type': 'City', name: 'Fribourg' },
-      { '@type': 'City', name: 'Neuchâtel' },
-      { '@type': 'City', name: 'Sion' },
-      { '@type': 'AdministrativeArea', name: 'Suisse romande' },
-    ],
+    areaServed: CITIES_LOCALIZED[lang],
     logo: {
       '@type': 'ImageObject',
       url: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
@@ -62,13 +137,24 @@ export function buildLocalBusiness() {
   }
 }
 
-export function buildService({ name, url, description }: { name: string; url: string; description?: string }) {
+export function buildService({
+  name,
+  url,
+  description,
+  lang = 'fr',
+}: {
+  name: string
+  url: string
+  description?: string
+  lang?: SchemaLang
+}) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name,
     ...(description ? { description } : {}),
     url: `${BASE_URL}${url}`,
+    inLanguage: IN_LANGUAGE[lang],
     provider: {
       '@type': 'Organization',
       name: 'DKDP',
@@ -76,7 +162,7 @@ export function buildService({ name, url, description }: { name: string; url: st
     },
     areaServed: {
       '@type': 'Place',
-      name: 'Genève, Suisse romande',
+      name: `${LOCALITY[lang]}, ${REGION[lang]}`,
     },
     serviceType: name,
   }
@@ -97,6 +183,7 @@ export function buildServiceWithLocalBusiness({
   priceCurrency = 'CHF',
   priceSpecDescription,
   extraAreas = [],
+  lang = 'fr',
 }: {
   name: string
   url: string
@@ -106,19 +193,18 @@ export function buildServiceWithLocalBusiness({
   priceCurrency?: string
   priceSpecDescription?: string
   extraAreas?: string[]
+  lang?: SchemaLang
 }) {
   const areasRomandes = [
-    { '@type': 'City', name: 'Genève' },
-    { '@type': 'City', name: 'Lausanne' },
-    { '@type': 'City', name: 'Nyon' },
-    { '@type': 'City', name: 'Morges' },
-    { '@type': 'City', name: 'Fribourg' },
-    { '@type': 'City', name: 'Neuchâtel' },
-    { '@type': 'City', name: 'Sion' },
+    ...CITIES_LOCALIZED[lang],
     { '@type': 'City', name: 'Montreux' },
-    { '@type': 'AdministrativeArea', name: 'Suisse romande' },
     ...extraAreas.map((a) => ({ '@type': 'City', name: a })),
   ]
+
+  const defaultPriceSpec =
+    lang === 'fr'
+      ? `À partir de ${priceCurrency} ${priceFrom}`
+      : `From ${priceCurrency} ${priceFrom}`
 
   return {
     '@context': 'https://schema.org',
@@ -130,6 +216,7 @@ export function buildServiceWithLocalBusiness({
         description,
         url: `${BASE_URL}${url}`,
         serviceType,
+        inLanguage: IN_LANGUAGE[lang],
         provider: { '@id': 'https://dkdp.ch/#local-business' },
         areaServed: areasRomandes,
         ...(priceFrom
@@ -142,7 +229,7 @@ export function buildServiceWithLocalBusiness({
                   '@type': 'PriceSpecification',
                   priceCurrency,
                   price: String(priceFrom),
-                  description: priceSpecDescription ?? `À partir de ${priceCurrency} ${priceFrom}`,
+                  description: priceSpecDescription ?? defaultPriceSpec,
                 },
                 availability: 'https://schema.org/InStock',
                 url: `${BASE_URL}${url}`,
@@ -150,13 +237,23 @@ export function buildServiceWithLocalBusiness({
             }
           : {}),
       },
-      buildLocalBusiness(),
+      buildLocalBusiness(lang),
     ],
   }
 }
 
 export function buildCourse({
-  name, url, description, duration, teaches, prerequisites, priceFrom, ratingValue, ratingCount, image,
+  name,
+  url,
+  description,
+  duration,
+  teaches,
+  prerequisites,
+  priceFrom,
+  ratingValue,
+  ratingCount,
+  image,
+  lang = 'fr',
 }: {
   name: string
   url: string
@@ -168,7 +265,20 @@ export function buildCourse({
   ratingValue?: number | string
   ratingCount?: number
   image?: string
+  lang?: SchemaLang
 }) {
+  const courseLanguage = lang === 'fr' ? 'fr' : 'en'
+  const availableLanguage = lang === 'fr' ? 'French' : 'English'
+  const priceDescription =
+    lang === 'fr'
+      ? priceFrom
+        ? `À partir de CHF ${priceFrom}/h`
+        : 'Sur devis'
+      : priceFrom
+        ? `From CHF ${priceFrom}/h`
+        : 'On request'
+  const locationName = lang === 'fr' ? 'Genève, Suisse' : 'Geneva, Switzerland'
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Course',
@@ -183,30 +293,32 @@ export function buildCourse({
       logo: { '@type': 'ImageObject', url: `${BASE_URL}/images/logo/dkdp_blanc-croped.png` },
     },
     courseMode: ['onsite', 'online'],
-    inLanguage: 'fr',
-    availableLanguage: 'French',
+    inLanguage: courseLanguage,
+    availableLanguage,
     ...(duration ? { duration } : {}),
     ...(teaches ? { teaches } : {}),
     ...(prerequisites ? { coursePrerequisites: prerequisites } : {}),
-    ...(ratingValue ? {
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: Number(ratingValue),
-        reviewCount: ratingCount ?? 500,
-        bestRating: 5,
-      },
-    } : {}),
+    ...(ratingValue
+      ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: Number(ratingValue),
+            reviewCount: ratingCount ?? 500,
+            bestRating: 5,
+          },
+        }
+      : {}),
     hasCourseInstance: {
       '@type': 'CourseInstance',
       courseMode: ['onsite', 'online'],
-      inLanguage: 'fr',
+      inLanguage: courseLanguage,
       startDate: '2026-01-06',
       location: {
         '@type': 'Place',
-        name: 'Genève, Suisse',
+        name: locationName,
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Genève',
+          addressLocality: LOCALITY[lang],
           postalCode: '1207',
           addressCountry: 'CH',
         },
@@ -214,13 +326,23 @@ export function buildCourse({
       instructor: {
         '@type': 'Person',
         name: 'David Khazaei',
-        jobTitle: 'Fondateur et formateur principal',
-        url: `${BASE_URL}/a-propos`,
+        jobTitle: TRAINER_JOB_TITLE[lang],
+        url: `${BASE_URL}${ABOUT_PATH[lang]}`,
       },
       offers: {
         '@type': 'Offer',
         priceCurrency: 'CHF',
-        ...(priceFrom ? { price: priceFrom, priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: priceFrom, description: `À partir de CHF ${priceFrom}/h` } } : { category: 'Sur devis' }),
+        ...(priceFrom
+          ? {
+              price: priceFrom,
+              priceSpecification: {
+                '@type': 'PriceSpecification',
+                priceCurrency: 'CHF',
+                price: priceFrom,
+                description: priceDescription,
+              },
+            }
+          : { category: lang === 'fr' ? 'Sur devis' : 'On request' }),
         url: `${BASE_URL}/contact?service=formation`,
         availability: 'https://schema.org/InStock',
       },
@@ -256,33 +378,33 @@ export function buildBreadcrumbList(items: { name: string; url: string }[]) {
   }
 }
 
-export function buildWebSite() {
+export function buildWebSite(lang: SchemaLang = 'fr') {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': 'https://dkdp.ch/#website',
     name: 'DKDP',
     url: BASE_URL,
-    description: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise.',
-    inLanguage: 'fr-CH',
+    description: WEBSITE_DESCRIPTION[lang],
+    inLanguage: IN_LANGUAGE[lang],
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${BASE_URL}/blog?q={search_term_string}`,
+        urlTemplate: `${BASE_URL}${BLOG_PATH[lang]}?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
   }
 }
 
-export function buildPerson() {
+export function buildPerson(lang: SchemaLang = 'fr') {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'David Khazaei',
-    url: `${BASE_URL}/a-propos`,
-    jobTitle: 'Fondateur et Directeur',
+    url: `${BASE_URL}${ABOUT_PATH[lang]}`,
+    jobTitle: PERSON_JOB_TITLE[lang],
     worksFor: {
       '@type': 'Organization',
       name: 'DKDP',
@@ -290,7 +412,7 @@ export function buildPerson() {
     },
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Genève',
+      addressLocality: LOCALITY[lang],
       addressCountry: 'CH',
     },
   }
@@ -305,7 +427,9 @@ export function buildArticle(data: {
   authorName?: string
   image?: string
   readTime?: string
+  lang?: SchemaLang
 }) {
+  const lang: SchemaLang = data.lang ?? 'fr'
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -314,11 +438,11 @@ export function buildArticle(data: {
     url: `${BASE_URL}${data.url}`,
     datePublished: data.datePublished,
     dateModified: data.dateModified,
-    inLanguage: 'fr-CH',
+    inLanguage: IN_LANGUAGE[lang],
     author: {
       '@type': 'Person',
       name: data.authorName ?? 'David Khazaei',
-      url: `${BASE_URL}/a-propos`,
+      url: `${BASE_URL}${ABOUT_PATH[lang]}`,
     },
     publisher: {
       '@type': 'Organization',
@@ -331,22 +455,24 @@ export function buildArticle(data: {
     },
     isPartOf: {
       '@type': 'Blog',
-      name: 'Blog DKDP',
-      url: `${BASE_URL}/blog`,
+      name: lang === 'fr' ? 'Blog DKDP' : 'DKDP Blog',
+      url: `${BASE_URL}${BLOG_PATH[lang]}`,
     },
-    ...(data.image ? {
-      image: {
-        '@type': 'ImageObject',
-        url: data.image,
-        width: 1200,
-        height: 675,
-      },
-    } : {}),
+    ...(data.image
+      ? {
+          image: {
+            '@type': 'ImageObject',
+            url: data.image,
+            width: 1200,
+            height: 675,
+          },
+        }
+      : {}),
     ...(data.readTime ? { timeRequired: `PT${data.readTime.replace(/\D/g, '')}M` } : {}),
   }
 }
 
-export function buildOrganization() {
+export function buildOrganization(lang: SchemaLang = 'fr') {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -361,20 +487,20 @@ export function buildOrganization() {
       height: 512,
     },
     image: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
-    description: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME suisses.',
+    description: ORG_DESCRIPTION[lang],
     foundingDate: '2015',
     founder: {
       '@type': 'Person',
       name: 'David Khazaei',
-      jobTitle: 'Fondateur et Directeur',
-      url: `${BASE_URL}/a-propos`,
+      jobTitle: PERSON_JOB_TITLE[lang],
+      url: `${BASE_URL}${ABOUT_PATH[lang]}`,
     },
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Rue du 31 Décembre 36',
-      addressLocality: 'Genève',
+      addressLocality: LOCALITY[lang],
       postalCode: '1207',
-      addressRegion: 'Genève',
+      addressRegion: LOCALITY[lang],
       addressCountry: 'CH',
     },
     contactPoint: [
@@ -401,41 +527,89 @@ export function buildOrganization() {
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Services DKDP',
+      name: lang === 'fr' ? 'Services DKDP' : 'DKDP Services',
       itemListElement: [
         {
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Création site web', description: 'Sites web sur mesure pour PME suisses' },
+          itemOffered: {
+            '@type': 'Service',
+            name: lang === 'fr' ? 'Création site web' : 'Web design',
+            description:
+              lang === 'fr'
+                ? 'Sites web sur mesure pour PME suisses'
+                : 'Custom websites for Swiss SMBs',
+          },
           priceCurrency: 'CHF',
           price: '2500',
-          priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: '2500', description: 'A partir de CHF 2500' },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'CHF',
+            price: '2500',
+            description: lang === 'fr' ? 'À partir de CHF 2500' : 'From CHF 2,500',
+          },
         },
         {
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Formation IA entreprise', description: 'Formations IA appliquees pour équipes' },
+          itemOffered: {
+            '@type': 'Service',
+            name: lang === 'fr' ? 'Formation IA entreprise' : 'Corporate AI training',
+            description:
+              lang === 'fr'
+                ? 'Formations IA appliquées pour équipes'
+                : 'Applied AI training for teams',
+          },
           priceCurrency: 'CHF',
           price: '1500',
-          priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: '1500', description: 'A partir de CHF 1500 par session' },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'CHF',
+            price: '1500',
+            description:
+              lang === 'fr' ? 'À partir de CHF 1500 par session' : 'From CHF 1,500 per session',
+          },
         },
         {
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'SEO et référencement', description: 'référencement naturel Google pour PME' },
+          itemOffered: {
+            '@type': 'Service',
+            name: lang === 'fr' ? 'SEO et référencement' : 'SEO and search',
+            description:
+              lang === 'fr'
+                ? 'Référencement naturel Google pour PME'
+                : 'Google organic search optimisation for SMBs',
+          },
           priceCurrency: 'CHF',
-          price: '500',
-          priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'CHF', price: '500', description: 'A partir de CHF 500/mois' },
+          price: '600',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'CHF',
+            price: '600',
+            description: lang === 'fr' ? 'À partir de CHF 600/mois' : 'From CHF 600/month',
+          },
         },
       ],
     },
   }
 }
 
-export function buildWebPageWithSpeakable({ name, url, description }: { name: string; url: string; description: string }) {
+export function buildWebPageWithSpeakable({
+  name,
+  url,
+  description,
+  lang = 'fr',
+}: {
+  name: string
+  url: string
+  description: string
+  lang?: SchemaLang
+}) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name,
     url: `${BASE_URL}${url}`,
     description,
+    inLanguage: IN_LANGUAGE[lang],
     speakable: {
       '@type': 'SpeakableSpecification',
       cssSelector: ['h1', '[data-speakable]', '.hero-copy'],

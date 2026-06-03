@@ -54,7 +54,7 @@ const EN_FAQ_ITEMS = [
   {
     question: 'How much does corporate AI training cost?',
     answer:
-      'AI training for teams starts at CHF 1,500 per half-day session for up to 10 people, including a custom playbook tailored to your workflows. Full company-wide rollouts (5 to 10 sessions, supporting tooling, post-training help) range from CHF 8,000 to CHF 20,000 depending on team size and complexity.',
+      "AI training for teams starts at CHF 1'500 per half-day session for up to 10 people, including a custom playbook tailored to your workflows. Full company-wide rollouts (5 to 10 sessions, supporting tooling, post-training help) range from CHF 8'000 to CHF 20'000 depending on team size and complexity.",
   },
   {
     question: 'What makes DKDP different from other Geneva agencies?',

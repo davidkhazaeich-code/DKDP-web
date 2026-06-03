@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Executive-ready outputs', text: 'Memos, board updates, investor-ready slides when you need them. Written by someone who ships.' },
         ],
         stats: [
-          { value: 'CHF 2,500+', label: 'One-off audit' },
+          { value: "CHF 2'500+", label: 'One-off audit' },
           { value: 'CHF 4k/mo', label: 'Fractional CMO' },
           { value: '4-6 weeks', label: 'First roadmap impact' },
           { value: 'Senior only', label: 'No juniors on call' },

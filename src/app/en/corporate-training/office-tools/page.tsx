@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Office Tools Training Geneva · Excel, Word, PowerPoint, AI | DKDP',
   description:
-    'Office tools training in Geneva: Excel, Word, PowerPoint, Microsoft 365 and Copilot. Save hours every week on the files you use daily. From CHF 1,500.',
+    "Office tools training in Geneva: Excel, Word, PowerPoint, Microsoft 365 and Copilot. Save hours every week on the files you use daily. From CHF 1'500.",
   enPath: '/en/corporate-training/office-tools',
   frPath: '/formation-entreprise/bureautique',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Google Workspace too', text: 'Docs, Sheets, Slides, Gmail, Drive. The same principles, different tools. We cover both.' },
         ],
         stats: [
-          { value: 'CHF 1,500+', label: 'Half-day session' },
+          { value: "CHF 1'500+", label: 'Half-day session' },
           { value: '4-12 people', label: 'Per session' },
           { value: 'On-site', label: 'Or remote' },
           { value: 'Bilingual', label: 'EN or FR' },

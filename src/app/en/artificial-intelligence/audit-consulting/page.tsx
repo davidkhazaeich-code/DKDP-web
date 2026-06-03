@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'AI Audit & Consulting Geneva · Where AI Pays Back | DKDP',
   description:
-    'AI audit and consulting in Geneva. Find where AI moves the needle in your business. Prioritised roadmap, no buzzwords, in plain English. From CHF 4,000 fixed quote.',
+    "AI audit and consulting in Geneva. Find where AI moves the needle in your business. Prioritised roadmap, no buzzwords, in plain English. From CHF 4'000 fixed quote.",
   enPath: '/en/artificial-intelligence/audit-consulting',
   frPath: '/intelligence-artificielle/audit-conseil',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Optional implementation', text: 'You can take the roadmap to any vendor or have us execute through our AI services.' },
         ],
         stats: [
-          { value: 'CHF 4,000+', label: 'From, fixed quote' },
+          { value: "CHF 4'000+", label: 'From, fixed quote' },
           { value: '2-4 weeks', label: 'Audit delivery' },
           { value: '5-10 ideas', label: 'Scored and ranked' },
           { value: 'Vendor-neutral', label: 'No conflict of interest' },

@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     canonical: 'https://dkdp.ch/formation-entreprise/ia',
     languages: {
       'fr-CH': 'https://dkdp.ch/formation-entreprise/ia',
+      en: 'https://dkdp.ch/en/corporate-training/ai',
       'x-default': 'https://dkdp.ch/formation-entreprise/ia',
     },
   },

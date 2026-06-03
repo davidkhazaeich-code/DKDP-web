@@ -19,7 +19,7 @@
     "openingHours": "Mon-Fri 09:00-18:00",
     "phone": "+41 79 940 79 69",
     "email": "dk@dkdp.ch",
-    "address": "36 Rue du 31 Decembre",
+    "address": "36 Rue du 31 Décembre",
     "neighborhood": "Eaux-Vives District",
     "city": "1207 Geneva, Switzerland",
     "locations": "Where we operate:",
@@ -36,12 +36,12 @@
       { "title": "Web design", "description": "Custom websites built to convert and perform." },
       { "title": "Website redesign", "description": "Migration without SEO loss, modern 2026 design for Swiss SMBs." },
       { "title": "App development", "description": "iOS, Android, web apps and PWAs tailored for SMBs." },
-      { "title": "SEO & search", "description": "Sustainable organic visibility on Google and AI search." },
+      { "title": "SEO and search", "description": "Sustainable organic visibility on Google and AI search." },
       { "title": "Google Ads", "description": "Profitable Google Ads and paid campaigns." },
       { "title": "Social media", "description": "Consistent, engaging social presence." },
       { "title": "Video production", "description": "Videos that captivate and convert." },
       { "title": "Marketing consulting", "description": "Digital strategy and hands-on guidance." },
-      { "title": "GDPR & cookies", "description": "Legal compliance and data protection." }
+      { "title": "GDPR and cookies", "description": "Legal compliance and data protection." }
     ],
     "agenceSecondary": [
       { "title": "Free site audit" },
@@ -53,7 +53,7 @@
     "iaMain": [
       { "title": "Custom AI agents", "description": "Automate your processes with intelligent agents." },
       { "title": "Business automation", "description": "No-code workflows with zero friction." },
-      { "title": "AI audit & consulting", "description": "Diagnose your automation potential." },
+      { "title": "AI audit and consulting", "description": "Diagnose your automation potential." },
       { "title": "AI implementation", "description": "Deploy AI inside your existing stack." },
       { "title": "AI chatbot", "description": "A 24/7 assistant designed for your business." }
     ],
@@ -102,20 +102,20 @@
     "agenceLinks": [
       "Free site audit", "Free SEO audit", "Web design",
       "Website redesign", "SEO", "Google Ads",
-      "Social media", "Video production", "Marketing consulting", "Free quote"
+      "Social media", "Video production", "Marketing consulting", "GDPR and cookies", "Free quote"
     ],
     "formationLinks": [
       "AI training", "Claude training", "Canva training",
-      "Web design with Figma", "Office tools & Excel", "Cybersecurity",
+      "Web design with Figma", "Office tools and Excel", "Cybersecurity",
       "Social media", "Video editing", "IT skills", "For individuals"
     ],
     "iaLinks": [
       "AI agency in Geneva", "Custom AI agents", "AI chatbot",
-      "Business automation", "AI audit & consulting", "AI implementation"
+      "Business automation", "AI audit and consulting", "AI implementation"
     ],
     "aproposLinks": ["About the agency", "Pricing", "Blog", "Glossary"],
     "legalLinks": [
-      "Legal notice", "Privacy policy", "GDPR & cookies",
+      "Legal notice", "Privacy policy", "GDPR and cookies",
       "Terms of service", "Sitemap"
     ]
   },
@@ -123,11 +123,11 @@
     "badge": "700+ clients trusted us across French-speaking Switzerland",
     "shortBadge": "700+ clients",
     "rating": "4.9/5 on Google",
-    "since": "Since 2020",
-    "yearsExperience": "5 years of experience"
+    "since": "Since 2015",
+    "yearsExperience": "10 years of experience"
   },
   "home": {
-    "metaTitle": "Digital Agency Geneva · Websites, AI & Training | DKDP",
+    "metaTitle": "Digital Agency Geneva · Websites, AI and Training | DKDP",
     "metaDescription": "Geneva-based digital agency specialised in web design, SEO, artificial intelligence and corporate training. 700+ clients across French-speaking Switzerland. Free quote.",
     "hero": {
       "h1Line1": "The Geneva digital agency",
@@ -146,7 +146,7 @@
   "languageSwitcher": {
     "label": "Language",
     "ariaLabel": "Change language",
-    "fr": "Francais",
+    "fr": "Français",
     "en": "English"
   }
 }

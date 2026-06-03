@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Data subject request flow', text: 'Process and tooling to handle access, deletion and rectification requests within legal deadlines.' },
         ],
         stats: [
-          { value: 'CHF 1,500+', label: 'One-off compliance' },
+          { value: "CHF 1'500+", label: 'One-off compliance' },
           { value: 'GDPR + nLPD', label: 'Both covered' },
           { value: '< 2 weeks', label: 'Typical delivery' },
           { value: 'Yes', label: 'Consent Mode v2' },

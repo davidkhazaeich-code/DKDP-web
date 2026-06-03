@@ -25,7 +25,7 @@ const SECTIONS = [
     title: 'Hébergement',
     items: [
       { label: 'Hébergeur', value: 'Vercel Inc.' },
-      { label: 'Adresse', value: '340 Pine Street, Suite 701, San Francisco, CA 94104, États-Unis' },
+      { label: 'Adresse', value: '340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis' },
       { label: 'Site', value: 'vercel.com' },
     ],
   },

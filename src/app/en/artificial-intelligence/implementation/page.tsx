@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'AI Implementation Geneva · Deploy AI Inside Your Stack | DKDP',
   description:
-    'AI implementation in Geneva. We deploy AI agents, automation and chatbots inside your existing stack and train your team to use them. From CHF 6,000 fixed quote.',
+    "AI implementation in Geneva. We deploy AI agents, automation and chatbots inside your existing stack and train your team to use them. From CHF 6'000 fixed quote.",
   enPath: '/en/artificial-intelligence/implementation',
   frPath: '/intelligence-artificielle/mise-en-place',
 })

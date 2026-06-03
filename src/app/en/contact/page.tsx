@@ -5,7 +5,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildBreadcrumbList, buildLocalBusiness } from '@/lib/schema'
+import { buildBreadcrumbList, buildLocalBusiness, buildOrganization } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Contact DKDP · Digital Agency Geneva | Book a Call',
@@ -31,7 +31,8 @@ export const metadata: Metadata = {
 export default function EnContactPage() {
   return (
     <>
-      <SchemaOrg schema={buildLocalBusiness()} />
+      <SchemaOrg schema={buildOrganization('en')} />
+      <SchemaOrg schema={buildLocalBusiness('en')} />
       <SchemaOrg
         schema={buildBreadcrumbList([
           { name: 'Home', url: '/en' },
@@ -105,7 +106,7 @@ export default function EnContactPage() {
             <address className="not-italic space-y-3 text-text-secondary text-base">
               <a href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+D%C3%A9cembre,1207+Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 hover:text-text">
                 <MapPin size={18} className="mt-0.5 flex-shrink-0" style={{ color: '#A78BFA' }} />
-                <span>36 Rue du 31 Decembre<br />Eaux-Vives District<br />1207 Geneva, Switzerland</span>
+                <span>36 Rue du 31 Décembre<br />Eaux-Vives District<br />1207 Geneva, Switzerland</span>
               </a>
               <p className="flex items-center gap-3">
                 <Clock size={18} className="flex-shrink-0" style={{ color: '#A78BFA' }} />

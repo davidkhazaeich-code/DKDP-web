@@ -6,7 +6,14 @@ export const metadata: Metadata = {
   title: 'Conditions générales de vente · DKDP Genève',
   description:
     'Conditions générales de vente de DKDP, agence digitale à Genève. Modalités de prestation, paiement, propriété intellectuelle et responsabilités.',
-  alternates: { canonical: 'https://dkdp.ch/conditions-generales-de-vente' },
+  alternates: {
+    canonical: 'https://dkdp.ch/conditions-generales-de-vente',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/conditions-generales-de-vente',
+      en: 'https://dkdp.ch/en/terms-of-service',
+      'x-default': 'https://dkdp.ch/conditions-generales-de-vente',
+    },
+  },
   robots: { index: false },
 }
 

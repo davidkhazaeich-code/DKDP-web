@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Owned source files', text: 'Project files, raw footage, brand assets. Yours, on a drive we hand over at the end.' },
         ],
         stats: [
-          { value: 'CHF 3,500+', label: 'From, fixed quote' },
+          { value: "CHF 3'500+", label: 'From, fixed quote' },
           { value: '2-4 weeks', label: 'Average turnaround' },
           { value: '4K + audio', label: 'Production quality' },
           { value: 'In-house', label: 'Post-production' },
@@ -42,7 +42,7 @@ export default function Page() {
           {
             question: 'How much does a brand film cost in Geneva?',
             answer:
-              'A 90-second brand film with a half-day shoot and full post-production typically lands between CHF 3,500 and CHF 8,000. Larger productions with multi-day shoots, drone work or animation start around CHF 12,000. Every project is fixed-quote upfront.',
+              "A 90-second brand film with a half-day shoot and full post-production typically lands between CHF 3'500 and CHF 8'000. Larger productions with multi-day shoots, drone work or animation start around CHF 12'000. Every project is fixed-quote upfront.",
           },
           {
             question: 'Do you handle scripting and storyboarding too?',

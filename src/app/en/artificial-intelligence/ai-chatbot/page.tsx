@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'AI Chatbot Geneva · 24/7 Assistant for Your Business | DKDP',
   description:
-    'AI chatbot built for your business. Grounded answers from your docs, lead capture, calendar booking, voice input. Hosted in Switzerland. From CHF 5,000 fixed quote.',
+    "AI chatbot built for your business. Grounded answers from your docs, lead capture, calendar booking, voice input. Hosted in Switzerland. From CHF 5'000 fixed quote.",
   enPath: '/en/artificial-intelligence/ai-chatbot',
   frPath: '/intelligence-artificielle/chatbot-ia',
 })

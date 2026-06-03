@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Custom AI Agents Geneva · Built on Claude, GPT, Gemini | DKDP',
   description:
-    'Custom AI agents trained on your docs, your tone, your processes. Built on Claude, ChatGPT or Gemini and deployed inside your stack. From CHF 8,000 fixed quote.',
+    "Custom AI agents trained on your docs, your tone, your processes. Built on Claude, ChatGPT or Gemini and deployed inside your stack. From CHF 8'000 fixed quote.",
   enPath: '/en/artificial-intelligence/ai-agents',
   frPath: '/intelligence-artificielle/agents-ia',
 })

@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Social Media Training Geneva · LinkedIn, Instagram, TikTok | DKDP',
   description:
-    'Social media training in Geneva. Master LinkedIn, Instagram, TikTok and the algorithms that move the needle. Strategy, content, paid ads. From CHF 1,500 per half-day.',
+    "Social media training in Geneva. Master LinkedIn, Instagram, TikTok and the algorithms that move the needle. Strategy, content, paid ads. From CHF 1'500 per half-day.",
   enPath: '/en/corporate-training/social-media',
   frPath: '/formation-entreprise/reseaux-sociaux',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Algorithm-aware editorial', text: 'How each platform really decides what to show. Practical takeaways, not conspiracy theories.' },
         ],
         stats: [
-          { value: 'CHF 1,500+', label: 'Half-day session' },
+          { value: "CHF 1'500+", label: 'Half-day session' },
           { value: '4-12 people', label: 'Per session' },
           { value: '3 platforms', label: 'LinkedIn, IG, TikTok' },
           { value: 'Templates', label: 'Take-home included' },

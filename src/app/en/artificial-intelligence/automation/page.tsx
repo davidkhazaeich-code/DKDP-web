@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Business Automation Geneva · n8n, Make, Zapier | DKDP',
   description:
-    'Business automation in Geneva with n8n, Make and Zapier. Lead routing, invoice generation, CRM sync, AI-assisted workflows. From CHF 2,500 fixed quote.',
+    "Business automation in Geneva with n8n, Make and Zapier. Lead routing, invoice generation, CRM sync, AI-assisted workflows. From CHF 2'500 fixed quote.",
   enPath: '/en/artificial-intelligence/automation',
   frPath: '/intelligence-artificielle/automatisation',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Documented and handed over', text: 'Every workflow documented in plain language. Your team can edit and extend without us.' },
         ],
         stats: [
-          { value: 'CHF 2,500+', label: 'From, fixed quote' },
+          { value: "CHF 2'500+", label: 'From, fixed quote' },
           { value: '2-6 weeks', label: 'Average delivery' },
           { value: 'n8n, Make, Zapier', label: 'Tools we use' },
           { value: 'Yours to maintain', label: 'No vendor lock' },

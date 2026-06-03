@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'IT Skills Training Geneva · Essentials for Modern Teams | DKDP',
   description:
-    'IT skills training in Geneva for non-tech teams. Cloud collaboration, modern productivity, automation, AI literacy. Practical, no jargon. From CHF 1,500 per half-day.',
+    "IT skills training in Geneva for non-tech teams. Cloud collaboration, modern productivity, automation, AI literacy. Practical, no jargon. From CHF 1'500 per half-day.",
   enPath: '/en/corporate-training/it-skills',
   frPath: '/formation-entreprise/informatique',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Tool selection', text: 'Help your team pick the right tool per task. Stop buying SaaS your team will not adopt.' },
         ],
         stats: [
-          { value: 'CHF 1,500+', label: 'Half-day session' },
+          { value: "CHF 1'500+", label: 'Half-day session' },
           { value: '4-15 people', label: 'Per session' },
           { value: 'Non-tech', label: 'Built for' },
           { value: 'Practical', label: 'No jargon' },

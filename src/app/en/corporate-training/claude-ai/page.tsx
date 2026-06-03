@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Custom prompts library', text: 'We co-build 20+ prompts tailored to your business. Yours to keep and extend.' },
         ],
         stats: [
-          { value: 'CHF 1,500+', label: 'Half-day session' },
+          { value: "CHF 1'500+", label: 'Half-day session' },
           { value: '4-12 people', label: 'Per session' },
           { value: 'Claude Pro', label: 'Setup advice included' },
           { value: '2 weeks', label: 'Email Q&A after' },

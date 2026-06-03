@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Google Ads Agency Geneva · Profitable Paid Campaigns | DKDP',
   description:
-    'Google Ads agency in Geneva. Search, Performance Max, YouTube. Full-funnel ROI reporting, no hidden margins. From CHF 1,200 per month management fee.',
+    "Google Ads agency in Geneva. Search, Performance Max, YouTube. Full-funnel ROI reporting, no hidden margins. From CHF 1'200 per month management fee.",
   enPath: '/en/digital-agency/google-ads',
   frPath: '/agence-digitale/publicite-sea',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Monthly ROI report', text: 'Spend, conversions, CAC, ROAS. The metrics that matter, not impressions and clicks.' },
         ],
         stats: [
-          { value: 'CHF 1,200+', label: 'Monthly management' },
+          { value: "CHF 1'200+", label: 'Monthly management' },
           { value: '< 5%', label: 'Wasted spend typical' },
           { value: 'Real-time', label: 'Conversion tracking' },
           { value: 'Monthly', label: 'ROI reporting' },
@@ -42,7 +42,7 @@ export default function Page() {
           {
             question: 'How much should we budget for Google Ads?',
             answer:
-              'Highly business-dependent. For a Geneva SMB targeting local intent, a meaningful test budget starts around CHF 1,500-3,000 per month of ad spend. We can run a 30-day pilot to validate before committing to a larger budget.',
+              "Highly business-dependent. For a Geneva SMB targeting local intent, a meaningful test budget starts around CHF 1'500-3,000 per month of ad spend. We can run a 30-day pilot to validate before committing to a larger budget.",
           },
           {
             question: 'Do you also handle Meta Ads (Facebook, Instagram)?',

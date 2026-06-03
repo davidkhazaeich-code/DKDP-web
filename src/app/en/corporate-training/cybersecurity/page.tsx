@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Cybersecurity Training Geneva · Real Drills | DKDP',
   description:
-    'Cybersecurity training in Geneva. Phishing, password hygiene, MFA, social engineering, AI threats. Practical drills, real attacks, take-home checklist. From CHF 1,500.',
+    "Cybersecurity training in Geneva. Phishing, password hygiene, MFA, social engineering, AI threats. Practical drills, real attacks, take-home checklist. From CHF 1'500.",
   enPath: '/en/corporate-training/cybersecurity',
   frPath: '/formation-entreprise/cybersecurite',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Compliance-ready', text: 'Maps to ISO 27001 awareness requirements and Swiss nLPD article 7. Certificates of completion provided.' },
         ],
         stats: [
-          { value: 'CHF 1,500+', label: 'Half-day session' },
+          { value: "CHF 1'500+", label: 'Half-day session' },
           { value: '4-15 people', label: 'Per session' },
           { value: 'ISO 27001', label: 'Awareness aligned' },
           { value: 'Real drills', label: 'Not just slides' },

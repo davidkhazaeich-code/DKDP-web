@@ -5,12 +5,12 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildBreadcrumbList, buildOrganization } from '@/lib/schema'
+import { buildBreadcrumbList, buildOrganization, buildPerson, buildLocalBusiness } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'About DKDP · Senior Digital Team in Geneva | DKDP',
   description:
-    'DKDP is a senior digital team based in Eaux-Vives, Geneva. Web, AI, training. 700+ Swiss clients, 5 years of practice, no middlemen. Meet the people who ship.',
+    'DKDP is a senior digital team based in Eaux-Vives, Geneva. Web, AI, training. 700+ Swiss clients, 10+ years of practice, no middlemen. Meet the people who ship.',
   alternates: {
     canonical: 'https://dkdp.ch/en/about',
     languages: {
@@ -31,7 +31,9 @@ export const metadata: Metadata = {
 export default function EnAboutPage() {
   return (
     <>
-      <SchemaOrg schema={buildOrganization()} />
+      <SchemaOrg schema={buildOrganization('en')} />
+      <SchemaOrg schema={buildLocalBusiness('en')} />
+      <SchemaOrg schema={buildPerson('en')} />
       <SchemaOrg
         schema={buildBreadcrumbList([
           { name: 'Home', url: '/en' },
@@ -60,7 +62,7 @@ export default function EnAboutPage() {
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mt-3 mb-4">David Khazaei</h2>
             <p className="text-text-secondary text-base leading-relaxed mb-3">
               Founder of DKDP. Background in computer science and product design. Over 700 SMB
-              projects shipped across French-speaking Switzerland since 2020, with a strong
+              projects shipped across French-speaking Switzerland since 2015, with a strong
               focus on web craft, AI deployments and corporate training.
             </p>
             <p className="text-text-secondary text-base leading-relaxed">

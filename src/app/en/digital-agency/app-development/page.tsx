@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'App Development Geneva · iOS, Android, Web Apps, PWAs | DKDP',
   description:
-    'iOS, Android, web apps and PWAs designed and developed in Geneva for Swiss SMBs. React Native, Expo, Next.js. From CHF 15,000, fixed quote.',
+    "iOS, Android, web apps and PWAs designed and developed in Geneva for Swiss SMBs. React Native, Expo, Next.js. From CHF 15'000, fixed quote.",
   enPath: '/en/digital-agency/app-development',
   frPath: '/agence-digitale/developpement-application',
 })

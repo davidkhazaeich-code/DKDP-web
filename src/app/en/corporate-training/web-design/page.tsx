@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Web Design Training with Figma · Geneva | DKDP',
   description:
-    'Web design training in Geneva with Figma. UI/UX, wireframes, design systems, interactive prototypes. Real client briefs, real deliverables. From CHF 1,500 per half-day.',
+    "Web design training in Geneva with Figma. UI/UX, wireframes, design systems, interactive prototypes. Real client briefs, real deliverables. From CHF 1'500 per half-day.",
   enPath: '/en/corporate-training/web-design',
   frPath: '/formation-entreprise/web-design',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'AI inside Figma', text: 'Figma AI, third-party plugins, prompt-driven design. The new workflows that save hours.' },
         ],
         stats: [
-          { value: 'CHF 1,500+', label: 'Half-day session' },
+          { value: "CHF 1'500+", label: 'Half-day session' },
           { value: '4-10 people', label: 'Per session' },
           { value: 'Real briefs', label: 'From your business' },
           { value: 'Take-home', label: 'Templates included' },

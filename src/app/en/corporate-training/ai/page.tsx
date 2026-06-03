@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'AI Team Training Geneva · ChatGPT, Claude, Copilot | DKDP',
   description:
-    'Hands-on AI team training in Geneva. ChatGPT, Claude, Copilot, Gemini and the daily workflows your team uses. From CHF 1,500 per half-day, on-site or remote.',
+    "Hands-on AI team training in Geneva. ChatGPT, Claude, Copilot, Gemini and the daily workflows your team uses. From CHF 1'500 per half-day, on-site or remote.",
   enPath: '/en/corporate-training/ai',
   frPath: '/formation-entreprise/ia',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Bilingual delivery', text: 'Sessions delivered in English or French. Materials in both languages on request.' },
         ],
         stats: [
-          { value: 'CHF 1,500+', label: 'Half-day session' },
+          { value: "CHF 1'500+", label: 'Half-day session' },
           { value: '4-12 people', label: 'Per session' },
           { value: 'Tailored', label: 'To your tools' },
           { value: '2 weeks', label: 'Email follow-up' },

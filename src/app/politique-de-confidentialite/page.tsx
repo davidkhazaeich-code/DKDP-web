@@ -5,7 +5,14 @@ import { GradTag } from '@/components/ui/GradTag'
 export const metadata: Metadata = {
   title: 'Politique de confidentialité · DKDP Genève',
   description: 'Politique de confidentialité de DKDP. Comment nous collectons, utilisons et protégeons vos données personnelles, conformément au RGPD et à la LPD suisse.',
-  alternates: { canonical: 'https://dkdp.ch/politique-de-confidentialite' },
+  alternates: {
+    canonical: 'https://dkdp.ch/politique-de-confidentialite',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/politique-de-confidentialite',
+      en: 'https://dkdp.ch/en/privacy-policy',
+      'x-default': 'https://dkdp.ch/politique-de-confidentialite',
+    },
+  },
   robots: { index: false },
 }
 
@@ -126,6 +133,10 @@ export default function PolitiqueDeConfidentialitePage() {
                     { name: 'Vercel', role: 'Hébergement du site web', pays: 'USA (clauses contractuelles types)' },
                     { name: 'Cal.com', role: 'Réservation de rendez-vous en ligne', pays: 'USA (clauses contractuelles types)' },
                     { name: 'Google Analytics', role: 'Analyse d\'audience anonymisée (si activé)', pays: 'USA (clauses contractuelles types)' },
+                    { name: 'Anthropic', role: 'Moteur LLM Claude utilisé par le chatbot et certains agents IA', pays: 'USA (clauses contractuelles types)' },
+                    { name: 'OpenAI', role: 'Modèles GPT utilisés ponctuellement par le chatbot et l\'analytique IA', pays: 'USA (clauses contractuelles types)' },
+                    { name: 'Resend', role: 'Envoi des emails transactionnels (formulaires, notifications)', pays: 'USA (clauses contractuelles types)' },
+                    { name: 'Supabase', role: 'Stockage chiffré des soumissions de formulaires et sessions chatbot', pays: 'UE (Francfort) / USA selon projet' },
                   ].map((item, i) => (
                     <div key={i} className="flex gap-4 p-4 rounded-[10px]" style={{ background: 'var(--surface-default)' }}>
                       <div>

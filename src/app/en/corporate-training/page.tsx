@@ -11,7 +11,7 @@ import { buildBreadcrumbList, buildOrganization } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Corporate AI Training Geneva · Claude, ChatGPT, Copilot | DKDP',
   description:
-    'Corporate AI training in Geneva and across Switzerland. Hands-on Claude, ChatGPT, Copilot, Canva, Figma, cybersecurity. From CHF 1,500 per half-day.',
+    "Corporate AI training in Geneva and across Switzerland. Hands-on Claude, ChatGPT, Copilot, Canva, Figma, cybersecurity. From CHF 1'500 per half-day.",
   alternates: {
     canonical: 'https://dkdp.ch/en/corporate-training',
     languages: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Corporate AI Training Geneva · Claude, ChatGPT, Copilot | DKDP',
-    description: 'Practical AI training that sticks. On-site or remote, in English. From CHF 1,500 per half-day.',
+    description: "Practical AI training that sticks. On-site or remote, in English. From CHF 1'500 per half-day.",
     url: 'https://dkdp.ch/en/corporate-training',
     locale: 'en_US',
     alternateLocale: ['fr_CH'],
@@ -61,7 +61,7 @@ export default function EnTrainingHubPage() {
           </h1>
           <p className="text-text-secondary text-base sm:text-lg leading-relaxed max-w-[720px] mx-auto mb-9">
             Practical, in-the-tool training for your team. AI, office, design, social, security and video.
-            On-site or remote, fully bilingual French and English. From CHF 1,500 per half-day session.
+            On-site or remote, fully bilingual French and English. From CHF 1'500 per half-day session.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <LiquidMetalButton href="/en/contact" size="lg">Book a training day <ArrowRight size={16} /></LiquidMetalButton>

@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Video Editing Training Geneva · Premiere, DaVinci | DKDP',
   description:
-    'Video editing training in Geneva. Premiere Pro, DaVinci Resolve, CapCut on phone. Produce shareable, brand-aligned videos. From CHF 1,500 per half-day.',
+    "Video editing training in Geneva. Premiere Pro, DaVinci Resolve, CapCut on phone. Produce shareable, brand-aligned videos. From CHF 1'500 per half-day.",
   enPath: '/en/corporate-training/video-editing',
   frPath: '/formation-entreprise/montage-video',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Export for every platform', text: 'Aspect ratios, bitrates, codecs for YouTube, LinkedIn, Instagram, TikTok. No more rejected uploads.' },
         ],
         stats: [
-          { value: 'CHF 1,500+', label: 'Half-day session' },
+          { value: "CHF 1'500+", label: 'Half-day session' },
           { value: '4-8 people', label: 'Per session' },
           { value: 'Real footage', label: 'Yours or ours' },
           { value: 'Cross-tool', label: 'Premiere, DaVinci, CapCut' },

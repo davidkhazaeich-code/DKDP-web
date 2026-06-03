@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Canva Training Geneva · Brand Kit, AI Magic Studio | DKDP',
   description:
-    'Canva training in Geneva. Brand Kit setup, templates, Magic Studio AI, video editing. Build a brand-consistent design system in one day. From CHF 1,500 per half-day.',
+    "Canva training in Geneva. Brand Kit setup, templates, Magic Studio AI, video editing. Build a brand-consistent design system in one day. From CHF 1'500 per half-day.",
   enPath: '/en/corporate-training/canva',
   frPath: '/formation-entreprise/canva',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Team workflow', text: 'Folders, approvals, shared brand assets, comments, version history. The right way to collaborate.' },
         ],
         stats: [
-          { value: 'CHF 1,500+', label: 'Half-day session' },
+          { value: "CHF 1'500+", label: 'Half-day session' },
           { value: '4-15 people', label: 'Per session' },
           { value: 'Brand Kit', label: 'Live setup included' },
           { value: 'Templates', label: '10+ delivered' },

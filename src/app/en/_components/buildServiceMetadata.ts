@@ -10,6 +10,8 @@ export function buildServiceMetadata({
   enPath,
   frPath,
   imageAlt = 'DKDP, digital agency in Geneva',
+  ogImage = '/og-image.png',
+  noIndex = false,
 }: {
   title: string
   description: string
@@ -18,6 +20,10 @@ export function buildServiceMetadata({
   /** FR path (e.g. "/agence-digitale/creation-site-web"). */
   frPath: string
   imageAlt?: string
+  /** Custom Open Graph / Twitter image path. Defaults to /og-image.png. */
+  ogImage?: string
+  /** When true, emits robots: { index: false, follow: false }. Use for legal pages. */
+  noIndex?: boolean
 }): Metadata {
   return {
     title,
@@ -36,8 +42,17 @@ export function buildServiceMetadata({
       url: `https://dkdp.ch${enPath}`,
       locale: 'en_US',
       alternateLocale: ['fr_CH'],
-      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: imageAlt }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: imageAlt }],
     },
-    twitter: { images: ['/og-image.png'] },
+    twitter: { images: [ogImage] },
+    ...(noIndex
+      ? {
+          robots: {
+            index: false,
+            follow: false,
+            googleBot: { index: false, follow: false },
+          },
+        }
+      : {}),
   }
 }

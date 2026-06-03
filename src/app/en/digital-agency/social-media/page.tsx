@@ -5,7 +5,7 @@ import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
 export const metadata = buildServiceMetadata({
   title: 'Social Media Agency Geneva · LinkedIn, Instagram, TikTok | DKDP',
   description:
-    'Social media management in Geneva. LinkedIn, Instagram, TikTok content and community management. Brand-consistent, engagement-focused. From CHF 1,500/month.',
+    "Social media management in Geneva. LinkedIn, Instagram, TikTok content and community management. Brand-consistent, engagement-focused. From CHF 1'500/month.",
   enPath: '/en/digital-agency/social-media',
   frPath: '/agence-digitale/reseaux-sociaux',
 })
@@ -33,7 +33,7 @@ export default function Page() {
           { title: 'Monthly performance review', text: 'Reach, engagement, leads, top-performing posts. The numbers that matter, not vanity metrics.' },
         ],
         stats: [
-          { value: 'CHF 1,500+', label: 'Monthly retainer' },
+          { value: "CHF 1'500+", label: 'Monthly retainer' },
           { value: '8-15 posts', label: 'Per platform, per month' },
           { value: '< 4h', label: 'Average reply time' },
           { value: 'Monthly', label: 'Performance review' },

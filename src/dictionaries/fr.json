@@ -1,10 +1,10 @@
 {
   "common": {
     "agency": "DKDP",
-    "agencyTagline": "Service digital a Geneve. IA, Formation, Web.",
-    "discover": "Decouvrir",
-    "discoverServices": "Decouvrez nos services",
-    "bookCall": "Reservez un appel",
+    "agencyTagline": "Service digital à Genève. IA, Formation, Web.",
+    "discover": "Découvrir",
+    "discoverServices": "Découvrez nos services",
+    "bookCall": "Réservez un appel",
     "contactAgency": "Contacter l'agence",
     "freeQuote": "Devis gratuit",
     "freeAudit": "Audit gratuit",
@@ -13,35 +13,35 @@
     "viewAllServices": "Voir tous les services",
     "viewAllTrainings": "Voir les formations",
     "viewAllAi": "Voir nos solutions IA",
-    "talkToExpert": "Parler a un expert",
+    "talkToExpert": "Parler à un expert",
     "ourPricing": "Nos tarifs",
     "readMore": "Lire la suite",
     "openingHours": "Lun-Ven 09:00-18:00",
     "phone": "+41 79 940 79 69",
     "email": "dk@dkdp.ch",
-    "address": "36 Rue du 31 Decembre",
+    "address": "36 Rue du 31 Décembre",
     "neighborhood": "Quartier des Eaux-Vives",
-    "city": "1207 Geneve, Suisse",
+    "city": "1207 Genève, Suisse",
     "locations": "Nos implantations :",
-    "copyright": "© {year} dkdp.ch · Service digital Eaux-Vives, Geneve · Tous droits reserves"
+    "copyright": "© {year} dkdp.ch · Service digital Eaux-Vives, Genève · Tous droits réservés"
   },
   "nav": {
     "groups": {
       "agence": "Service digital",
       "ia": "Intelligence Artificielle",
       "formation": "Formation",
-      "apropos": "A propos"
+      "apropos": "À propos"
     },
     "agenceMain": [
-      { "title": "Creation de site web", "description": "Sites sur mesure qui convertissent et performent." },
+      { "title": "Création de site web", "description": "Sites sur mesure qui convertissent et performent." },
       { "title": "Refonte de site web", "description": "Migration sans perte SEO, design 2026 pour PME romandes." },
-      { "title": "Developpement d'application", "description": "iOS, Android, web app et PWA sur mesure pour PME." },
-      { "title": "SEO & Referencement", "description": "Visibilite organique durable sur Google et les IA." },
-      { "title": "Publicite SEA", "description": "Google Ads et campagnes payantes rentables." },
-      { "title": "Reseaux sociaux", "description": "Presence sociale coherente et engageante." },
-      { "title": "Creation video", "description": "Videos qui captivent et convertissent." },
-      { "title": "Consulting marketing", "description": "Strategie digitale et accompagnement." },
-      { "title": "RGPD & Cookies", "description": "Conformite legale et protection des donnees." }
+      { "title": "Développement d'application", "description": "iOS, Android, web app et PWA sur mesure pour PME." },
+      { "title": "SEO et Référencement", "description": "Visibilité organique durable sur Google et les IA." },
+      { "title": "Publicité SEA", "description": "Google Ads et campagnes payantes rentables." },
+      { "title": "Réseaux sociaux", "description": "Présence sociale cohérente et engageante." },
+      { "title": "Création vidéo", "description": "Vidéos qui captivent et convertissent." },
+      { "title": "Consulting marketing", "description": "Stratégie digitale et accompagnement." },
+      { "title": "RGPD et Cookies", "description": "Conformité légale et protection des données." }
     ],
     "agenceSecondary": [
       { "title": "Audit site gratuit" },
@@ -52,37 +52,37 @@
     ],
     "iaMain": [
       { "title": "Agents IA sur mesure", "description": "Automatisez vos processus avec des agents intelligents." },
-      { "title": "Automatisation metier", "description": "Workflows sans code, zero friction." },
-      { "title": "Audit & Conseil IA", "description": "Diagnostiquez votre potentiel d'automatisation." },
-      { "title": "Mise en place IA", "description": "Deployez l'IA dans votre stack existant." },
-      { "title": "Chatbot IA", "description": "Un assistant 24/7 concu pour votre metier." }
+      { "title": "Automatisation métier", "description": "Workflows sans code, zéro friction." },
+      { "title": "Audit et Conseil IA", "description": "Diagnostiquez votre potentiel d'automatisation." },
+      { "title": "Mise en place IA", "description": "Déployez l'IA dans votre stack existant." },
+      { "title": "Chatbot IA", "description": "Un assistant 24/7 conçu pour votre métier." }
     ],
     "iaSecondary": [
-      { "title": "Agence IA a Geneve" },
+      { "title": "Agence IA à Genève" },
       { "title": "Formation IA entreprise" },
       { "title": "Formation Claude" },
       { "title": "Tarifs IA" },
-      { "title": "Parler a un expert" }
+      { "title": "Parler à un expert" }
     ],
     "formationMain": [
-      { "title": "Formation IA en entreprise", "description": "Formez vos equipes aux outils IA du quotidien." },
-      { "title": "Formation Claude", "description": "Claude.ai, Projects Cowork et Claude Code pour vos equipes." },
+      { "title": "Formation IA en entreprise", "description": "Formez vos équipes aux outils IA du quotidien." },
+      { "title": "Formation Claude", "description": "Claude.ai, Projects Cowork et Claude Code pour vos équipes." },
       { "title": "Bureautique", "description": "Gagnez du temps sur chaque fichier." },
-      { "title": "Reseaux sociaux", "description": "Maitrisez les plateformes sociales." },
-      { "title": "Cybersecurite", "description": "Protegez vos donnees et vos collaborateurs." },
-      { "title": "Formation Canva", "description": "Brand Kit, templates et IA Magic Studio en une journee." },
+      { "title": "Réseaux sociaux", "description": "Maîtrisez les plateformes sociales." },
+      { "title": "Cybersécurité", "description": "Protégez vos données et vos collaborateurs." },
+      { "title": "Formation Canva", "description": "Brand Kit, templates et IA Magic Studio en une journée." },
       { "title": "Web design Figma", "description": "UI/UX, wireframes, design system et prototypes interactifs." },
-      { "title": "Informatique", "description": "Competences informatiques essentielles." },
-      { "title": "Montage video", "description": "Creez des videos professionnelles." }
+      { "title": "Informatique", "description": "Compétences informatiques essentielles." },
+      { "title": "Montage vidéo", "description": "Créez des vidéos professionnelles." }
     ],
     "formationSecondary": [
       { "title": "Programme complet" },
       { "title": "Nos formateurs" },
       { "title": "Pour les particuliers" },
-      { "title": "Reserver une session" }
+      { "title": "Réserver une session" }
     ],
     "aproposMain": [
-      { "title": "A propos de l'agence", "description": "Notre equipe, nos valeurs et notre histoire." },
+      { "title": "À propos de l'agence", "description": "Notre équipe, nos valeurs et notre histoire." },
       { "title": "Tarifs", "description": "Formules et prix clairs et transparents." },
       { "title": "Blog", "description": "Ressources et conseils digitaux." },
       { "title": "Glossaire", "description": "Lexique du digital et de l'IA." }
@@ -97,56 +97,56 @@
       "agence": "Service Digital",
       "formation": "Formation",
       "ia": "IA",
-      "apropos": "A propos"
+      "apropos": "À propos"
     },
     "agenceLinks": [
-      "Audit site gratuit", "Audit SEO gratuit", "Creation de site web",
-      "Refonte de site web", "Referencement SEO", "Publicite Google Ads",
-      "Reseaux sociaux", "Creation video", "Consulting marketing", "Estimation gratuite"
+      "Audit site gratuit", "Audit SEO gratuit", "Création de site web",
+      "Refonte de site web", "Référencement SEO", "Publicité Google Ads",
+      "Réseaux sociaux", "Création vidéo", "Consulting marketing", "Estimation gratuite"
     ],
     "formationLinks": [
       "Formation IA", "Formation Claude", "Formation Canva",
-      "Web design Figma", "Bureautique & Excel", "Cybersecurite",
-      "Reseaux sociaux", "Montage video", "Informatique", "Pour particuliers"
+      "Web design Figma", "Bureautique et Excel", "Cybersécurité",
+      "Réseaux sociaux", "Montage vidéo", "Informatique", "Pour particuliers"
     ],
     "iaLinks": [
-      "Agence IA a Geneve", "Agents IA sur mesure", "Chatbot IA",
-      "Automatisation metier", "Audit & Conseil IA", "Mise en place IA"
+      "Agence IA à Genève", "Agents IA sur mesure", "Chatbot IA",
+      "Automatisation métier", "Audit et Conseil IA", "Mise en place IA"
     ],
-    "aproposLinks": ["A propos de l'agence", "Tarifs", "Blog", "Glossaire"],
+    "aproposLinks": ["À propos de l'agence", "Tarifs", "Blog", "Glossaire"],
     "legalLinks": [
-      "Mentions legales", "Politique de confidentialite", "RGPD & Cookies",
+      "Mentions légales", "Politique de confidentialité", "RGPD et Cookies",
       "CGV", "Plan du site"
     ]
   },
   "trust": {
-    "badge": "700+ clients accompagnes en Suisse romande",
+    "badge": "700+ clients accompagnés en Suisse romande",
     "shortBadge": "700+ clients",
     "rating": "4.9/5 sur Google",
-    "since": "Depuis 2020",
-    "yearsExperience": "5 ans d'experience"
+    "since": "Depuis 2015",
+    "yearsExperience": "10 ans d'expérience"
   },
   "home": {
-    "metaTitle": "Agence Digitale Geneve · Sites web, IA & Formation | DKDP",
-    "metaDescription": "Agence digitale a Geneve specialisee en creation de sites web, SEO, intelligence artificielle et formation entreprise. 700+ clients accompagnes en Suisse romande. Devis gratuit.",
+    "metaTitle": "Agence Digitale Genève · Sites web, IA et Formation | DKDP",
+    "metaDescription": "Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise. 700+ clients accompagnés en Suisse romande. Devis gratuit.",
     "hero": {
       "h1Line1": "L'agence digitale genevoise",
       "h1Line2": "qui vous fait sortir du lot.",
-      "subtitle": "On cree votre site, on optimise votre SEO, on deploie l'IA dans vos equipes et on forme vos collaborateurs. Resultats mesurables, pas de blabla.",
-      "cta": "Decouvrez nos services"
+      "subtitle": "On crée votre site, on optimise votre SEO, on déploie l'IA dans vos équipes et on forme vos collaborateurs. Résultats mesurables, pas de blabla.",
+      "cta": "Découvrez nos services"
     }
   },
   "ctaFinal": {
     "tag": "Discutons",
-    "title": "Pret a passer au niveau superieur ?",
-    "subtitle": "Devis gratuit, reponse sous 24h, sans engagement.",
-    "primary": "Reservez un appel",
+    "title": "Prêt à passer au niveau supérieur ?",
+    "subtitle": "Devis gratuit, réponse sous 24h, sans engagement.",
+    "primary": "Réservez un appel",
     "secondary": "Voir les tarifs"
   },
   "languageSwitcher": {
     "label": "Langue",
     "ariaLabel": "Changer de langue",
-    "fr": "Francais",
+    "fr": "Français",
     "en": "English"
   }
 }

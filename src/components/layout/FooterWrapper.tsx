@@ -1,15 +1,19 @@
-'use client'
-
-import { usePathname } from 'next/navigation'
+import { headers } from 'next/headers'
 import { Footer } from './Footer'
+import { detectLocaleFromPath } from '@/i18n/config'
 
-const HIDDEN_PATHS = ['/agence-digitale/creation-site-web/estimation']
+const HIDDEN_PATHS = [
+  '/agence-digitale/creation-site-web/estimation',
+  '/en/digital-agency/web-design/quote',
+]
 
-export function FooterWrapper() {
-  const pathname = usePathname()
+export async function FooterWrapper() {
+  const h = await headers()
+  const pathname = h.get('x-pathname') ?? '/'
 
   if (HIDDEN_PATHS.includes(pathname)) return null
-  if (pathname?.startsWith('/admin')) return null
+  if (pathname.startsWith('/admin')) return null
 
-  return <Footer />
+  const locale = detectLocaleFromPath(pathname)
+  return <Footer lang={locale} />
 }

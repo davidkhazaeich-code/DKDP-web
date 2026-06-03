@@ -22,12 +22,21 @@ export const metadata: Metadata = {
   title: 'Agence Digitale Genève · Sites web, IA & Formation | DKDP',
   description:
     'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise. 700+ clients accompagnés en Suisse romande. Devis gratuit.',
-  alternates: { canonical: 'https://dkdp.ch' },
+  alternates: {
+    canonical: 'https://dkdp.ch',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/',
+      'en': 'https://dkdp.ch/en',
+      'x-default': 'https://dkdp.ch/',
+    },
+  },
   openGraph: {
     title: 'Agence Digitale Genève · Sites web, IA & Formation | DKDP',
     description:
       'Sites web sur mesure, SEO, IA et formation pour PME à Genève. 700+ clients accompagnés en Suisse romande. Devis gratuit en 24h.',
     url: 'https://dkdp.ch',
+    locale: 'fr_CH',
+    alternateLocale: ['en_US'],
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'DKDP Agence Digitale Genève' }],
   },
   twitter: {

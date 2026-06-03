@@ -1,90 +1,105 @@
 import Link from 'next/link'
 import { Monitor, GraduationCap, Sparkles, ChevronRight, Phone, Mail, MapPin, Clock, LayoutGrid } from 'lucide-react'
 import { DkdpLogo } from '@/components/ui/DkdpLogo'
+import type { Locale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/dictionaries'
+import { localizedPath } from '@/i18n/slugs'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
-const PILLARS = [
-  {
-    label: 'Service Digital',
-    color: '#A78BFA',
-    bg: 'rgba(124,58,237,0.10)',
-    border: 'rgba(124,58,237,0.20)',
-    Icon: Monitor,
-    links: [
-      { label: 'Audit site gratuit', href: '/agence-digitale/creation-site-web/audit-site' },
-      { label: 'Audit SEO gratuit', href: '/agence-digitale/seo/audit-seo' },
-      { label: 'Création de site web', href: '/agence-digitale/creation-site-web' },
-      { label: 'Refonte de site web', href: '/agence-digitale/refonte-site-web' },
-      { label: 'Référencement SEO', href: '/agence-digitale/seo' },
-      { label: 'Publicité Google Ads', href: '/agence-digitale/publicite-sea' },
-      { label: 'Réseaux sociaux', href: '/agence-digitale/reseaux-sociaux' },
-      { label: 'Création vidéo', href: '/agence-digitale/creation-video' },
-      { label: 'Consulting marketing', href: '/agence-digitale/consulting-marketing' },
-      { label: 'Estimation gratuite', href: '/agence-digitale/creation-site-web/estimation' },
-    ],
-    hub: { label: 'Voir tous les services', href: '/agence-digitale' },
-  },
-  {
-    label: 'Formation',
-    color: '#FF8C00',
-    bg: 'rgba(255,107,0,0.08)',
-    border: 'rgba(255,107,0,0.18)',
-    Icon: GraduationCap,
-    links: [
-      { label: 'Formation IA', href: '/formation-entreprise/ia' },
-      { label: 'Formation Claude', href: '/formation-entreprise/claude-ai' },
-      { label: 'Formation Canva', href: '/formation-entreprise/canva' },
-      { label: 'Web design Figma', href: '/formation-entreprise/web-design' },
-      { label: 'Bureautique & Excel', href: '/formation-entreprise/bureautique' },
-      { label: 'Cybersécurité', href: '/formation-entreprise/cybersecurite' },
-      { label: 'Réseaux sociaux', href: '/formation-entreprise/reseaux-sociaux' },
-      { label: 'Montage vidéo', href: '/formation-entreprise/montage-video' },
-      { label: 'Informatique', href: '/formation-entreprise/informatique' },
-      { label: 'Pour particuliers', href: '/formation-particuliers' },
-    ],
-    hub: { label: 'Voir les formations', href: '/formation-entreprise' },
-  },
-  {
-    label: 'IA',
-    color: 'var(--text-secondary)',
-    bg: 'var(--chrome-bg)',
-    border: 'var(--chrome-border)',
-    Icon: Sparkles,
-    links: [
-      { label: 'Agence IA à Genève', href: '/intelligence-artificielle/geneve' },
-      { label: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia' },
-      { label: 'Chatbot IA', href: '/intelligence-artificielle/chatbot-ia' },
-      { label: 'Automatisation métier', href: '/intelligence-artificielle/automatisation' },
-      { label: 'Audit & Conseil IA', href: '/intelligence-artificielle/audit-conseil' },
-      { label: 'Mise en place IA', href: '/intelligence-artificielle/mise-en-place' },
-    ],
-    hub: { label: 'Voir nos solutions IA', href: '/intelligence-artificielle' },
-  },
-  {
-    label: 'À propos',
-    color: 'var(--text-secondary)',
-    bg: 'var(--gray-bg)',
-    border: 'var(--gray-border)',
-    Icon: LayoutGrid,
-    links: [
-      { label: 'À propos de l\'agence', href: '/a-propos' },
-      { label: 'Tarifs', href: '/tarifs' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'Glossaire', href: '/glossaire' },
-    ],
-    hub: { label: 'Contacter l\'agence', href: '/contact' },
-  },
-]
+type FooterDict = ReturnType<typeof getDictionary>
 
-const LEGAL_LINKS = [
-  { label: 'Mentions légales', href: '/mentions-legales' },
-  { label: 'Politique de confidentialité', href: '/politique-de-confidentialite' },
-  { label: 'RGPD & Cookies', href: '/rgpd-cookies' },
-  { label: 'CGV', href: '/conditions-generales-de-vente' },
-  { label: 'Plan du site', href: '/plan-du-site' },
-]
+function getPillars(lang: Locale, dict: FooterDict) {
+  const t = dict.footer
+  const lp = (fr: string) => localizedPath(fr, lang)
+  return [
+    {
+      label: t.pillars.agence,
+      color: '#A78BFA',
+      bg: 'rgba(124,58,237,0.10)',
+      border: 'rgba(124,58,237,0.20)',
+      Icon: Monitor,
+      links: [
+        { label: t.agenceLinks[0], href: lp('/agence-digitale/creation-site-web/audit-site') },
+        { label: t.agenceLinks[1], href: lp('/agence-digitale/seo/audit-seo') },
+        { label: t.agenceLinks[2], href: lp('/agence-digitale/creation-site-web') },
+        { label: t.agenceLinks[3], href: lp('/agence-digitale/refonte-site-web') },
+        { label: t.agenceLinks[4], href: lp('/agence-digitale/seo') },
+        { label: t.agenceLinks[5], href: lp('/agence-digitale/publicite-sea') },
+        { label: t.agenceLinks[6], href: lp('/agence-digitale/reseaux-sociaux') },
+        { label: t.agenceLinks[7], href: lp('/agence-digitale/creation-video') },
+        { label: t.agenceLinks[8], href: lp('/agence-digitale/consulting-marketing') },
+        { label: t.agenceLinks[9], href: lp('/agence-digitale/creation-site-web/estimation') },
+      ],
+      hub: { label: dict.common.viewAllServices, href: lp('/agence-digitale') },
+    },
+    {
+      label: t.pillars.formation,
+      color: '#FF8C00',
+      bg: 'rgba(255,107,0,0.08)',
+      border: 'rgba(255,107,0,0.18)',
+      Icon: GraduationCap,
+      links: [
+        { label: t.formationLinks[0], href: lp('/formation-entreprise/ia') },
+        { label: t.formationLinks[1], href: lp('/formation-entreprise/claude-ai') },
+        { label: t.formationLinks[2], href: lp('/formation-entreprise/canva') },
+        { label: t.formationLinks[3], href: lp('/formation-entreprise/web-design') },
+        { label: t.formationLinks[4], href: lp('/formation-entreprise/bureautique') },
+        { label: t.formationLinks[5], href: lp('/formation-entreprise/cybersecurite') },
+        { label: t.formationLinks[6], href: lp('/formation-entreprise/reseaux-sociaux') },
+        { label: t.formationLinks[7], href: lp('/formation-entreprise/montage-video') },
+        { label: t.formationLinks[8], href: lp('/formation-entreprise/informatique') },
+        { label: t.formationLinks[9], href: lp('/formation-particuliers') },
+      ],
+      hub: { label: dict.common.viewAllTrainings, href: lp('/formation-entreprise') },
+    },
+    {
+      label: t.pillars.ia,
+      color: 'var(--text-secondary)',
+      bg: 'var(--chrome-bg)',
+      border: 'var(--chrome-border)',
+      Icon: Sparkles,
+      links: [
+        // /intelligence-artificielle/geneve n'a pas de version EN : on garde le path FR.
+        { label: t.iaLinks[0], href: lang === 'en' ? lp('/intelligence-artificielle') : '/intelligence-artificielle/geneve' },
+        { label: t.iaLinks[1], href: lp('/intelligence-artificielle/agents-ia') },
+        { label: t.iaLinks[2], href: lp('/intelligence-artificielle/chatbot-ia') },
+        { label: t.iaLinks[3], href: lp('/intelligence-artificielle/automatisation') },
+        { label: t.iaLinks[4], href: lp('/intelligence-artificielle/audit-conseil') },
+        { label: t.iaLinks[5], href: lp('/intelligence-artificielle/mise-en-place') },
+      ],
+      hub: { label: dict.common.viewAllAi, href: lp('/intelligence-artificielle') },
+    },
+    {
+      label: t.pillars.apropos,
+      color: 'var(--text-secondary)',
+      bg: 'var(--gray-bg)',
+      border: 'var(--gray-border)',
+      Icon: LayoutGrid,
+      links: [
+        { label: t.aproposLinks[0], href: lp('/a-propos') },
+        { label: t.aproposLinks[1], href: lp('/tarifs') },
+        // Blog et Glossaire restent en FR (pas traduits).
+        { label: t.aproposLinks[2], href: '/blog' },
+        { label: t.aproposLinks[3], href: '/glossaire' },
+      ],
+      hub: { label: dict.common.contactAgency, href: lp('/contact') },
+    },
+  ]
+}
 
+function getLegalLinks(lang: Locale, dict: FooterDict) {
+  const lp = (fr: string) => localizedPath(fr, lang)
+  return [
+    { label: dict.footer.legalLinks[0], href: lp('/mentions-legales') },
+    { label: dict.footer.legalLinks[1], href: lp('/politique-de-confidentialite') },
+    { label: dict.footer.legalLinks[2], href: lp('/agence-digitale/rgpd-cookies') },
+    { label: dict.footer.legalLinks[3], href: lp('/conditions-generales-de-vente') },
+    { label: dict.footer.legalLinks[4], href: lp('/plan-du-site') },
+  ]
+}
+
+// Pages villes restent FR uniquement (pas dans le perimetre EN).
 const CITY_LINKS = [
   { label: 'Genève', href: '/agence-digitale/geneve' },
   { label: 'Lausanne', href: '/agence-digitale/lausanne' },
@@ -100,10 +115,26 @@ const FOOTER_HEIGHT = 540
 
 // ─── Shared inner content ─────────────────────────────────────────────────────
 
-function FooterInner({ constrained = false, variant = 'all' }: { constrained?: boolean; variant?: 'mobile' | 'desktop' | 'all' }) {
+function FooterInner({
+  lang,
+  dict,
+  constrained = false,
+  variant = 'all',
+}: {
+  lang: Locale
+  dict: FooterDict
+  constrained?: boolean
+  variant?: 'mobile' | 'desktop' | 'all'
+}) {
   const year = new Date().getFullYear()
   const showDesktop = variant === 'desktop' || variant === 'all'
   const showMobile = variant === 'mobile' || variant === 'all'
+  const pillars = getPillars(lang, dict)
+  const legalLinks = getLegalLinks(lang, dict)
+  const t = dict.common
+  const copyrightText = t.copyright.replace('{year}', String(year))
+  const logoAlt = lang === 'en' ? 'DKDP, digital agency in Geneva' : 'DKDP, Service Digital Genève'
+  const ariaCitiesLabel = lang === 'en' ? 'Cities we serve' : 'Villes desservies'
 
   return (
     <footer
@@ -129,43 +160,42 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
           {/* Brand column */}
           <div className="flex flex-col pb-6">
             <DkdpLogo
-              alt="DKDP, Service Digital Genève"
+              alt={logoAlt}
               width={80}
               height={14}
               className="h-auto mb-4"
             />
             <p className="text-text-secondary text-sm leading-relaxed mb-5">
-              Service digital à Genève.<br />
-              IA · Formation · Web
+              {t.agencyTagline}
             </p>
             <address className="not-italic space-y-2 flex-1">
               <a href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+D%C3%A9cembre,1207+Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-text-muted hover:text-text text-xs transition-colors">
                 <MapPin size={12} className="mt-0.5 flex-shrink-0 text-violet-light" />
-                <span>36 Rue du 31 Décembre<br />Quartier des Eaux-Vives<br />1207 Genève, Suisse</span>
+                <span>{t.address}<br />{t.neighborhood}<br />{t.city}</span>
               </a>
               <p className="flex items-center gap-2 text-text-muted text-xs">
                 <Clock size={12} className="flex-shrink-0 text-violet-light" />
-                Lun–Ven 09:00–18:00
+                {t.openingHours}
               </p>
               <a href="tel:+41799407969" className="flex items-center gap-2 text-text-muted hover:text-text text-xs transition-colors">
                 <Phone size={12} className="flex-shrink-0 text-violet-light" />
-                +41 79 940 79 69
+                {t.phone}
               </a>
               <a href="mailto:dk@dkdp.ch" className="flex items-center gap-2 text-text-muted hover:text-text text-xs transition-colors">
                 <Mail size={12} className="flex-shrink-0 text-violet-light" />
-                dk@dkdp.ch
+                {t.email}
               </a>
             </address>
             <Link
-              href="/contact"
+              href={localizedPath('/contact', lang)}
               className="mt-auto pt-4 inline-flex items-center gap-1 text-[11.5px] font-semibold text-violet-light transition-opacity hover:opacity-70 w-fit"
             >
-              Réservez un appel <ChevronRight size={11} />
+              {t.bookCall} <ChevronRight size={11} />
             </Link>
           </div>
 
           {/* Pillar columns */}
-          {PILLARS.map((pillar) => (
+          {pillars.map((pillar) => (
             <div key={pillar.label} className="flex flex-col pb-6">
               <Link href={pillar.hub.href} className="flex items-center gap-2 mb-4 pb-3 hover:opacity-75 transition-opacity" style={{ borderBottom: `1px solid ${pillar.border}` }}>
                 <div className="flex h-6 w-6 items-center justify-center rounded-[5px] flex-shrink-0" style={{ background: pillar.bg, border: `1px solid ${pillar.border}` }}>
@@ -203,35 +233,34 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 pb-8 border-b border-border">
           <div>
             <DkdpLogo
-              alt="DKDP, Service Digital Genève"
+              alt={logoAlt}
               width={80}
               height={14}
               className="h-auto mb-3"
             />
             <p className="text-text-secondary text-sm leading-relaxed">
-              Service digital à Genève.<br />
-              IA · Formation · Web
+              {t.agencyTagline}
             </p>
           </div>
           <address className="not-italic space-y-2 sm:text-right">
             <a href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+D%C3%A9cembre,1207+Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 sm:justify-end text-text-muted hover:text-text text-xs transition-colors">
               <MapPin size={12} className="mt-0.5 flex-shrink-0 text-violet-light sm:order-last sm:ml-0" />
-              <span>36 Rue du 31 Décembre · Eaux-Vives · 1207 Genève</span>
+              <span>{t.address} · {t.neighborhood.replace(/Quartier des |District/g, '').trim()} · {t.city.replace(', Suisse', '').replace(', Switzerland', '')}</span>
             </a>
             <a href="tel:+41799407969" className="flex items-center gap-2 sm:justify-end text-text-muted hover:text-text text-xs transition-colors">
               <Phone size={12} className="flex-shrink-0 text-violet-light" />
-              +41 79 940 79 69
+              {t.phone}
             </a>
             <a href="mailto:dk@dkdp.ch" className="flex items-center gap-2 sm:justify-end text-text-muted hover:text-text text-xs transition-colors">
               <Mail size={12} className="flex-shrink-0 text-violet-light" />
-              dk@dkdp.ch
+              {t.email}
             </a>
           </address>
         </div>
 
         {/* Pillars grid: 2-col on mobile, 4-col on md */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 py-8 border-b border-border">
-          {PILLARS.map((pillar) => (
+          {pillars.map((pillar) => (
             <div key={pillar.label} className="flex flex-col">
               <Link href={pillar.hub.href} className="flex items-center gap-2 mb-3 pb-2.5 hover:opacity-75 transition-opacity" style={{ borderBottom: `1px solid ${pillar.border}` }}>
                 <div className="flex h-5 w-5 items-center justify-center rounded-[4px] flex-shrink-0" style={{ background: pillar.bg, border: `1px solid ${pillar.border}` }}>
@@ -255,7 +284,7 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
                 className="inline-flex items-center gap-1 text-[11px] font-semibold transition-opacity hover:opacity-70 mt-auto"
                 style={{ color: pillar.color }}
               >
-                Voir tout <ChevronRight size={10} />
+                {dict.common.seeAll} <ChevronRight size={10} />
               </Link>
             </div>
           ))}
@@ -264,19 +293,19 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
         {/* CTA */}
         <div className="pt-6">
           <Link
-            href="/contact"
+            href={localizedPath('/contact', lang)}
             className="inline-flex items-center gap-1 text-[12px] font-semibold text-violet-light transition-opacity hover:opacity-70"
           >
-            Réservez un appel <ChevronRight size={12} />
+            {t.bookCall} <ChevronRight size={12} />
           </Link>
         </div>
       </div>}
 
-      {/* ── City links ── */}
-      <div className="relative z-10 border-t border-border">
+      {/* ── City links ── (FR uniquement, pas de version EN des pages villes) */}
+      <div className="relative z-10 border-t border-border" aria-label={ariaCitiesLabel}>
         <div className="max-w-[1200px] mx-auto px-6 py-3">
           <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
-            <span className="text-text-muted text-[11px] mr-1">Nos implantations :</span>
+            <span className="text-text-muted text-[11px] mr-1">{t.locations}</span>
             {CITY_LINKS.map(({ label, href }, i) => (
               <span key={href} className="inline-flex items-center">
                 <Link href={href} className="text-text-muted hover:text-text text-[11px] transition-colors">
@@ -293,10 +322,10 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
       <div className="relative z-10 border-t border-border" style={{ background: 'var(--bg)' }}>
         <div className="max-w-[1200px] mx-auto px-6 py-3 lg:h-11 lg:py-0 flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-0 justify-between">
           <p className="text-text-muted text-[11px]">
-            © {year} dkdp.ch · Service digital Eaux-Vives, Genève · Tous droits réservés
+            {copyrightText}
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-1">
-            {LEGAL_LINKS.map(({ label, href }) => (
+            {legalLinks.map(({ label, href }) => (
               <Link key={href} href={href} className="text-text-muted hover:text-text text-[11px] transition-colors">
                 {label}
               </Link>
@@ -311,12 +340,13 @@ function FooterInner({ constrained = false, variant = 'all' }: { constrained?: b
 
 // ─── Export ───────────────────────────────────────────────────────────────────
 
-export function Footer() {
+export function Footer({ lang = 'fr' }: { lang?: Locale } = {}) {
+  const dict = getDictionary(lang)
   return (
     <>
       {/* Mobile + Tablet: normal auto-height footer (only mobile content rendered) */}
       <div className="lg:hidden">
-        <FooterInner variant="mobile" />
+        <FooterInner lang={lang} dict={dict} variant="mobile" />
       </div>
 
       {/* Desktop: scroll-up effect with fixed height (only desktop content rendered) */}
@@ -326,7 +356,7 @@ export function Footer() {
       >
         <div className="fixed bottom-0 w-full" style={{ height: FOOTER_HEIGHT }}>
           <div style={{ position: 'sticky', top: `calc(100vh - ${FOOTER_HEIGHT}px)`, height: FOOTER_HEIGHT }}>
-            <FooterInner constrained variant="desktop" />
+            <FooterInner lang={lang} dict={dict} constrained variant="desktop" />
           </div>
         </div>
       </div>

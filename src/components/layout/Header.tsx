@@ -10,7 +10,7 @@ import {
   Bot, Workflow, BrainCircuit, BookOpen, Users2, Presentation,
   Phone, FileText, ChevronRight, X, Menu,
   Film, Shield, Share2, Palette, LayoutGrid, Wand2,
-  Sparkles, CalendarCheck, Monitor, MessageCircle, Smartphone,
+  CalendarCheck, MessageCircle, Smartphone, Sparkles, Monitor,
 } from 'lucide-react'
 import {
   NavigationMenu, NavigationMenuContent, NavigationMenuItem,
@@ -21,75 +21,95 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { ClaudeIcon } from '@/components/icons/ClaudeIcon'
 import { DkdpLogo } from '@/components/ui/DkdpLogo'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
+import { type Locale, detectLocaleFromPath } from '@/i18n/config'
+import { getDictionary } from '@/i18n/dictionaries'
+import { localizedPath } from '@/i18n/slugs'
 
-// ─── Mega-menu data ───────────────────────────────────────────────────────────
+// ─── Mega-menu data builders ──────────────────────────────────────────────────
 
-const AGENCE_MAIN = [
-  { title: 'Création de site web', href: '/agence-digitale/creation-site-web', icon: Globe, description: 'Sites sur mesure qui convertissent et performent.' },
-  { title: 'Refonte de site web', href: '/agence-digitale/refonte-site-web', icon: Globe, description: 'Migration sans perte SEO, design 2026 pour PME romandes.' },
-  { title: 'Développement d\'application', href: '/agence-digitale/developpement-application', icon: Smartphone, description: 'iOS, Android, web app et PWA sur mesure pour PME.' },
-  { title: 'SEO & Référencement', href: '/agence-digitale/seo', icon: Search, description: 'Visibilité organique durable sur Google et les IA.' },
-  { title: 'Publicité SEA', href: '/agence-digitale/publicite-sea', icon: Megaphone, description: 'Google Ads et campagnes payantes rentables.' },
-  { title: 'Réseaux sociaux', href: '/agence-digitale/reseaux-sociaux', icon: Share2, description: 'Présence sociale cohérente et engageante.' },
-  { title: 'Création vidéo', href: '/agence-digitale/creation-video', icon: Film, description: 'Vidéos qui captivent et convertissent.' },
-  { title: 'Consulting marketing', href: '/agence-digitale/consulting-marketing', icon: Presentation, description: 'Stratégie digitale et accompagnement.' },
-  { title: 'RGPD & Cookies', href: '/agence-digitale/rgpd-cookies', icon: Shield, description: 'Conformité légale et protection des données.' },
-]
+type MegaItem = { title: string; href: string; icon: React.ElementType; description?: string }
+type MegaSecondary = { title: string; href: string; icon: React.ElementType }
+type PillarKey = 'agence' | 'ia' | 'formation' | 'apropos'
+type TagLink = { text: string; href: string }
 
-const AGENCE_SECONDARY = [
-  { title: 'Audit site gratuit', href: '/agence-digitale/creation-site-web/audit-site', icon: Search },
-  { title: 'Audit SEO gratuit', href: '/agence-digitale/seo/audit-seo', icon: BarChart2 },
-  { title: 'Estimation gratuite', href: '/agence-digitale/creation-site-web/estimation', icon: CalendarCheck },
-  { title: 'Tarifs agence', href: '/tarifs', icon: FileText },
-  { title: 'Contacter l\'agence', href: '/contact', icon: Phone },
-]
+function buildNavData(lang: Locale) {
+  const dict = getDictionary(lang)
+  const t = dict.nav
+  const lp = (fr: string) => localizedPath(fr, lang)
 
-const IA_MAIN = [
-  { title: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia', icon: Bot, description: 'Automatisez vos processus avec des agents intelligents.' },
-  { title: 'Automatisation métier', href: '/intelligence-artificielle/automatisation', icon: Workflow, description: 'Workflows sans code, zéro friction.' },
-  { title: 'Audit & Conseil IA', href: '/intelligence-artificielle/audit-conseil', icon: BrainCircuit, description: 'Diagnostiquez votre potentiel d\'automatisation.' },
-  { title: 'Mise en place IA', href: '/intelligence-artificielle/mise-en-place', icon: Cpu, description: 'Déployez l\'IA dans votre stack existant.' },
-  { title: 'Chatbot IA', href: '/intelligence-artificielle/chatbot-ia', icon: MessageCircle, description: 'Un assistant 24/7 conçu pour votre métier.' },
-]
+  const AGENCE_MAIN: MegaItem[] = [
+    { title: t.agenceMain[0].title, description: t.agenceMain[0].description, href: lp('/agence-digitale/creation-site-web'), icon: Globe },
+    { title: t.agenceMain[1].title, description: t.agenceMain[1].description, href: lp('/agence-digitale/refonte-site-web'), icon: Globe },
+    { title: t.agenceMain[2].title, description: t.agenceMain[2].description, href: lp('/agence-digitale/developpement-application'), icon: Smartphone },
+    { title: t.agenceMain[3].title, description: t.agenceMain[3].description, href: lp('/agence-digitale/seo'), icon: Search },
+    { title: t.agenceMain[4].title, description: t.agenceMain[4].description, href: lp('/agence-digitale/publicite-sea'), icon: Megaphone },
+    { title: t.agenceMain[5].title, description: t.agenceMain[5].description, href: lp('/agence-digitale/reseaux-sociaux'), icon: Share2 },
+    { title: t.agenceMain[6].title, description: t.agenceMain[6].description, href: lp('/agence-digitale/creation-video'), icon: Film },
+    { title: t.agenceMain[7].title, description: t.agenceMain[7].description, href: lp('/agence-digitale/consulting-marketing'), icon: Presentation },
+    { title: t.agenceMain[8].title, description: t.agenceMain[8].description, href: lp('/agence-digitale/rgpd-cookies'), icon: Shield },
+  ]
 
-const IA_SECONDARY = [
-  { title: 'Agence IA à Genève', href: '/intelligence-artificielle/geneve', icon: Globe },
-  { title: 'Formation IA entreprise', href: '/formation-entreprise/ia', icon: GraduationCap },
-  { title: 'Formation Claude', href: '/formation-entreprise/claude-ai', icon: ClaudeIcon },
-  { title: 'Tarifs IA', href: '/tarifs', icon: FileText },
-  { title: 'Parler à un expert', href: '/contact', icon: Phone },
-]
+  const AGENCE_SECONDARY: MegaSecondary[] = [
+    { title: t.agenceSecondary[0].title, href: lp('/agence-digitale/creation-site-web/audit-site'), icon: Search },
+    { title: t.agenceSecondary[1].title, href: lp('/agence-digitale/seo/audit-seo'), icon: BarChart2 },
+    { title: t.agenceSecondary[2].title, href: lp('/agence-digitale/creation-site-web/estimation'), icon: CalendarCheck },
+    { title: t.agenceSecondary[3].title, href: lp('/tarifs'), icon: FileText },
+    { title: t.agenceSecondary[4].title, href: lp('/contact'), icon: Phone },
+  ]
 
-const FORMATION_MAIN = [
-  { title: 'Formation IA en entreprise', href: '/formation-entreprise/ia', icon: BrainCircuit, description: 'Formez vos équipes aux outils IA du quotidien.' },
-  { title: 'Formation Claude', href: '/formation-entreprise/claude-ai', icon: ClaudeIcon, description: 'Claude.ai, Projects Cowork et Claude Code pour vos équipes.' },
-  { title: 'Bureautique', href: '/formation-entreprise/bureautique', icon: BookOpen, description: 'Gagnez du temps sur chaque fichier.' },
-  { title: 'Réseaux sociaux', href: '/formation-entreprise/reseaux-sociaux', icon: Share2, description: 'Maîtrisez les plateformes sociales.' },
-  { title: 'Cybersécurité', href: '/formation-entreprise/cybersecurite', icon: Shield, description: 'Protégez vos données et vos collaborateurs.' },
-  { title: 'Formation Canva', href: '/formation-entreprise/canva', icon: Wand2, description: 'Brand Kit, templates et IA Magic Studio en une journée.' },
-  { title: 'Web design Figma', href: '/formation-entreprise/web-design', icon: Palette, description: 'UI/UX, wireframes, design system et prototypes interactifs.' },
-  { title: 'Informatique', href: '/formation-entreprise/informatique', icon: Cpu, description: 'Compétences informatiques essentielles.' },
-  { title: 'Montage vidéo', href: '/formation-entreprise/montage-video', icon: Film, description: 'Créez des vidéos professionnelles.' },
-]
+  const IA_MAIN: MegaItem[] = [
+    { title: t.iaMain[0].title, description: t.iaMain[0].description, href: lp('/intelligence-artificielle/agents-ia'), icon: Bot },
+    { title: t.iaMain[1].title, description: t.iaMain[1].description, href: lp('/intelligence-artificielle/automatisation'), icon: Workflow },
+    { title: t.iaMain[2].title, description: t.iaMain[2].description, href: lp('/intelligence-artificielle/audit-conseil'), icon: BrainCircuit },
+    { title: t.iaMain[3].title, description: t.iaMain[3].description, href: lp('/intelligence-artificielle/mise-en-place'), icon: Cpu },
+    { title: t.iaMain[4].title, description: t.iaMain[4].description, href: lp('/intelligence-artificielle/chatbot-ia'), icon: MessageCircle },
+  ]
 
-const FORMATION_SECONDARY = [
-  { title: 'Programme complet', href: '/formation-entreprise', icon: BookOpen },
-  { title: 'Nos formateurs', href: '/formation-entreprise/ia#formateurs', icon: Users2 },
-  { title: 'Pour les particuliers', href: '/formation-particuliers', icon: Users2 },
-  { title: 'Réserver une session', href: '/contact', icon: Phone },
-]
+  // /intelligence-artificielle/geneve n'est pas traduit, le secondary EN pointe vers le hub IA.
+  const IA_SECONDARY: MegaSecondary[] = [
+    { title: t.iaSecondary[0].title, href: lang === 'en' ? lp('/intelligence-artificielle') : '/intelligence-artificielle/geneve', icon: Globe },
+    { title: t.iaSecondary[1].title, href: lp('/formation-entreprise/ia'), icon: GraduationCap },
+    { title: t.iaSecondary[2].title, href: lp('/formation-entreprise/claude-ai'), icon: ClaudeIcon },
+    { title: t.iaSecondary[3].title, href: lp('/tarifs'), icon: FileText },
+    { title: t.iaSecondary[4].title, href: lp('/contact'), icon: Phone },
+  ]
 
-const APROPOS_MAIN = [
-  { title: 'À propos de l\'agence', href: '/a-propos', icon: Users2, description: 'Notre équipe, nos valeurs et notre histoire.' },
-  { title: 'Tarifs', href: '/tarifs', icon: FileText, description: 'Formules et prix clairs et transparents.' },
-  { title: 'Blog', href: '/blog', icon: BookOpen, description: 'Ressources et conseils digitaux.' },
-  { title: 'Glossaire', href: '/glossaire', icon: Search, description: 'Lexique du digital et de l\'IA.' },
-]
+  const FORMATION_MAIN: MegaItem[] = [
+    { title: t.formationMain[0].title, description: t.formationMain[0].description, href: lp('/formation-entreprise/ia'), icon: BrainCircuit },
+    { title: t.formationMain[1].title, description: t.formationMain[1].description, href: lp('/formation-entreprise/claude-ai'), icon: ClaudeIcon },
+    { title: t.formationMain[2].title, description: t.formationMain[2].description, href: lp('/formation-entreprise/bureautique'), icon: BookOpen },
+    { title: t.formationMain[3].title, description: t.formationMain[3].description, href: lp('/formation-entreprise/reseaux-sociaux'), icon: Share2 },
+    { title: t.formationMain[4].title, description: t.formationMain[4].description, href: lp('/formation-entreprise/cybersecurite'), icon: Shield },
+    { title: t.formationMain[5].title, description: t.formationMain[5].description, href: lp('/formation-entreprise/canva'), icon: Wand2 },
+    { title: t.formationMain[6].title, description: t.formationMain[6].description, href: lp('/formation-entreprise/web-design'), icon: Palette },
+    { title: t.formationMain[7].title, description: t.formationMain[7].description, href: lp('/formation-entreprise/informatique'), icon: Cpu },
+    { title: t.formationMain[8].title, description: t.formationMain[8].description, href: lp('/formation-entreprise/montage-video'), icon: Film },
+  ]
 
-const APROPOS_SECONDARY = [
-  { title: 'Formation particuliers', href: '/formation-particuliers', icon: GraduationCap },
-  { title: 'Contacter l\'agence', href: '/contact', icon: Phone },
-]
+  const FORMATION_SECONDARY: MegaSecondary[] = [
+    { title: t.formationSecondary[0].title, href: lp('/formation-entreprise'), icon: BookOpen },
+    // Anchor #formateurs n'a pas d'equivalent EN sur la page ia, on retombe sur le hub formation.
+    { title: t.formationSecondary[1].title, href: lp('/formation-entreprise/ia') + (lang === 'fr' ? '#formateurs' : ''), icon: Users2 },
+    { title: t.formationSecondary[2].title, href: lp('/formation-particuliers'), icon: Users2 },
+    { title: t.formationSecondary[3].title, href: lp('/contact'), icon: Phone },
+  ]
+
+  const APROPOS_MAIN: MegaItem[] = [
+    { title: t.aproposMain[0].title, description: t.aproposMain[0].description, href: lp('/a-propos'), icon: Users2 },
+    { title: t.aproposMain[1].title, description: t.aproposMain[1].description, href: lp('/tarifs'), icon: FileText },
+    // Blog et Glossaire ne sont pas traduits, on garde les paths FR.
+    { title: t.aproposMain[2].title, description: t.aproposMain[2].description, href: '/blog', icon: BookOpen },
+    { title: t.aproposMain[3].title, description: t.aproposMain[3].description, href: '/glossaire', icon: Search },
+  ]
+
+  const APROPOS_SECONDARY: MegaSecondary[] = [
+    { title: t.aproposSecondary[0].title, href: lp('/formation-particuliers'), icon: GraduationCap },
+    { title: t.aproposSecondary[1].title, href: lp('/contact'), icon: Phone },
+  ]
+
+  return { AGENCE_MAIN, AGENCE_SECONDARY, IA_MAIN, IA_SECONDARY, FORMATION_MAIN, FORMATION_SECONDARY, APROPOS_MAIN, APROPOS_SECONDARY, dict }
+}
 
 // ─── Pillar accent colours ────────────────────────────────────────────────────
 
@@ -100,10 +120,6 @@ const PILLAR_ACCENT = {
   apropos:   { color: 'var(--text-secondary)', bg: 'var(--gray-bg)', border: 'var(--gray-border)' },
 }
 
-// Trigger CSS vars consumed by navigation-menu.tsx :
-//   --trigger-hover-bg   : background on hover
-//   --trigger-active-bg  : background when dropdown is open / active route
-//   --trigger-active-color : text + chevron color when open / active
 const TRIGGER_STYLE: Record<'agence' | 'ia' | 'formation' | 'apropos', React.CSSProperties> = {
   agence:    { '--trigger-hover-bg': 'var(--violet-bg)', '--trigger-active-bg': 'var(--violet-bg)', '--trigger-active-color': 'var(--violet)' } as React.CSSProperties,
   formation: { '--trigger-hover-bg': 'var(--orange-bg)', '--trigger-active-bg': 'var(--orange-bg)', '--trigger-active-color': 'var(--orange)' } as React.CSSProperties,
@@ -111,16 +127,10 @@ const TRIGGER_STYLE: Record<'agence' | 'ia' | 'formation' | 'apropos', React.CSS
   apropos:   { '--trigger-hover-bg': 'var(--gray-bg)',   '--trigger-active-bg': 'var(--gray-bg)',   '--trigger-active-color': 'var(--text)' } as React.CSSProperties,
 }
 
-// ─── MegaMenu panel ───────────────────────────────────────────────────────────
-
-type MegaItem = { title: string; href: string; icon: React.ElementType; description?: string }
-type MegaSecondary = { title: string; href: string; icon: React.ElementType }
-type PillarKey = 'agence' | 'ia' | 'formation' | 'apropos'
-
-type TagLink = { text: string; href: string }
+// ─── MegaPanel ────────────────────────────────────────────────────────────────
 
 function MegaPanel({
-  pillar, label, labelHref, tags, main, secondary, hubHref, hubLabel,
+  pillar, label, labelHref, tags, main, secondary, hubHref, hubLabel, lang,
 }: {
   pillar: PillarKey
   label: string
@@ -130,13 +140,15 @@ function MegaPanel({
   secondary: MegaSecondary[]
   hubHref: string
   hubLabel: string
+  lang: Locale
 }) {
   const { color, bg, border } = PILLAR_ACCENT[pillar]
+  const dict = getDictionary(lang)
+  const quickAccess = lang === 'en' ? 'Quick access' : 'Acces rapide'
   return (
     <div className="w-[700px] p-5 grid grid-cols-[1fr_190px] gap-5">
       {/* Left - main links */}
       <div>
-        {/* Pillar header */}
         <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
           <NavigationMenuLink asChild>
             <Link
@@ -194,7 +206,6 @@ function MegaPanel({
             </li>
           ))}
         </ul>
-        {/* Hub - see all */}
         <div className="mt-3 pt-2.5 border-t border-border">
           <NavigationMenuLink asChild>
             <Link
@@ -210,7 +221,7 @@ function MegaPanel({
 
       {/* Right - secondary links */}
       <div className="border-l border-border pl-4">
-        <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-3">Accès rapide</p>
+        <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-3">{quickAccess}</p>
         <ul className="space-y-0.5">
           {secondary.map((item) => (
             <li key={item.href}>
@@ -233,15 +244,14 @@ function MegaPanel({
           ))}
         </ul>
 
-        {/* CTA */}
         <div className="mt-4 pt-3 border-t border-border">
           <NavigationMenuLink asChild>
             <Link
-              href="/contact"
+              href={localizedPath('/contact', lang)}
               className="flex items-center justify-center gap-1.5 w-full rounded-[6px] py-2 text-[12px] font-semibold transition-all"
               style={{ color, background: bg, border: `1px solid ${border}` }}
             >
-              Devis gratuit <ChevronRight size={12} />
+              {dict.common.freeQuote} <ChevronRight size={12} />
             </Link>
           </NavigationMenuLink>
         </div>
@@ -250,30 +260,9 @@ function MegaPanel({
   )
 }
 
-// ─── Mobile Nav (rich tabbed UI) ─────────────────────────────────────────────
+// ─── Mobile Nav ───────────────────────────────────────────────────────────────
 
 type TabKey = PillarKey
-
-const MOBILE_TABS: {
-  key: TabKey
-  label: string
-  tabIcon: React.ElementType
-  color: string
-  bg: string
-  border: string
-  items: MegaItem[]
-  secondary: MegaSecondary[]
-  tags: TagLink[]
-  hubHref?: string
-  hubLabel?: string
-}[] = [
-  { key: 'agence',    label: 'Services',  tabIcon: Globe,       ...PILLAR_ACCENT.agence,    items: AGENCE_MAIN,    secondary: AGENCE_SECONDARY,    tags: [{ text: 'Sites', href: '/agence-digitale/creation-site-web' }, { text: 'SEO', href: '/agence-digitale/seo' }, { text: 'Ads', href: '/agence-digitale/publicite-sea' }, { text: 'Vidéo', href: '/agence-digitale/creation-video' }], hubHref: '/agence-digitale',         hubLabel: 'Voir tous les services' },
-  { key: 'formation', label: 'Formation', tabIcon: GraduationCap, ...PILLAR_ACCENT.formation, items: FORMATION_MAIN, secondary: FORMATION_SECONDARY, tags: [{ text: 'IA', href: '/formation-entreprise/ia' }, { text: 'Bureautique', href: '/formation-entreprise/bureautique' }, { text: 'Vidéo', href: '/formation-entreprise/montage-video' }, { text: 'Cyber', href: '/formation-entreprise/cybersecurite' }], hubHref: '/formation-entreprise',    hubLabel: 'Voir toutes les formations' },
-  { key: 'ia',        label: 'IA',        tabIcon: Bot,         ...PILLAR_ACCENT.ia,        items: IA_MAIN,        secondary: IA_SECONDARY,        tags: [{ text: 'Agents', href: '/intelligence-artificielle/agents-ia' }, { text: 'Automatisation', href: '/intelligence-artificielle/automatisation' }, { text: 'Conseil', href: '/intelligence-artificielle/audit-conseil' }], hubHref: '/intelligence-artificielle', hubLabel: 'Voir toutes nos solutions IA' },
-  { key: 'apropos',   label: 'À propos',   tabIcon: LayoutGrid,  ...PILLAR_ACCENT.apropos,   items: APROPOS_MAIN,   secondary: APROPOS_SECONDARY,   tags: [{ text: 'Réalisations', href: '/a-propos' }, { text: 'Tarifs', href: '/tarifs' }, { text: 'Blog', href: '/blog' }, { text: 'Ressources', href: '/glossaire' }], hubHref: '/a-propos',                hubLabel: 'À propos de DKDP' },
-]
-
-const TAB_ORDER: TabKey[] = ['agence', 'formation', 'ia', 'apropos']
 
 const slideVariants = {
   enter: (dir: number) => ({ x: dir * 28, opacity: 0 }),
@@ -281,11 +270,24 @@ const slideVariants = {
   exit: (dir: number) => ({ x: dir * -28, opacity: 0 }),
 }
 
-function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
+function MobileNav({ open, onClose, lang }: { open: boolean; onClose: () => void; lang: Locale }) {
   const [activeTab, setActiveTab] = React.useState<TabKey>('agence')
   const [direction, setDirection] = React.useState(0)
   const [mounted, setMounted] = React.useState(false)
   const router = useRouter()
+
+  const navData = React.useMemo(() => buildNavData(lang), [lang])
+  const dict = navData.dict
+  const lp = (fr: string) => localizedPath(fr, lang)
+
+  const MOBILE_TABS = React.useMemo(() => [
+    { key: 'agence' as TabKey,    label: dict.nav.groups.agence,    tabIcon: Globe,        ...PILLAR_ACCENT.agence,    items: navData.AGENCE_MAIN,    secondary: navData.AGENCE_SECONDARY,    tags: [{ text: lang === 'en' ? 'Websites' : 'Sites', href: lp('/agence-digitale/creation-site-web') }, { text: 'SEO', href: lp('/agence-digitale/seo') }, { text: 'Ads', href: lp('/agence-digitale/publicite-sea') }, { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/agence-digitale/creation-video') }], hubHref: lp('/agence-digitale'),         hubLabel: dict.common.viewAllServices },
+    { key: 'formation' as TabKey, label: dict.nav.groups.formation, tabIcon: GraduationCap, ...PILLAR_ACCENT.formation, items: navData.FORMATION_MAIN, secondary: navData.FORMATION_SECONDARY, tags: [{ text: 'IA', href: lp('/formation-entreprise/ia') }, { text: lang === 'en' ? 'Office' : 'Bureautique', href: lp('/formation-entreprise/bureautique') }, { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/formation-entreprise/montage-video') }, { text: 'Cyber', href: lp('/formation-entreprise/cybersecurite') }], hubHref: lp('/formation-entreprise'),    hubLabel: dict.common.viewAllTrainings },
+    { key: 'ia' as TabKey,        label: dict.nav.groups.ia,        tabIcon: Bot,          ...PILLAR_ACCENT.ia,        items: navData.IA_MAIN,        secondary: navData.IA_SECONDARY,        tags: [{ text: lang === 'en' ? 'Agents' : 'Agents', href: lp('/intelligence-artificielle/agents-ia') }, { text: lang === 'en' ? 'Automation' : 'Automatisation', href: lp('/intelligence-artificielle/automatisation') }, { text: lang === 'en' ? 'Consulting' : 'Conseil', href: lp('/intelligence-artificielle/audit-conseil') }], hubHref: lp('/intelligence-artificielle'), hubLabel: dict.common.viewAllAi },
+    { key: 'apropos' as TabKey,   label: dict.nav.groups.apropos,   tabIcon: LayoutGrid,   ...PILLAR_ACCENT.apropos,   items: navData.APROPOS_MAIN,   secondary: navData.APROPOS_SECONDARY,   tags: [{ text: lang === 'en' ? 'Work' : 'Réalisations', href: lp('/a-propos') }, { text: dict.common.ourPricing, href: lp('/tarifs') }, { text: 'Blog', href: '/blog' }, { text: lang === 'en' ? 'Glossary' : 'Ressources', href: '/glossaire' }], hubHref: lp('/a-propos'),                hubLabel: lang === 'en' ? 'About DKDP' : 'À propos de DKDP' },
+  ], [lang, dict, navData])
+
+  const TAB_ORDER: TabKey[] = ['agence', 'formation', 'ia', 'apropos']
 
   React.useEffect(() => setMounted(true), [])
   React.useEffect(() => {
@@ -307,6 +309,8 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
   if (!mounted || typeof window === 'undefined') return null
 
   const tab = MOBILE_TABS.find(t => t.key === activeTab)!
+  const quickAccess = lang === 'en' ? 'Quick access' : 'Acces rapide'
+  const ariaMenuLabel = lang === 'en' ? 'Navigation menu' : 'Menu de navigation'
 
   function haptic() {
     try { navigator.vibrate?.(8) } catch {}
@@ -351,7 +355,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
           id="mobile-menu"
           role="dialog"
           aria-modal="true"
-          aria-label="Menu de navigation"
+          aria-label={ariaMenuLabel}
           className="fixed left-0 right-0 bottom-0 z-40 xl:hidden flex flex-col"
           style={{
             top: 'calc(66px + env(safe-area-inset-top, 0px))',
@@ -361,7 +365,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
             willChange: 'transform, opacity',
           }}
         >
-          {/* ── Tab bar ── */}
+          {/* Tab bar */}
           <div className="flex-shrink-0 px-4 pt-4 pb-3">
             <div className="flex gap-1.5 p-1 rounded-[14px] bg-[var(--surface-default)] border border-border">
               {MOBILE_TABS.map(t => {
@@ -386,7 +390,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
             </div>
           </div>
 
-          {/* ── Scrollable content ── */}
+          {/* Scrollable content */}
           <div className="flex-1 overflow-y-auto overscroll-contain min-h-0">
             <AnimatePresence mode="wait" custom={direction}>
               <m.div
@@ -408,7 +412,6 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                 }}
                 className="px-4 pb-4 touch-pan-y"
               >
-                {/* Clickable tags */}
                 <div className="flex flex-wrap items-center gap-1.5 mt-1 mb-3">
                   <Link
                     href={tab.hubHref || '/'}
@@ -433,7 +436,6 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                   ))}
                 </div>
 
-                {/* Cards grid */}
                 <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-2">
                   {tab.items.map((item, i) => (
                     <m.div
@@ -466,7 +468,6 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                   ))}
                 </div>
 
-                {/* Hub link */}
                 {tab.hubHref && (
                   <div className="mt-3.5">
                     <Link
@@ -480,10 +481,9 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                   </div>
                 )}
 
-                {/* Secondary links */}
                 {tab.secondary.length > 0 && (
                   <div className="mt-4 pt-4 border-t border-border">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-2.5">Accès rapide</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-2.5">{quickAccess}</p>
                     <div className="space-y-0.5">
                       {tab.secondary.map(item => (
                         <Link
@@ -510,14 +510,17 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
             </AnimatePresence>
           </div>
 
-          {/* ── Bottom CTA ── */}
+          {/* Language switcher + Bottom CTA */}
           <div
-            className="flex-shrink-0 px-4 pt-3"
+            className="flex-shrink-0 px-4 pt-3 space-y-3"
             style={{
               paddingBottom: 'max(24px, env(safe-area-inset-bottom, 24px))',
               borderTop: '1px solid var(--border)',
             }}
           >
+            <div className="flex justify-center">
+              <LanguageSwitcher onNavigate={onClose} />
+            </div>
             <button
               type="button"
               onClick={onClose}
@@ -530,7 +533,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
                 color: '#FFFFFF',
               }}
             >
-              Réservez un appel →
+              {dict.common.bookCall} →
             </button>
           </div>
         </m.div>
@@ -543,12 +546,12 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
 // ─── Scroll progress gradient per pillar ─────────────────────────────────────
 
 function getPillarGradient(pathname: string): string {
-  // Use color-mix on --text-secondary so the gradient start is theme-aware
-  // (white-ish in dark, dark gray in light) and blends on either background.
   const start = 'color-mix(in srgb, var(--text-secondary) 70%, transparent)'
-  if (pathname.startsWith('/intelligence-artificielle'))
+  // Detect FR or EN segments equivalently
+  if (pathname.startsWith('/intelligence-artificielle') || pathname.startsWith('/en/artificial-intelligence'))
     return `linear-gradient(to right, ${start}, #D4D4D8)`
-  if (pathname.startsWith('/formation-entreprise') || pathname.startsWith('/formation-particuliers'))
+  if (pathname.startsWith('/formation-entreprise') || pathname.startsWith('/formation-particuliers') ||
+      pathname.startsWith('/en/corporate-training') || pathname.startsWith('/en/individual-training'))
     return `linear-gradient(to right, ${start}, #FF8C00)`
   return `linear-gradient(to right, ${start}, #A78BFA)`
 }
@@ -558,13 +561,17 @@ function getPillarGradient(pathname: string): string {
 export function Header() {
   const [mobileOpen, setMobileOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
-  const pathname = usePathname()
+  const pathname = usePathname() ?? '/'
   const router = useRouter()
   const progressGradient = getPillarGradient(pathname)
   const progressBarRef = React.useRef<HTMLDivElement>(null)
 
-  // Pas de header sur les pages d'administration interne (dashboard chatbot, etc).
-  const isAdminPage = pathname?.startsWith('/admin')
+  const lang: Locale = detectLocaleFromPath(pathname)
+  const navData = React.useMemo(() => buildNavData(lang), [lang])
+  const dict = navData.dict
+  const lp = (fr: string) => localizedPath(fr, lang)
+
+  const isAdminPage = pathname.startsWith('/admin')
 
   React.useEffect(() => {
     const bar = progressBarRef.current
@@ -607,9 +614,35 @@ export function Header() {
 
   if (isAdminPage) return null
 
+  const ariaHome = lang === 'en' ? 'DKDP - Home' : 'DKDP - Accueil'
+  const ariaToggleMenu = mobileOpen
+    ? (lang === 'en' ? 'Close menu' : 'Fermer le menu')
+    : (lang === 'en' ? 'Open menu' : 'Ouvrir le menu')
+
+  const renderMega = (
+    pillar: PillarKey,
+    main: MegaItem[],
+    secondary: MegaSecondary[],
+    fallbackHub: string,
+    hubLabel: string,
+    pillarLabel: string,
+    tags: TagLink[],
+  ) => (
+    <MegaPanel
+      pillar={pillar}
+      label={pillarLabel}
+      labelHref={fallbackHub}
+      tags={tags}
+      main={main}
+      secondary={secondary}
+      hubHref={fallbackHub}
+      hubLabel={hubLabel}
+      lang={lang}
+    />
+  )
+
   return (
     <>
-      {/* Scroll progress bar — fixed at very top of page */}
       <div
         ref={progressBarRef}
         aria-hidden="true"
@@ -636,7 +669,7 @@ export function Header() {
         >
         <div className="px-4 sm:px-5 h-14 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0" aria-label="DKDP - Accueil">
+          <Link href={lp('/')} className="flex items-center flex-shrink-0" aria-label={ariaHome}>
             <DkdpLogo width={108} height={36} priority />
           </Link>
 
@@ -644,98 +677,73 @@ export function Header() {
           <div className="hidden xl:flex items-center">
             <NavigationMenu>
               <NavigationMenuList>
-                {/* ── Service Digital ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')} style={TRIGGER_STYLE.agence}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push(lp('/agence-digitale'))} style={TRIGGER_STYLE.agence}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />{dict.nav.groups.agence}</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <MegaPanel
-                      pillar="agence"
-                      label="Agence"
-                      labelHref="/agence-digitale"
-                      tags={[
-                        { text: 'Sites', href: '/agence-digitale/creation-site-web' },
-                        { text: 'SEO', href: '/agence-digitale/seo' },
-                        { text: 'Ads', href: '/agence-digitale/publicite-sea' },
-                        { text: 'Vidéo', href: '/agence-digitale/creation-video' },
-                      ]}
-                      main={AGENCE_MAIN}
-                      secondary={AGENCE_SECONDARY}
-                      hubHref="/agence-digitale"
-                      hubLabel="Voir tous nos services"
-                    />
+                    {renderMega('agence', navData.AGENCE_MAIN, navData.AGENCE_SECONDARY,
+                      lp('/agence-digitale'), dict.common.viewAllServices,
+                      lang === 'en' ? 'Agency' : 'Agence',
+                      [
+                        { text: lang === 'en' ? 'Websites' : 'Sites', href: lp('/agence-digitale/creation-site-web') },
+                        { text: 'SEO', href: lp('/agence-digitale/seo') },
+                        { text: 'Ads', href: lp('/agence-digitale/publicite-sea') },
+                        { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/agence-digitale/creation-video') },
+                      ]
+                    )}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* ── Formation ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')} style={TRIGGER_STYLE.formation}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push(lp('/formation-entreprise'))} style={TRIGGER_STYLE.formation}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />{dict.nav.groups.formation}</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <MegaPanel
-                      pillar="formation"
-                      label="Formation"
-                      labelHref="/formation-entreprise"
-                      tags={[
-                        { text: 'IA', href: '/formation-entreprise/ia' },
-                        { text: 'Bureautique', href: '/formation-entreprise/bureautique' },
-                        { text: 'Vidéo', href: '/formation-entreprise/montage-video' },
-                        { text: 'Cyber', href: '/formation-entreprise/cybersecurite' },
-                      ]}
-                      main={FORMATION_MAIN}
-                      secondary={FORMATION_SECONDARY}
-                      hubHref="/formation-entreprise"
-                      hubLabel="Voir toutes les formations"
-                    />
+                    {renderMega('formation', navData.FORMATION_MAIN, navData.FORMATION_SECONDARY,
+                      lp('/formation-entreprise'), dict.common.viewAllTrainings,
+                      lang === 'en' ? 'Training' : 'Formation',
+                      [
+                        { text: 'IA', href: lp('/formation-entreprise/ia') },
+                        { text: lang === 'en' ? 'Office' : 'Bureautique', href: lp('/formation-entreprise/bureautique') },
+                        { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/formation-entreprise/montage-video') },
+                        { text: 'Cyber', href: lp('/formation-entreprise/cybersecurite') },
+                      ]
+                    )}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* ── Intelligence Artificielle ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={TRIGGER_STYLE.ia}><Sparkles size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />Intelligence Artificielle</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push(lp('/intelligence-artificielle'))} style={TRIGGER_STYLE.ia}><Sparkles size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />{dict.nav.groups.ia}</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <MegaPanel
-                      pillar="ia"
-                      label="IA"
-                      labelHref="/intelligence-artificielle"
-                      tags={[
-                        { text: 'Agents', href: '/intelligence-artificielle/agents-ia' },
-                        { text: 'Automatisation', href: '/intelligence-artificielle/automatisation' },
-                        { text: 'Conseil', href: '/intelligence-artificielle/audit-conseil' },
-                      ]}
-                      main={IA_MAIN}
-                      secondary={IA_SECONDARY}
-                      hubHref="/intelligence-artificielle"
-                      hubLabel="Voir toutes nos solutions IA"
-                    />
+                    {renderMega('ia', navData.IA_MAIN, navData.IA_SECONDARY,
+                      lp('/intelligence-artificielle'), dict.common.viewAllAi,
+                      lang === 'en' ? 'AI' : 'IA',
+                      [
+                        { text: lang === 'en' ? 'Agents' : 'Agents', href: lp('/intelligence-artificielle/agents-ia') },
+                        { text: lang === 'en' ? 'Automation' : 'Automatisation', href: lp('/intelligence-artificielle/automatisation') },
+                        { text: lang === 'en' ? 'Consulting' : 'Conseil', href: lp('/intelligence-artificielle/audit-conseil') },
+                      ]
+                    )}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* ── À propos ── */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={TRIGGER_STYLE.apropos}><LayoutGrid size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />À propos</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push(lp('/a-propos'))} style={TRIGGER_STYLE.apropos}><LayoutGrid size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />{dict.nav.groups.apropos}</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <MegaPanel
-                      pillar="apropos"
-                      label="Agence"
-                      labelHref="/a-propos"
-                      tags={[
-                        { text: 'Réalisations', href: '/a-propos' },
-                        { text: 'Tarifs', href: '/tarifs' },
+                    {renderMega('apropos', navData.APROPOS_MAIN, navData.APROPOS_SECONDARY,
+                      lp('/a-propos'), lang === 'en' ? 'About DKDP' : 'À propos de DKDP',
+                      lang === 'en' ? 'Agency' : 'Agence',
+                      [
+                        { text: lang === 'en' ? 'Work' : 'Réalisations', href: lp('/a-propos') },
+                        { text: dict.common.ourPricing, href: lp('/tarifs') },
                         { text: 'Blog', href: '/blog' },
-                        { text: 'Ressources', href: '/glossaire' },
-                      ]}
-                      main={APROPOS_MAIN}
-                      secondary={APROPOS_SECONDARY}
-                      hubHref="/a-propos"
-                      hubLabel="À propos de DKDP"
-                    />
+                        { text: lang === 'en' ? 'Glossary' : 'Ressources', href: '/glossaire' },
+                      ]
+                    )}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* ── Contact ── */}
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
-                      href="/contact"
+                      href={lp('/contact')}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium text-text-secondary hover:text-text transition-colors duration-150"
                     >
                       <Phone size={13} />
@@ -749,99 +757,79 @@ export function Header() {
 
           {/* Desktop CTA (xl+) */}
           <div className="hidden xl:flex items-center gap-3">
+            <LanguageSwitcher />
             <ThemeToggle />
-            <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="md" shaderDelay={1000}><CalendarCheck size={14} />Réservez un appel</LiquidMetalButton>
+            <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="md" shaderDelay={1000}><CalendarCheck size={14} />{dict.common.bookCall}</LiquidMetalButton>
           </div>
 
-          {/* Tablet / small laptop - abbreviated mega menus + Contact button (md–xl) */}
+          {/* Tablet / small laptop (md–xl) */}
           <div className="hidden md:flex xl:hidden items-center gap-1">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/agence-digitale')} style={TRIGGER_STYLE.agence}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />Service Digital</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push(lp('/agence-digitale'))} style={TRIGGER_STYLE.agence}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />{dict.nav.groups.agence}</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <MegaPanel
-                      pillar="agence"
-                      label="Agence"
-                      labelHref="/agence-digitale"
-                      tags={[
-                        { text: 'Sites', href: '/agence-digitale/creation-site-web' },
-                        { text: 'SEO', href: '/agence-digitale/seo' },
-                        { text: 'Ads', href: '/agence-digitale/publicite-sea' },
-                        { text: 'Vidéo', href: '/agence-digitale/creation-video' },
-                      ]}
-                      main={AGENCE_MAIN}
-                      secondary={AGENCE_SECONDARY}
-                      hubHref="/agence-digitale"
-                      hubLabel="Voir tous nos services"
-                    />
+                    {renderMega('agence', navData.AGENCE_MAIN, navData.AGENCE_SECONDARY,
+                      lp('/agence-digitale'), dict.common.viewAllServices,
+                      lang === 'en' ? 'Agency' : 'Agence',
+                      [
+                        { text: lang === 'en' ? 'Websites' : 'Sites', href: lp('/agence-digitale/creation-site-web') },
+                        { text: 'SEO', href: lp('/agence-digitale/seo') },
+                        { text: 'Ads', href: lp('/agence-digitale/publicite-sea') },
+                        { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/agence-digitale/creation-video') },
+                      ]
+                    )}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/formation-entreprise')} style={TRIGGER_STYLE.formation}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />Formation</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push(lp('/formation-entreprise'))} style={TRIGGER_STYLE.formation}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />{dict.nav.groups.formation}</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <MegaPanel
-                      pillar="formation"
-                      label="Formation"
-                      labelHref="/formation-entreprise"
-                      tags={[
-                        { text: 'IA', href: '/formation-entreprise/ia' },
-                        { text: 'Bureautique', href: '/formation-entreprise/bureautique' },
-                        { text: 'Vidéo', href: '/formation-entreprise/montage-video' },
-                        { text: 'Cyber', href: '/formation-entreprise/cybersecurite' },
-                      ]}
-                      main={FORMATION_MAIN}
-                      secondary={FORMATION_SECONDARY}
-                      hubHref="/formation-entreprise"
-                      hubLabel="Voir toutes les formations"
-                    />
+                    {renderMega('formation', navData.FORMATION_MAIN, navData.FORMATION_SECONDARY,
+                      lp('/formation-entreprise'), dict.common.viewAllTrainings,
+                      lang === 'en' ? 'Training' : 'Formation',
+                      [
+                        { text: 'IA', href: lp('/formation-entreprise/ia') },
+                        { text: lang === 'en' ? 'Office' : 'Bureautique', href: lp('/formation-entreprise/bureautique') },
+                        { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/formation-entreprise/montage-video') },
+                        { text: 'Cyber', href: lp('/formation-entreprise/cybersecurite') },
+                      ]
+                    )}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/intelligence-artificielle')} style={TRIGGER_STYLE.ia}><Sparkles size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />IA</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push(lp('/intelligence-artificielle'))} style={TRIGGER_STYLE.ia}><Sparkles size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />{lang === 'en' ? 'AI' : 'IA'}</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <MegaPanel
-                      pillar="ia"
-                      label="IA"
-                      labelHref="/intelligence-artificielle"
-                      tags={[
-                        { text: 'Agents', href: '/intelligence-artificielle/agents-ia' },
-                        { text: 'Automatisation', href: '/intelligence-artificielle/automatisation' },
-                        { text: 'Conseil', href: '/intelligence-artificielle/audit-conseil' },
-                      ]}
-                      main={IA_MAIN}
-                      secondary={IA_SECONDARY}
-                      hubHref="/intelligence-artificielle"
-                      hubLabel="Voir toutes nos solutions IA"
-                    />
+                    {renderMega('ia', navData.IA_MAIN, navData.IA_SECONDARY,
+                      lp('/intelligence-artificielle'), dict.common.viewAllAi,
+                      lang === 'en' ? 'AI' : 'IA',
+                      [
+                        { text: lang === 'en' ? 'Agents' : 'Agents', href: lp('/intelligence-artificielle/agents-ia') },
+                        { text: lang === 'en' ? 'Automation' : 'Automatisation', href: lp('/intelligence-artificielle/automatisation') },
+                        { text: lang === 'en' ? 'Consulting' : 'Conseil', href: lp('/intelligence-artificielle/audit-conseil') },
+                      ]
+                    )}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push('/a-propos')} style={TRIGGER_STYLE.apropos}><LayoutGrid size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />Agence</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={() => router.push(lp('/a-propos'))} style={TRIGGER_STYLE.apropos}><LayoutGrid size={13} style={{ color: 'var(--text-secondary)' }} className="mr-1" />{lang === 'en' ? 'Agency' : 'Agence'}</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <MegaPanel
-                      pillar="apropos"
-                      label="Agence"
-                      labelHref="/a-propos"
-                      tags={[
-                        { text: 'Réalisations', href: '/a-propos' },
-                        { text: 'Tarifs', href: '/tarifs' },
+                    {renderMega('apropos', navData.APROPOS_MAIN, navData.APROPOS_SECONDARY,
+                      lp('/a-propos'), lang === 'en' ? 'About DKDP' : 'À propos de DKDP',
+                      lang === 'en' ? 'Agency' : 'Agence',
+                      [
+                        { text: lang === 'en' ? 'Work' : 'Réalisations', href: lp('/a-propos') },
+                        { text: dict.common.ourPricing, href: lp('/tarifs') },
                         { text: 'Blog', href: '/blog' },
-                        { text: 'Ressources', href: '/glossaire' },
-                      ]}
-                      main={APROPOS_MAIN}
-                      secondary={APROPOS_SECONDARY}
-                      hubHref="/a-propos"
-                      hubLabel="À propos de DKDP"
-                    />
+                        { text: lang === 'en' ? 'Glossary' : 'Ressources', href: '/glossaire' },
+                      ]
+                    )}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* ── Contact ── */}
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
-                      href="/contact"
+                      href={lp('/contact')}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium text-text-secondary hover:text-text transition-colors duration-150"
                     >
                       <Phone size={13} />
@@ -853,12 +841,13 @@ export function Header() {
             </NavigationMenu>
           </div>
 
-          {/* Mobile + tablet right-side controls (theme toggle + hamburger, below xl) */}
+          {/* Mobile + tablet right-side controls */}
           <div className="xl:hidden flex items-center gap-2">
+            <LanguageSwitcher compact />
             <ThemeToggle compact />
             <button
               type="button"
-              aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+              aria-label={ariaToggleMenu}
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
               onClick={() => {
@@ -878,8 +867,7 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile nav */}
-      <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
+      <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} lang={lang} />
     </>
   )
 }

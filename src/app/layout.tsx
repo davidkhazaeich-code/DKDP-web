@@ -9,6 +9,8 @@ import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { Header } from '@/components/layout/Header'
 import { FooterWrapper } from '@/components/layout/FooterWrapper'
 import { LazyChatWidget } from '@/components/ui/LazyChatWidget'
+import { getServerLocale } from '@/i18n/server'
+import { htmlLangs, ogLocales } from '@/i18n/config'
 import './globals.css'
 
 const inter = Inter({
@@ -28,6 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_CH',
+    alternateLocale: ['en_US'],
     url: 'https://dkdp.ch',
     siteName: 'DKDP',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'DKDP Agence Digitale Genève' }],
@@ -59,9 +62,13 @@ export const viewport: Viewport = {
   themeColor: '#0A0A0A',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getServerLocale()
+  const htmlLang = htmlLangs[locale]
+  const ogLocale = ogLocales[locale]
+
   return (
-    <html lang="fr-CH" className={inter.variable} suppressHydrationWarning>
+    <html lang={htmlLang} className={inter.variable} suppressHydrationWarning>
       <head>
         {/* Anti-FOUC theme init, must run synchronously before any paint */}
         <script
@@ -79,7 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="ai-content-declarations" content="This site contains original content by DKDP, a digital agency in Geneva, Switzerland." />
         <meta name="citation_title" content="DKDP - Agence Digitale Genève" />
         <meta name="citation_author" content="DKDP" />
-        <meta name="citation_language" content="fr" />
+        <meta name="citation_language" content={locale} />
         <meta name="citation_geo_region" content="CH-GE" />
         <meta name="geo.region" content="CH-GE" />
         <meta name="geo.placename" content="Genève" />
@@ -88,6 +95,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="format-detection" content="telephone=yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        {/* og:locale override based on detected locale */}
+        <meta property="og:locale" content={ogLocale} />
       </head>
       <body
         className="font-sans antialiased"

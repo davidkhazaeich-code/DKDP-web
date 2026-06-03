@@ -1,0 +1,152 @@
+{
+  "common": {
+    "agency": "DKDP",
+    "agencyTagline": "Digital agency in Geneva. AI, training, web.",
+    "discover": "Discover",
+    "discoverServices": "Discover our services",
+    "bookCall": "Book a call",
+    "contactAgency": "Contact us",
+    "freeQuote": "Free quote",
+    "freeAudit": "Free audit",
+    "learnMore": "Learn more",
+    "seeAll": "See all",
+    "viewAllServices": "View all services",
+    "viewAllTrainings": "View all trainings",
+    "viewAllAi": "View AI solutions",
+    "talkToExpert": "Talk to an expert",
+    "ourPricing": "Pricing",
+    "readMore": "Read more",
+    "openingHours": "Mon-Fri 09:00-18:00",
+    "phone": "+41 79 940 79 69",
+    "email": "dk@dkdp.ch",
+    "address": "36 Rue du 31 Decembre",
+    "neighborhood": "Eaux-Vives District",
+    "city": "1207 Geneva, Switzerland",
+    "locations": "Where we operate:",
+    "copyright": "© {year} dkdp.ch · Digital agency in Geneva, Eaux-Vives · All rights reserved"
+  },
+  "nav": {
+    "groups": {
+      "agence": "Digital Agency",
+      "ia": "Artificial Intelligence",
+      "formation": "Training",
+      "apropos": "About"
+    },
+    "agenceMain": [
+      { "title": "Web design", "description": "Custom websites built to convert and perform." },
+      { "title": "Website redesign", "description": "Migration without SEO loss, modern 2026 design for Swiss SMBs." },
+      { "title": "App development", "description": "iOS, Android, web apps and PWAs tailored for SMBs." },
+      { "title": "SEO & search", "description": "Sustainable organic visibility on Google and AI search." },
+      { "title": "Google Ads", "description": "Profitable Google Ads and paid campaigns." },
+      { "title": "Social media", "description": "Consistent, engaging social presence." },
+      { "title": "Video production", "description": "Videos that captivate and convert." },
+      { "title": "Marketing consulting", "description": "Digital strategy and hands-on guidance." },
+      { "title": "GDPR & cookies", "description": "Legal compliance and data protection." }
+    ],
+    "agenceSecondary": [
+      { "title": "Free site audit" },
+      { "title": "Free SEO audit" },
+      { "title": "Free quote" },
+      { "title": "Agency pricing" },
+      { "title": "Contact us" }
+    ],
+    "iaMain": [
+      { "title": "Custom AI agents", "description": "Automate your processes with intelligent agents." },
+      { "title": "Business automation", "description": "No-code workflows with zero friction." },
+      { "title": "AI audit & consulting", "description": "Diagnose your automation potential." },
+      { "title": "AI implementation", "description": "Deploy AI inside your existing stack." },
+      { "title": "AI chatbot", "description": "A 24/7 assistant designed for your business." }
+    ],
+    "iaSecondary": [
+      { "title": "AI agency in Geneva" },
+      { "title": "Corporate AI training" },
+      { "title": "Claude training" },
+      { "title": "AI pricing" },
+      { "title": "Talk to an expert" }
+    ],
+    "formationMain": [
+      { "title": "Corporate AI training", "description": "Train your teams on the AI tools they use daily." },
+      { "title": "Claude training", "description": "Claude.ai, Projects Cowork and Claude Code for your teams." },
+      { "title": "Office tools", "description": "Save time on every file." },
+      { "title": "Social media", "description": "Master every social platform." },
+      { "title": "Cybersecurity", "description": "Protect your data and your team." },
+      { "title": "Canva training", "description": "Brand Kit, templates and Magic Studio AI in one day." },
+      { "title": "Web design with Figma", "description": "UI/UX, wireframes, design systems and interactive prototypes." },
+      { "title": "IT skills", "description": "Essential IT skills for the workplace." },
+      { "title": "Video editing", "description": "Produce professional videos." }
+    ],
+    "formationSecondary": [
+      { "title": "Full program" },
+      { "title": "Our trainers" },
+      { "title": "For individuals" },
+      { "title": "Book a session" }
+    ],
+    "aproposMain": [
+      { "title": "About the agency", "description": "Our team, values and story." },
+      { "title": "Pricing", "description": "Clear, transparent packages and pricing." },
+      { "title": "Blog", "description": "Digital resources and expert tips." },
+      { "title": "Glossary", "description": "A plain-English lexicon for digital and AI." }
+    ],
+    "aproposSecondary": [
+      { "title": "Individual training" },
+      { "title": "Contact us" }
+    ]
+  },
+  "footer": {
+    "pillars": {
+      "agence": "Digital Agency",
+      "formation": "Training",
+      "ia": "AI",
+      "apropos": "About"
+    },
+    "agenceLinks": [
+      "Free site audit", "Free SEO audit", "Web design",
+      "Website redesign", "SEO", "Google Ads",
+      "Social media", "Video production", "Marketing consulting", "Free quote"
+    ],
+    "formationLinks": [
+      "AI training", "Claude training", "Canva training",
+      "Web design with Figma", "Office tools & Excel", "Cybersecurity",
+      "Social media", "Video editing", "IT skills", "For individuals"
+    ],
+    "iaLinks": [
+      "AI agency in Geneva", "Custom AI agents", "AI chatbot",
+      "Business automation", "AI audit & consulting", "AI implementation"
+    ],
+    "aproposLinks": ["About the agency", "Pricing", "Blog", "Glossary"],
+    "legalLinks": [
+      "Legal notice", "Privacy policy", "GDPR & cookies",
+      "Terms of service", "Sitemap"
+    ]
+  },
+  "trust": {
+    "badge": "700+ clients trusted us across French-speaking Switzerland",
+    "shortBadge": "700+ clients",
+    "rating": "4.9/5 on Google",
+    "since": "Since 2020",
+    "yearsExperience": "5 years of experience"
+  },
+  "home": {
+    "metaTitle": "Digital Agency Geneva · Websites, AI & Training | DKDP",
+    "metaDescription": "Geneva-based digital agency specialised in web design, SEO, artificial intelligence and corporate training. 700+ clients across French-speaking Switzerland. Free quote.",
+    "hero": {
+      "h1Line1": "The Geneva digital agency",
+      "h1Line2": "that helps you stand out.",
+      "subtitle": "We build your website, sharpen your SEO, roll out AI inside your teams and train your people. Measurable results, no fluff.",
+      "cta": "Discover our services"
+    }
+  },
+  "ctaFinal": {
+    "tag": "Let's talk",
+    "title": "Ready to move to the next level?",
+    "subtitle": "Free quote, 24-hour reply, no commitment.",
+    "primary": "Book a call",
+    "secondary": "View pricing"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "ariaLabel": "Change language",
+    "fr": "Francais",
+    "en": "English"
+  }
+}

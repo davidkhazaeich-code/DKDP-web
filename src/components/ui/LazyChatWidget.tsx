@@ -15,6 +15,8 @@ export function LazyChatWidget() {
 
   if (HIDDEN_PATHS.includes(pathname)) return null
   if (pathname?.startsWith('/admin')) return null
+  // Chatbot reste FR pour l'instant ; on le masque sur les pages EN.
+  if (pathname?.startsWith('/en')) return null
 
   return <ChatWidget />
 }

@@ -1,0 +1,152 @@
+{
+  "common": {
+    "agency": "DKDP",
+    "agencyTagline": "Service digital a Geneve. IA, Formation, Web.",
+    "discover": "Decouvrir",
+    "discoverServices": "Decouvrez nos services",
+    "bookCall": "Reservez un appel",
+    "contactAgency": "Contacter l'agence",
+    "freeQuote": "Devis gratuit",
+    "freeAudit": "Audit gratuit",
+    "learnMore": "En savoir plus",
+    "seeAll": "Voir tout",
+    "viewAllServices": "Voir tous les services",
+    "viewAllTrainings": "Voir les formations",
+    "viewAllAi": "Voir nos solutions IA",
+    "talkToExpert": "Parler a un expert",
+    "ourPricing": "Nos tarifs",
+    "readMore": "Lire la suite",
+    "openingHours": "Lun-Ven 09:00-18:00",
+    "phone": "+41 79 940 79 69",
+    "email": "dk@dkdp.ch",
+    "address": "36 Rue du 31 Decembre",
+    "neighborhood": "Quartier des Eaux-Vives",
+    "city": "1207 Geneve, Suisse",
+    "locations": "Nos implantations :",
+    "copyright": "© {year} dkdp.ch · Service digital Eaux-Vives, Geneve · Tous droits reserves"
+  },
+  "nav": {
+    "groups": {
+      "agence": "Service digital",
+      "ia": "Intelligence Artificielle",
+      "formation": "Formation",
+      "apropos": "A propos"
+    },
+    "agenceMain": [
+      { "title": "Creation de site web", "description": "Sites sur mesure qui convertissent et performent." },
+      { "title": "Refonte de site web", "description": "Migration sans perte SEO, design 2026 pour PME romandes." },
+      { "title": "Developpement d'application", "description": "iOS, Android, web app et PWA sur mesure pour PME." },
+      { "title": "SEO & Referencement", "description": "Visibilite organique durable sur Google et les IA." },
+      { "title": "Publicite SEA", "description": "Google Ads et campagnes payantes rentables." },
+      { "title": "Reseaux sociaux", "description": "Presence sociale coherente et engageante." },
+      { "title": "Creation video", "description": "Videos qui captivent et convertissent." },
+      { "title": "Consulting marketing", "description": "Strategie digitale et accompagnement." },
+      { "title": "RGPD & Cookies", "description": "Conformite legale et protection des donnees." }
+    ],
+    "agenceSecondary": [
+      { "title": "Audit site gratuit" },
+      { "title": "Audit SEO gratuit" },
+      { "title": "Estimation gratuite" },
+      { "title": "Tarifs agence" },
+      { "title": "Contacter l'agence" }
+    ],
+    "iaMain": [
+      { "title": "Agents IA sur mesure", "description": "Automatisez vos processus avec des agents intelligents." },
+      { "title": "Automatisation metier", "description": "Workflows sans code, zero friction." },
+      { "title": "Audit & Conseil IA", "description": "Diagnostiquez votre potentiel d'automatisation." },
+      { "title": "Mise en place IA", "description": "Deployez l'IA dans votre stack existant." },
+      { "title": "Chatbot IA", "description": "Un assistant 24/7 concu pour votre metier." }
+    ],
+    "iaSecondary": [
+      { "title": "Agence IA a Geneve" },
+      { "title": "Formation IA entreprise" },
+      { "title": "Formation Claude" },
+      { "title": "Tarifs IA" },
+      { "title": "Parler a un expert" }
+    ],
+    "formationMain": [
+      { "title": "Formation IA en entreprise", "description": "Formez vos equipes aux outils IA du quotidien." },
+      { "title": "Formation Claude", "description": "Claude.ai, Projects Cowork et Claude Code pour vos equipes." },
+      { "title": "Bureautique", "description": "Gagnez du temps sur chaque fichier." },
+      { "title": "Reseaux sociaux", "description": "Maitrisez les plateformes sociales." },
+      { "title": "Cybersecurite", "description": "Protegez vos donnees et vos collaborateurs." },
+      { "title": "Formation Canva", "description": "Brand Kit, templates et IA Magic Studio en une journee." },
+      { "title": "Web design Figma", "description": "UI/UX, wireframes, design system et prototypes interactifs." },
+      { "title": "Informatique", "description": "Competences informatiques essentielles." },
+      { "title": "Montage video", "description": "Creez des videos professionnelles." }
+    ],
+    "formationSecondary": [
+      { "title": "Programme complet" },
+      { "title": "Nos formateurs" },
+      { "title": "Pour les particuliers" },
+      { "title": "Reserver une session" }
+    ],
+    "aproposMain": [
+      { "title": "A propos de l'agence", "description": "Notre equipe, nos valeurs et notre histoire." },
+      { "title": "Tarifs", "description": "Formules et prix clairs et transparents." },
+      { "title": "Blog", "description": "Ressources et conseils digitaux." },
+      { "title": "Glossaire", "description": "Lexique du digital et de l'IA." }
+    ],
+    "aproposSecondary": [
+      { "title": "Formation particuliers" },
+      { "title": "Contacter l'agence" }
+    ]
+  },
+  "footer": {
+    "pillars": {
+      "agence": "Service Digital",
+      "formation": "Formation",
+      "ia": "IA",
+      "apropos": "A propos"
+    },
+    "agenceLinks": [
+      "Audit site gratuit", "Audit SEO gratuit", "Creation de site web",
+      "Refonte de site web", "Referencement SEO", "Publicite Google Ads",
+      "Reseaux sociaux", "Creation video", "Consulting marketing", "Estimation gratuite"
+    ],
+    "formationLinks": [
+      "Formation IA", "Formation Claude", "Formation Canva",
+      "Web design Figma", "Bureautique & Excel", "Cybersecurite",
+      "Reseaux sociaux", "Montage video", "Informatique", "Pour particuliers"
+    ],
+    "iaLinks": [
+      "Agence IA a Geneve", "Agents IA sur mesure", "Chatbot IA",
+      "Automatisation metier", "Audit & Conseil IA", "Mise en place IA"
+    ],
+    "aproposLinks": ["A propos de l'agence", "Tarifs", "Blog", "Glossaire"],
+    "legalLinks": [
+      "Mentions legales", "Politique de confidentialite", "RGPD & Cookies",
+      "CGV", "Plan du site"
+    ]
+  },
+  "trust": {
+    "badge": "700+ clients accompagnes en Suisse romande",
+    "shortBadge": "700+ clients",
+    "rating": "4.9/5 sur Google",
+    "since": "Depuis 2020",
+    "yearsExperience": "5 ans d'experience"
+  },
+  "home": {
+    "metaTitle": "Agence Digitale Geneve · Sites web, IA & Formation | DKDP",
+    "metaDescription": "Agence digitale a Geneve specialisee en creation de sites web, SEO, intelligence artificielle et formation entreprise. 700+ clients accompagnes en Suisse romande. Devis gratuit.",
+    "hero": {
+      "h1Line1": "L'agence digitale genevoise",
+      "h1Line2": "qui vous fait sortir du lot.",
+      "subtitle": "On cree votre site, on optimise votre SEO, on deploie l'IA dans vos equipes et on forme vos collaborateurs. Resultats mesurables, pas de blabla.",
+      "cta": "Decouvrez nos services"
+    }
+  },
+  "ctaFinal": {
+    "tag": "Discutons",
+    "title": "Pret a passer au niveau superieur ?",
+    "subtitle": "Devis gratuit, reponse sous 24h, sans engagement.",
+    "primary": "Reservez un appel",
+    "secondary": "Voir les tarifs"
+  },
+  "languageSwitcher": {
+    "label": "Langue",
+    "ariaLabel": "Changer de langue",
+    "fr": "Francais",
+    "en": "English"
+  }
+}

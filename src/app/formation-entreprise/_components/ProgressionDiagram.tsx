@@ -1,10 +1,17 @@
-export function ProgressionDiagram() {
-  const levels = [
-    { label: 'Niveau initial', sub: 'Avant la formation', pct: 20, color: '#6B7280' },
-    { label: 'Fin de formation', sub: 'J+1', pct: 65, color: '#FF8C00' },
-    { label: 'Après 30 jours', sub: 'Mise en pratique', pct: 80, color: '#FF6900' },
-    { label: 'Autonomie totale', sub: 'Après 60 jours', pct: 95, color: '#FF4500' },
-  ]
+export function ProgressionDiagram({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
+  const levels = lang === 'en'
+    ? [
+        { label: 'Starting level', sub: 'Before training', pct: 20, color: '#6B7280' },
+        { label: 'End of training', sub: 'Day 1', pct: 65, color: '#FF8C00' },
+        { label: 'After 30 days', sub: 'Hands-on practice', pct: 80, color: '#FF6900' },
+        { label: 'Full autonomy', sub: 'After 60 days', pct: 95, color: '#FF4500' },
+      ]
+    : [
+        { label: 'Niveau initial', sub: 'Avant la formation', pct: 20, color: '#6B7280' },
+        { label: 'Fin de formation', sub: 'J+1', pct: 65, color: '#FF8C00' },
+        { label: 'Après 30 jours', sub: 'Mise en pratique', pct: 80, color: '#FF6900' },
+        { label: 'Autonomie totale', sub: 'Après 60 jours', pct: 95, color: '#FF4500' },
+      ]
   return (
     <div className="w-full space-y-4">
       {levels.map((lvl, i) => (
@@ -22,7 +29,7 @@ export function ProgressionDiagram() {
           <p className="text-right text-[10px] font-bold mt-0.5" style={{ color: lvl.color }}>{lvl.pct}%</p>
         </div>
       ))}
-      <p className="text-text-muted text-[11px] text-center pt-2">Progression moyenne observée sur 500+ participants</p>
+      <p className="text-text-muted text-[11px] text-center pt-2">{lang === 'en' ? 'Average progress observed across 500+ participants' : 'Progression moyenne observée sur 500+ participants'}</p>
     </div>
   )
 }

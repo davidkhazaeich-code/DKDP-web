@@ -216,7 +216,7 @@ export default function EnDigitalAgencyPage() {
                     size="md"
                   />
                 </div>
-                <HeroVisual />
+                <HeroVisual lang="en" />
               </div>
             </div>
           </div>
@@ -561,7 +561,7 @@ export default function EnDigitalAgencyPage() {
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-8 text-center" style={{ color }}>
                   Conversion funnel
                 </p>
-                <FunnelDiagram />
+                <FunnelDiagram lang="en" />
                 <div className="mt-8 pt-6 border-t" style={{ borderColor: border }}>
                   <div className="grid grid-cols-3 gap-4 text-center">
                     {[

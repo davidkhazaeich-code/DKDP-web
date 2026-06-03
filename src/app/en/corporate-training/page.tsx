@@ -228,7 +228,7 @@ export default function EnCorporateTrainingPage() {
                     size="md"
                   />
                 </div>
-                <HeroVisual />
+                <HeroVisual lang="en" />
               </div>
             </div>
           </div>
@@ -400,7 +400,7 @@ export default function EnCorporateTrainingPage() {
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6" style={{ color }}>
                   Progress observed across 500+ participants
                 </p>
-                <ProgressionDiagram />
+                <ProgressionDiagram lang="en" />
               </div>
             </SectionReveal>
 

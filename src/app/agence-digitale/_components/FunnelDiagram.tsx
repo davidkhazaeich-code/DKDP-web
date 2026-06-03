@@ -1,10 +1,17 @@
-export function FunnelDiagram() {
-  const steps = [
-    { label: 'Trafic SEO & Ads', sub: 'Visibilité sur Google', w: '100%', color: '#A78BFA' },
-    { label: 'Visiteurs qualifiés', sub: 'Site rapide et convaincant', w: '78%', color: '#9B7CF0' },
-    { label: 'Leads entrants', sub: 'Formulaires et CTAs optimisés', w: '54%', color: '#8B65E3' },
-    { label: 'Clients signés', sub: 'Pipeline commercial alimenté', w: '34%', color: '#7C3AED' },
-  ]
+export function FunnelDiagram({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
+  const steps = lang === 'en'
+    ? [
+        { label: 'SEO and Ads traffic', sub: 'Visibility on Google', w: '100%', color: '#A78BFA' },
+        { label: 'Qualified visitors', sub: 'Fast, convincing site', w: '78%', color: '#9B7CF0' },
+        { label: 'Inbound leads', sub: 'Optimised forms and CTAs', w: '54%', color: '#8B65E3' },
+        { label: 'Signed clients', sub: 'Fuelled sales pipeline', w: '34%', color: '#7C3AED' },
+      ]
+    : [
+        { label: 'Trafic SEO & Ads', sub: 'Visibilité sur Google', w: '100%', color: '#A78BFA' },
+        { label: 'Visiteurs qualifiés', sub: 'Site rapide et convaincant', w: '78%', color: '#9B7CF0' },
+        { label: 'Leads entrants', sub: 'Formulaires et CTAs optimisés', w: '54%', color: '#8B65E3' },
+        { label: 'Clients signés', sub: 'Pipeline commercial alimenté', w: '34%', color: '#7C3AED' },
+      ]
   return (
     <div className="flex flex-col gap-2 w-full max-w-sm mx-auto">
       {steps.map((s, i) => (
@@ -20,7 +27,7 @@ export function FunnelDiagram() {
           </div>
         </div>
       ))}
-      <p className="text-text-muted text-[11px] text-center mt-3">Entonnoir de conversion digital DKDP</p>
+      <p className="text-text-muted text-[11px] text-center mt-3">{lang === 'en' ? 'DKDP digital conversion funnel' : 'Entonnoir de conversion digital DKDP'}</p>
     </div>
   )
 }

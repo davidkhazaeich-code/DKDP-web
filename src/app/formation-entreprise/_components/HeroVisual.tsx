@@ -3,7 +3,38 @@ import { orange } from '@/lib/tokens'
 const O = orange.color
 const OD = orange.border
 
-export function HeroVisual() {
+export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
+  const t = lang === 'en'
+    ? {
+        header: 'DKDP Training · Catalogue', programsBadge: '7 programmes',
+        programs: [
+          { name: 'Artificial Intelligence', icon: '🧠', badge: 'Trending', badgeColor: '#FCD34D', demand: 95 },
+          { name: 'Claude AI', icon: '✦', badge: 'New', badgeColor: '#D4A574', demand: 88 },
+          { name: 'Office tools and Excel', icon: '📊', badge: null, badgeColor: '', demand: 76 },
+          { name: 'Cybersecurity', icon: '🛡️', badge: null, badgeColor: '', demand: 72 },
+        ],
+        demand: 'Demand', journeyLabel: 'Typical journey',
+        journey: [{ step: 'Needs audit', done: true }, { step: 'Tailored programme', done: true }, { step: 'Training', done: true }, { step: 'Day 30 follow-up', done: false }],
+        trained: 'People trained', trainedSub: 'in French-speaking Switzerland',
+        formatsLabel: 'Available formats',
+        formats: [{ format: 'On-site', icon: '🏢' }, { format: 'Online', icon: '💻' }, { format: 'Hybrid', icon: '🔄' }],
+        stats: [{ v: '4.9/5', l: 'Satisfaction', c: '#4ade80' }, { v: '100%', l: 'Tailored', c: O }, { v: '7', l: 'Programmes', c: '#FF8C00' }],
+      }
+    : {
+        header: 'DKDP Formation · Catalogue', programsBadge: '7 programmes',
+        programs: [
+          { name: 'Intelligence Artificielle', icon: '🧠', badge: 'Tendance', badgeColor: '#FCD34D', demand: 95 },
+          { name: 'Claude IA', icon: '✦', badge: 'Nouveau', badgeColor: '#D4A574', demand: 88 },
+          { name: 'Bureautique & Excel', icon: '📊', badge: null, badgeColor: '', demand: 76 },
+          { name: 'Cybersecurite', icon: '🛡️', badge: null, badgeColor: '', demand: 72 },
+        ],
+        demand: 'Demande', journeyLabel: 'Parcours type',
+        journey: [{ step: 'Audit besoins', done: true }, { step: 'Programme sur mesure', done: true }, { step: 'Formation', done: true }, { step: 'Suivi J+30', done: false }],
+        trained: 'Personnes formees', trainedSub: 'en Suisse romande',
+        formatsLabel: 'Formats disponibles',
+        formats: [{ format: 'Presentiel', icon: '🏢' }, { format: 'En ligne', icon: '💻' }, { format: 'Hybride', icon: '🔄' }],
+        stats: [{ v: '4.9/5', l: 'Satisfaction', c: '#4ade80' }, { v: '100%', l: 'Sur mesure', c: O }, { v: '7', l: 'Programmes', c: '#FF8C00' }],
+      }
   return (
     <div className="relative flex flex-col gap-4">
       {/* Training Programs Dashboard */}
@@ -17,20 +48,15 @@ export function HeroVisual() {
               <path d="M22 10v6M2 10l10-5 10 5-10 5z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="text-[10px] text-zinc-400 font-mono">DKDP Formation · Catalogue</span>
+            <span className="text-[10px] text-zinc-400 font-mono">{t.header}</span>
           </div>
-          <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-orange-400/10 text-orange-400">7 programmes</span>
+          <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-orange-400/10 text-orange-400">{t.programsBadge}</span>
         </div>
 
         <div className="p-5 space-y-4">
           {/* Program cards grid */}
           <div className="grid grid-cols-2 gap-2.5">
-            {[
-              { name: 'Intelligence Artificielle', icon: '🧠', badge: 'Tendance', badgeColor: '#FCD34D', demand: 95 },
-              { name: 'Claude IA', icon: '✦', badge: 'Nouveau', badgeColor: '#D4A574', demand: 88 },
-              { name: 'Bureautique & Excel', icon: '📊', badge: null, badgeColor: '', demand: 76 },
-              { name: 'Cybersecurite', icon: '🛡️', badge: null, badgeColor: '', demand: 72 },
-            ].map((prog) => (
+            {t.programs.map((prog) => (
               <div
                 key={prog.name}
                 className="rounded-lg p-2.5"
@@ -48,7 +74,7 @@ export function HeroVisual() {
                 <div className="h-1 rounded-full bg-white/5 overflow-hidden mt-1">
                   <div className="h-full rounded-full" style={{ width: `${prog.demand}%`, background: `linear-gradient(90deg, ${O}, #FFB347)` }} />
                 </div>
-                <p className="text-[7px] text-zinc-500 mt-0.5">Demande {prog.demand}%</p>
+                <p className="text-[7px] text-zinc-500 mt-0.5">{t.demand} {prog.demand}%</p>
               </div>
             ))}
           </div>
@@ -57,14 +83,9 @@ export function HeroVisual() {
 
           {/* Participant journey */}
           <div>
-            <p className="text-[9px] text-zinc-500 uppercase tracking-widest mb-2">Parcours type</p>
+            <p className="text-[9px] text-zinc-500 uppercase tracking-widest mb-2">{t.journeyLabel}</p>
             <div className="flex items-center gap-1">
-              {[
-                { step: 'Audit besoins', done: true },
-                { step: 'Programme sur mesure', done: true },
-                { step: 'Formation', done: true },
-                { step: 'Suivi J+30', done: false },
-              ].map((s, i) => (
+              {t.journey.map((s, i) => (
                 <div key={s.step} className="flex items-center gap-1 flex-1">
                   <div className="flex-1">
                     <div
@@ -93,9 +114,9 @@ export function HeroVisual() {
           className="rounded-lg p-3 text-center"
           style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(255,140,0,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1">Personnes formees</p>
+          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1">{t.trained}</p>
           <p className="text-xl font-bold" style={{ color: O }}>500+</p>
-          <p className="text-[8px] text-zinc-500 mt-0.5">en Suisse romande</p>
+          <p className="text-[8px] text-zinc-500 mt-0.5">{t.trainedSub}</p>
         </div>
       </div>
 
@@ -105,12 +126,8 @@ export function HeroVisual() {
           className="rounded-lg p-2.5"
           style={{ background: 'rgba(0,0,0,0.9)', border: `1px solid ${OD}`, boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1.5">Formats disponibles</p>
-          {[
-            { format: 'Presentiel', icon: '🏢' },
-            { format: 'En ligne', icon: '💻' },
-            { format: 'Hybride', icon: '🔄' },
-          ].map((f) => (
+          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1.5">{t.formatsLabel}</p>
+          {t.formats.map((f) => (
             <div key={f.format} className="flex items-center gap-1.5 text-[9px] mb-0.5">
               <span>{f.icon}</span>
               <span className="text-zinc-400">{f.format}</span>
@@ -122,11 +139,7 @@ export function HeroVisual() {
 
       {/* Mini stats */}
       <div className="grid grid-cols-3 gap-3">
-        {[
-          { v: '4.9/5', l: 'Satisfaction', c: '#4ade80' },
-          { v: '100%', l: 'Sur mesure', c: O },
-          { v: '7', l: 'Programmes', c: '#FF8C00' },
-        ].map((s) => (
+        {t.stats.map((s) => (
           <div
             key={s.l}
             className="text-center py-3 rounded-[10px]"

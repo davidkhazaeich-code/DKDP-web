@@ -207,7 +207,7 @@ export default function EnWebDesignPage() {
                   </Link>
                 </div>
               </div>
-              <HeroVisual />
+              <HeroVisual lang="en" />
             </div>
           </div>
         </section>
@@ -337,7 +337,7 @@ export default function EnWebDesignPage() {
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6 text-center" style={{ color }}>
                   Performance comparison
                 </p>
-                <PerformanceComparison />
+                <PerformanceComparison lang="en" />
                 <p className="text-text-muted text-[11px] text-center mt-4">
                   Real Core Web Vitals metrics. The PageSpeed score directly impacts Google ranking.
                 </p>

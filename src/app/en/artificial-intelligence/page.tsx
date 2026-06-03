@@ -274,7 +274,7 @@ export default function EnArtificialIntelligencePage() {
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6 text-center" style={{ color }}>
                   Before vs After AI automation
                 </p>
-                <AutomationDiagram />
+                <AutomationDiagram lang="en" />
               </div>
             </SectionReveal>
           </div>

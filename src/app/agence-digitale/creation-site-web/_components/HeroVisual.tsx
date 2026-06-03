@@ -3,7 +3,20 @@ import { violet } from '@/lib/tokens'
 const V = violet.color
 const VD = violet.border
 
-export function HeroVisual() {
+export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
+  const t = lang === 'en'
+    ? {
+        cwv: 'Core Web Vitals green', lighthouse: 'Lighthouse score',
+        readability: 'Readability', accessibility: 'Accessibility A+',
+        cards: [{ accent: '#A78BFA', label: 'Performance' }, { accent: '#FF8C00', label: 'SEO' }, { accent: '#4ade80', label: 'Responsive' }],
+        stats: [{ v: 'Next.js', l: 'Framework', c: V }, { v: '< 1.5s', l: 'Load time', c: '#4ade80' }, { v: '100%', l: 'Responsive', c: '#FF8C00' }],
+      }
+    : {
+        cwv: 'Core Web Vitals vert', lighthouse: 'Score Lighthouse',
+        readability: 'Lisibilité', accessibility: 'Accessibilité A+',
+        cards: [{ accent: '#A78BFA', label: 'Performance' }, { accent: '#FF8C00', label: 'SEO' }, { accent: '#4ade80', label: 'Responsive' }],
+        stats: [{ v: 'Next.js', l: 'Framework', c: V }, { v: '< 1.5s', l: 'Chargement', c: '#4ade80' }, { v: '100%', l: 'Responsive', c: '#FF8C00' }],
+      }
   return (
     <div className="relative flex flex-col gap-4">
       {/* Browser mockup */}
@@ -64,11 +77,7 @@ export function HeroVisual() {
 
           {/* Cards row */}
           <div className="grid grid-cols-3 gap-2 pt-1">
-            {[
-              { accent: '#A78BFA', label: 'Performance' },
-              { accent: '#FF8C00', label: 'SEO' },
-              { accent: '#4ade80', label: 'Responsive' },
-            ].map((c) => (
+            {t.cards.map((c) => (
               <div
                 key={c.label}
                 className="rounded-lg p-3"
@@ -112,7 +121,7 @@ export function HeroVisual() {
             </div>
             <div>
               <p className="text-[10px] font-semibold text-white">PageSpeed</p>
-              <p className="text-[8px] text-zinc-500">Core Web Vitals vert</p>
+              <p className="text-[8px] text-zinc-500">{t.cwv}</p>
             </div>
           </div>
         </div>
@@ -127,7 +136,7 @@ export function HeroVisual() {
             </div>
             <div>
               <p className="text-[10px] font-semibold text-white">SEO</p>
-              <p className="text-[8px] text-zinc-500">Score Lighthouse</p>
+              <p className="text-[8px] text-zinc-500">{t.lighthouse}</p>
             </div>
           </div>
         </div>
@@ -141,8 +150,8 @@ export function HeroVisual() {
               <span className="text-[10px] font-bold text-green-400">100</span>
             </div>
             <div>
-              <p className="text-[10px] font-semibold text-white">Lisibilité</p>
-              <p className="text-[8px] text-zinc-500">Accessibilité A+</p>
+              <p className="text-[10px] font-semibold text-white">{t.readability}</p>
+              <p className="text-[8px] text-zinc-500">{t.accessibility}</p>
             </div>
           </div>
         </div>
@@ -150,11 +159,7 @@ export function HeroVisual() {
 
       {/* Mini stats */}
       <div className="grid grid-cols-3 gap-3">
-        {[
-          { v: 'Next.js', l: 'Framework', c: V },
-          { v: '< 1.5s', l: 'Chargement', c: '#4ade80' },
-          { v: '100%', l: 'Responsive', c: '#FF8C00' },
-        ].map((s) => (
+        {t.stats.map((s) => (
           <div
             key={s.l}
             className="text-center py-3 rounded-[10px]"

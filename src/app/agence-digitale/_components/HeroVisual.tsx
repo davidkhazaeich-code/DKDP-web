@@ -3,7 +3,50 @@ import { violet } from '@/lib/tokens'
 const V = violet.color
 const VD = violet.border
 
-export function HeroVisual() {
+export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
+  const t = lang === 'en'
+    ? {
+        header: 'DKDP · Digital Agency Geneva',
+        services: [
+          { icon: '&#9678;', name: 'Web design', kpi: '100+ sites', color: V },
+          { icon: '&#9650;', name: 'SEO / GEO', kpi: 'Top 3 Google', color: '#4ade80' },
+          { icon: '&#9670;', name: 'Google Ads', kpi: 'ROAS 8.2x', color: '#FF8C00' },
+          { icon: '&#9733;', name: 'Social media', kpi: '+340% growth', color: '#60a5fa' },
+        ],
+        perfLabel: 'Typical client performance',
+        metrics: [
+          { label: 'Organic traffic', before: '1.2K', after: '8.4K', pct: 85 },
+          { label: 'Leads / month', before: '12', after: '89', pct: 72 },
+          { label: 'Conversion rate', before: '1.2%', after: '4.8%', pct: 65 },
+        ],
+        satisfaction: 'Satisfaction', satisfactionSub: 'Verified client score',
+        stats: [
+          { v: '100+', l: 'Sites delivered', c: V },
+          { v: '10+ yrs', l: 'Of experience', c: '#4ade80' },
+          { v: 'Geneva', l: 'Local base', c: '#FF8C00' },
+        ],
+      }
+    : {
+        header: 'DKDP · Agence Digitale Geneve',
+        services: [
+          { icon: '&#9678;', name: 'Création web', kpi: '100+ sites', color: V },
+          { icon: '&#9650;', name: 'SEO / GEO', kpi: 'Top 3 Google', color: '#4ade80' },
+          { icon: '&#9670;', name: 'Google Ads', kpi: 'ROAS 8.2x', color: '#FF8C00' },
+          { icon: '&#9733;', name: 'Reseaux sociaux', kpi: '+340% croissance', color: '#60a5fa' },
+        ],
+        perfLabel: 'Performance client type',
+        metrics: [
+          { label: 'Trafic organique', before: '1.2K', after: '8.4K', pct: 85 },
+          { label: 'Leads / mois', before: '12', after: '89', pct: 72 },
+          { label: 'Taux de conversion', before: '1.2%', after: '4.8%', pct: 65 },
+        ],
+        satisfaction: 'Satisfaction', satisfactionSub: 'Note client verifiee',
+        stats: [
+          { v: '100+', l: 'Sites livres', c: V },
+          { v: '10+ ans', l: "D'expérience", c: '#4ade80' },
+          { v: 'Geneve', l: 'Base locale', c: '#FF8C00' },
+        ],
+      }
   return (
     <div className="relative flex flex-col gap-4">
       {/* Services overview */}
@@ -15,18 +58,13 @@ export function HeroVisual() {
           <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-          <span className="text-[10px] text-zinc-500 font-mono ml-2">DKDP · Agence Digitale Geneve</span>
+          <span className="text-[10px] text-zinc-500 font-mono ml-2">{t.header}</span>
         </div>
 
         <div className="p-5 space-y-4">
           {/* Service cards grid */}
           <div className="grid grid-cols-2 gap-2.5">
-            {[
-              { icon: '&#9678;', name: 'Création web', kpi: '100+ sites', color: V },
-              { icon: '&#9650;', name: 'SEO / GEO', kpi: 'Top 3 Google', color: '#4ade80' },
-              { icon: '&#9670;', name: 'Google Ads', kpi: 'ROAS 8.2x', color: '#FF8C00' },
-              { icon: '&#9733;', name: 'Reseaux sociaux', kpi: '+340% croissance', color: '#60a5fa' },
-            ].map((s) => (
+            {t.services.map((s) => (
               <div
                 key={s.name}
                 className="rounded-lg p-3"
@@ -43,13 +81,9 @@ export function HeroVisual() {
 
           {/* Progress overview */}
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Performance client type</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{t.perfLabel}</span>
             <div className="mt-2 space-y-2">
-              {[
-                { label: 'Trafic organique', before: '1.2K', after: '8.4K', pct: 85 },
-                { label: 'Leads / mois', before: '12', after: '89', pct: 72 },
-                { label: 'Taux de conversion', before: '1.2%', after: '4.8%', pct: 65 },
-              ].map((m) => (
+              {t.metrics.map((m) => (
                 <div key={m.label}>
                   <div className="flex items-center justify-between text-[10px] mb-1">
                     <span className="text-zinc-400">{m.label}</span>
@@ -84,19 +118,15 @@ export function HeroVisual() {
             <span className="text-[10px] font-bold text-green-400">4.9</span>
           </div>
           <div>
-            <p className="text-[10px] font-semibold text-white">Satisfaction</p>
-            <p className="text-[8px] text-zinc-500">Note client verifiee</p>
+            <p className="text-[10px] font-semibold text-white">{t.satisfaction}</p>
+            <p className="text-[8px] text-zinc-500">{t.satisfactionSub}</p>
           </div>
         </div>
       </div>
 
       {/* Mini stats */}
       <div className="grid grid-cols-3 gap-3">
-        {[
-          { v: '100+', l: 'Sites livres', c: V },
-          { v: '10+ ans', l: "D'expérience", c: '#4ade80' },
-          { v: 'Geneve', l: 'Base locale', c: '#FF8C00' },
-        ].map((s) => (
+        {t.stats.map((s) => (
           <div
             key={s.l}
             className="text-center py-3 rounded-[10px]"

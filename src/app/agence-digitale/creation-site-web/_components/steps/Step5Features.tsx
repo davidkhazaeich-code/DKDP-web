@@ -20,7 +20,7 @@ interface FeatureItem {
   icon: ReactNode
 }
 
-const FEATURES: FeatureItem[] = [
+const FEATURES_FR: FeatureItem[] = [
   { id: 'blog-setup', title: 'Création de blog', description: 'structuré, catégories, articles', price: 'CHF 800', icon: <BookOpen size={18} /> },
   { id: 'blog-management', title: 'Gestion de blog', description: 'Publication et maintenance mensuelle', price: 'CHF 300', priceLabel: '/mois', icon: <PenSquare size={18} /> },
   { id: 'form', title: 'Formulaire sur-mesure', description: 'Contact, devis, inscription', price: 'CHF 400', icon: <ClipboardList size={18} /> },
@@ -33,8 +33,34 @@ const FEATURES: FeatureItem[] = [
   { id: 'extra-pages', title: 'Pages supplémentaires', description: 'Contenu additionnel', price: 'CHF 200/page', icon: <FilePlus size={18} /> },
 ]
 
+const FEATURES_EN: FeatureItem[] = [
+  { id: 'blog-setup', title: 'Blog setup', description: 'structured, categories, articles', price: 'CHF 800', icon: <BookOpen size={18} /> },
+  { id: 'blog-management', title: 'Blog management', description: 'Monthly publishing and maintenance', price: 'CHF 300', priceLabel: '/month', icon: <PenSquare size={18} /> },
+  { id: 'form', title: 'Custom form', description: 'Contact, quote, registration', price: 'CHF 400', icon: <ClipboardList size={18} /> },
+  { id: 'booking', title: 'Booking system', description: 'Online appointment scheduling', price: "CHF 1'200", icon: <CalendarCheck size={18} /> },
+  { id: 'members', title: 'Member area', description: 'User accounts and restricted access', price: "CHF 2'000", icon: <Users size={18} /> },
+  { id: 'chatbot', title: 'AI chatbot', description: 'Smart conversational assistant', price: "CHF 1'500", icon: <MessageSquare size={18} /> },
+  { id: 'payment', title: 'Online payment', description: 'Stripe, Twint or another gateway', price: "CHF 1'800", icon: <CreditCard size={18} /> },
+  { id: 'newsletter', title: 'Newsletter', description: 'Mailchimp or similar integration', price: 'CHF 300', icon: <Mail size={18} /> },
+  { id: 'gallery', title: 'Photo/video gallery', description: 'Portfolio or visual showcase', price: 'CHF 500', icon: <ImageIcon size={18} /> },
+  { id: 'extra-pages', title: 'Additional pages', description: 'Extra content', price: 'CHF 200/page', icon: <FilePlus size={18} /> },
+]
+
+const T = {
+  fr: {
+    features: 'Fonctionnalités',
+    hint: (n: number) => `${n} suggestion${n > 1 ? 's' : ''} pour votre secteur`,
+  },
+  en: {
+    features: 'Features',
+    hint: (n: number) => `${n} suggestion${n > 1 ? 's' : ''} for your industry`,
+  },
+} as const
+
 export function Step5Features() {
-  const { state, dispatch } = useEstimator()
+  const { state, dispatch, lang } = useEstimator()
+  const t = T[lang]
+  const FEATURES = lang === 'en' ? FEATURES_EN : FEATURES_FR
 
   const recommended: FeatureId[] =
     state.sector && state.sector in SECTOR_SUGGESTIONS
@@ -45,14 +71,16 @@ export function Step5Features() {
     <div className="space-y-4">
       <SectionLabel
         optional
-        hint={recommended.length > 0 ? `${recommended.length} suggestion${recommended.length > 1 ? 's' : ''} pour votre secteur` : undefined}
+        lang={lang}
+        hint={recommended.length > 0 ? t.hint(recommended.length) : undefined}
       >
-        Fonctionnalités
+        {t.features}
       </SectionLabel>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
         {FEATURES.map((feature) => (
           <MultiSelectCard
             key={feature.id}
+            lang={lang}
             title={feature.title}
             description={feature.description}
             price={feature.price}

@@ -11,103 +11,297 @@ import { useEstimator } from '../EstimatorContext'
 import { AnimatedCounter } from '../ui/AnimatedCounter'
 import { calculateEstimate } from '@/lib/estimation/pricing'
 import { SECTORS } from '@/lib/estimation/sectors'
-import type { EstimationRequest } from '@/lib/estimation/types'
+import type { EstimationRequest, Sector } from '@/lib/estimation/types'
+import type { Locale } from '@/i18n/config'
 
-// ── Label maps ──
+// ── Label maps (FR / EN) ──
 
-const SITUATION_LABELS: Record<string, string> = {
-  new: 'Nouveau site',
-  redesign: 'Refonte',
+const LABELS = {
+  fr: {
+    situation: { new: 'Nouveau site', redesign: 'Refonte' } as Record<string, string>,
+    siteType: {
+      vitrine: 'Site vitrine',
+      ecommerce: 'E-commerce',
+      landing: 'Landing page',
+      webapp: 'Application web',
+    } as Record<string, string>,
+    logo: {
+      existing: 'Logo existant',
+      create: 'Création de logo',
+      modernize: 'Modernisation du logo',
+    } as Record<string, string>,
+    branding: {
+      existing: 'Charte existante',
+      create: 'Création identité visuelle',
+      modernize: 'Modernisation identité',
+    } as Record<string, string>,
+    strategy: {
+      positioning: 'Positionnement',
+      'market-study': 'Étude de marché',
+      'content-strategy': 'Stratégie de contenu',
+    } as Record<string, string>,
+    designLevel: {
+      template: 'Template adapté',
+      custom: 'Sur mesure',
+      premium: 'Premium',
+    } as Record<string, string>,
+    copywriting: {
+      provided: 'Contenu fourni',
+      basic: 'Rédaction basique',
+      professional: 'Rédaction professionnelle',
+    } as Record<string, string>,
+    visuals: {
+      provided: 'Visuels fournis',
+      stock: "Banque d'images",
+      ai: 'Génération IA',
+      shooting: 'Shooting professionnel',
+    } as Record<string, string>,
+    feature: {
+      'blog-setup': 'Création de blog',
+      'blog-management': 'Gestion de blog',
+      form: 'Formulaire',
+      booking: 'Réservations',
+      members: 'Espace membres',
+      chatbot: 'Chatbot IA',
+      payment: 'Paiement en ligne',
+      newsletter: 'Newsletter',
+      gallery: 'Galerie',
+      'extra-pages': 'Pages supplémentaires',
+    } as Record<string, string>,
+    seo: {
+      'advanced-oneshot': 'SEO avancé',
+      monthly: 'SEO mensuel',
+    } as Record<string, string>,
+    acquisition: {
+      sea: 'Google Ads',
+      social: 'Réseaux sociaux',
+      funnel: 'Funnel de conversion',
+    } as Record<string, string>,
+    automation: {
+      crm: 'CRM',
+      'email-marketing': 'Email marketing',
+      workflows: 'Workflows automatisés',
+      dashboard: 'Dashboard analytics',
+    } as Record<string, string>,
+    service: {
+      maintenance: 'Maintenance',
+      training: 'Formation',
+      rgpd: 'Conformité RGPD',
+      video: 'Production vidéo',
+      rush: 'Livraison express (+30%)',
+    } as Record<string, string>,
+    pages: {
+      '1-5': '1-5 pages',
+      '6-10': '6-10 pages',
+      '11-20': '11-20 pages',
+      '20+': '20+ pages',
+      unsure: 'À définir ensemble',
+    } as Record<string, string>,
+    languages: {
+      '1': '1 langue',
+      '2': '2 langues',
+      '3+': '3+ langues',
+    } as Record<string, string>,
+  },
+  en: {
+    situation: { new: 'New website', redesign: 'Redesign' } as Record<string, string>,
+    siteType: {
+      vitrine: 'Showcase site',
+      ecommerce: 'E-commerce',
+      landing: 'Landing page',
+      webapp: 'Web application',
+    } as Record<string, string>,
+    logo: {
+      existing: 'Existing logo',
+      create: 'Logo creation',
+      modernize: 'Logo modernisation',
+    } as Record<string, string>,
+    branding: {
+      existing: 'Existing brand guidelines',
+      create: 'Visual identity creation',
+      modernize: 'Identity modernisation',
+    } as Record<string, string>,
+    strategy: {
+      positioning: 'Positioning',
+      'market-study': 'Market research',
+      'content-strategy': 'Content strategy',
+    } as Record<string, string>,
+    designLevel: {
+      template: 'Adapted template',
+      custom: 'Custom',
+      premium: 'Premium',
+    } as Record<string, string>,
+    copywriting: {
+      provided: 'Content provided',
+      basic: 'Basic copywriting',
+      professional: 'Professional copywriting',
+    } as Record<string, string>,
+    visuals: {
+      provided: 'Visuals provided',
+      stock: 'Stock images',
+      ai: 'AI generation',
+      shooting: 'Professional photo shoot',
+    } as Record<string, string>,
+    feature: {
+      'blog-setup': 'Blog setup',
+      'blog-management': 'Blog management',
+      form: 'Form',
+      booking: 'Bookings',
+      members: 'Member area',
+      chatbot: 'AI chatbot',
+      payment: 'Online payment',
+      newsletter: 'Newsletter',
+      gallery: 'Gallery',
+      'extra-pages': 'Additional pages',
+    } as Record<string, string>,
+    seo: {
+      'advanced-oneshot': 'Advanced SEO',
+      monthly: 'Monthly SEO',
+    } as Record<string, string>,
+    acquisition: {
+      sea: 'Google Ads',
+      social: 'Social media',
+      funnel: 'Conversion funnel',
+    } as Record<string, string>,
+    automation: {
+      crm: 'CRM',
+      'email-marketing': 'Email marketing',
+      workflows: 'Automated workflows',
+      dashboard: 'Analytics dashboard',
+    } as Record<string, string>,
+    service: {
+      maintenance: 'Maintenance',
+      training: 'Training',
+      rgpd: 'GDPR compliance',
+      video: 'Video production',
+      rush: 'Express delivery (+30%)',
+    } as Record<string, string>,
+    pages: {
+      '1-5': '1-5 pages',
+      '6-10': '6-10 pages',
+      '11-20': '11-20 pages',
+      '20+': '20+ pages',
+      unsure: 'To define together',
+    } as Record<string, string>,
+    languages: {
+      '1': '1 language',
+      '2': '2 languages',
+      '3+': '3+ languages',
+    } as Record<string, string>,
+  },
+} as const
+
+const SECTOR_LABELS_EN: Record<Sector, string> = {
+  restaurant: 'Restaurant / Hotel',
+  health: 'Health / Medical',
+  legal: 'Legal / Accounting',
+  'real-estate': 'Real estate',
+  retail: 'Retail',
+  services: 'Services / Consulting',
+  tech: 'Tech / SaaS',
+  artisan: 'Trades / Construction',
+  training: 'Training / Coaching',
+  other: 'Other',
 }
 
-const SITE_TYPE_LABELS: Record<string, string> = {
-  vitrine: 'Site vitrine',
-  ecommerce: 'E-commerce',
-  landing: 'Landing page',
-  webapp: 'Application web',
-}
+// ── UI text (FR / EN) ──
 
-const LOGO_LABELS: Record<string, string> = {
-  existing: 'Logo existant',
-  create: 'Création de logo',
-  modernize: 'Modernisation du logo',
-}
-
-const BRANDING_LABELS: Record<string, string> = {
-  existing: 'Charte existante',
-  create: 'Création identité visuelle',
-  modernize: 'Modernisation identité',
-}
-
-const STRATEGY_LABELS: Record<string, string> = {
-  positioning: 'Positionnement',
-  'market-study': 'Étude de marché',
-  'content-strategy': 'Stratégie de contenu',
-}
-
-const DESIGN_LEVEL_LABELS: Record<string, string> = {
-  template: 'Template adapté',
-  custom: 'Sur mesure',
-  premium: 'Premium',
-}
-
-const COPYWRITING_LABELS: Record<string, string> = {
-  provided: 'Contenu fourni',
-  basic: 'Rédaction basique',
-  professional: 'Rédaction professionnelle',
-}
-
-const VISUALS_LABELS: Record<string, string> = {
-  provided: 'Visuels fournis',
-  stock: "Banque d'images",
-  ai: 'Génération IA',
-  shooting: 'Shooting professionnel',
-}
-
-const FEATURE_LABELS: Record<string, string> = {
-  'blog-setup': 'Création de blog',
-  'blog-management': 'Gestion de blog',
-  form: 'Formulaire',
-  booking: 'Réservations',
-  members: 'Espace membres',
-  chatbot: 'Chatbot IA',
-  payment: 'Paiement en ligne',
-  newsletter: 'Newsletter',
-  gallery: 'Galerie',
-  'extra-pages': 'Pages supplémentaires',
-}
-
-const SEO_LABELS: Record<string, string> = {
-  'advanced-oneshot': 'SEO avancé',
-  monthly: 'SEO mensuel',
-}
-
-const ACQUISITION_LABELS: Record<string, string> = {
-  sea: 'Google Ads',
-  social: 'Réseaux sociaux',
-  funnel: 'Funnel de conversion',
-}
-
-const AUTOMATION_LABELS: Record<string, string> = {
-  crm: 'CRM',
-  'email-marketing': 'Email marketing',
-  workflows: 'Workflows automatisés',
-  dashboard: 'Dashboard analytics',
-}
-
-const SERVICE_LABELS: Record<string, string> = {
-  maintenance: 'Maintenance',
-  training: 'Formation',
-  rgpd: 'Conformité RGPD',
-  video: 'Production vidéo',
-  rush: 'Livraison express (+30%)',
-}
+const UI_T = {
+  fr: {
+    catProjet: 'Projet',
+    catBranding: 'Branding',
+    catEnvergure: 'Envergure',
+    catContenu: 'Contenu',
+    catFonctionnalites: 'Fonctionnalités',
+    catAcquisition: 'Acquisition',
+    catServices: 'Services',
+    oneTimeInvestment: 'Investissement unique',
+    recurringCosts: 'Coûts récurrents',
+    perMonth: '/mois',
+    estimatedDelay: 'Délai estimé',
+    weeks: 'semaines',
+    indicativeNote: 'Estimation indicative. Devis personnalisé sous 48h.',
+    successTitle: (name: string) => `Merci, ${name} !`,
+    successYou: 'vous',
+    successMessage: 'Votre estimation a été envoyée avec succès. Vous recevrez un devis détaillé sous 48h.',
+    downloadPdf: 'Télécharger le PDF',
+    requiredFields: 'Champs obligatoires',
+    optional: '(optionnel)',
+    firstName: 'Prénom',
+    firstNamePlaceholder: 'Marie',
+    lastName: 'Nom',
+    lastNamePlaceholder: 'Dupont',
+    company: 'Entreprise',
+    companyPlaceholder: 'Mon Entreprise SA',
+    email: 'Email',
+    emailPlaceholder: 'marie@entreprise.ch',
+    phone: 'Téléphone',
+    phonePlaceholder: '+41 79 000 00 00',
+    currentSiteUrl: 'URL du site actuel',
+    currentSiteUrlPlaceholder: 'https://www.votresite.ch',
+    launchDate: 'Date de lancement souhaitée',
+    selectMonth: 'Sélectionnez un mois...',
+    appDescription: 'Description des fonctionnalités',
+    appDescriptionPlaceholder: "Décrivez les fonctionnalités principales de votre application...",
+    message: 'Message (optionnel)',
+    messagePlaceholder: 'Informations complémentaires, questions...',
+    serverError: (status: number) => `Erreur serveur (${status})`,
+    genericError: 'Une erreur est survenue. Veuillez réessayer.',
+    submitting: 'Envoi en cours...',
+    submit: 'Recevoir mon estimation détaillée',
+    monthLocale: 'fr-CH',
+  },
+  en: {
+    catProjet: 'Project',
+    catBranding: 'Branding',
+    catEnvergure: 'Scope',
+    catContenu: 'Content',
+    catFonctionnalites: 'Features',
+    catAcquisition: 'Acquisition',
+    catServices: 'Services',
+    oneTimeInvestment: 'One-time investment',
+    recurringCosts: 'Recurring costs',
+    perMonth: '/month',
+    estimatedDelay: 'Estimated timeline',
+    weeks: 'weeks',
+    indicativeNote: 'Indicative estimate. Personalised quote within 48h.',
+    successTitle: (name: string) => `Thank you, ${name}!`,
+    successYou: 'there',
+    successMessage: 'Your estimate has been sent successfully. You will receive a detailed quote within 48h.',
+    downloadPdf: 'Download the PDF',
+    requiredFields: 'Required fields',
+    optional: '(optional)',
+    firstName: 'First name',
+    firstNamePlaceholder: 'Marie',
+    lastName: 'Last name',
+    lastNamePlaceholder: 'Smith',
+    company: 'Company',
+    companyPlaceholder: 'My Company Ltd',
+    email: 'Email',
+    emailPlaceholder: 'marie@company.ch',
+    phone: 'Phone',
+    phonePlaceholder: '+41 79 000 00 00',
+    currentSiteUrl: 'Current website URL',
+    currentSiteUrlPlaceholder: 'https://www.yoursite.ch',
+    launchDate: 'Preferred launch date',
+    selectMonth: 'Select a month...',
+    appDescription: 'Description of features',
+    appDescriptionPlaceholder: 'Describe the main features of your application...',
+    message: 'Message (optional)',
+    messagePlaceholder: 'Additional information, questions...',
+    serverError: (status: number) => `Server error (${status})`,
+    genericError: 'An error occurred. Please try again.',
+    submitting: 'Sending...',
+    submit: 'Get my detailed estimate',
+    monthLocale: 'en-GB',
+  },
+} as const
 
 // ── Helpers ──
 
 /** Returns true for items that cost 0 (included) */
 function isIncluded(price: string): boolean {
-  return price === 'Inclus'
+  return price === 'Inclus' || price === 'Included'
 }
 
 function formatCHF(min: number, max: number): string {
@@ -173,6 +367,7 @@ function InputField({
   id,
   required = false,
   optional = false,
+  optionalLabel = '(optionnel)',
   icon,
   children,
 }: {
@@ -180,6 +375,7 @@ function InputField({
   id: string
   required?: boolean
   optional?: boolean
+  optionalLabel?: string
   icon?: ReactNode
   children: React.ReactNode
 }) {
@@ -189,7 +385,7 @@ function InputField({
         {icon && <span className="text-text-muted">{icon}</span>}
         {label}
         {required && <span className="text-violet-500 ml-1">*</span>}
-        {optional && <span className="text-text-muted ml-1 font-normal text-xs">(optionnel)</span>}
+        {optional && <span className="text-text-muted ml-1 font-normal text-xs">{optionalLabel}</span>}
       </label>
       {children}
     </div>
@@ -202,7 +398,11 @@ const inputClass =
 // ── Main component ──
 
 export function Step8Summary() {
-  const { state, dispatch } = useEstimator()
+  const { state, dispatch, lang } = useEstimator()
+  const L = LABELS[lang]
+  const ui = UI_T[lang]
+  const includedLabel = lang === 'en' ? 'Included' : 'Inclus'
+  const perMonthSuffix = lang === 'en' ? '/month' : '/mois'
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [pdfData, setPdfData] = useState<{ base64: string; filename: string } | null>(null)
   const estimate = calculateEstimate(state)
@@ -211,19 +411,20 @@ export function Step8Summary() {
 
   const getSectorLabel = (id: string | null): string => {
     if (!id) return ''
+    if (lang === 'en' && (id as Sector) in SECTOR_LABELS_EN) return SECTOR_LABELS_EN[id as Sector]
     return SECTORS.find((s) => s.id === id)?.label ?? id
   }
 
   // Category 1: Projet
   const projetItems: LineItem[] = []
   if (state.situation) {
-    projetItems.push({ label: SITUATION_LABELS[state.situation] ?? state.situation, price: 'Inclus' })
+    projetItems.push({ label: L.situation[state.situation] ?? state.situation, price: includedLabel })
   }
   if (state.siteType) {
-    projetItems.push({ label: SITE_TYPE_LABELS[state.siteType] ?? state.siteType, price: 'Inclus' })
+    projetItems.push({ label: L.siteType[state.siteType] ?? state.siteType, price: includedLabel })
   }
   if (state.sector) {
-    projetItems.push({ label: getSectorLabel(state.sector), price: 'Inclus' })
+    projetItems.push({ label: getSectorLabel(state.sector), price: includedLabel })
   }
 
   // Category 2: Branding
@@ -231,20 +432,20 @@ export function Step8Summary() {
   if (state.logo) {
     const price =
       state.logo === 'existing'
-        ? 'Inclus'
+        ? includedLabel
         : state.logo === 'create'
         ? 'CHF 800-1\'500'
         : 'CHF 500-1\'000'
-    brandingItems.push({ label: LOGO_LABELS[state.logo] ?? state.logo, price })
+    brandingItems.push({ label: L.logo[state.logo] ?? state.logo, price })
   }
   if (state.branding) {
     const price =
       state.branding === 'existing'
-        ? 'Inclus'
+        ? includedLabel
         : state.branding === 'create'
         ? 'CHF 1\'000-2\'000'
         : 'CHF 600-1\'200'
-    brandingItems.push({ label: BRANDING_LABELS[state.branding] ?? state.branding, price })
+    brandingItems.push({ label: L.branding[state.branding] ?? state.branding, price })
   }
   for (const s of state.strategy) {
     const stratPrices: Record<string, string> = {
@@ -253,7 +454,7 @@ export function Step8Summary() {
       'content-strategy': 'CHF 1\'200',
     }
     brandingItems.push({
-      label: STRATEGY_LABELS[s] ?? s,
+      label: L.strategy[s] ?? s,
       price: stratPrices[s] ?? '',
     })
   }
@@ -261,27 +462,15 @@ export function Step8Summary() {
   // Category 3: Envergure
   const envergureItems: LineItem[] = []
   if (state.pages) {
-    const pagesLabel: Record<string, string> = {
-      '1-5': '1-5 pages',
-      '6-10': '6-10 pages',
-      '11-20': '11-20 pages',
-      '20+': '20+ pages',
-      unsure: 'À définir ensemble',
-    }
-    envergureItems.push({ label: pagesLabel[state.pages] ?? state.pages, price: 'Inclus' })
+    envergureItems.push({ label: L.pages[state.pages] ?? state.pages, price: includedLabel })
   }
   if (state.languages) {
-    const langLabel: Record<string, string> = {
-      '1': '1 langue',
-      '2': '2 langues',
-      '3+': '3+ langues',
-    }
-    envergureItems.push({ label: langLabel[state.languages] ?? state.languages, price: 'Inclus' })
+    envergureItems.push({ label: L.languages[state.languages] ?? state.languages, price: includedLabel })
   }
   if (state.designLevel) {
     envergureItems.push({
-      label: DESIGN_LEVEL_LABELS[state.designLevel] ?? state.designLevel,
-      price: 'Inclus',
+      label: L.designLevel[state.designLevel] ?? state.designLevel,
+      price: includedLabel,
     })
   }
 
@@ -289,24 +478,24 @@ export function Step8Summary() {
   const contenuItems: LineItem[] = []
   if (state.copywriting) {
     const copyPrices: Record<string, string> = {
-      provided: 'Inclus',
+      provided: includedLabel,
       basic: 'CHF 80/page',
       professional: 'CHF 200/page',
     }
     contenuItems.push({
-      label: COPYWRITING_LABELS[state.copywriting] ?? state.copywriting,
+      label: L.copywriting[state.copywriting] ?? state.copywriting,
       price: copyPrices[state.copywriting] ?? '',
     })
   }
   if (state.visuals) {
     const visPrices: Record<string, string> = {
-      provided: 'Inclus',
+      provided: includedLabel,
       stock: 'CHF 300-600',
       ai: 'CHF 400-800',
       shooting: 'CHF 800-2\'500',
     }
     contenuItems.push({
-      label: VISUALS_LABELS[state.visuals] ?? state.visuals,
+      label: L.visuals[state.visuals] ?? state.visuals,
       price: visPrices[state.visuals] ?? '',
     })
   }
@@ -315,7 +504,7 @@ export function Step8Summary() {
   const featuresItems: LineItem[] = []
   const featurePricesDisplay: Record<string, string> = {
     'blog-setup': 'CHF 800',
-    'blog-management': 'CHF 300/mois',
+    'blog-management': `CHF 300${perMonthSuffix}`,
     form: 'CHF 400',
     booking: 'CHF 1\'200',
     members: 'CHF 2\'000',
@@ -327,7 +516,7 @@ export function Step8Summary() {
   }
   for (const f of state.features) {
     featuresItems.push({
-      label: FEATURE_LABELS[f] ?? f,
+      label: L.feature[f] ?? f,
       price: featurePricesDisplay[f] ?? '',
     })
   }
@@ -337,23 +526,23 @@ export function Step8Summary() {
   if (state.seo.length > 0) {
     const seoPricesDisplay: Record<string, string> = {
       'advanced-oneshot': 'CHF 1\'500',
-      monthly: 'CHF 600/mois',
+      monthly: `CHF 600${perMonthSuffix}`,
     }
     for (const s of state.seo) {
       acquisitionItems.push({
-        label: SEO_LABELS[s] ?? s,
+        label: L.seo[s] ?? s,
         price: seoPricesDisplay[s] ?? '',
       })
     }
   }
   for (const a of state.acquisition) {
     const acqPricesDisplay: Record<string, string> = {
-      sea: 'CHF 400/mois',
-      social: 'CHF 600/mois',
+      sea: `CHF 400${perMonthSuffix}`,
+      social: `CHF 600${perMonthSuffix}`,
       funnel: 'CHF 2\'000-4\'000',
     }
     acquisitionItems.push({
-      label: ACQUISITION_LABELS[a] ?? a,
+      label: L.acquisition[a] ?? a,
       price: acqPricesDisplay[a] ?? '',
     })
   }
@@ -365,7 +554,7 @@ export function Step8Summary() {
       dashboard: 'CHF 600-1\'200',
     }
     acquisitionItems.push({
-      label: AUTOMATION_LABELS[a] ?? a,
+      label: L.automation[a] ?? a,
       price: autoPricesDisplay[a] ?? '',
     })
   }
@@ -373,7 +562,7 @@ export function Step8Summary() {
   // Category 7: Services
   const servicesItems: LineItem[] = []
   const servicePricesDisplay: Record<string, string> = {
-    maintenance: 'CHF 150/mois',
+    maintenance: `CHF 150${perMonthSuffix}`,
     training: 'CHF 200',
     rgpd: 'CHF 500',
     video: 'CHF 1\'500-4\'000',
@@ -381,7 +570,7 @@ export function Step8Summary() {
   }
   for (const s of state.services) {
     servicesItems.push({
-      label: SERVICE_LABELS[s] ?? s,
+      label: L.service[s] ?? s,
       price: servicePricesDisplay[s] ?? '',
     })
   }
@@ -433,7 +622,7 @@ export function Step8Summary() {
       })
 
       if (!res.ok) {
-        throw new Error(`Erreur serveur (${res.status})`)
+        throw new Error(ui.serverError(res.status))
       }
 
       const result = await res.json()
@@ -444,7 +633,7 @@ export function Step8Summary() {
     } catch (err) {
       dispatch({ type: 'SET_SUBMITTING', value: false })
       setErrorMessage(
-        err instanceof Error ? err.message : 'Une erreur est survenue. Veuillez réessayer.'
+        err instanceof Error ? err.message : ui.genericError
       )
     }
   }
@@ -463,10 +652,14 @@ export function Step8Summary() {
         </div>
         <div className="space-y-2">
           <h3 className="text-2xl font-bold text-text">
-            Merci, {state.contact.firstName || 'vous'}&nbsp;!
+            {lang === 'en' ? (
+              <>Thank you, {state.contact.firstName || ui.successYou}!</>
+            ) : (
+              <>Merci, {state.contact.firstName || ui.successYou}&nbsp;!</>
+            )}
           </h3>
           <p className="text-text-secondary max-w-sm leading-relaxed">
-            Votre estimation a été envoyée avec succès. Vous recevrez un devis détaillé sous 48h.
+            {ui.successMessage}
           </p>
         </div>
         {pdfData && (
@@ -481,7 +674,7 @@ export function Step8Summary() {
             className="flex items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-sm transition-colors cursor-pointer"
           >
             <Download size={18} />
-            Télécharger le PDF
+            {ui.downloadPdf}
           </button>
         )}
       </motion.div>
@@ -495,7 +688,7 @@ export function Step8Summary() {
       <div className="rounded-2xl border border-violet-500/30 bg-violet-500/5 p-5 space-y-3">
         <div>
           <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-text-muted mb-1.5">
-            Investissement unique
+            {ui.oneTimeInvestment}
           </p>
           <p className="text-2xl lg:text-xl xl:text-2xl font-bold text-text leading-tight tabular-nums">
             <AnimatedCounter value={estimate.totalMin} prefix="CHF" />
@@ -510,38 +703,38 @@ export function Step8Summary() {
         {estimate.monthlyMin > 0 && (
           <div>
             <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-text-muted mb-1">
-              Coûts récurrents
+              {ui.recurringCosts}
             </p>
             <p className="text-base font-semibold text-violet-500 tabular-nums">
-              +{formatCHF(estimate.monthlyMin, estimate.monthlyMax)} /mois
+              +{formatCHF(estimate.monthlyMin, estimate.monthlyMax)} {ui.perMonth}
             </p>
           </div>
         )}
         {estimate.weeksMin > 0 && (
           <div>
             <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-text-muted mb-1">
-              Délai estimé
+              {ui.estimatedDelay}
             </p>
             <p className="text-base font-semibold text-emerald-500 tabular-nums">
               ~{estimate.weeksMin}
               {estimate.weeksMin !== estimate.weeksMax && `-${estimate.weeksMax}`}{' '}
-              semaines
+              {ui.weeks}
             </p>
           </div>
         )}
         <p className="text-xs text-text-muted border-t border-violet-500/10 pt-3 leading-relaxed">
-          Estimation indicative. Devis personnalisé sous 48h.
+          {ui.indicativeNote}
         </p>
       </div>
 
       {/* Selections by category */}
-      <CategoryBlock title="Projet" step={1} items={projetItems} />
-      <CategoryBlock title="Branding" step={2} items={brandingItems} />
-      <CategoryBlock title="Envergure" step={3} items={envergureItems} />
-      <CategoryBlock title="Contenu" step={4} items={contenuItems} />
-      <CategoryBlock title="Fonctionnalités" step={5} items={featuresItems} />
-      <CategoryBlock title="Acquisition" step={6} items={acquisitionItems} />
-      <CategoryBlock title="Services" step={7} items={servicesItems} />
+      <CategoryBlock title={ui.catProjet} step={1} items={projetItems} />
+      <CategoryBlock title={ui.catBranding} step={2} items={brandingItems} />
+      <CategoryBlock title={ui.catEnvergure} step={3} items={envergureItems} />
+      <CategoryBlock title={ui.catContenu} step={4} items={contenuItems} />
+      <CategoryBlock title={ui.catFonctionnalites} step={5} items={featuresItems} />
+      <CategoryBlock title={ui.catAcquisition} step={6} items={acquisitionItems} />
+      <CategoryBlock title={ui.catServices} step={7} items={servicesItems} />
     </div>
   )
 
@@ -557,7 +750,7 @@ export function Step8Summary() {
         {/* ── Contact form ── */}
         <form onSubmit={handleSubmit} className="space-y-5" noValidate>
         <p className="text-xs text-text-muted">
-          <span className="text-violet-500">*</span> Champs obligatoires
+          <span className="text-violet-500">*</span> {ui.requiredFields}
         </p>
         {/* Honeypot */}
         <input
@@ -571,23 +764,23 @@ export function Step8Summary() {
 
         {/* Name row */}
         <div className="grid grid-cols-2 gap-4">
-          <InputField label="Prénom" id="firstName" required icon={<User size={14} />}>
+          <InputField label={ui.firstName} id="firstName" required icon={<User size={14} />}>
             <input
               id="firstName"
               type="text"
               required
-              placeholder="Marie"
+              placeholder={ui.firstNamePlaceholder}
               value={state.contact.firstName}
               onChange={setField('firstName')}
               className={inputClass}
             />
           </InputField>
-          <InputField label="Nom" id="lastName" required icon={<User size={14} />}>
+          <InputField label={ui.lastName} id="lastName" required icon={<User size={14} />}>
             <input
               id="lastName"
               type="text"
               required
-              placeholder="Dupont"
+              placeholder={ui.lastNamePlaceholder}
               value={state.contact.lastName}
               onChange={setField('lastName')}
               className={inputClass}
@@ -596,11 +789,11 @@ export function Step8Summary() {
         </div>
 
         {/* Company */}
-        <InputField label="Entreprise" id="company" optional icon={<Building2 size={14} />}>
+        <InputField label={ui.company} id="company" optional optionalLabel={ui.optional} icon={<Building2 size={14} />}>
           <input
             id="company"
             type="text"
-            placeholder="Mon Entreprise SA"
+            placeholder={ui.companyPlaceholder}
             value={state.contact.company}
             onChange={setField('company')}
             className={inputClass}
@@ -608,12 +801,12 @@ export function Step8Summary() {
         </InputField>
 
         {/* Email */}
-        <InputField label="Email" id="email" required icon={<Mail size={14} />}>
+        <InputField label={ui.email} id="email" required icon={<Mail size={14} />}>
           <input
             id="email"
             type="email"
             required
-            placeholder="marie@entreprise.ch"
+            placeholder={ui.emailPlaceholder}
             value={state.contact.email}
             onChange={setField('email')}
             className={inputClass}
@@ -621,11 +814,11 @@ export function Step8Summary() {
         </InputField>
 
         {/* Phone */}
-        <InputField label="Téléphone" id="phone" optional icon={<Phone size={14} />}>
+        <InputField label={ui.phone} id="phone" optional optionalLabel={ui.optional} icon={<Phone size={14} />}>
           <input
             id="phone"
             type="tel"
-            placeholder="+41 79 000 00 00"
+            placeholder={ui.phonePlaceholder}
             value={state.contact.phone}
             onChange={setField('phone')}
             className={inputClass}
@@ -634,11 +827,11 @@ export function Step8Summary() {
 
         {/* Dynamic: redesign → current URL */}
         {state.situation === 'redesign' && (
-          <InputField label="URL du site actuel" id="currentSiteUrl" optional icon={<Link size={14} />}>
+          <InputField label={ui.currentSiteUrl} id="currentSiteUrl" optional optionalLabel={ui.optional} icon={<Link size={14} />}>
             <input
               id="currentSiteUrl"
               type="url"
-              placeholder="https://www.votresite.ch"
+              placeholder={ui.currentSiteUrlPlaceholder}
               value={state.contact.currentSiteUrl}
               onChange={setField('currentSiteUrl')}
               className={inputClass}
@@ -648,18 +841,18 @@ export function Step8Summary() {
 
         {/* Dynamic: rush → launch date (month selector, 12 months from now) */}
         {state.services.includes('rush') && (
-          <InputField label="Date de lancement souhaitée" id="launchDate" optional icon={<Calendar size={14} />}>
+          <InputField label={ui.launchDate} id="launchDate" optional optionalLabel={ui.optional} icon={<Calendar size={14} />}>
             <select
               id="launchDate"
               value={state.contact.launchDate}
               onChange={setField('launchDate')}
               className={inputClass}
             >
-              <option value="" className="bg-bg-card text-text">Sélectionnez un mois...</option>
+              <option value="" className="bg-bg-card text-text">{ui.selectMonth}</option>
               {Array.from({ length: 12 }, (_, i) => {
                 const d = new Date()
                 d.setMonth(d.getMonth() + i + 1)
-                const label = d.toLocaleDateString('fr-CH', { month: 'long', year: 'numeric' })
+                const label = d.toLocaleDateString(ui.monthLocale, { month: 'long', year: 'numeric' })
                 const value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
                 return (
                   <option key={value} value={value} className="bg-bg-card text-text">
@@ -673,11 +866,11 @@ export function Step8Summary() {
 
         {/* Dynamic: webapp → app description */}
         {state.siteType === 'webapp' && (
-          <InputField label="Description des fonctionnalités" id="appDescription" optional icon={<Code2 size={14} />}>
+          <InputField label={ui.appDescription} id="appDescription" optional optionalLabel={ui.optional} icon={<Code2 size={14} />}>
             <textarea
               id="appDescription"
               rows={4}
-              placeholder="Décrivez les fonctionnalités principales de votre application..."
+              placeholder={ui.appDescriptionPlaceholder}
               value={state.contact.appDescription}
               onChange={setField('appDescription')}
               className={inputClass}
@@ -686,11 +879,11 @@ export function Step8Summary() {
         )}
 
         {/* Message */}
-        <InputField label="Message (optionnel)" id="message" icon={<MessageSquare size={14} />}>
+        <InputField label={ui.message} id="message" icon={<MessageSquare size={14} />}>
           <textarea
             id="message"
             rows={4}
-            placeholder="Informations complémentaires, questions..."
+            placeholder={ui.messagePlaceholder}
             value={state.contact.message}
             onChange={setField('message')}
             className={inputClass}
@@ -716,10 +909,10 @@ export function Step8Summary() {
           {state.isSubmitting ? (
             <span className="flex items-center justify-center gap-2">
               <Loader2 size={20} className="animate-spin" />
-              Envoi en cours...
+              {ui.submitting}
             </span>
           ) : (
-            'Recevoir mon estimation détaillée'
+            ui.submit
           )}
         </button>
       </form>

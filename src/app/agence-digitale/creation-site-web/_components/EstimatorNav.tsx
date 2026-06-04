@@ -10,13 +10,19 @@ interface EstimatorNavProps {
   isLastStep: boolean
 }
 
+const NAV_T = {
+  fr: { back: 'Retour', notNow: "Pas pour l'instant", seeEstimate: 'Voir mon estimation', continue: 'Continuer' },
+  en: { back: 'Back', notNow: 'Not right now', seeEstimate: 'See my estimate', continue: 'Continue' },
+} as const
+
 export function EstimatorNav({
   canGoBack,
   canSkip,
   canProceed,
   isLastStep,
 }: EstimatorNavProps) {
-  const { state, dispatch } = useEstimator()
+  const { state, dispatch, lang } = useEstimator()
+  const t = NAV_T[lang]
   const { currentStep } = state
 
   // Step 8 has its own submit button
@@ -33,7 +39,7 @@ export function EstimatorNav({
             className="flex items-center gap-1 text-text-secondary hover:text-text transition-colors duration-150 font-medium text-sm"
           >
             <ChevronLeft className="w-4 h-4" />
-            Retour
+            {t.back}
           </button>
         )}
       </div>
@@ -46,7 +52,7 @@ export function EstimatorNav({
             onClick={() => dispatch({ type: 'SKIP_STEP' })}
             className="text-text-muted hover:text-text-secondary transition-colors duration-150 font-medium text-sm"
           >
-            Pas pour l&apos;instant
+            {t.notNow}
           </button>
         )}
       </div>
@@ -67,7 +73,7 @@ export function EstimatorNav({
             !canProceed ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
           ].join(' ')}
         >
-          {isLastStep ? 'Voir mon estimation' : 'Continuer'}
+          {isLastStep ? t.seeEstimate : t.continue}
           <ChevronRight className="w-4 h-4" />
         </button>
       </div>

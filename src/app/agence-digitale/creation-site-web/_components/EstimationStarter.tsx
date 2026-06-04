@@ -5,8 +5,15 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, X } from 'lucide-react'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { Estimator } from './Estimator'
+import type { Locale } from '@/i18n/config'
 
-export function EstimationStarter() {
+const T = {
+  fr: { start: 'Démarrer le simulateur', close: 'Fermer' },
+  en: { start: 'Start the simulator', close: 'Close' },
+} as const
+
+export function EstimationStarter({ lang = 'fr' }: { lang?: Locale }) {
+  const t = T[lang]
   const [started, setStarted] = useState(false)
   const overlayRef = useRef<HTMLDivElement>(null)
 
@@ -36,7 +43,7 @@ export function EstimationStarter() {
   return (
     <>
       <LiquidMetalButton onClick={() => setStarted(true)} size="lg">
-        Démarrer le simulateur &nbsp;<ArrowRight size={15} style={{ display: 'inline', verticalAlign: 'middle' }} />
+        {t.start} &nbsp;<ArrowRight size={15} style={{ display: 'inline', verticalAlign: 'middle' }} />
       </LiquidMetalButton>
 
       <AnimatePresence>
@@ -79,13 +86,13 @@ export function EstimationStarter() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-text-secondary border border-border bg-bg-card/60 hover:text-text hover:border-border-strong transition-all duration-200"
               >
                 <X size={15} />
-                Fermer
+                {t.close}
               </button>
             </div>
 
             {/* Estimateur plein écran */}
             <div className="relative z-10 pb-24">
-              <Estimator />
+              <Estimator lang={lang} />
             </div>
           </motion.div>
         )}

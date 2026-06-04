@@ -13,8 +13,9 @@ import { Step5Features } from './steps/Step5Features'
 import { Step6Acquisition } from './steps/Step6Acquisition'
 import { Step7Services } from './steps/Step7Services'
 import { Step8Summary } from './steps/Step8Summary'
+import type { Locale } from '@/i18n/config'
 
-const STEP_TITLES: Record<number, string> = {
+const STEP_TITLES_FR: Record<number, string> = {
   1: 'Votre projet',
   2: 'Branding & stratégie',
   3: 'Envergure du site',
@@ -25,7 +26,7 @@ const STEP_TITLES: Record<number, string> = {
   8: 'Recevoir votre estimation',
 }
 
-const STEP_SUBTITLES: Record<number, string> = {
+const STEP_SUBTITLES_FR: Record<number, string> = {
   1: 'Quelques questions pour cadrer votre besoin',
   2: 'Logo, identité et positionnement',
   3: 'Volume, langues et niveau de design',
@@ -36,9 +37,33 @@ const STEP_SUBTITLES: Record<number, string> = {
   8: 'Dernière étape : recevez votre devis détaillé',
 }
 
+const STEP_TITLES_EN: Record<number, string> = {
+  1: 'Your project',
+  2: 'Branding and strategy',
+  3: 'Site scope',
+  4: 'Content',
+  5: 'Features',
+  6: 'Acquisition and marketing',
+  7: 'Additional services',
+  8: 'Get your estimate',
+}
+
+const STEP_SUBTITLES_EN: Record<number, string> = {
+  1: 'A few questions to frame your needs',
+  2: 'Logo, identity and positioning',
+  3: 'Volume, languages and design level',
+  4: 'Copywriting and visuals',
+  5: 'What your website needs to do',
+  6: 'SEO, advertising and automation',
+  7: 'Maintenance, training and options',
+  8: 'Final step: receive your detailed quote',
+}
+
 function EstimatorInner() {
-  const { state } = useEstimator()
+  const { state, lang } = useEstimator()
   const { currentStep, direction } = state
+  const STEP_TITLES = lang === 'en' ? STEP_TITLES_EN : STEP_TITLES_FR
+  const STEP_SUBTITLES = lang === 'en' ? STEP_SUBTITLES_EN : STEP_SUBTITLES_FR
 
   const renderStep = () => {
     switch (currentStep) {
@@ -112,9 +137,9 @@ function EstimatorInner() {
   )
 }
 
-export function Estimator() {
+export function Estimator({ lang = 'fr' }: { lang?: Locale }) {
   return (
-    <EstimatorProvider>
+    <EstimatorProvider lang={lang}>
       <EstimatorInner />
     </EstimatorProvider>
   )

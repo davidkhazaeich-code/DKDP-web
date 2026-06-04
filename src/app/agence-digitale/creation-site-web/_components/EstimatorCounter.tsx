@@ -9,10 +9,42 @@ function formatCHF(n: number): string {
   return n.toLocaleString('fr-CH').replace(/\u202F/g, "\u00A0")
 }
 
+const COUNTER_T = {
+  fr: {
+    back: 'Retour',
+    perMonth: '/mois',
+    weeks: 'semaines',
+    stepShort: (n: number) => `Étape ${n}/8`,
+    stepLong: (n: number) => `Étape ${n} sur 8`,
+    skip: 'Passer',
+    getEstimate: "Recevoir l'estimation",
+    next: 'Suivant',
+    liveEstimate: 'Estimation en direct',
+    calculating: 'Calcul en cours...',
+    recurring: 'Récurrent',
+    delay: 'Délai',
+  },
+  en: {
+    back: 'Back',
+    perMonth: '/month',
+    weeks: 'weeks',
+    stepShort: (n: number) => `Step ${n}/8`,
+    stepLong: (n: number) => `Step ${n} of 8`,
+    skip: 'Skip',
+    getEstimate: 'Get the estimate',
+    next: 'Next',
+    liveEstimate: 'Live estimate',
+    calculating: 'Calculating...',
+    recurring: 'Recurring',
+    delay: 'Timeline',
+  },
+} as const
+
 // ── Sticky bottom bar ─────────────────────────────────────────────────────────
 
 export function StickyBottomBar() {
-  const { state, dispatch } = useEstimator()
+  const { state, dispatch, lang } = useEstimator()
+  const t = COUNTER_T[lang]
   const { currentStep } = state
   const estimate = calculateEstimate(state)
   const { totalMin, totalMax, monthlyMin, weeksMin, weeksMax } = estimate
@@ -54,10 +86,10 @@ export function StickyBottomBar() {
                 type="button"
                 onClick={() => dispatch({ type: 'PREV_STEP' })}
                 className="flex items-center gap-1 text-text-secondary hover:text-text transition-colors text-xs sm:text-sm font-medium px-2 py-2 -ml-2 rounded-lg hover:bg-[var(--surface-default)]"
-                aria-label="Retour"
+                aria-label={t.back}
               >
                 <ChevronLeft className="w-4 h-4" />
-                <span>Retour</span>
+                <span>{t.back}</span>
               </button>
             )}
           </div>
@@ -74,23 +106,23 @@ export function StickyBottomBar() {
                 <div className="flex items-center justify-center gap-2 sm:gap-3 text-[10px] sm:text-xs text-text-muted mt-0.5">
                   {monthlyMin > 0 && (
                     <span className="text-violet-500 tabular-nums">
-                      +{formatCHF(monthlyMin)}/mois
+                      +{formatCHF(monthlyMin)}{t.perMonth}
                     </span>
                   )}
                   {weeksMin > 0 && (
                     <span className="text-emerald-500 tabular-nums">
-                      ~{weeksMin}-{weeksMax} semaines
+                      ~{weeksMin}-{weeksMax} {t.weeks}
                     </span>
                   )}
                   {!monthlyMin && !weeksMin && (
-                    <span>Étape {currentStep}/8</span>
+                    <span>{t.stepShort(currentStep)}</span>
                   )}
                 </div>
               </>
             ) : (
               <div className="flex items-center justify-center gap-1.5 text-xs sm:text-sm text-text-muted">
                 <Calculator className="w-3.5 h-3.5" />
-                <span>Étape {currentStep} sur 8</span>
+                <span>{t.stepLong(currentStep)}</span>
               </div>
             )}
           </div>
@@ -103,7 +135,7 @@ export function StickyBottomBar() {
                 onClick={() => dispatch({ type: 'SKIP_STEP' })}
                 className="text-text-secondary hover:text-text transition-colors text-xs sm:text-sm font-medium px-3 py-2 sm:py-2.5 rounded-lg border border-border hover:border-border-strong hover:bg-[var(--surface-default)]"
               >
-                Passer
+                {t.skip}
               </button>
             )}
             {!isStep8 && (
@@ -119,7 +151,7 @@ export function StickyBottomBar() {
                 ].join(' ')}
               >
                 <span className="whitespace-nowrap">
-                  {isLastStep ? 'Recevoir l\'estimation' : 'Suivant'}
+                  {isLastStep ? t.getEstimate : t.next}
                 </span>
                 <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               </button>
@@ -134,7 +166,8 @@ export function StickyBottomBar() {
 // ── Desktop top banner with live estimation ──────────────────────────────────
 
 export function EstimatorTopBanner() {
-  const { state } = useEstimator()
+  const { state, lang } = useEstimator()
+  const t = COUNTER_T[lang]
   const { currentStep } = state
   const estimate = calculateEstimate(state)
   const { totalMin, totalMax, monthlyMin, weeksMin, weeksMax } = estimate
@@ -147,7 +180,7 @@ export function EstimatorTopBanner() {
       {/* Label block */}
       <div className="flex-shrink-0 min-w-[140px]">
         <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-text-muted">
-          Estimation en direct
+          {t.liveEstimate}
         </p>
         {hasPrice ? (
           <p className="text-lg font-bold text-text leading-tight tabular-nums mt-1">
@@ -156,7 +189,7 @@ export function EstimatorTopBanner() {
             <AnimatedCounter value={totalMax} prefix="" />
           </p>
         ) : (
-          <p className="text-sm text-text-muted mt-1">Calcul en cours...</p>
+          <p className="text-sm text-text-muted mt-1">{t.calculating}</p>
         )}
       </div>
 
@@ -166,17 +199,17 @@ export function EstimatorTopBanner() {
       <div className="flex items-center gap-4 flex-shrink-0">
         {monthlyMin > 0 && (
           <div>
-            <p className="text-[10px] uppercase tracking-wider text-text-muted font-medium">Récurrent</p>
+            <p className="text-[10px] uppercase tracking-wider text-text-muted font-medium">{t.recurring}</p>
             <p className="text-sm font-semibold text-violet-500 tabular-nums">
-              +{formatCHF(monthlyMin)}/mois
+              +{formatCHF(monthlyMin)}{t.perMonth}
             </p>
           </div>
         )}
         {weeksMin > 0 && (
           <div>
-            <p className="text-[10px] uppercase tracking-wider text-text-muted font-medium">Délai</p>
+            <p className="text-[10px] uppercase tracking-wider text-text-muted font-medium">{t.delay}</p>
             <p className="text-sm font-semibold text-emerald-500 tabular-nums">
-              ~{weeksMin}–{weeksMax} semaines
+              ~{weeksMin}–{weeksMax} {t.weeks}
             </p>
           </div>
         )}

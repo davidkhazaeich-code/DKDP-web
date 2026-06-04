@@ -2,6 +2,7 @@
 
 import { ReactNode } from 'react'
 import { Check } from 'lucide-react'
+import type { Locale } from '@/i18n/config'
 
 interface MultiSelectCardProps {
   title: string
@@ -12,6 +13,7 @@ interface MultiSelectCardProps {
   onToggle: () => void
   recommended?: boolean
   icon?: ReactNode
+  lang?: Locale
 }
 
 export function MultiSelectCard({
@@ -23,7 +25,9 @@ export function MultiSelectCard({
   onToggle,
   recommended,
   icon,
+  lang = 'fr',
 }: MultiSelectCardProps) {
+  const recommendedLabel = lang === 'en' ? 'Recommended' : 'Recommandé'
   return (
     <button
       type="button"
@@ -66,7 +70,7 @@ export function MultiSelectCard({
               <span className="text-sm font-semibold text-text leading-snug">{title}</span>
               {recommended && (
                 <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded border border-orange-500/30 bg-orange-500/10 text-orange-400">
-                  Recommandé
+                  {recommendedLabel}
                 </span>
               )}
             </div>

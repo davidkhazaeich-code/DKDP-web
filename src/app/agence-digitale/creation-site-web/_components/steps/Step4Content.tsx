@@ -10,8 +10,50 @@ function formatChf(value: number): string {
   return value.toLocaleString('de-CH').replace(/,/g, "'")
 }
 
+const T = {
+  fr: {
+    copySection: 'Rédaction & copywriting',
+    included: 'Inclus',
+    providedTitle: 'Je fournis le contenu',
+    providedDesc: 'Textes déjà prêts ou en cours de rédaction',
+    basicTitle: 'Rédaction basique',
+    basicDesc: 'Mise en forme et optimisation de vos textes',
+    proTitle: 'Rédaction professionnelle',
+    proDesc: 'Copywriting SEO avancé, ton et structuré',
+    visualsSection: 'Photos & visuels',
+    visProvidedTitle: 'Je fournis les visuels',
+    visProvidedDesc: 'Photos et images déjà disponibles',
+    stockTitle: "Banque d'images",
+    stockDesc: 'Photos HD professionnelles',
+    aiTitle: 'Génération IA',
+    aiDesc: 'Visuels créés par intelligence artificielle',
+    shootingTitle: 'Shooting professionnel',
+    shootingDesc: 'Séance photo sur site',
+  },
+  en: {
+    copySection: 'Copywriting and content',
+    included: 'Included',
+    providedTitle: 'I provide the content',
+    providedDesc: 'Text already ready or being written',
+    basicTitle: 'Basic copywriting',
+    basicDesc: 'Formatting and optimisation of your text',
+    proTitle: 'Professional copywriting',
+    proDesc: 'Advanced SEO copywriting, tone and structure',
+    visualsSection: 'Photos and visuals',
+    visProvidedTitle: 'I provide the visuals',
+    visProvidedDesc: 'Photos and images already available',
+    stockTitle: 'Stock images',
+    stockDesc: 'Professional HD photos',
+    aiTitle: 'AI generation',
+    aiDesc: 'Visuals created with artificial intelligence',
+    shootingTitle: 'Professional photo shoot',
+    shootingDesc: 'On-site photo session',
+  },
+} as const
+
 export function Step4Content() {
-  const { state, dispatch } = useEstimator()
+  const { state, dispatch, lang } = useEstimator()
+  const t = T[lang]
 
   const midpoint = state.pages ? PAGE_MIDPOINTS[state.pages] : PAGE_MIDPOINTS['1-5']
   const basicPrice = 80 * midpoint
@@ -22,12 +64,12 @@ export function Step4Content() {
 
       {/* Redaction */}
       <div>
-        <SectionLabel optional>Rédaction &amp; copywriting</SectionLabel>
+        <SectionLabel optional lang={lang}>{t.copySection}</SectionLabel>
         <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
           <SelectionCard
-            title="Je fournis le contenu"
-            description="Textes déjà prêts ou en cours de rédaction"
-            price="Inclus"
+            title={t.providedTitle}
+            description={t.providedDesc}
+            price={t.included}
             priceColor="text-emerald-400"
             icon={<Upload size={18} />}
             selected={state.copywriting === 'provided'}
@@ -36,8 +78,8 @@ export function Step4Content() {
             }
           />
           <SelectionCard
-            title="Rédaction basique"
-            description="Mise en forme et optimisation de vos textes"
+            title={t.basicTitle}
+            description={t.basicDesc}
             price={`CHF ${formatChf(basicPrice)}`}
             icon={<FileText size={18} />}
             selected={state.copywriting === 'basic'}
@@ -46,8 +88,8 @@ export function Step4Content() {
             }
           />
           <SelectionCard
-            title="Rédaction professionnelle"
-            description="Copywriting SEO avancé, ton et structuré"
+            title={t.proTitle}
+            description={t.proDesc}
             price={`CHF ${formatChf(professionalPrice)}`}
             icon={<PenTool size={18} />}
             selected={state.copywriting === 'professional'}
@@ -60,12 +102,12 @@ export function Step4Content() {
 
       {/* Visuels */}
       <div>
-        <SectionLabel optional>Photos &amp; visuels</SectionLabel>
+        <SectionLabel optional lang={lang}>{t.visualsSection}</SectionLabel>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
           <SelectionCard
-            title="Je fournis les visuels"
-            description="Photos et images déjà disponibles"
-            price="Inclus"
+            title={t.visProvidedTitle}
+            description={t.visProvidedDesc}
+            price={t.included}
             priceColor="text-emerald-400"
             icon={<Upload size={18} />}
             selected={state.visuals === 'provided'}
@@ -74,8 +116,8 @@ export function Step4Content() {
             }
           />
           <SelectionCard
-            title="Banque d'images"
-            description="Photos HD professionnelles"
+            title={t.stockTitle}
+            description={t.stockDesc}
             price="CHF 300-600"
             icon={<ImageIcon size={18} />}
             selected={state.visuals === 'stock'}
@@ -84,8 +126,8 @@ export function Step4Content() {
             }
           />
           <SelectionCard
-            title="Génération IA"
-            description="Visuels créés par intelligence artificielle"
+            title={t.aiTitle}
+            description={t.aiDesc}
             price="CHF 400-800"
             icon={<Sparkles size={18} />}
             selected={state.visuals === 'ai'}
@@ -94,8 +136,8 @@ export function Step4Content() {
             }
           />
           <SelectionCard
-            title="Shooting professionnel"
-            description="Séance photo sur site"
+            title={t.shootingTitle}
+            description={t.shootingDesc}
             price="CHF 800-2'500"
             icon={<Camera size={18} />}
             selected={state.visuals === 'shooting'}

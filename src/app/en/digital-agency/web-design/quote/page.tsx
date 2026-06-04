@@ -70,7 +70,7 @@ export default function EstimationPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.03em] text-text mb-10 leading-tight">
             How much does your website cost?
           </h1>
-          <EstimationStarter />
+          <EstimationStarter lang="en" />
         </div>
       </section>
 
@@ -83,7 +83,7 @@ export default function EstimationPage() {
               The DKDP price estimator calculates a cost range based on the type of site (showcase, e-commerce, web application), the number of pages, the features you want (forms, blog, member area, multilingual) and your maintenance needs. These criteria determine the volume of work and therefore the budget.
             </p>
             <p className="text-text-secondary text-sm leading-relaxed mb-4">
-              The prices shown correspond to DKDP rates in Geneva for custom websites developed in Next.js or Astro. A standard showcase site starts from CHF 2,500, a site with a CMS from CHF 4,500, and an e-commerce site from CHF 6,000.
+              The prices shown correspond to DKDP rates in Geneva for custom websites developed in Next.js or Astro. A standard showcase site starts from CHF 2'500, a site with a CMS from CHF 4'500, and an e-commerce site from CHF 6'000.
             </p>
             <p className="text-text-secondary text-sm leading-relaxed">
               The result is an indicative estimate. Once you submit, a DKDP expert reviews your project and sends you a personalised, detailed quote within 48 working hours. No commitment, no credit card required.
@@ -94,7 +94,7 @@ export default function EstimationPage() {
 
       {/* ── Chart ── */}
       <section className="relative pb-20 px-4 sm:px-6">
-        <PriceChart />
+        <PriceChart lang="en" />
       </section>
     </main>
   )

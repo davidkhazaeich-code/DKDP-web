@@ -16,7 +16,7 @@ function formatChf(value: number): string {
   return value.toLocaleString('de-CH').replace(/,/g, "'")
 }
 
-const PAGE_OPTIONS: { value: PageRange; label: string; hint: string }[] = [
+const PAGE_OPTIONS_FR: { value: PageRange; label: string; hint: string }[] = [
   { value: '1-5', label: '1-5 pages', hint: 'Accueil, services, à propos, contact' },
   { value: '6-10', label: '6-10 pages', hint: 'Services détaillés, portfolio, blog, FAQ' },
   { value: '11-20', label: '11-20 pages', hint: 'Multi-services, études de cas, blog actif' },
@@ -24,14 +24,60 @@ const PAGE_OPTIONS: { value: PageRange; label: string; hint: string }[] = [
   { value: 'unsure', label: 'Je ne sais pas encore', hint: 'On évaluera ensemble lors du devis' },
 ]
 
-const LANGUAGE_OPTIONS: { value: LanguageOption; label: string; mult: string }[] = [
+const PAGE_OPTIONS_EN: { value: PageRange; label: string; hint: string }[] = [
+  { value: '1-5', label: '1-5 pages', hint: 'Home, services, about, contact' },
+  { value: '6-10', label: '6-10 pages', hint: 'Detailed services, portfolio, blog, FAQ' },
+  { value: '11-20', label: '11-20 pages', hint: 'Multi-service, case studies, active blog' },
+  { value: '20+', label: '20+ pages', hint: 'Product catalogue, portal, rich content' },
+  { value: 'unsure', label: 'I am not sure yet', hint: 'We will assess it together during the quote' },
+]
+
+const LANGUAGE_OPTIONS_FR: { value: LanguageOption; label: string; mult: string }[] = [
   { value: '1', label: '1 langue', mult: 'x1.0' },
   { value: '2', label: '2 langues', mult: 'x1.3' },
   { value: '3+', label: '3+ langues', mult: 'x1.5' },
 ]
 
+const LANGUAGE_OPTIONS_EN: { value: LanguageOption; label: string; mult: string }[] = [
+  { value: '1', label: '1 language', mult: 'x1.0' },
+  { value: '2', label: '2 languages', mult: 'x1.3' },
+  { value: '3+', label: '3+ languages', mult: 'x1.5' },
+]
+
+const T = {
+  fr: {
+    pagesLabel: 'Nombre de pages',
+    languages: 'Langues',
+    designLevel: 'Niveau de design',
+    templateTitle: 'Template adapté',
+    templateDesc: 'Base professionnelle personnalisée',
+    customTitle: 'Sur mesure',
+    customDesc: 'Design unique à votre image',
+    premiumTitle: 'Premium',
+    premiumDesc: 'Design haut de gamme, animations avancées',
+    subtotal: 'Sous-total provisoire',
+    selectPrompt: "Sélectionnez les options ci-dessus pour voir l'estimation en temps réel.",
+  },
+  en: {
+    pagesLabel: 'Number of pages',
+    languages: 'Languages',
+    designLevel: 'Design level',
+    templateTitle: 'Adapted template',
+    templateDesc: 'Customised professional base',
+    customTitle: 'Custom',
+    customDesc: 'Unique design tailored to you',
+    premiumTitle: 'Premium',
+    premiumDesc: 'High-end design, advanced animations',
+    subtotal: 'Provisional subtotal',
+    selectPrompt: 'Select the options above to see the estimate in real time.',
+  },
+} as const
+
 export function Step3Scope() {
-  const { state, dispatch } = useEstimator()
+  const { state, dispatch, lang } = useEstimator()
+  const t = T[lang]
+  const PAGE_OPTIONS = lang === 'en' ? PAGE_OPTIONS_EN : PAGE_OPTIONS_FR
+  const LANGUAGE_OPTIONS = lang === 'en' ? LANGUAGE_OPTIONS_EN : LANGUAGE_OPTIONS_FR
 
   const showPreview =
     state.siteType !== null &&
@@ -57,7 +103,7 @@ export function Step3Scope() {
 
       {/* Nombre de pages */}
       <div>
-        <SectionLabel required>Nombre de pages</SectionLabel>
+        <SectionLabel required lang={lang}>{t.pagesLabel}</SectionLabel>
         <div className="grid grid-cols-1 gap-2">
           {PAGE_OPTIONS.map((opt) => {
             const isSelected = state.pages === opt.value
@@ -113,7 +159,7 @@ export function Step3Scope() {
 
       {/* Langues */}
       <div>
-        <SectionLabel required>Langues</SectionLabel>
+        <SectionLabel required lang={lang}>{t.languages}</SectionLabel>
         <div className="grid grid-cols-3 gap-2">
           {LANGUAGE_OPTIONS.map((opt) => {
             const isSelected = state.languages === opt.value
@@ -144,27 +190,27 @@ export function Step3Scope() {
 
       {/* Niveau de design */}
       <div>
-        <SectionLabel required>Niveau de design</SectionLabel>
+        <SectionLabel required lang={lang}>{t.designLevel}</SectionLabel>
         <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
           <SelectionCard
-            title="Template adapté"
-            description="Base professionnelle personnalisée"
+            title={t.templateTitle}
+            description={t.templateDesc}
             price="x1.0"
             icon={<LayoutTemplate size={18} />}
             selected={state.designLevel === 'template'}
             onClick={() => dispatch({ type: 'SET_DESIGN_LEVEL', value: 'template' })}
           />
           <SelectionCard
-            title="Sur mesure"
-            description="Design unique à votre image"
+            title={t.customTitle}
+            description={t.customDesc}
             price="x1.4"
             icon={<Paintbrush size={18} />}
             selected={state.designLevel === 'custom'}
             onClick={() => dispatch({ type: 'SET_DESIGN_LEVEL', value: 'custom' })}
           />
           <SelectionCard
-            title="Premium"
-            description="Design haut de gamme, animations avancées"
+            title={t.premiumTitle}
+            description={t.premiumDesc}
             price="x1.7"
             icon={<Crown size={18} />}
             selected={state.designLevel === 'premium'}
@@ -183,7 +229,7 @@ export function Step3Scope() {
         {previewResult ? (
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <p className="text-xs uppercase tracking-wider font-semibold text-text-muted">
-              Sous-total provisoire
+              {t.subtotal}
             </p>
             <p className="text-lg font-bold text-text tabular-nums">
               CHF {formatChf(previewResult.resultMin)}
@@ -193,7 +239,7 @@ export function Step3Scope() {
           </div>
         ) : (
           <p className="text-xs sm:text-sm text-text-muted text-center leading-relaxed">
-            Sélectionnez les options ci-dessus pour voir l&apos;estimation en temps réel.
+            {t.selectPrompt}
           </p>
         )}
       </div>

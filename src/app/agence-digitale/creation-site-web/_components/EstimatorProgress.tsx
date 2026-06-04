@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { useEstimator } from './EstimatorContext'
 
-const STEPS = [
+const STEPS_FR = [
   { label: 'Projet', optional: false },
   { label: 'Branding', optional: true },
   { label: 'Envergure', optional: false },
@@ -15,8 +15,26 @@ const STEPS = [
   { label: 'Devis', optional: false },
 ]
 
+const STEPS_EN = [
+  { label: 'Project', optional: false },
+  { label: 'Branding', optional: true },
+  { label: 'Scope', optional: false },
+  { label: 'Content', optional: true },
+  { label: 'Features', optional: true },
+  { label: 'Acquisition', optional: true },
+  { label: 'Services', optional: true },
+  { label: 'Quote', optional: false },
+]
+
+const PROGRESS_T = {
+  fr: { optional: 'optionnel', stepWord: 'étape' },
+  en: { optional: 'optional', stepWord: 'step' },
+} as const
+
 export function EstimatorProgress() {
-  const { state, dispatch } = useEstimator()
+  const { state, dispatch, lang } = useEstimator()
+  const STEPS = lang === 'en' ? STEPS_EN : STEPS_FR
+  const pt = PROGRESS_T[lang]
   const { currentStep } = state
   const currentIndex = currentStep - 1
   const currentStepData = STEPS[currentIndex]
@@ -35,7 +53,7 @@ export function EstimatorProgress() {
             </span>
             {currentStepData?.optional && (
               <span className="text-[10px] text-text-muted border border-border rounded px-1.5 py-0.5">
-                optionnel
+                {pt.optional}
               </span>
             )}
           </div>
@@ -91,7 +109,7 @@ export function EstimatorProgress() {
                         ? 'bg-violet-600 text-white cursor-default'
                         : 'bg-[var(--surface-default)] text-text-muted cursor-default',
                   ].join(' ')}
-                  aria-label={`${step.label} (étape ${index + 1})`}
+                  aria-label={`${step.label} (${pt.stepWord} ${index + 1})`}
                 >
                   {isCompleted ? (
                     <Check className="w-3 h-3" strokeWidth={2.5} />
@@ -127,7 +145,7 @@ export function EstimatorProgress() {
                   {step.label}
                 </span>
                 {step.optional && !isCompleted && (
-                  <span className="text-[7px] text-text-muted leading-tight mt-px">optionnel</span>
+                  <span className="text-[7px] text-text-muted leading-tight mt-px">{pt.optional}</span>
                 )}
               </div>
             </div>
@@ -175,7 +193,7 @@ export function EstimatorProgress() {
                         ? 'bg-violet-600 text-white cursor-default'
                         : 'bg-[var(--surface-default)] text-text-muted cursor-default',
                   ].join(' ')}
-                  aria-label={`${step.label} (étape ${index + 1})`}
+                  aria-label={`${step.label} (${pt.stepWord} ${index + 1})`}
                 >
                   {isCompleted ? (
                     <Check className="w-3.5 h-3.5" strokeWidth={2.5} />
@@ -211,7 +229,7 @@ export function EstimatorProgress() {
                   {step.label}
                 </span>
                 {step.optional && !isCompleted && (
-                  <span className="text-[9px] text-text-muted leading-tight mt-0.5">optionnel</span>
+                  <span className="text-[9px] text-text-muted leading-tight mt-0.5">{pt.optional}</span>
                 )}
               </div>
             </div>

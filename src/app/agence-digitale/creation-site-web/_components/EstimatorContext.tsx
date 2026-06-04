@@ -5,6 +5,7 @@ import type {
   EstimationState,
   EstimationAction,
 } from '@/lib/estimation/types'
+import type { Locale } from '@/i18n/config'
 
 // ── Initial state ──
 
@@ -201,19 +202,22 @@ function estimationReducer(
 const EstimatorContext = createContext<{
   state: EstimationState
   dispatch: React.Dispatch<EstimationAction>
+  lang: Locale
 } | null>(null)
 
 // ── Provider ──
 
 export function EstimatorProvider({
   children,
+  lang = 'fr',
 }: {
   children: React.ReactNode
+  lang?: Locale
 }) {
   const [state, dispatch] = useReducer(estimationReducer, initialState)
 
   return (
-    <EstimatorContext.Provider value={{ state, dispatch }}>
+    <EstimatorContext.Provider value={{ state, dispatch, lang }}>
       {children}
     </EstimatorContext.Provider>
   )

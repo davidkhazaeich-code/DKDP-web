@@ -4,20 +4,33 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { GradText } from '@/components/ui/GradText'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
+import type { Locale } from '@/i18n/config'
 
-const MARQUEE_ITEMS = [
-  'Sites web sur mesure',
-  'Intelligence Artificielle',
-  'Formation entreprise',
-  'SEO local Geneve',
-  'Refonte UX',
-  'Apps metier',
-]
+const CONTENT = {
+  fr: {
+    marquee: ['Sites web sur mesure', 'Intelligence Artificielle', 'Formation entreprise', 'SEO local Geneve', 'Refonte UX', 'Apps metier'],
+    giant: 'PROJET',
+    headingA: 'Parlons de',
+    headingB: 'votre projet',
+    subtitle: "15 minutes, c'est gratuit, et on vous dit honnêtement si on peut vous aider, et comment.",
+    cta: 'Reservez votre appel gratuit',
+    disclaimer: 'Sans engagement · Reponse sous 24h · Eaux-Vives, Geneve ou en visio',
+  },
+  en: {
+    marquee: ['Custom websites', 'Artificial Intelligence', 'Corporate training', 'Local SEO Geneva', 'UX redesign', 'Business apps'],
+    giant: 'PROJECT',
+    headingA: "Let's talk about",
+    headingB: 'your project',
+    subtitle: '15 minutes, free of charge, and we tell you honestly whether we can help, and how.',
+    cta: 'Book your free call',
+    disclaimer: 'No commitment · Reply within 24h · Eaux-Vives, Geneva or by video call',
+  },
+} as const
 
-function MarqueeRow() {
+function MarqueeRow({ items }: { items: readonly string[] }) {
   return (
     <div className="flex items-center gap-12 px-6 whitespace-nowrap">
-      {MARQUEE_ITEMS.flatMap((item, i) => [
+      {items.flatMap((item, i) => [
         <span
           key={`${i}-text`}
           className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-text-muted"
@@ -32,7 +45,8 @@ function MarqueeRow() {
   )
 }
 
-export function CinematicCTA() {
+export function CinematicCTA({ lang = 'fr' }: { lang?: Locale } = {}) {
+  const t = CONTENT[lang]
   const wrapperRef = useRef<HTMLDivElement>(null)
 
   const { scrollYProgress } = useScroll({
@@ -85,8 +99,8 @@ export function CinematicCTA() {
           className="flex w-max"
           style={{ animation: 'cinematicMarquee 40s linear infinite' }}
         >
-          <MarqueeRow />
-          <MarqueeRow />
+          <MarqueeRow items={t.marquee} />
+          <MarqueeRow items={t.marquee} />
         </div>
       </div>
 
@@ -107,7 +121,7 @@ export function CinematicCTA() {
             backgroundClip: 'text',
           }}
         >
-          PROJET
+          {t.giant}
         </span>
       </motion.div>
 
@@ -117,17 +131,17 @@ export function CinematicCTA() {
           id="cinematic-cta-heading"
           className="text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          Parlons de{' '}
-          <GradText as="span">votre projet</GradText>
+          {t.headingA}{' '}
+          <GradText as="span">{t.headingB}</GradText>
         </h2>
 
         <p className="mt-6 max-w-2xl text-lg leading-[1.7] text-text-secondary md:text-xl">
-          15 minutes, c&apos;est gratuit, et on vous dit honnêtement si on peut vous aider, et comment.
+          {t.subtitle}
         </p>
 
         <div className="mt-10">
           <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
-            Reservez votre appel gratuit<span aria-hidden="true"> →</span>
+            {t.cta}<span aria-hidden="true"> →</span>
           </LiquidMetalButton>
         </div>
 
@@ -187,7 +201,7 @@ export function CinematicCTA() {
         </div>
 
         <p className="mt-8 text-sm text-text-muted">
-          Sans engagement · Reponse sous 24h · Eaux-Vives, Geneve ou en visio
+          {t.disclaimer}
         </p>
       </div>
 

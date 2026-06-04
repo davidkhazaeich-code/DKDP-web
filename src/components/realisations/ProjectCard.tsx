@@ -1,18 +1,21 @@
 import Link from 'next/link'
 import { BrowserFrame } from './BrowserFrame'
 import type { Realisation } from '@/lib/realisations/types'
+import type { Locale } from '@/i18n/config'
 
 export type ProjectCardProps = {
   realisation: Realisation
+  lang?: Locale
 }
 
-export function ProjectCard({ realisation: r }: ProjectCardProps) {
+export function ProjectCard({ realisation: r, lang = 'fr' }: ProjectCardProps) {
   const featuredMetric = r.results?.[0]
   const initial = r.client.name.trim()[0]?.toUpperCase() ?? '?'
+  const base = lang === 'en' ? '/en/portfolio' : '/realisations'
 
   return (
     <Link
-      href={`/realisations/${r.slug}`}
+      href={`${base}/${r.slug}`}
       className="group block rounded-2xl bg-bg-card transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
     >
       <BrowserFrame
@@ -65,7 +68,7 @@ export function ProjectCard({ realisation: r }: ProjectCardProps) {
             </span>
           ) : !r.liveUrl ? (
             <span className="text-[10px] uppercase tracking-wide text-text-muted">
-              Captures uniquement
+              {lang === 'en' ? 'Screenshots only' : 'Captures uniquement'}
             </span>
           ) : null}
         </div>

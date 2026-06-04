@@ -1,4 +1,5 @@
 import type { RealisationResult } from '@/lib/realisations/types'
+import type { Locale } from '@/i18n/config'
 
 function Sparkline({ values }: { values: number[] }) {
   if (values.length < 2) return null
@@ -29,12 +30,12 @@ function Sparkline({ values }: { values: number[] }) {
   )
 }
 
-export function ResultsGrid({ results }: { results: RealisationResult[] }) {
+export function ResultsGrid({ results, lang = 'fr' }: { results: RealisationResult[]; lang?: Locale }) {
   return (
     <section id="resultats" className="scroll-mt-[124px] border-t border-white/5 py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-6">
         <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
-          Resultats
+          {lang === 'en' ? 'Results' : 'Resultats'}
         </h2>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((r, i) => (

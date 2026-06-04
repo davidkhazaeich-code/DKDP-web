@@ -5,12 +5,16 @@ import { ProjectCard } from './ProjectCard'
 import { FilterBar, type FilterValue } from './FilterBar'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import type { Realisation } from '@/lib/realisations/types'
+import type { Locale } from '@/i18n/config'
 
-type Props = { items: Realisation[] }
+type Props = { items: Realisation[]; lang?: Locale }
 
-export function RealisationsGrid({ items }: Props) {
+export function RealisationsGrid({ items, lang = 'fr' }: Props) {
   const router = useRouter()
   const params = useSearchParams()
+  const hub = lang === 'en' ? '/en/portfolio' : '/realisations'
+  const emptyText = lang === 'en' ? 'No project for this filter.' : 'Aucune realisation pour ce filtre.'
+  const resetText = lang === 'en' ? 'Reset filters' : 'Reinitialiser les filtres'
 
   const category = (params.get('cat') ?? 'all') as FilterValue['category']
   const tag = params.get('tag')
@@ -34,7 +38,7 @@ export function RealisationsGrid({ items }: Props) {
     if (next.category !== 'all') sp.set('cat', next.category)
     if (next.tag) sp.set('tag', next.tag)
     const qs = sp.toString()
-    router.replace(`/realisations${qs ? `?${qs}` : ''}`, { scroll: false })
+    router.replace(`${hub}${qs ? `?${qs}` : ''}`, { scroll: false })
   }
 
   return (
@@ -44,27 +48,28 @@ export function RealisationsGrid({ items }: Props) {
         activeTag={tag}
         availableTags={availableTags}
         onChange={setFilter}
+        lang={lang}
       />
 
       <div className="mx-auto max-w-[1200px] px-6 py-12">
         {filtered.length === 0 ? (
           <div className="py-24 text-center">
             <p className="text-lg text-text-secondary">
-              Aucune realisation pour ce filtre.
+              {emptyText}
             </p>
             <button
               type="button"
               className="mt-4 rounded-full border border-border px-4 py-2 text-sm text-text hover:bg-[var(--surface-default)]"
               onClick={() => setFilter({ category: 'all', tag: null })}
             >
-              Reinitialiser les filtres
+              {resetText}
             </button>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
             {filtered.map((r, i) => (
               <SectionReveal key={r.slug} delay={Math.min(i, 7) * 0.05}>
-                <ProjectCard realisation={r} />
+                <ProjectCard realisation={r} lang={lang} />
               </SectionReveal>
             ))}
           </div>

@@ -5,22 +5,32 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import type { Realisation } from '@/lib/realisations/types'
+import type { Locale } from '@/i18n/config'
 
-const CATEGORY_LABEL: Record<Realisation['category'], string> = {
-  'site-web': 'Site web',
-  'projet-ia': 'Projet IA',
-  'site-web-ia': 'Site + IA',
+const CATEGORY_LABEL: Record<Locale, Record<Realisation['category'], string>> = {
+  fr: { 'site-web': 'Site web', 'projet-ia': 'Projet IA', 'site-web-ia': 'Site + IA' },
+  en: { 'site-web': 'Website', 'projet-ia': 'AI project', 'site-web-ia': 'Web + AI' },
 }
 
-export function RealisationHeader({ r }: { r: Realisation }) {
+export function RealisationHeader({ r, lang = 'fr' }: { r: Realisation; lang?: Locale }) {
+  const home = lang === 'en' ? '/en' : '/'
+  const hub = lang === 'en' ? '/en/portfolio' : '/realisations'
+  const contact = lang === 'en' ? '/en/contact' : '/contact'
+  const t = {
+    home: lang === 'en' ? 'Home' : 'Accueil',
+    portfolio: lang === 'en' ? 'Portfolio' : 'Realisations',
+    delivered: lang === 'en' ? 'Delivered' : 'Livre',
+    visit: lang === 'en' ? 'Visit the site' : 'Visiter le site',
+    start: lang === 'en' ? 'Start my project' : 'Lancer mon projet',
+  }
   return (
     <HeroBg accentRgb="167,139,250">
       <header className="relative">
         <div className="mx-auto max-w-[1200px] px-6 pt-12 md:pt-16">
           <nav aria-label="Breadcrumb" className="mb-8 text-sm text-text-muted">
-            <Link href="/" className="hover:text-text-primary">Accueil</Link>
+            <Link href={home} className="hover:text-text-primary">{t.home}</Link>
             <span className="mx-2">/</span>
-            <Link href="/realisations" className="hover:text-text-primary">Realisations</Link>
+            <Link href={hub} className="hover:text-text-primary">{t.portfolio}</Link>
             <span className="mx-2">/</span>
             <span className="text-text-secondary">{r.client.name}</span>
           </nav>
@@ -28,7 +38,7 @@ export function RealisationHeader({ r }: { r: Realisation }) {
 
         <div className="mx-auto max-w-[1200px] px-6 pb-16 md:pb-20">
           <SectionReveal className="flex flex-col items-start">
-            <GradTag className="self-start">{CATEGORY_LABEL[r.category]}</GradTag>
+            <GradTag className="self-start">{CATEGORY_LABEL[lang][r.category]}</GradTag>
 
             <h1 className="mt-6 text-4xl tracking-[-0.02em] leading-[1.05] text-white md:text-5xl lg:text-6xl">
               {r.client.name} :{' '}
@@ -49,8 +59,8 @@ export function RealisationHeader({ r }: { r: Realisation }) {
               )}
               <span>·</span>
               <span>
-                Livre{' '}
-                {new Date(r.meta.dateISO).toLocaleDateString('fr-CH', {
+                {t.delivered}{' '}
+                {new Date(r.meta.dateISO).toLocaleDateString(lang === 'en' ? 'en-GB' : 'fr-CH', {
                   month: 'long',
                   year: 'numeric',
                 })}
@@ -65,14 +75,14 @@ export function RealisationHeader({ r }: { r: Realisation }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Visiter le site<span aria-hidden="true"> →</span>
+                  {t.visit}<span aria-hidden="true"> →</span>
                 </LiquidMetalButton>
               ) : null}
               <Link
-                href="/contact"
+                href={contact}
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/5"
               >
-                Lancer mon projet
+                {t.start}
               </Link>
             </div>
           </SectionReveal>

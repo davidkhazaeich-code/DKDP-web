@@ -19,7 +19,11 @@
 - [x] FAQ_ITEMS_EN added to data/faq.ts. Production build GREEN.
 - [x] **Phase 2.2** — `/en/about` 1:1 with FR. Commit `39c2696`.
 - [x] **Phase 2.4** — `/en/sitemap` 1:1 with FR. Commit `39c2696`. Build green.
-- [ ] **Phase 3** — glossary (NEXT), **Phase 4** — portfolio, **Phase 5** — cities, **Phase 6** — AI-geneva, **Phase 7** — blog hub, **Phase 8** — verification.
+- [x] **Phase 3** — `/en/glossary` (53 terms, lang-aware components). Commit `1df3d42`. Build green.
+- [ ] **Phase 4** — portfolio (NEXT), **Phase 5** — cities, **Phase 6** — AI-geneva, **Phase 7** — blog hub, **Phase 8** — verification.
+
+### How to resume (for next session)
+Pattern is established: add `lang?: Locale` (default 'fr') to shared components, EN overlay co-located, reuse from `/en/*` pages with `lang="en"`. Build with `npm run build` (must say "Compiled successfully"), commit with the retry loop. localizedPath(frPath,'en') for all EN internal links. Schema builders take `lang:'en'`. Remaining FR sources to mirror: `src/app/realisations/*` + `src/components/realisations/*` (Phase 4), `src/lib/cities.ts` + `src/app/agence-digitale/[ville]/page.tsx` (Phase 5), `src/app/intelligence-artificielle/geneve/page.tsx` (Phase 6), `src/app/blog/page.tsx` + `ArticleCard` (Phase 7).
 
 **Verification per phase:** `npm run build` must pass (all `/en/*` routes generated). Run from the dkdp dir. Commit with retry loop (git lock is intermittent in Nimbalyst):
 ```bash

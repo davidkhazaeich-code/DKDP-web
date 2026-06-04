@@ -1,5 +1,6 @@
 'use client'
 import { clsx } from 'clsx'
+import type { Locale } from '@/i18n/config'
 
 export type FilterValue = {
   category: 'all' | 'site-web' | 'projet-ia' | 'site-web-ia'
@@ -11,28 +12,40 @@ export type FilterBarProps = {
   activeTag: string | null
   availableTags: string[]
   onChange: (next: FilterValue) => void
+  lang?: Locale
 }
 
-const CATEGORY_TABS: { key: FilterValue['category']; label: string }[] = [
-  { key: 'all', label: 'Tous' },
-  { key: 'site-web', label: 'Sites web' },
-  { key: 'projet-ia', label: 'Projets IA' },
-  { key: 'site-web-ia', label: 'Sites + IA' },
-]
+const CATEGORY_TABS: Record<Locale, { key: FilterValue['category']; label: string }[]> = {
+  fr: [
+    { key: 'all', label: 'Tous' },
+    { key: 'site-web', label: 'Sites web' },
+    { key: 'projet-ia', label: 'Projets IA' },
+    { key: 'site-web-ia', label: 'Sites + IA' },
+  ],
+  en: [
+    { key: 'all', label: 'All' },
+    { key: 'site-web', label: 'Websites' },
+    { key: 'projet-ia', label: 'AI projects' },
+    { key: 'site-web-ia', label: 'Web + AI' },
+  ],
+}
 
 export function FilterBar({
   category,
   activeTag,
   availableTags,
   onChange,
+  lang = 'fr',
 }: FilterBarProps) {
   const hasFilters = category !== 'all' || activeTag !== null
+  const tabs = CATEGORY_TABS[lang]
+  const resetLabel = lang === 'en' ? 'Reset' : 'Reinitialiser'
 
   return (
     <div className="sticky top-[66px] z-30 -mx-6 border-b border-border px-6 py-3 backdrop-blur-2xl" style={{ background: 'color-mix(in srgb, var(--bg) 85%, transparent)' }}>
       <div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-2">
         <div className="flex gap-1.5" role="tablist">
-          {CATEGORY_TABS.map(t => (
+          {tabs.map(t => (
             <button
               key={t.key}
               type="button"
@@ -75,7 +88,7 @@ export function FilterBar({
               onClick={() => onChange({ category: 'all', tag: null })}
               className="rounded-full px-2.5 py-1 text-xs text-text-muted underline-offset-2 hover:text-text hover:underline"
             >
-              Reinitialiser
+              {resetLabel}
             </button>
           )}
         </div>

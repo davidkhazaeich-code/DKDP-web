@@ -2,8 +2,15 @@
 
 import { useState } from 'react'
 import { Send, CheckCircle2, Loader2 } from 'lucide-react'
+import type { Locale } from '@/i18n/config'
 
-export function NewsletterForm() {
+const COPY = {
+  fr: { successTitle: "C'est noté !", successText: 'On vous enverra le prochain article.', placeholder: 'votre@email.ch', emailAria: 'Adresse email', subscribe: "S'abonner", error: 'Erreur. Écrivez-nous à dk@dkdp.ch' },
+  en: { successTitle: 'Done!', successText: 'We will send you the next article.', placeholder: 'you@email.com', emailAria: 'Email address', subscribe: 'Subscribe', error: 'Error. Write to us at dk@dkdp.ch' },
+} as const
+
+export function NewsletterForm({ lang = 'fr' }: { lang?: Locale } = {}) {
+  const c = COPY[lang]
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
@@ -32,8 +39,8 @@ export function NewsletterForm() {
         >
           <CheckCircle2 size={24} style={{ color: '#86efac' }} />
         </div>
-        <p className="text-text font-semibold">C&apos;est noté !</p>
-        <p className="text-text-secondary text-sm">On vous enverra le prochain article.</p>
+        <p className="text-text font-semibold">{c.successTitle}</p>
+        <p className="text-text-secondary text-sm">{c.successText}</p>
       </div>
     )
   }
@@ -50,8 +57,8 @@ export function NewsletterForm() {
         required
         value={email}
         onChange={e => setEmail(e.target.value)}
-        placeholder="votre@email.ch"
-        aria-label="Adresse email"
+        placeholder={c.placeholder}
+        aria-label={c.emailAria}
         className="flex-1 rounded-[10px] border border-[color:var(--border)] px-4 py-3 text-sm bg-transparent text-text placeholder:text-text-muted outline-none focus:border-[rgba(167,139,250,0.50)] transition-colors"
       />
       <button
@@ -64,12 +71,12 @@ export function NewsletterForm() {
           ? <Loader2 size={15} className="animate-spin" />
           : <Send size={14} />
         }
-        S&apos;abonner
+        {c.subscribe}
       </button>
 
       {status === 'error' && (
         <p className="w-full text-red-500 text-xs text-center mt-1">
-          Erreur. Écrivez-nous à dk@dkdp.ch
+          {c.error}
         </p>
       )}
     </form>

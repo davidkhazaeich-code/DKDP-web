@@ -1,9 +1,18 @@
 import Link from 'next/link'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { BLOG_CATEGORIES, type Article } from '@/lib/blog'
+import type { Locale } from '@/i18n/config'
 
-export function ArticleCard({ article, delay }: { article: Article; delay: number }) {
+const CATEGORY_LABEL_EN: Record<string, string> = {
+  ia: 'Artificial Intelligence',
+  seo: 'SEO & Visibility',
+  formation: 'Training',
+  outils: 'Tools & Productivity',
+}
+
+export function ArticleCard({ article, delay, lang = 'fr' }: { article: Article; delay: number; lang?: Locale }) {
   const cat = BLOG_CATEGORIES[article.category]
+  const catLabel = lang === 'en' ? (CATEGORY_LABEL_EN[article.category] ?? cat.label) : cat.label
   return (
     <SectionReveal delay={delay} className="h-full">
       <Link
@@ -27,14 +36,14 @@ export function ArticleCard({ article, delay }: { article: Article; delay: numbe
               border: `1px solid ${cat.border}`,
             }}
           >
-            {cat.label}
+            {catLabel}
           </span>
         </div>
 
         {/* Content */}
         <div className="flex flex-col flex-1 p-5 gap-3 bg-zinc-900/60">
           <p className="text-zinc-500 text-xs">
-            {article.date} · {article.readTime} de lecture
+            {article.date} · {article.readTime}{lang === 'en' ? ' read' : ' de lecture'}
           </p>
           <h3 className="text-white font-semibold text-[15px] leading-snug line-clamp-2">
             {article.title}
@@ -46,7 +55,7 @@ export function ArticleCard({ article, delay }: { article: Article; delay: numbe
             className="mt-1 text-[12px] font-semibold transition-opacity group-hover:opacity-70"
             style={{ color: cat.color }}
           >
-            Lire &rarr;
+            {lang === 'en' ? 'Read' : 'Lire'} &rarr;
           </span>
         </div>
       </Link>

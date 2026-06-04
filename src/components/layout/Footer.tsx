@@ -61,8 +61,7 @@ function getPillars(lang: Locale, dict: FooterDict) {
       border: 'var(--chrome-border)',
       Icon: Sparkles,
       links: [
-        // /intelligence-artificielle/geneve n'a pas de version EN : on garde le path FR.
-        { label: t.iaLinks[0], href: lang === 'en' ? lp('/intelligence-artificielle') : '/intelligence-artificielle/geneve' },
+        { label: t.iaLinks[0], href: lp('/intelligence-artificielle/geneve') },
         { label: t.iaLinks[1], href: lp('/intelligence-artificielle/agents-ia') },
         { label: t.iaLinks[2], href: lp('/intelligence-artificielle/chatbot-ia') },
         { label: t.iaLinks[3], href: lp('/intelligence-artificielle/automatisation') },
@@ -80,9 +79,8 @@ function getPillars(lang: Locale, dict: FooterDict) {
       links: [
         { label: t.aproposLinks[0], href: lp('/a-propos') },
         { label: t.aproposLinks[1], href: lp('/tarifs') },
-        // Blog et Glossaire restent en FR (pas traduits).
-        { label: t.aproposLinks[2], href: '/blog' },
-        { label: t.aproposLinks[3], href: '/glossaire' },
+        { label: t.aproposLinks[2], href: lp('/blog') },
+        { label: t.aproposLinks[3], href: lp('/glossaire') },
       ],
       hub: { label: dict.common.contactAgency, href: lp('/contact') },
     },
@@ -100,17 +98,24 @@ function getLegalLinks(lang: Locale, dict: FooterDict) {
   ]
 }
 
-// Pages villes restent FR uniquement (pas dans le perimetre EN).
-const CITY_LINKS = [
-  { label: 'Genève', href: '/agence-digitale/geneve' },
-  { label: 'Lausanne', href: '/agence-digitale/lausanne' },
-  { label: 'Nyon', href: '/agence-digitale/nyon' },
-  { label: 'Fribourg', href: '/agence-digitale/fribourg' },
-  { label: 'Sion', href: '/agence-digitale/sion' },
-  { label: 'Neuchâtel', href: '/agence-digitale/neuchatel' },
-  { label: 'Morges', href: '/agence-digitale/morges' },
-  { label: 'Montreux', href: '/agence-digitale/montreux' },
+// Villes : FR et EN ont chacune leurs pages. Label localise (Genève/Geneva, Neuchâtel/Neuchatel).
+const CITY_DATA = [
+  { fr: '/agence-digitale/geneve', labelFr: 'Genève', labelEn: 'Geneva' },
+  { fr: '/agence-digitale/lausanne', labelFr: 'Lausanne', labelEn: 'Lausanne' },
+  { fr: '/agence-digitale/nyon', labelFr: 'Nyon', labelEn: 'Nyon' },
+  { fr: '/agence-digitale/fribourg', labelFr: 'Fribourg', labelEn: 'Fribourg' },
+  { fr: '/agence-digitale/sion', labelFr: 'Sion', labelEn: 'Sion' },
+  { fr: '/agence-digitale/neuchatel', labelFr: 'Neuchâtel', labelEn: 'Neuchatel' },
+  { fr: '/agence-digitale/morges', labelFr: 'Morges', labelEn: 'Morges' },
+  { fr: '/agence-digitale/montreux', labelFr: 'Montreux', labelEn: 'Montreux' },
 ]
+
+function getCityLinks(lang: Locale) {
+  return CITY_DATA.map((c) => ({
+    label: lang === 'en' ? c.labelEn : c.labelFr,
+    href: localizedPath(c.fr, lang),
+  }))
+}
 
 const FOOTER_HEIGHT = 540
 
@@ -132,6 +137,7 @@ function FooterInner({
   const showMobile = variant === 'mobile' || variant === 'all'
   const pillars = getPillars(lang, dict)
   const legalLinks = getLegalLinks(lang, dict)
+  const cityLinks = getCityLinks(lang)
   const t = dict.common
   const copyrightText = t.copyright.replace('{year}', String(year))
   const logoAlt = lang === 'en' ? 'DKDP, digital agency in Geneva' : 'DKDP, Service Digital Genève'
@@ -320,12 +326,12 @@ function FooterInner({
         <div className="max-w-[1200px] mx-auto px-6 py-3">
           <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
             <span className="text-text-muted text-[11px] mr-1">{t.locations}</span>
-            {CITY_LINKS.map(({ label, href }, i) => (
+            {cityLinks.map(({ label, href }, i) => (
               <span key={href} className="inline-flex items-center">
                 <Link href={href} className="text-text-muted hover:text-text text-[11px] transition-colors">
                   {label}
                 </Link>
-                {i < CITY_LINKS.length - 1 && <span className="text-text-muted text-[11px] ml-1.5">·</span>}
+                {i < cityLinks.length - 1 && <span className="text-text-muted text-[11px] ml-1.5">·</span>}
               </span>
             ))}
           </div>

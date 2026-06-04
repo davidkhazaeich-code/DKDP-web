@@ -1,6 +1,8 @@
 'use client'
 import { SunIcon, MoonIcon } from '@radix-ui/react-icons'
+import { usePathname } from 'next/navigation'
 import { useTheme } from '@/components/providers/ThemeProvider'
+import { detectLocaleFromPath } from '@/i18n/config'
 
 // Light mode shipped after polish pass on homepage + 11 service pages.
 // To pause the toggle (e.g., during a regression), set this to false AND restore
@@ -25,7 +27,12 @@ interface ThemeToggleProps {
 export function ThemeToggle({ className = '', compact = false }: ThemeToggleProps) {
   if (!ENABLE_LIGHT_MODE) return null
   const { theme, toggle, mounted } = useTheme()
+  const pathname = usePathname() ?? '/'
+  const lang = detectLocaleFromPath(pathname)
   const isDark = theme === 'dark'
+  const ariaLabel = lang === 'en'
+    ? (isDark ? 'Switch to light mode' : 'Switch to dark mode')
+    : (isDark ? 'Passer en mode clair' : 'Passer en mode sombre')
   const size = compact ? 'h-8 w-8' : 'h-9 w-9'
   const iconSize = compact ? 14 : 16
 
@@ -33,7 +40,7 @@ export function ThemeToggle({ className = '', compact = false }: ThemeToggleProp
     <button
       type="button"
       onClick={toggle}
-      aria-label={isDark ? 'Passer en mode clair' : 'Passer en mode sombre'}
+      aria-label={ariaLabel}
       className={`relative inline-flex ${size} items-center justify-center rounded-full border transition-colors hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${className}`}
       style={{
         background:   'var(--surface-default)',

@@ -46,3 +46,4 @@ tools/screenshots-fix
 tools/screenshots-services
 tools/screenshots-remaining
 tools/screenshots-pass1
+.gstack/

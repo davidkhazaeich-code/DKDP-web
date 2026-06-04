@@ -8,8 +8,10 @@ import React, {
   useCallback,
 } from 'react'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { m, AnimatePresence } from 'framer-motion'
+import { detectLocaleFromPath } from '@/i18n/config'
 
 export interface CircularItem {
   quote: string
@@ -57,6 +59,10 @@ export function CircularTestimonials({
   colors = {},
   fontSizes = {},
 }: CircularTestimonialsProps) {
+  const pathname = usePathname() ?? '/'
+  const isEn = detectLocaleFromPath(pathname) === 'en'
+  const prevLabel = isEn ? 'Previous' : 'Précédent'
+  const nextLabel = isEn ? 'Next' : 'Suivant'
   const colorName        = colors.name               ?? '#ffffff'
   const colorDesignation = colors.designation        ?? '#A78BFA'
   const colorQuote       = colors.quote              ?? '#9CA3AF'
@@ -270,7 +276,7 @@ export function CircularTestimonials({
           <div className="flex gap-4 mt-10">
             <button
               type="button"
-              aria-label="Précédent"
+              aria-label={prevLabel}
               onClick={handlePrev}
               onMouseEnter={() => setHoverPrev(true)}
               onMouseLeave={() => setHoverPrev(false)}
@@ -281,7 +287,7 @@ export function CircularTestimonials({
             </button>
             <button
               type="button"
-              aria-label="Suivant"
+              aria-label={nextLabel}
               onClick={handleNext}
               onMouseEnter={() => setHoverNext(true)}
               onMouseLeave={() => setHoverNext(false)}

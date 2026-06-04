@@ -1,8 +1,14 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import type { Locale } from '@/i18n/config'
 
 type Category = 'IA' | 'SEO' | 'Web' | 'Formation' | 'General'
+
+const SEARCH_COPY = {
+  fr: { placeholder: 'Rechercher un terme...', searchAria: 'Rechercher un terme dans le glossaire', clearAria: 'Effacer la recherche', noResults: (q: string) => `Aucun terme trouvé pour “${q}”` },
+  en: { placeholder: 'Search a term...', searchAria: 'Search a term in the glossary', clearAria: 'Clear search', noResults: (q: string) => `No term found for “${q}”` },
+} as const
 
 interface TermEntry {
   term: string
@@ -31,7 +37,8 @@ function normalize(s: string) {
   return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 }
 
-export function GlossaireSearch({ terms }: { terms: TermEntry[] }) {
+export function GlossaireSearch({ terms, lang = 'fr' }: { terms: TermEntry[]; lang?: Locale }) {
+  const c = SEARCH_COPY[lang]
   const [query, setQuery]   = useState('')
   const [open, setOpen]     = useState(false)
   const [active, setActive] = useState(-1)
@@ -96,8 +103,8 @@ export function GlossaireSearch({ terms }: { terms: TermEntry[] }) {
           onChange={e => { setQuery(e.target.value); setOpen(true); setActive(-1) }}
           onFocus={() => { if (query.trim().length >= 1) setOpen(true) }}
           onKeyDown={handleKeyDown}
-          placeholder="Rechercher un terme..."
-          aria-label="Rechercher un terme dans le glossaire"
+          placeholder={c.placeholder}
+          aria-label={c.searchAria}
           aria-autocomplete="list"
           aria-expanded={showDropdown}
           autoComplete="off"
@@ -125,7 +132,7 @@ export function GlossaireSearch({ terms }: { terms: TermEntry[] }) {
           <button
             onClick={() => { setQuery(''); setOpen(false); inputRef.current?.focus() }}
             className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 flex items-center justify-center rounded-full text-text-muted hover:text-text transition-colors"
-            aria-label="Effacer la recherche"
+            aria-label={c.clearAria}
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="w-3 h-3" aria-hidden="true">
               <path d="M18 6L6 18M6 6l12 12" />
@@ -180,7 +187,7 @@ export function GlossaireSearch({ terms }: { terms: TermEntry[] }) {
             borderTop: 'none',
           }}
         >
-          <p className="text-text-muted text-sm">Aucun terme trouvé pour &ldquo;{query}&rdquo;</p>
+          <p className="text-text-muted text-sm">{c.noResults(query)}</p>
         </div>
       )}
     </div>

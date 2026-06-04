@@ -1,7 +1,8 @@
 import type { Term } from '../_types'
+import type { Locale } from '@/i18n/config'
 import { TermCard } from './TermCard'
 
-export function LetterSection({ letter, terms }: { letter: string; terms: Term[] }) {
+export function LetterSection({ letter, terms, lang = 'fr' }: { letter: string; terms: Term[]; lang?: Locale }) {
   return (
     <section id={`lettre-${letter}`} className="scroll-mt-32 md:scroll-mt-28">
       {/* Letter heading */}
@@ -22,14 +23,14 @@ export function LetterSection({ letter, terms }: { letter: string; terms: Term[]
           </span>
         </div>
         <span className="text-text-muted text-sm">
-          {terms.length} terme{terms.length > 1 ? 's' : ''}
+          {terms.length} {lang === 'en' ? `term${terms.length > 1 ? 's' : ''}` : `terme${terms.length > 1 ? 's' : ''}`}
         </span>
       </div>
 
       {/* Cards grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {terms.map((item, i) => (
-          <TermCard key={item.term} item={item} delay={i * 0.04} />
+          <TermCard key={item.term} item={item} delay={i * 0.04} lang={lang} />
         ))}
       </div>
     </section>

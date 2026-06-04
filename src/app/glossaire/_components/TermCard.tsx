@@ -1,5 +1,6 @@
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import type { Term } from '../_types'
+import type { Locale } from '@/i18n/config'
 import { CategoryBadge } from './CategoryBadge'
 
 function termId(term: string) {
@@ -12,7 +13,7 @@ function termId(term: string) {
     .replace(/^-|-$/g, '')
 }
 
-export function TermCard({ item, delay }: { item: Term; delay: number }) {
+export function TermCard({ item, delay, lang = 'fr' }: { item: Term; delay: number; lang?: Locale }) {
   return (
     <SectionReveal delay={delay}>
       <div
@@ -26,7 +27,7 @@ export function TermCard({ item, delay }: { item: Term; delay: number }) {
         {/* Header */}
         <div className="flex items-start justify-between gap-2">
           <h3 className="text-text font-bold text-lg leading-snug">{item.term}</h3>
-          <CategoryBadge category={item.category} />
+          <CategoryBadge category={item.category} lang={lang} />
         </div>
 
         {/* Definition */}
@@ -41,7 +42,7 @@ export function TermCard({ item, delay }: { item: Term; delay: number }) {
             className="inline-flex items-center gap-1 text-xs font-semibold mt-auto"
             style={{ color: '#A78BFA' }}
           >
-            En savoir plus
+            {lang === 'en' ? 'Learn more' : 'En savoir plus'}
             <span aria-hidden="true">&#8594;</span>
           </a>
         )}

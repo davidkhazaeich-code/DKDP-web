@@ -17,9 +17,9 @@
 - [x] **Phase 2.1** — `/en` home: 1:1 with FR via shared components lang="en". Commit `4de7fce`.
 - [x] **Phase 2.3** — `/en/contact`: ContactSection + GoogleMapSection lang="en". Commit `4de7fce`.
 - [x] FAQ_ITEMS_EN added to data/faq.ts. Production build GREEN.
-- [ ] **Phase 2.2** — `/en/about` (NEXT)
-- [ ] **Phase 2.4** — `/en/sitemap`
-- [ ] **Phase 3** — glossary, **Phase 4** — portfolio, **Phase 5** — cities, **Phase 6** — AI-geneva, **Phase 7** — blog hub, **Phase 8** — verification.
+- [x] **Phase 2.2** — `/en/about` 1:1 with FR. Commit `39c2696`.
+- [x] **Phase 2.4** — `/en/sitemap` 1:1 with FR. Commit `39c2696`. Build green.
+- [ ] **Phase 3** — glossary (NEXT), **Phase 4** — portfolio, **Phase 5** — cities, **Phase 6** — AI-geneva, **Phase 7** — blog hub, **Phase 8** — verification.
 
 **Verification per phase:** `npm run build` must pass (all `/en/*` routes generated). Run from the dkdp dir. Commit with retry loop (git lock is intermittent in Nimbalyst):
 ```bash

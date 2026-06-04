@@ -2,8 +2,38 @@
 
 import { useState } from 'react'
 import { CheckCircle2, Loader2 } from 'lucide-react'
+import type { Locale } from '@/i18n/config'
 
-export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { buttonLabel?: string }) {
+const COPY = {
+  fr: {
+    defaultButton: 'Recevoir mon audit gratuit',
+    urlLabel: 'URL de votre site web',
+    urlPlaceholder: 'https://votre-site.ch',
+    emailLabel: 'Votre adresse email',
+    emailPlaceholder: 'vous@entreprise.ch',
+    error: 'Une erreur est survenue. Réessayez ou écrivez à dk@dkdp.ch',
+    sending: 'Envoi en cours…',
+    successTitle: 'Demande reçue !',
+    successText: 'On analyse votre site et vous envoyons le rapport sous 48h ouvrées.',
+    disclaimer: 'Gratuit · Sans engagement · Résultats sous 48h · Données confidentielles',
+  },
+  en: {
+    defaultButton: 'Get my free audit',
+    urlLabel: 'Your website URL',
+    urlPlaceholder: 'https://your-site.ch',
+    emailLabel: 'Your email address',
+    emailPlaceholder: 'you@company.ch',
+    error: 'Something went wrong. Try again or write to dk@dkdp.ch',
+    sending: 'Sending…',
+    successTitle: 'Request received!',
+    successText: 'We analyse your site and send you the report within 48 working hours.',
+    disclaimer: 'Free · No commitment · Results within 48h · Confidential data',
+  },
+} as const
+
+export function AuditHeroForm({ buttonLabel, lang = 'fr' }: { buttonLabel?: string; lang?: Locale }) {
+  const c = COPY[lang]
+  const label = buttonLabel ?? c.defaultButton
   const [url, setUrl]     = useState('')
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -34,8 +64,8 @@ export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { 
           <CheckCircle2 size={28} style={{ color: '#A78BFA' }} />
         </div>
         <div>
-          <p className="text-text font-bold text-lg mb-1">Demande reçue !</p>
-          <p className="text-text-secondary text-sm">On analyse votre site et vous envoyons le rapport sous 48h ouvrées.</p>
+          <p className="text-text font-bold text-lg mb-1">{c.successTitle}</p>
+          <p className="text-text-secondary text-sm">{c.successText}</p>
         </div>
       </div>
     )
@@ -46,7 +76,7 @@ export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { 
       {/* URL */}
       <div className="mb-4">
         <label htmlFor="url" className="block text-sm font-semibold text-text mb-2">
-          URL de votre site web
+          {c.urlLabel}
         </label>
         <div className="relative">
           <span className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none" aria-hidden="true">
@@ -62,7 +92,7 @@ export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { 
             required
             value={url}
             onChange={e => setUrl(e.target.value)}
-            placeholder="https://votre-site.ch"
+            placeholder={c.urlPlaceholder}
             className="w-full rounded-[12px] border border-[color:var(--border)] focus:border-[#A78BFA] px-4 py-4 pl-12 text-text text-base placeholder:text-text-muted outline-none transition-colors bg-[var(--surface-default)]"
           />
         </div>
@@ -71,7 +101,7 @@ export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { 
       {/* Email */}
       <div className="mb-6">
         <label htmlFor="email" className="block text-sm font-semibold text-text mb-2">
-          Votre adresse email
+          {c.emailLabel}
         </label>
         <input
           type="email"
@@ -79,14 +109,14 @@ export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { 
           required
           value={email}
           onChange={e => setEmail(e.target.value)}
-          placeholder="vous@entreprise.ch"
+          placeholder={c.emailPlaceholder}
           className="w-full rounded-[12px] border border-[color:var(--border)] focus:border-[#A78BFA] px-4 py-4 text-text text-base placeholder:text-text-muted outline-none transition-colors bg-[var(--surface-default)]"
         />
       </div>
 
       {status === 'error' && (
         <p className="text-red-500 text-sm mb-4 text-center">
-          Une erreur est survenue. Réessayez ou écrivez à dk@dkdp.ch
+          {c.error}
         </p>
       )}
 
@@ -98,13 +128,13 @@ export function AuditHeroForm({ buttonLabel = 'Recevoir mon audit gratuit' }: { 
         style={{ background: 'linear-gradient(135deg, #A78BFA, #7C3AED)' }}
       >
         {status === 'loading'
-          ? <><Loader2 size={16} className="animate-spin" />Envoi en cours…</>
-          : <>{buttonLabel} &rarr;</>
+          ? <><Loader2 size={16} className="animate-spin" />{c.sending}</>
+          : <>{label} &rarr;</>
         }
       </button>
 
       <p className="text-center text-xs text-text-muted mt-4">
-        Gratuit · Sans engagement · Résultats sous 48h · Données confidentielles
+        {c.disclaimer}
       </p>
     </form>
   )

@@ -319,7 +319,7 @@ export default function AuditSEOPage() {
                     Results sent by email within 48 working hours.
                   </p>
 
-                  <AuditHeroForm buttonLabel="Get my free SEO audit" />
+                  <AuditHeroForm buttonLabel="Get my free SEO audit" lang="en" />
                 </div>
               </SectionReveal>
 

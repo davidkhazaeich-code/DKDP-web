@@ -458,7 +458,7 @@ export default function FormationReseauxSociauxPage() {
         </div>
       </section>
 
-      <FormationTrainer accentColor='#FF8C00' />
+      <FormationTrainer accentColor='#FF8C00' lang="en" />
 
       {/* ── Témoignages ── */}
       <section className="py-24">

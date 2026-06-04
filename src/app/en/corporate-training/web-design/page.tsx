@@ -398,7 +398,7 @@ export default function FormationWebDesignPage() {
         </div>
       </section>
 
-      <FormationTrainer accentColor='#FF8C00' />
+      <FormationTrainer accentColor='#FF8C00' lang="en" />
 
       {/* ── Témoignages ── */}
       <section className="py-24">

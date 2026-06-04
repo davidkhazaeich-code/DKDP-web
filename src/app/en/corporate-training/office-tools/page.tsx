@@ -387,7 +387,7 @@ export default function FormationBureautiquePage() {
         </div>
       </section>
 
-      <FormationTrainer accentColor='#FF8C00' />
+      <FormationTrainer accentColor='#FF8C00' lang="en" />
 
       {/* ── Testimonials ── */}
       <section className="py-24">

@@ -594,7 +594,7 @@ export default function EnCorporateTrainingPage() {
         </section>
       </HeroBg>
 
-      <FormationTrainer accentColor='#FF8C00' />
+      <FormationTrainer accentColor='#FF8C00' lang="en" />
 
       <section className="py-20 border-t border-border">
         <div className="max-w-[820px] mx-auto px-6">

@@ -23,7 +23,14 @@ export const metadata: Metadata = {
   title: 'Blog · Ressources digitales, IA et formation · DKDP',
   description:
     "Conseils pratiques sur le SEO, l'intelligence artificielle, la formation en entreprise et la stratégie digitale pour PME en Suisse romande.",
-  alternates: { canonical: 'https://dkdp.ch/blog' },
+  alternates: {
+    canonical: 'https://dkdp.ch/blog',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/blog',
+      en: 'https://dkdp.ch/en/blog',
+      'x-default': 'https://dkdp.ch/blog',
+    },
+  },
   openGraph: {
     title: 'Blog DKDP : ressources IA, SEO et formation pour PME suisses',
     description: "Conseils pratiques sur le SEO, l'IA, la formation entreprise et la stratégie digitale pour PME en Suisse romande.",

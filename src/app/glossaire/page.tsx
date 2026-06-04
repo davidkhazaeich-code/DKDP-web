@@ -16,7 +16,14 @@ const LetterSection = dynamic(() => import('./_components/LetterSection').then(m
 export const metadata: Metadata = {
   title: 'Glossaire Digital et IA · Définitions pour PME · DKDP',
   description: 'Lexique complet du web, du SEO et de l\'intelligence artificielle. 65 termes expliqués simplement pour les PME en Suisse romande.',
-  alternates: { canonical: 'https://dkdp.ch/glossaire' },
+  alternates: {
+    canonical: 'https://dkdp.ch/glossaire',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/glossaire',
+      en: 'https://dkdp.ch/en/glossary',
+      'x-default': 'https://dkdp.ch/glossaire',
+    },
+  },
   openGraph: {
     title: 'Glossaire Digital et IA · Définitions pour PME · DKDP',
     description: "Lexique complet du web, du SEO et de l'intelligence artificielle. 65+ termes expliqués pour les PME de Suisse romande.",

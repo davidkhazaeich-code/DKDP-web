@@ -13,7 +13,14 @@ export const metadata: Metadata = {
   title: 'Realisations DKDP : nos sites web et projets IA livres | Geneve',
   description:
     "Etudes de cas client DKDP : sites web, refontes, chatbots IA, automatisations. PME suisses, resultats mesures, captures et retours d'experience.",
-  alternates: { canonical: 'https://dkdp.ch/realisations' },
+  alternates: {
+    canonical: 'https://dkdp.ch/realisations',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/realisations',
+      en: 'https://dkdp.ch/en/portfolio',
+      'x-default': 'https://dkdp.ch/realisations',
+    },
+  },
   openGraph: {
     title: 'Realisations DKDP',
     description: 'Sites web et projets IA livres pour PME suisses.',

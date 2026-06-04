@@ -57,7 +57,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(r.meta.dateISO),
       changeFrequency: 'monthly' as const,
       priority: 0.70,
+      alternates: {
+        languages: {
+          'fr-CH': `${BASE_URL}/realisations/${r.slug}`,
+          en: `${BASE_URL}/en/portfolio/${r.slug}`,
+        },
+      },
     }))
 
-  return [...staticRoutes, ...enRoutes, ...blogRoutes, ...realisationRoutes]
+  // EN realisation detail pages (content shared, EN chrome + localized text).
+  const enRealisationRoutes: MetadataRoute.Sitemap = REALISATIONS
+    .filter((r) => r.meta.status === 'live')
+    .map((r) => ({
+      url: `${BASE_URL}/en/portfolio/${r.slug}`,
+      lastModified: new Date(r.meta.dateISO),
+      changeFrequency: 'monthly' as const,
+      priority: 0.66,
+      alternates: {
+        languages: {
+          'fr-CH': `${BASE_URL}/realisations/${r.slug}`,
+          en: `${BASE_URL}/en/portfolio/${r.slug}`,
+        },
+      },
+    }))
+
+  return [...staticRoutes, ...enRoutes, ...blogRoutes, ...realisationRoutes, ...enRealisationRoutes]
 }

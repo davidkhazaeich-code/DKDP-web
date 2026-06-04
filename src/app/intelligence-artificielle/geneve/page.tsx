@@ -46,6 +46,7 @@ export const metadata: Metadata = {
     canonical: 'https://dkdp.ch/intelligence-artificielle/geneve',
     languages: {
       'fr-CH': 'https://dkdp.ch/intelligence-artificielle/geneve',
+      en: 'https://dkdp.ch/en/artificial-intelligence/geneva',
       'x-default': 'https://dkdp.ch/intelligence-artificielle/geneve',
     },
   },

@@ -40,10 +40,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = `Agence digitale à ${city.name} | Sites web, SEO, IA & Formation | DKDP`
   const description = `Agence digitale à ${city.name} (${city.canton}) : création et refonte de sites web, SEO, intelligence artificielle, formation. DKDP accompagne les PME de ${city.name} depuis 2015. Devis 48 h.`
 
+  const enSlug = city.slug === 'geneve' ? 'geneva' : city.slug
+
   return {
     title,
     description,
-    alternates: { canonical: `https://dkdp.ch/agence-digitale/${city.slug}` },
+    alternates: {
+      canonical: `https://dkdp.ch/agence-digitale/${city.slug}`,
+      languages: {
+        'fr-CH': `https://dkdp.ch/agence-digitale/${city.slug}`,
+        en: `https://dkdp.ch/en/digital-agency/${enSlug}`,
+        'x-default': `https://dkdp.ch/agence-digitale/${city.slug}`,
+      },
+    },
     openGraph: {
       title,
       description,

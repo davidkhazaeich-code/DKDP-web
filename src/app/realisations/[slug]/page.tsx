@@ -29,7 +29,14 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: `${r.client.name} : ${r.meta.title} | Realisations DKDP`,
     description: r.meta.excerpt,
-    alternates: { canonical: `https://dkdp.ch/realisations/${r.slug}` },
+    alternates: {
+      canonical: `https://dkdp.ch/realisations/${r.slug}`,
+      languages: {
+        'fr-CH': `https://dkdp.ch/realisations/${r.slug}`,
+        en: `https://dkdp.ch/en/portfolio/${r.slug}`,
+        'x-default': `https://dkdp.ch/realisations/${r.slug}`,
+      },
+    },
     openGraph: {
       title: `${r.client.name} : ${r.meta.title}`,
       description: r.meta.excerpt,

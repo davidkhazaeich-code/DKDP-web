@@ -61,11 +61,11 @@ export default function Page() {
           title: 'Three formats, fixed quote',
           subtitle: 'Scoped to the production scale and the number of deliverables.',
           tiers: [
-            { name: 'Short format', price: 'From CHF 800', cadence: 'Fixed quote', description: 'Reels, social shorts, a product clip. One half-day shoot, fast turnaround.', features: ['Half-day shoot', '1 to 3 short videos', 'Vertical + square cuts', 'Captions and subtitles', '5 to 10-day delivery', 'Source files included'], ctaLabel: 'Get a quote' },
-            { name: 'Brand film', price: "From CHF 2'500", cadence: 'Fixed quote', description: 'A 60 to 120-second story-driven film for your homepage or sales deck.', features: ['Everything in Short format, plus:', 'Full-day shoot', 'Script and storyboard', 'Colour grading + sound design', 'Motion graphics', 'Multi-language subtitles'], highlighted: true, ctaLabel: 'Get a quote' },
-            { name: 'Production', price: "From CHF 6'000", cadence: 'Scoped per project', description: 'Multi-day shoots, campaigns, series, drone and animation.', features: ['Everything in Brand film, plus:', 'Multi-day shoots', 'Drone and aerial', 'Animation and 3D', 'Full content series', 'Per-market versions'], ctaLabel: 'Talk to us' },
+            { name: 'Social clip', price: 'CHF 800', cadence: 'Delivery in 5 days', description: 'One short video (30 to 90 seconds), edited and graded. Reels, testimonials, product clips.', features: ['1 short video (30 to 90 sec)', 'Editing and colour grading', '2 formats delivered (9:16 + 16:9)', 'Subtitles included', '1 revision', 'Source files included'], ctaLabel: 'Get a quote' },
+            { name: 'Content series', price: "CHF 2'000", cadence: 'Delivery in 10 days', description: 'Four videos, a mix of short and long, for a full social content batch.', features: ['4 videos (mix of short and long)', 'Motion graphics', 'Subtitles + licensed music', '3 formats per video', '2 revisions included', '10-day delivery'], highlighted: true, ctaLabel: 'Get a quote' },
+            { name: 'Brand film', price: "CHF 4'500", cadence: 'Full brand film', description: 'A 2 to 5-minute corporate film with shoot, interviews and full production.', features: ['Corporate film 2 to 5 min', 'Drone if needed', 'Interviews and behind the scenes', 'Licensed music', '4 formats delivered', 'Full usage rights'], ctaLabel: 'Talk about your project' },
           ],
-          note: 'All prices in Swiss francs, excluding VAT 8.1%. A 90-second brand film with a half-day shoot typically lands between CHF 3\'500 and CHF 8\'000 depending on scope.',
+          note: 'All prices in Swiss francs, excluding VAT 8.1%. A short clip or testimonial starts at CHF 800. A full institutional video (2 to 5 minutes, shoot and edit) sits between CHF 2\'000 and CHF 6\'000. Larger productions are quoted per project.',
         },
         testimonials: [
           { quote: 'DKDP wrote, shot and edited our brand film. The story was right, the craft was high, and we got every format for social out of one shoot. 2.7x more engagement than our old videos.', author: 'Marketing Director', role: 'Swiss watch brand, Geneva' },
@@ -81,7 +81,7 @@ export default function Page() {
           ],
         },
         faq: [
-          { question: 'How much does a brand film cost in Geneva?', answer: "A 90-second brand film with a half-day shoot and full post-production typically lands between CHF 3'500 and CHF 8'000. Short-format reels start at CHF 800. Larger productions with multi-day shoots, drone work or animation start around CHF 12'000. Every project is fixed-quote upfront." },
+          { question: 'How much does a video cost in Geneva?', answer: "A short clip or client testimonial (30 to 90 seconds) starts at CHF 800. A four-video content series is CHF 2'000. A full institutional brand film (2 to 5 minutes, shoot and edit) sits between CHF 2'000 and CHF 6'000, typically CHF 4'500. Larger productions with multi-day shoots or animation are quoted per project. Every project is fixed-quote upfront." },
           { question: 'Do you handle scripting and storyboarding too?', answer: 'Yes. Script, storyboard, shot list and casting are all in scope. You approve before we book a single camera.' },
           { question: 'Which formats do you deliver?', answer: 'Every aspect ratio your channels need: vertical (Reels, TikTok, Shorts), square (feed), horizontal (YouTube, web, in-store screens). One shoot, all formats, subtitled.' },
           { question: 'Can we edit our own videos after?', answer: 'You receive the final cut plus the source project files (Final Cut, Premiere or DaVinci Resolve) and raw footage. Your team can re-edit or repurpose anytime.' },

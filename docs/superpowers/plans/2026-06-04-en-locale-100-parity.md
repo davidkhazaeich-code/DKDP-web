@@ -10,6 +10,17 @@
 
 **Backward-compat rule (CRITICAL):** Every shared component modified MUST default `lang='fr'` and render byte-identical output when `lang` is omitted. FR pages never pass `lang`. Verify FR pages are unchanged via `npm run build` + spot diff before each commit.
 
+## PROGRESS LOG (update as you go)
+
+- [x] **Phase 0** — slugs.ts (cities/glossary/portfolio/blog/AI-geneva mapped), Header nav localized. Commit `c3b857d`.
+- [x] **Phase 1** — ALL 13 shared components lang-aware + TrustBadge + ContactForm. Commits `c3b857d`, `b7da5bc`. Typecheck clean.
+- [x] **Phase 2.1** — `/en` home: 1:1 with FR via shared components lang="en". Commit `4de7fce`.
+- [x] **Phase 2.3** — `/en/contact`: ContactSection + GoogleMapSection lang="en". Commit `4de7fce`.
+- [x] FAQ_ITEMS_EN added to data/faq.ts. Production build GREEN.
+- [ ] **Phase 2.2** — `/en/about` (NEXT)
+- [ ] **Phase 2.4** — `/en/sitemap`
+- [ ] **Phase 3** — glossary, **Phase 4** — portfolio, **Phase 5** — cities, **Phase 6** — AI-geneva, **Phase 7** — blog hub, **Phase 8** — verification.
+
 **Verification per phase:** `npm run build` must pass (all `/en/*` routes generated). Run from the dkdp dir. Commit with retry loop (git lock is intermittent in Nimbalyst):
 ```bash
 for i in 1 2 3 4 5 6; do rm -f .git/index.lock; if git add -A && git commit -m "MSG"; then break; fi; sleep 1; done

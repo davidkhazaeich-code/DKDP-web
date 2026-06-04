@@ -1,119 +1,233 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
-import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildBreadcrumbList, buildOrganization } from '@/lib/schema'
-import { buildServiceMetadata } from '@/app/en/_components/buildServiceMetadata'
+import { ARTICLES } from '@/lib/blog'
+import { localizedPath } from '@/i18n/slugs'
 
-export const metadata: Metadata = buildServiceMetadata({
-  title: 'Sitemap · DKDP Digital Agency Geneva',
+export const metadata: Metadata = {
+  title: 'Sitemap · DKDP Geneva',
   description:
-    'Complete sitemap of the English version of dkdp.ch. Browse every digital agency service, AI solution, corporate training, pricing, contact and legal page in one list.',
-  enPath: '/en/sitemap',
-  frPath: '/plan-du-site',
-})
+    'DKDP sitemap: find every page of our Geneva digital agency, services, training, AI, blog and resources.',
+  alternates: {
+    canonical: 'https://dkdp.ch/en/sitemap',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/plan-du-site',
+      en: 'https://dkdp.ch/en/sitemap',
+      'x-default': 'https://dkdp.ch/plan-du-site',
+    },
+  },
+}
 
-const SECTIONS: { title: string; links: { label: string; href: string }[] }[] = [
+const violet   = '#A78BFA'
+const violetBg = 'rgba(124,58,237,0.06)'
+const violetBd = 'rgba(124,58,237,0.16)'
+const orange   = '#FF8C00'
+const orangeBg = 'rgba(255,107,0,0.06)'
+const orangeBd = 'rgba(255,107,0,0.16)'
+const chrome   = '#D4D4D8'
+const chromeBg = 'rgba(212,212,216,0.04)'
+const chromeBd = 'rgba(212,212,216,0.12)'
+const green    = '#4ade80'
+const greenBg  = 'rgba(74,222,128,0.06)'
+const greenBd  = 'rgba(74,222,128,0.16)'
+
+const lp = (fr: string) => localizedPath(fr, 'en')
+
+interface SitemapGroup {
+  label: string
+  color: string
+  bg: string
+  border: string
+  links: { label: string; href: string }[]
+}
+
+const GROUPS: SitemapGroup[] = [
   {
-    title: 'Main',
+    label: 'Digital Services',
+    color: violet,
+    bg: violetBg,
+    border: violetBd,
     links: [
-      { label: 'Home', href: '/en' },
-      { label: 'About', href: '/en/about' },
-      { label: 'Pricing', href: '/en/pricing' },
-      { label: 'Contact', href: '/en/contact' },
+      { label: 'Digital agency: overview', href: lp('/agence-digitale') },
+      { label: 'Website creation', href: lp('/agence-digitale/creation-site-web') },
+      { label: 'Free site audit', href: lp('/agence-digitale/creation-site-web/audit-site') },
+      { label: 'SEO', href: lp('/agence-digitale/seo') },
+      { label: 'Free SEO audit', href: lp('/agence-digitale/seo/audit-seo') },
+      { label: 'Google Ads', href: lp('/agence-digitale/publicite-sea') },
+      { label: 'Social media', href: lp('/agence-digitale/reseaux-sociaux') },
+      { label: 'Video production', href: lp('/agence-digitale/creation-video') },
+      { label: 'Marketing consulting', href: lp('/agence-digitale/consulting-marketing') },
+      { label: 'GDPR & Cookies', href: lp('/agence-digitale/rgpd-cookies') },
     ],
   },
   {
-    title: 'Digital agency',
+    label: 'Artificial Intelligence',
+    color: chrome,
+    bg: chromeBg,
+    border: chromeBd,
     links: [
-      { label: 'Hub', href: '/en/digital-agency' },
-      { label: 'Web design', href: '/en/digital-agency/web-design' },
-      { label: 'Website redesign', href: '/en/digital-agency/website-redesign' },
-      { label: 'App development', href: '/en/digital-agency/app-development' },
-      { label: 'SEO', href: '/en/digital-agency/seo' },
-      { label: 'Google Ads', href: '/en/digital-agency/google-ads' },
-      { label: 'Social media', href: '/en/digital-agency/social-media' },
-      { label: 'Video production', href: '/en/digital-agency/video-production' },
-      { label: 'Marketing consulting', href: '/en/digital-agency/marketing-consulting' },
-      { label: 'GDPR & cookies', href: '/en/digital-agency/gdpr-cookies' },
-      { label: 'Free SEO audit', href: '/en/digital-agency/seo/seo-audit' },
-      { label: 'Free site audit', href: '/en/digital-agency/web-design/site-audit' },
-      { label: 'Free quote', href: '/en/digital-agency/web-design/quote' },
+      { label: 'Artificial intelligence: overview', href: lp('/intelligence-artificielle') },
+      { label: 'AI audit & consulting', href: lp('/intelligence-artificielle/audit-conseil') },
+      { label: 'Custom AI agents', href: lp('/intelligence-artificielle/agents-ia') },
+      { label: 'Business automation', href: lp('/intelligence-artificielle/automatisation') },
+      { label: 'AI implementation', href: lp('/intelligence-artificielle/mise-en-place') },
     ],
   },
   {
-    title: 'Artificial intelligence',
+    label: 'Corporate Training',
+    color: orange,
+    bg: orangeBg,
+    border: orangeBd,
     links: [
-      { label: 'Hub', href: '/en/artificial-intelligence' },
-      { label: 'Custom AI agents', href: '/en/artificial-intelligence/ai-agents' },
-      { label: 'Business automation', href: '/en/artificial-intelligence/automation' },
-      { label: 'AI audit & consulting', href: '/en/artificial-intelligence/audit-consulting' },
-      { label: 'AI implementation', href: '/en/artificial-intelligence/implementation' },
-      { label: 'AI chatbot', href: '/en/artificial-intelligence/ai-chatbot' },
+      { label: 'Corporate training: overview', href: lp('/formation-entreprise') },
+      { label: 'AI training', href: lp('/formation-entreprise/ia') },
+      { label: 'Cybersecurity', href: lp('/formation-entreprise/cybersecurite') },
+      { label: 'Office & Excel', href: lp('/formation-entreprise/bureautique') },
+      { label: 'Social media', href: lp('/formation-entreprise/reseaux-sociaux') },
+      { label: 'Canva training', href: lp('/formation-entreprise/canva') },
+      { label: 'Web design Figma', href: lp('/formation-entreprise/web-design') },
+      { label: 'Video editing', href: lp('/formation-entreprise/montage-video') },
+      { label: 'IT skills', href: lp('/formation-entreprise/informatique') },
+      { label: 'Individual training', href: lp('/formation-particuliers') },
     ],
   },
   {
-    title: 'Corporate training',
+    label: 'About & resources',
+    color: green,
+    bg: greenBg,
+    border: greenBd,
     links: [
-      { label: 'Hub', href: '/en/corporate-training' },
-      { label: 'AI training', href: '/en/corporate-training/ai' },
-      { label: 'Claude training', href: '/en/corporate-training/claude-ai' },
-      { label: 'Office tools', href: '/en/corporate-training/office-tools' },
-      { label: 'Social media', href: '/en/corporate-training/social-media' },
-      { label: 'Cybersecurity', href: '/en/corporate-training/cybersecurity' },
-      { label: 'Canva', href: '/en/corporate-training/canva' },
-      { label: 'Web design with Figma', href: '/en/corporate-training/web-design' },
-      { label: 'IT skills', href: '/en/corporate-training/it-skills' },
-      { label: 'Video editing', href: '/en/corporate-training/video-editing' },
-      { label: 'Individual training', href: '/en/individual-training' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { label: 'Legal notice', href: '/en/legal-notice' },
-      { label: 'Privacy policy', href: '/en/privacy-policy' },
-      { label: 'Terms of service', href: '/en/terms-of-service' },
-      { label: 'GDPR & cookies', href: '/en/digital-agency/gdpr-cookies' },
+      { label: 'About the agency', href: lp('/a-propos') },
+      { label: 'Pricing', href: lp('/tarifs') },
+      { label: 'Blog', href: lp('/blog') },
+      { label: 'Glossary', href: lp('/glossaire') },
+      { label: 'Contact', href: lp('/contact') },
     ],
   },
 ]
 
-export default function Page() {
-  return (
-    <main className="pt-28 sm:pt-36 pb-20 sm:pb-24">
-      <SchemaOrg schema={buildOrganization()} />
-      <SchemaOrg
-        schema={buildBreadcrumbList([
-          { name: 'Home', url: '/en' },
-          { name: 'Sitemap', url: '/en/sitemap' },
-        ])}
-      />
-      <div className="max-w-[1100px] mx-auto px-6">
-        <GradTag>Sitemap</GradTag>
-        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mt-3 mb-5">Sitemap</h1>
-        <p className="text-text-secondary text-base sm:text-lg leading-relaxed mb-10 max-w-[700px]">
-          Every English page available on dkdp.ch. The French version is at{' '}
-          <Link href="/plan-du-site" className="underline hover:no-underline">/plan-du-site</Link>.
-        </p>
+const LEGAL_LINKS = [
+  { label: 'Legal notice', href: lp('/mentions-legales') },
+  { label: 'Privacy policy', href: lp('/politique-de-confidentialite') },
+  { label: 'GDPR & Cookies', href: lp('/agence-digitale/rgpd-cookies') },
+  { label: 'Terms of service', href: lp('/conditions-generales-de-vente') },
+  { label: 'Sitemap', href: lp('/plan-du-site') },
+]
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SECTIONS.map((section) => (
-            <section key={section.title}>
-              <h2 className="text-xs font-bold uppercase tracking-widest text-text-muted mb-3">{section.title}</h2>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="text-text-secondary hover:text-text text-sm">
-                      {link.label}
+export default function SitemapPageEN() {
+  return (
+    <main className="pt-14">
+      <section className="py-24">
+        <div className="max-w-[1000px] mx-auto px-6">
+
+          <SectionReveal>
+            <GradTag className="mb-6">Navigation</GradTag>
+            <h1 className="text-4xl font-bold tracking-[-0.02em] mb-4">Sitemap</h1>
+            <p className="text-text-secondary leading-relaxed mb-16 max-w-xl">
+              Find all the pages of the DKDP site organised by section.
+            </p>
+          </SectionReveal>
+
+          {/* Main groups */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            {GROUPS.map((group, i) => (
+              <SectionReveal key={group.label} delay={i * 0.06}>
+                <div
+                  className="rounded-[16px] border p-7 h-full"
+                  style={{ background: group.bg, borderColor: group.border }}
+                >
+                  <h2
+                    className="text-sm font-bold uppercase tracking-widest mb-5"
+                    style={{ color: group.color }}
+                  >
+                    {group.label}
+                  </h2>
+                  <ul className="space-y-2.5">
+                    {group.links.map(({ label, href }) => (
+                      <li key={href}>
+                        <Link
+                          href={href}
+                          className="flex items-center gap-2 text-text-secondary hover:[color:var(--text)] text-sm transition-colors duration-150 group"
+                        >
+                          <span
+                            className="w-1 h-1 rounded-full shrink-0 opacity-60 group-hover:opacity-100 transition-opacity"
+                            style={{ background: group.color }}
+                          />
+                          {label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+
+          {/* Blog articles (content remains in French) */}
+          <SectionReveal delay={0.28}>
+            <div
+              className="rounded-[16px] border p-7 mb-6"
+              style={{ background: violetBg, borderColor: violetBd }}
+            >
+              <h2
+                className="text-sm font-bold uppercase tracking-widest mb-5"
+                style={{ color: violet }}
+              >
+                Blog articles
+              </h2>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
+                {ARTICLES.map((article) => (
+                  <li key={article.slug}>
+                    <Link
+                      href={`/blog/${article.slug}`}
+                      className="flex items-start gap-2 text-text-secondary hover:[color:var(--text)] text-sm transition-colors duration-150 group"
+                    >
+                      <span
+                        className="mt-1.5 w-1 h-1 rounded-full shrink-0 opacity-60 group-hover:opacity-100 transition-opacity"
+                        style={{ background: violet }}
+                      />
+                      {article.title}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </section>
-          ))}
+            </div>
+          </SectionReveal>
+
+          {/* Legal */}
+          <SectionReveal delay={0.34}>
+            <div
+              className="rounded-[16px] border p-7"
+              style={{ background: chromeBg, borderColor: chromeBd }}
+            >
+              <h2
+                className="text-sm font-bold uppercase tracking-widest mb-5"
+                style={{ color: chrome }}
+              >
+                Legal pages
+              </h2>
+              <ul className="space-y-2.5">
+                {LEGAL_LINKS.map(({ label, href }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className="flex items-center gap-2 text-text-secondary hover:[color:var(--text)] text-sm transition-colors duration-150 group"
+                    >
+                      <span
+                        className="w-1 h-1 rounded-full shrink-0 opacity-60 group-hover:opacity-100 transition-opacity"
+                        style={{ background: chrome }}
+                      />
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </SectionReveal>
+
         </div>
-      </div>
+      </section>
     </main>
   )
 }

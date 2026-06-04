@@ -26,6 +26,9 @@
 - [x] **Phase 7** — `/en/blog` hub (ArticleCard + NewsletterForm lang-aware, articles FR). Commit `e30b6ef`.
 - [x] **Phase 8** — reciprocal hreflang on FR pages, sitemap EN routes, em-dash quality fix. Commit `07cba77`.
 
+## ✅ SERVICE PAGES UPGRADED TO 1:1 (2026-06-04, later same day)
+The 26 EN service pages that previously used the generic `ServicePage` component were rewritten as **bespoke 1:1 mirrors** of their FR counterparts (parallel subagents, ~1 page each, no shared-component races). Verified live: section + heading counts match FR exactly (seo 16/16, google-ads 13/13, ai-chatbot 13/13, claude-ai 19/19, etc.). Shared interactive widgets also made lang-aware (solo): AuditHeroForm, FormationTrainer, PriceChart, and the full multi-step Estimator wizard (Context + 8 steps + ui, lib/estimation untouched, FR byte-identical). Commits `37781d9`→`5abbb75`, pushed + deployed. Tests still 53 failed/142 passed = baseline (zero regression). `ServicePage.tsx` now unused (kept, harmless).
+
 ## ✅ COMPLETE (2026-06-04)
 All phases done. EN locale at structural parity with FR. Full build green (44 /en routes). Test suite: 53 failed/142 passed = IDENTICAL to pre-session baseline c4e3d99 (zero regression; failures are pre-existing ThemeProvider/stale-copy test debt, not i18n). Commits c3b857d → 07cba77. NOT YET PUSHED to main (awaiting David's go for Vercel production deploy). rgpd-cookies root left FR-only (noindex utility, no EN inbound link; EN legal section uses /en/digital-agency/gdpr-cookies). Blog articles remain FR (David decision); EN hub links through to FR articles.
 

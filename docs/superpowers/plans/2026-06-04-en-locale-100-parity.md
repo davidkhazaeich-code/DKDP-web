@@ -22,7 +22,12 @@
 - [x] **Phase 3** — `/en/glossary` (53 terms, lang-aware components). Commit `1df3d42`. Build green.
 - [x] **Phase 4** — `/en/portfolio` + detail (11 components lang-aware + en.ts overlay). Commit `1734148`.
 - [x] **Phase 5** — `/en/digital-agency/[city]` (8 cities, cities-en.ts, FormationPricing lang-aware). Commit `37ffb7f`.
-- [ ] **Phase 6** — AI-geneva (NEXT), **Phase 7** — blog hub, **Phase 8** — verification.
+- [x] **Phase 6** — `/en/artificial-intelligence/geneva` (840l pillar, 1:1). Commit `0d51984`.
+- [x] **Phase 7** — `/en/blog` hub (ArticleCard + NewsletterForm lang-aware, articles FR). Commit `e30b6ef`.
+- [x] **Phase 8** — reciprocal hreflang on FR pages, sitemap EN routes, em-dash quality fix. Commit `07cba77`.
+
+## ✅ COMPLETE (2026-06-04)
+All phases done. EN locale at structural parity with FR. Full build green (44 /en routes). Test suite: 53 failed/142 passed = IDENTICAL to pre-session baseline c4e3d99 (zero regression; failures are pre-existing ThemeProvider/stale-copy test debt, not i18n). Commits c3b857d → 07cba77. NOT YET PUSHED to main (awaiting David's go for Vercel production deploy). rgpd-cookies root left FR-only (noindex utility, no EN inbound link; EN legal section uses /en/digital-agency/gdpr-cookies). Blog articles remain FR (David decision); EN hub links through to FR articles.
 
 ### How to resume (for next session)
 Pattern is established: add `lang?: Locale` (default 'fr') to shared components, EN overlay co-located, reuse from `/en/*` pages with `lang="en"`. Build with `npm run build` (must say "Compiled successfully"), commit with the retry loop. localizedPath(frPath,'en') for all EN internal links. Schema builders take `lang:'en'`. Remaining FR sources to mirror: `src/app/realisations/*` + `src/components/realisations/*` (Phase 4), `src/lib/cities.ts` + `src/app/agence-digitale/[ville]/page.tsx` (Phase 5), `src/app/intelligence-artificielle/geneve/page.tsx` (Phase 6), `src/app/blog/page.tsx` + `ArticleCard` (Phase 7).

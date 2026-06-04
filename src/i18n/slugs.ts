@@ -10,9 +10,9 @@
  * - Garder la meme arborescence : ce qui est sous /agence-digitale en FR
  *   reste sous /digital-agency en EN.
  *
- * Les pages exclues de la traduction (blog, glossaire, villes, realisations)
- * ne sont PAS listees ici. Le switcher de langue cache simplement le bouton
- * EN quand la page courante n'a pas d'equivalent.
+ * Depuis 2026-06-04, le site EN vise la parite 100% : blog (hub), glossaire,
+ * villes et realisations sont desormais traduits et listes ici. Les articles
+ * de blog individuels restent en FR pour l'instant (hub EN seulement).
  */
 
 import type { Locale } from './config'
@@ -72,6 +72,24 @@ export const FR_TO_EN: Record<string, string> = {
   '/mentions-legales': '/legal-notice',
   '/politique-de-confidentialite': '/privacy-policy',
   '/conditions-generales-de-vente': '/terms-of-service',
+
+  // Villes (agence digitale) - SEO local
+  '/agence-digitale/geneve': '/digital-agency/geneva',
+  '/agence-digitale/lausanne': '/digital-agency/lausanne',
+  '/agence-digitale/nyon': '/digital-agency/nyon',
+  '/agence-digitale/fribourg': '/digital-agency/fribourg',
+  '/agence-digitale/sion': '/digital-agency/sion',
+  '/agence-digitale/neuchatel': '/digital-agency/neuchatel',
+  '/agence-digitale/morges': '/digital-agency/morges',
+  '/agence-digitale/montreux': '/digital-agency/montreux',
+
+  // IA Geneve (page pilier locale)
+  '/intelligence-artificielle/geneve': '/artificial-intelligence/geneva',
+
+  // Hubs de contenu
+  '/glossaire': '/glossary',
+  '/realisations': '/portfolio',
+  '/blog': '/blog',
 }
 
 /** Reverse mapping EN -> FR, derive automatiquement. */

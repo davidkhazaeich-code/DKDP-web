@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import type { Locale } from '@/i18n/config'
 
 const LOGOS = [
   { name: 'SwissLife',               file: 'swisslife.webp',                width: 120, height: 40, small: true },
@@ -23,14 +24,16 @@ const LOGOS = [
 
 interface LogoBannerProps {
   label?: string
+  lang?: Locale
 }
 
-export function LogoBanner({ label = 'Ils nous font confiance' }: LogoBannerProps) {
+export function LogoBanner({ label, lang = 'fr' }: LogoBannerProps) {
+  const resolvedLabel = label ?? (lang === 'en' ? 'Trusted by' : 'Ils nous font confiance')
   return (
     <section className="py-10 sm:py-14 md:py-16 border-y border-border">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-6 mb-6 sm:mb-8 text-center">
         <p className="text-text-muted text-xs uppercase tracking-[0.12em] font-semibold">
-          {label}
+          {resolvedLabel}
         </p>
       </div>
 

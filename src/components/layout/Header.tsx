@@ -66,9 +66,8 @@ function buildNavData(lang: Locale) {
     { title: t.iaMain[4].title, description: t.iaMain[4].description, href: lp('/intelligence-artificielle/chatbot-ia'), icon: MessageCircle },
   ]
 
-  // /intelligence-artificielle/geneve n'est pas traduit, le secondary EN pointe vers le hub IA.
   const IA_SECONDARY: MegaSecondary[] = [
-    { title: t.iaSecondary[0].title, href: lang === 'en' ? lp('/intelligence-artificielle') : '/intelligence-artificielle/geneve', icon: Globe },
+    { title: t.iaSecondary[0].title, href: lp('/intelligence-artificielle/geneve'), icon: Globe },
     { title: t.iaSecondary[1].title, href: lp('/formation-entreprise/ia'), icon: GraduationCap },
     { title: t.iaSecondary[2].title, href: lp('/formation-entreprise/claude-ai'), icon: ClaudeIcon },
     { title: t.iaSecondary[3].title, href: lp('/tarifs'), icon: FileText },
@@ -98,9 +97,8 @@ function buildNavData(lang: Locale) {
   const APROPOS_MAIN: MegaItem[] = [
     { title: t.aproposMain[0].title, description: t.aproposMain[0].description, href: lp('/a-propos'), icon: Users2 },
     { title: t.aproposMain[1].title, description: t.aproposMain[1].description, href: lp('/tarifs'), icon: FileText },
-    // Blog et Glossaire ne sont pas traduits, on garde les paths FR.
-    { title: t.aproposMain[2].title, description: t.aproposMain[2].description, href: '/blog', icon: BookOpen },
-    { title: t.aproposMain[3].title, description: t.aproposMain[3].description, href: '/glossaire', icon: Search },
+    { title: t.aproposMain[2].title, description: t.aproposMain[2].description, href: lp('/blog'), icon: BookOpen },
+    { title: t.aproposMain[3].title, description: t.aproposMain[3].description, href: lp('/glossaire'), icon: Search },
   ]
 
   const APROPOS_SECONDARY: MegaSecondary[] = [

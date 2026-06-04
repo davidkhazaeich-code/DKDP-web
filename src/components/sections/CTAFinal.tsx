@@ -1,11 +1,29 @@
-import Link from 'next/link'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { Watermark } from '@/components/ui/Watermark'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
+import type { Locale } from '@/i18n/config'
 
-export function CTAFinal({ accentRgb }: { accentRgb?: string } = {}) {
+const CONTENT = {
+  fr: {
+    heading: 'Parlons de',
+    headingAccent: 'votre projet',
+    subtitle: "15 minutes, c'est gratuit, et on vous dit honnêtement si on peut vous aider - et comment.",
+    cta: 'Réservez votre appel gratuit',
+    note: 'Sans engagement · Réponse sous 24h · Eaux-Vives, Genève ou en visio',
+  },
+  en: {
+    heading: "Let's talk about",
+    headingAccent: 'your project',
+    subtitle: '15 minutes, free of charge, and we tell you honestly whether we can help, and how.',
+    cta: 'Book your free call',
+    note: 'No commitment · Reply within 24h · Eaux-Vives, Geneva or by video call',
+  },
+} as const
+
+export function CTAFinal({ accentRgb, lang = 'fr' }: { accentRgb?: string; lang?: Locale } = {}) {
+  const t = CONTENT[lang]
   return (
     <HeroBg accentRgb={accentRgb}>
       <section aria-labelledby="cta-heading" className="py-16 md:py-[130px] lg:py-[200px] relative">
@@ -16,17 +34,17 @@ export function CTAFinal({ accentRgb }: { accentRgb?: string } = {}) {
         <div className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 text-center">
           <SectionReveal>
             <h2 id="cta-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 sm:mb-6">
-              Parlons de{' '}
-              <GradText as="span">votre projet</GradText>
+              {t.heading}{' '}
+              <GradText as="span">{t.headingAccent}</GradText>
             </h2>
 
             <p className="text-text-secondary text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
-              15 minutes, c&apos;est gratuit, et on vous dit honnêtement si on peut vous aider - et comment.
+              {t.subtitle}
             </p>
 
             <div className="flex justify-center mb-8 sm:mb-10">
               <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
-                Réservez votre appel gratuit<span aria-hidden="true"> →</span>
+                {t.cta}<span aria-hidden="true"> →</span>
               </LiquidMetalButton>
             </div>
 
@@ -53,7 +71,7 @@ export function CTAFinal({ accentRgb }: { accentRgb?: string } = {}) {
             </div>
 
             <p className="text-text-muted text-sm">
-              Sans engagement · Réponse sous 24h · Eaux-Vives, Genève ou en visio
+              {t.note}
             </p>
           </SectionReveal>
         </div>

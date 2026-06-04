@@ -4,13 +4,37 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
+import type { Locale } from '@/i18n/config'
 
-const STATS = [
-  { end: 10, suffix: '+', label: "ans d'expérience", description: 'Dans le digital suisse romand' },
-  { end: 700, suffix: '+', label: 'clients accompagnés', description: 'Entreprises et PME suisses' },
-  { end: 500, suffix: '+', label: 'professionnels formés', description: 'En Suisse romande' },
-  { end: 4.9, suffix: '/5', label: 'note Google', description: 'Vérifiée et certifiée' },
+const STAT_NUMBERS = [
+  { end: 10, suffix: '+' },
+  { end: 700, suffix: '+' },
+  { end: 500, suffix: '+' },
+  { end: 4.9, suffix: '/5' },
 ]
+
+const CONTENT = {
+  fr: {
+    tag: 'Ils nous ont fait confiance',
+    heading: '700+ clients et PME nous font confiance.',
+    stats: [
+      { label: "ans d'expérience", description: 'Dans le digital suisse romand' },
+      { label: 'clients accompagnés', description: 'Entreprises et PME suisses' },
+      { label: 'professionnels formés', description: 'En Suisse romande' },
+      { label: 'note Google', description: 'Vérifiée et certifiée' },
+    ],
+  },
+  en: {
+    tag: 'They trusted us',
+    heading: '700+ clients and SMEs trust us.',
+    stats: [
+      { label: 'years of experience', description: 'In Swiss digital' },
+      { label: 'clients supported', description: 'Swiss companies and SMEs' },
+      { label: 'professionals trained', description: 'Across French-speaking Switzerland' },
+      { label: 'Google rating', description: 'Verified and certified' },
+    ],
+  },
+} as const
 
 const LOGO_GRID = [
   { name: 'SwissLife', file: 'swisslife.webp', width: 120, small: true },
@@ -65,26 +89,27 @@ function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {
   )
 }
 
-export function ProofStack() {
+export function ProofStack({ lang = 'fr' }: { lang?: Locale } = {}) {
+  const t = CONTENT[lang]
   return (
     <section aria-labelledby="proof-heading" className="py-14 sm:py-20 md:py-24">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <SectionReveal>
           <div className="text-center mb-10 sm:mb-16">
-            <GradTag className="mb-4">Ils nous ont fait confiance</GradTag>
+            <GradTag className="mb-4">{t.tag}</GradTag>
             <h2 id="proof-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-              700+ clients et PME nous font confiance.
+              {t.heading}
             </h2>
           </div>
         </SectionReveal>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          {STATS.map((stat) => (
-            <SectionReveal key={stat.label}>
+          {STAT_NUMBERS.map((stat, i) => (
+            <SectionReveal key={t.stats[i].label}>
               <div className="text-center">
                 <AnimatedCounter end={stat.end} suffix={stat.suffix} />
-                <p className="text-text font-semibold mt-2 text-sm">{stat.label}</p>
-                <p className="text-text-muted text-xs mt-1">{stat.description}</p>
+                <p className="text-text font-semibold mt-2 text-sm">{t.stats[i].label}</p>
+                <p className="text-text-muted text-xs mt-1">{t.stats[i].description}</p>
               </div>
             </SectionReveal>
           ))}

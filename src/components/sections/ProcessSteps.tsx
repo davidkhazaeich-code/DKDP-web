@@ -1,5 +1,6 @@
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
+import type { Locale } from '@/i18n/config'
 
 // Interpolated colors: violet #7C3AED → orange #FF6B00 across 5 steps
 // Step 0→4, t = i/4
@@ -85,51 +86,54 @@ function IconTrendUp({ color }: { color: string }) {
   )
 }
 
-const STEPS = [
-  {
-    number: '01',
-    Icon: IconChat,
-    title: 'Premier échange',
-    description: '15 minutes gratuites pour comprendre votre situation. On vous dit honnêtement si on peut vous aider et comment.',
-  },
-  {
-    number: '02',
-    Icon: IconSearch,
-    title: 'Diagnostic',
-    description: 'Analyse de votre présence digitale, de vos concurrents, de vos objectifs. Un diagnostic complet, sans langue de bois.',
-  },
-  {
-    number: '03',
-    Icon: IconClipboard,
-    title: 'Proposition',
-    description: "Un plan d'action concret avec les livrables, les délais et les prix. Tout est fixé à l'avance, par écrit.",
-  },
-  {
-    number: '04',
-    Icon: IconLightning,
-    title: 'Réalisation',
-    description: "On exécute. Points hebdomadaires, accès en temps réel à l'avancement. Vous restez maître du projet.",
-  },
-  {
-    number: '05',
-    Icon: IconTrendUp,
-    title: 'Résultats & Suivi',
-    description: "Livraison, formation à l'outil si nécessaire, et suivi des performances. On reste là même après.",
-  },
+const STEP_META = [
+  { number: '01', Icon: IconChat },
+  { number: '02', Icon: IconSearch },
+  { number: '03', Icon: IconClipboard },
+  { number: '04', Icon: IconLightning },
+  { number: '05', Icon: IconTrendUp },
 ] as const
 
-export function ProcessSteps() {
+const CONTENT = {
+  fr: {
+    tag: 'Notre méthode',
+    heading: 'Comment ça marché',
+    subtitle: '5 étapes claires, un processus éprouvé sur 700+ projets.',
+    steps: [
+      { title: 'Premier échange', description: '15 minutes gratuites pour comprendre votre situation. On vous dit honnêtement si on peut vous aider et comment.' },
+      { title: 'Diagnostic', description: 'Analyse de votre présence digitale, de vos concurrents, de vos objectifs. Un diagnostic complet, sans langue de bois.' },
+      { title: 'Proposition', description: "Un plan d'action concret avec les livrables, les délais et les prix. Tout est fixé à l'avance, par écrit." },
+      { title: 'Réalisation', description: "On exécute. Points hebdomadaires, accès en temps réel à l'avancement. Vous restez maître du projet." },
+      { title: 'Résultats & Suivi', description: "Livraison, formation à l'outil si nécessaire, et suivi des performances. On reste là même après." },
+    ],
+  },
+  en: {
+    tag: 'Our method',
+    heading: 'How it works',
+    subtitle: '5 clear steps, a process proven across 700+ projects.',
+    steps: [
+      { title: 'First conversation', description: '15 free minutes to understand your situation. We tell you honestly whether we can help, and how.' },
+      { title: 'Diagnosis', description: 'Analysis of your digital presence, your competitors and your goals. A complete diagnosis, no fluff.' },
+      { title: 'Proposal', description: 'A concrete action plan with deliverables, timelines and prices. Everything fixed upfront, in writing.' },
+      { title: 'Delivery', description: 'We execute. Weekly check-ins, real-time access to progress. You stay in control of the project.' },
+      { title: 'Results & follow-up', description: 'Delivery, tool training if needed, and performance tracking. We stay around even afterwards.' },
+    ],
+  },
+} as const
+
+export function ProcessSteps({ lang = 'fr' }: { lang?: Locale } = {}) {
+  const t = CONTENT[lang]
   return (
     <section aria-labelledby="process-heading" className="py-14 sm:py-24 md:py-32">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <SectionReveal>
           <div className="text-center mb-12 sm:mb-20">
-            <GradTag className="mb-4 sm:mb-6">Notre méthode</GradTag>
+            <GradTag className="mb-4 sm:mb-6">{t.tag}</GradTag>
             <h2 id="process-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-4 sm:mb-5">
-              Comment ça marché
+              {t.heading}
             </h2>
             <p className="text-text-secondary text-base sm:text-lg md:text-xl max-w-xl mx-auto">
-              5 étapes claires, un processus éprouvé sur 700+ projets.
+              {t.subtitle}
             </p>
           </div>
         </SectionReveal>
@@ -143,7 +147,7 @@ export function ProcessSteps() {
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 md:gap-6">
-            {STEPS.map((step, i) => {
+            {STEP_META.map((step, i) => {
               const color = STEP_COLORS[i]
               const chipText = CHIP_TEXT_VARS[i]
               return (
@@ -163,8 +167,8 @@ export function ProcessSteps() {
                         {step.number}
                       </span>
                     </div>
-                    <h3 className="text-text font-semibold text-base mb-3">{step.title}</h3>
-                    <p className="text-text-muted text-sm leading-relaxed">{step.description}</p>
+                    <h3 className="text-text font-semibold text-base mb-3">{t.steps[i].title}</h3>
+                    <p className="text-text-muted text-sm leading-relaxed">{t.steps[i].description}</p>
                   </div>
                 </SectionReveal>
               )

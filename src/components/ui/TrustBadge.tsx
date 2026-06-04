@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import type { Locale } from '@/i18n/config'
 
 const identityMatrix =
   '1, 0, 0, 0, ' +
@@ -36,6 +37,7 @@ type ME = { clientX: number; clientY: number }
 interface TrustBadgeProps {
   variant?: 'light' | 'dark'
   scale?: number
+  lang?: Locale
 }
 
 function useBadgeInteraction() {
@@ -134,8 +136,10 @@ function useBadgeInteraction() {
   return { ref, firstOverlayPos, matrix, disableInOut, disableOverlay, handleEnter, handleMove, handleLeave }
 }
 
-export function TrustBadge({ variant = 'light', scale = 1 }: TrustBadgeProps) {
+export function TrustBadge({ variant = 'light', scale = 1, lang = 'fr' }: TrustBadgeProps) {
   const id = variant // 'light' | 'dark' - used to namespace SVG filter/gradient IDs
+  const topLabel = lang === 'en' ? 'DIGITAL AGENCY · GENEVA' : 'AGENCE DIGITALE · GENÈVE'
+  const mainText = lang === 'en' ? '100% Swiss service' : 'Service 100% Suisse'
   const { ref, firstOverlayPos, matrix, disableInOut, disableOverlay, handleEnter, handleMove, handleLeave } = useBadgeInteraction()
 
   const keyframes = OVERLAY_COLORS.map((_, i) => `
@@ -233,12 +237,12 @@ export function TrustBadge({ variant = 'light', scale = 1 }: TrustBadgeProps) {
 
           {/* Top label */}
           <text fontFamily={FONT} fontSize="8" fontWeight="700" fill={labelColor} x="62" y="22" letterSpacing="0.10em">
-            AGENCE DIGITALE · GENÈVE
+            {topLabel}
           </text>
 
           {/* Main text */}
           <text fontFamily={FONT} fontSize="14.5" fontWeight="700" fill={mainColor} x="62" y="41" letterSpacing="-0.01em">
-            Service 100% Suisse
+            {mainText}
           </text>
 
           {/* Holographic overlay */}

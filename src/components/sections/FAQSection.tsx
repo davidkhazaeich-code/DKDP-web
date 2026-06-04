@@ -6,6 +6,7 @@ import { Plus, Minus } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 import { FAQ_ITEMS } from '@/data/faq'
+import type { Locale } from '@/i18n/config'
 
 type FAQItemType = { question: string; answer: string }
 
@@ -56,16 +57,18 @@ function FAQItem({ item, index }: { item: FAQItemType; index: number }) {
 export function FAQSection({
   items = FAQ_ITEMS,
   title = "Ce qu'on nous demande souvent",
+  lang = 'fr',
 }: {
   items?: FAQItemType[]
   title?: string
+  lang?: Locale
 }) {
   return (
     <section aria-labelledby="faq-heading" className="py-14 sm:py-20 md:py-24">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <SectionReveal>
           <div className="text-center mb-10 sm:mb-16">
-            <GradTag className="mb-4 sm:mb-6">Questions fréquentes</GradTag>
+            <GradTag className="mb-4 sm:mb-6">{lang === 'en' ? 'FAQ' : 'Questions fréquentes'}</GradTag>
             <h2 id="faq-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em]">
               {title}
             </h2>

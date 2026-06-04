@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { MapPin, Navigation, Clock, Phone } from 'lucide-react'
+import type { Locale } from '@/i18n/config'
 
 const LAT = 46.2017
 const LNG = 6.1630
@@ -12,8 +13,40 @@ const EMBED_SRC = MAPS_API_KEY
   ? `https://www.google.com/maps/embed/v1/place?key=${MAPS_API_KEY}&q=DKDP,36+Rue+du+31+Décembre,1207+Genève&zoom=16&maptype=roadmap`
   : `https://www.google.com/maps?q=${LAT},${LNG}&z=16&output=embed`
 
-export function GoogleMapSection() {
+const INFO_META = [
+  { Icon: MapPin, href: undefined as string | undefined },
+  { Icon: Clock, href: undefined as string | undefined },
+  { Icon: Phone, href: 'tel:+41799407969' as string | undefined },
+]
+
+const CONTENT = {
+  fr: {
+    heading: 'Nous trouver',
+    description: 'Au cœur du quartier des Eaux-Vives, à deux pas du lac Léman.',
+    directions: 'Itinéraire Google Maps',
+    loading: 'Chargement de la carte...',
+    items: [
+      { title: '36 Rue du 31 Décembre', sub: '1207 Genève, Suisse' },
+      { title: 'Lun - Ven, 09:00 - 18:00', sub: 'Sur rendez-vous le samedi' },
+      { title: '+41 79 940 79 69', sub: 'Appel ou WhatsApp' },
+    ],
+  },
+  en: {
+    heading: 'Find us',
+    description: 'In the heart of the Eaux-Vives district, a stone throw from Lake Geneva.',
+    directions: 'Google Maps directions',
+    loading: 'Loading map...',
+    items: [
+      { title: '36 Rue du 31 Décembre', sub: '1207 Geneva, Switzerland' },
+      { title: 'Mon - Fri, 09:00 - 18:00', sub: 'Saturday by appointment' },
+      { title: '+41 79 940 79 69', sub: 'Call or WhatsApp' },
+    ],
+  },
+} as const
+
+export function GoogleMapSection({ lang = 'fr' }: { lang?: Locale } = {}) {
   const [iframeLoaded, setIframeLoaded] = useState(false)
+  const t = CONTENT[lang]
 
   return (
     <section className="relative border-t border-border overflow-hidden">
@@ -39,19 +72,17 @@ export function GoogleMapSection() {
                 >
                   <MapPin size={14} className="text-violet-light" />
                 </div>
-                <h2 className="text-lg sm:text-xl font-bold text-text">Nous trouver</h2>
+                <h2 className="text-lg sm:text-xl font-bold text-text">{t.heading}</h2>
               </div>
               <p className="text-text-secondary text-sm leading-relaxed">
-                Au cœur du quartier des Eaux-Vives, à deux pas du lac Léman.
+                {t.description}
               </p>
             </div>
 
             <div className="space-y-0">
-              {([
-                { Icon: MapPin, title: '36 Rue du 31 Décembre', sub: '1207 Genève, Suisse' },
-                { Icon: Clock, title: 'Lun - Ven, 09:00 - 18:00', sub: 'Sur rendez-vous le samedi' },
-                { Icon: Phone, title: '+41 79 940 79 69', sub: 'Appel ou WhatsApp', href: 'tel:+41799407969' },
-              ] as const).map(({ Icon, title, sub, ...rest }) => (
+              {INFO_META.map(({ Icon, href }, i) => {
+                const { title, sub } = t.items[i]
+                return (
                 <div key={title} className="flex items-center gap-3 py-3 border-b border-border last:border-0">
                   <div
                     className="flex h-8 w-8 items-center justify-center rounded-[8px] flex-shrink-0"
@@ -60,15 +91,16 @@ export function GoogleMapSection() {
                     <Icon size={14} className="text-violet-light" />
                   </div>
                   <div className="min-w-0">
-                    {'href' in rest && rest.href ? (
-                      <a href={rest.href} className="text-text text-sm font-medium hover:text-violet-light transition-colors">{title}</a>
+                    {href ? (
+                      <a href={href} className="text-text text-sm font-medium hover:text-violet-light transition-colors">{title}</a>
                     ) : (
                       <p className="text-text text-sm font-medium">{title}</p>
                     )}
                     <p className="text-text-muted text-[11px]">{sub}</p>
                   </div>
                 </div>
-              ))}
+                )
+              })}
             </div>
 
             <a
@@ -83,7 +115,7 @@ export function GoogleMapSection() {
               }}
             >
               <Navigation size={15} />
-              Itinéraire Google Maps
+              {t.directions}
             </a>
           </div>
 
@@ -116,7 +148,7 @@ export function GoogleMapSection() {
               <div className="absolute inset-0 flex items-center justify-center bg-bg-card z-20">
                 <div className="flex flex-col items-center gap-3">
                   <div className="h-8 w-8 rounded-full border-2 border-violet-light border-t-transparent animate-spin" />
-                  <span className="text-text-muted text-xs">Chargement de la carte...</span>
+                  <span className="text-text-muted text-xs">{t.loading}</span>
                 </div>
               </div>
             )}

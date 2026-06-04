@@ -1,6 +1,7 @@
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 import { CircularTestimonials } from '@/components/ui/circular-testimonials'
+import type { Locale } from '@/i18n/config'
 
 const TEAM = [
   {
@@ -44,22 +45,55 @@ const TEAM = [
   },
 ]
 
-export function TeamSection() {
+// English overlay (same order; name/images/colours shared, designation + quote translated)
+const TEAM_EN: { designation: string; quote: string }[] = [
+  {
+    designation: 'Developer · Strategist · Creative',
+    quote:
+      "15 years building websites and tools that actually work. A developer at heart, strategic in approach, creative in solutions. No anonymous big agency: you talk directly to the person who designs, codes and runs your project.",
+  },
+  {
+    designation: 'AI, SEO/GEO & UX expert · Trainer',
+    quote:
+      "Specialist in artificial intelligence, SEO/GEO and user experience. I optimise our clients visibility and digital performance, and I train teams to master these tools day to day.",
+  },
+  {
+    designation: 'Trainer · Developer & IT',
+    quote:
+      "A passionate developer and trainer, I lead the IT and web development modules. An educator above all, I make sure every participant leaves with solid foundations and immediately applicable skills.",
+  },
+  {
+    designation: 'Independent Developer · IT Trainer',
+    quote:
+      "An independent developer and trainer, I bring my technical expertise in programming and IT to DKDP projects. I make complex topics accessible and directly applicable in the field.",
+  },
+]
+
+const CONTENT = {
+  fr: { tag: "L'équipe", heading: 'Quatre experts, une seule équipe.' },
+  en: { tag: 'The team', heading: 'Four experts, one single team.' },
+} as const
+
+export function TeamSection({ lang = 'fr' }: { lang?: Locale } = {}) {
+  const t = CONTENT[lang]
+  const items = lang === 'en'
+    ? TEAM.map((m, i) => ({ ...m, designation: TEAM_EN[i].designation, quote: TEAM_EN[i].quote }))
+    : TEAM
   return (
     <section aria-labelledby="team-heading" className="py-14 sm:py-20 md:py-24 bg-bg-card border-y border-border">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <SectionReveal>
           <div className="text-center mb-10 sm:mb-16">
-            <GradTag className="mb-4 sm:mb-6">L&apos;équipe</GradTag>
+            <GradTag className="mb-4 sm:mb-6">{t.tag}</GradTag>
             <h2 id="team-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-              Quatre experts, une seule équipe.
+              {t.heading}
             </h2>
           </div>
         </SectionReveal>
 
         <SectionReveal delay={0.15}>
           <CircularTestimonials
-            items={TEAM}
+            items={items}
             autoplay={true}
             colors={{
               name: 'var(--text)',

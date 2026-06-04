@@ -15,6 +15,8 @@ import { GradTag } from '@/components/ui/GradTag'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { ClaudeIcon } from '@/components/icons/ClaudeIcon'
 import { violet, orange, chrome } from '@/lib/tokens'
+import type { Locale } from '@/i18n/config'
+import { localizedPath } from '@/i18n/slugs'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -103,9 +105,84 @@ const BADGE_STYLES: Record<string, React.CSSProperties> = {
   'Nouveau': { background: 'rgba(34,197,94,0.12)', color: '#4ade80', border: '1px solid rgba(34,197,94,0.25)' },
 }
 
+// ─── English overlay (keyed by FR-canonical href; FR arrays untouched) ─────────
+
+const SERVICE_EN: Record<string, { title: string; description: string }> = {
+  '/agence-digitale/creation-site-web': { title: 'Website creation', description: 'Custom websites, fast and optimised for conversion.' },
+  '/agence-digitale/developpement-application': { title: 'App development', description: 'iOS, Android, web apps and PWAs tailored to your business needs.' },
+  '/agence-digitale/seo': { title: 'SEO', description: 'Content strategy and technical optimisation to dominate Google.' },
+  '/agence-digitale/publicite-sea': { title: 'Google Ads', description: 'Profitable search and display campaigns, ROI tracked in real time.' },
+  '/agence-digitale/reseaux-sociaux': { title: 'Social media', description: 'Consistent presence on Instagram, LinkedIn, Facebook.' },
+  '/agence-digitale/creation-video': { title: 'Video production', description: 'Corporate videos, reels and short-form content.' },
+  '/agence-digitale/consulting-marketing': { title: 'Marketing consulting', description: 'Audit of your digital presence and strategic support.' },
+  '/agence-digitale/rgpd-cookies': { title: 'GDPR & Cookies', description: 'Compliance, privacy policy, cookie banner.' },
+  '/formation-entreprise/ia': { title: 'Corporate AI training', description: 'Bring ChatGPT, Claude and Copilot into your teams daily work.' },
+  '/formation-entreprise/claude-ai': { title: 'Claude AI training', description: 'Claude.ai, collaborative Projects and Claude Code for your teams.' },
+  '/formation-entreprise/bureautique': { title: 'Office & Excel', description: 'Master Excel, Word, PowerPoint and Microsoft 365.' },
+  '/formation-entreprise/cybersecurite': { title: 'Cybersecurity', description: 'Train your teams: phishing, passwords, data protection.' },
+  '/formation-entreprise/reseaux-sociaux': { title: 'Social media', description: 'Strategy, content and performance analysis.' },
+  '/formation-entreprise/canva': { title: 'Canva training', description: 'Brand Kit, templates, social posts and Magic Studio AI in one day.' },
+  '/formation-entreprise/web-design': { title: 'Web design training', description: 'Design your site before building it: Figma, UI/UX, prototypes.' },
+  '/formation-entreprise/informatique': { title: 'IT skills', description: 'Essential computer skills for everyday work.' },
+  '/formation-entreprise/montage-video': { title: 'Video editing', description: 'Create pro videos with CapCut, Premiere, Reels.' },
+  '/intelligence-artificielle/agents-ia': { title: 'Custom AI agents', description: 'Intelligent agents that automate your tasks and answer your clients.' },
+  '/intelligence-artificielle/automatisation': { title: 'Business automation', description: 'No-code workflows that connect your tools and remove manual work.' },
+  '/intelligence-artificielle/audit-conseil': { title: 'AI audit & consulting', description: 'Identify the 3 high-ROI actions in your company.' },
+  '/intelligence-artificielle/mise-en-place': { title: 'AI implementation', description: 'Integrating ChatGPT, Claude and LLMs into your existing stack.' },
+  '/intelligence-artificielle/chatbot-ia': { title: 'Custom AI chatbot', description: 'A 24/7 assistant for your website: FAQ, booking, lead qualification.' },
+}
+
+const PILLAR_EN: Record<PillarKey, { label: string; shortLabel: string; subtitle: string; preview: string[] }> = {
+  agence: { label: 'Digital marketing', shortLabel: 'Marketing', subtitle: '8 services', preview: ['Websites', 'Mobile app', 'SEO', 'Google Ads'] },
+  formation: { label: 'Corporate training', shortLabel: 'Training', subtitle: '8 programmes', preview: ['AI for business', 'Claude AI', 'Excel', 'Cybersecurity'] },
+  ia: { label: 'AI & automation', shortLabel: 'AI', subtitle: '5 solutions', preview: ['AI agents', 'AI chatbot', 'Automation', 'AI audit'] },
+}
+
+const BADGE_LABELS: Record<Locale, Record<string, string>> = {
+  fr: { 'Best seller': 'Best seller', 'Populaire': 'Populaire', 'Tendance': 'Tendance', 'Nouveau': 'Nouveau' },
+  en: { 'Best seller': 'Best seller', 'Populaire': 'Popular', 'Tendance': 'Trending', 'Nouveau': 'New' },
+}
+
+const CONTENT = {
+  fr: {
+    tag: 'Nos expertises',
+    headingA: 'Sites web, SEO, IA et formation.',
+    headingB: 'Un seul interlocuteur.',
+    subtitle: 'Sélectionnez un pilier pour explorer nos offres.',
+    chooseAria: 'Choisir un pilier',
+    hint: 'Choisissez un pilier',
+    selectPrompt: 'Sélectionnez un pilier',
+    learnMore: 'En savoir plus',
+    servicesWord: (n: number) => (n > 1 ? 'services' : 'service'),
+    seePage: (label: string) => `Voir la page ${label}`,
+    seePillar: (label: string) => `Voir ${label}`,
+    servicesPanel: (label: string) => `Services ${label}`,
+  },
+  en: {
+    tag: 'Our expertise',
+    headingA: 'Websites, SEO, AI and training.',
+    headingB: 'One single partner.',
+    subtitle: 'Select a pillar to explore our offers.',
+    chooseAria: 'Choose a pillar',
+    hint: 'Choose a pillar',
+    selectPrompt: 'Select a pillar',
+    learnMore: 'Learn more',
+    servicesWord: (n: number) => (n > 1 ? 'services' : 'service'),
+    seePage: (label: string) => `See the ${label} page`,
+    seePillar: (label: string) => `View ${label}`,
+    servicesPanel: (label: string) => `${label} services`,
+  },
+} as const
+
+function pillarLabel(p: PillarData, lang: Locale) { return lang === 'en' ? PILLAR_EN[p.key].label : p.label }
+function pillarShort(p: PillarData, lang: Locale) { return lang === 'en' ? PILLAR_EN[p.key].shortLabel : p.shortLabel }
+function pillarSubtitle(p: PillarData, lang: Locale) { return lang === 'en' ? PILLAR_EN[p.key].subtitle : p.subtitle }
+function pillarPreview(p: PillarData, lang: Locale) { return lang === 'en' ? PILLAR_EN[p.key].preview : p.preview }
+
 // ─── Component ───────────────────────────────────────────────────────────────
 
-export function AllServices() {
+export function AllServices({ lang = 'fr' }: { lang?: Locale } = {}) {
+  const t = CONTENT[lang]
   const [active, setActive] = useState<PillarKey | null>(null)
   const [hasInteracted, setHasInteracted] = useState(false)
 
@@ -126,13 +203,13 @@ export function AllServices() {
         <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
           <SectionReveal>
             <div className="text-center mb-10 sm:mb-14">
-              <GradTag className="mb-4 sm:mb-6">Nos expertises</GradTag>
+              <GradTag className="mb-4 sm:mb-6">{t.tag}</GradTag>
               <h2 id="all-services-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] mb-3 sm:mb-5">
-                Sites web, SEO, IA et formation.<br className="hidden sm:block" />
-                Un seul interlocuteur.
+                {t.headingA}<br className="hidden sm:block" />
+                {t.headingB}
               </h2>
               <p className="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto">
-                Sélectionnez un pilier pour explorer nos offres.
+                {t.subtitle}
               </p>
             </div>
           </SectionReveal>
@@ -141,7 +218,7 @@ export function AllServices() {
           <SectionReveal delay={0.1}>
             <div
               role="tablist"
-              aria-label="Choisir un pilier"
+              aria-label={t.chooseAria}
               className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12"
             >
               {PILLARS.map((pillar, idx) => {
@@ -228,21 +305,21 @@ export function AllServices() {
                           className="text-[11px] sm:text-sm font-semibold transition-colors duration-300 leading-tight"
                           style={{ color: isActive ? pillar.color : 'var(--text)' }}
                         >
-                          <span className="hidden sm:inline">{pillar.label}</span>
-                          <span className="sm:hidden">{pillar.shortLabel}</span>
+                          <span className="hidden sm:inline">{pillarLabel(pillar, lang)}</span>
+                          <span className="sm:hidden">{pillarShort(pillar, lang)}</span>
                         </p>
                         <p
                           className="text-[9px] sm:text-xs mt-0.5 transition-colors duration-300"
                           style={{ color: `${pillar.color}${isActive ? 'cc' : '80'}` }}
                         >
-                          {pillar.subtitle}
+                          {pillarSubtitle(pillar, lang)}
                         </p>
                       </div>
 
                       {/* Preview service tags — before first interaction */}
                       {shouldAnimate && (
                         <div className="hidden sm:flex flex-wrap justify-center gap-1 mt-0.5">
-                          {pillar.preview.map((name) => (
+                          {pillarPreview(pillar, lang).map((name) => (
                             <span
                               key={name}
                               className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full"
@@ -285,7 +362,7 @@ export function AllServices() {
                 <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.86a.5.5 0 0 0-.85.35Z" fill="currentColor" />
               </svg>
               <span className="text-text-muted text-xs sm:text-sm" style={{ animation: 'cursorSlide 3s ease-in-out infinite' }}>
-                Choisissez un pilier
+                {t.hint}
               </span>
             </div>
           )}
@@ -294,7 +371,7 @@ export function AllServices() {
           <div
             id="services-panel"
             role="tabpanel"
-            aria-label={active ? `Services ${active}` : 'Sélectionnez un pilier'}
+            aria-label={activePillar ? t.servicesPanel(pillarLabel(activePillar, lang)) : t.selectPrompt}
           >
             <AnimatePresence mode="wait">
               {activePillar ? (
@@ -318,10 +395,10 @@ export function AllServices() {
                         style={{ background: activePillar.color, boxShadow: `0 0 8px ${activePillar.color}60` }}
                       />
                       <span className="text-sm sm:text-base font-semibold" style={{ color: activePillar.color }}>
-                        {activePillar.label}
+                        {pillarLabel(activePillar, lang)}
                       </span>
                       <span className="text-text-muted text-xs">
-                        · {activePillar.items.length} {activePillar.items.length > 1 ? 'services' : 'service'}
+                        · {activePillar.items.length} {t.servicesWord(activePillar.items.length)}
                       </span>
                     </div>
                     <div className="flex items-center gap-1.5">
@@ -335,10 +412,10 @@ export function AllServices() {
                             border: `1px solid ${p.color}30`,
                             color: `${p.color}cc`,
                           }}
-                          aria-label={`Voir ${p.label}`}
+                          aria-label={t.seePillar(pillarLabel(p, lang))}
                         >
                           <p.Icon size={12} style={{ color: p.color }} />
-                          <span className="hidden sm:inline">{p.shortLabel}</span>
+                          <span className="hidden sm:inline">{pillarShort(p, lang)}</span>
                         </button>
                       ))}
                     </div>
@@ -346,7 +423,7 @@ export function AllServices() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                     {activePillar.items.map((service, i) => (
-                      <ServiceCard key={service.href} service={service} index={i} />
+                      <ServiceCard key={service.href} service={service} index={i} lang={lang} />
                     ))}
                   </div>
 
@@ -358,11 +435,11 @@ export function AllServices() {
                     transition={{ delay: 0.3, duration: 0.3 }}
                   >
                     <Link
-                      href={activePillar.hubHref}
+                      href={localizedPath(activePillar.hubHref, lang)}
                       className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-70"
                       style={{ color: activePillar.color }}
                     >
-                      Voir la page {activePillar.label}
+                      {t.seePage(pillarLabel(activePillar, lang))}
                       <ChevronRight size={14} />
                     </Link>
                   </m.div>
@@ -378,9 +455,13 @@ export function AllServices() {
 
 // ─── Card ────────────────────────────────────────────────────────────────────
 
-function ServiceCard({ service, index }: { service: ServiceItem; index: number }) {
+function ServiceCard({ service, index, lang = 'fr' }: { service: ServiceItem; index: number; lang?: Locale }) {
   const tokens = getPillarTokens(service.pillar)
   const { color, bg, border } = tokens
+  const title = lang === 'en' ? (SERVICE_EN[service.href]?.title ?? service.title) : service.title
+  const description = lang === 'en' ? (SERVICE_EN[service.href]?.description ?? service.description) : service.description
+  const badgeLabel = service.badge ? BADGE_LABELS[lang][service.badge] ?? service.badge : null
+  const learnMore = CONTENT[lang].learnMore
 
   return (
     <m.div
@@ -389,7 +470,7 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
       transition={{ duration: 0.4, delay: Math.min(index * 0.06, 0.5), ease: [0.22, 1, 0.36, 1] }}
     >
       <Link
-        href={service.href}
+        href={localizedPath(service.href, lang)}
         className="group flex flex-col h-full rounded-[14px] border overflow-hidden hover:-translate-y-0.5 transition-transform duration-200 backdrop-blur-lg"
         style={{ background: 'var(--bg-card)', borderColor: service.badge ? `${color}40` : border, boxShadow: service.badge ? `0 0 28px ${color}10` : undefined }}
       >
@@ -397,7 +478,7 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
         <div className="relative h-36 sm:h-40 overflow-hidden">
           <Image
             src={service.image}
-            alt={service.title}
+            alt={title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -409,7 +490,7 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
               className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
               style={BADGE_STYLES[service.badge] ?? {}}
             >
-              {service.badge}
+              {badgeLabel}
             </span>
           )}
         </div>
@@ -422,13 +503,13 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
           >
             <service.icon size={15} style={{ color }} />
           </div>
-          <h3 className="text-text font-semibold text-[15px] sm:text-base mb-1.5 sm:mb-2">{service.title}</h3>
-          <p className="text-text-secondary text-xs sm:text-sm leading-relaxed flex-1">{service.description}</p>
+          <h3 className="text-text font-semibold text-[15px] sm:text-base mb-1.5 sm:mb-2">{title}</h3>
+          <p className="text-text-secondary text-xs sm:text-sm leading-relaxed flex-1">{description}</p>
           <span
             className="mt-4 inline-flex items-center gap-1 text-[11px] sm:text-[12px] font-semibold transition-opacity group-hover:opacity-70"
             style={{ color }}
           >
-            En savoir plus <ChevronRight size={12} />
+            {learnMore} <ChevronRight size={12} />
           </span>
         </div>
       </Link>

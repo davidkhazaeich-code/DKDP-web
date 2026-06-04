@@ -6,6 +6,7 @@ import { m, AnimatePresence } from 'framer-motion'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 import { HeroBg } from '@/components/ui/HeroBg'
+import type { Locale } from '@/i18n/config'
 
 const TESTIMONIALS = [
   {
@@ -42,7 +43,55 @@ const TESTIMONIALS = [
   },
 ] as const
 
-export function Testimonials({ className, accentRgb }: { className?: string; accentRgb?: string }) {
+// English overlay (same order; names/companies/initials shared, quote + title translated)
+const TESTIMONIALS_EN: { quote: string; title: string }[] = [
+  {
+    quote:
+      "David and Charlotte were commissioned by our company (Solid.ch) in late June for a complete redesign of our website. They started from scratch and ran the project with speed and professionalism so they could deliver in September. I can only recommend them and wish them the success they deserve in this field they truly master.",
+    title: 'Luxury Market Manager',
+  },
+  {
+    quote:
+      "Thanks to Mr David Khazaei's excellent expertise, we finally have a dynamic website that perfectly represents our company and its activity. We can only thank Mr Khazaei for his attentiveness, his innovative ideas and his complete command of technology. His creativity and professionalism truly met our expectations.",
+    title: 'Executive Director',
+  },
+  {
+    quote:
+      "Surrounding yourself with reliable professionals is essential, and for my part I consider them partners when they have the level of expertise I expect from them. David Khazaei is one of the talents I love working with. His versatility lets him adapt brilliantly to all my requests.",
+    title: 'Creative Director',
+  },
+  {
+    quote:
+      "We are truly happy to have had a working experience with David and his team. David is someone who listens and turns what we have in mind into a result of absolute quality. Thank you so much.",
+    title: 'General Manager',
+  },
+]
+
+const CONTENT = {
+  fr: {
+    tag: 'Témoignages',
+    heading: 'Ce que disent nos clients',
+    collapse: 'Réduire',
+    readMore: 'Lire la suite',
+    prevAria: 'Témoignage précédent',
+    nextAria: 'Témoignage suivant',
+    navAria: 'Navigation témoignages',
+    itemAria: (n: number) => `Témoignage ${n}`,
+  },
+  en: {
+    tag: 'Testimonials',
+    heading: 'What our clients say',
+    collapse: 'Collapse',
+    readMore: 'Read more',
+    prevAria: 'Previous testimonial',
+    nextAria: 'Next testimonial',
+    navAria: 'Testimonials navigation',
+    itemAria: (n: number) => `Testimonial ${n}`,
+  },
+} as const
+
+export function Testimonials({ className, accentRgb, lang = 'fr' }: { className?: string; accentRgb?: string; lang?: Locale }) {
+  const t = CONTENT[lang]
   const [current, setCurrent] = useState(0)
   const [expanded, setExpanded] = useState(false)
 
@@ -94,9 +143,9 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
       <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <SectionReveal>
           <div className="text-center mb-10 sm:mb-16">
-            <GradTag className="mb-4 sm:mb-6">Témoignages</GradTag>
+            <GradTag className="mb-4 sm:mb-6">{t.tag}</GradTag>
             <h2 id="testimonials-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-              Ce que disent nos clients
+              {t.heading}
             </h2>
           </div>
         </SectionReveal>
@@ -130,7 +179,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
                     style={{ overflow: 'hidden' }}
                   >
                     <p className="text-text text-lg leading-relaxed italic">
-                      &ldquo;{testimonial.quote}&rdquo;
+                      &ldquo;{lang === 'en' ? TESTIMONIALS_EN[current].quote : testimonial.quote}&rdquo;
                     </p>
                   </m.div>
                   <button
@@ -139,9 +188,9 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
                     className="mt-3 inline-flex items-center gap-1 text-[13px] font-medium text-violet-light hover:opacity-80 transition-opacity"
                   >
                     {expanded ? (
-                      <><ChevronUp size={13} />Réduire</>
+                      <><ChevronUp size={13} />{t.collapse}</>
                     ) : (
-                      <><ChevronDown size={13} />Lire la suite</>
+                      <><ChevronDown size={13} />{t.readMore}</>
                     )}
                   </button>
                 </div>
@@ -152,7 +201,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
                   <div>
                     <p className="text-text font-semibold text-sm">{testimonial.name}</p>
                     <p className="text-text-muted text-xs">
-                      {testimonial.title}
+                      {lang === 'en' ? TESTIMONIALS_EN[current].title : testimonial.title}
                       {testimonial.company ? ` · ${testimonial.company}` : ''}
                     </p>
                   </div>
@@ -166,20 +215,20 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
             <button
               type="button"
               onClick={prev}
-              aria-label="Témoignage précédent"
+              aria-label={t.prevAria}
               className="w-10 h-10 rounded-full border border-border hover:border-violet transition-colors flex items-center justify-center text-text-muted hover:text-text"
             >
               <span aria-hidden="true">←</span>
             </button>
 
-            <div role="tablist" aria-label="Navigation témoignages" className="flex gap-2">
+            <div role="tablist" aria-label={t.navAria} className="flex gap-2">
               {TESTIMONIALS.map((_, i) => (
                 <button
                   key={i}
                   type="button"
                   role="tab"
                   aria-selected={i === current}
-                  aria-label={`Témoignage ${i + 1}`}
+                  aria-label={t.itemAria(i + 1)}
                   onClick={() => goTo(i)}
                   className="group relative flex items-center justify-center w-11 h-11"
                 >
@@ -195,7 +244,7 @@ export function Testimonials({ className, accentRgb }: { className?: string; acc
             <button
               type="button"
               onClick={next}
-              aria-label="Témoignage suivant"
+              aria-label={t.nextAria}
               className="w-10 h-10 rounded-full border border-border hover:border-violet transition-colors flex items-center justify-center text-text-muted hover:text-text"
             >
               <span aria-hidden="true">→</span>

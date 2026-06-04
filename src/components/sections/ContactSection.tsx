@@ -4,18 +4,63 @@ import { useState } from 'react'
 import { MapPin, Phone, Mail, Clock, CalendarCheck, MessageSquare } from 'lucide-react'
 import { ContactForm } from '@/components/sections/ContactForm'
 import { CalBooking } from '@/components/sections/CalBooking'
+import type { Locale } from '@/i18n/config'
 
-const INFO = [
-  { Icon: Phone, label: 'Téléphone', value: '+41 79 940 79 69', href: 'tel:+41799407969' },
-  { Icon: Mail, label: 'Email', value: 'dk@dkdp.ch', href: 'mailto:dk@dkdp.ch' },
-  { Icon: MapPin, label: 'Adresse', value: '36 Rue du 31 Décembre · Eaux-Vives · 1207 Genève', href: 'https://maps.google.com/?q=36+Rue+du+31+Décembre+1207+Genève' },
-  { Icon: Clock, label: 'Horaires', value: 'Lun–Ven, 09:00–18:00', href: undefined },
+const INFO_META = [
+  { Icon: Phone, href: 'tel:+41799407969' as string | undefined },
+  { Icon: Mail, href: 'mailto:dk@dkdp.ch' as string | undefined },
+  { Icon: MapPin, href: 'https://maps.google.com/?q=36+Rue+du+31+Décembre+1207+Genève' as string | undefined },
+  { Icon: Clock, href: undefined as string | undefined },
 ]
+
+const CONTENT = {
+  fr: {
+    tabMessage: 'Envoyer un message',
+    tabBooking: 'Réserver un appel',
+    formTitle: 'Décrivez votre projet',
+    formSubtitle: 'On vous répond sous 24h avec une proposition adaptée.',
+    directContact: 'Contact direct',
+    preferCall: 'Préférez un appel ?',
+    preferCallText: 'Réservez un créneau de 15 ou 30 minutes directement dans mon agenda. Gratuit et sans engagement.',
+    seeAvailability: 'Voir les disponibilités →',
+    available: 'Disponible · Réponse sous',
+    availableBold: '24h ouvrables',
+    bookingTitle: 'Choisissez un créneau',
+    bookingSubtitle: 'Appel découverte de 15 min ou 30 min · Gratuit · Sans engagement',
+    info: [
+      { label: 'Téléphone', value: '+41 79 940 79 69' },
+      { label: 'Email', value: 'dk@dkdp.ch' },
+      { label: 'Adresse', value: '36 Rue du 31 Décembre · Eaux-Vives · 1207 Genève' },
+      { label: 'Horaires', value: 'Lun–Ven, 09:00–18:00' },
+    ],
+  },
+  en: {
+    tabMessage: 'Send a message',
+    tabBooking: 'Book a call',
+    formTitle: 'Describe your project',
+    formSubtitle: 'We reply within 24h with a tailored proposal.',
+    directContact: 'Direct contact',
+    preferCall: 'Prefer a call?',
+    preferCallText: 'Book a 15 or 30-minute slot directly in my calendar. Free and no commitment.',
+    seeAvailability: 'See availability →',
+    available: 'Available · Reply within',
+    availableBold: '24 working hours',
+    bookingTitle: 'Choose a slot',
+    bookingSubtitle: '15 or 30-min discovery call · Free · No commitment',
+    info: [
+      { label: 'Phone', value: '+41 79 940 79 69' },
+      { label: 'Email', value: 'dk@dkdp.ch' },
+      { label: 'Address', value: '36 Rue du 31 Décembre · Eaux-Vives · 1207 Geneva' },
+      { label: 'Hours', value: 'Mon–Fri, 09:00–18:00' },
+    ],
+  },
+} as const
 
 type Tab = 'message' | 'booking'
 
-export function ContactSection() {
+export function ContactSection({ lang = 'fr' }: { lang?: Locale } = {}) {
   const [tab, setTab] = useState<Tab>('message')
+  const t = CONTENT[lang]
 
   return (
     <section className="pb-32">
@@ -33,7 +78,7 @@ export function ContactSection() {
             }}
           >
             <MessageSquare size={15} />
-            Envoyer un message
+            {t.tabMessage}
           </button>
           <button
             onClick={() => setTab('booking')}
@@ -45,7 +90,7 @@ export function ContactSection() {
             }}
           >
             <CalendarCheck size={15} />
-            Réserver un appel
+            {t.tabBooking}
           </button>
         </div>
 
@@ -55,9 +100,9 @@ export function ContactSection() {
 
             {/* Form */}
             <div className="bg-bg-card border border-border rounded-[20px] p-8 md:p-10">
-              <h2 className="text-xl font-bold text-text mb-1">Décrivez votre projet</h2>
-              <p className="text-text-muted text-sm mb-8">On vous répond sous 24h avec une proposition adaptée.</p>
-              <ContactForm />
+              <h2 className="text-xl font-bold text-text mb-1">{t.formTitle}</h2>
+              <p className="text-text-muted text-sm mb-8">{t.formSubtitle}</p>
+              <ContactForm lang={lang} />
             </div>
 
             {/* Info sidebar */}
@@ -66,10 +111,11 @@ export function ContactSection() {
               {/* Direct contact */}
               <div className="bg-bg-card border border-border rounded-[16px] p-6">
                 <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-violet-light mb-5">
-                  Contact direct
+                  {t.directContact}
                 </p>
                 <div className="space-y-4">
-                  {INFO.map(({ Icon, label, value, href }) => {
+                  {INFO_META.map(({ Icon, href }, i) => {
+                    const { label, value } = t.info[i]
                     const content = (
                       <div className="flex items-start gap-3">
                         <div className="w-9 h-9 rounded-[8px] bg-violet/10 border border-violet/20 flex items-center justify-center flex-shrink-0">
@@ -99,11 +145,11 @@ export function ContactSection() {
                     <CalendarCheck size={14} className="text-violet-light" />
                   </div>
                   <div>
-                    <p className="text-[13px] font-bold text-text mb-1.5">Préférez un appel ?</p>
+                    <p className="text-[13px] font-bold text-text mb-1.5">{t.preferCall}</p>
                     <p className="text-text-secondary text-[12.5px] leading-relaxed">
-                      Réservez un créneau de 15 ou 30 minutes directement dans mon agenda. Gratuit et sans engagement.
+                      {t.preferCallText}
                     </p>
-                    <p className="text-violet-light text-[12px] font-semibold mt-2">Voir les disponibilités →</p>
+                    <p className="text-violet-light text-[12px] font-semibold mt-2">{t.seeAvailability}</p>
                   </div>
                 </div>
               </button>
@@ -115,7 +161,7 @@ export function ContactSection() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
                 </span>
                 <p className="text-text-secondary text-[12.5px]">
-                  Disponible · Réponse sous <span className="text-text font-medium">24h ouvrables</span>
+                  {t.available} <span className="text-text font-medium">{t.availableBold}</span>
                 </p>
               </div>
 
@@ -127,9 +173,9 @@ export function ContactSection() {
         {tab === 'booking' && (
           <div>
             <div className="mb-6">
-              <h2 className="text-xl font-bold text-text mb-1">Choisissez un créneau</h2>
+              <h2 className="text-xl font-bold text-text mb-1">{t.bookingTitle}</h2>
               <p className="text-text-muted text-sm">
-                Appel découverte de 15 min ou 30 min · Gratuit · Sans engagement
+                {t.bookingSubtitle}
               </p>
             </div>
             <div

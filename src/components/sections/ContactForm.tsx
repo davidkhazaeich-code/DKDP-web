@@ -6,27 +6,43 @@ import {
   Send, CheckCircle2, Loader2, ArrowRight, ArrowLeft, ChevronDown,
   Briefcase, MessageSquare, User, Mail, Phone, Building2, Compass,
 } from 'lucide-react'
+import type { Locale } from '@/i18n/config'
 
-const SERVICES = [
-  { value: '', label: 'Quel service vous intéresse ?' },
-  { value: 'service-digital', label: 'Service Digital : Site web, SEO, Ads' },
-  { value: 'formation', label: 'Formation Entreprise' },
-  { value: 'intelligence-artificielle', label: 'Intelligence Artificielle' },
-  { value: 'audit', label: 'Audit gratuit de mon digital' },
-  { value: 'autre', label: 'Autre / Je ne sais pas encore' },
-]
+const SERVICE_VALUES = ['', 'service-digital', 'formation', 'intelligence-artificielle', 'audit', 'autre']
+const SOURCE_VALUES = ['google', 'bouche-a-oreille', 'linkedin', 'reseaux-sociaux', 'intelligence-artificielle', 'partenaire', 'autre']
 
-const SOURCES = [
-  { value: 'google', label: 'Google' },
-  { value: 'bouche-a-oreille', label: 'Bouche à oreille' },
-  { value: 'linkedin', label: 'LinkedIn' },
-  { value: 'reseaux-sociaux', label: 'Réseaux sociaux' },
-  { value: 'intelligence-artificielle', label: 'Intelligence Artificielle' },
-  { value: 'partenaire', label: 'Partenaire / Référent' },
-  { value: 'autre', label: 'Autre' },
-]
+const VALID_SERVICES = new Set(SERVICE_VALUES)
 
-const VALID_SERVICES = new Set(SERVICES.map(s => s.value))
+const CONTENT = {
+  fr: {
+    services: ['Quel service vous intéresse ?', 'Service Digital : Site web, SEO, Ads', 'Formation Entreprise', 'Intelligence Artificielle', 'Audit gratuit de mon digital', 'Autre / Je ne sais pas encore'],
+    sources: ['Google', 'Bouche à oreille', 'LinkedIn', 'Réseaux sociaux', 'Intelligence Artificielle', 'Partenaire / Référent', 'Autre'],
+    step1: 'Votre demande', step2: 'Vos coordonnées', step3: 'Notre projet démarre',
+    serviceLabel: 'Service', messageLabel: 'Message', continue: 'Continuer',
+    messagePlaceholder: 'Décrivez votre projet en quelques lignes…',
+    firstName: 'Prénom', lastName: 'Nom', email: 'Email', phone: 'Téléphone', company: 'Entreprise',
+    emailPlaceholder: 'vous@entreprise.com', phonePlaceholder: '+41 79 000 00 00', companyPlaceholder: 'Nom de votre entreprise',
+    howFound: 'Comment avez-vous trouvé nos services ?',
+    back: 'Retour', sending: 'Envoi en cours…', send: 'Envoyer mon message',
+    disclaimer: 'Sans engagement · Réponse sous 24h · Confidentialité garantie',
+    error: 'Une erreur est survenue. Écrivez-nous directement à dk@dkdp.ch',
+    successTitle: 'Message envoyé !', successText: 'On vous recontacte sous 24h ouvrables.',
+  },
+  en: {
+    services: ['Which service interests you?', 'Digital Service: website, SEO, Ads', 'Corporate Training', 'Artificial Intelligence', 'Free audit of my digital presence', 'Other / Not sure yet'],
+    sources: ['Google', 'Word of mouth', 'LinkedIn', 'Social media', 'Artificial Intelligence', 'Partner / Referral', 'Other'],
+    step1: 'Your request', step2: 'Your details', step3: 'Our project begins',
+    serviceLabel: 'Service', messageLabel: 'Message', continue: 'Continue',
+    messagePlaceholder: 'Describe your project in a few lines…',
+    firstName: 'First name', lastName: 'Last name', email: 'Email', phone: 'Phone', company: 'Company',
+    emailPlaceholder: 'you@company.com', phonePlaceholder: '+41 79 000 00 00', companyPlaceholder: 'Your company name',
+    howFound: 'How did you find our services?',
+    back: 'Back', sending: 'Sending…', send: 'Send my message',
+    disclaimer: 'No commitment · Reply within 24h · Confidentiality guaranteed',
+    error: 'Something went wrong. Write to us directly at dk@dkdp.ch',
+    successTitle: 'Message sent!', successText: 'We will get back to you within 24 working hours.',
+  },
+} as const
 
 const input =
   'w-full bg-bg border border-border rounded-[8px] px-4 py-3 text-[13px] text-text ' +
@@ -34,7 +50,8 @@ const input =
 
 const labelCls = 'flex items-center gap-1.5 text-[11px] font-semibold text-text-muted uppercase tracking-[0.08em] mb-2'
 
-function ContactFormInner() {
+function ContactFormInner({ lang = 'fr' }: { lang?: Locale }) {
+  const t = CONTENT[lang]
   const searchParams = useSearchParams()
   const raw = searchParams.get('service') ?? ''
   const preselected = VALID_SERVICES.has(raw) ? raw : ''
@@ -73,7 +90,7 @@ function ContactFormInner() {
       if (!res.ok) throw new Error()
       setStep(3)
     } catch {
-      setError('Une erreur est survenue. Écrivez-nous directement à dk@dkdp.ch')
+      setError(t.error)
     } finally {
       setLoading(false)
     }
@@ -96,7 +113,7 @@ function ContactFormInner() {
           </div>
           <span className="hidden sm:inline text-[11px] font-semibold uppercase tracking-[0.08em]"
             style={{ color: step === 1 ? '#fff' : step > 1 ? '#86efac' : '#6B7280' }}>
-            Votre demande
+            {t.step1}
           </span>
         </div>
 
@@ -116,7 +133,7 @@ function ContactFormInner() {
           </div>
           <span className="hidden sm:inline text-[11px] font-semibold uppercase tracking-[0.08em]"
             style={{ color: step === 2 ? '#fff' : step > 2 ? '#86efac' : '#4B5563' }}>
-            Vos coordonnées
+            {t.step2}
           </span>
         </div>
 
@@ -136,7 +153,7 @@ function ContactFormInner() {
           </div>
           <span className="hidden sm:inline text-[11px] font-semibold uppercase tracking-[0.08em]"
             style={{ color: step === 3 ? '#86efac' : '#374151' }}>
-            Notre projet démarre
+            {t.step3}
           </span>
         </div>
       </div>
@@ -147,7 +164,7 @@ function ContactFormInner() {
           <div>
             <label className={labelCls}>
               <Briefcase size={11} />
-              Service <span className="text-violet-light">*</span>
+              {t.serviceLabel} <span className="text-violet-light">*</span>
             </label>
             <div className="relative w-full sm:max-w-[280px]">
               <select
@@ -156,9 +173,9 @@ function ContactFormInner() {
                 onChange={e => setService(e.target.value)}
                 className={`${input} appearance-none cursor-pointer pr-10`}
               >
-                {SERVICES.map(s => (
-                  <option key={s.value} value={s.value} disabled={s.value === ''} style={{ background: '#141414' }}>
-                    {s.label}
+                {SERVICE_VALUES.map((value, i) => (
+                  <option key={value} value={value} disabled={value === ''} style={{ background: '#141414' }}>
+                    {t.services[i]}
                   </option>
                 ))}
               </select>
@@ -172,14 +189,14 @@ function ContactFormInner() {
           <div>
             <label className={labelCls}>
               <MessageSquare size={11} />
-              Message <span className="text-violet-light">*</span>
+              {t.messageLabel} <span className="text-violet-light">*</span>
             </label>
             <textarea
               required
               rows={6}
               value={message}
               onChange={e => setMessage(e.target.value)}
-              placeholder="Décrivez votre projet en quelques lignes…"
+              placeholder={t.messagePlaceholder}
               className={`${input} resize-none`}
             />
           </div>
@@ -188,7 +205,7 @@ function ContactFormInner() {
             type="submit"
             className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 bg-white text-black text-[13px] font-bold rounded-full hover:bg-gray-100 transition-colors duration-150"
           >
-            Continuer <ArrowRight size={14} />
+            {t.continue} <ArrowRight size={14} />
           </button>
         </form>
       )}
@@ -205,10 +222,10 @@ function ContactFormInner() {
             <div>
               <label className={labelCls}>
                 <User size={11} />
-                Prénom <span className="text-violet-light">*</span>
+                {t.firstName} <span className="text-violet-light">*</span>
               </label>
               <input
-                type="text" required placeholder="Prénom"
+                type="text" required placeholder={t.firstName}
                 value={firstName} onChange={e => setFirstName(e.target.value)}
                 className={input}
               />
@@ -216,10 +233,10 @@ function ContactFormInner() {
             <div>
               <label className={labelCls}>
                 <User size={11} />
-                Nom <span className="text-violet-light">*</span>
+                {t.lastName} <span className="text-violet-light">*</span>
               </label>
               <input
-                type="text" required placeholder="Nom"
+                type="text" required placeholder={t.lastName}
                 value={lastName} onChange={e => setLastName(e.target.value)}
                 className={input}
               />
@@ -230,10 +247,10 @@ function ContactFormInner() {
             <div>
               <label className={labelCls}>
                 <Mail size={11} />
-                Email <span className="text-violet-light">*</span>
+                {t.email} <span className="text-violet-light">*</span>
               </label>
               <input
-                type="email" required placeholder="vous@entreprise.com"
+                type="email" required placeholder={t.emailPlaceholder}
                 value={email} onChange={e => setEmail(e.target.value)}
                 className={input}
               />
@@ -241,10 +258,10 @@ function ContactFormInner() {
             <div>
               <label className={labelCls}>
                 <Phone size={11} />
-                Téléphone
+                {t.phone}
               </label>
               <input
-                type="tel" placeholder="+41 79 000 00 00"
+                type="tel" placeholder={t.phonePlaceholder}
                 value={phone} onChange={e => setPhone(e.target.value)}
                 className={input}
               />
@@ -254,10 +271,10 @@ function ContactFormInner() {
           <div>
             <label className={labelCls}>
               <Building2 size={11} />
-              Entreprise
+              {t.company}
             </label>
             <input
-              type="text" placeholder="Nom de votre entreprise"
+              type="text" placeholder={t.companyPlaceholder}
               value={company} onChange={e => setCompany(e.target.value)}
               className={input}
             />
@@ -266,17 +283,17 @@ function ContactFormInner() {
           <div>
             <label className={labelCls}>
               <Compass size={11} />
-              Comment avez-vous trouvé nos services ?
+              {t.howFound}
             </label>
             <div className="flex flex-wrap gap-2 mt-1">
-              {SOURCES.map(s => {
-                const active = sources.includes(s.value)
+              {SOURCE_VALUES.map((value, i) => {
+                const active = sources.includes(value)
                 return (
                   <button
-                    key={s.value}
+                    key={value}
                     type="button"
                     onClick={() => setSources(prev =>
-                      prev.includes(s.value) ? prev.filter(v => v !== s.value) : [...prev, s.value]
+                      prev.includes(value) ? prev.filter(v => v !== value) : [...prev, value]
                     )}
                     className="group px-3 py-1.5 rounded-full text-[12px] font-medium transition-all duration-150"
                     style={{
@@ -301,7 +318,7 @@ function ContactFormInner() {
                       }
                     }}
                   >
-                    {s.label}
+                    {t.sources[i]}
                   </button>
                 )
               })}
@@ -316,7 +333,7 @@ function ContactFormInner() {
               onClick={() => setStep(1)}
               className="flex items-center gap-1.5 px-4 py-3.5 text-[13px] font-semibold text-text-muted hover:text-text transition-colors duration-150 rounded-full border border-border hover:border-border-strong"
             >
-              <ArrowLeft size={14} /> Retour
+              <ArrowLeft size={14} /> {t.back}
             </button>
             <button
               type="submit"
@@ -324,14 +341,14 @@ function ContactFormInner() {
               className="flex-1 flex items-center justify-center gap-2.5 px-6 py-3.5 bg-white text-black text-[13px] font-bold rounded-full hover:bg-gray-100 transition-colors duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading
-                ? <><Loader2 size={15} className="animate-spin" />Envoi en cours…</>
-                : <><Send size={14} />Envoyer mon message</>
+                ? <><Loader2 size={15} className="animate-spin" />{t.sending}</>
+                : <><Send size={14} />{t.send}</>
               }
             </button>
           </div>
 
           <p className="text-text-muted text-[11px] text-center">
-            Sans engagement · Réponse sous 24h · Confidentialité garantie
+            {t.disclaimer}
           </p>
         </form>
       )}
@@ -344,8 +361,8 @@ function ContactFormInner() {
             <CheckCircle2 size={32} style={{ color: '#86efac' }} />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-text mb-2">Message envoyé !</h3>
-            <p className="text-text-secondary text-sm">On vous recontacte sous 24h ouvrables.</p>
+            <h3 className="text-xl font-bold text-text mb-2">{t.successTitle}</h3>
+            <p className="text-text-secondary text-sm">{t.successText}</p>
           </div>
         </div>
       )}
@@ -353,10 +370,10 @@ function ContactFormInner() {
   )
 }
 
-export function ContactForm() {
+export function ContactForm({ lang = 'fr' }: { lang?: Locale } = {}) {
   return (
     <Suspense fallback={null}>
-      <ContactFormInner />
+      <ContactFormInner lang={lang} />
     </Suspense>
   )
 }

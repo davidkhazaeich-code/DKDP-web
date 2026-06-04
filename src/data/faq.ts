@@ -50,3 +50,56 @@ export const FAQ_ITEMS = [
       "Oui. Nous proposons un audit gratuit de votre site web (performance, SEO, accessibilité) ainsi qu'un audit SEO rapide. Ces audits sont automatisés et vous donnent un premier aperçu des points à améliorer. Pour un audit approfondi avec recommandations personnalisées, contactez-nous pour un appel de 15 minutes gratuit.",
   },
 ]
+
+export const FAQ_ITEMS_EN = [
+  {
+    question: 'How much does building a website in Geneva cost?',
+    answer:
+      "A professional showcase website starts between CHF 2'500 and CHF 5'000. An e-commerce store or a custom site with advanced features usually ranges from CHF 5'000 to CHF 15'000. We provide a fixed, detailed quote before any work begins, with no surprises along the way.",
+  },
+  {
+    question: 'What are the benefits of AI training for my company in Switzerland?',
+    answer:
+      'AI training tailored to your teams lets them automate repetitive tasks, produce reports and content faster, and free up time for high-value work. Our training is delivered on site in Geneva or by video call, and adapted to your industry.',
+  },
+  {
+    question: 'How can a digital service in Geneva improve my SEO?',
+    answer:
+      'We start with a complete audit of your site: technical structure, speed, internal linking, keywords and local presence. Then we implement on-page optimisations, the content strategy and off-page actions. Our clients see measurable results (organic traffic, leads) within 3 to 6 months.',
+  },
+  {
+    question: 'Is artificial intelligence suitable for Swiss SMEs?',
+    answer:
+      'Yes. Current AI tools (conversational agents, workflow automation, content generation, data analysis) are accessible and profitable even for teams of 5 to 50 people. We run an AI audit to identify the 2 or 3 automations that would have the most impact in your company.',
+  },
+  {
+    question: 'How long before SEO results show in Geneva?',
+    answer:
+      'SEO is a medium-term investment. The first ranking improvements are usually visible within 6 to 12 weeks for local Geneva queries. Significant organic traffic and regular leads build over 3 to 6 months. We track the metrics every month and share a transparent report.',
+  },
+  {
+    question: 'Which is the best digital agency in Geneva?',
+    answer:
+      'DKDP is a digital agency based in Eaux-Vives, Geneva, with 10+ years of experience and 700+ clients supported across French-speaking Switzerland. Our difference: triple expertise in web, AI and training, a local team, and a 5/5 rating on Google. We work exclusively with Swiss SMEs and companies.',
+  },
+  {
+    question: 'How much does corporate AI training in Geneva cost?',
+    answer:
+      "A corporate AI training session starts at CHF 1'500 for a group of 6 to 12 people (a full day of 6 to 7 hours). The training is 100% hands-on, on your own documents and tools. We also offer custom programmes for larger teams. Free quote within 24h.",
+  },
+  {
+    question: 'Does DKDP work only in Geneva?',
+    answer:
+      'No. Our offices are in Geneva (Eaux-Vives), but we work with companies across French-speaking Switzerland: Lausanne, Nyon, Fribourg, Sion, Neuchatel, Morges, Montreux. Meetings take place on site, by video call or hybrid depending on your preference.',
+  },
+  {
+    question: 'Which technologies do you use for websites?',
+    answer:
+      'DKDP mainly works with Next.js and Astro for fast, SEO-optimised sites, and WordPress for projects that need an accessible CMS. Sites are hosted on Vercel or Infomaniak. Every technical choice is justified by the project goals, not by a default preference.',
+  },
+  {
+    question: 'Do you offer a free audit of my website?',
+    answer:
+      'Yes. We offer a free audit of your website (performance, SEO, accessibility) as well as a quick SEO audit. These audits are automated and give you a first overview of what to improve. For an in-depth audit with personalised recommendations, contact us for a free 15-minute call.',
+  },
+]

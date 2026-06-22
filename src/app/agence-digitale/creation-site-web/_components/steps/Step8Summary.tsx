@@ -10,6 +10,7 @@ import {
 import { useEstimator } from '../EstimatorContext'
 import { AnimatedCounter } from '../ui/AnimatedCounter'
 import { calculateEstimate } from '@/lib/estimation/pricing'
+import { trackLead } from '@/lib/analytics'
 import { SECTORS } from '@/lib/estimation/sectors'
 import type { EstimationRequest, Sector } from '@/lib/estimation/types'
 import type { Locale } from '@/i18n/config'
@@ -630,6 +631,13 @@ export function Step8Summary() {
         setPdfData({ base64: result.pdf, filename: result.pdfFilename })
       }
       dispatch({ type: 'SET_SUBMITTED' })
+      trackLead({
+        form_type: 'estimation_site_web',
+        form_location: 'estimateur',
+        site_type: state.siteType ?? undefined,
+        estimated_min: estimate.totalMin,
+        estimated_max: estimate.totalMax,
+      })
     } catch (err) {
       dispatch({ type: 'SET_SUBMITTING', value: false })
       setErrorMessage(

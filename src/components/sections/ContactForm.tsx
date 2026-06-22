@@ -2,6 +2,7 @@
 
 import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { trackLead } from '@/lib/analytics'
 import {
   Send, CheckCircle2, Loader2, ArrowRight, ArrowLeft, ChevronDown,
   Briefcase, MessageSquare, User, Mail, Phone, Building2, Compass,
@@ -89,6 +90,11 @@ function ContactFormInner({ lang = 'fr' }: { lang?: Locale }) {
       })
       if (!res.ok) throw new Error()
       setStep(3)
+      trackLead({
+        form_type: 'contact',
+        form_location: 'contact_form',
+        contact_service: service || 'non_precise',
+      })
     } catch {
       setError(t.error)
     } finally {

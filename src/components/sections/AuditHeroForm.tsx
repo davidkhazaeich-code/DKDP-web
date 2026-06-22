@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { CheckCircle2, Loader2 } from 'lucide-react'
 import type { Locale } from '@/i18n/config'
+import { trackLead } from '@/lib/analytics'
 
 const COPY = {
   fr: {
@@ -49,6 +50,7 @@ export function AuditHeroForm({ buttonLabel, lang = 'fr' }: { buttonLabel?: stri
       })
       if (!res.ok) throw new Error()
       setStatus('success')
+      trackLead({ form_type: 'audit_seo', form_location: 'audit_hero', locale: lang })
     } catch {
       setStatus('error')
     }

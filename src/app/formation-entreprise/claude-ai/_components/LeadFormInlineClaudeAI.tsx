@@ -3,13 +3,7 @@
 import { useState } from 'react'
 import { CheckCircle2, ArrowRight, Shield, Star } from 'lucide-react'
 import { violet } from '@/lib/tokens'
-
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void
-    dataLayer?: Record<string, unknown>[]
-  }
-}
+import { trackLead } from '@/lib/analytics'
 
 export function LeadFormInlineClaudeAI() {
   const [form, setForm] = useState({ firstName: '', email: '', message: '' })
@@ -41,12 +35,12 @@ export function LeadFormInlineClaudeAI() {
 
       if (res.ok) {
         setStatus('success')
-        window.gtag?.('event', 'generate_lead', {
+        trackLead({
+          form_type: 'devis_formation_claude_ai',
+          form_location: 'formation_claude_ai_landing',
           event_category: 'formation_claude_ai',
           event_label: 'inline_form',
-          value: 1,
         })
-        window.dataLayer?.push({ event: 'generate_lead', form_type: 'devis_formation_claude_ai' })
       } else {
         setStatus('error')
       }

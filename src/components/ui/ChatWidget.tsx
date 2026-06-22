@@ -15,6 +15,7 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getCalApi } from '@calcom/embed-react'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { trackChatOpen } from '@/lib/analytics'
 
 // Ouvre la modale Cal.com. Utilisee par la SmartCTABar quand l'assistant
 // emet le token [BOOK] dans son message.
@@ -663,6 +664,15 @@ export function ChatWidget() {
       document.body.classList.remove('chat-open')
       document.body.style.top = ''
       html.classList.remove('lenis-stopped')
+    }
+  }, [isOpen])
+
+  // Conversion (engagement) : ouverture du chatbot, comptee une fois par chargement.
+  const chatOpenTrackedRef = useRef(false)
+  useEffect(() => {
+    if (isOpen && !chatOpenTrackedRef.current) {
+      chatOpenTrackedRef.current = true
+      trackChatOpen()
     }
   }, [isOpen])
 

@@ -1,11 +1,18 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { getCalApi } from '@calcom/embed-react'
 import { useTheme } from './ThemeProvider'
+import { trackBookingComplete } from '@/lib/analytics'
+
+const CAL_NAMESPACE = 'planifier-un-appel'
 
 export function CalProvider() {
   const { theme, mounted } = useTheme()
+  // L'effet ci-dessous se re-execute a chaque changement de theme : ce ref
+  // garantit que l'ecouteur de reservation confirmee n'est branche qu'une fois
+  // (sinon `book_appointment` serait envoye en double).
+  const bookingListenerRegistered = useRef(false)
 
   useEffect(() => {
     // Différer l'initialisation Cal.com après la première interaction utilisateur
@@ -18,8 +25,19 @@ export function CalProvider() {
       window.removeEventListener('mousemove', init)
       window.removeEventListener('scroll', init, { capture: true })
       window.removeEventListener('touchstart', init)
-      const cal = await getCalApi({ namespace: 'planifier-un-appel' })
+      const cal = await getCalApi({ namespace: CAL_NAMESPACE })
       if (cancelled) return
+
+      // Conversion : rendez-vous reellement confirme dans Cal.com.
+      // Branche une seule fois, meme si l'effet se re-execute (theme).
+      if (!bookingListenerRegistered.current) {
+        bookingListenerRegistered.current = true
+        cal('on', {
+          action: 'bookingSuccessfulV2',
+          callback: () => trackBookingComplete({ cal_namespace: CAL_NAMESPACE }),
+        })
+      }
+
       cal('ui', {
         hideEventTypeDetails: false,
         layout: 'month_view',

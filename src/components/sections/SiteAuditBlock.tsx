@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Globe, Mail, Search, CheckCircle2, Loader2 } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { HeroBg } from '@/components/ui/HeroBg'
+import { trackLead } from '@/lib/analytics'
 
 const color  = '#A78BFA'
 const bg     = 'rgba(124,58,237,0.08)'
@@ -38,6 +39,7 @@ export function SiteAuditBlock() {
       })
       if (!res.ok) throw new Error()
       setSent(true)
+      trackLead({ form_type: 'audit_seo', form_location: 'audit_block', locale: 'fr' })
     } catch {
       setError('Une erreur est survenue. Réessayez ou écrivez-nous à dk@dkdp.ch')
     } finally {

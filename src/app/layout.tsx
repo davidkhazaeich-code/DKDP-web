@@ -4,6 +4,7 @@ import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider'
 import { CalProvider } from '@/components/providers/CalProvider'
+import { ConversionTracker } from '@/components/providers/ConversionTracker'
 import { MotionProvider } from '@/components/providers/MotionProvider'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { Header } from '@/components/layout/Header'
@@ -115,6 +116,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <ThemeProvider>
             <SmoothScrollProvider>
               <CalProvider />
+              <ConversionTracker />
               <Header />
               {children}
               <FooterWrapper />

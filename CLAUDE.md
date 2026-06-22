@@ -252,6 +252,31 @@ Le sitemap (`app/sitemap.ts`) et les redirections (`next.config.mjs`) se mettent
 
 ---
 
+## Analytics et conversions (GA4 + Google Ads)
+
+**Source de verite : `src/lib/analytics.ts`.** Doc complete : `docs/analytics-conversions.md`.
+
+- Tout evenement de conversion passe par `trackEvent()` (ou un helper `trackLead`,
+  `trackPhoneClick`, `trackBookingComplete`...). Il envoie a la fois a GA4 (`gtag`)
+  et au dataLayer GTM. **Ne jamais rappeler `window.gtag` / `dataLayer.push` en dur**
+  dans un composant : importer le helper.
+- Nouveau formulaire ? Appeler `trackLead({ form_type: '...', form_location: '...' })`
+  au moment du succes (apres `res.ok`).
+- Liens `tel:` / `mailto:` / WhatsApp et CTA Cal `[data-cal-link]` sont captes
+  automatiquement par `components/providers/ConversionTracker.tsx` (monte dans le
+  layout). Rien a faire pour un nouveau lien.
+- Reservation Cal confirmee = `book_appointment`, branchee dans `CalProvider.tsx`
+  via `bookingSuccessfulV2` (namespace `planifier-un-appel`).
+- **CSP** : les domaines Google sont autorises dans `next.config.ts`
+  (`script-src` + `connect-src` + `frame-src`). Toute nouvelle source Google
+  (script ou collecte) doit y etre ajoutee, sinon le navigateur la bloque et
+  l'evenement n'atteint jamais GA4.
+- Tags en place : GA4 `G-SCXF5R826D` (gtag direct) + `G-65NPKH6CXN` (via GTM) +
+  Google Ads `AW-395809057` (via GTM). Cote GA4/Ads, marquer les Key events et
+  importer les conversions : voir `docs/analytics-conversions.md`.
+
+---
+
 ## Git et deploiement
 
 - **Remote** : `git@github.com:davidkhazaeich-code/DKDP-web.git` (SSH)

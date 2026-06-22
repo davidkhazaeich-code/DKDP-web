@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { CheckCircle2, Loader2 } from 'lucide-react'
+import { trackLead } from '@/lib/analytics'
 
 export function AuditHeroFormEn({ buttonLabel = 'Get my free audit' }: { buttonLabel?: string }) {
   const [url, setUrl]     = useState('')
@@ -19,6 +20,7 @@ export function AuditHeroFormEn({ buttonLabel = 'Get my free audit' }: { buttonL
       })
       if (!res.ok) throw new Error()
       setStatus('success')
+      trackLead({ form_type: 'audit_seo', form_location: 'audit_hero', locale: 'en' })
     } catch {
       setStatus('error')
     }

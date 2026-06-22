@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Send, CheckCircle2, Loader2 } from 'lucide-react'
 import type { Locale } from '@/i18n/config'
+import { trackNewsletterSignup } from '@/lib/analytics'
 
 const COPY = {
   fr: { successTitle: "C'est noté !", successText: 'On vous enverra le prochain article.', placeholder: 'votre@email.ch', emailAria: 'Adresse email', subscribe: "S'abonner", error: 'Erreur. Écrivez-nous à dk@dkdp.ch' },
@@ -25,6 +26,7 @@ export function NewsletterForm({ lang = 'fr' }: { lang?: Locale } = {}) {
       })
       if (!res.ok) throw new Error()
       setStatus('success')
+      trackNewsletterSignup({ form_location: 'newsletter_form', locale: lang })
     } catch {
       setStatus('error')
     }

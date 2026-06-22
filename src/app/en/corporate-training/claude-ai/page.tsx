@@ -114,8 +114,7 @@ const FORMATEURS = [
     src: '/images/team/romane.png',
     cardBg: 'linear-gradient(160deg, rgba(255,107,0,0.20) 0%, rgba(255,107,0,0.05) 100%)',
     cardBorder: 'rgba(255,107,0,0.28)',
-    imageScale: 1.38,
-    imageOffsetX: 80,
+    imageScale: 1,
   },
   {
     name: 'David Khazaei',

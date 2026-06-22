@@ -18,14 +18,38 @@ comme actions de conversion dans Google Ads.
 
 | Tag | Type | Charge par | Remarque |
 |-----|------|-----------|----------|
-| `G-SCXF5R826D` | GA4 | gtag direct (`layout.tsx`) | Propriete GA4 principale |
-| `G-65NPKH6CXN` | GA4 | GTM `GTM-NDMXZL8` | **2e propriete GA4** : a verifier (consolidation ?) |
-| `AW-395809057` | Google Ads | GTM `GTM-NDMXZL8` | Deja branche, avec enhanced conversions + remarketing |
+| `G-SCXF5R826D` | GA4 | gtag direct (`layout.tsx`) | Charge par dkdp.ch |
+| `G-65NPKH6CXN` | GA4 | linked tag + GTM | Charge par cours-informatique.ch |
+| `AW-395809057` | Google Ads | linked tag | Enhanced conversions + remarketing |
 
-> Point d'attention : il y a **deux proprietes GA4**. Chaque evenement arrive
-> proprement (une fois par propriete, pas de double comptage interne), mais il
-> faut decider laquelle est la propriete canonique et, si besoin, retirer la
-> seconde config GA4 du conteneur GTM pour ne pas eparpiller les donnees.
+> ## ⚠️ Donnees MELANGEES avec cours-informatique.ch (a corriger dans Google, hors code)
+>
+> Constate en live le 2026-06-22 (trace reseau des 2 sites) : les 3 IDs ci-dessus
+> sont **lies entre eux** (connected / linked Google tags). Le config gtag de
+> `G-SCXF5R826D` ET celui de `G-65NPKH6CXN` renvoient la MEME liste de destinations :
+> `{G-SCXF5R826D, G-65NPKH6CXN, AW-395809057}`.
+>
+> Consequence : charger n'importe lequel des 3 envoie aux 3.
+> - dkdp.ch charge `G-SCXF5R826D` → envoie aussi a G-65NPKH6CXN + AW-395809057.
+> - cours-informatique.ch charge `G-65NPKH6CXN` → envoie AUSSI a **G-SCXF5R826D**
+>   (GA4 "DKDP") **et a AW-395809057** (Google Ads "DKDP"). Verifie : cours-info
+>   poste bien `tid=G-SCXF5R826D`, `tid=G-65NPKH6CXN` et `tids=AW-395809057`.
+>
+> Donc la GA4 "principale" DKDP et le compte Google Ads DKDP contiennent AUSSI le
+> trafic de cours-informatique.ch (et inversement). **Le code des sites est correct** :
+> le melange vient du parametrage Google tag (destinations liees), a corriger dans
+> l'UI Google, pas dans le repo.
+>
+> **Fix (cote David, GA4 Admin / Google tag)** : pour CHAQUE flux de donnees,
+> ouvrir Admin > Data Streams > le flux > **Configure tag settings > Configure your
+> domains / Google tags lies / Connected site tags**, et **retirer les liens
+> croises** pour que :
+> - `G-SCXF5R826D` n'envoie qu'a lui-meme (+ AW-395809057 si on veut les conversions Ads DKDP),
+> - `G-65NPKH6CXN` (cours-info) n'envoie qu'a lui-meme (+ son propre compte Ads),
+> - decider si `AW-395809057` est commun aux 2 sites volontairement (sinon en creer un par marque).
+>
+> Tant que ce n'est pas fait, pour le reporting DKDP filtrer par hostname
+> `dkdp.ch`, et pour Google Ads ne pas se fier aux totaux bruts (ils incluent cours-info).
 
 ### CSP : le blocage historique (corrige le 2026-06-22)
 
@@ -34,8 +58,8 @@ PAS les domaines Google. Resultat : `gtm.js` et `gtag/js` etaient **bloques par 
 navigateur**, donc AUCUN evenement (ni page vue, ni lead) n'atteignait GA4.
 Domaines ajoutes : `googletagmanager.com`, `google-analytics.com`
 (+ `*.google-analytics.com`, `*.analytics.google.com`), `googleadservices.com`,
-`*.g.doubleclick.net`, `td.doubleclick.net`, `www.google.com`.
-Toute nouvelle source de script/collecte Google devra etre ajoutee ici.
+`*.doubleclick.net` (connect-src + frame-src, couvre `ad.`/`td.`/`googleads.g.`),
+`www.google.com`. Toute nouvelle source de script/collecte Google devra etre ajoutee ici.
 
 ## Catalogue des evenements
 

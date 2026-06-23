@@ -28,10 +28,14 @@ import a22 from './gpt-5-5-vs-claude-opus-4-7-tests-pratiques-2026'
 import a23 from './claude-tpe-pme-romandes'
 import a24 from './claude-code-usage-interactif-vs-programmatique'
 import a25 from './maitriser-claude-code-10-astuces'
+// Point d'insertion auto des imports (cf scripts/blog-automation/) — garder ce token seul sur sa ligne :
+// <blog-automation:imports>
 
 export const FEATURED_SLUG = 'maitriser-claude-code-10-astuces'
 
 export const ARTICLES: Article[] = [
+  // Les brouillons auto s'inserent ici, en tete (cf scripts/blog-automation/) — garder ce token seul sur sa ligne :
+  // <blog-automation:articles>
   a25, a24, a23, a22, a21, a01, a02, a03, a04, a05, a06, a07, a08, a09, a10,
   a11, a12, a13, a14, a15, a16, a17, a18, a19, a20,
 ]

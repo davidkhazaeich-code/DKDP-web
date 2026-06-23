@@ -1,0 +1,91 @@
+name: Blog draft (DKDP)
+
+# Pioche la prochaine idée "À rédiger" dans Notion, génère un brouillon d'article
+# on-brand, et ouvre une Pull Request. Rien n'est publié : David relit la PR
+# (+ preview Vercel automatique) puis merge pour publier.
+#
+# Secrets requis : ANTHROPIC_API_KEY, NOTION_API_KEY
+# Variables requises : NOTION_BLOG_IDEAS_DB_ID  (option : BLOG_MODEL)
+# Voir scripts/blog-automation/README.md
+
+on:
+  # Tous les lundis à 6h UTC (7h/8h Genève selon saison)
+  schedule:
+    - cron: '0 6 * * 1'
+  # Déclenchement manuel depuis l'onglet Actions (y compris mobile)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: blog-draft
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Generate draft from next Notion idea
+        id: gen
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_BLOG_IDEAS_DB_ID: ${{ vars.NOTION_BLOG_IDEAS_DB_ID }}
+          BLOG_MODEL: ${{ vars.BLOG_MODEL }}
+        run: node scripts/blog-automation/generate-draft.mjs
+
+      - name: Open Pull Request
+        if: steps.gen.outputs.created == 'true'
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: ${{ steps.gen.outputs.branch }}
+          TITLE: ${{ steps.gen.outputs.title }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add src/lib/blog public/images/blog
+          git commit \
+            -m "blog: brouillon « ${TITLE} »" \
+            -m "Généré par .github/workflows/blog-draft.yml — à relire avant merge."
+          git push origin "$BRANCH"
+          PR_URL=$(gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "📝 Brouillon : ${TITLE}" \
+            --body-file .blog-automation-pr-body.md)
+          echo "pr_url=${PR_URL}" >> "$GITHUB_OUTPUT"
+          echo "✓ PR ouverte : ${PR_URL}"
+
+      - name: Sync Notion idea status
+        if: steps.gen.outputs.created == 'true'
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_PAGE_ID: ${{ steps.gen.outputs.notion_page_id }}
+          PR_URL: ${{ steps.pr.outputs.pr_url }}
+        run: node scripts/blog-automation/update-notion-status.mjs
+
+      - name: Nothing to do
+        if: steps.gen.outputs.created != 'true'
+        run: echo "Aucune idée « À rédiger » dans Notion. Job terminé sans PR."

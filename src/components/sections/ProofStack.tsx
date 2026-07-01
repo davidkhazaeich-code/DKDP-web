@@ -46,6 +46,10 @@ const LOGO_GRID = [
   { name: 'Strike', file: 'strike.avif', width: 80 },
   { name: 'Intown', file: 'intown.avif', width: 90 },
   { name: 'Eli Lilly', file: 'lilly.svg', width: 110 },
+  { name: 'Enfants du Parc', file: 'enfants-du-parc.webp', width: 103 },
+  { name: 'Stop Suicide', file: 'stop-suicide.webp', width: 139 },
+  { name: 'Le Rouge Verbier', file: 'le-rouge-verbier.webp', width: 162 },
+  { name: 'Le Dahu', file: 'le-dahu.webp', width: 109 },
 ]
 
 function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {

@@ -41,15 +41,15 @@ const LOGO_GRID = [
   { name: 'Fondation Hans Wilsdorf', file: 'fondation-hans-wilsdorf.webp', width: 130 },
   { name: 'Howden', file: 'howden.avif', width: 100 },
   { name: 'OCAS', file: 'ocas.avif', width: 80 },
-  { name: 'Swiss Mutual Trust', file: 'swiss-mutual-trust.avif', width: 130 },
+  { name: 'BURRI', file: 'burri.svg', width: 145, small: true, shrink: 0.8 },
   { name: 'WellWays', file: 'wellways.avif', width: 100 },
   { name: 'Strike', file: 'strike.avif', width: 80 },
   { name: 'Intown', file: 'intown.avif', width: 90 },
   { name: 'Eli Lilly', file: 'lilly.svg', width: 110 },
-  { name: 'Enfants du Parc', file: 'enfants-du-parc.webp', width: 103 },
-  { name: 'Stop Suicide', file: 'stop-suicide.webp', width: 139 },
-  { name: 'Le Rouge Verbier', file: 'le-rouge-verbier.webp', width: 162 },
-  { name: 'Le Dahu', file: 'le-dahu.webp', width: 109 },
+  { name: 'Enfants du Parc', file: 'enfants-du-parc.webp', width: 103, shrink: 0.62 },
+  { name: 'Stop Suicide', file: 'stop-suicide.webp', width: 139, shrink: 0.66 },
+  { name: 'Le Rouge Verbier', file: 'le-rouge-verbier.webp', width: 162, shrink: 0.66 },
+  { name: 'Le Dahu', file: 'le-dahu.webp', width: 109, shrink: 0.64 },
 ]
 
 function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {
@@ -132,7 +132,8 @@ export function ProofStack({ lang = 'fr' }: { lang?: Locale } = {}) {
                   width={logo.width}
                   height={logo.small ? 42 : 84}
                   sizes={`${logo.width}px`}
-                  className={`object-contain w-auto ${logo.small ? 'h-[42px]' : 'h-[84px]'}`}
+                  className={`object-contain w-auto ${'shrink' in logo && logo.shrink ? '' : logo.small ? 'h-[42px]' : 'h-[84px]'}`}
+                  style={'shrink' in logo && logo.shrink ? { height: `${(logo.small ? 42 : 84) * logo.shrink}px` } : undefined}
                 />
               </div>
             ))}

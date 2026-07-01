@@ -24,6 +24,7 @@ const LOGOS = [
   { name: 'Stop Suicide',            file: 'stop-suicide.webp',             width: 66,  height: 40 },
   { name: 'Le Rouge Verbier',        file: 'le-rouge-verbier.webp',         width: 77,  height: 40 },
   { name: 'Le Dahu',                 file: 'le-dahu.webp',                  width: 52,  height: 40 },
+  { name: 'World Economic Forum',    file: 'world-economic-forum.webp',     width: 55,  height: 40 },
 ]
 
 interface LogoBannerProps {

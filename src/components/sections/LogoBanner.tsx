@@ -20,6 +20,10 @@ const LOGOS = [
   { name: 'Swiss Medishop',          file: 'swiss-medishop.avif',           width: 120, height: 40 },
   { name: 'Polomarco',               file: 'polomarco.png',                 width: 100, height: 40, small: true },
   { name: 'Genève Sports',           file: 'geneve-sports.svg',             width: 160, height: 40, small: true, shrink: 0.63 },
+  { name: 'Enfants du Parc',         file: 'enfants-du-parc.webp',          width: 49,  height: 40 },
+  { name: 'Stop Suicide',            file: 'stop-suicide.webp',             width: 66,  height: 40 },
+  { name: 'Le Rouge Verbier',        file: 'le-rouge-verbier.webp',         width: 77,  height: 40 },
+  { name: 'Le Dahu',                 file: 'le-dahu.webp',                  width: 52,  height: 40 },
 ]
 
 interface LogoBannerProps {

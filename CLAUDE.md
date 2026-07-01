@@ -171,6 +171,7 @@ CTAFinal (composant partage, toujours en dernier)
 | `FAQSection` | `components/sections/FAQSection.tsx` | Accordeon FAQ, prop `items` |
 | `SchemaOrg` | `components/seo/SchemaOrg.tsx` | Injection JSON-LD. Builders dans `lib/schema.ts` |
 | `SmoothScrollProvider` | `components/providers/SmoothScrollProvider.tsx` | Lenis + reset scroll au changement de page + interception anchors `#` |
+| `LogoBanner` / `ProofStack` | `components/sections/LogoBanner.tsx`, `ProofStack.tsx` | Bandeau « Ils nous font confiance ». Logos = silhouette blanche transparente (`.client-logo-tile`, marche mode clair + sombre). Ajouter un logo : `tools/add-client-logo.sh` + `workflows/logos-clients-bandeau-confiance.md` (DEV SPACE). `LogoBanner` = roster complet défilant, `ProofStack` = grille homepage curée |
 
 ---
 

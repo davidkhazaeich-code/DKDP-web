@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY)
 
   try {
+    // ── 1. Notification interne ──
     await resend.emails.send({
       from: 'DKDP Audit <audit@dkdp.ch>',
       to: 'dk@dkdp.ch',
@@ -66,6 +67,72 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     })
+
+    // ── 2. Accusé de réception au demandeur (non bloquant) ──
+    try {
+      await resend.emails.send({
+        from: 'David K. — DKDP <contact@dkdp.ch>',
+        to: sanitize(email),
+        replyTo: 'dk@dkdp.ch',
+        subject: 'Votre audit gratuit est en préparation - DKDP',
+        html: `
+          <div style="font-family:sans-serif;max-width:580px;margin:0 auto;background:#09090b;color:#e4e4e7;border-radius:12px;overflow:hidden">
+            <!-- Header -->
+            <div style="background:#111113;padding:28px 32px;border-bottom:1px solid #27272a">
+              <p style="margin:0;font-size:18px;font-weight:700;color:#ffffff;letter-spacing:-0.01em">DKDP</p>
+              <p style="margin:4px 0 0;font-size:12px;color:#71717a">Agence IA et web · Genève · Suisse romande</p>
+            </div>
+
+            <!-- Body -->
+            <div style="padding:32px">
+              <h2 style="margin:0 0 8px;font-size:22px;font-weight:700;color:#ffffff">
+                Votre demande est bien reçue
+              </h2>
+              <p style="margin:0 0 20px;color:#a1a1aa;line-height:1.65;font-size:15px">
+                Merci, nous avons bien reçu votre demande d&apos;audit gratuit pour
+                <strong style="color:#A78BFA;word-break:break-all">${sanitize(url)}</strong>.
+                Je l&apos;analyse personnellement et je vous reviens sous 48h ouvrés.
+              </p>
+
+              <!-- Ce qui se passe ensuite -->
+              <div style="margin-bottom:28px">
+                <p style="margin:0 0 14px;font-size:13px;font-weight:600;color:#ffffff;text-transform:uppercase;letter-spacing:0.06em">Ce qui se passe maintenant</p>
+                <div style="display:flex;gap:12px;margin-bottom:10px;align-items:flex-start">
+                  <div style="min-width:24px;height:24px;border-radius:50%;background:#A78BFA;color:#000;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1">1</div>
+                  <p style="margin:0;font-size:14px;color:#a1a1aa;line-height:1.55">J&apos;analyse votre site : SEO, performance, expérience utilisateur et visibilité sur les moteurs IA.</p>
+                </div>
+                <div style="display:flex;gap:12px;margin-bottom:10px;align-items:flex-start">
+                  <div style="min-width:24px;height:24px;border-radius:50%;background:#A78BFA;color:#000;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1">2</div>
+                  <p style="margin:0;font-size:14px;color:#a1a1aa;line-height:1.55">Je vous envoie un rapport d&apos;audit clair avec les priorités concrètes à corriger.</p>
+                </div>
+                <div style="display:flex;gap:12px;align-items:flex-start">
+                  <div style="min-width:24px;height:24px;border-radius:50%;background:#A78BFA;color:#000;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1">3</div>
+                  <p style="margin:0;font-size:14px;color:#a1a1aa;line-height:1.55">On échange 20 min pour prioriser ensemble les actions à fort impact si vous le souhaitez.</p>
+                </div>
+              </div>
+
+              <p style="margin:0;font-size:14px;color:#a1a1aa;line-height:1.65">
+                Une question entre temps ? Répondez directement à cet email ou écrivez-moi à
+                <a href="mailto:dk@dkdp.ch" style="color:#A78BFA;text-decoration:none"> dk@dkdp.ch</a>.
+              </p>
+            </div>
+
+            <!-- Footer -->
+            <div style="padding:20px 32px;border-top:1px solid #27272a;background:#111113">
+              <p style="margin:0;font-size:13px;color:#ffffff;font-weight:600">David K.</p>
+              <p style="margin:2px 0 0;font-size:12px;color:#71717a">Fondateur DKDP · Genève</p>
+              <p style="margin:12px 0 0;font-size:11px;color:#52525b">
+                DKDP Sàrl · Genève, Suisse ·
+                <a href="https://dkdp.ch" style="color:#52525b">dkdp.ch</a>
+              </p>
+            </div>
+          </div>
+        `,
+      })
+    } catch {
+      // L'accusé de réception ne doit pas faire échouer la requête : la notif interne est partie.
+    }
+
     return NextResponse.json({ ok: true })
   } catch {
     return NextResponse.json({ error: 'Send failed' }, { status: 500 })

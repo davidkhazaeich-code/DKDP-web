@@ -45,7 +45,7 @@ const LOGO_GRID = [
   { name: 'WellWays', file: 'wellways.avif', width: 100 },
   { name: 'Strike', file: 'strike.avif', width: 80 },
   { name: 'Intown', file: 'intown.avif', width: 90 },
-  { name: 'Eli Lilly', file: 'lilly.svg', width: 110 },
+  { name: 'Eli Lilly', file: 'lilly.svg', width: 110, shrink: 0.5 },
   { name: 'Enfants du Parc', file: 'enfants-du-parc.webp', width: 103, shrink: 0.62 },
   { name: 'Stop Suicide', file: 'stop-suicide.webp', width: 139, shrink: 0.66 },
   { name: 'Le Rouge Verbier', file: 'le-rouge-verbier.webp', width: 162, shrink: 0.66 },

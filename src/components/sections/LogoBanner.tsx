@@ -25,6 +25,7 @@ const LOGOS = [
   { name: 'Le Rouge Verbier',        file: 'le-rouge-verbier.webp',         width: 77,  height: 40 },
   { name: 'Le Dahu',                 file: 'le-dahu.webp',                  width: 52,  height: 40 },
   { name: 'World Economic Forum',    file: 'world-economic-forum.webp',     width: 55,  height: 40 },
+  { name: 'Softcom',                 file: 'softcom.webp',                  width: 124, height: 40, small: true },
 ]
 
 interface LogoBannerProps {

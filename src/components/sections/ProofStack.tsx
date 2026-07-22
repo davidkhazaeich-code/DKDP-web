@@ -51,7 +51,6 @@ const LOGO_GRID = [
   { name: 'Le Rouge Verbier', file: 'le-rouge-verbier.webp', width: 162, shrink: 0.66 },
   { name: 'Le Dahu', file: 'le-dahu.webp', width: 109, shrink: 0.64 },
   { name: 'World Economic Forum', file: 'world-economic-forum.webp', width: 115, shrink: 0.65 },
-  { name: 'Softcom', file: 'softcom.webp', width: 260, shrink: 0.66 },
 ]
 
 function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {

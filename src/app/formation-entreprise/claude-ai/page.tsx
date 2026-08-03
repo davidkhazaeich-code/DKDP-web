@@ -348,13 +348,13 @@ export default function FormationClaudeAIPage() {
       <ScrollSpyNav
         items={[
           { label: 'Pourquoi Claude', href: '#pourquoi' },
+          { label: 'Galerie', href: '#galerie' },
           { label: 'Produits', href: '#produits' },
           { label: 'Programme', href: '#programme' },
           { label: 'Compétences', href: '#competences' },
           { label: 'Métiers', href: '#métiers' },
           { label: 'Format', href: '#format' },
           { label: 'ROI', href: '#roi' },
-          { label: 'Galerie', href: '#galerie' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
         ]}
@@ -559,7 +559,29 @@ export default function FormationClaudeAIPage() {
         </div>
       </section>
 
-      {/* ══ 5. Produits Claude ══ */}
+      {/* ══ 6. Galerie ══ */}
+      <section id="galerie" className="py-24 border-b border-border scroll-mt-[124px] bg-bg-card">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
+                En images
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
+                La formation Claude IA en pratique
+              </h2>
+              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                Des sessions réelles animées chez nos clients en Suisse romande, sur leurs propres cas d&apos;usage.
+              </p>
+            </div>
+          </SectionReveal>
+          <SectionReveal delay={0.1}>
+            <GalleryFormationClaudeAI />
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ══ 7. Produits Claude ══ */}
       <section id="produits" className="py-24 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -657,6 +679,18 @@ export default function FormationClaudeAIPage() {
                 7 heures de formation pratique, construites sur vos propres documents et cas d&apos;usage.
                 Pas de slides génériques. Pas d&apos;exemples inventés.
               </p>
+            </div>
+          </SectionReveal>
+
+          <SectionReveal delay={0.05}>
+            <div className="relative w-full aspect-[21/9] rounded-[16px] overflow-hidden mb-14">
+              <Image
+                src="/images/gallery/formation-ia-entreprise-geneve-session-equipe.webp"
+                alt="Formation Claude IA Genève : équipe travaillant sur ses propres documents pendant une journée de formation DKDP"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+              />
             </div>
           </SectionReveal>
 
@@ -1028,28 +1062,6 @@ export default function FormationClaudeAIPage() {
         <ROICalculatorFormation />
       </section>
 
-      {/* ══ 11. Galerie ══ */}
-      <section id="galerie" className="py-24 border-b border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-12">
-              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
-                En images
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
-                La formation Claude IA en pratique
-              </h2>
-              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-                Des sessions concrètes, des équipes actives, des compétences immédiatement utilisables.
-              </p>
-            </div>
-          </SectionReveal>
-          <SectionReveal delay={0.1}>
-            <GalleryFormationClaudeAI />
-          </SectionReveal>
-        </div>
-      </section>
-
       {/* ══ 12. Tarifs ══ */}
       <section id="tarifs" className="py-24 border-b border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -1120,6 +1132,15 @@ export default function FormationClaudeAIPage() {
             </SectionReveal>
 
             <SectionReveal>
+              <div className="relative w-full aspect-[16/10] rounded-[16px] overflow-hidden mb-4">
+                <Image
+                  src="/images/gallery/formation-ia-entreprise-geneve-panorama-outils.webp"
+                  alt="Formation Claude IA Genève : formatrice DKDP présentant le panorama des outils IA à une équipe en entreprise"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { v: '700+', l: 'Clients accompagnés', c: V },

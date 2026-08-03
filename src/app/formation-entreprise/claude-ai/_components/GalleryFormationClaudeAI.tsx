@@ -6,19 +6,29 @@ import { X } from 'lucide-react'
 
 const IMAGES = [
   {
+    src: '/images/gallery/formation-claude-ia-geneve-comprendre-llm.webp',
+    alt: 'Formation Claude IA Genève 2026 : formatrice DKDP expliquant le fonctionnement d\'un LLM comme ChatGPT ou Claude devant une équipe',
+    caption: 'Comprendre comment fonctionne Claude',
+  },
+  {
+    src: '/images/gallery/formation-claude-ia-geneve-session-equipe-entreprise.webp',
+    alt: 'Formation Claude IA en entreprise : session DKDP animée devant une équipe complète en salle de réunion',
+    caption: 'Session Claude IA en entreprise',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-structure-prompt.webp',
+    alt: 'Formation Claude IA Genève : atelier DKDP sur la structure d\'un prompt en petit groupe',
+    caption: 'Atelier structure d\'un prompt',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-animation-atelier.webp',
+    alt: 'Formation Claude IA Genève : formateur DKDP animant un atelier pratique autour de la table de réunion',
+    caption: 'Atelier pratique en équipe',
+  },
+  {
     src: '/images/gallery/formation-claude-ai-atelier-groupe.webp',
     alt: 'Formation Claude IA Genève 2026 : formateur animant une session Claude AI avec un petit groupe de professionnels',
     caption: 'Session Claude.ai en petit groupe',
-  },
-  {
-    src: '/images/gallery/formation-claude-ai-analyse-documents.webp',
-    alt: 'Formation Claude IA : professionnelle analysant des documents longs avec Claude Extended Thinking en entreprise',
-    caption: 'Analyse de documents avec Claude',
-  },
-  {
-    src: '/images/gallery/formation-claude-code-dev.webp',
-    alt: 'Formation Claude Code Genève : développeur utilisant l agent IA Claude Code sur son setup double écran',
-    caption: 'Module Claude Code pour développeurs',
   },
   {
     src: '/images/gallery/formation-claude-projects-equipe.webp',

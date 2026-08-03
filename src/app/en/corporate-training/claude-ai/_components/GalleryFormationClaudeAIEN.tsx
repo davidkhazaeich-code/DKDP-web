@@ -6,19 +6,29 @@ import { X } from 'lucide-react'
 
 const IMAGES = [
   {
+    src: '/images/gallery/formation-claude-ia-geneve-comprendre-llm.webp',
+    alt: 'Claude AI training Geneva 2026: DKDP trainer explaining how an LLM such as ChatGPT or Claude works to a team',
+    caption: 'Understanding how Claude works',
+  },
+  {
+    src: '/images/gallery/formation-claude-ia-geneve-session-equipe-entreprise.webp',
+    alt: 'Corporate Claude AI training: DKDP session delivered to a full team in a meeting room',
+    caption: 'Claude AI session in a company',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-structure-prompt.webp',
+    alt: 'Claude AI training Geneva: DKDP workshop on prompt structure with a small group',
+    caption: 'Prompt structure workshop',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-animation-atelier.webp',
+    alt: 'Claude AI training Geneva: DKDP trainer leading a hands-on workshop around the meeting table',
+    caption: 'Hands-on team workshop',
+  },
+  {
     src: '/images/gallery/formation-claude-ai-atelier-groupe.webp',
     alt: 'Claude AI training Geneva 2026: trainer leading a Claude AI session with a small group of professionals',
     caption: 'Claude.ai session in a small group',
-  },
-  {
-    src: '/images/gallery/formation-claude-ai-analyse-documents.webp',
-    alt: 'Claude AI training: professional analysing long documents with Claude Extended Thinking in a company',
-    caption: 'Document analysis with Claude',
-  },
-  {
-    src: '/images/gallery/formation-claude-code-dev.webp',
-    alt: 'Claude Code training Geneva: developer using the Claude Code AI agent on their dual-screen setup',
-    caption: 'Claude Code module for developers',
   },
   {
     src: '/images/gallery/formation-claude-projects-equipe.webp',

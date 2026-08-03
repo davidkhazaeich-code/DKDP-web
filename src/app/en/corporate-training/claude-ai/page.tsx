@@ -536,13 +536,13 @@ export default function ClaudeAITrainingPage() {
       <ScrollSpyNav
         items={[
           { label: 'Why Claude', href: '#pourquoi' },
+          { label: 'Gallery', href: '#galerie' },
           { label: 'Products', href: '#produits' },
           { label: 'Programme', href: '#programme' },
           { label: 'Capabilities', href: '#competences' },
           { label: 'Departments', href: '#métiers' },
           { label: 'Format', href: '#format' },
           { label: 'ROI', href: '#roi' },
-          { label: 'Gallery', href: '#galerie' },
           { label: 'Pricing', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
         ]}
@@ -747,7 +747,29 @@ export default function ClaudeAITrainingPage() {
         </div>
       </section>
 
-      {/* ══ 5. Claude products ══ */}
+      {/* ══ 6. Gallery ══ */}
+      <section id="galerie" className="py-24 border-b border-border scroll-mt-[124px] bg-bg-card">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
+                In pictures
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
+                The Claude AI training in practice
+              </h2>
+              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                Real sessions delivered at our clients&apos; offices in French-speaking Switzerland, on their own use cases.
+              </p>
+            </div>
+          </SectionReveal>
+          <SectionReveal delay={0.1}>
+            <GalleryFormationClaudeAIEN />
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ══ 7. Claude products ══ */}
       <section id="produits" className="py-24 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
@@ -845,6 +867,18 @@ export default function ClaudeAITrainingPage() {
                 7 hours of hands-on training, built on your own documents and use cases.
                 No generic slides. No made-up examples.
               </p>
+            </div>
+          </SectionReveal>
+
+          <SectionReveal delay={0.05}>
+            <div className="relative w-full aspect-[21/9] rounded-[16px] overflow-hidden mb-14">
+              <Image
+                src="/images/gallery/formation-ia-entreprise-geneve-session-equipe.webp"
+                alt="Claude AI training Geneva: team working on their own documents during a DKDP training day"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+              />
             </div>
           </SectionReveal>
 
@@ -1216,28 +1250,6 @@ export default function ClaudeAITrainingPage() {
         <ROICalculatorFormation />
       </section>
 
-      {/* ══ 11. Gallery ══ */}
-      <section id="galerie" className="py-24 border-b border-border scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-12">
-              <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
-                In pictures
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
-                The Claude AI training in practice
-              </h2>
-              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-                Concrete sessions, active teams, skills that are immediately usable.
-              </p>
-            </div>
-          </SectionReveal>
-          <SectionReveal delay={0.1}>
-            <GalleryFormationClaudeAIEN />
-          </SectionReveal>
-        </div>
-      </section>
-
       {/* ══ 12. Pricing ══ */}
       <section id="tarifs" className="py-24 border-b border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -1308,6 +1320,15 @@ export default function ClaudeAITrainingPage() {
             </SectionReveal>
 
             <SectionReveal>
+              <div className="relative w-full aspect-[16/10] rounded-[16px] overflow-hidden mb-4">
+                <Image
+                  src="/images/gallery/formation-ia-entreprise-geneve-panorama-outils.webp"
+                  alt="Claude AI training Geneva: DKDP trainer presenting the AI tools landscape to a corporate team"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { v: '700+', l: 'Clients supported', c: V },

@@ -227,12 +227,12 @@ export default function FormationIAPage() {
         items={[
           { label: 'Quick quote', href: '#devis' },
           { label: 'Why now', href: '#pourquoi' },
+          { label: 'Gallery', href: '#galerie' },
           { label: 'Skills', href: '#compétences' },
           { label: 'ROI', href: '#calculateur-roi-formation' },
           { label: 'Programme', href: '#programme' },
           { label: 'Format', href: '#format' },
           { label: 'Trainers', href: '#formateurs' },
-          { label: 'Gallery', href: '#galerie' },
           { label: 'Pricing', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
         ]}
@@ -285,6 +285,26 @@ export default function FormationIAPage() {
               </div>
             </SectionReveal>
           </div>
+        </div>
+      </section>
+
+      {/* ── Gallery ── */}
+      <section id="galerie" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <GradTag className="mb-4">In pictures</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                Our trainings in action.
+              </h2>
+              <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
+                Real sessions delivered at our clients&apos; offices in French-speaking Switzerland. Each training is adapted to your team and your tools.
+              </p>
+            </div>
+          </SectionReveal>
+          <SectionReveal delay={0.15}>
+            <GalleryFormation />
+          </SectionReveal>
         </div>
       </section>
 
@@ -375,6 +395,15 @@ export default function FormationIAPage() {
               </div>
             </SectionReveal>
             <SectionReveal delay={0.15}>
+              <div className="relative w-full aspect-[16/9] rounded-[16px] overflow-hidden mb-6">
+                <Image
+                  src="/images/gallery/formation-ia-entreprise-geneve-atelier-anime.webp"
+                  alt="Corporate AI training Geneva: DKDP trainer leading a hands-on workshop with a small group"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
               <div
                 className="rounded-[20px] p-6 border"
                 style={{ background: bg, borderColor: border }}
@@ -416,6 +445,18 @@ export default function FormationIAPage() {
               </SectionReveal>
             ))}
           </div>
+
+          <SectionReveal delay={0.3}>
+            <div className="relative w-full aspect-[21/9] rounded-[16px] overflow-hidden mt-10">
+              <Image
+                src="/images/gallery/formation-ia-entreprise-geneve-salle-reunion-bande.webp"
+                alt="Corporate AI training in French-speaking Switzerland: meeting-room session with a team of employees"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+              />
+            </div>
+          </SectionReveal>
         </div>
       </section>
 
@@ -477,26 +518,6 @@ export default function FormationIAPage() {
         </div>
       </section>
       </HeroBg>
-
-      {/* ── Gallery ── */}
-      <section id="galerie" className="scroll-mt-[124px] py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-12">
-              <GradTag className="mb-4">In pictures</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Our trainings in action.
-              </h2>
-              <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                Hands-on sessions in a professional setting. Each training is adapted to your team and your tools.
-              </p>
-            </div>
-          </SectionReveal>
-          <SectionReveal delay={0.15}>
-            <GalleryFormation />
-          </SectionReveal>
-        </div>
-      </section>
 
       {/* ── Pricing ── */}
       <section id="tarifs" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">

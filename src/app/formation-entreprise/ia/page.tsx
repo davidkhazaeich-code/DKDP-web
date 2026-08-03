@@ -225,12 +225,12 @@ export default function FormationIAPage() {
         items={[
           { label: 'Devis rapide', href: '#devis' },
           { label: 'Pourquoi maintenant', href: '#pourquoi' },
+          { label: 'Galerie', href: '#galerie' },
           { label: 'Compétences', href: '#compétences' },
           { label: 'ROI', href: '#calculateur-roi-formation' },
           { label: 'Programme', href: '#programme' },
           { label: 'Format', href: '#format' },
           { label: 'Formateurs', href: '#formateurs' },
-          { label: 'Galerie', href: '#galerie' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
         ]}
@@ -283,6 +283,26 @@ export default function FormationIAPage() {
               </div>
             </SectionReveal>
           </div>
+        </div>
+      </section>
+
+      {/* ── Galerie ── */}
+      <section id="galerie" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <GradTag className="mb-4">En images</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
+                Nos formations en action.
+              </h2>
+              <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
+                Des sessions réelles animées chez nos clients en Suisse romande. Chaque formation est adaptée à votre équipe et vos outils.
+              </p>
+            </div>
+          </SectionReveal>
+          <SectionReveal delay={0.15}>
+            <GalleryFormation />
+          </SectionReveal>
         </div>
       </section>
 
@@ -373,6 +393,15 @@ export default function FormationIAPage() {
               </div>
             </SectionReveal>
             <SectionReveal delay={0.15}>
+              <div className="relative w-full aspect-[16/9] rounded-[16px] overflow-hidden mb-6">
+                <Image
+                  src="/images/gallery/formation-ia-entreprise-geneve-atelier-anime.webp"
+                  alt="Formation IA entreprise Genève : formatrice DKDP animant un atelier pratique devant un petit groupe"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
               <div
                 className="rounded-[20px] p-6 border"
                 style={{ background: bg, borderColor: border }}
@@ -414,6 +443,18 @@ export default function FormationIAPage() {
               </SectionReveal>
             ))}
           </div>
+
+          <SectionReveal delay={0.3}>
+            <div className="relative w-full aspect-[21/9] rounded-[16px] overflow-hidden mt-10">
+              <Image
+                src="/images/gallery/formation-ia-entreprise-geneve-salle-reunion-bande.webp"
+                alt="Formation IA entreprise en Suisse romande : session en salle de réunion avec une équipe de collaborateurs"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+              />
+            </div>
+          </SectionReveal>
         </div>
       </section>
 
@@ -475,26 +516,6 @@ export default function FormationIAPage() {
         </div>
       </section>
       </HeroBg>
-
-      {/* ── Galerie ── */}
-      <section id="galerie" className="scroll-mt-[124px] py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-12">
-              <GradTag className="mb-4">En images</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Nos formations en action.
-              </h2>
-              <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                Des sessions pratiques dans un cadre professionnel. Chaque formation est adaptée à votre équipe et vos outils.
-              </p>
-            </div>
-          </SectionReveal>
-          <SectionReveal delay={0.15}>
-            <GalleryFormation />
-          </SectionReveal>
-        </div>
-      </section>
 
       {/* ── Tarifs ── */}
       <section id="tarifs" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">

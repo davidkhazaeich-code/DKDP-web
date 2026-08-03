@@ -6,6 +6,36 @@ import { X } from 'lucide-react'
 
 const IMAGES = [
   {
+    src: '/images/gallery/formation-ia-entreprise-geneve-panorama-outils.webp',
+    alt: 'Corporate AI training Geneva 2026: DKDP trainer presenting the landscape of general-purpose AI tools to a group',
+    caption: 'The AI tools landscape',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-structure-prompt.webp',
+    alt: 'Corporate AI training Geneva: DKDP workshop on prompt structure with a small group',
+    caption: 'Prompt structure workshop',
+  },
+  {
+    src: '/images/gallery/formation-claude-ia-geneve-comprendre-llm.webp',
+    alt: 'Corporate AI training Geneva 2026: explaining how an LLM such as ChatGPT or Claude works to a team',
+    caption: 'How an LLM actually works',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-animation-atelier.webp',
+    alt: 'Corporate AI training Geneva: DKDP trainer leading a hands-on workshop around the meeting table',
+    caption: 'Hands-on team workshop',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-session-equipe.webp',
+    alt: 'Corporate AI training Geneva: team working on their own use cases during a DKDP session',
+    caption: 'Working on your real use cases',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-atelier-paperboard.webp',
+    alt: 'Corporate AI training Geneva: framing use cases on the flipchart during a DKDP session',
+    caption: 'Framing the use cases',
+  },
+  {
     src: '/images/gallery/formation-ia-salle-formation-geneve.webp',
     alt: 'Corporate AI training Geneva 2026: trainer presenting to a small group in a modern room',
     caption: 'Classroom session, small group',

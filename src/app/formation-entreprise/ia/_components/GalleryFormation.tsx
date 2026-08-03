@@ -6,6 +6,36 @@ import { X } from 'lucide-react'
 
 const IMAGES = [
   {
+    src: '/images/gallery/formation-ia-entreprise-geneve-panorama-outils.webp',
+    alt: 'Formation IA entreprise Genève 2026 : formatrice DKDP présentant le panorama des outils IA généralistes devant un groupe',
+    caption: 'Panorama des outils IA',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-structure-prompt.webp',
+    alt: 'Formation IA entreprise Genève : atelier DKDP sur la structure d\'un prompt en petit groupe',
+    caption: 'Atelier structure d\'un prompt',
+  },
+  {
+    src: '/images/gallery/formation-claude-ia-geneve-comprendre-llm.webp',
+    alt: 'Formation IA entreprise Genève 2026 : explication du fonctionnement d\'un LLM comme ChatGPT ou Claude à une équipe',
+    caption: 'Comprendre le fonctionnement d\'un LLM',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-animation-atelier.webp',
+    alt: 'Formation IA entreprise Genève : formateur DKDP animant un atelier pratique autour de la table de réunion',
+    caption: 'Atelier pratique en équipe',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-session-equipe.webp',
+    alt: 'Formation IA entreprise Genève : équipe travaillant sur ses propres cas d\'usage pendant une session DKDP',
+    caption: 'Travail sur vos cas réels',
+  },
+  {
+    src: '/images/gallery/formation-ia-entreprise-geneve-atelier-paperboard.webp',
+    alt: 'Formation IA entreprise Genève : cadrage des cas d\'usage au paperboard pendant une session DKDP',
+    caption: 'Cadrage des cas d\'usage',
+  },
+  {
     src: '/images/gallery/formation-ia-salle-formation-geneve.webp',
     alt: 'Formation IA entreprise Geneve 2026 : formateur presentant devant un petit groupe dans une salle moderne',
     caption: 'Session en salle, petit groupe',

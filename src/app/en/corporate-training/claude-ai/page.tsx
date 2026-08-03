@@ -445,67 +445,18 @@ export default function ClaudeAITrainingPage() {
                 </div>
                 {/* Session photo */}
                 <div
-                  className="relative w-full aspect-[16/9] rounded-[14px] overflow-hidden"
+                  className="relative w-full aspect-[4/3] rounded-[14px] overflow-hidden"
                   style={{ border: `1px solid ${ORD}` }}
                 >
                   <Image
-                    src="/images/gallery/formation-claude-ia-geneve-demonstration-formatrice.webp"
-                    alt="Claude AI training Geneva: DKDP trainer showing a Claude capability on screen while a participant reacts"
+                    src="/images/gallery/formation-claude-ia-geneve-decouverte-possibilites.webp"
+                    alt="Claude AI training Geneva: DKDP trainer supporting a colleague discovering what Claude can do on her computer"
                     fill
                     priority
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
-                {/* Terminal Claude Code */}
-                <div
-                  className="rounded-[14px] p-5"
-                  style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${VD}`, boxShadow: `0 0 40px rgba(124,58,237,0.15)` }}
-                >
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                    <div className="flex items-center gap-1.5 ml-2">
-                      <Image src="/images/partners/claude-logo.png" alt="Claude AI" width={18} height={18} className="rounded-[4px]" />
-                      <span className="text-[11px] text-text-muted font-mono">claude · DKDP training</span>
-                    </div>
-                  </div>
-                  <div className="space-y-2 font-mono text-[12px]">
-                    <p><span style={{ color: V }}>{'>'}</span> <span className="text-zinc-400">Analyse this 80-page report and</span></p>
-                    <p className="pl-4 text-zinc-400">identify the 5 critical risks</p>
-                    <div className="h-px bg-zinc-800 my-2" />
-                    <p style={{ color: '#4ade80' }}>Claude ● Extended Thinking enabled...</p>
-                    <p className="text-zinc-300">Analysis in progress (200k tokens) ●●●</p>
-                    <div className="h-px bg-zinc-800 my-2" />
-                    <p className="text-zinc-300">5 risks identified:</p>
-                    <p className="text-zinc-400 pl-4">1. Regulatory exposure (Art. 7)</p>
-                    <p className="text-zinc-400 pl-4">2. Supplier concentration (35%)</p>
-                    <p className="text-zinc-400 pl-4">3. ...</p>
-                    <div className="flex items-center gap-2 mt-2">
-                      <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: V }} />
-                      <span style={{ color: V }}>Response generated in 4.2s</span>
-                    </div>
-                  </div>
-                </div>
-                {/* Mini stats */}
-                <div className="grid grid-cols-3 gap-3">
-                  {[
-                    { v: '200k', l: 'context tokens', c: V },
-                    { v: '1M', l: 'Sonnet tokens', c: CH },
-                    { v: '5/5', l: 'DKDP reviews', c: OR },
-                  ].map((s) => (
-                    <div
-                      key={s.l}
-                      className="text-center py-3 rounded-[10px]"
-                      style={{ background: 'var(--surface-subtle)', border: '1px solid var(--surface-border)' }}
-                    >
-                      <p className="text-xl font-bold" style={{ color: s.c }}>{s.v}</p>
-                      <p className="text-[10px] text-text-muted mt-0.5">{s.l}</p>
-                    </div>
-                  ))}
-                </div>
-
               </div>
             </div>
           </div>

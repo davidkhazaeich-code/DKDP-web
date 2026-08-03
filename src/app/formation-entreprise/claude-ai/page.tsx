@@ -685,8 +685,8 @@ export default function FormationClaudeAIPage() {
           <SectionReveal delay={0.05}>
             <div className="relative w-full aspect-[21/9] rounded-[16px] overflow-hidden mb-14">
               <Image
-                src="/images/gallery/formation-ia-entreprise-geneve-session-equipe.webp"
-                alt="Formation Claude IA Genève : équipe travaillant sur ses propres documents pendant une journée de formation DKDP"
+                src="/images/gallery/formation-claude-ia-geneve-programme-atelier.webp"
+                alt="Formation Claude IA Genève : formateur DKDP accompagnant les participants sur leurs propres cas d'usage pendant la journée"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1200px) 100vw, 1200px"

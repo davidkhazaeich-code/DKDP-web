@@ -873,8 +873,8 @@ export default function ClaudeAITrainingPage() {
           <SectionReveal delay={0.05}>
             <div className="relative w-full aspect-[21/9] rounded-[16px] overflow-hidden mb-14">
               <Image
-                src="/images/gallery/formation-ia-entreprise-geneve-session-equipe.webp"
-                alt="Claude AI training Geneva: team working on their own documents during a DKDP training day"
+                src="/images/gallery/formation-claude-ia-geneve-programme-atelier.webp"
+                alt="Claude AI training Geneva: DKDP trainer supporting participants on their own use cases during the day"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1200px) 100vw, 1200px"

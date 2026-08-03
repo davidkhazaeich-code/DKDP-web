@@ -443,6 +443,20 @@ export default function ClaudeAITrainingPage() {
             size="md"
           />
                 </div>
+                {/* Session photo */}
+                <div
+                  className="relative w-full aspect-[16/9] rounded-[14px] overflow-hidden"
+                  style={{ border: `1px solid ${ORD}` }}
+                >
+                  <Image
+                    src="/images/gallery/formation-claude-ia-geneve-demonstration-formatrice.webp"
+                    alt="Claude AI training Geneva: DKDP trainer showing a Claude capability on screen while a participant reacts"
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
                 {/* Terminal Claude Code */}
                 <div
                   className="rounded-[14px] p-5"

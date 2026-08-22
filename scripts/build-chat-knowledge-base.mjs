@@ -30,11 +30,38 @@ const EXCLUDED_PATHS = new Set([
   '/conditions-generales-de-vente',
   '/rgpd-cookies',
   '/plan-du-site',
+  '/en', // accueil anglais, voir EXCLUDED_PREFIXES
 ])
 
 const EXCLUDED_PREFIXES = [
   '/blog/', // individuels, trop nombreux, traités séparément si besoin
+  // Locale anglaise : traduction mot pour mot des pages FR, donc zéro fait
+  // nouveau pour le chatbot, mais 51 pages et 44 % du prompt. Le prompt
+  // statique lui fait déjà répondre en anglais (comme en allemand et en
+  // italien, qui n'ont jamais eu de pages dans la KB non plus).
+  // Leur arrivée dans le sitemap le 2026-06-05 avait fait passer le prompt
+  // de 113k à 222k tokens, au-delà de la limite du modèle. Ne pas réintroduire.
+  '/en/',
 ]
+
+// ─── Budget de tokens ───────────────────────────────────────────────────────
+// Cette KB part vers Claude Haiku 4.5 dans un seul bloc `system`, avec les
+// règles statiques. La fenêtre de contexte du modèle est de 200 000 tokens.
+// Au-delà, l'API répond HTTP 200 mais glisse `{"type":"error"}` dans le flux
+// SSE : le chatbot est muet et aucun monitoring HTTP ne le voit. C'est arrivé
+// le 2026-06-05 et le bug a survécu deux mois et demi.
+//
+// L'ancienne estimation divisait par 4 chars/token, un ratio d'anglais. Sur du
+// français accentué le vrai ratio mesuré au tokenizer Anthropic est 3.36. Elle
+// annonçait donc 184k quand la réalité était 222k : elle se trompait dans le
+// sens dangereux. On prend 3.2 pour surestimer les tokens plutôt que l'inverse.
+const CHARS_PER_TOKEN = 3.2
+const MODEL_CONTEXT_LIMIT = 200_000
+// Plafond dur : au-delà, le build échoue et la KB n'est PAS réécrite, donc la
+// prod continue de tourner sur la dernière version saine.
+const MAX_KB_TOKENS = 160_000
+// Seuil d'alerte : prévient pendant qu'il reste de la marge pour réagir.
+const WARN_KB_TOKENS = 140_000
 
 // ─── Ordre d'affichage dans la KB ───────────────────────────────────────────
 // Les pages importantes en premier pour que le chatbot les privilégie.
@@ -202,7 +229,42 @@ Pages incluses : ${pages.length}
 ${sections.join('\n\n')}
 `.trim()
 
-  // ─── 7. Écrit le fichier TS importable ────────────────────────────────────
+  // ─── 7. Garde-fou : la KB doit tenir dans la fenêtre du modèle ────────────
+  // Volontairement avant l'écriture : si on dépasse, on sort en erreur sans
+  // toucher au fichier, donc la prod garde la dernière KB qui fonctionnait.
+  const estimatedTokens = Math.round(kbContent.length / CHARS_PER_TOKEN)
+  const pctOfLimit = Math.round((estimatedTokens / MODEL_CONTEXT_LIMIT) * 100)
+  console.log(
+    `\n📏 KB : ${kbContent.length} chars ≈ ${estimatedTokens} tokens ` +
+      `(${pctOfLimit} % de la limite ${MODEL_CONTEXT_LIMIT} du modèle)`
+  )
+
+  if (estimatedTokens > MAX_KB_TOKENS) {
+    console.error(
+      `\n✗ BUILD BLOQUÉ : la base de connaissances dépasse son budget.\n` +
+        `  Estimé   : ${estimatedTokens} tokens\n` +
+        `  Plafond  : ${MAX_KB_TOKENS} tokens\n` +
+        `  Limite modèle : ${MODEL_CONTEXT_LIMIT} tokens (Claude Haiku 4.5)\n\n` +
+        `  Le fichier n'a PAS été réécrit : la prod tourne toujours sur la\n` +
+        `  dernière KB saine, le chatbot n'est pas cassé.\n\n` +
+        `  Que faire : le site a grossi. Exclure des pages via EXCLUDED_PATHS\n` +
+        `  ou EXCLUDED_PREFIXES en haut de ce script, ou passer le chatbot sur\n` +
+        `  un modèle à fenêtre plus large (Sonnet 5 : 1M tokens).\n` +
+        `  Pages actuellement crawlées : ${pages.length}`
+    )
+    process.exit(1)
+  }
+
+  if (estimatedTokens > WARN_KB_TOKENS) {
+    console.warn(
+      `\n⚠  ALERTE : ${estimatedTokens} tokens, au-dessus du seuil ` +
+        `${WARN_KB_TOKENS}. Le build passe encore, mais il reste seulement ` +
+        `${MAX_KB_TOKENS - estimatedTokens} tokens avant blocage. ` +
+        `Prévoir d'élaguer la KB.`
+    )
+  }
+
+  // ─── 8. Écrit le fichier TS importable ────────────────────────────────────
   const outDir = dirname(OUTPUT)
   if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true })
 
@@ -229,7 +291,7 @@ export const CHAT_KNOWLEDGE_BASE = ${JSON.stringify(kbContent)}
   const elapsed = ((Date.now() - started) / 1000).toFixed(1)
   console.log(`\n✓ KB générée en ${elapsed}s`)
   console.log(`  → ${OUTPUT}`)
-  console.log(`  → ${pages.length} pages, ${kbContent.length} chars (${(kbContent.length / 4).toFixed(0)} tokens approx)`)
+  console.log(`  → ${pages.length} pages, ${kbContent.length} chars (~${estimatedTokens} tokens)`)
 }
 
 main().catch((err) => {

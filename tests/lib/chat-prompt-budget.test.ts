@@ -4,6 +4,7 @@ import {
   CHAT_KNOWLEDGE_BASE,
   CHAT_KNOWLEDGE_BASE_PAGES_COUNT,
 } from '@/data/chat-knowledge-base'
+import { FR_TO_EN } from '@/i18n/slugs'
 
 /**
  * Garde-fou sur la taille du system prompt du chatbot.
@@ -81,5 +82,90 @@ describe('budget du system prompt chatbot', () => {
     expect(CHAT_KNOWLEDGE_BASE_PAGES_COUNT).toBeGreaterThan(30)
     expect(DKDP_SYSTEM_PROMPT).toContain('## Page : /tarifs')
     expect(DKDP_SYSTEM_PROMPT).toContain('## Page : /contact')
+  })
+})
+
+/**
+ * La base de connaissances est en français uniquement, mais le bot répond en
+ * anglais. Les faits se traduisent tout seuls, pas les URLs : les slugs EN
+ * sont des traductions, pas des préfixes. Sans table de correspondance le bot
+ * enverrait un anglophone sur /tarifs, ou pire, inventerait /en/tarifs (404).
+ */
+describe('liens bilingues du chatbot', () => {
+  // Le prompt statique s'arrête au premier séparateur, la KB suit.
+  const staticRules = DKDP_SYSTEM_PROMPT.split('\n---\n')[0]
+
+  it('embarque la table de correspondance des chemins', () => {
+    expect(DKDP_SYSTEM_PROMPT).toContain(
+      '### Table de conversion des chemins (français → anglais)'
+    )
+    // Slugs traduits, pas préfixés : c'est tout l'intérêt de la table.
+    expect(DKDP_SYSTEM_PROMPT).toContain('/tarifs → /en/pricing')
+    expect(DKDP_SYSTEM_PROMPT).toContain('/a-propos → /en/about')
+    expect(DKDP_SYSTEM_PROMPT).toContain(
+      '/agence-digitale/creation-site-web → /en/digital-agency/web-design'
+    )
+    // L'accueil est un cas particulier : / devient /en, pas /en/.
+    expect(DKDP_SYSTEM_PROMPT).toContain('/ → /en')
+  })
+
+  it('traduit toutes les pages traduisibles', () => {
+    const manquantes = Object.keys(FR_TO_EN).filter(
+      (frPath) => !DKDP_SYSTEM_PROMPT.includes(`${frPath} → /en`)
+    )
+    expect(
+      manquantes,
+      `${manquantes.length} pages traduites du site n'apparaissent pas dans la ` +
+        `table du prompt : ${manquantes.join(', ')}.`
+    ).toEqual([])
+  })
+
+  it('propose une version anglaise pour chaque lien interne recommandé', () => {
+    // C'est le test qui compte sur la durée : si quelqu'un ajoute une page à
+    // la carte de liens sans la traduire, les anglophones se retrouvent avec
+    // un lien français au milieu d'une réponse anglaise.
+    // Gabarits illustrant le format attendu, pas de vraies pages.
+    const GABARITS = new Set(['/chemin'])
+
+    const liensCites = [
+      ...staticRules.matchAll(/\]\((\/[^)\s]*)\)/g),
+    ].map((m) => m[1])
+
+    const sansTraduction = [...new Set(liensCites)]
+      .filter((path) => !path.startsWith('/en'))
+      .filter((path) => !GABARITS.has(path))
+      .filter((path) => !(path in FR_TO_EN))
+
+    expect(
+      sansTraduction,
+      `Ces pages sont recommandées par le bot mais n'ont pas d'équivalent ` +
+        `anglais dans src/i18n/slugs.ts : ${sansTraduction.join(', ')}. ` +
+        `Soit traduire la page, soit la retirer de la carte de liens.`
+    ).toEqual([])
+  })
+
+  it('interdit explicitement de fabriquer une URL anglaise', () => {
+    // Le piège naturel du modèle est de préfixer /en devant un slug français.
+    expect(DKDP_SYSTEM_PROMPT).toContain("N'invente jamais une URL")
+    expect(DKDP_SYSTEM_PROMPT).toContain('/en/tarifs n')
+  })
+
+  it('place la table de conversion APRÈS la base de connaissances', () => {
+    // Propriété portante, pas cosmétique. Testé en conditions réelles : avec la
+    // consigne placée avant la KB, le modèle répondait en anglais mais servait
+    // des liens français. La KB fait ~116k tokens et annonce chacune de ses
+    // pages par un chemin français, ce qui noie une consigne située en amont.
+    // Remontée juste avant le message du visiteur, elle est suivie.
+    const posTable = DKDP_SYSTEM_PROMPT.indexOf('### Table de conversion des chemins')
+    const posDernierePageKB = DKDP_SYSTEM_PROMPT.lastIndexOf('## Page : ')
+
+    expect(posTable).toBeGreaterThan(-1)
+    expect(posDernierePageKB).toBeGreaterThan(-1)
+    expect(
+      posTable,
+      "La table de conversion des liens doit rester APRÈS la base de " +
+        'connaissances. Déplacée avant, elle est noyée sous les centaines de ' +
+        'chemins français de la KB et le modèle sert des liens FR en anglais.'
+    ).toBeGreaterThan(posDernierePageKB)
   })
 })

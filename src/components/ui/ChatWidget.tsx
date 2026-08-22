@@ -53,6 +53,72 @@ const PLACEHOLDERS = [
   'Parlez-moi de vos formations IA',
 ]
 
+// ── Version anglaise des textes du widget ───────────────────────────────────
+// Le site existe en francais et en anglais. Ces textes s'affichent avant que le
+// visiteur ait ecrit quoi que ce soit, donc la langue vient du chemin : sur
+// /en/pricing il faut deja l'accueillir en anglais. Une fois la conversation
+// lancee, c'est le modele qui suit la langue du visiteur, plus le chemin.
+type ChatLocale = 'fr' | 'en'
+
+const EN_WELCOME_MESSAGE =
+  'Welcome to DKDP. We help companies stand out online with modern websites that rank well. How can I help you today?'
+
+const EN_QUICK_SUGGESTIONS = [
+  { icon: <Globe size={14} />, label: 'Build a website' },
+  { icon: <MessageCircle size={14} />, label: 'I want an AI chatbot like this one' },
+  { icon: <Sparkles size={14} />, label: 'Explore your AI training' },
+  { icon: <CalendarCheck size={14} />, label: 'Get a free quote' },
+]
+
+const EN_PLACEHOLDERS = [
+  'Looking for something?',
+  'Got a website project in mind?',
+  'How much does a website cost?',
+  'Tell me about your AI training',
+]
+
+/** La locale vient du chemin : /en et /en/... sont anglais, le reste francais. */
+function localeFromPath(pathname: string | null): ChatLocale {
+  return pathname === '/en' || pathname?.startsWith('/en/') ? 'en' : 'fr'
+}
+
+/** Libelles d'accessibilite, lus par les lecteurs d'ecran. */
+const LABELS = {
+  fr: {
+    ask: 'Posez votre question a notre IA',
+    dictate: 'Dicter un message',
+    stopDictation: 'Arreter la dictee',
+    send: 'Envoyer le message',
+    clear: 'Effacer la conversation',
+  },
+  en: {
+    ask: 'Ask our AI a question',
+    dictate: 'Dictate a message',
+    stopDictation: 'Stop dictation',
+    send: 'Send message',
+    clear: 'Clear conversation',
+  },
+} as const
+
+/** Textes du widget pour la locale courante. */
+function copyFor(locale: ChatLocale) {
+  return locale === 'en'
+    ? {
+        welcome: EN_WELCOME_MESSAGE,
+        suggestions: EN_QUICK_SUGGESTIONS,
+        placeholders: EN_PLACEHOLDERS,
+        speechLang: 'en-US',
+        labels: LABELS.en,
+      }
+    : {
+        welcome: WELCOME_MESSAGE,
+        suggestions: QUICK_SUGGESTIONS,
+        placeholders: PLACEHOLDERS,
+        speechLang: 'fr-FR',
+        labels: LABELS.fr,
+      }
+}
+
 // ── CTA quick links shown after assistant messages ──────────────────────────
 
 const INLINE_CTAS = [
@@ -118,8 +184,18 @@ function AnimatedOrb({ size = 32, animated = false }: { size?: number; animated?
 
 // ── Animated placeholder ────────────────────────────────────────────────────
 
-function AnimatedPlaceholder({ index, visible }: { index: number; visible: boolean }) {
-  const text = PLACEHOLDERS[index]
+function AnimatedPlaceholder({
+  index,
+  visible,
+  texts,
+}: {
+  index: number
+  visible: boolean
+  texts: string[]
+}) {
+  // Repli sur le premier : si la langue bascule en pleine rotation, l'index
+  // courant peut depasser la nouvelle liste.
+  const text = texts[index] ?? texts[0]
 
   return (
     <AnimatePresence mode="wait">
@@ -476,6 +552,8 @@ export function ChatWidget() {
   const [showPlaceholder, setShowPlaceholder] = useState(true)
   const [barFocused, setBarFocused] = useState(false)
   const pathname = usePathname()
+  // Textes du widget selon la langue de la page (voir copyFor plus haut).
+  const copy = copyFor(localeFromPath(pathname))
   const prevPathnameRef = useRef(pathname)
   const honeypotRef = useRef('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -546,7 +624,7 @@ export function ChatWidget() {
   }
 
   // ── Dictée vocale (Web Speech API) ──
-  const speech = useSpeechRecognition({ lang: 'fr-FR' })
+  const speech = useSpeechRecognition({ lang: copy.speechLang })
   useEffect(() => {
     if (speech.transcript) setInputValue(speech.transcript)
   }, [speech.transcript])
@@ -763,12 +841,16 @@ export function ChatWidget() {
     const interval = setInterval(() => {
       setShowPlaceholder(false)
       setTimeout(() => {
-        setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDERS.length)
+        setPlaceholderIndex((prev) => (prev + 1) % copy.placeholders.length)
         setShowPlaceholder(true)
       }, 250)
     }, 3500)
     return () => clearInterval(interval)
-  }, [isOpen, barFocused, inputValue])
+    // copy.placeholders.length : le widget est monte dans le layout racine et
+    // survit aux changements de page, donc la langue peut basculer en cours de
+    // route (FR -> EN). Sans cette dependance le modulo garderait l'ancienne
+    // longueur.
+  }, [isOpen, barFocused, inputValue, copy.placeholders.length])
 
   // Auto-scroll messages
   useEffect(() => {
@@ -979,7 +1061,7 @@ export function ChatWidget() {
                   type="text"
                   value={inputValue}
                   maxLength={MAX_CHAR_LENGTH}
-                  aria-label="Posez votre question a notre IA"
+                  aria-label={copy.labels.ask}
                   onChange={(e) => {
                     if (e.target.value.length <= MAX_CHAR_LENGTH) setInputValue(e.target.value)
                   }}
@@ -1007,6 +1089,7 @@ export function ChatWidget() {
                         <AnimatedPlaceholder
                           index={placeholderIndex}
                           visible={showPlaceholder && !barFocused}
+                          texts={copy.placeholders}
                         />
                         {barFocused && (
                           <span className="text-base md:text-sm text-text-muted">Posez votre question...</span>
@@ -1021,7 +1104,7 @@ export function ChatWidget() {
                 <m.button
                   type="button"
                   onClick={speech.toggle}
-                  aria-label={speech.isListening ? 'Arreter la dictee' : 'Dicter un message'}
+                  aria-label={speech.isListening ? copy.labels.stopDictation : copy.labels.dictate}
                   aria-pressed={speech.isListening}
                   className="flex-shrink-0 w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center rounded-full cursor-pointer relative"
                   style={{
@@ -1046,7 +1129,7 @@ export function ChatWidget() {
               <m.button
                 type="submit"
                 disabled={!inputValue.trim()}
-                aria-label="Envoyer le message"
+                aria-label={copy.labels.send}
                 className="flex-shrink-0 w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-40 disabled:cursor-default"
                 style={{
                   background: inputValue.trim()
@@ -1118,8 +1201,8 @@ export function ChatWidget() {
                   <button
                     onClick={handleReset}
                     className="p-3 sm:p-2.5 rounded-full hover:bg-[var(--surface-default)] transition-colors cursor-pointer"
-                    title="Effacer la conversation"
-                    aria-label="Effacer la conversation"
+                    title={copy.labels.clear}
+                    aria-label={copy.labels.clear}
                   >
                     <RotateCcw size={16} className="text-text-muted sm:w-[14px] sm:h-[14px]" />
                   </button>
@@ -1164,7 +1247,7 @@ export function ChatWidget() {
                           transition={{ duration: 0.4, delay: 0.1 }}
                           className="text-[13.5px] sm:text-[15px] text-text-secondary leading-relaxed"
                         >
-                          {WELCOME_MESSAGE}
+                          {copy.welcome}
                         </m.p>
                       </div>
                     </div>
@@ -1176,7 +1259,7 @@ export function ChatWidget() {
                       transition={{ duration: 0.4, delay: 0.25 }}
                       className="flex flex-col gap-2 pl-0 sm:pl-9"
                     >
-                      {QUICK_SUGGESTIONS.map(({ icon, label }) => (
+                      {copy.suggestions.map(({ icon, label }) => (
                         <button
                           key={label}
                           onClick={() => handleSuggestionClick(label)}
@@ -1316,7 +1399,7 @@ export function ChatWidget() {
                       type="button"
                       onClick={speech.toggle}
                       disabled={isLoading}
-                      aria-label={speech.isListening ? 'Arreter la dictee' : 'Dicter un message'}
+                      aria-label={speech.isListening ? copy.labels.stopDictation : copy.labels.dictate}
                       aria-pressed={speech.isListening}
                       className="flex-shrink-0 w-11 h-11 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-20 disabled:cursor-default mb-0.5 relative"
                       style={{
@@ -1340,7 +1423,7 @@ export function ChatWidget() {
                   <m.button
                     type="submit"
                     disabled={!inputValue.trim() || isLoading}
-                    aria-label="Envoyer le message"
+                    aria-label={copy.labels.send}
                     className="flex-shrink-0 w-11 h-11 sm:w-8 sm:h-8 flex items-center justify-center rounded-full cursor-pointer disabled:opacity-40 disabled:cursor-default mb-0.5"
                     style={{
                       background: inputValue.trim()

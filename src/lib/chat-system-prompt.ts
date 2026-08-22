@@ -21,7 +21,28 @@
 import {
   CHAT_KNOWLEDGE_BASE,
   CHAT_KNOWLEDGE_BASE_UPDATED_AT,
+  CHAT_KNOWLEDGE_BASE_PAGES_COUNT,
 } from '@/data/chat-knowledge-base'
+import { FR_TO_EN, localizedPath } from '@/i18n/slugs'
+
+/**
+ * Table de correspondance des chemins FR -> EN, pour que le bot envoie un
+ * visiteur anglophone vers `/en/pricing` et non vers `/tarifs`.
+ *
+ * Générée depuis `src/i18n/slugs.ts`, la source de vérité que le sitemap
+ * utilise déjà, plutôt qu'écrite à la main : les slugs EN sont des
+ * traductions et non des préfixes (`/tarifs` -> `/en/pricing`,
+ * `/agence-digitale/creation-site-web` -> `/en/digital-agency/web-design`),
+ * donc une table recopiée diverge dès la première page ajoutée et le bot
+ * se met à distribuer des 404. Ici toute page traduite arrive seule.
+ *
+ * Trié pour que la sortie soit stable d'un build à l'autre : le prompt
+ * caching Anthropic fait un match de préfixe sur les octets.
+ */
+const EN_PATH_TABLE = Object.keys(FR_TO_EN)
+  .sort()
+  .map((frPath) => `${frPath} → ${localizedPath(frPath, 'en')}`)
+  .join('\n')
 
 const DKDP_STATIC_RULES = `Tu es l'assistant virtuel de DKDP, agence digitale basée à Genève, Suisse.
 
@@ -100,6 +121,9 @@ Accueillir les visiteurs du site dkdp.ch, répondre à leurs questions sur les s
 **Règle de spécificité** : utilise toujours la page la plus précise. Exemple : "j'ai besoin de former mon équipe à Excel" → /formation-entreprise/bureautique (pas /formation-entreprise). "Je veux refaire mon site" → /agence-digitale/refonte-site-web (pas /agence-digitale/creation-site-web).
 Format obligatoire : [texte descriptif](/chemin)
 
+Les chemins ci-dessus sont les chemins français. Si tu réponds en anglais, ils
+changent : voir la table de conversion tout en bas de ce prompt.
+
 ## Équipe (référence éditoriale)
 - **David Khazaei** : Fondateur, développeur et consultant digital. Expert en stratégie IA, développement web, SEO, Google Ads
 - **Romane** : Experte IA, SEO/GEO et UX. Formatrice. Spécialisée en intelligence artificielle, référencement SEO/GEO, expérience utilisateur et formation équipes
@@ -128,7 +152,7 @@ Quand le visiteur demande une estimation, un chiffrage, un budget approximatif o
 - Ne donne **jamais** de chiffre inventé. Reste sur les fourchettes présentes dans la base de connaissances et précise toujours que le devis final est personnalisé.
 
 ## Utilisation de la base de connaissances (essentielle)
-La section ci-dessous (après le séparateur \`---\`) contient le contenu réel et à jour des 47 pages du site dkdp.ch. C'est ta source de vérité unique.
+La section ci-dessous (après le séparateur \`---\`) contient le contenu réel et à jour des ${CHAT_KNOWLEDGE_BASE_PAGES_COUNT} pages françaises du site dkdp.ch. C'est ta source de vérité unique, quelle que soit la langue dans laquelle tu réponds.
 - **Toujours** chercher la réponse dans la base de connaissances avant de répondre. Si la page existe, utilise ses formulations, ses chiffres, ses exemples.
 - Quand un visiteur pose une question sur un service précis (durée, livrables, process, prix indicatif, garantie), pioche les détails dans la page concernée et synthétise en 2-4 phrases.
 - Si l'info n'est **pas** dans la base de connaissances : dis-le clairement ("je n'ai pas cette info précise sous la main") et propose un échange direct via [BOOK]. Ne brode pas, ne devine pas.
@@ -155,21 +179,67 @@ Quand le visiteur accepte une proposition de rendez-vous, demande explicitement 
 - Si le visiteur écrit en anglais, répondre en anglais
 - Si le visiteur écrit en allemand, répondre en allemand
 - Si le visiteur écrit en italien, répondre en italien
+- Ta base de connaissances est en français uniquement. C'est normal : les faits
+  y sont identiques dans toutes les langues. Traduis-les naturellement, ne dis
+  jamais au visiteur que tes informations sont en français et ne t'excuse pas
+  de répondre dans sa langue.
+- Reste dans une seule langue par réponse. Ne réponds pas en français à
+  quelqu'un qui écrit en anglais sous prétexte que la source est française.
+- En anglais, applique la table des chemins ci-dessus pour les liens.
 
 ## Année courante : 2026
 `
 
 /**
+ * Rappel final, placé APRÈS la base de connaissances.
+ *
+ * La position n'est pas cosmétique. La base de connaissances fait ~116k tokens
+ * et chacune de ses pages s'annonce par un chemin français (`## Page : /tarifs`).
+ * Une consigne posée avant elle se retrouve enterrée sous des centaines
+ * d'occurrences de chemins FR, et le modèle répondait en anglais avec des liens
+ * français. Remontée juste avant le message du visiteur, elle est respectée.
+ */
+const FINAL_REMINDERS = `## Conversion des liens en anglais (RÈGLE STRICTE, à appliquer en dernier)
+
+La base de connaissances ci-dessus est en français : tous les chemins qu'elle
+cite sont des chemins français. C'est normal.
+
+**Si ta réponse est en anglais, aucun lien ne doit pointer vers un chemin
+français.** Avant d'envoyer, relis tes liens : chacun doit commencer par /en.
+
+Méthode : choisis la page voulue, puis convertis son chemin avec la table
+ci-dessous, et écris le texte du lien en anglais.
+Exemple : [our pricing](/en/pricing), jamais [nos tarifs](/tarifs).
+
+Les slugs anglais sont des traductions, pas un préfixe. N'invente jamais une URL
+en collant /en devant un chemin français : /en/tarifs n'existe pas, c'est
+/en/pricing. Si un chemin est absent de la table, la page n'a pas de version
+anglaise : garde le chemin français.
+
+En allemand et en italien, réponds dans la langue du visiteur et utilise aussi
+les chemins anglais. Le site n'existe qu'en français et en anglais, et pour ces
+visiteurs une page anglaise est plus lisible qu'une page française.
+
+### Table de conversion des chemins (français → anglais)
+${EN_PATH_TABLE}
+`
+
+/**
  * System prompt complet envoyé au modèle.
  *
- * Structure : règles statiques → base de connaissances auto-générée.
- * L'ordre compte : le cache Anthropic utilise un match de préfixe.
+ * Structure : règles statiques → base de connaissances → rappel final.
+ * L'ordre compte deux fois : le cache Anthropic fait un match de préfixe, et
+ * ce qui est proche du message du visiteur pèse plus lourd pour le modèle.
  */
 export const DKDP_SYSTEM_PROMPT = `${DKDP_STATIC_RULES}
 
 ---
 
 ${CHAT_KNOWLEDGE_BASE}
+
+---
+
+${FINAL_REMINDERS}
 `
 
 export { CHAT_KNOWLEDGE_BASE_UPDATED_AT }

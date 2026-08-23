@@ -84,12 +84,18 @@ const article: Article = {
   images: [
     { src: '/images/blog/mon-article-schema.png', alt: '...', caption: '...' },
   ],
+  // Optionnel mais recommande : reprise MOT POUR MOT des Q/R de la section
+  // « Questions frequentes » du contenu. Declenche un schema FAQPage en plus
+  // du BlogPosting (rich results Google + citabilite moteurs IA).
+  faq: [{ question: '...', answer: '...' }],
   content: `...markdown + HTML diagrams + ___IMG:filename___ markers...`,
 }
 
 export default article
 ```
 ```
+
+> **Champ `faq`** : Google exige que la reponse balisee soit **visible sur la page**. Ne jamais baliser une Q/R absente du corps de l'article, et repercuter toute reformulation du texte dans le champ. Sans `faq`, la page n'emet que BlogPosting et BreadcrumbList, comme avant.
 
 **Conventions pour les diagrammes HTML :**
 - Wrapper principal : `<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(...);background:rgba(...)">` 

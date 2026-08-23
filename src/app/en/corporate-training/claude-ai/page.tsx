@@ -5,7 +5,7 @@ import {
   CheckCircle2, Clock, Users, Award, ChevronRight,
   BrainCircuit, Zap, FileText, Code2, Bot, Layers,
   MessageSquare, Eye, Database, Workflow, BarChart2,
-  Shield, Sparkles,
+  Shield, Sparkles, BookOpen,
   Briefcase, TrendingUp, ShoppingCart, UserCog, DollarSign, Scale,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
@@ -21,8 +21,10 @@ const Testimonials = dynamic(() => import('@/components/sections/Testimonials').
 const CircularTestimonialsLazy = dynamic(() => import('@/components/ui/circular-testimonials').then(m => m.CircularTestimonials))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
 const ROICalculatorFormation = dynamic(() => import('@/components/sections/ROICalculatorFormation').then(m => ({ default: m.ROICalculatorFormation })))
+const ArticleCarousel = dynamic(() => import('@/components/sections/ArticleCarousel').then(m => ({ default: m.ArticleCarousel })))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
+import { getArticlesByTopic, countArticlesByTopic, CLAUDE_TOPIC } from '@/lib/blog/topics'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet, orange, chrome, green } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
@@ -55,6 +57,11 @@ export const metadata: Metadata = {
 const V = violet.color, VB = violet.bg, VD = violet.border
 const OR = orange.color, ORB = orange.bg, ORD = orange.border
 const CH = chrome.color, CHB = chrome.bg, CHD = chrome.border
+
+/* ─────────────────────────────────────────────
+   Number of cards rendered in the watch carousel.
+───────────────────────────────────────────── */
+const WATCH_MAX_CARDS = 12
 
 /* ─────────────────────────────────────────────
    FAQ
@@ -341,6 +348,14 @@ function UseCaseCard({
    Page
 ───────────────────────────────────────────── */
 export default function ClaudeAITrainingPage() {
+  /* Claude watch, recomputed on every render from the blog.
+     Any article touching a CLAUDE_TOPIC keyword (slug, title or tags) surfaces
+     here on its own, newest first. Nothing to edit on this page when an article
+     ships. The counter shows the real total, not the display cap. */
+  const claudeArticles = getArticlesByTopic(CLAUDE_TOPIC, WATCH_MAX_CARDS)
+  const claudeArticlesTotal = countArticlesByTopic(CLAUDE_TOPIC)
+  const latestPublished = claudeArticles[0]?.date ?? null
+
   return (
     <main>
       <SchemaOrg schema={buildCourse({
@@ -509,6 +524,7 @@ export default function ClaudeAITrainingPage() {
           { label: 'Format', href: '#format' },
           { label: 'ROI', href: '#roi' },
           { label: 'Pricing', href: '#tarifs' },
+          { label: 'Articles', href: '#articles' },
           { label: 'FAQ', href: '#faq' },
         ]}
         cta={{ label: 'Get in touch', href: localizedPath('/contact', 'en') }}
@@ -1316,7 +1332,69 @@ export default function ClaudeAITrainingPage() {
         </div>
       </section>
 
-      {/* ══ 12. Trainers ══ */}
+      {/* ══ 12. Watch and articles ══ */}
+      {claudeArticles.length > 0 && (
+        <section id="articles" className="py-24 border-b border-border scroll-mt-[124px]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <SectionReveal>
+              <div className="max-w-3xl mb-10">
+                <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
+                  Watch and updates
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
+                  We follow what Claude ships, and we write about it
+                </h2>
+                <p className="text-text-secondary text-lg leading-relaxed">
+                  New model versions, features landing, limits we hit in the field: we publish what we
+                  learn from using Claude every day. These articles are written by the team that runs the
+                  training, and the programme is updated right after. Articles are published in French.
+                </p>
+
+                <div className="flex flex-wrap gap-3 mt-6">
+                  <div
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-text-secondary"
+                    style={{ background: ORB, border: `1px solid ${ORD}` }}
+                  >
+                    <BookOpen size={12} style={{ color: OR }} />
+                    {claudeArticlesTotal} articles about Claude
+                  </div>
+                  {latestPublished && (
+                    <div
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-text-secondary"
+                      style={{ background: ORB, border: `1px solid ${ORD}` }}
+                    >
+                      <Clock size={12} style={{ color: OR }} />
+                      Latest published: {latestPublished}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </SectionReveal>
+
+            <SectionReveal delay={0.1}>
+              <ArticleCarousel
+                articles={claudeArticles}
+                accentColor={OR}
+                accentBorder={ORD}
+                lang="en"
+                label="DKDP articles about Claude AI"
+              />
+            </SectionReveal>
+
+            <SectionReveal>
+              <p className="text-text-muted text-sm mt-8">
+                All our AI, SEO and training coverage lives on{' '}
+                <Link href={localizedPath('/blog', 'en')} className="underline hover:text-text transition-colors" style={{ color: OR }}>
+                  the DKDP blog
+                </Link>
+                .
+              </p>
+            </SectionReveal>
+          </div>
+        </section>
+      )}
+
+      {/* ══ 13. Trainers ══ */}
       <HeroBg
         blob1="rgba(255,107,0,0.08)"
         blob2="rgba(124,58,237,0.05)"

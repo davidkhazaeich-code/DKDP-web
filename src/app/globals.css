@@ -212,6 +212,16 @@
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+/* Barre de defilement masquee — pistes horizontales (ScrollSpyNav, ArticleCarousel).
+   Le scroll reste actif : seul le rail visuel disparait. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Logo swap — defaults to dark variant, light variant hidden */
 .light-only { display: none; }
 [data-theme="light"] .light-only { display: block; }

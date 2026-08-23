@@ -22,8 +22,10 @@ const Testimonials = dynamic(() => import('@/components/sections/Testimonials').
 const CircularTestimonialsLazy = dynamic(() => import('@/components/ui/circular-testimonials').then(m => m.CircularTestimonials))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
 const ROICalculatorFormation = dynamic(() => import('@/components/sections/ROICalculatorFormation').then(m => ({ default: m.ROICalculatorFormation })))
+const ArticleCarousel = dynamic(() => import('@/components/sections/ArticleCarousel').then(m => ({ default: m.ArticleCarousel })))
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
+import { getArticlesByTopic, countArticlesByTopic, CLAUDE_TOPIC } from '@/lib/blog/topics'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet, orange, chrome } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
@@ -57,6 +59,9 @@ export const metadata: Metadata = {
 const V = violet.color, VB = violet.bg, VD = violet.border
 const OR = orange.color, ORB = orange.bg, ORD = orange.border
 const CH = chrome.color, CHB = chrome.bg, CHD = chrome.border
+
+/** Nombre de cartes affichees dans le carrousel de veille. */
+const VEILLE_MAX_CARTES = 12
 
 /* ─────────────────────────────────────────────
    FAQ
@@ -154,6 +159,14 @@ const FORMATEURS = [
    Page
 ───────────────────────────────────────────── */
 export default function FormationClaudeAIPage() {
+  /* Veille Claude, recalculee a chaque rendu depuis le blog.
+     Tout article touchant un mot de CLAUDE_TOPIC (slug, titre ou tags) remonte
+     ici de lui-meme, le plus recent en tete. Rien a editer sur cette page quand
+     un article sort. Le compteur affiche le total reel, pas le cap d'affichage. */
+  const claudeArticles = getArticlesByTopic(CLAUDE_TOPIC, VEILLE_MAX_CARTES)
+  const claudeArticlesTotal = countArticlesByTopic(CLAUDE_TOPIC)
+  const dernierePublication = claudeArticles[0]?.date ?? null
+
   return (
     <main>
       <SchemaOrg schema={buildCourse({
@@ -321,6 +334,7 @@ export default function FormationClaudeAIPage() {
           { label: 'Format', href: '#format' },
           { label: 'ROI', href: '#roi' },
           { label: 'Tarifs', href: '#tarifs' },
+          { label: 'Articles', href: '#articles' },
           { label: 'FAQ', href: '#faq' },
         ]}
         cta={{ label: 'Prendre contact', href: '/contact' }}
@@ -1128,7 +1142,68 @@ export default function FormationClaudeAIPage() {
         </div>
       </section>
 
-      {/* ══ 12. Formateurs ══ */}
+      {/* ══ 12. Veille et articles ══ */}
+      {claudeArticles.length > 0 && (
+        <section id="articles" className="py-24 border-b border-border scroll-mt-[124px]">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <SectionReveal>
+              <div className="max-w-3xl mb-10">
+                <span className="text-xs font-bold uppercase tracking-widest mb-3 block" style={{ color: OR }}>
+                  Veille et actualité
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text mb-4">
+                  Nous suivons l&apos;actualité Claude, et nous l&apos;écrivons
+                </h2>
+                <p className="text-text-secondary text-lg leading-relaxed">
+                  Nouvelles versions de modèles, fonctionnalités qui arrivent, limites rencontrées sur le terrain :
+                  nous publions ce que nous en tirons dans notre pratique quotidienne. Ces articles sont écrits
+                  par l&apos;équipe qui anime les formations, et le programme est mis à jour dans la foulée.
+                </p>
+
+                <div className="flex flex-wrap gap-3 mt-6">
+                  <div
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-text-secondary"
+                    style={{ background: ORB, border: `1px solid ${ORD}` }}
+                  >
+                    <BookOpen size={12} style={{ color: OR }} />
+                    {claudeArticlesTotal} articles consacrés à Claude
+                  </div>
+                  {dernierePublication && (
+                    <div
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-text-secondary"
+                      style={{ background: ORB, border: `1px solid ${ORD}` }}
+                    >
+                      <Clock size={12} style={{ color: OR }} />
+                      Dernière publication : {dernierePublication}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </SectionReveal>
+
+            <SectionReveal delay={0.1}>
+              <ArticleCarousel
+                articles={claudeArticles}
+                accentColor={OR}
+                accentBorder={ORD}
+                label="Articles DKDP sur Claude IA"
+              />
+            </SectionReveal>
+
+            <SectionReveal>
+              <p className="text-text-muted text-sm mt-8">
+                Toute notre veille IA, SEO et formation est publiée sur{' '}
+                <Link href="/blog" className="underline hover:text-text transition-colors" style={{ color: OR }}>
+                  le blog DKDP
+                </Link>
+                .
+              </p>
+            </SectionReveal>
+          </div>
+        </section>
+      )}
+
+      {/* ══ 13. Formateurs ══ */}
       <HeroBg
         blob1="rgba(255,107,0,0.08)"
         blob2="rgba(124,58,237,0.05)"

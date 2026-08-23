@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Fragment } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -6,7 +7,7 @@ import { CTAFinal } from '@/components/sections/CTAFinal'
 import { LogoBanner } from '@/components/sections/LogoBanner'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildArticle, buildBreadcrumbList } from '@/lib/schema'
+import { buildArticle, buildBreadcrumbList, buildFAQPage } from '@/lib/schema'
 import {
   ARTICLES,
   getArticle,
@@ -374,6 +375,9 @@ export default async function ArticlePage(
       { name: 'Blog',    url: 'https://dkdp.ch/blog' },
       { name: article.title, url: `https://dkdp.ch/blog/${article.slug}` },
     ]),
+    // FAQPage seulement si l'article expose ses Q/R (elles doivent aussi etre
+    // visibles dans le corps du texte, sinon Google considere le balisage invalide)
+    ...(article.faq?.length ? [buildFAQPage(article.faq)] : []),
   ]
 
   /* Render markdown and split around image markers */
@@ -391,11 +395,12 @@ export default async function ArticlePage(
       const part = <div key={`prose-${i}`} dangerouslySetInnerHTML={{ __html: seg }} />
       // Insert mid-article CTA after the midpoint prose segment
       if (i === midIdx && midService) {
+        // Fragment keye : sans cle, React avertit sur chaque article a images
         return (
-          <>
+          <Fragment key={`prose-cta-${i}`}>
             {part}
-            <InlineCTA key={`cta-${i}`} service={midService} />
-          </>
+            <InlineCTA service={midService} />
+          </Fragment>
         )
       }
       return part

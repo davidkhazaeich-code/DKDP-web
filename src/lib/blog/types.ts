@@ -21,6 +21,14 @@ export interface Article {
   tags: string[]
   seoTitle: string
   seoDescription: string
+  /**
+   * Reprise des Q/R de la section « Questions frequentes » du contenu.
+   * Optionnel : quand il est rempli, la page article injecte un schema FAQPage
+   * en plus du BlogPosting (rich results Google + citabilite moteurs IA).
+   * Garder le meme texte que dans le corps de l'article, Google exige
+   * que la reponse balisee soit visible sur la page.
+   */
+  faq?: { question: string; answer: string }[]
 }
 
 export const BLOG_CATEGORIES: Record<CategoryKey, { label: string; color: string; bg: string; border: string }> = {

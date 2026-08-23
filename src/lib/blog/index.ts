@@ -31,11 +31,12 @@ import a25 from './maitriser-claude-code-10-astuces'
 import a26 from './site-web-nextjs-vs-wordpress-webflow-2026'
 import a27 from './configurer-claude-code-claude-md-memoire'
 import a28 from './deepseek-open-source-donnees-pme'
+import a29 from './utiliser-claude-ia-du-chat-aux-agents-guide-2026'
 
-export const FEATURED_SLUG = 'deepseek-open-source-donnees-pme'
+export const FEATURED_SLUG = 'utiliser-claude-ia-du-chat-aux-agents-guide-2026'
 
 export const ARTICLES: Article[] = [
-  a28, a27, a26, a25, a24, a23, a22, a21, a01, a02, a03, a04, a05, a06, a07, a08, a09, a10,
+  a29, a28, a27, a26, a25, a24, a23, a22, a21, a01, a02, a03, a04, a05, a06, a07, a08, a09, a10,
   a11, a12, a13, a14, a15, a16, a17, a18, a19, a20,
 ]
 

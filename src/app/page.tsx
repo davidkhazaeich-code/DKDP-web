@@ -11,6 +11,7 @@ const LogoBanner     = dynamic(() => import('@/components/sections/LogoBanner').
 const AllServices    = dynamic(() => import('@/components/sections/AllServices').then(m => ({ default: m.AllServices })))
 const ProblemBlock   = dynamic(() => import('@/components/sections/ProblemBlock').then(m => ({ default: m.ProblemBlock })))
 const ProcessSteps   = dynamic(() => import('@/components/sections/ProcessSteps').then(m => ({ default: m.ProcessSteps })))
+const TechWatch      = dynamic(() => import('@/components/sections/TechWatch').then(m => ({ default: m.TechWatch })))
 const ProofStack     = dynamic(() => import('@/components/sections/ProofStack').then(m => ({ default: m.ProofStack })))
 const Testimonials   = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 const TeamSection    = dynamic(() => import('@/components/sections/TeamSection').then(m => ({ default: m.TeamSection })))
@@ -58,6 +59,7 @@ export default function HomePage() {
         <LogoBanner />
         <AllServices />
         <ProcessSteps />
+        <TechWatch />
         <ProofStack />
         <Testimonials />
         <TeamSection />

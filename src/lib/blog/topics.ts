@@ -2,12 +2,24 @@ import type { Article } from './types'
 import { ARTICLES } from './index'
 
 /**
- * Selection d'articles par sujet, pour les sections "veille" des pages service.
+ * Selections d'articles pour les sections "veille" et "actualite" des pages.
  *
  * Volontairement a part de index.ts, qui est le fichier d'assemblage du blog :
  * il bouge a chaque publication, donc y poser de la logique de page cree des
  * conflits entre la redaction et le developpement.
  */
+
+/**
+ * Les N articles les plus recents, tous sujets confondus.
+ *
+ * ARTICLES est ordonne a la main dans index.ts : on retrie sur dateISO pour ne
+ * pas dependre de cet ordre, qu'une publication peut casser sans le vouloir.
+ */
+export function getLatestArticles(limit = 8): Article[] {
+  return [...ARTICLES]
+    .sort((a, b) => b.dateISO.localeCompare(a.dateISO))
+    .slice(0, limit)
+}
 
 /**
  * Vocabulaire du sujet "Claude / Anthropic".

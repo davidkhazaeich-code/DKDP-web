@@ -56,6 +56,8 @@ Quand David fournit du contenu (lien YouTube, transcript, topic, texte brut) pou
 >
 > **Les `tags` sont le levier de controle.** Un article Claude dont ni le slug ni le titre ne portent un mot du sujet doit avoir le tag qui va bien, sinon il reste invisible dans la section. Quand Anthropic sort un nom de produit ou de modele inedit, **elargir `CLAUDE_TOPIC` dans `src/lib/blog/topics.ts`**, pas les pages.
 >
+> **La page d'accueil aussi** : la section « Veille technologique » de `/` et `/en` (composant `TechWatch`, entre la methode et le bandeau de confiance) liste les **8 derniers articles tous sujets confondus** via `getLatestArticles()`. Toute publication y remonte en tete sans condition de mot-cle.
+>
 > Garde-fou : `src/lib/blog/__tests__/topic.test.ts` echoue si un article dont le slug ou le titre parle de Claude n'atterrit pas dans la section. Si ce test casse apres une publication, ajouter le mot manquant a `CLAUDE_TOPIC` plutot que d'ajuster le test.
 
 **Fichiers blog cles :**
@@ -64,7 +66,7 @@ Quand David fournit du contenu (lien YouTube, transcript, topic, texte brut) pou
 |---|---|
 | `src/lib/blog/` | **1 fichier par article** (default export). Types dans `types.ts`, assemblage dans `index.ts` |
 | `src/lib/blog/index.ts` | Re-exporte ARTICLES[], BLOG_CATEGORIES, FEATURED_SLUG, getArticle(), getRelatedArticles(). **Fichier d'assemblage : il bouge a chaque publication, ne pas y poser de logique de page** |
-| `src/lib/blog/topics.ts` | Selection par sujet pour les sections « veille » : CLAUDE_TOPIC, getArticlesByTopic(), countArticlesByTopic(). Volontairement separe de `index.ts` pour que redaction et developpement ne se marchent pas dessus |
+| `src/lib/blog/topics.ts` | Selections d'articles pour les sections de page : CLAUDE_TOPIC, getArticlesByTopic(), countArticlesByTopic(), getLatestArticles(). Volontairement separe de `index.ts` pour que redaction et developpement ne se marchent pas dessus |
 | `src/app/blog/[slug]/page.tsx` | Page article individuelle, markdown custom avec marqueurs `___IMG:filename___` + blocs HTML pass-through (`<div>`) |
 | `public/images/blog/` | Images hero, schemas et inline des articles |
 
@@ -185,7 +187,8 @@ CTAFinal (composant partage, toujours en dernier)
 | `SchemaOrg` | `components/seo/SchemaOrg.tsx` | Injection JSON-LD. Builders dans `lib/schema.ts` |
 | `SmoothScrollProvider` | `components/providers/SmoothScrollProvider.tsx` | Lenis + reset scroll au changement de page + interception anchors `#` |
 | `LogoBanner` / `ProofStack` | `components/sections/LogoBanner.tsx`, `ProofStack.tsx` | Bandeau « Ils nous font confiance ». Logos = silhouette blanche transparente (`.client-logo-tile`, marche mode clair + sombre). Ajouter un logo : `tools/add-client-logo.sh` + `workflows/logos-clients-bandeau-confiance.md` (DEV SPACE). `LogoBanner` = roster complet défilant, `ProofStack` = grille homepage curée |
-| `ArticleCarousel` | `components/sections/ArticleCarousel.tsx` | Carrousel horizontal d'articles de blog pour une section « veille » de page service. Props : `articles`, `accentColor`, `accentBorder`, `lang`, `label`. Scroll natif + scroll-snap (swipe mobile), flèches desktop, barre de progression, masque de fondu aux bords. Lang-aware (`fr` par défaut). Alimenter avec `getArticlesByTopic()` |
+| `ArticleCarousel` | `components/sections/ArticleCarousel.tsx` | Carrousel horizontal d'articles de blog pour une section « veille » de page service. Props : `articles`, `accentColor`, `accentBorder`, `lang`, `label`. Scroll natif + scroll-snap (swipe mobile), flèches desktop, barre de progression, masque de fondu aux bords. Lang-aware (`fr` par défaut). Alimenter avec `getArticlesByTopic()` ou `getLatestArticles()` |
+| `TechWatch` | `components/sections/TechWatch.tsx` | Section « Veille technologique » de la page d'accueil, entre `ProcessSteps` et `ProofStack`. Fond de grille animé (`HeroBg`) + `ArticleCarousel` sur les 8 derniers articles. Lang-aware, montée à l'identique sur `/` et `/en` |
 
 ---
 

@@ -338,7 +338,7 @@ export default async function CityPage({ params }: Props) {
                 href={s.href}
                 className="group p-4 md:p-5 rounded-xl border border-border bg-white/[0.02] transition-all hover:-translate-y-0.5 hover:border-violet-500/40 duration-200"
               >
-                <p className="text-text font-semibold text-sm mb-1.5 group-hover:opacity-80 transition-opacity">{s.label}</p>
+                <p className="text-text font-semibold text-sm mb-1.5">{s.label}</p>
                 <p className="text-text-muted text-xs leading-relaxed">{s.desc}</p>
                 <span className="inline-flex items-center gap-1 text-[11px] font-semibold mt-3 text-text-secondary group-hover:text-violet-400 transition-colors">
                   En savoir plus <ChevronRight size={10} />
@@ -389,7 +389,7 @@ export default async function CityPage({ params }: Props) {
                     <Link href={s.href} className="group flex items-start gap-3">
                       <CheckCircle2 size={15} className="mt-0.5 flex-shrink-0 transition-colors" style={{ color: V }} />
                       <div>
-                        <p className="text-text text-sm font-medium group-hover:opacity-80 transition-opacity">{s.label}</p>
+                        <p className="text-text-secondary text-sm font-medium group-hover:text-text transition-colors">{s.label}</p>
                         <p className="text-text-muted text-xs mt-0.5 leading-relaxed">{s.desc}</p>
                       </div>
                     </Link>

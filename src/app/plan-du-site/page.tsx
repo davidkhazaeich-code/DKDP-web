@@ -145,7 +145,7 @@ export default function PlanDuSitePage() {
                       <li key={href}>
                         <Link
                           href={href}
-                          className="flex items-center gap-2 text-text-secondary hover:[color:var(--text)] text-sm transition-colors duration-150 group"
+                          className="flex items-center gap-2 text-text-secondary hover:text-text text-sm transition-colors duration-150 group"
                         >
                           <span
                             className="w-1 h-1 rounded-full shrink-0 opacity-60 group-hover:opacity-100 transition-opacity"
@@ -178,7 +178,7 @@ export default function PlanDuSitePage() {
                   <li key={article.slug}>
                     <Link
                       href={`/blog/${article.slug}`}
-                      className="flex items-start gap-2 text-text-secondary hover:[color:var(--text)] text-sm transition-colors duration-150 group"
+                      className="flex items-start gap-2 text-text-secondary hover:text-text text-sm transition-colors duration-150 group"
                     >
                       <span
                         className="mt-1.5 w-1 h-1 rounded-full shrink-0 opacity-60 group-hover:opacity-100 transition-opacity"
@@ -209,7 +209,7 @@ export default function PlanDuSitePage() {
                   <li key={href}>
                     <Link
                       href={href}
-                      className="flex items-center gap-2 text-text-secondary hover:[color:var(--text)] text-sm transition-colors duration-150 group"
+                      className="flex items-center gap-2 text-text-secondary hover:text-text text-sm transition-colors duration-150 group"
                     >
                       <span
                         className="w-1 h-1 rounded-full shrink-0 opacity-60 group-hover:opacity-100 transition-opacity"

@@ -149,7 +149,7 @@ export function CinematicCTA({ lang = 'fr' }: { lang?: Locale } = {}) {
         <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row">
           <a
             href="tel:+41799407969"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-6 py-3 text-sm text-text-secondary backdrop-blur-md transition hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-white"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-6 py-3 text-sm text-text-secondary backdrop-blur-md transition hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-text"
           >
             <svg
               width="14"
@@ -171,7 +171,7 @@ export function CinematicCTA({ lang = 'fr' }: { lang?: Locale } = {}) {
           </a>
           <a
             href="mailto:dk@dkdp.ch"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-6 py-3 text-sm text-text-secondary backdrop-blur-md transition hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-white"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-6 py-3 text-sm text-text-secondary backdrop-blur-md transition hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-text"
           >
             <svg
               width="14"

@@ -473,7 +473,7 @@ export default function GlossaryPageEN() {
                   <a
                     key={letter}
                     href={`#lettre-${letter}`}
-                    className="flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold text-text transition-colors duration-150"
+                    className="flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold text-text-secondary hover:text-text transition-colors duration-150"
                     style={{ background: 'rgba(167,139,250,0.10)', border: '1px solid rgba(167,139,250,0.25)' }}
                     aria-label={`Go to letter ${letter}`}
                   >
@@ -503,7 +503,7 @@ export default function GlossaryPageEN() {
                   <a
                     key={letter}
                     href={`#lettre-${letter}`}
-                    className="flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold text-text transition-colors duration-150"
+                    className="flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold text-text-secondary hover:text-text transition-colors duration-150"
                     style={{ background: 'rgba(167,139,250,0.10)', border: '1px solid rgba(167,139,250,0.25)' }}
                     aria-label={`Go to letter ${letter}`}
                   >

@@ -45,7 +45,7 @@ export function ProjectCard({ realisation: r, lang = 'fr' }: ProjectCardProps) {
           </span>
         </div>
 
-        <h3 className="line-clamp-2 text-lg font-semibold tracking-tight text-text-primary">
+        <h3 className="line-clamp-2 text-lg font-semibold tracking-tight text-text">
           {r.meta.title}
         </h3>
 

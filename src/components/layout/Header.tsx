@@ -162,11 +162,7 @@ function MegaPanel({
               <span key={tag.href} className="inline-flex items-center gap-1">
                 {i > 0 && <span className="opacity-40">·</span>}
                 <NavigationMenuLink asChild>
-                  <Link
-                    href={tag.href}
-                    className="transition-colors hover:text-[var(--pillar-color)]"
-                    style={{ '--pillar-color': color } as React.CSSProperties}
-                  >
+                  <Link href={tag.href} className="transition-colors hover:text-text">
                     {tag.text}
                   </Link>
                 </NavigationMenuLink>
@@ -190,7 +186,7 @@ function MegaPanel({
                     <item.icon size={15} style={{ color }} />
                   </div>
                   <div>
-                    <p className="text-[13px] font-semibold text-text leading-snug transition-colors duration-200 group-hover:text-[var(--pillar-color)]">
+                    <p className="text-[13px] font-semibold text-text-secondary leading-snug transition-colors duration-200 group-hover:text-text">
                       {item.title}
                     </p>
                     {item.description && (
@@ -226,7 +222,7 @@ function MegaPanel({
               <NavigationMenuLink asChild>
                 <Link
                   href={item.href}
-                  className="flex items-center gap-2 rounded-[6px] px-2 py-1.5 text-[12px] text-text-secondary transition-all duration-200 hover:bg-[var(--pillar-bg)] hover:text-[var(--pillar-color)] hover:translate-x-0.5 group"
+                  className="flex items-center gap-2 rounded-[6px] px-2 py-1.5 text-[12px] text-text-secondary transition-all duration-200 hover:bg-[var(--pillar-bg)] hover:text-text hover:translate-x-0.5 group"
                   style={{ '--pillar-bg': bg, '--pillar-color': color } as React.CSSProperties}
                 >
                   <item.icon size={13} className="flex-shrink-0 text-text-muted transition-colors group-hover:text-[var(--pillar-color)]" />
@@ -425,8 +421,7 @@ function MobileNav({ open, onClose, lang }: { open: boolean; onClose: () => void
                       <Link
                         href={tag.href}
                         onClick={onClose}
-                        className="text-xs text-text-muted transition-colors active:text-[var(--pillar-color)]"
-                        style={{ '--pillar-color': tab.color } as React.CSSProperties}
+                        className="text-xs text-text-muted transition-colors active:text-text"
                       >
                         {tag.text}
                       </Link>

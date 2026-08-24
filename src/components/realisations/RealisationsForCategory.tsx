@@ -36,7 +36,7 @@ export function RealisationsForCategory({
           {items.map(r => <ProjectCard key={r.slug} realisation={r} />)}
         </div>
         <div className="mt-8">
-          <Link href="/realisations" className="text-sm text-text-secondary hover:text-text-primary">
+          <Link href="/realisations" className="text-sm text-text-secondary hover:text-text">
             Voir toutes les realisations &rarr;
           </Link>
         </div>

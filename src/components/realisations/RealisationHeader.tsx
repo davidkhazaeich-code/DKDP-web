@@ -28,9 +28,9 @@ export function RealisationHeader({ r, lang = 'fr' }: { r: Realisation; lang?: L
       <header className="relative">
         <div className="mx-auto max-w-[1200px] px-6 pt-12 md:pt-16">
           <nav aria-label="Breadcrumb" className="mb-8 text-sm text-text-muted">
-            <Link href={home} className="hover:text-text-primary">{t.home}</Link>
+            <Link href={home} className="hover:text-text">{t.home}</Link>
             <span className="mx-2">/</span>
-            <Link href={hub} className="hover:text-text-primary">{t.portfolio}</Link>
+            <Link href={hub} className="hover:text-text">{t.portfolio}</Link>
             <span className="mx-2">/</span>
             <span className="text-text-secondary">{r.client.name}</span>
           </nav>

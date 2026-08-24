@@ -125,7 +125,7 @@ export default function RGPDCookiesPage() {
                 ))}
               </ul>
               <p className="text-text-muted text-xs mt-4">
-                Pour exercer vos droits : <a href="mailto:dk@dkdp.ch" className="text-text hover:underline">dk@dkdp.ch</a>
+                Pour exercer vos droits : <a href="mailto:dk@dkdp.ch" className="underline hover:text-text transition-colors">dk@dkdp.ch</a>
               </p>
             </div>
           </SectionReveal>
@@ -136,9 +136,9 @@ export default function RGPDCookiesPage() {
               <h2 className="text-text font-bold text-lg mb-4">Pour aller plus loin</h2>
               <p className="text-text-secondary text-sm leading-relaxed">
                 Pour une information complète sur le traitement de vos données personnelles, consultez notre{' '}
-                <a href="/politique-de-confidentialite" className="text-text hover:underline">politique de confidentialité</a>{' '}
+                <a href="/politique-de-confidentialite" className="underline hover:text-text transition-colors">politique de confidentialité</a>{' '}
                 et nos{' '}
-                <a href="/mentions-legales" className="text-text hover:underline">mentions légales</a>.
+                <a href="/mentions-legales" className="underline hover:text-text transition-colors">mentions légales</a>.
               </p>
             </div>
           </SectionReveal>

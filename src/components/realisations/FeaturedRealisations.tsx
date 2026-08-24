@@ -30,7 +30,7 @@ export function FeaturedRealisations() {
           </div>
           <Link
             href="/realisations"
-            className="hidden text-sm text-text-secondary hover:text-text-primary md:inline"
+            className="hidden text-sm text-text-secondary hover:text-text md:inline"
           >
             Voir toutes les realisations &rarr;
           </Link>
@@ -46,7 +46,7 @@ export function FeaturedRealisations() {
 
         <Link
           href="/realisations"
-          className="mt-8 block text-center text-sm text-text-secondary hover:text-text-primary md:hidden"
+          className="mt-8 block text-center text-sm text-text-secondary hover:text-text md:hidden"
         >
           Voir toutes les realisations &rarr;
         </Link>

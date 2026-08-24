@@ -201,7 +201,7 @@ export default function PolitiqueDeConfidentialitePage() {
                 </div>
                 <p className="text-text-secondary text-sm leading-relaxed">
                   Pour exercer vos droits, contactez-nous à{' '}
-                  <a href="mailto:dk@dkdp.ch" className="hover:underline" style={{ color: 'var(--text)' }}>dk@dkdp.ch</a>.
+                  <a href="mailto:dk@dkdp.ch" className="underline hover:text-text transition-colors">dk@dkdp.ch</a>.
                   Nous répondrons dans un délai de 30 jours. En cas de litige, vous pouvez saisir le Préposé fédéral à la protection des données et à la transparence (PFPDT) en Suisse.
                 </p>
               </div>

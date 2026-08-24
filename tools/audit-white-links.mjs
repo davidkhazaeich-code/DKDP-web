@@ -42,7 +42,7 @@ function readOpenTag(src, start) {
 
 const AT_REST_FULL = /(^|[\s"'`{])(text-text|text-white)(?![-\w/])/
 const AT_REST_GRAY = /(^|[\s"'`{])(text-text-secondary|text-text-muted|text-zinc-[3-6]00)(?![-\w])/
-const HOVER_FULL = /hover:(text-text(?![-\w])|text-white(?![-\w])|\[color:var\(--text\)\])/
+const HOVER_FULL = /(hover|group-hover|active):(text-text(?![-\w])|text-white(?![-\w])|\[color:var\(--text\)\])/
 const HOVER_ANY = /(hover|group-hover|active):/
 
 const out = { FULL: [], NOHOVER: [], ODD: [] }

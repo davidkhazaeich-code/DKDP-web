@@ -150,7 +150,7 @@ export default async function CityPageEN({ params }: Props) {
           <section className="pt-28 pb-24 md:pt-36 md:pb-32 lg:pt-40 lg:pb-36 min-h-[70vh] md:min-h-[75vh] flex flex-col justify-center" style={{ color: '#FFFFFF' }}>
             <div className="max-w-[1200px] mx-auto px-5 md:px-6 flex flex-col items-center text-center">
               <nav className="flex items-center justify-center gap-1.5 mb-5 md:mb-6" aria-label="Breadcrumb">
-                <Link href={localizedPath('/agence-digitale', 'en')} className="text-xs md:text-sm hover:opacity-80 transition-opacity" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                <Link href={localizedPath('/agence-digitale', 'en')} className="text-xs md:text-sm text-white/70 hover:text-white transition-colors">
                   Digital Agency
                 </Link>
                 <ChevronRight size={12} style={{ color: 'rgba(255,255,255,0.7)' }} />
@@ -178,7 +178,7 @@ export default async function CityPageEN({ params }: Props) {
                 />
                 <div className="flex flex-wrap gap-3 items-center justify-center">
                   <LiquidMetalButton href={localizedPath('/contact', 'en')} size="lg">Free AI audit →</LiquidMetalButton>
-                  <Link href={localizedPath('/intelligence-artificielle', 'en')} className="text-sm hover:opacity-80 transition-opacity px-2 py-1" style={{ color: 'rgba(255,255,255,0.75)' }}>
+                  <Link href={localizedPath('/intelligence-artificielle', 'en')} className="text-sm text-white/75 hover:text-white transition-colors px-2 py-1">
                     Our AI services
                   </Link>
                 </div>

@@ -198,7 +198,7 @@ export default function Page() {
               </div>
               <p className="text-text-secondary text-sm leading-relaxed">
                 To exercise your rights, contact us at{' '}
-                <a href="mailto:dk@dkdp.ch" className="hover:underline" style={{ color: 'var(--text)' }}>dk@dkdp.ch</a>.
+                <a href="mailto:dk@dkdp.ch" className="underline hover:text-text transition-colors">dk@dkdp.ch</a>.
                 We will respond within 30 days. If you reside in Switzerland, you may also contact the Federal Data Protection and Information Commissioner (FDPIC). If you reside in the EU, you may contact your national data protection authority.
               </p>
             </div>

@@ -12,9 +12,7 @@ import {
 } from '@/lib/estimation/pricing'
 import type { PageRange, LanguageOption } from '@/lib/estimation/types'
 
-function formatChf(value: number): string {
-  return value.toLocaleString('de-CH').replace(/,/g, "'")
-}
+import { formatSwissInt as formatChf } from '@/lib/format'
 
 const PAGE_OPTIONS_FR: { value: PageRange; label: string; hint: string }[] = [
   { value: '1-5', label: '1-5 pages', hint: 'Accueil, services, à propos, contact' },

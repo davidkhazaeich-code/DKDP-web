@@ -5,9 +5,7 @@ import { useEstimator } from './EstimatorContext'
 import { AnimatedCounter } from './ui/AnimatedCounter'
 import { calculateEstimate } from '@/lib/estimation/pricing'
 
-function formatCHF(n: number): string {
-  return n.toLocaleString('fr-CH').replace(/\u202F/g, "\u00A0")
-}
+import { formatSwissInt as formatCHF } from '@/lib/format'
 
 const COUNTER_T = {
   fr: {

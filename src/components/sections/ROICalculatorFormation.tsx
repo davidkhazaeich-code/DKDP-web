@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { formatSwissInt } from '@/lib/format'
 import Link from 'next/link'
 import { ChevronRight, Users, Clock, Banknote, Timer, TrendingUp, Tag, BarChart2, CalendarClock } from 'lucide-react'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -20,7 +21,7 @@ const green    = '#4ade80'
 function formatCHF(n: number): string {
   if (n >= 100_000) return `CHF ${(n / 1000).toFixed(0)}k`
   if (n >= 10_000)  return `CHF ${(n / 1000).toFixed(1)}k`
-  return `CHF ${n.toLocaleString('fr-CH')}`
+  return `CHF ${formatSwissInt(n)}`
 }
 
 function SliderInput({
@@ -199,7 +200,7 @@ export function ROICalculatorFormation() {
                   <Timer size={12} /> Heures libérées / an
                 </p>
                 <p className="text-2xl sm:text-3xl md:text-4xl font-bold leading-none" style={{ color: green }}>
-                  {heuresAn.toLocaleString('fr-CH')}h
+                  {formatSwissInt(heuresAn)}h
                 </p>
                 <p className="text-text-muted text-[10px] sm:text-xs mt-1.5 sm:mt-2">
                   {collaborateurs > 1 ? `${Math.round(heuresEcoParPersAn)}h / pers.` : 'pour votre équipe'}

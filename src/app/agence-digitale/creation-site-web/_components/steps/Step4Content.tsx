@@ -6,9 +6,7 @@ import { SelectionCard } from '../ui/SelectionCard'
 import { SectionLabel } from '../ui/SectionLabel'
 import { PAGE_MIDPOINTS } from '@/lib/estimation/pricing'
 
-function formatChf(value: number): string {
-  return value.toLocaleString('de-CH').replace(/,/g, "'")
-}
+import { formatSwissInt as formatChf } from '@/lib/format'
 
 const T = {
   fr: {

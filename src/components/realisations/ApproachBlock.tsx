@@ -3,9 +3,9 @@ import type { Locale } from '@/i18n/config'
 
 export function ApproachBlock({ approach, lang = 'fr' }: { approach: RealisationApproach; lang?: Locale }) {
   return (
-    <section id="approche" className="scroll-mt-[124px] border-t border-white/5 py-20 md:py-28">
+    <section id="approche" className="scroll-mt-[124px] border-t border-border py-20 md:py-28">
       <div className="mx-auto max-w-[68ch] px-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-text md:text-3xl">
           {lang === 'en' ? 'Our approach' : 'Notre approche'}
         </h2>
         <h3 className="mt-3 text-xl text-violet-300">{approach.title}</h3>

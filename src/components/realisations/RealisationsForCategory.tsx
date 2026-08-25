@@ -29,7 +29,7 @@ export function RealisationsForCategory({
     <section className="py-16">
       <div className="mx-auto max-w-[1200px] px-6">
         <GradTag>Realisations recentes</GradTag>
-        <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white md:text-3xl">
+        <h2 className="mt-4 text-2xl font-semibold tracking-tight text-text md:text-3xl">
           {title}
         </h2>
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

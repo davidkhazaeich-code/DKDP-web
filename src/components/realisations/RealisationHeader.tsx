@@ -40,7 +40,7 @@ export function RealisationHeader({ r, lang = 'fr' }: { r: Realisation; lang?: L
           <SectionReveal className="flex flex-col items-start">
             <GradTag className="self-start">{CATEGORY_LABEL[lang][r.category]}</GradTag>
 
-            <h1 className="mt-6 text-4xl tracking-[-0.02em] leading-[1.05] text-white md:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-4xl tracking-[-0.02em] leading-[1.05] text-text md:text-5xl lg:text-6xl">
               {r.client.name} :{' '}
               <GradText as="span">{r.meta.title}</GradText>
             </h1>
@@ -80,7 +80,7 @@ export function RealisationHeader({ r, lang = 'fr' }: { r: Realisation; lang?: L
               ) : null}
               <Link
                 href={contact}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/5"
+                className="inline-flex items-center gap-2 rounded-full border border-border-strong px-5 py-2.5 text-sm font-semibold text-text transition hover:bg-[var(--surface-default)]"
               >
                 {t.start}
               </Link>

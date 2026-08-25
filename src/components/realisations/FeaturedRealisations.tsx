@@ -19,12 +19,12 @@ export function FeaturedRealisations() {
   if (items.length === 0) return null
 
   return (
-    <section className="border-y border-white/5 py-20 md:py-28">
+    <section className="border-y border-border py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-6">
         <div className="flex items-end justify-between">
           <div>
             <GradTag>Realisations</GradTag>
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.02em] text-white md:text-4xl">
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.02em] text-text md:text-4xl">
               Etudes de cas recentes
             </h2>
           </div>

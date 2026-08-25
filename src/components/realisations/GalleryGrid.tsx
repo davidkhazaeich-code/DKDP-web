@@ -5,7 +5,7 @@ export function GalleryGrid({ items, lang = 'fr' }: { items: RealisationGalleryI
   return (
     <section id="galerie" className="scroll-mt-[124px] py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-text md:text-3xl">
           {lang === 'en' ? 'Gallery' : 'Galerie'}
         </h2>
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -15,7 +15,7 @@ export function GalleryGrid({ items, lang = 'fr' }: { items: RealisationGalleryI
                 src={g.src}
                 alt={g.alt}
                 loading="lazy"
-                className="rounded-xl border border-white/10"
+                className="rounded-xl border border-border"
               />
               {g.caption && (
                 <figcaption className="mt-3 text-sm italic text-text-muted">

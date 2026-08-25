@@ -186,6 +186,54 @@ fait la meme chose en live sur les deux themes via Playwright.
 > `text-text-primary` / `hover:text-text-primary` est silencieusement ignoree par Tailwind :
 > c'est un survol mort. Utiliser `text-text`.
 
+### Zones volontairement sombres dans les deux themes
+
+Une section qui pose son propre fond sombre en dur ne doit **pas** utiliser les tokens de
+texte : `--text` devient `#1A1A18` en mode clair, donc du texte quasi noir sur un fond noir.
+Dans ces zones, utiliser l'echelle blanche (`text-white`, `text-white/70`, `text-white/45`)
+et faire le survol vers `hover:text-white`.
+
+| Zone | Fond en dur |
+|---|---|
+| `CinematicCTA` (bas des pages Realisations) | `bg-[#09090B]` |
+| `BrowserFrame` (mockup de navigateur) | `bg-[#0E0E10]` et `bg-[#1B1B1F]` |
+| Hero des pages villes | photo + voile sombre (`ImageHeroBg` / `VideoHeroBg`) |
+
+Partout ailleurs dans `components/realisations/`, les tokens s'appliquent normalement : le
+module a ete migre en mode clair le 2026-08-24 (titres, bordures de section, cartes).
+
+---
+
+## Nombres : jamais `toLocaleString` dans un composant rendu cote serveur
+
+**Source unique : `src/lib/format.ts`** (`formatSwissInt`, `formatSwissChf`).
+
+Le separateur de milliers de `fr-CH` depend de la version d'ICU embarquee dans le moteur :
+
+```
+Node 24 local (ICU 78) et Chrome  ->  "1 050"  (U+202F, espace fine insecable)
+runtime Node de Vercel            ->  "1'050"  (U+0027, apostrophe)
+```
+
+Le serveur et le client rendent donc deux textes differents pour le meme nombre. React leve
+**l'erreur #418** a l'hydratation, abandonne, et re-rend la racine depuis le HTML serveur.
+Effet de bord : **`data-theme` pose par le script anti-FOUC disparait de `<html>`** et la page
+repasse en sombre alors que l'utilisateur a choisi le mode clair.
+
+C'est ce qui bloquait le mode clair sur les 6 pages portant un calculateur ROI
+(`/intelligence-artificielle`, `/formation-entreprise/ia`, `/formation-entreprise/claude-ai`
+et leurs miroirs EN). **Non reproductible en local** : Node 24 et Chrome sont d'accord, il
+faut le runtime de Vercel pour voir l'ecart. Diagnostic : ecouter `pageerror` sur la prod et
+comparer `data-theme` juste apres `domcontentloaded` puis 4 s plus tard.
+
+```ts
+import { formatSwissInt } from '@/lib/format'
+formatSwissInt(1050)   // "1'050", sans Intl, identique serveur et client
+```
+
+Regle : tout nombre affiche au rendu serveur passe par `src/lib/format.ts`. Test de
+non-regression dans `src/lib/__tests__/format.test.ts`.
+
 ---
 
 ## Structure type d'une page service

@@ -32,14 +32,14 @@ function Sparkline({ values }: { values: number[] }) {
 
 export function ResultsGrid({ results, lang = 'fr' }: { results: RealisationResult[]; lang?: Locale }) {
   return (
-    <section id="resultats" className="scroll-mt-[124px] border-t border-white/5 py-20 md:py-28">
+    <section id="resultats" className="scroll-mt-[124px] border-t border-border py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-text md:text-3xl">
           {lang === 'en' ? 'Results' : 'Resultats'}
         </h2>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((r, i) => (
-            <div key={i} className="rounded-2xl border border-white/10 bg-bg-card p-6">
+            <div key={i} className="rounded-2xl border border-border bg-bg-card p-6">
               <span className="text-xs uppercase tracking-wide text-text-muted">
                 {r.metric}
               </span>

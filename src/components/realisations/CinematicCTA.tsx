@@ -33,7 +33,7 @@ function MarqueeRow({ items }: { items: readonly string[] }) {
       {items.flatMap((item, i) => [
         <span
           key={`${i}-text`}
-          className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-text-muted"
+          className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-white/45"
         >
           {item}
         </span>,
@@ -135,7 +135,7 @@ export function CinematicCTA({ lang = 'fr' }: { lang?: Locale } = {}) {
           <GradText as="span">{t.headingB}</GradText>
         </h2>
 
-        <p className="mt-6 max-w-2xl text-lg leading-[1.7] text-text-secondary md:text-xl">
+        <p className="mt-6 max-w-2xl text-lg leading-[1.7] text-white/70 md:text-xl">
           {t.subtitle}
         </p>
 
@@ -149,7 +149,7 @@ export function CinematicCTA({ lang = 'fr' }: { lang?: Locale } = {}) {
         <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row">
           <a
             href="tel:+41799407969"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-6 py-3 text-sm text-text-secondary backdrop-blur-md transition hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-text"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-6 py-3 text-sm text-white/70 backdrop-blur-md transition hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-white"
           >
             <svg
               width="14"
@@ -171,7 +171,7 @@ export function CinematicCTA({ lang = 'fr' }: { lang?: Locale } = {}) {
           </a>
           <a
             href="mailto:dk@dkdp.ch"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-6 py-3 text-sm text-text-secondary backdrop-blur-md transition hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-text"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-6 py-3 text-sm text-white/70 backdrop-blur-md transition hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-white"
           >
             <svg
               width="14"
@@ -200,7 +200,7 @@ export function CinematicCTA({ lang = 'fr' }: { lang?: Locale } = {}) {
           </a>
         </div>
 
-        <p className="mt-8 text-sm text-text-muted">
+        <p className="mt-8 text-sm text-white/45">
           {t.disclaimer}
         </p>
       </div>

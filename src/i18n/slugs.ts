@@ -53,7 +53,7 @@ export const FR_TO_EN: Record<string, string> = {
   '/formation-entreprise/ia': '/corporate-training/ai',
   '/formation-entreprise/bureautique': '/corporate-training/office-tools',
   '/formation-entreprise/canva': '/corporate-training/canva',
-  '/formation-entreprise/web-design': '/corporate-training/web-design',
+  '/formation-entreprise/figma': '/corporate-training/figma',
   '/formation-entreprise/cybersecurite': '/corporate-training/cybersecurity',
   '/formation-entreprise/reseaux-sociaux': '/corporate-training/social-media',
   '/formation-entreprise/informatique': '/corporate-training/it-skills',

@@ -26,6 +26,19 @@ export type Route = {
   priority: number
   /** Fréquence de mise à jour estimée */
   changeFrequency: ChangeFrequency
+  /**
+   * Date de dernière révision ÉDITORIALE de la page, au format 'YYYY-MM-DD'.
+   * Absent = la page prend la date du socle (`CONTENT_LAST_MODIFIED` dans
+   * app/sitemap.ts).
+   *
+   * À renseigner quand une page reçoit une vraie passe de contenu, pas à chaque
+   * déploiement. Le sitemap posait avant `new Date()` sur les 51 routes : chaque
+   * build annonçait à Google que tout le site venait d'être réécrit. `lastmod`
+   * est le seul champ du sitemap que Google déclare encore lire (il ignore
+   * `priority` et `changefreq`, gardés ici pour Bing et quelques agrégateurs),
+   * et un `lastmod` qui ment à chaque passage finit par être ignoré lui aussi.
+   */
+  lastModified?: string
 }
 
 export type Redirect = {
@@ -40,7 +53,8 @@ export type Redirect = {
 export const ROUTES: Route[] = [
 
   // ─── Hub ──────────────────────────────────────────────────────────────────
-  { url: '/',                          priority: 1.00, changeFrequency: 'weekly'  },
+  // Passe du 2026-08-23 : section « Veille technologique » ajoutée à l'accueil.
+  { url: '/',                          priority: 1.00, changeFrequency: 'weekly', lastModified: '2026-08-23' },
   { url: '/agence-digitale',           priority: 0.90, changeFrequency: 'monthly' },
   { url: '/intelligence-artificielle', priority: 0.90, changeFrequency: 'monthly' },
   { url: '/formation-entreprise',      priority: 0.90, changeFrequency: 'monthly' },
@@ -77,14 +91,18 @@ export const ROUTES: Route[] = [
   { url: '/intelligence-artificielle/audit-conseil', priority: 0.80, changeFrequency: 'monthly' },
   { url: '/intelligence-artificielle/mise-en-place', priority: 0.80, changeFrequency: 'monthly' },
   { url: '/intelligence-artificielle/chatbot-ia',   priority: 0.85, changeFrequency: 'monthly' },
-  { url: '/intelligence-artificielle/geneve',       priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/intelligence-artificielle/geneve',       priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-06-04' },
 
   // ─── Formation Entreprise ─────────────────────────────────────────────────
-  { url: '/formation-entreprise/claude-ai',       priority: 0.85, changeFrequency: 'monthly' },
-  { url: '/formation-entreprise/ia',              priority: 0.85, changeFrequency: 'monthly' },
+  // Passe du 2026-08-23 : section « Veille et actualité » (ArticleCarousel).
+  { url: '/formation-entreprise/claude-ai',       priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-08-23' },
+  { url: '/formation-entreprise/ia',              priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-08-03' },
   { url: '/formation-entreprise/bureautique',     priority: 0.80, changeFrequency: 'monthly' },
   { url: '/formation-entreprise/canva',           priority: 0.80, changeFrequency: 'monthly' },
-  { url: '/formation-entreprise/web-design',      priority: 0.75, changeFrequency: 'monthly' },
+  // Passe du 2026-08-31 : la page « web design » devient la page pilier Figma
+  // (URL alignée sur le mot-clé, contenu triplé, miroir EN). Montée à 0.85 : elle
+  // porte une demande commerciale réelle, pas un simple item de catalogue.
+  { url: '/formation-entreprise/figma',           priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-08-31' },
   { url: '/formation-entreprise/cybersecurite',   priority: 0.75, changeFrequency: 'monthly' },
   { url: '/formation-entreprise/reseaux-sociaux', priority: 0.75, changeFrequency: 'monthly' },
   { url: '/formation-entreprise/informatique',    priority: 0.75, changeFrequency: 'monthly' },
@@ -99,9 +117,12 @@ export const ROUTES: Route[] = [
   { url: '/a-propos',  priority: 0.70, changeFrequency: 'monthly' },
 
   // ─── Contenu & Ressources ─────────────────────────────────────────────────
+  // /blog et /realisations n'ont pas de `lastModified` ici volontairement :
+  // app/sitemap.ts leur pose la date du contenu le plus récent qu'elles listent,
+  // donc elles se mettent à jour toutes seules à chaque publication.
   { url: '/blog',           priority: 0.75, changeFrequency: 'weekly'  },
   { url: '/realisations',   priority: 0.80, changeFrequency: 'monthly' },
-  { url: '/glossaire',      priority: 0.70, changeFrequency: 'weekly'  },
+  { url: '/glossaire',      priority: 0.70, changeFrequency: 'weekly', lastModified: '2026-06-04' },
 
   // ─── Utilitaires / Légales ────────────────────────────────────────────────
   { url: '/plan-du-site',                    priority: 0.30, changeFrequency: 'yearly' },
@@ -141,6 +162,14 @@ export const REDIRECTS: Redirect[] = [
   // ─── Réalisations — ancien site ───────────────────────────────────────────
   { source: '/nos-realisations',         destination: '/', permanent: true },
   { source: '/nos-realisations/:slug',   destination: '/', permanent: true },
+
+  // ─── Formation web design → Formation Figma (2026-08-31) ──────────────────
+  // La page parlait de Figma du titre à la FAQ, mais son URL disait « web design ».
+  // Elle ressortait déjà sur les requêtes Figma : on renomme plutôt que de créer
+  // une seconde page, qui se serait cannibalisée avec elle sur un marché romand
+  // trop étroit pour deux. Le contenu web design et UX/UI reste dans la page.
+  { source: '/formation-entreprise/web-design',    destination: '/formation-entreprise/figma',    permanent: true },
+  { source: '/en/corporate-training/web-design',   destination: '/en/corporate-training/figma',   permanent: true },
 
   // ─── Correction bug URL accentuée (2026-04-21) ─────────────────────────────
   // L'URL avec accent avait été indexée dans le site par erreur ; le routing

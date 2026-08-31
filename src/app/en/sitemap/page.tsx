@@ -86,7 +86,7 @@ const GROUPS: SitemapGroup[] = [
       { label: 'Office & Excel', href: lp('/formation-entreprise/bureautique') },
       { label: 'Social media', href: lp('/formation-entreprise/reseaux-sociaux') },
       { label: 'Canva training', href: lp('/formation-entreprise/canva') },
-      { label: 'Web design Figma', href: lp('/formation-entreprise/web-design') },
+      { label: 'Figma training', href: lp('/formation-entreprise/figma') },
       { label: 'Video editing', href: lp('/formation-entreprise/montage-video') },
       { label: 'IT skills', href: lp('/formation-entreprise/informatique') },
       { label: 'Individual training', href: lp('/formation-particuliers') },

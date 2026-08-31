@@ -44,7 +44,7 @@ function getPillars(lang: Locale, dict: FooterDict) {
         { label: t.formationLinks[0], href: lp('/formation-entreprise/ia') },
         { label: t.formationLinks[1], href: lp('/formation-entreprise/claude-ai') },
         { label: t.formationLinks[2], href: lp('/formation-entreprise/canva') },
-        { label: t.formationLinks[3], href: lp('/formation-entreprise/web-design') },
+        { label: t.formationLinks[3], href: lp('/formation-entreprise/figma') },
         { label: t.formationLinks[4], href: lp('/formation-entreprise/bureautique') },
         { label: t.formationLinks[5], href: lp('/formation-entreprise/cybersecurite') },
         { label: t.formationLinks[6], href: lp('/formation-entreprise/reseaux-sociaux') },

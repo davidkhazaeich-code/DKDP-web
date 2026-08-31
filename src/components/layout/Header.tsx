@@ -81,7 +81,7 @@ function buildNavData(lang: Locale) {
     { title: t.formationMain[3].title, description: t.formationMain[3].description, href: lp('/formation-entreprise/reseaux-sociaux'), icon: Share2 },
     { title: t.formationMain[4].title, description: t.formationMain[4].description, href: lp('/formation-entreprise/cybersecurite'), icon: Shield },
     { title: t.formationMain[5].title, description: t.formationMain[5].description, href: lp('/formation-entreprise/canva'), icon: Wand2 },
-    { title: t.formationMain[6].title, description: t.formationMain[6].description, href: lp('/formation-entreprise/web-design'), icon: Palette },
+    { title: t.formationMain[6].title, description: t.formationMain[6].description, href: lp('/formation-entreprise/figma'), icon: Palette },
     { title: t.formationMain[7].title, description: t.formationMain[7].description, href: lp('/formation-entreprise/informatique'), icon: Cpu },
     { title: t.formationMain[8].title, description: t.formationMain[8].description, href: lp('/formation-entreprise/montage-video'), icon: Film },
   ]

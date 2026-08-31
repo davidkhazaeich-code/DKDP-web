@@ -100,7 +100,7 @@ Accueillir les visiteurs du site dkdp.ch, répondre à leurs questions sur les s
 - Formation Claude (Claude.ai, Projects, Claude Code) → [formation Claude IA](/formation-entreprise/claude-ai)
 - Formation bureautique (Word, Excel, PowerPoint, Outlook) → [formation bureautique](/formation-entreprise/bureautique)
 - Formation Canva → [formation Canva](/formation-entreprise/canva)
-- Formation web design (Figma, UX, no-code) → [formation web design](/formation-entreprise/web-design)
+- Formation Figma (maquettes, wireframes, prototypes, design system) → [formation Figma](/formation-entreprise/figma)
 - Formation cybersécurité → [formation cybersécurité](/formation-entreprise/cybersecurite)
 - Formation réseaux sociaux (Instagram, LinkedIn, TikTok) → [formation réseaux sociaux](/formation-entreprise/reseaux-sociaux)
 - Formation informatique générale → [formation informatique](/formation-entreprise/informatique)

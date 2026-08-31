@@ -71,7 +71,7 @@
       { "title": "Réseaux sociaux", "description": "Maîtrisez les plateformes sociales." },
       { "title": "Cybersécurité", "description": "Protégez vos données et vos collaborateurs." },
       { "title": "Formation Canva", "description": "Brand Kit, templates et IA Magic Studio en une journée." },
-      { "title": "Web design Figma", "description": "UI/UX, wireframes, design system et prototypes interactifs." },
+      { "title": "Formation Figma", "description": "Maquettes, wireframes, prototypes cliquables et design system." },
       { "title": "Informatique", "description": "Compétences informatiques essentielles." },
       { "title": "Montage vidéo", "description": "Créez des vidéos professionnelles." }
     ],
@@ -106,7 +106,7 @@
     ],
     "formationLinks": [
       "Formation IA", "Formation Claude", "Formation Canva",
-      "Web design Figma", "Bureautique et Excel", "Cybersécurité",
+      "Formation Figma", "Bureautique et Excel", "Cybersécurité",
       "Réseaux sociaux", "Montage vidéo", "Informatique", "Pour particuliers"
     ],
     "iaLinks": [

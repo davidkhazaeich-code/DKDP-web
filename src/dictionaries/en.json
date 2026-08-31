@@ -71,7 +71,7 @@
       { "title": "Social media", "description": "Master every social platform." },
       { "title": "Cybersecurity", "description": "Protect your data and your team." },
       { "title": "Canva training", "description": "Brand Kit, templates and Magic Studio AI in one day." },
-      { "title": "Web design with Figma", "description": "UI/UX, wireframes, design systems and interactive prototypes." },
+      { "title": "Figma training", "description": "Mockups, wireframes, clickable prototypes and design systems." },
       { "title": "IT skills", "description": "Essential IT skills for the workplace." },
       { "title": "Video editing", "description": "Produce professional videos." }
     ],
@@ -106,7 +106,7 @@
     ],
     "formationLinks": [
       "AI training", "Claude training", "Canva training",
-      "Web design with Figma", "Office tools and Excel", "Cybersecurity",
+      "Figma training", "Office tools and Excel", "Cybersecurity",
       "Social media", "Video editing", "IT skills", "For individuals"
     ],
     "iaLinks": [

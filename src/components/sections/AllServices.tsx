@@ -48,7 +48,7 @@ const FORMATION_SERVICES: ServiceItem[] = [
   { icon: Shield, title: 'Cybersécurité', href: '/formation-entreprise/cybersecurite', description: 'Sensibilisez vos équipes : phishing, mots de passe, RGPD.', badge: null, image: '/images/services/dkdp-formation-cybersecurite.webp', pillar: 'formation' },
   { icon: Share2, title: 'Réseaux sociaux', href: '/formation-entreprise/reseaux-sociaux', description: 'Stratégie, contenu et analyse de performances.', badge: null, image: '/images/services/dkdp-formation-reseaux-sociaux.webp', pillar: 'formation' },
   { icon: Wand2, title: 'Formation Canva', href: '/formation-entreprise/canva', description: 'Brand Kit, templates, posts sociaux et IA Magic Studio en une journée.', badge: 'Populaire', image: '/images/services/dkdp-formation-canva.webp', pillar: 'formation' },
-  { icon: Palette, title: 'Formation Web Design', href: '/formation-entreprise/web-design', description: 'Concevez votre site avant de le développer : Figma, UI/UX, prototypes.', badge: null, image: '/images/services/dkdp-formation-web-design.webp', pillar: 'formation' },
+  { icon: Palette, title: 'Formation Figma', href: '/formation-entreprise/figma', description: 'Maquettes, wireframes, prototypes cliquables et design system.', badge: null, image: '/images/services/dkdp-formation-figma-geneve.webp', pillar: 'formation' },
   { icon: Cpu, title: 'Informatique', href: '/formation-entreprise/informatique', description: 'Compétences informatiques essentielles au quotidien.', badge: null, image: '/images/services/dkdp-formation-informatique.webp', pillar: 'formation' },
   { icon: Film, title: 'Montage vidéo', href: '/formation-entreprise/montage-video', description: 'Créez des vidéos pro avec CapCut, Premiere, Reels.', badge: null, image: '/images/services/dkdp-formation-montage-video.webp', pillar: 'formation' },
 ]
@@ -122,7 +122,7 @@ const SERVICE_EN: Record<string, { title: string; description: string }> = {
   '/formation-entreprise/cybersecurite': { title: 'Cybersecurity', description: 'Train your teams: phishing, passwords, data protection.' },
   '/formation-entreprise/reseaux-sociaux': { title: 'Social media', description: 'Strategy, content and performance analysis.' },
   '/formation-entreprise/canva': { title: 'Canva training', description: 'Brand Kit, templates, social posts and Magic Studio AI in one day.' },
-  '/formation-entreprise/web-design': { title: 'Web design training', description: 'Design your site before building it: Figma, UI/UX, prototypes.' },
+  '/formation-entreprise/figma': { title: 'Figma training', description: 'Mockups, wireframes, clickable prototypes and design systems.' },
   '/formation-entreprise/informatique': { title: 'IT skills', description: 'Essential computer skills for everyday work.' },
   '/formation-entreprise/montage-video': { title: 'Video editing', description: 'Create pro videos with CapCut, Premiere, Reels.' },
   '/intelligence-artificielle/agents-ia': { title: 'Custom AI agents', description: 'Intelligent agents that automate your tasks and answer your clients.' },

@@ -84,10 +84,10 @@ const PROGRAMS = [
     image: '/images/services/dkdp-formation-canva.webp',
   },
   {
-    Icon: Palette, title: 'Formation Web Design', href: '/formation-entreprise/web-design',
+    Icon: Palette, title: 'Formation Figma', href: '/formation-entreprise/figma',
     description: 'Concevez votre site avant de le développer. UI/UX, Figma, wireframes, design system, prototypes interactifs.',
     badge: null,
-    image: '/images/services/dkdp-formation-web-design.webp',
+    image: '/images/services/dkdp-formation-figma-geneve.webp',
   },
   {
     Icon: Cpu, title: 'Informatique', href: '/formation-entreprise/informatique',

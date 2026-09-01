@@ -189,7 +189,7 @@ export default function FigmaTrainingPage() {
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Figma training in Geneva and French-speaking Switzerland</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  Design your screens before you have them <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>built</GradText>.
+                  Design your mockups before you have them <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>built</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP trains your teams on Figma, the tool that has become the standard for designing interfaces.

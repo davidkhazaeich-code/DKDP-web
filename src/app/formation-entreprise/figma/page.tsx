@@ -186,7 +186,7 @@ export default function FormationFigmaPage() {
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation Figma à Genève et en Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  Dessinez vos écrans avant de les faire <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>développer</GradText>.
+                  Dessinez vos maquettes avant de les faire <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>développer</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme vos équipes à Figma, l&apos;outil de conception de maquettes devenu le standard du métier. Wireframes, maquettes, prototypes cliquables et design system : sur vos vrais projets, dans vos locaux, en français.

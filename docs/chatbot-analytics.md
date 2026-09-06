@@ -175,6 +175,8 @@ curl "https://dkdp.ch/api/chat/sweep?token=$ADMIN_TOKEN"
 
 Le parametre `?stale=0` balaie tout, y compris une conversation en cours. A ne faire qu'en rattrapage ponctuel.
 
+**Rien de critique n'est lance en fond.** `/api/chat/close` rend son 204 immediatement mais enveloppe `closeSession` dans `after()` de `next/server`, et `closeSession` **attend** l'envoi de l'email lead chaud. Un simple `void` laisse Vercel geler l'invocation des la reponse envoyee, ce qui coupe le resume ou l'email en plein vol et ressemble a s'y meprendre a un beacon perdu.
+
 **Trois garde-fous** :
 - `closeSession()` fait un `upsert` et compare `messages_count` : rejouer le balayage sur une session deja resumee ne fait rien.
 - L'email lead chaud ne part que sur la bascule vers `lead_chaud`, jamais deux fois pour la meme session.

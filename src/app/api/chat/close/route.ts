@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, after } from 'next/server'
 import { rateLimit, getIp } from '@/lib/rate-limit'
 import { closeSession } from '@/lib/chat-analytics'
 
@@ -32,9 +32,12 @@ export async function POST(req: NextRequest) {
   const referrer = typeof payload.referrer === 'string' ? payload.referrer.slice(0, 500) : undefined
   const ipCountry = req.headers.get('x-vercel-ip-country') || undefined
 
-  // Fire-and-forget : on retourne 204 immediatement pour ne pas bloquer
-  // beforeunload cote client.
-  void closeSession({ sessionId, referrer, ipCountry })
+  // On rend 204 tout de suite pour ne pas bloquer beforeunload cote client,
+  // mais `after` garde l'invocation vivante le temps que closeSession termine
+  // sa lecture Supabase, son appel Haiku et son ecriture. Avec un simple
+  // `void`, Vercel peut geler la fonction des la reponse envoyee et couper le
+  // resume en plein vol, ce qui ressemble exactement a un beacon perdu.
+  after(() => closeSession({ sessionId, referrer, ipCountry }))
 
   return new Response(null, { status: 204 })
 }

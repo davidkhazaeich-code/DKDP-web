@@ -261,7 +261,10 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
     // Notification email immediate si lead chaud (a rappeler vite). On ne
     // notifie que sur la bascule, jamais deux fois pour la meme session.
     if (outcome === 'lead_chaud' && existing?.outcome !== 'lead_chaud') {
-      void notifyLeadChaud({
+      // Attendu, pas lance en fond : c'est le message le plus important du
+      // systeme et un `void` peut etre coupe net quand l'invocation rend la
+      // main. notifyLeadChaud avale ses propres erreurs, donc rien ne remonte.
+      await notifyLeadChaud({
         sessionId: input.sessionId,
         summary,
         verbatimQuestion,

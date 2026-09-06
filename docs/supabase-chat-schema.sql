@@ -16,12 +16,16 @@ create table if not exists public.chat_messages (
   latency_ms    integer,
   verbatim_text text, -- nullable, rempli uniquement en mode calibration
   referrer      text, -- page d'ou part la conversation, portee par le message
-  ip_country    text  -- pays du visiteur (x-vercel-ip-country)
+  ip_country    text, -- pays du visiteur (x-vercel-ip-country)
+  cache_read_tokens  integer, -- part de tokens_in lue du cache (facturee 10 %)
+  cache_write_tokens integer  -- part de tokens_in ecrite au cache (facturee 125 %)
 );
 
 -- Rejouable sur une base deja en place (colonnes ajoutees le 2026-09-06).
-alter table public.chat_messages add column if not exists referrer   text;
-alter table public.chat_messages add column if not exists ip_country text;
+alter table public.chat_messages add column if not exists referrer           text;
+alter table public.chat_messages add column if not exists ip_country         text;
+alter table public.chat_messages add column if not exists cache_read_tokens  integer;
+alter table public.chat_messages add column if not exists cache_write_tokens integer;
 
 create index if not exists chat_messages_session_idx on public.chat_messages (session_id);
 create index if not exists chat_messages_ts_idx      on public.chat_messages (ts desc);

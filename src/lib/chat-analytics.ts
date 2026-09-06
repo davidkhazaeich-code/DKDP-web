@@ -21,9 +21,14 @@ import { generateText } from 'ai'
 import { anthropic } from '@ai-sdk/anthropic'
 import { Resend } from 'resend'
 
-// Haiku 4.5 pricing (USD/M tokens) -> CHF approx (taux 0.9)
+// Haiku 4.5 pricing (USD/M tokens) -> CHF approx (taux 0.9).
+// Les quatre tarifs comptent : le system prompt embarque toute la base de
+// connaissances du site et il est relu du cache a chaque tour, donc la
+// majorite des tokens d'entree sont des lectures de cache facturees 10 %.
 const PRICE_INPUT_CHF_PER_TOKEN = (1.0 / 1_000_000) * 0.9
 const PRICE_OUTPUT_CHF_PER_TOKEN = (5.0 / 1_000_000) * 0.9
+const PRICE_CACHE_READ_CHF_PER_TOKEN = (0.1 / 1_000_000) * 0.9
+const PRICE_CACHE_WRITE_CHF_PER_TOKEN = (1.25 / 1_000_000) * 0.9
 
 // On resume des qu'il y a un message porteur de texte. L'ancien verrou
 // (2 messages ET 30 s) n'a laisse passer aucune conversation en quatre mois
@@ -55,6 +60,10 @@ export interface LogMessageInput {
   tokensOut?: number
   latencyMs?: number
   verbatimText?: string
+  // Detail du cache Anthropic. tokensIn reste le TOTAL renvoye par l'API,
+  // ces deux valeurs disent quelle part est facturee a quel tarif.
+  cacheReadTokens?: number
+  cacheWriteTokens?: number
   // Provenance portee par le message et non plus par le seul beacon de
   // fermeture : une session balayee cote serveur garde sa page d'origine.
   referrer?: string
@@ -72,6 +81,8 @@ export async function logMessage(input: LogMessageInput): Promise<void> {
       tokens_out: input.tokensOut ?? null,
       latency_ms: input.latencyMs ?? null,
       verbatim_text: isVerbatimMode() ? (input.verbatimText ?? null) : null,
+      cache_read_tokens: input.cacheReadTokens ?? null,
+      cache_write_tokens: input.cacheWriteTokens ?? null,
       referrer: input.referrer ?? null,
       ip_country: input.ipCountry ?? null,
     })
@@ -141,7 +152,9 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
   try {
     const { data: rows, error } = await client
       .from('chat_messages')
-      .select('role, ts, tokens_in, tokens_out, verbatim_text, referrer, ip_country')
+      .select(
+        'role, ts, tokens_in, tokens_out, cache_read_tokens, cache_write_tokens, verbatim_text, referrer, ip_country',
+      )
       .eq('session_id', input.sessionId)
       .order('ts', { ascending: true })
 
@@ -165,13 +178,24 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
       (sum, r) => sum + (r.tokens_in ?? 0) + (r.tokens_out ?? 0),
       0,
     )
-    const costChf = rows.reduce(
-      (sum, r) =>
+    // tokens_in est le total renvoye par l'API : entree fraiche + ecriture
+    // de cache + lecture de cache. Facturer le tout au tarif plein donnait un
+    // cout environ dix fois trop haut. Sur les messages anterieurs au
+    // 2026-09-06 le detail est absent, on retombe alors sur l'ancien calcul
+    // plutot que d'inventer une repartition.
+    const costChf = rows.reduce((sum, r) => {
+      const totalIn = (r.tokens_in as number) ?? 0
+      const cacheRead = (r.cache_read_tokens as number) ?? 0
+      const cacheWrite = (r.cache_write_tokens as number) ?? 0
+      const noCache = Math.max(0, totalIn - cacheRead - cacheWrite)
+      return (
         sum +
-        (r.tokens_in ?? 0) * PRICE_INPUT_CHF_PER_TOKEN +
-        (r.tokens_out ?? 0) * PRICE_OUTPUT_CHF_PER_TOKEN,
-      0,
-    )
+        noCache * PRICE_INPUT_CHF_PER_TOKEN +
+        cacheWrite * PRICE_CACHE_WRITE_CHF_PER_TOKEN +
+        cacheRead * PRICE_CACHE_READ_CHF_PER_TOKEN +
+        ((r.tokens_out as number) ?? 0) * PRICE_OUTPUT_CHF_PER_TOKEN
+      )
+    }, 0)
 
     // Provenance : le balayage serveur n'a pas de beacon, on retombe sur ce
     // que le premier message a enregistre.

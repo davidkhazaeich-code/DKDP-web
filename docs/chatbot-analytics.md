@@ -206,9 +206,12 @@ Chaque section ne s'affiche que si elle a du contenu.
 
 ## Cout
 
-- Haiku resume : ~250 tokens out + 500 tokens in par conversation = ~0.0008 CHF/session
+- **Conversation** : ~0.012 CHF par echange. Le system prompt embarque toute la base de connaissances du site (~130k tokens), mais il est relu du cache a chaque tour, et une lecture de cache est facturee 10 % d'un token d'entree.
+- **Haiku resume** : ~250 tokens out + 500 tokens in par conversation = ~0.0008 CHF/session
 - Supabase free tier : 500 MB DB + 2 GB transfer = largement suffisant pour < 1000 sessions/mois
-- Vercel : compris dans le hobby plan actuel
+- Vercel : plan **Pro** (necessaire pour un cron a la frequence de 15 min, le plan Hobby plafonne a un cron par jour)
 - Resend free tier : 3000 emails/mois (largement assez pour les leads chauds)
 
-A 50 sessions/jour (ce qui serait deja un succes) : ~1.20 CHF/mois de cout LLM.
+A 50 sessions/jour : environ 20 CHF/mois, dont l'essentiel est la conversation elle-meme et non le resume.
+
+⚠️ **Le champ `cost_chf` a longtemps surestime d'un facteur ~10.** Il facturait au tarif plein des tokens d'entree qui sont en grande majorite des lectures de cache. Corrige le 2026-09-06 : `chat_messages` porte desormais `cache_read_tokens` et `cache_write_tokens`, et `closeSession` applique les quatre tarifs Haiku (entree 1.00, sortie 5.00, ecriture de cache 1.25, lecture de cache 0.10 USD/M). Les sessions anterieures au correctif n'ont pas le detail et gardent leur cout surestime, on ne fabrique pas une repartition qu'on n'a pas mesuree.

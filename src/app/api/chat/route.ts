@@ -175,6 +175,8 @@ export async function POST(req: NextRequest) {
         role: 'assistant',
         tokensIn: usage?.inputTokens,
         tokensOut: usage?.outputTokens,
+        cacheReadTokens: usage?.inputTokenDetails?.cacheReadTokens,
+        cacheWriteTokens: usage?.inputTokenDetails?.cacheWriteTokens,
         latencyMs: Date.now() - startedAt,
         verbatimText: isVerbatimMode() ? text : undefined,
         referrer: pageReferrer,

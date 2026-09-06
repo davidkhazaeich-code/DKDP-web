@@ -14,8 +14,14 @@ create table if not exists public.chat_messages (
   tokens_in     integer,
   tokens_out    integer,
   latency_ms    integer,
-  verbatim_text text  -- nullable, rempli uniquement en mode calibration
+  verbatim_text text, -- nullable, rempli uniquement en mode calibration
+  referrer      text, -- page d'ou part la conversation, portee par le message
+  ip_country    text  -- pays du visiteur (x-vercel-ip-country)
 );
+
+-- Rejouable sur une base deja en place (colonnes ajoutees le 2026-09-06).
+alter table public.chat_messages add column if not exists referrer   text;
+alter table public.chat_messages add column if not exists ip_country text;
 
 create index if not exists chat_messages_session_idx on public.chat_messages (session_id);
 create index if not exists chat_messages_ts_idx      on public.chat_messages (ts desc);
@@ -69,6 +75,34 @@ select
   count(*) filter (where outcome = 'abandon')      as abandons
 from public.chat_sessions
 where started_at >= now() - interval '7 days';
+
+-- ── Vue : sessions restant a resumer ──────────────────────────────────────
+-- Le close client-side (sendBeacon) se perd une fois sur deux. Cette vue
+-- alimente le balayage serveur /api/chat/sweep (cron Vercel toutes les
+-- 15 min) : elle liste les sessions sans ligne de resume, et celles dont le
+-- nombre de messages a augmente depuis le dernier resume (conversation
+-- reprise apres une pause dans le meme onglet).
+create or replace view public.chat_sessions_pending
+with (security_invoker = true)
+as
+with agg as (
+  select
+    session_id,
+    min(ts)  as first_ts,
+    max(ts)  as last_ts,
+    count(*) as messages_count
+  from public.chat_messages
+  group by session_id
+)
+select
+  a.session_id,
+  a.first_ts,
+  a.last_ts,
+  a.messages_count,
+  (s.id is null) as jamais_resumee
+from agg a
+left join public.chat_sessions s on s.id = a.session_id
+where s.id is null or a.messages_count > s.messages_count;
 
 -- ── Auto-purge nocturne : sessions et messages > 30 jours ─────────────────
 -- Bon compromis entre retention analytique et minimisation RGPD.

@@ -649,6 +649,9 @@ export function ChatWidget() {
     body: () => ({
       _hp: honeypotRef.current,
       sessionId: getOrCreateSessionId(),
+      // Page d'ou part la conversation. Envoyee a chaque message et plus
+      // seulement dans le beacon de fermeture, qui se perd souvent.
+      referrer: typeof window !== 'undefined' ? window.location.pathname : undefined,
     }),
   }))
 

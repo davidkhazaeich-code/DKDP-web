@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json()
-  const { messages, _hp, sessionId } = body
+  const { messages, _hp, sessionId, referrer } = body
 
   // Honeypot: if the hidden field is filled, it's a bot
   if (_hp) {
@@ -129,12 +129,19 @@ export async function POST(req: NextRequest) {
     ? sessionId
     : null
 
+  // Provenance attachee a chaque message : le balayage serveur des sessions
+  // non fermees n'a pas de beacon pour la lui fournir.
+  const pageReferrer = typeof referrer === 'string' ? referrer.slice(0, 500) : undefined
+  const ipCountry = req.headers.get('x-vercel-ip-country') || undefined
+
   if (validSessionId) {
     // Fire-and-forget : ne pas await pour ne pas ralentir la reponse.
     void logMessage({
       sessionId: validSessionId,
       role: 'user',
       verbatimText: isVerbatimMode() ? lastText : undefined,
+      referrer: pageReferrer,
+      ipCountry,
     })
   }
 
@@ -170,6 +177,8 @@ export async function POST(req: NextRequest) {
         tokensOut: usage?.outputTokens,
         latencyMs: Date.now() - startedAt,
         verbatimText: isVerbatimMode() ? text : undefined,
+        referrer: pageReferrer,
+        ipCountry,
       })
     },
   })

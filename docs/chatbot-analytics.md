@@ -31,7 +31,7 @@ En **mode calibration** (`CHAT_LOG_VERBATIM=true`), le texte des messages est st
 ```
 Visiteur ──> ChatWidget.tsx
               │ (1) genere session_id (UUID v4) au 1er message
-              │ (2) ajoute sessionId dans body de chaque request
+              │ (2) ajoute sessionId + referrer dans body de chaque request
               │
               v
          /api/chat (route.ts)
@@ -46,11 +46,17 @@ Visiteur ──> ChatWidget.tsx
               │ (5) closeSession() :
               │     - fetch chat_messages de la session
               │     - genere resume via Haiku
-              │     - insert chat_sessions
+              │     - upsert chat_sessions
               │     - delete chat_messages (sauf calibration)
               │
               v
           Supabase
+              ^
+              │ (6) FILET : cron Vercel /15 min ──> /api/chat/sweep
+              │     sweepOpenSessions() rejoue closeSession() sur
+              │     tout ce que la vue chat_sessions_pending liste
+              │     (dernier message > 15 min). Le beacon se perd
+              │     une fois sur deux, ce balayage rattrape.
               │
               v
        /admin/chat?token=XXX
@@ -79,7 +85,8 @@ Dans le dashboard Vercel du projet DKDP (Settings > Environment Variables) ajout
 | `SUPABASE_URL` | `https://xxx.supabase.co` | Step 1 |
 | `SUPABASE_SERVICE_ROLE_KEY` | `eyJ...` | Step 1, secret |
 | `ADMIN_TOKEN` | `openssl rand -hex 32` | Token URL admin |
-| `CHAT_LOG_VERBATIM` | `true` | Mode calibration 2 semaines |
+| `CHAT_LOG_VERBATIM` | `true` | Requis pour avoir des resumes |
+| `CRON_SECRET` | `openssl rand -hex 32` | Lu par le cron Vercel, protege /api/chat/sweep |
 
 `ANTHROPIC_API_KEY` est deja configure pour le chatbot, le module analytics reutilise la meme cle.
 
@@ -145,9 +152,35 @@ select cron.schedule(
 
 ## Limitations connues
 
-- **sendBeacon best-effort** : sur certains mobiles ou navigateurs avec batterie faible, le beacon de cloture peut etre dropped. La session reste alors en "ouvert" indefiniment. Mitigation a venir : un cron Supabase qui clos automatiquement les sessions dont la derniere activite > 1h.
+- **sendBeacon best-effort** : le beacon de cloture se perd regulierement (onglet tue, navigation soft Next.js, Safari mobile). Entre juin et septembre 2026, une session sur deux n'a jamais ete resumee. **Corrige le 2026-09-06** par le balayage serveur, voir la section dediee : le beacon reste le chemin rapide, le cron est le filet.
 - **Cold start**: la 1ere session apres un cold start serverless paie ~200ms de plus pour init du client Supabase.
 - **Pas de RLS public** : la table chat_sessions n'est lisible qu'avec la service role key. Si on voulait exposer un dashboard public, il faudrait creer une vue + policy.
+
+## Balayage serveur des sessions non fermees
+
+Ajoute le 2026-09-06. Le resume ne depend plus du navigateur.
+
+**Vue `chat_sessions_pending`** (dans `docs/supabase-chat-schema.sql`) : liste les sessions qui ont des messages mais pas de ligne de resume, plus celles dont le nombre de messages a augmente depuis le dernier resume (visiteur qui reprend la conversation apres une pause).
+
+**`sweepOpenSessions()`** dans `chat-analytics.ts` : prend les sessions de cette vue dont le dernier message date de plus de 15 min, et rejoue `closeSession()` dessus. Le seuil de 15 min laisse passer une conversation qui reprend sans la couper en deux, le timer d'inactivite du widget etant a 5 min.
+
+**`/api/chat/sweep`** : appele par le cron Vercel toutes les 15 min (`vercel.json`), authentifie par `Authorization: Bearer $CRON_SECRET`. Repond 404 sans secret valable, comme `/admin/chat`.
+
+Rattrapage manuel :
+
+```bash
+curl "https://dkdp.ch/api/chat/sweep?token=$ADMIN_TOKEN"
+# -> {"swept":9,"sessionIds":[...]}
+```
+
+Le parametre `?stale=0` balaie tout, y compris une conversation en cours. A ne faire qu'en rattrapage ponctuel.
+
+**Trois garde-fous** :
+- `closeSession()` fait un `upsert` et compare `messages_count` : rejouer le balayage sur une session deja resumee ne fait rien.
+- L'email lead chaud ne part que sur la bascule vers `lead_chaud`, jamais deux fois pour la meme session.
+- `referrer` et `ip_country` sont desormais logges sur chaque message et plus seulement dans le beacon, sinon une session balayee perdrait sa page d'origine.
+
+**Seuil de resume** : `SUMMARY_MIN_MESSAGES = 1`, et plus aucune condition de duree. L'ancien verrou (2 messages ET 30 s) n'a laisse passer aucune conversation en quatre mois : les visiteurs posent leur question et repartent en moins de 30 secondes.
 
 ## Notification email leads chauds
 

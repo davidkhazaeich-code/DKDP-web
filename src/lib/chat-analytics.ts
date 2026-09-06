@@ -25,8 +25,10 @@ import { Resend } from 'resend'
 const PRICE_INPUT_CHF_PER_TOKEN = (1.0 / 1_000_000) * 0.9
 const PRICE_OUTPUT_CHF_PER_TOKEN = (5.0 / 1_000_000) * 0.9
 
-const SUMMARY_MIN_MESSAGES = 2
-const SUMMARY_MIN_DURATION_SEC = 30
+// On resume des qu'il y a un message porteur de texte. L'ancien verrou
+// (2 messages ET 30 s) n'a laisse passer aucune conversation en quatre mois
+// de production : les visiteurs posent leur question et repartent.
+const SUMMARY_MIN_MESSAGES = 1
 const VERBATIM_MAX_LENGTH = 200
 
 let cachedClient: SupabaseClient | null = null
@@ -53,6 +55,10 @@ export interface LogMessageInput {
   tokensOut?: number
   latencyMs?: number
   verbatimText?: string
+  // Provenance portee par le message et non plus par le seul beacon de
+  // fermeture : une session balayee cote serveur garde sa page d'origine.
+  referrer?: string
+  ipCountry?: string
 }
 
 export async function logMessage(input: LogMessageInput): Promise<void> {
@@ -66,6 +72,8 @@ export async function logMessage(input: LogMessageInput): Promise<void> {
       tokens_out: input.tokensOut ?? null,
       latency_ms: input.latencyMs ?? null,
       verbatim_text: isVerbatimMode() ? (input.verbatimText ?? null) : null,
+      referrer: input.referrer ?? null,
+      ip_country: input.ipCountry ?? null,
     })
   } catch (err) {
     console.error('[chat-analytics] logMessage failed', err)
@@ -133,19 +141,21 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
   try {
     const { data: rows, error } = await client
       .from('chat_messages')
-      .select('role, ts, tokens_in, tokens_out, verbatim_text')
+      .select('role, ts, tokens_in, tokens_out, verbatim_text, referrer, ip_country')
       .eq('session_id', input.sessionId)
       .order('ts', { ascending: true })
 
     if (error || !rows || rows.length === 0) return
 
-    // Idempotence : si une session existe deja avec ce sessionId, on bail.
+    // Idempotence : une session deja enregistree n'est rejouee que si de
+    // nouveaux messages sont arrives depuis, cas du visiteur qui reprend la
+    // conversation apres une pause dans le meme onglet.
     const { data: existing } = await client
       .from('chat_sessions')
-      .select('id')
+      .select('id, messages_count, outcome')
       .eq('id', input.sessionId)
       .maybeSingle()
-    if (existing) return
+    if (existing && Number(existing.messages_count) >= rows.length) return
 
     const startedAt = new Date(rows[0].ts as string)
     const endedAt = new Date(rows[rows.length - 1].ts as string)
@@ -163,6 +173,11 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
       0,
     )
 
+    // Provenance : le balayage serveur n'a pas de beacon, on retombe sur ce
+    // que le premier message a enregistre.
+    const firstReferrer = (rows.find((r) => r.referrer)?.referrer as string) ?? null
+    const firstIpCountry = (rows.find((r) => r.ip_country)?.ip_country as string) ?? null
+
     // Premiere question utilisateur, raw, pour copy/FAQ.
     const firstUserMsg = rows.find((r) => r.role === 'user' && r.verbatim_text)
     const verbatimQuestion = firstUserMsg?.verbatim_text
@@ -177,8 +192,7 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
     let contactName: string | null = null
     let contactCompany: string | null = null
 
-    const tooShort =
-      messagesCount < SUMMARY_MIN_MESSAGES || durationSec < SUMMARY_MIN_DURATION_SEC
+    const tooShort = messagesCount < SUMMARY_MIN_MESSAGES
 
     if (tooShort) {
       outcome = 'court'
@@ -195,7 +209,7 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
       }
     }
 
-    await client.from('chat_sessions').insert({
+    await client.from('chat_sessions').upsert({
       id: input.sessionId,
       started_at: startedAt.toISOString(),
       ended_at: endedAt.toISOString(),
@@ -207,8 +221,8 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
       intent,
       outcome,
       verbatim_question: verbatimQuestion,
-      referrer: input.referrer ?? null,
-      ip_country: input.ipCountry ?? null,
+      referrer: input.referrer ?? firstReferrer,
+      ip_country: input.ipCountry ?? firstIpCountry,
       contact_phone: contactPhone,
       contact_email: contactEmail,
       contact_name: contactName,
@@ -220,8 +234,9 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
       await client.from('chat_messages').delete().eq('session_id', input.sessionId)
     }
 
-    // Notification email immediate si lead chaud (a rappeler vite).
-    if (outcome === 'lead_chaud') {
+    // Notification email immediate si lead chaud (a rappeler vite). On ne
+    // notifie que sur la bascule, jamais deux fois pour la meme session.
+    if (outcome === 'lead_chaud' && existing?.outcome !== 'lead_chaud') {
       void notifyLeadChaud({
         sessionId: input.sessionId,
         summary,
@@ -237,6 +252,71 @@ export async function closeSession(input: CloseSessionInput): Promise<void> {
     }
   } catch (err) {
     console.error('[chat-analytics] closeSession failed', err)
+  }
+}
+
+// ── sweepOpenSessions : filet de securite serveur ───────────────────
+
+export interface SweepResult {
+  swept: number
+  sessionIds: string[]
+}
+
+/**
+ * Resume les sessions que le navigateur n'a jamais fermees.
+ *
+ * Le close client-side (sendBeacon sur beforeunload / pagehide / onglet
+ * cache) se perd regulierement : onglet tue, navigation soft Next.js,
+ * Safari mobile. Sans filet, ces conversations n'apparaissent nulle part
+ * dans /admin/chat. C'est ce qui est arrive a une session sur deux entre
+ * juin et septembre 2026.
+ *
+ * Une session est consideree terminee quand son dernier message date de
+ * plus de `staleAfterMinutes`. Le timer d'inactivite du widget etant a
+ * 5 min, la valeur par defaut laisse la place a une conversation qui
+ * reprend, sans la couper en deux sessions.
+ *
+ * S'appuie sur la vue chat_sessions_pending (cf docs/supabase-chat-schema.sql)
+ * qui liste les sessions sans resume, ou dont le nombre de messages a
+ * augmente depuis le dernier resume.
+ */
+export async function sweepOpenSessions(
+  opts: { staleAfterMinutes?: number; limit?: number } = {},
+): Promise<SweepResult> {
+  const client = getClient()
+  if (!client) return { swept: 0, sessionIds: [] }
+
+  const staleAfterMinutes = opts.staleAfterMinutes ?? 15
+  const limit = opts.limit ?? 25
+  const cutoff = new Date(Date.now() - staleAfterMinutes * 60 * 1000).toISOString()
+
+  try {
+    const { data: pending, error } = await client
+      .from('chat_sessions_pending')
+      .select('session_id, last_ts')
+      .lt('last_ts', cutoff)
+      .order('last_ts', { ascending: true })
+      .limit(limit)
+
+    if (error) {
+      console.error('[chat-analytics] sweep: lecture chat_sessions_pending', error)
+      return { swept: 0, sessionIds: [] }
+    }
+    if (!pending || pending.length === 0) return { swept: 0, sessionIds: [] }
+
+    // En serie : chaque session declenche un appel Haiku, et le volume
+    // attendu tient largement dans la duree d'une invocation cron.
+    const sessionIds: string[] = []
+    for (const row of pending) {
+      const sessionId = String(row.session_id)
+      await closeSession({ sessionId })
+      sessionIds.push(sessionId)
+    }
+
+    return { swept: sessionIds.length, sessionIds }
+  } catch (err) {
+    console.error('[chat-analytics] sweepOpenSessions failed', err)
+    return { swept: 0, sessionIds: [] }
   }
 }
 

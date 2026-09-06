@@ -7,6 +7,10 @@ const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12
 // Endpoint appele par le widget en fin de session (beforeunload via
 // navigator.sendBeacon, ou inactivite >5 min). Il est crucial qu'il accepte
 // `text/plain` parce que sendBeacon n'envoie pas de Content-Type JSON.
+// closeSession tourne desormais dans l'invocation via after(), et il contient
+// un appel Haiku. On borne explicitement plutot que de dependre du defaut.
+export const maxDuration = 60
+
 export async function POST(req: NextRequest) {
   const ip = getIp(req)
 

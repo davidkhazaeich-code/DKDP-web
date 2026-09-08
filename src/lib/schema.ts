@@ -631,8 +631,11 @@ export function buildRealisationPage(input: {
     category: string
     liveUrl?: string
   }
+  /** URLs absolues des captures, la premiere = image principale. */
+  images?: string[]
 }): Record<string, unknown> {
   const r = input.realisation
+  const images = input.images?.filter(Boolean) ?? []
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -640,6 +643,12 @@ export function buildRealisationPage(input: {
     url: `${BASE_URL}/realisations/${r.slug}`,
     description: r.meta.excerpt,
     datePublished: r.meta.dateISO,
+    ...(images.length > 0
+      ? {
+          primaryImageOfPage: { '@type': 'ImageObject', url: images[0] },
+          image: images.map((url) => ({ '@type': 'ImageObject', url })),
+        }
+      : {}),
     about: {
       '@type': 'CreativeWork',
       genre: r.category,

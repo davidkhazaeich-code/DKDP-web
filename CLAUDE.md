@@ -308,7 +308,7 @@ CTAFinal (composant partage, toujours en dernier)
 | `DottedSurface` | `components/canvas/DottedSurface.tsx` | Three.js points animes (homepage hero, desktop only) |
 | `GradTag` | `components/ui/GradTag.tsx` | Badge de section violet gradient |
 | `GradText` | `components/ui/GradText.tsx` | Texte gradient violet, prop `as` |
-| `SectionReveal` | `components/ui/SectionReveal.tsx` | Animation apparition scroll. **Desactivee sur la homepage** via `RevealDisabledProvider` |
+| `SectionReveal` | `components/ui/SectionReveal.tsx` | Animation apparition scroll. **Desactivee sur la homepage** via `RevealDisabledProvider`. ⚠️ `delay` en **secondes** (`delay={0.08}`), le composant multiplie par 1000 : un `delay={80}` cache l'element pendant 80 s sans aucune erreur |
 | `CTAFinal` | `components/sections/CTAFinal.tsx` | Section CTA de fin de page, reutilisable |
 | `FAQSection` | `components/sections/FAQSection.tsx` | Accordeon FAQ, prop `items` |
 | `SchemaOrg` | `components/seo/SchemaOrg.tsx` | Injection JSON-LD. Builders dans `lib/schema.ts` |
@@ -353,6 +353,7 @@ Claude lit **~750 lignes** en une seule passe (limite 10 000 tokens).
 | `src/lib/routes.ts` | Source de verite URLs, sitemap, redirections |
 | `src/lib/schema.ts` | Builders JSON-LD (buildService, buildCourse, buildFAQPage, buildBreadcrumbList) |
 | `src/lib/blog/` | Articles blog (1 fichier par article, index.ts pour l'assemblage) |
+| `src/lib/realisations/` | Études de cas (1 fichier par réalisation, `index.ts` pour l'assemblage, `en.ts` overlay EN par slug). Captures par `node tools/realisations/capture.mjs --url <site> --slug <slug>`. Deux en ligne au 2026-09-08 : `goldencash-refonte`, `sos-relevage` (⚠️ présentation neutre, sans le mot client ni nom de personne). L'onglet « Réalisations » du mega menu et le plan du site pointent vers `/realisations` depuis le 08.09 (avant : `/a-propos`, page orpheline). **Trois blocs optionnels depuis le 08.09** : `highlights[]` (sections phare, `HighlightsShowcase` + `ScreenFrame` + `PhoneFrame`, numérotées dans l'ordre du parcours visiteur), `direction` (`VisualDirection`, logo, palette, spécimen dans la vraie police via `next/font/local`, polices dans `components/realisations/fonts/`), `seo` (`SeoDirection`, aperçu Google, schémas, une tuile-lien par intention, GEO) + `CaseStudyNav` (ScrollSpyNav). Captures de sections : `tools/realisations/capture-sections.mjs`. ⚠️ `SectionReveal.delay` est en **secondes** (`0.08`), pas en millisecondes : `delay={80}` rend la carte invisible sans erreur |
 | `src/components/layout/Header.tsx` | Mega menu complet, donnees nav dans les consts en haut du fichier |
 | `src/components/providers/SmoothScrollProvider.tsx` | Lenis config |
 | `src/components/ui/SectionReveal.tsx` | Animation + `RevealDisabledProvider` |

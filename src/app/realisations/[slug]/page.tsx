@@ -10,6 +10,10 @@ import { GalleryGrid } from '@/components/realisations/GalleryGrid'
 import { TestimonialQuote } from '@/components/realisations/TestimonialQuote'
 import { RelatedRealisations } from '@/components/realisations/RelatedRealisations'
 import { CinematicCTA } from '@/components/realisations/CinematicCTA'
+import { CaseStudyNav } from '@/components/realisations/CaseStudyNav'
+import { HighlightsShowcase } from '@/components/realisations/HighlightsShowcase'
+import { VisualDirection } from '@/components/realisations/VisualDirection'
+import { SeoDirection } from '@/components/realisations/SeoDirection'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildBreadcrumbList, buildRealisationPage } from '@/lib/schema'
 import { REALISATIONS, getRealisation, getRelated } from '@/lib/realisations'
@@ -72,7 +76,15 @@ export default async function RealisationDetailPage({ params }: { params: Params
           { name: r.client.name, url: `https://dkdp.ch/realisations/${r.slug}` },
         ])}
       />
-      <SchemaOrg schema={buildRealisationPage({ realisation: r })} />
+      <SchemaOrg
+        schema={buildRealisationPage({
+          realisation: r,
+          images: [
+            `https://dkdp.ch/images/realisations/${r.slug}/og.png`,
+            ...(r.highlights ?? []).map((h) => `https://dkdp.ch${h.image.src}`),
+          ],
+        })}
+      />
 
       <RealisationHeader r={r} />
 
@@ -86,8 +98,15 @@ export default async function RealisationDetailPage({ params }: { params: Params
         />
       </div>
 
+      <CaseStudyNav r={r} />
+
       <ProblemBlock problem={r.problem} />
       <ApproachBlock approach={r.approach} />
+      {r.highlights && r.highlights.length > 0 && (
+        <HighlightsShowcase items={r.highlights} host={r.hero.browserUrl} />
+      )}
+      {r.direction && <VisualDirection d={r.direction} clientName={r.client.name} />}
+      {r.seo && <SeoDirection seo={r.seo} />}
       {r.stack && <StackChips chips={r.stack} />}
       {r.results && <ResultsGrid results={r.results} />}
       {r.gallery && <GalleryGrid items={r.gallery} />}

@@ -10,6 +10,10 @@ import { GalleryGrid } from '@/components/realisations/GalleryGrid'
 import { TestimonialQuote } from '@/components/realisations/TestimonialQuote'
 import { RelatedRealisations } from '@/components/realisations/RelatedRealisations'
 import { CinematicCTA } from '@/components/realisations/CinematicCTA'
+import { CaseStudyNav } from '@/components/realisations/CaseStudyNav'
+import { HighlightsShowcase } from '@/components/realisations/HighlightsShowcase'
+import { VisualDirection } from '@/components/realisations/VisualDirection'
+import { SeoDirection } from '@/components/realisations/SeoDirection'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildBreadcrumbList, buildRealisationPage } from '@/lib/schema'
 import { REALISATIONS, getRealisation, getRelated } from '@/lib/realisations'
@@ -69,7 +73,15 @@ export default async function PortfolioDetailPageEN({ params }: { params: Params
           { name: r.client.name, url: `https://dkdp.ch/en/portfolio/${r.slug}` },
         ])}
       />
-      <SchemaOrg schema={buildRealisationPage({ realisation: r })} />
+      <SchemaOrg
+        schema={buildRealisationPage({
+          realisation: r,
+          images: [
+            `https://dkdp.ch/images/realisations/${r.slug}/og.png`,
+            ...(r.highlights ?? []).map((h) => `https://dkdp.ch${h.image.src}`),
+          ],
+        })}
+      />
 
       <RealisationHeader r={r} lang="en" />
 
@@ -83,8 +95,15 @@ export default async function PortfolioDetailPageEN({ params }: { params: Params
         />
       </div>
 
+      <CaseStudyNav r={r} lang="en" />
+
       <ProblemBlock problem={r.problem} lang="en" />
       <ApproachBlock approach={r.approach} lang="en" />
+      {r.highlights && r.highlights.length > 0 && (
+        <HighlightsShowcase items={r.highlights} host={r.hero.browserUrl} lang="en" />
+      )}
+      {r.direction && <VisualDirection d={r.direction} clientName={r.client.name} lang="en" />}
+      {r.seo && <SeoDirection seo={r.seo} lang="en" />}
       {r.stack && <StackChips chips={r.stack} />}
       {r.results && <ResultsGrid results={r.results} lang="en" />}
       {r.gallery && <GalleryGrid items={r.gallery} lang="en" />}

@@ -172,6 +172,8 @@ Si vous servez plusieurs zones géographiques autour de Genève, créez des page
 
 Ces pages doivent être réellement utiles : mentionnez des spécificités locales, des projets réalisés dans cette zone, des témoignages de clients de la région. Ne créez pas des pages vides juste pour les mots-clés.
 
+Un exemple concret parmi nos réalisations : le site de [SOS Relevage](https://sos-relevage.ch), spécialiste des pompes de relevage à Genève. Chaque page y répond à une intention précise (dépannage, entretien, remplacement, urgence inondation, qui appeler), les communes desservies sont nommées, et les données structurées LocalBusiness et FAQPage sont générées depuis le contenu lui-même, jamais recopiées à la main. Le détail est dans [l'étude de cas](/realisations/sos-relevage).
+
 Utilisez également les publications Google Business Profile pour relayer vos actualités locales, promotions et événements. C'est un signal de fraîcheur que Google valorise.
 
 ## Checklist SEO local Genève 2026

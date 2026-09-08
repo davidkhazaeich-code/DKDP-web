@@ -1,7 +1,8 @@
 import type { Realisation, RealisationCategory } from './types'
 import goldencash from './goldencash-refonte'
+import sosRelevage from './sos-relevage'
 
-const ALL_REALISATIONS: Realisation[] = [goldencash]
+const ALL_REALISATIONS: Realisation[] = [goldencash, sosRelevage]
 
 export const REALISATIONS: Realisation[] = ALL_REALISATIONS.sort(
   (a, b) => b.meta.dateISO.localeCompare(a.meta.dateISO)

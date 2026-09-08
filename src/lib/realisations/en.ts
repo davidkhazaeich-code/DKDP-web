@@ -16,6 +16,37 @@ type RealisationEN = Partial<Pick<Realisation, 'tags'>> & {
 }
 
 const EN_CONTENT: Record<string, RealisationEN> = {
+  'sos-relevage': {
+    tags: ['Showcase site', 'Next.js', 'Local SEO', 'Custom CRM', 'GEO'],
+    client: { sector: 'Lift pumps', location: 'Geneva' },
+    meta: {
+      title: 'Local service site with a request funnel and a field CRM',
+      excerpt:
+        'Next.js 15 site for a Geneva lift-pump specialist: a four-step request funnel wired to a custom intervention CRM, local SEO and content written to be quoted by generative engines.',
+    },
+    problem: {
+      title: 'A trade nobody searches for until the basement floods',
+      body: 'SOS Relevage is a Geneva company that does one thing: servicing, repairing and replacing wastewater lift pumps for property managers, condominiums and homeowners. The site had to launch together with the business, with no history, no reviews and no references to show, in a market where nobody looks for a contractor before the breakdown. It had to be found on very local queries, earn the trust of a property manager comparing suppliers, and turn a hurried visit into a complete request, address and access details included, with no call back to ask for the basics.',
+    },
+    approach: {
+      title: 'A service site that feeds the field tool directly',
+      body: 'Next.js 15 with the App Router, content versioned in code without a CMS, hosted on Vercel with functions in Europe and the database in Zurich. The heart of the site is a four-step request funnel, situation, requester, building, contact, preset by the button it was opened from: every submission creates a record in a custom intervention CRM, with scheduling, photo job reports, a maintenance checklist and a shared calendar. On the search side, one page per intent (repair, maintenance, replacement, property-manager contract, flood emergency, who to call), a JSON-LD FAQ, an llms.txt regenerated at every build and answers written to be quoted as-is by generative engines. All of it on a visual identity created for the brand, from the logo to the signature wave.',
+      bullets: [
+        'Next.js 15, React 19, Tailwind 4, Vercel deployment, content versioned in code',
+        'Four-step request funnel, preset by the button, validated client-side and server-side',
+        'Custom intervention CRM: scheduling, photo reports, 12-point checklist, ICS calendar',
+        'Address search on the federal building register, with no dependency on Google',
+        'JSON-LD LocalBusiness, Service and FAQPage, llms.txt and llms-full.txt generated at build',
+        'Twelve blog guides and intent pages for local search',
+        'Visual identity and logo created for the brand, 24/7 on-call service announced sitewide',
+      ],
+    },
+    results: [
+      { metric: 'Search Console', value: '22 pages', label: 'indexed six weeks after launch' },
+      { metric: 'Average position', value: '10.4', label: 'on lift-pump queries in Geneva' },
+      { metric: 'Requests', value: '5 forms', label: 'wired to the field CRM, address and access included' },
+    ],
+  },
   'goldencash-refonte': {
     tags: ['Rebuild', 'Astro', 'Live API', 'Admin dashboard', 'Local SEO'],
     client: { sector: 'Precious metals', location: 'Geneva' },

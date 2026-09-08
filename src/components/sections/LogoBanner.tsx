@@ -16,7 +16,7 @@ const LOGOS = [
   { name: 'IMRO',                    file: 'imro.avif',                     width: 80,  height: 40 },
   { name: 'AVS',                     file: 'avs.avif',                      width: 60,  height: 40 },
   { name: 'Concorde',                file: 'concorde.avif',                 width: 110, height: 40 },
-  { name: 'Sketchiz',                file: 'sketchiz.avif',                 width: 100, height: 40 },
+  { name: 'Kalayan',                 file: 'kalayan.webp',                  width: 62,  height: 40 },
   { name: 'Swiss Medishop',          file: 'swiss-medishop.avif',           width: 120, height: 40 },
   { name: 'Polomarco',               file: 'polomarco.png',                 width: 100, height: 40, small: true },
   { name: 'Genève Sports',           file: 'geneve-sports.svg',             width: 160, height: 40, small: true, shrink: 0.63 },
@@ -29,6 +29,7 @@ const LOGOS = [
   { name: 'Alpenda',                 file: 'alpenda.webp',                  width: 74, height: 40 },
   { name: 'Ville de Lancy',          file: 'ville-de-lancy.webp',           width: 75, height: 40 },
   { name: '1875 Finance',            file: '1875-finance.webp',             width: 40,  height: 40 },
+  { name: 'AI for Good',             file: 'ai-for-good.webp',              width: 72,  height: 40 },
 ]
 
 interface LogoBannerProps {

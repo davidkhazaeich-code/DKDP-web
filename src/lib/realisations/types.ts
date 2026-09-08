@@ -34,7 +34,10 @@ export interface RealisationHero {
 
 export interface RealisationProblem {
   title: string
+  /** Sauts de paragraphe autorises (`\n\n`), le premier paragraphe est compose en accroche. */
   body: string
+  /** Fiche courte en colonne gauche : metier, public, territoire, point de depart. */
+  facts?: { label: string; value: string }[]
   illustration?: { src: string; alt: string; caption?: string }
 }
 

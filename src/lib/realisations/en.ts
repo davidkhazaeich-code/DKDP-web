@@ -29,11 +29,17 @@ const EN_CONTENT: Record<string, RealisationEN> = {
     },
     problem: {
       title: 'A trade nobody searches for until the basement floods',
-      body: 'SOS Relevage is a Geneva company that does one thing: servicing, repairing and replacing wastewater lift pumps for property managers, condominiums and homeowners. The site had to launch together with the business, with no history, no reviews and no references to show, in a market where nobody looks for a contractor before the breakdown. It had to be found on very local queries, earn the trust of a property manager comparing suppliers, and turn a hurried visit into a complete request, address and access details included, with no call back to ask for the basics.',
+      body: 'SOS Relevage is a Geneva company that does one thing: servicing, repairing and replacing wastewater lift pumps for property managers, condominiums and homeowners. The site had to launch together with the business, with no history, no reviews and no references to show, in a market where nobody looks for a contractor before the breakdown.\n\nIt had to be found on very local queries, earn the trust of a property manager comparing suppliers, and turn a hurried visit into a complete request, address and access details included, with no call back to ask for the basics.',
+      facts: [
+        { label: 'Trade', value: 'Wastewater lift pumps, nothing else' },
+        { label: 'Audience', value: 'Property managers, condominiums, homeowners' },
+        { label: 'Territory', value: 'Canton of Geneva' },
+        { label: 'Start', value: 'A new business, no reviews or references yet' },
+      ],
     },
     approach: {
       title: 'A service site that feeds the field tool directly',
-      body: 'Next.js 15 with the App Router, content versioned in code without a CMS, hosted on Vercel with functions in Europe and the database in Zurich. The heart of the site is a four-step request funnel, situation, requester, building, contact, preset by the button it was opened from: every submission creates a record in a custom intervention CRM, with scheduling, photo job reports, a maintenance checklist and a shared calendar. On the search side, one page per intent (repair, maintenance, replacement, property-manager contract, flood emergency, who to call), a JSON-LD FAQ, an llms.txt regenerated at every build and answers written to be quoted as-is by generative engines. All of it on a visual identity created for the brand, from the logo to the signature wave.',
+      body: 'Next.js 15 with the App Router, content versioned in code without a CMS, hosted on Vercel with functions in Europe and the database in Zurich. The heart of the site is a four-step request funnel, situation, requester, building, contact, preset by the button it was opened from: every submission creates a record in a custom intervention CRM, with scheduling, photo job reports, a maintenance checklist and a shared calendar.\n\nOn the search side, one page per intent (repair, maintenance, replacement, property-manager contract, flood emergency, who to call), a JSON-LD FAQ, an llms.txt regenerated at every build and answers written to be quoted as-is by generative engines. All of it on a visual identity created for the brand, from the logo to the signature wave.',
       bullets: [
         'Next.js 15, React 19, Tailwind 4, Vercel deployment, content versioned in code',
         'Four-step request funnel, preset by the button, validated client-side and server-side',

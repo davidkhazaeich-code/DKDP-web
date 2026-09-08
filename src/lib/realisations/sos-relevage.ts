@@ -32,11 +32,19 @@ const realisation: Realisation = {
   },
   problem: {
     title: "Un métier qu'on ne cherche que le jour où la cave prend l'eau",
-    body: "SOS Relevage est une entreprise genevoise qui ne fait qu'une chose : l'entretien, le dépannage et le remplacement des pompes de relevage d'eaux usées, pour les régies, les copropriétés et les particuliers. Le site devait naître en même temps que l'activité, sans historique, sans avis ni références à montrer, sur un marché où personne ne cherche un prestataire avant la panne. Il fallait donc être trouvé sur des requêtes très locales, inspirer confiance à une régie qui compare, et transformer une visite pressée en demande complète, avec l'adresse et l'accès au local, sans rappel téléphonique pour redemander l'essentiel.",
+    body: "SOS Relevage est une entreprise genevoise qui ne fait qu'une chose : l'entretien, le dépannage et le remplacement des pompes de relevage d'eaux usées, pour les régies, les copropriétés et les particuliers. Le site devait naître en même temps que l'activité, sans historique, sans avis ni références à montrer, sur un marché où personne ne cherche un prestataire avant la panne.\n\nIl fallait donc être trouvé sur des requêtes très locales, inspirer confiance à une régie qui compare, et transformer une visite pressée en demande complète, avec l'adresse et l'accès au local, sans rappel téléphonique pour redemander l'essentiel.",
+    facts: [
+      { label: 'Métier', value: "Pompes de relevage d'eaux usées, et rien d'autre" },
+      { label: 'Public', value: 'Régies, copropriétés, particuliers' },
+      { label: 'Territoire', value: 'Canton de Genève' },
+      { label: 'Départ', value: 'Activité nouvelle, sans avis ni référence' },
+    ],
   },
   approach: {
     title: "Un site de service qui alimente directement l'outil du terrain",
-    body: `Next.js 15 en App Router, contenu versionné dans le code sans CMS, hébergement Vercel avec les fonctions en Europe et la base de données à Zurich. Le cœur du site est un tunnel de demande en quatre étapes, situation, demandeur, bâtiment, contact, préréglé par le bouton d'origine : chaque envoi crée une fiche dans un CRM d'interventions développé sur mesure, avec planification, rapport de chantier photo, checklist d'entretien et agenda partagé. Côté référencement, une page par intention (dépannage, entretien, remplacement, contrat pour les régies, urgence inondation, qui appeler), une FAQ en JSON-LD, un fichier llms.txt régénéré à chaque build et des réponses écrites pour être reprises telles quelles par les moteurs génératifs. Le tout sur une identité visuelle créée pour la marque, du logo à la vague signature.`,
+    body: `Next.js 15 en App Router, contenu versionné dans le code sans CMS, hébergement Vercel avec les fonctions en Europe et la base de données à Zurich. Le cœur du site est un tunnel de demande en quatre étapes, situation, demandeur, bâtiment, contact, préréglé par le bouton d'origine : chaque envoi crée une fiche dans un CRM d'interventions développé sur mesure, avec planification, rapport de chantier photo, checklist d'entretien et agenda partagé.
+
+Côté référencement, une page par intention (dépannage, entretien, remplacement, contrat pour les régies, urgence inondation, qui appeler), une FAQ en JSON-LD, un fichier llms.txt régénéré à chaque build et des réponses écrites pour être reprises telles quelles par les moteurs génératifs. Le tout sur une identité visuelle créée pour la marque, du logo à la vague signature.`,
     bullets: [
       'Next.js 15, React 19, Tailwind 4, déploiement Vercel, contenu versionné dans le code',
       'Tunnel de demande en 4 étapes, préréglé par le bouton, validé côté client et côté serveur',

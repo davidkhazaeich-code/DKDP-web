@@ -25,7 +25,6 @@ const MONOCHROME_LOGOS = new Set<string>([
   'logo-brevo.svg',
   'logo-chatgpt.svg',
   'logo-clickup.svg',
-  'logo-copilot.svg',
   'logo-framer.svg',
   'logo-github.svg',
   'logo-google-ads.svg',

@@ -25,6 +25,10 @@ const LOGOS = [
   { name: 'Le Rouge Verbier',        file: 'le-rouge-verbier.webp',         width: 77,  height: 40 },
   { name: 'Le Dahu',                 file: 'le-dahu.webp',                  width: 52,  height: 40 },
   { name: 'World Economic Forum',    file: 'world-economic-forum.webp',     width: 55,  height: 40 },
+  { name: 'Argecil',                 file: 'argecil.webp',                  width: 77, height: 40 },
+  { name: 'Alpenda',                 file: 'alpenda.webp',                  width: 74, height: 40 },
+  { name: 'Ville de Lancy',          file: 'ville-de-lancy.webp',           width: 75, height: 40 },
+  { name: '1875 Finance',            file: '1875-finance.webp',             width: 40,  height: 40 },
 ]
 
 interface LogoBannerProps {

@@ -8,13 +8,25 @@ const article: Article = {
     "OpenAI a sorti ChatGPT Astra (GPT-6) le 3 septembre 2026 : un modèle qui pilote un ordinateur, remplit des formulaires et livre des documents finis. Voici ce qu'il change pour une PME romande, où il est vraiment disponible selon l'abonnement, et ce qu'on ne lui confie jamais.",
   date: '10 septembre 2026',
   dateISO: '2026-09-10',
-  readTime: '8 min',
+  readTime: '13 min',
   author: 'David Khazaei',
   heroImage: {
     src: '/images/blog/chatgpt-astra-gpt-6-hero.webp',
     alt: "ChatGPT Astra GPT-6 : poste de travail d'une PME à Genève où l'IA agit seule à l'écran, curseur en mouvement et documents qui se remplissent, 2026",
   },
   images: [
+    {
+      src: '/images/blog/chatgpt-astra-taches-pme-crm-agenda-formulaires.webp',
+      alt: "ChatGPT Astra GPT-6 : CRM, agenda, formulaires et rapports mis à jour par l'IA sur le poste de travail d'une PME romande, 2026",
+      caption:
+        'Les tâches qu\'OpenAI met en avant : formulaires, fiches client, agenda, résumés, graphiques, sites web. Astra agit, une personne valide.',
+    },
+    {
+      src: '/images/blog/chatgpt-astra-donnees-nlpd-protection.webp',
+      alt: "ChatGPT Astra et nLPD : les documents d'une PME suisse protégés, ce qui entre dans ChatGPT et ce qui n'y entre jamais, 2026",
+      caption:
+        "Compte professionnel, entraînement désactivé, données de tiers et secret professionnel hors de l'outil : quatre règles avant la première mission.",
+    },
     {
       src: '/images/blog/chatgpt-astra-trois-surfaces-chat-work-codex.webp',
       alt: 'ChatGPT Astra GPT-6 : les trois surfaces de ChatGPT, Chat, Work et Codex, et où le modèle est disponible pour une PME romande en 2026',
@@ -52,6 +64,11 @@ const article: Article = {
       answer:
         "Non. Claude reste notre recommandation pour l'analyse, la profondeur et la confidentialité. ChatGPT Astra est le bon choix pour automatiser un poste de travail, pour les missions longues avec Work et pour les images. Copilot s'impose si votre entreprise travaille dans Microsoft 365.",
     },
+    {
+      question: 'Astra est-il meilleur que Claude ?',
+      answer:
+        "Sur les tests d'action publiés par OpenAI, oui : pilotage d'ordinateur, tâches dans de vrais logiciels, terminal. Sur les indices composites, Claude Fable 5.1 reste devant, et en codage les deux se tiennent en moins d'un point. Pour une PME, la question utile est plutôt quel outil pour quelle tâche, et c'est ce que la formation règle.",
+    },
   ],
   content: `## Ce qui est sorti, en trois lignes
 
@@ -59,23 +76,33 @@ OpenAI a présenté ChatGPT Astra (GPT-6) le 3 septembre 2026, d'abord en aperç
 
 Astra remplace GPT-5.6 Sol comme modèle phare d'OpenAI. Pour situer : la famille GPT-5.6 est sortie le 9 juillet 2026 en trois tailles, Luna, Terra et Sol, du moins au plus capable. Luna équipe les comptes gratuits et Go depuis août.
 
-OpenAI le présente comme son modèle le plus intelligent et le plus aligné à ce jour. C'est un positionnement, pas une mesure.
+OpenAI le présente comme « le modèle le plus intelligent et le mieux aligné au monde ». C'est un positionnement, pas une mesure. Les chiffres qui suivent viennent de la page d'annonce d'OpenAI, publiée aussi en français, et n'ont pas été répliqués de façon indépendante.
 
 ## Ce qu'Astra change concrètement
 
 ### Agir plutôt que répondre
 
-Astra est conçu pour exécuter, pas seulement pour rédiger. Il pilote un ordinateur et un navigateur, clique, remplit des champs, lit ce qui apparaît à l'écran et enchaîne des étapes seul jusqu'à livrer un document fini. Sur OSWorld 2.0, un test de pilotage d'ordinateur, OpenAI annonce 72,6 % contre 65,7 % pour Sol, avec 47 % de temps en moins par tâche.
+Astra est conçu pour exécuter, pas seulement pour rédiger. Il pilote un ordinateur et un navigateur, clique, remplit des champs, lit ce qui apparaît à l'écran et enchaîne des étapes seul jusqu'à livrer un document fini. Sur OSWorld 2.0, un test de pilotage d'ordinateur, OpenAI annonce 72,6 % contre 65,7 % pour Sol, en environ 40 minutes par tâche au lieu de 75.
+
+Les exemples qu'OpenAI met en avant parlent à n'importe quelle PME : remplir des formulaires en ligne, mettre à jour des fiches client dans un CRM, organiser un agenda, faire une recherche et en rédiger le résumé directement dans la messagerie ou l'éditeur de documents, générer des graphiques, créer un site web et en vérifier le fonctionnement, installer et tester un logiciel. Sur Agents' Last Exam, un test de tâches professionnelles dans de vrais logiciels, de la modélisation financière à la production de contenus, Astra obtient 59,3 % contre 55,5 % pour Claude Opus 5 et 53,6 % pour Sol, en consommant selon OpenAI environ 65 % de tokens de sortie en moins qu'Opus 5.
 
 Deux chiffres méritent votre attention. Un contexte de 1'050'000 tokens : Astra lit d'un coup un dossier entier, contrats, échanges et annexes compris, sans découpage. Et un taux d'hallucination mesuré par OpenAI à 4,2 %, contre 12,2 % pour Sol. Ces scores viennent d'OpenAI et n'ont pas été répliqués de façon indépendante. Ils décrivent une tendance, pas une garantie sur vos propres documents.
 
 Entrées texte et image, sortie texte, pas d'audio ni de vidéo en natif. Ses connaissances s'arrêtent au 30 avril 2026.
 
+### Des documents qui respectent vos gabarits
+
+OpenAI insiste sur un point qui compte plus qu'un score pour une PME : Astra produit des documents, des feuilles de calcul et des présentations qui respectent un gabarit existant, dans le ton et la mise en page de l'entreprise, et n'y met que le contexte utile. La démonstration part de quelques diapositives du modèle de présentation d'OpenAI et en tire un deck complet au même format. Avec Sites, dans ChatGPT, il crée, héberge et partage un site ou une petite application web depuis une simple demande.
+
+Autre changement d'attitude : quand une information manque, Astra pose une question ciblée si la réponse change le résultat, et sinon avance sur une hypothèse raisonnable. Quand on le corrige en cours de route, il intègre la nouvelle contrainte sans oublier la demande de départ, là où les modèles précédents prenaient chaque message de correction pour un nouvel objectif. Harvey, éditeur d'outils juridiques, dit qu'il « aborde le travail juridique comme le ferait un avocat avisé ».
+
 ### Les nouveautés produit
 
-Côté usage, quatre changements. Les appels d'outils sont asynchrones : le modèle continue de travailler pendant qu'une recherche ou un script s'exécute. Le « mid-turn steering » permet de corriger la consigne en cours d'exécution, sans tout relancer. L'effort de raisonnement se règle en pleine conversation, rapide pour trier, approfondi pour analyser. Et dans Codex, l'outil de développement, Astra garde des notes d'une fenêtre de contexte à l'autre au lieu de tout résumer, avec un historique qui reste consultable.
+Côté usage, trois changements. Les appels d'outils sont asynchrones : le modèle continue de travailler pendant qu'une recherche ou un script s'exécute. L'effort de raisonnement se règle en pleine conversation, rapide pour trier, approfondi pour analyser. Et dans Codex, l'outil de développement, Astra garde des notes d'une fenêtre de contexte à l'autre au lieu de tout résumer, avec un historique qui reste consultable.
 
 Dernier point : Astra est le premier modèle classé « Critical » en cybersécurité dans le Preparedness Framework d'OpenAI. La version publique est bridée et refuse certaines demandes liées à la sécurité informatique. Sa sortie a été retardée pour ajouter des garde-fous après l'incident Hugging Face de juillet 2026.
+
+OpenAI a aussi construit une évaluation inspirée de cet incident, pour mesurer si un modèle confronté à une tâche difficile ou impossible sort du périmètre autorisé : GPT-5.6 Sol le faisait dans 48 % des cas sans protection de production, Astra dans 0 % des cas. Astra serait aussi trois fois moins enclin que Sol à surestimer ses propres capacités. Ce sont des résultats d'OpenAI sur ses propres tests, mais ils vont dans le bon sens pour une PME qui délègue. En contrepartie, OpenAI reconnaît que le raisonnement écrit d'Astra est plus difficile à surveiller que celui de Sol, et a mis en production une surveillance automatique qui peut mettre une tâche en pause, y compris un travail légitime : dans ChatGPT on relit l'action avant de continuer, dans l'API la tâche s'arrête.
 
 ## Le piège de l'abonnement
 
@@ -118,6 +145,8 @@ ___IMG:chatgpt-astra-trois-surfaces-chat-work-codex.webp___
 
 ## Trois usages concrets pour une PME
 
+___IMG:chatgpt-astra-taches-pme-crm-agenda-formulaires.webp___
+
 ### Mettre à jour un CRM depuis les e-mails
 
 Une PME de services reçoit ses demandes par e-mail, les recopie dans son CRM, puis met à jour le statut après chaque échange. Avec Work, on pourrait décrire le résultat attendu, un contact créé avec ses champs remplis et une note de suivi, et laisser l'agent lire la boîte connectée, ouvrir le CRM et saisir. Le garde-fou : l'agent propose, une personne valide avant l'enregistrement, et il n'a pas les droits de suppression.
@@ -136,7 +165,11 @@ Dans les trois cas, Astra accélère la préparation et la décision reste humai
 
 Un modèle qui agit sur votre ordinateur voit ce que vous voyez. La question des données devient plus concrète qu'avec un simple chat.
 
+___IMG:chatgpt-astra-donnees-nlpd-protection.webp___
+
 Quatre règles. Un compte professionnel d'abord, Business ou Enterprise, jamais un compte personnel partagé entre collègues. Ensuite, vérifier le réglage qui autorise l'utilisation de vos conversations pour l'entraînement des modèles, et le désactiver. Puis exclure sans exception les données de tiers inutiles à la tâche, les dossiers couverts par le secret professionnel (médical, juridique, fiduciaire) et les données sensibles au sens de la nLPD. Enfin, l'hébergement : vérifiez dans votre contrat où les données sont traitées et conservées, et inscrivez-le dans votre registre des traitements.
+
+Deux précisions tirées de l'annonce d'OpenAI. Côté Enterprise, Astra est désactivé par défaut au lancement et c'est l'administrateur qui l'active, ce qui laisse le temps de poser ces règles avant. Et via l'API, OpenAI propose la rétention zéro aux clients éligibles, un point qui concerne les intégrations sur mesure plus que l'usage dans ChatGPT.
 
 Le contexte d'un million de tokens ne change pas la loi. Il rend seulement plus facile de verser un dossier entier dans un outil sans y penser. La marche à suivre complète est dans notre guide [protection des données et IA sous la nLPD](/blog/protection-donnees-ia-nlpd-pme-suisse).
 
@@ -144,7 +177,16 @@ Le contexte d'un million de tokens ne change pas la loi. Il rend seulement plus 
 
 Astra n'arrive pas seul. Anthropic a sorti Claude Fable 5.1 le 1er septembre 2026, son modèle le plus capable largement disponible. Google a ouvert Gemini 3.8 Flash à tous le 2 septembre.
 
-Sur les chiffres publiés, OpenAI affirme battre Claude Fable 5 sur ses propres tests. Sur AutomationBench, Astra fait 41,4 % contre 31,4 % pour Fable 5.1, mais Fable reprend l'avantage sur certains tests scientifiques. En codage, Astra et Claude Opus 5 sont au coude à coude, 74,1 % contre 73,7 % sur DeepSWE. Gemini 3.8 accepte l'audio et la vidéo en natif, ce qu'Astra ne fait pas, et sa version Flash coûte plus de treize fois moins cher par token. Côté API, GPT-6 Astra et Claude Fable 5.1 affichent le même tarif, 10 USD par million de tokens en entrée et 50 en sortie.
+Le tableau qu'OpenAI publie sous son annonce est plus nuancé que le titre. Astra domine les tests d'action : Agents' Last Exam, des tâches professionnelles dans de vrais logiciels, 59,3 % contre 55,5 % pour Claude Opus 5 ; Terminal-Bench 4.0, 57,9 % contre 55,8 % pour Claude Fable 5.1 ; AutomationBench, 41,4 % contre 31,4 %. Mais sur l'indice composite d'Artificial Analysis, Claude Fable 5.1 reste devant, 65,7 contre 61,2, comme sur Humanity's Last Exam avec outils, 65,0 % contre 57,2 %. En codage, Astra, Claude Opus 5 et Gemini 3.8 Flash se tiennent en moins d'un point sur DeepSWE. Gemini 3.8 accepte l'audio et la vidéo en natif, ce qu'Astra ne fait pas, et sa version Flash coûte plus de treize fois moins cher par token. Côté API, GPT-6 Astra et Claude Fable 5.1 affichent le même tarif, 10 USD par million de tokens en entrée et 50 en sortie.
+
+<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(212,212,216,0.15);background:rgba(212,212,216,0.03)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:1.2rem">Le tableau d'OpenAI, lu dans les deux sens (septembre 2026)</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem">
+<div style="padding:1.1rem 1.2rem;border-radius:12px;border:1px solid rgba(74,222,128,0.2);background:rgba(74,222,128,0.05)"><div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#4ade80;margin-bottom:0.6rem">Où Astra mène</div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(212,212,216,0.08);font-size:0.82rem;color:#e4e4e7;line-height:1.4"><span>Agents' Last Exam, tâches pro dans de vrais logiciels</span><span style="white-space:nowrap;font-weight:700;color:#4ade80">59,3 % <span style="color:#71717a;font-weight:500">vs 55,5 % Opus 5</span></span></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(212,212,216,0.08);font-size:0.82rem;color:#e4e4e7;line-height:1.4"><span>Terminal-Bench 4.0, terminal et ingénierie</span><span style="white-space:nowrap;font-weight:700;color:#4ade80">57,9 % <span style="color:#71717a;font-weight:500">vs 55,8 % Fable 5.1</span></span></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(212,212,216,0.08);font-size:0.82rem;color:#e4e4e7;line-height:1.4"><span>AutomationBench</span><span style="white-space:nowrap;font-weight:700;color:#4ade80">41,4 % <span style="color:#71717a;font-weight:500">vs 31,4 % Fable 5.1</span></span></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(212,212,216,0.08);font-size:0.82rem;color:#e4e4e7;line-height:1.4"><span>FrontierMath Tier 4</span><span style="white-space:nowrap;font-weight:700;color:#4ade80">97,6 % <span style="color:#71717a;font-weight:500">vs 87,8 % Fable 5.1</span></span></div></div>
+<div style="padding:1.1rem 1.2rem;border-radius:12px;border:1px solid rgba(167,139,250,0.22);background:rgba(124,58,237,0.06)"><div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#A78BFA;margin-bottom:0.6rem">Où Claude reste devant</div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(212,212,216,0.08);font-size:0.82rem;color:#e4e4e7;line-height:1.4"><span>Artificial Analysis Intelligence Index</span><span style="white-space:nowrap;font-weight:700;color:#A78BFA">65,7 <span style="color:#71717a;font-weight:500">Fable 5.1, vs 61,2 Astra</span></span></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(212,212,216,0.08);font-size:0.82rem;color:#e4e4e7;line-height:1.4"><span>Humanity's Last Exam, avec outils</span><span style="white-space:nowrap;font-weight:700;color:#A78BFA">65,0 % <span style="color:#71717a;font-weight:500">Fable 5.1, vs 57,2 % Astra</span></span></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(212,212,216,0.08);font-size:0.82rem;color:#e4e4e7;line-height:1.4"><span>Artificial Analysis Coding Agent Index</span><span style="white-space:nowrap;font-weight:700;color:#A78BFA">68,1 <span style="color:#71717a;font-weight:500">Opus 5, vs 67,0 Astra</span></span></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(212,212,216,0.08);font-size:0.82rem;color:#e4e4e7;line-height:1.4"><span>DeepSWE, codage</span><span style="white-space:nowrap;font-weight:700;color:#A78BFA">73,7 % <span style="color:#71717a;font-weight:500">Opus 5, 74,1 % Astra, 73,8 % Gemini 3.8 Flash</span></span></div></div>
+</div>
+<div style="margin-top:1.1rem;font-size:0.7rem;color:#71717a;line-height:1.55">Scores publiés par OpenAI sous son annonce du 3 septembre 2026, dans ses propres configurations, non répliqués de façon indépendante. Claude Fable 5.1 et Claude Opus 5 selon la ligne, Gemini 3.8 Flash quand OpenAI le compare.</div>
+</div>
 
 Notre position n'a pas bougé. Claude reste notre recommandation pour l'analyse, la profondeur et la confidentialité. ChatGPT Astra prend l'avantage pour automatiser un poste de travail, pour les missions longues avec Work et pour les images. Copilot s'impose si Microsoft 365 est votre stack : GPT-6 Astra y est disponible depuis le 4 septembre. La méthode que nous enseignons, structurer une demande, un contexte, une base de connaissances et des garde-fous, se transfère à l'outil que vous choisirez ensuite. Notre [comparatif ChatGPT, Claude, Copilot](/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026) détaille les critères.
 
@@ -171,10 +213,14 @@ Seulement dans un cadre maîtrisé : compte Business ou Enterprise, entraînemen
 **Astra remplace-t-il Claude dans les recommandations DKDP ?**
 Non. Claude reste notre recommandation pour l'analyse, la profondeur et la confidentialité. ChatGPT Astra est le bon choix pour automatiser un poste de travail, pour les missions longues avec Work et pour les images. Copilot s'impose si votre entreprise travaille dans Microsoft 365.
 
+**Astra est-il meilleur que Claude ?**
+Sur les tests d'action publiés par OpenAI, oui : pilotage d'ordinateur, tâches dans de vrais logiciels, terminal. Sur les indices composites, Claude Fable 5.1 reste devant, et en codage les deux se tiennent en moins d'un point. Pour une PME, la question utile est plutôt quel outil pour quelle tâche, et c'est ce que la formation règle.
+
 ## Sources
 
 Sources consultées le 10 septembre 2026.
 
+- [OpenAI, annonce en français « GPT-6 Astra : une nouvelle génération d'intelligence »](https://openai.com/fr-FR/index/gpt-6-astra/)
 - [OpenAI, « GPT-6 Astra: A new generation of intelligence »](https://openai.com/index/gpt-6-astra/)
 - [CNBC, 3 septembre 2026](https://www.cnbc.com/2026/09/03/open-ai-astra-gpt-6-cyber.html)
 - [TechCrunch, 3 septembre 2026](https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/)

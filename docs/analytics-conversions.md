@@ -157,3 +157,99 @@ amelioration possible : passer un email hashe en user_data).
 Le site n'a pas de Consent Mode v2. En Suisse (nLPD) c'est tolere, mais pour le
 trafic UE c'est a surveiller. Si une banniere de consentement est ajoutee plus
 tard, brancher Google Consent Mode v2 pour ne pas perdre la mesure.
+
+---
+
+# OpenAI Ads (ChatGPT Ads) — pixel + API de conversion
+
+Mis en place le 2026-09-10. Pixel **`MhbGMaod48Cuvp7YJVsNgA`**.
+Code : [`src/lib/openai-ads.ts`](../src/lib/openai-ads.ts) (partage) et
+[`src/lib/openai-ads-server.ts`](../src/lib/openai-ads-server.ts) (serveur).
+
+## Les deux chemins
+
+| Chemin | Fichier | Force | Faiblesse |
+|---|---|---|---|
+| Pixel navigateur | snippet inline dans `layout.tsx` (head) | Porte le contexte du clic publicitaire, donc l'attribution | Perdu si bloqueur de pub, reseau d'entreprise, onglet ferme trop vite |
+| API de conversion (serveur) | `after()` dans les routes `/api/*` | Sait de facon certaine qu'un formulaire est arrive | Aucun contexte navigateur, s'appuie sur les identifiants hashes |
+
+Les deux partent pour **le meme lead**, avec le **meme identifiant** :
+le formulaire genere `newEventId()`, l'envoie dans le corps de la requete
+(`eventId`) ET au pixel (`event_id`). Cote serveur il devient `events[0].id`.
+OpenAI deduplique dessus, donc le lead n'est jamais compte deux fois.
+
+> **Sans `eventId` dans la requete, la route n'envoie rien.** C'est volontaire :
+> une page ouverte avant un deploiement poste sans identifiant, le pixel a deja
+> compte le lead, et un envoi serveur sans identifiant serait un doublon
+> impossible a rapprocher. Ca se resorbe tout seul au rechargement.
+
+## Correspondance des evenements
+
+| Evenement GA4 | Evenement OpenAI | `data.type` |
+|---|---|---|
+| `generate_lead` | `lead_created` | `customer_action` |
+| `book_appointment` | `appointment_scheduled` | `customer_action` |
+| `newsletter_signup` | `registration_completed` | `customer_action` |
+| `phone_click` | `custom` (`phone_click`) | `custom` |
+| `whatsapp_click` | `custom` (`whatsapp_click`) | `custom` |
+| `email_click` | `custom` (`email_click`) | `custom` |
+| `booking_start` | `custom` (`booking_start`) | `custom` |
+| `chat_open` | `custom` (`chat_open`) | `custom` |
+| (page affichee) | `page_viewed` | `contents` |
+
+**`lead_created` est reserve aux vraies demandes entrantes.** Les clics
+telephone, WhatsApp et email sont des signaux d'intention, pas des leads :
+ils partent en evenements personnalises pour rester mesurables sans gonfler
+le compte de leads sur lequel les campagnes s'optimisent. Les promouvoir se
+fait dans Ads Manager, pas dans le code.
+
+## Trois pieges verifies en reel le 2026-09-10
+
+1. **Le couple (evenement, `data.type`) est impose.** `lead_created` avec
+   `data.type: "contents"` est refuse en HTTP 400 (`event_type_data_mismatch`).
+   La table `OPENAI_EVENT_DATA_TYPE` vient du SDK lui-meme, ne pas l'inventer.
+2. **`data` n'accepte aucune cle libre.** Pour `customer_action` : `type`,
+   `amount`, `currency`, rien d'autre. Pas de `form_type`, pas de
+   `form_location`. La segmentation fine reste dans GA4.
+3. **Le SDK n'envoie rien tout seul.** Pas de page vue automatique : c'est
+   `components/providers/OpenAiPageView.tsx` qui emet `page_viewed` au
+   chargement et a chaque navigation interne (App Router).
+
+## CSP
+
+Comme pour Google, **oublier la CSP = pixel silencieusement mort**. Deux
+domaines, dans `next.config.ts` :
+
+- `script-src` : `https://bzrcdn.openai.com` (le SDK `oaiq.min.js`)
+- `connect-src` : `https://bzr.openai.com` (la collecte, `/v1/sdk/events`)
+
+## Tester sans polluer les statistiques
+
+L'API accepte `validate_only: true` : elle valide la charge utile et
+**n'enregistre aucune conversion**. Reponse attendue `{"accepted_events":1}`.
+
+```bash
+TS=$(( $(date +%s) * 1000 ))
+curl -s -X POST "https://bzr.openai.com/v1/events?pid=MhbGMaod48Cuvp7YJVsNgA" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" -H "Content-Type: application/json" \
+  --data "{\"validate_only\":true,\"events\":[{\"id\":\"test-$TS\",\"type\":\"lead_created\",\"timestamp_ms\":$TS,\"source_url\":\"https://dkdp.ch/contact\",\"action_source\":\"web\",\"data\":{\"type\":\"customer_action\"}}]}"
+```
+
+Cote navigateur, le pixel est en `debug: true` hors production : la console
+affiche `[oaiq] event queued` puis `[oaiq] queue flushed`. Un evenement qui
+reste en `queued` sans flush = collecte bloquee (CSP ou bloqueur).
+
+Garde-fous automatiques : `src/lib/__tests__/openai-ads.test.ts` et
+`openai-ads-server.test.ts` (mapping, forme de la charge utile, hachage).
+
+## Ce qui reste a faire hors code
+
+1. **Poser `OPENAI_ADS_API_KEY` sur Vercel** (Settings > Environment Variables,
+   Production + Preview). Sans elle, seul le pixel navigateur travaille et une
+   ligne `[openai-ads] OPENAI_ADS_API_KEY absente` apparait dans les logs.
+2. **Dans Ads Manager > Conversions** : verifier que le pixel recoit
+   (`page_viewed` puis `lead_created`), et choisir `lead_created` comme
+   objectif d'optimisation des campagnes.
+3. **Valeur des leads** : `amount` / `currency` sont cables mais jamais envoyes.
+   L'unite attendue par OpenAI (francs ou centimes) n'est pas documentee :
+   la trancher avant d'activer une enchere a la valeur.

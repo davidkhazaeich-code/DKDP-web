@@ -2,7 +2,7 @@
 
 import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { trackLead } from '@/lib/analytics'
+import { trackLead, newEventId } from '@/lib/analytics'
 import {
   Send, CheckCircle2, Loader2, ArrowRight, ArrowLeft, ChevronDown,
   Briefcase, MessageSquare, User, Mail, Phone, Building2, Compass,
@@ -83,14 +83,17 @@ function ContactFormInner({ lang = 'fr' }: { lang?: Locale }) {
     setLoading(true)
     setError(null)
     try {
+      // Identifiant partage pixel <-> API de conversion OpenAI (deduplication)
+      const eventId = newEventId()
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, lastName, email, phone, company, service, message, source: sources.join(', ') }),
+        body: JSON.stringify({ firstName, lastName, email, phone, company, service, message, source: sources.join(', '), eventId }),
       })
       if (!res.ok) throw new Error()
       setStep(3)
       trackLead({
+        event_id: eventId,
         form_type: 'contact',
         form_location: 'contact_form',
         contact_service: service || 'non_precise',

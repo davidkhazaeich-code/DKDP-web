@@ -5,11 +5,13 @@ import { Analytics } from '@vercel/analytics/next'
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider'
 import { CalProvider } from '@/components/providers/CalProvider'
 import { ConversionTracker } from '@/components/providers/ConversionTracker'
+import { OpenAiPageView } from '@/components/providers/OpenAiPageView'
 import { MotionProvider } from '@/components/providers/MotionProvider'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { Header } from '@/components/layout/Header'
 import { FooterWrapper } from '@/components/layout/FooterWrapper'
 import { LazyChatWidget } from '@/components/ui/LazyChatWidget'
+import { OPENAI_PIXEL_ID } from '@/lib/openai-ads'
 import { getServerLocale } from '@/i18n/server'
 import { htmlLangs, ogLocales } from '@/i18n/config'
 import './globals.css'
@@ -78,6 +80,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             __html: `(function(){try{var t=localStorage.getItem('dkdp-theme');var d=document.documentElement;if(t==='light'){d.setAttribute('data-theme','light');d.style.colorScheme='light';}else{d.setAttribute('data-theme','dark');d.style.colorScheme='dark';}}catch(e){document.documentElement.setAttribute('data-theme','dark');document.documentElement.style.colorScheme='dark';}})();`,
           }}
         />
+        {/* Pixel de mesure OpenAI (ChatGPT Ads).
+            Inline et synchrone comme le recommande OpenAI : le stub `oaiq` doit
+            exister avant tout code React, sinon les conversions declenchees tot
+            sont perdues. Le SDK lui-meme est charge en async, il ne bloque pas
+            le rendu. Mapping des evenements : lib/openai-ads.ts */}
+        <script
+          id="openai-pixel"
+          dangerouslySetInnerHTML={{
+            __html: `!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"${OPENAI_PIXEL_ID}"${process.env.NODE_ENV === 'production' ? '' : ',debug:true'}});`,
+          }}
+        />
         {/* Google Tag Manager */}
         <Script id="gtm-head" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NDMXZL8');`}
@@ -117,6 +130,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <SmoothScrollProvider>
               <CalProvider />
               <ConversionTracker />
+              <OpenAiPageView />
               <Header />
               {children}
               <FooterWrapper />

@@ -6,19 +6,34 @@
  * Chaque evenement est envoye a la fois a :
  *   - Google Analytics 4  (gtag, mesure G-SCXF5R826D)  ← chemin fiable, GA4 le recoit toujours
  *   - dataLayer Google Tag Manager (GTM-NDMXZL8)        ← permet de declencher des tags Ads/remarketing
+ *   - pixel OpenAI (ChatGPT Ads, MhbGMaod48Cuvp7YJVsNgA) ← conversions des campagnes ChatGPT
  *
  * Cote Google Ads, on N'IMPORTE PAS de conversions en dur ici : on marque les
  * evenements GA4 ci-dessous comme « Key events » dans GA4, puis on les importe
  * comme actions de conversion dans Google Ads (property GA4 liee a Ads).
  * Procedure complete + mapping : docs/analytics-conversions.md
  *
+ * Cote OpenAI Ads, le mapping evenement GA4 -> evenement OpenAI vit dans
+ * `lib/openai-ads.ts`, et le meme evenement peut partir en double depuis le
+ * serveur (API de conversion) : passer alors `event_id` pour la deduplication.
+ *
  * Toutes les fonctions sont no-op cote serveur (SSR-safe).
  */
+
+import {
+  GA4_TO_OPENAI,
+  OPENAI_EVENT_DATA_TYPE,
+  newEventId,
+} from './openai-ads'
+
+export { newEventId }
 
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void
     dataLayer?: Record<string, unknown>[]
+    /** File d'attente du pixel OpenAI, posee dans le <head> du layout. */
+    oaiq?: (...args: unknown[]) => void
   }
 }
 
@@ -87,6 +102,64 @@ export function trackEvent(name: string, params: ConversionParams = {}): void {
     window.dataLayer?.push({ event: name, ...clean })
   } catch {
     /* dataLayer indisponible : on ignore */
+  }
+  sendToOpenAi(name, clean)
+}
+
+/**
+ * Relaie l'evenement au pixel OpenAI, si et seulement s'il est mappe dans
+ * `GA4_TO_OPENAI`. Les evenements non mappes ne partent pas : le pixel refuse
+ * les noms inconnus.
+ *
+ * Parametres reconnus dans `params` :
+ *   - `event_id` : identifiant de deduplication partage avec l'API serveur
+ *   - `value` + `currency` : valeur du lead (optionnelle, entier)
+ * Les autres parametres GA4 sont volontairement laisses de cote : le pixel
+ * n'accepte aucune cle libre dans `data`.
+ */
+function sendToOpenAi(
+  name: string,
+  params: Record<string, string | number | boolean>,
+): void {
+  const mapping = GA4_TO_OPENAI[name]
+  if (!mapping) return
+
+  const data: Record<string, unknown> = {
+    type: OPENAI_EVENT_DATA_TYPE[mapping.event],
+  }
+  if (typeof params.value === 'number' && Number.isFinite(params.value)) {
+    data.amount = Math.round(params.value)
+    data.currency =
+      typeof params.currency === 'string' ? params.currency.toUpperCase() : 'CHF'
+  }
+
+  const options: Record<string, unknown> = {}
+  if (typeof params.event_id === 'string' && params.event_id) {
+    options.event_id = params.event_id
+  }
+  if (mapping.event === 'custom') {
+    options.custom_event_name = mapping.customName
+  }
+
+  try {
+    window.oaiq?.('measure', mapping.event, data, options)
+  } catch {
+    /* pixel bloque ou indisponible : on ignore */
+  }
+}
+
+/**
+ * Page vue, envoyee au seul pixel OpenAI (GA4 gere deja ses propres page_view
+ * via gtag). Appelee par `OpenAiPageView` au chargement et a chaque navigation
+ * interne : sans ce signal, OpenAI ne voit que les conversions, jamais le
+ * trafic qui y mene.
+ */
+export function trackOpenAiPageView(): void {
+  if (typeof window === 'undefined') return
+  try {
+    window.oaiq?.('measure', 'page_viewed', { type: 'contents' })
+  } catch {
+    /* pixel bloque ou indisponible : on ignore */
   }
 }
 

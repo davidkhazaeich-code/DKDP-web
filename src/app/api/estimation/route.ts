@@ -5,9 +5,14 @@
 
 import { Resend } from 'resend'
 import { Client } from '@notionhq/client'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse, after } from 'next/server'
 import { rateLimit, getIp } from '@/lib/rate-limit'
 import { sanitize } from '@/lib/sanitize'
+import {
+  geoFromRequest,
+  sendOpenAiAdsEvent,
+  sourceUrlFromRequest,
+} from '@/lib/openai-ads-server'
 import { estimationRequestSchema } from '@/lib/estimation/validation'
 import { calculateEstimate } from '@/lib/estimation/pricing'
 import { generateEstimationPdf } from '@/lib/estimation/generate-pdf'
@@ -510,6 +515,29 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     // Non-fatal: log but do not fail the request
     console.error('[estimation] Notion error:', err)
+  }
+
+  // ── Conversion OpenAI Ads (ChatGPT Ads), chemin serveur ──
+  // `eventId` est lu sur le corps BRUT : le schema zod ne le connait pas et
+  // `z.object()` retire les cles inconnues (il ne les refuse pas).
+  const eventId = typeof body?.eventId === 'string' ? body.eventId : ''
+  if (eventId) {
+    const sourceUrl = sourceUrlFromRequest(req)
+    const geo = geoFromRequest(req)
+    after(() =>
+      sendOpenAiAdsEvent({
+        id: eventId,
+        type: 'lead_created',
+        sourceUrl,
+        user: {
+          email: contact.email,
+          phone: contact.phone,
+          firstName: contact.firstName,
+          lastName: contact.lastName,
+          ...geo,
+        },
+      }),
+    )
   }
 
   return NextResponse.json({ success: true, pdf: pdfBase64, pdfFilename })

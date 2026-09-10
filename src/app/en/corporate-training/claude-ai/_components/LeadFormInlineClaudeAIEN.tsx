@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { CheckCircle2, ArrowRight, Shield, Star } from 'lucide-react'
 import { violet } from '@/lib/tokens'
-import { trackLead } from '@/lib/analytics'
+import { trackLead, newEventId } from '@/lib/analytics'
 
 export function LeadFormInlineClaudeAIEN() {
   const [form, setForm] = useState({ firstName: '', email: '', message: '' })
@@ -20,10 +20,13 @@ export function LeadFormInlineClaudeAIEN() {
     setStatus('loading')
 
     try {
+      // Identifiant partage pixel <-> API de conversion OpenAI (deduplication)
+      const eventId = newEventId()
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          eventId,
           firstName: form.firstName,
           email: form.email,
           message: form.message || 'Claude AI training quote request (landing page)',
@@ -36,6 +39,7 @@ export function LeadFormInlineClaudeAIEN() {
       if (res.ok) {
         setStatus('success')
         trackLead({
+          event_id: eventId,
           form_type: 'devis_formation_claude_ai',
           form_location: 'corporate_training_claude_ai_landing',
           event_category: 'formation_claude_ai',

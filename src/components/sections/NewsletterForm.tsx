@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Send, CheckCircle2, Loader2 } from 'lucide-react'
 import type { Locale } from '@/i18n/config'
-import { trackNewsletterSignup } from '@/lib/analytics'
+import { trackNewsletterSignup, newEventId } from '@/lib/analytics'
 
 const COPY = {
   fr: { successTitle: "C'est noté !", successText: 'On vous enverra le prochain article.', placeholder: 'votre@email.ch', emailAria: 'Adresse email', subscribe: "S'abonner", error: 'Erreur. Écrivez-nous à dk@dkdp.ch' },
@@ -19,14 +19,16 @@ export function NewsletterForm({ lang = 'fr' }: { lang?: Locale } = {}) {
     e.preventDefault()
     setStatus('loading')
     try {
+      // Identifiant partage pixel <-> API de conversion OpenAI (deduplication)
+      const eventId = newEventId()
       const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, eventId }),
       })
       if (!res.ok) throw new Error()
       setStatus('success')
-      trackNewsletterSignup({ form_location: 'newsletter_form', locale: lang })
+      trackNewsletterSignup({ form_location: 'newsletter_form', locale: lang, event_id: eventId })
     } catch {
       setStatus('error')
     }

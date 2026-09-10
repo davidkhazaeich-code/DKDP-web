@@ -1,7 +1,12 @@
 import { Resend } from 'resend'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse, after } from 'next/server'
 import { rateLimit, getIp } from '@/lib/rate-limit'
 import { sanitize } from '@/lib/sanitize'
+import {
+  geoFromRequest,
+  sendOpenAiAdsEvent,
+  sourceUrlFromRequest,
+} from '@/lib/openai-ads-server'
 
 export async function POST(req: NextRequest) {
   // ── Rate limit: 3 audit requests per IP per 10 minutes ──
@@ -12,7 +17,7 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json()
-  const { url, email, _gotcha } = body
+  const { url, email, eventId, _gotcha } = body
 
   // ── Honeypot check ──
   if (_gotcha) {
@@ -66,6 +71,21 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     })
+    // ── Conversion OpenAI Ads (ChatGPT Ads), chemin serveur ──
+    // Deduplique avec le pixel par `eventId` (voir lib/openai-ads-server.ts).
+    if (typeof eventId === 'string' && eventId) {
+      const sourceUrl = sourceUrlFromRequest(req)
+      const geo = geoFromRequest(req)
+      after(() =>
+        sendOpenAiAdsEvent({
+          id: eventId,
+          type: 'lead_created',
+          sourceUrl,
+          user: { email, ...geo },
+        }),
+      )
+    }
+
     return NextResponse.json({ ok: true })
   } catch {
     return NextResponse.json({ error: 'Send failed' }, { status: 500 })

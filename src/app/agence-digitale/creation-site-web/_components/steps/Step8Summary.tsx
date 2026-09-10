@@ -10,7 +10,7 @@ import {
 import { useEstimator } from '../EstimatorContext'
 import { AnimatedCounter } from '../ui/AnimatedCounter'
 import { calculateEstimate } from '@/lib/estimation/pricing'
-import { trackLead } from '@/lib/analytics'
+import { trackLead, newEventId } from '@/lib/analytics'
 import { SECTORS } from '@/lib/estimation/sectors'
 import type { EstimationRequest, Sector } from '@/lib/estimation/types'
 import type { Locale } from '@/i18n/config'
@@ -616,10 +616,12 @@ export function Step8Summary() {
     }
 
     try {
+      // Identifiant partage pixel <-> API de conversion OpenAI (deduplication)
+      const eventId = newEventId()
       const res = await fetch('/api/estimation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...payload, eventId }),
       })
 
       if (!res.ok) {
@@ -632,6 +634,7 @@ export function Step8Summary() {
       }
       dispatch({ type: 'SET_SUBMITTED' })
       trackLead({
+        event_id: eventId,
         form_type: 'estimation_site_web',
         form_location: 'estimateur',
         site_type: state.siteType ?? undefined,

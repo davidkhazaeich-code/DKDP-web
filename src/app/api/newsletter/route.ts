@@ -1,7 +1,12 @@
 import { Resend } from 'resend'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse, after } from 'next/server'
 import { rateLimit, getIp } from '@/lib/rate-limit'
 import { sanitize } from '@/lib/sanitize'
+import {
+  geoFromRequest,
+  sendOpenAiAdsEvent,
+  sourceUrlFromRequest,
+} from '@/lib/openai-ads-server'
 
 export async function POST(req: NextRequest) {
   const ip = getIp(req)
@@ -9,7 +14,7 @@ export async function POST(req: NextRequest) {
   if (!allowed) return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
 
   const body = await req.json()
-  const { email, _gotcha } = body
+  const { email, eventId, _gotcha } = body
 
   if (_gotcha) return NextResponse.json({ ok: true })
   if (!email) return NextResponse.json({ error: 'Email requis' }, { status: 400 })
@@ -33,6 +38,20 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     })
+    // ── Conversion OpenAI Ads : une inscription = registration_completed ──
+    if (typeof eventId === 'string' && eventId) {
+      const sourceUrl = sourceUrlFromRequest(req)
+      const geo = geoFromRequest(req)
+      after(() =>
+        sendOpenAiAdsEvent({
+          id: eventId,
+          type: 'registration_completed',
+          sourceUrl,
+          user: { email, ...geo },
+        }),
+      )
+    }
+
     return NextResponse.json({ ok: true })
   } catch {
     return NextResponse.json({ error: 'Send failed' }, { status: 500 })

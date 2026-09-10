@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { CheckCircle2, Loader2 } from 'lucide-react'
 import type { Locale } from '@/i18n/config'
-import { trackLead } from '@/lib/analytics'
+import { trackLead, newEventId } from '@/lib/analytics'
 
 const COPY = {
   fr: {
@@ -43,14 +43,16 @@ export function AuditHeroForm({ buttonLabel, lang = 'fr' }: { buttonLabel?: stri
     e.preventDefault()
     setStatus('loading')
     try {
+      // Identifiant partage pixel <-> API de conversion OpenAI (deduplication)
+      const eventId = newEventId()
       const res = await fetch('/api/audit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url, email }),
+        body: JSON.stringify({ url, email, eventId }),
       })
       if (!res.ok) throw new Error()
       setStatus('success')
-      trackLead({ form_type: 'audit_seo', form_location: 'audit_hero', locale: lang })
+      trackLead({ form_type: 'audit_seo', form_location: 'audit_hero', locale: lang, event_id: eventId })
     } catch {
       setStatus('error')
     }

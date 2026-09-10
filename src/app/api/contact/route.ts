@@ -1,7 +1,12 @@
 import { Resend } from 'resend'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse, after } from 'next/server'
 import { rateLimit, getIp } from '@/lib/rate-limit'
 import { sanitize } from '@/lib/sanitize'
+import {
+  geoFromRequest,
+  sendOpenAiAdsEvent,
+  sourceUrlFromRequest,
+} from '@/lib/openai-ads-server'
 
 export async function POST(req: NextRequest) {
   // ── Rate limit: 5 submissions per IP per 10 minutes ──
@@ -12,7 +17,7 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json()
-  const { firstName, lastName, email, phone, company, service, message, source, _gotcha } = body
+  const { firstName, lastName, email, phone, company, service, message, source, eventId, _gotcha } = body
 
   // ── Honeypot check ──
   if (_gotcha) {
@@ -162,6 +167,23 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     })
+
+    // ── 3. Conversion OpenAI Ads (ChatGPT Ads), chemin serveur ──
+    // Deduplique avec le pixel navigateur : meme identifiant des deux cotes.
+    // Sans `eventId` (page ouverte avant le deploiement), on ne fait rien :
+    // le pixel a deja compte le lead et on ne saurait pas dedupliquer.
+    if (typeof eventId === 'string' && eventId) {
+      const sourceUrl = sourceUrlFromRequest(req)
+      const geo = geoFromRequest(req)
+      after(() =>
+        sendOpenAiAdsEvent({
+          id: eventId,
+          type: 'lead_created',
+          sourceUrl,
+          user: { email, phone, firstName, lastName, ...geo },
+        }),
+      )
+    }
 
     return NextResponse.json({ ok: true })
   } catch {

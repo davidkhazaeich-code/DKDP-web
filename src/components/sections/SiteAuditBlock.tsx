@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Globe, Mail, Search, CheckCircle2, Loader2 } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { HeroBg } from '@/components/ui/HeroBg'
-import { trackLead } from '@/lib/analytics'
+import { trackLead, newEventId } from '@/lib/analytics'
 
 const color  = '#A78BFA'
 const bg     = 'rgba(124,58,237,0.08)'
@@ -32,14 +32,16 @@ export function SiteAuditBlock() {
     const form = e.currentTarget
     const gotcha = (form.elements.namedItem('_gotcha') as HTMLInputElement)?.value
     try {
+      // Identifiant partage pixel <-> API de conversion OpenAI (deduplication)
+      const eventId = newEventId()
       const res = await fetch('/api/audit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url, email, _gotcha: gotcha }),
+        body: JSON.stringify({ url, email, _gotcha: gotcha, eventId }),
       })
       if (!res.ok) throw new Error()
       setSent(true)
-      trackLead({ form_type: 'audit_seo', form_location: 'audit_block', locale: 'fr' })
+      trackLead({ form_type: 'audit_seo', form_location: 'audit_block', locale: 'fr', event_id: eventId })
     } catch {
       setError('Une erreur est survenue. Réessayez ou écrivez-nous à dk@dkdp.ch')
     } finally {

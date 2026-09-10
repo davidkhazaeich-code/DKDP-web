@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { CheckCircle2, Loader2 } from 'lucide-react'
-import { trackLead } from '@/lib/analytics'
+import { trackLead, newEventId } from '@/lib/analytics'
 
 export function AuditHeroFormEn({ buttonLabel = 'Get my free audit' }: { buttonLabel?: string }) {
   const [url, setUrl]     = useState('')
@@ -13,14 +13,16 @@ export function AuditHeroFormEn({ buttonLabel = 'Get my free audit' }: { buttonL
     e.preventDefault()
     setStatus('loading')
     try {
+      // Identifiant partage pixel <-> API de conversion OpenAI (deduplication)
+      const eventId = newEventId()
       const res = await fetch('/api/audit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url, email }),
+        body: JSON.stringify({ url, email, eventId }),
       })
       if (!res.ok) throw new Error()
       setStatus('success')
-      trackLead({ form_type: 'audit_seo', form_location: 'audit_hero', locale: 'en' })
+      trackLead({ form_type: 'audit_seo', form_location: 'audit_hero', locale: 'en', event_id: eventId })
     } catch {
       setStatus('error')
     }

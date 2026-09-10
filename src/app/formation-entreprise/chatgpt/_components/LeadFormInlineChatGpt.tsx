@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { CheckCircle2, ArrowRight, Shield, Star } from 'lucide-react'
 import { violet } from '@/lib/tokens'
-import { trackLead } from '@/lib/analytics'
+import { trackLead, newEventId } from '@/lib/analytics'
 import type { Locale } from '@/i18n/config'
 
 /* Meme formulaire que sur la page Claude (memes couleurs, meme API, meme
@@ -93,10 +93,13 @@ export function LeadFormInlineChatGpt({ lang = 'fr' }: { lang?: Locale }) {
     setStatus('loading')
 
     try {
+      // Identifiant partage pixel <-> API de conversion OpenAI (deduplication)
+      const eventId = newEventId()
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          eventId,
           firstName: form.firstName,
           email: form.email,
           message: form.message || t.defaultMessage,
@@ -109,6 +112,7 @@ export function LeadFormInlineChatGpt({ lang = 'fr' }: { lang?: Locale }) {
       if (res.ok) {
         setStatus('success')
         trackLead({
+          event_id: eventId,
           form_type: 'devis_formation_chatgpt',
           form_location: t.formLocation,
           event_category: 'formation_chatgpt',

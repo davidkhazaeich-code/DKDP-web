@@ -2,7 +2,7 @@ export function DayAgenda() {
   const slots: { time: string; title: string; dur: string; type: 'theory' | 'practice' | 'break' | 'workshop' | 'qa' }[] = [
     { time: '09:00', title: 'Introduction: how AI really works', dur: '30 min', type: 'theory' },
     { time: '09:30', title: 'Effective prompting: advanced techniques', dur: '1h30', type: 'practice' },
-    { time: '11:00', title: "ChatGPT and Claude: your team's real use cases", dur: '1h', type: 'practice' },
+    { time: '11:00', title: "ChatGPT Astra and Claude: your team's real use cases", dur: '1h', type: 'practice' },
     { time: '12:00', title: 'Lunch break', dur: '1h', type: 'break' },
     { time: '13:00', title: 'Microsoft Copilot in Word, Excel, Outlook', dur: '1h30', type: 'practice' },
     { time: '14:30', title: 'Simple automations with Make / Zapier', dur: '1h', type: 'practice' },

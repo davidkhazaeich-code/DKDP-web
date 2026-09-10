@@ -35,9 +35,9 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const AgentTypesGrid = dynamic(() => import('./_components/AgentTypesGrid').then(m => m.AgentTypesGrid))
 
 export const metadata: Metadata = {
-  title: 'Agents IA Genève & Suisse romande | Claude, GPT-5 | DKDP',
+  title: 'Agents IA sur mesure Genève | Claude, GPT-6 Astra | DKDP',
   description:
-    "Développement d'agents IA autonomes pour PME romandes : assistants virtuels, agents commerciaux, RAG. Technologies Claude Anthropic, GPT-5, LangChain, n8n. Devis 48 h.",
+    "Développement d'agents IA autonomes pour PME romandes : assistants virtuels, agents commerciaux, RAG. Technologies Claude Anthropic, GPT-6 Astra, LangChain, n8n. Devis 48 h.",
   alternates: {
     canonical: 'https://dkdp.ch/intelligence-artificielle/agents-ia',
     languages: {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: 'https://dkdp.ch/intelligence-artificielle/agents-ia',
-    images: [{ url: '/images/og/agents-ia.png', width: 1376, height: 768, alt: "Agents IA sur mesure Genève : Claude, GPT-5, LangChain par DKDP" }],
+    images: [{ url: '/images/og/agents-ia.png', width: 1376, height: 768, alt: "Agents IA sur mesure Genève : Claude, GPT-6 Astra, LangChain par DKDP" }],
   },
 }
 
@@ -89,7 +89,7 @@ const FAQ_ITEMS = [
   {
     question: "Claude ou ChatGPT pour mon entreprise ?",
     answer:
-      "On choisit le modèle selon votre cas d'usage. Claude Opus 4.7 (Anthropic) est privilégié pour les agents qui raisonnent sur du texte long, analysent des documents volumineux (contrats, rapports, base documentaire) et manipulent des outils métier. GPT-5 (OpenAI) est préféré pour les agents multimodaux (texte, image, voix) et les intégrations larges. Gemini 3 (Google) s'impose quand votre stack est 100 % Google Workspace. Pour les secteurs régulés (médical, juridique, finance), on propose aussi Mistral, Llama 4 auto-hébergés ou les solutions souveraines suisses (Infomaniak Euria, Swisscom Swiss AI Assistant).",
+      "On choisit le modèle selon votre cas d'usage. Claude Opus 5 (Anthropic) est privilégié pour les agents qui raisonnent sur du texte long, analysent des documents volumineux (contrats, rapports, base documentaire) et manipulent des outils métier. GPT-6 Astra (OpenAI) est préféré pour les agents qui pilotent un ordinateur ou un navigateur, les missions longues et les intégrations larges. Gemini 3.8 (Google) s'impose quand votre stack est 100 % Google Workspace ou quand l'audio et la vidéo entrent en jeu. Pour les secteurs régulés (médical, juridique, finance), on propose aussi Mistral, Llama 4 auto-hébergés ou les solutions souveraines suisses (Infomaniak Euria, Swisscom Swiss AI Assistant).",
   },
   {
     question: "Mes données sont-elles hébergées en Suisse ?",
@@ -117,7 +117,7 @@ export default function AgentsIAPage() {
           name: 'Agents IA sur mesure Genève & Suisse romande',
           url: '/intelligence-artificielle/agents-ia',
           description:
-            "Développement d'agents IA autonomes pour PME romandes : assistants virtuels, agents commerciaux, agents de support et RAG. Technologies Claude (Anthropic), GPT-5 (OpenAI), LangChain, LangGraph, n8n. Hébergement Suisse possible, conforme nLPD 2023 et RGPD.",
+            "Développement d'agents IA autonomes pour PME romandes : assistants virtuels, agents commerciaux, agents de support et RAG. Technologies Claude (Anthropic), GPT-6 Astra (OpenAI), LangChain, LangGraph, n8n. Hébergement Suisse possible, conforme nLPD 2023 et RGPD.",
           serviceType: 'Développement d\'agents IA sur mesure',
           priceFrom: 2500,
           priceSpecDescription: 'À partir de CHF 2 500 pour un agent Starter (1 canal, 2 semaines, clé en main)',
@@ -319,9 +319,9 @@ export default function AgentsIAPage() {
                 accentBg: 'rgba(167,139,250,0.08)',
                 accentBorder: 'rgba(167,139,250,0.22)',
                 items: [
-                  { name: 'Claude Opus 4.7 (Anthropic)', desc: 'Raisonnement long, analyse de documents, manipulation d\'outils. Le meilleur choix pour les agents métiers sensibles.' },
-                  { name: 'GPT-5 (OpenAI)', desc: 'Agents multimodaux : texte, image, voix. Large écosystème d\'intégrations.' },
-                  { name: 'Gemini 3 (Google)', desc: 'Intégration native Google Workspace. Parfait pour les équipes déjà sur Gmail, Drive, Docs.' },
+                  { name: 'Claude Opus 5 (Anthropic)', desc: 'Raisonnement long, analyse de documents, manipulation d\'outils. Le choix DKDP pour les agents métiers sensibles.' },
+                  { name: 'GPT-6 Astra (OpenAI)', desc: 'Pilotage d\'ordinateur et de navigateur, missions longues, large écosystème. GPT-5.6 pour le volume à moindre coût.' },
+                  { name: 'Gemini 3.8 (Google)', desc: 'Intégration native Google Workspace, audio et vidéo en natif. Parfait pour les équipes déjà sur Gmail, Drive, Docs.' },
                 ],
               },
               {
@@ -398,7 +398,7 @@ export default function AgentsIAPage() {
                 Nos agents IA : commercial, support et analyse, connectés à votre stack.
               </h2>
               <p className="text-text-secondary max-w-2xl mx-auto mt-4 text-sm">
-                Trois patterns éprouvés, déployables en 2 à 6 semaines, alimentés par Claude Opus 4.7 ou GPT-5 selon vos exigences.
+                Trois patterns éprouvés, déployables en 2 à 6 semaines, alimentés par Claude Opus 5 ou GPT-6 Astra selon vos exigences.
               </p>
             </div>
           </SectionReveal>
@@ -408,7 +408,7 @@ export default function AgentsIAPage() {
               {
                 Icon: Users,
                 title: 'Agent commercial',
-                stack: 'Claude Opus 4.7 + HubSpot + Bexio via n8n',
+                stack: 'Claude Opus 5 + HubSpot + Bexio via n8n',
                 accent: violet,
                 accentBg: 'rgba(167,139,250,0.08)',
                 accentBorder: 'rgba(167,139,250,0.20)',
@@ -438,7 +438,7 @@ export default function AgentsIAPage() {
               {
                 Icon: BarChart3,
                 title: "Agent d'analyse et reporting",
-                stack: 'GPT-5 ou Claude Sonnet 4.6, intégré à Slack + Google Workspace',
+                stack: 'GPT-5.6 ou Claude Sonnet 5, intégré à Slack + Google Workspace',
                 accent: color,
                 accentBg: bg,
                 accentBorder: border,
@@ -803,7 +803,7 @@ export default function AgentsIAPage() {
                   </p>
                   <p className="text-text font-semibold text-sm">Formez vos équipes en une journée</p>
                   <p className="text-text-muted text-xs mt-1">
-                    ChatGPT, Claude, Copilot. Autonomes dès le lendemain.
+                    ChatGPT Astra, Claude, Copilot. Autonomes dès le lendemain.
                   </p>
                 </div>
                 <ChevronRight

@@ -101,7 +101,7 @@ const TERMS: Term[] = [
     term: 'Claude',
     category: 'IA',
     definition:
-      'A language model developed by Anthropic, a competitor to ChatGPT and Gemini. Known for its accuracy, its ability to follow complex instructions and its reliability on sensitive professional tasks.',
+      'A language model developed by Anthropic, a competitor to ChatGPT and Gemini. Known for its accuracy, its ability to follow complex instructions and its reliability on sensitive professional tasks. Latest version: Claude Fable 5.1 (September 2026).',
   },
   {
     term: 'Conversion',
@@ -167,14 +167,14 @@ const TERMS: Term[] = [
     term: 'Generative AI',
     category: 'IA',
     definition:
-      'A branch of AI that creates original content: text, images, code, audio. Leading models in 2026: ChatGPT, Claude, Gemini, Midjourney. A trained employee can cut writing time by up to 60%.',
+      'A branch of AI that creates original content: text, images, code, audio. Leading models in 2026: ChatGPT Astra (GPT-6), Claude Fable 5.1, Gemini 3.8, Midjourney. A trained employee can cut writing time by up to 60%.',
     link: '/en/artificial-intelligence',
   },
   {
     term: 'GPT',
     category: 'IA',
     definition:
-      'Generative Pre-trained Transformer. A neural network architecture developed by OpenAI, behind ChatGPT and many modern language models used in business.',
+      'Generative Pre-trained Transformer. A neural network architecture developed by OpenAI, behind ChatGPT and many modern language models used in business. The September 2026 generation is GPT-6 Astra.',
   },
   {
     term: 'Hallucination',
@@ -228,7 +228,7 @@ const TERMS: Term[] = [
     term: 'LLM',
     category: 'IA',
     definition:
-      'Large Language Model. A model trained on billions of texts, able to summarise, translate, write and analyse. E.g. Claude, GPT-4o, Gemini. Multiplies team productivity on text-based tasks.',
+      'Large Language Model. A model trained on billions of texts, able to summarise, translate, write and analyse. E.g. Claude Fable 5.1, GPT-6 Astra, Gemini 3.8. Multiplies team productivity on text-based tasks.',
   },
   {
     term: 'Long-tail keyword',

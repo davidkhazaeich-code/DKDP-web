@@ -82,6 +82,7 @@ const GROUPS: SitemapGroup[] = [
     links: [
       { label: 'Corporate training: overview', href: lp('/formation-entreprise') },
       { label: 'AI training', href: lp('/formation-entreprise/ia') },
+      { label: 'ChatGPT training', href: lp('/formation-entreprise/chatgpt') },
       { label: 'Cybersecurity', href: lp('/formation-entreprise/cybersecurite') },
       { label: 'Office & Excel', href: lp('/formation-entreprise/bureautique') },
       { label: 'Social media', href: lp('/formation-entreprise/reseaux-sociaux') },

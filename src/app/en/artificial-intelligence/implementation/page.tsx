@@ -39,7 +39,7 @@ const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 export const metadata: Metadata = {
-  title: 'AI implementation Geneva & French-speaking Switzerland | ChatGPT Claude | DKDP',
+  title: 'AI implementation Geneva | Claude, GPT-6 Astra | DKDP',
   description: "Custom AI integration for companies and SMEs in Geneva. ChatGPT, Claude, Mistral connected to your existing tools. Fast deployment, without rebuilding everything. Free quote.",
   alternates: {
     canonical: 'https://dkdp.ch/en/artificial-intelligence/implementation',
@@ -85,7 +85,7 @@ function LLMStackDiagram() {
       textColor: violetColor,
     },
     {
-      label: 'LLM: ChatGPT / Claude / Mistral',
+      label: 'LLM: GPT-6 Astra / Claude / Mistral',
       sublabel: 'Language model in production',
       icon: <Zap size={15} style={{ color: color }} />,
       bg: 'rgba(212,212,216,0.08)',
@@ -147,7 +147,7 @@ const FAQ_ITEMS = [
   {
     question: 'How do we choose the right LLM for our project?',
     answer:
-      'The choice of LLM depends on your use case: GPT-4o excels at complex, multilingual and vision-based tasks. Claude is optimal for long documents, analysis and code. Mistral is the best choice if European GDPR compliance and self-hosting are strong constraints. We always run a comparative benchmark on your real data before validating the final choice.',
+      'The choice of LLM depends on your use case: GPT-6 Astra excels at tasks that drive tools and a browser, multilingual and vision-based work. Claude is optimal for long documents, analysis and code. Mistral is the best choice if European GDPR compliance and self-hosting are strong constraints. We always run a comparative benchmark on your real data before validating the final choice.',
   },
   {
     question: 'Can the LLM be hosted on our own servers?',
@@ -157,12 +157,12 @@ const FAQ_ITEMS = [
   {
     question: 'What happens if OpenAI changes its model or pricing?',
     answer:
-      'It is a real risk that we anticipate. Our orchestration layer is built with an abstraction that lets you switch LLM provider without changing your application code. We use libraries such as LangChain or LiteLLM that handle this portability. In practice, switching from GPT-4o to Claude only takes a few hours of configuration.',
+      'It is a real risk that we anticipate. Our orchestration layer is built with an abstraction that lets you switch LLM provider without changing your application code. We use libraries such as LangChain or LiteLLM that handle this portability. In practice, switching from GPT-6 Astra to Claude only takes a few hours of configuration.',
   },
   {
     question: 'What is the cost of LLM API calls in production?',
     answer:
-      'Costs vary depending on volume and model. As a guide: GPT-4o costs around $2.50 per million input tokens. For an internal assistant handling 500 requests per day, the cost is around $30 to $80 per month depending on the length of the exchanges. We set up cost monitoring and optimisations (caching, prompt compression) to keep the production bill under control.',
+      'Costs vary depending on volume and model. As a guide, in September 2026: GPT-5.6 Terra costs around 2 USD per million input tokens, Claude Sonnet 5 2 USD, GPT-6 Astra 10 USD and Claude Opus 5 5 USD. For an internal assistant handling 500 requests per day, a Terra- or Sonnet-class model costs 30 to 80 USD per month, a flagship model several times more. We set up cost monitoring and optimisations (caching, prompt compression) to keep the production bill under control.',
   },
 ]
 
@@ -457,7 +457,7 @@ export default function ImplementationPage() {
           </SectionReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* OpenAI GPT-4o */}
+            {/* OpenAI GPT-6 Astra */}
             <SectionReveal delay={0}>
               <div
                 className="flex flex-col h-full rounded-[16px] border p-7"
@@ -471,17 +471,17 @@ export default function ImplementationPage() {
                     GPT
                   </div>
                   <div>
-                    <p className="text-text font-bold text-base leading-tight">OpenAI GPT-4o</p>
+                    <p className="text-text font-bold text-base leading-tight">OpenAI GPT-6 Astra</p>
                     <p className="text-[11px] text-text-muted">OpenAI</p>
                   </div>
                 </div>
                 <p className="text-text-secondary text-sm leading-relaxed mb-5">
-                  The most versatile model. Ideal for complex tasks, multilingual work and image analysis.
-                  Best overall performance across varied business cases.
+                  OpenAI&apos;s flagship model since September 2026, built to act: it drives tools and a browser, chains steps on its own and delivers finished documents.
+                  Multilingual work and image analysis are still covered.
                 </p>
                 <div className="mt-auto space-y-2">
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color }}>Strengths</p>
-                  {['Complex tasks and reasoning', 'Native multilingual (FR/DE/IT/EN)', 'Vision: image and PDF analysis', 'Very large plugin ecosystem'].map((s) => (
+                  {['Drives tools and a browser', 'Native multilingual (FR/DE/IT/EN)', 'Vision: image and PDF analysis', '1 million token context'].map((s) => (
                     <div key={s} className="flex items-center gap-2">
                       <CheckCircle2 size={12} style={{ color: '#10a37f' }} />
                       <span className="text-text-muted text-[12px]">{s}</span>
@@ -681,7 +681,7 @@ export default function ImplementationPage() {
                 <p className="text-text-muted text-sm mb-6">one-time payment</p>
                 <div className="space-y-3 flex-1 mb-8">
                   {[
-                    '1 LLM integrated (GPT-4o, Claude or Mistral)',
+                    '1 LLM integrated (GPT-6 Astra, Claude or Mistral)',
                     '1 target use case',
                     'Connection to 1 data source',
                     'Prompt engineering and testing',

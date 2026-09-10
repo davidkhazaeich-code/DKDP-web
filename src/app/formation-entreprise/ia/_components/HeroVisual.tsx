@@ -45,9 +45,9 @@ export function HeroVisual() {
             <p className="text-[9px] text-zinc-500 uppercase tracking-widest mb-2">Outils maitrises</p>
             <div className="grid grid-cols-3 gap-2">
               {[
-                { name: 'ChatGPT', version: 'GPT-4o', level: 95, color: '#10B981' },
-                { name: 'Claude', version: 'Opus', level: 90, color: '#D4A574' },
-                { name: 'Copilot', version: 'M365', level: 85, color: '#3B82F6' },
+                { name: 'ChatGPT', version: 'GPT-6 Astra', level: 95, color: '#10B981' },
+                { name: 'Claude', version: 'Fable 5.1', level: 90, color: '#D4A574' },
+                { name: 'Copilot', version: 'M365 · Astra', level: 85, color: '#3B82F6' },
               ].map((tool) => (
                 <div key={tool.name} className="rounded-lg p-2.5" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
                   <div className="flex items-center justify-between mb-1.5">

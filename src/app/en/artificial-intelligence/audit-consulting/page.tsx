@@ -35,7 +35,7 @@ const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 export const metadata: Metadata = {
-  title: 'AI Audit for Businesses in Geneva and French-speaking Switzerland | DKDP',
+  title: 'AI audit for businesses Geneva & Switzerland | DKDP',
   description:
     'AI consulting for SMBs in French-speaking Switzerland. Structured AI audit: 3 high-ROI actions identified. From CHF 490, full report within 48 hours.',
   alternates: {
@@ -746,7 +746,7 @@ export default function AuditConsultingPage() {
                 accentBorder: 'rgba(244,114,182,0.22)',
                 label: 'Implementation',
                 title: 'AI implementation',
-                desc: 'Integration of ChatGPT, Claude and LLMs into your existing stack. Without rebuilding everything.',
+                desc: 'Integration of GPT-6 Astra, Claude and LLMs into your existing stack. Without rebuilding everything.',
               },
             ].map((link, i) => (
               <SectionReveal key={link.href} delay={i * 0.08}>

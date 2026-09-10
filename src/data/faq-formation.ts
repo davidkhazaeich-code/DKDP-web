@@ -32,7 +32,7 @@ export const FAQ_FORMATION = [
   {
     question: "Comment se déroule concrètement une formation IA en entreprise ?",
     answer:
-      "La journée commence par les fondamentaux de l'IA (30 min), puis on passe directement à la pratique : prompting avancé, cas d'usage métier, automatisation avec Make ou Zapier, et tour des outils (ChatGPT, Claude, Copilot). Chaque participant repart avec ses propres templates et workflows opérationnels le jour même.",
+      "La journée commence par les fondamentaux de l'IA (30 min), puis on passe directement à la pratique : prompting avancé, cas d'usage métier, automatisation avec Make ou Zapier, et tour des outils (ChatGPT Astra, Claude, Copilot). Chaque participant repart avec ses propres templates et workflows opérationnels le jour même.",
   },
   {
     question: "Délivrez-vous un certificat ou une attestation de formation ?",

@@ -21,7 +21,7 @@ const FEATURED = [
     Icon: GraduationCap,
     pillar: 'Formation Entreprise',
     title: 'Formation IA en entreprise',
-    desc: 'ChatGPT, Claude, Copilot : vos équipes maîtrisent les outils IA en une journée et gagnent 2h par jour.',
+    desc: 'ChatGPT Astra, Claude, Copilot : vos équipes maîtrisent les outils IA en une journée et gagnent 2h par jour.',
     href: '/formation-entreprise/ia',
     cta: 'Voir le programme',
     badge: null,

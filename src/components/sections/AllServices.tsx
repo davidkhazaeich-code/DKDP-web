@@ -42,8 +42,9 @@ const AGENCE_SERVICES: ServiceItem[] = [
 ]
 
 const FORMATION_SERVICES: ServiceItem[] = [
-  { icon: BrainCircuit, title: 'Formation IA entreprise', href: '/formation-entreprise/ia', description: 'Intégrez ChatGPT, Claude et Copilot dans le quotidien de vos équipes.', badge: 'Tendance', image: '/images/services/dkdp-formation-ia.webp', pillar: 'formation' },
-  { icon: ClaudeIcon, title: 'Formation Claude IA', href: '/formation-entreprise/claude-ai', description: 'Claude.ai, Projects collaboratifs et Claude Code pour vos équipes.', badge: 'Nouveau', image: '/images/services/dkdp-formation-ia.webp', pillar: 'formation' },
+  { icon: BrainCircuit, title: 'Formation IA entreprise', href: '/formation-entreprise/ia', description: 'Intégrez ChatGPT Astra, Claude et Copilot dans le quotidien de vos équipes.', badge: 'Tendance', image: '/images/services/dkdp-formation-ia.webp', pillar: 'formation' },
+  { icon: ClaudeIcon, title: 'Formation Claude IA', href: '/formation-entreprise/claude-ai', description: 'Claude.ai, Projects collaboratifs et Claude Code pour vos équipes.', badge: 'Populaire', image: '/images/services/dkdp-formation-ia.webp', pillar: 'formation' },
+  { icon: Bot, title: 'Formation ChatGPT', href: '/formation-entreprise/chatgpt', description: 'ChatGPT Astra (GPT-6), ChatGPT Work, GPTs et Codex pour vos équipes.', badge: 'Nouveau', image: '/images/services/dkdp-formation-ia.webp', pillar: 'formation' },
   { icon: BookOpen, title: 'Bureautique & Excel', href: '/formation-entreprise/bureautique', description: 'Maîtrisez Excel, Word, PowerPoint et Microsoft 365.', badge: null, image: '/images/services/dkdp-formation-bureautique.webp', pillar: 'formation' },
   { icon: Shield, title: 'Cybersécurité', href: '/formation-entreprise/cybersecurite', description: 'Sensibilisez vos équipes : phishing, mots de passe, RGPD.', badge: null, image: '/images/services/dkdp-formation-cybersecurite.webp', pillar: 'formation' },
   { icon: Share2, title: 'Réseaux sociaux', href: '/formation-entreprise/reseaux-sociaux', description: 'Stratégie, contenu et analyse de performances.', badge: null, image: '/images/services/dkdp-formation-reseaux-sociaux.webp', pillar: 'formation' },
@@ -75,7 +76,7 @@ const PILLARS: PillarData[] = [
     hubHref: '/agence-digitale',
   },
   {
-    key: 'formation', label: 'Formation entreprise', shortLabel: 'Formation', subtitle: '8 programmes',
+    key: 'formation', label: 'Formation entreprise', shortLabel: 'Formation', subtitle: '10 programmes',
     preview: ['IA entreprise', 'Claude IA', 'Excel', 'Cybersécurité'],
     heroImage: '/images/services/dkdp-formation-ia.webp',
     Icon: GraduationCap, color: orange.color, bg: orange.bg, border: orange.border, items: FORMATION_SERVICES,
@@ -116,8 +117,9 @@ const SERVICE_EN: Record<string, { title: string; description: string }> = {
   '/agence-digitale/creation-video': { title: 'Video production', description: 'Corporate videos, reels and short-form content.' },
   '/agence-digitale/consulting-marketing': { title: 'Marketing consulting', description: 'Audit of your digital presence and strategic support.' },
   '/agence-digitale/rgpd-cookies': { title: 'GDPR & Cookies', description: 'Compliance, privacy policy, cookie banner.' },
-  '/formation-entreprise/ia': { title: 'Corporate AI training', description: 'Bring ChatGPT, Claude and Copilot into your teams daily work.' },
+  '/formation-entreprise/ia': { title: 'Corporate AI training', description: 'Bring ChatGPT Astra, Claude and Copilot into your teams daily work.' },
   '/formation-entreprise/claude-ai': { title: 'Claude AI training', description: 'Claude.ai, collaborative Projects and Claude Code for your teams.' },
+  '/formation-entreprise/chatgpt': { title: 'ChatGPT training', description: 'ChatGPT Astra (GPT-6), ChatGPT Work, GPTs and Codex for your teams.' },
   '/formation-entreprise/bureautique': { title: 'Office & Excel', description: 'Master Excel, Word, PowerPoint and Microsoft 365.' },
   '/formation-entreprise/cybersecurite': { title: 'Cybersecurity', description: 'Train your teams: phishing, passwords, data protection.' },
   '/formation-entreprise/reseaux-sociaux': { title: 'Social media', description: 'Strategy, content and performance analysis.' },
@@ -134,7 +136,7 @@ const SERVICE_EN: Record<string, { title: string; description: string }> = {
 
 const PILLAR_EN: Record<PillarKey, { label: string; shortLabel: string; subtitle: string; preview: string[] }> = {
   agence: { label: 'Digital marketing', shortLabel: 'Marketing', subtitle: '8 services', preview: ['Websites', 'Mobile app', 'SEO', 'Google Ads'] },
-  formation: { label: 'Corporate training', shortLabel: 'Training', subtitle: '8 programmes', preview: ['AI for business', 'Claude AI', 'Excel', 'Cybersecurity'] },
+  formation: { label: 'Corporate training', shortLabel: 'Training', subtitle: '10 programmes', preview: ['AI for business', 'Claude AI', 'Excel', 'Cybersecurity'] },
   ia: { label: 'AI & automation', shortLabel: 'AI', subtitle: '5 solutions', preview: ['AI agents', 'AI chatbot', 'Automation', 'AI audit'] },
 }
 

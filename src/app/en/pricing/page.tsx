@@ -93,7 +93,7 @@ const AI_SERVICES = [
     to: "CHF 6'500",
     labelFrom: 'Standard',
     labelTo: 'Advanced',
-    desc: 'Integrate ChatGPT, Claude and other LLMs inside your existing stack, without rebuilding everything.',
+    desc: 'Integrate GPT-6 Astra, Claude Opus 5 and other LLMs inside your existing stack, without rebuilding everything.',
   },
 ]
 

@@ -61,12 +61,14 @@
       { "title": "Agence IA à Genève" },
       { "title": "Formation IA entreprise" },
       { "title": "Formation Claude" },
+      { "title": "Formation ChatGPT" },
       { "title": "Tarifs IA" },
       { "title": "Parler à un expert" }
     ],
     "formationMain": [
       { "title": "Formation IA en entreprise", "description": "Formez vos équipes aux outils IA du quotidien." },
       { "title": "Formation Claude", "description": "Claude.ai, Projects Cowork et Claude Code pour vos équipes." },
+      { "title": "Formation ChatGPT", "description": "ChatGPT Astra (GPT-6), ChatGPT Work, GPTs et Codex pour vos équipes." },
       { "title": "Bureautique", "description": "Gagnez du temps sur chaque fichier." },
       { "title": "Réseaux sociaux", "description": "Maîtrisez les plateformes sociales." },
       { "title": "Cybersécurité", "description": "Protégez vos données et vos collaborateurs." },
@@ -105,7 +107,7 @@
       "Réseaux sociaux", "Création vidéo", "Consulting marketing", "Estimation gratuite"
     ],
     "formationLinks": [
-      "Formation IA", "Formation Claude", "Formation Canva",
+      "Formation IA", "Formation Claude", "Formation ChatGPT", "Formation Canva",
       "Formation Figma", "Bureautique et Excel", "Cybersécurité",
       "Réseaux sociaux", "Montage vidéo", "Informatique", "Pour particuliers"
     ],

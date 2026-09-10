@@ -37,7 +37,7 @@ import { LeadFormInlineClaudeAI } from './_components/LeadFormInlineClaudeAI'
 import { GalleryFormationClaudeAI } from './_components/GalleryFormationClaudeAI'
 
 export const metadata: Metadata = {
-  title: 'Formation Claude IA Genève & Suisse romande | Entreprise | DKDP',
+  title: 'Formation Claude IA Genève & Suisse romande | DKDP',
   description:
     'Formation Claude IA pour entreprises à Genève et en Suisse romande. Claude.ai, Projects collaboratifs, Claude Code. Programme sur mesure, 1 à 2 jours, présentiel ou distanciel.',
   alternates: {
@@ -75,7 +75,7 @@ const FAQ = [
   {
     question: 'Quelle est la différence entre la formation Claude et la formation IA générale ?',
     answer:
-      'La formation IA générale couvre ChatGPT, Claude, Copilot et les automatisations. Cette formation est une spécialisation exclusive sur Claude : on va beaucoup plus loin avec les Projects, la mémoire partagée, Extended Thinking, l\'analyse de documents longs, et Claude Code pour les profils techniques.',
+      'La formation IA générale couvre ChatGPT Astra, Claude, Copilot et les automatisations. Cette formation est une spécialisation exclusive sur Claude : on va beaucoup plus loin avec les Projects, la mémoire partagée, Extended Thinking, l\'analyse de documents longs, et Claude Code pour les profils techniques.',
   },
   {
     question: 'Claude Code est-il inclus dans la formation de base ?',
@@ -366,7 +366,7 @@ export default function FormationClaudeAIPage() {
               {
                 icon: FileText,
                 title: 'Contexte de 200k à 1M tokens',
-                desc: 'Analysez des rapports entiers, contrats, datasets, sans découper les documents. Là où ChatGPT s\'arrête, Claude continue.',
+                desc: 'Analysez des rapports entiers, contrats, datasets, sans découper les documents. Là où la plupart des outils découpent, Claude lit le dossier entier.',
                 color: V, bg: VB, border: VD,
               },
               {
@@ -411,7 +411,7 @@ export default function FormationClaudeAIPage() {
               style={{ background: 'var(--surface-subtle)', border: '1px solid var(--surface-border)' }}
             >
               <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: OR }}>Comparatif rapide</p>
-              <p className="text-text-muted text-xs mb-6">Évaluation DKDP basée sur les versions 2026 (Claude Sonnet 4.6, GPT-4o, Microsoft Copilot)</p>
+              <p className="text-text-muted text-xs mb-6">Évaluation DKDP basée sur les versions de septembre 2026 (Claude Fable 5.1, GPT-6 Astra, Microsoft Copilot)</p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
@@ -441,14 +441,14 @@ export default function FormationClaudeAIPage() {
                     {[
                       {
                         crit: 'Contexte long (documents entiers)',
-                        sub: 'Haiku 200k · Sonnet/Opus 1M tokens',
+                        sub: 'Haiku 200k · Fable, Opus, Sonnet 1M tokens',
                         claude: { n: 5, color: V },
-                        gpt:    { n: 4, color: '#10b981' },
+                        gpt:    { n: 5, color: '#10b981' },
                         cop:    { n: 2, color: '#3b82f6' },
                       },
                       {
                         crit: 'Raisonnement et analyse complexe',
-                        sub: 'Extended Thinking vs o3 vs GPT-4o',
+                        sub: 'Extended Thinking vs raisonnement adaptatif de GPT-6 Astra',
                         claude: { n: 5, color: V },
                         gpt:    { n: 5, color: '#10b981' },
                         cop:    { n: 3, color: '#3b82f6' },
@@ -469,7 +469,7 @@ export default function FormationClaudeAIPage() {
                       },
                       {
                         crit: 'Développement et code (agent)',
-                        sub: 'Claude Code vs GitHub Copilot vs GPT Operator',
+                        sub: 'Claude Code vs GitHub Copilot vs Codex',
                         claude: { n: 5, color: V },
                         gpt:    { n: 4, color: '#10b981' },
                         cop:    { n: 4, color: '#3b82f6' },
@@ -490,7 +490,7 @@ export default function FormationClaudeAIPage() {
                       },
                       {
                         crit: 'Génération d\'images',
-                        sub: 'DALL-E 3 vs Image Creator vs aucun natif',
+                        sub: 'GPT Image vs Image Creator vs aucun natif',
                         claude: { n: 1, color: V },
                         gpt:    { n: 5, color: '#10b981' },
                         cop:    { n: 4, color: '#3b82f6' },
@@ -531,7 +531,7 @@ export default function FormationClaudeAIPage() {
                 </table>
               </div>
               <p className="text-text-muted text-[11px] mt-5 text-right">
-                Recommandation DKDP : Claude pour l&apos;analyse et la profondeur · ChatGPT pour la créativité et les images · Copilot si Microsoft 365 est votre stack
+                Recommandation DKDP : Claude pour l&apos;analyse et la profondeur · ChatGPT Astra pour automatiser un poste de travail et les images · Copilot si Microsoft 365 est votre stack
               </p>
             </div>
           </SectionReveal>

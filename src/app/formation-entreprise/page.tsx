@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
-  BrainCircuit, BookOpen, Shield, Share2, Palette, Cpu, Film, Sparkles, Wand2,
+  BrainCircuit, BookOpen, Shield, Share2, Palette, Cpu, Film, Sparkles, Wand2, Bot,
   ChevronRight, Award, CalendarCheck, Users, ExternalLink, User, GraduationCap, Monitor,
   Clock, BarChart2, Lightbulb, CheckCircle2, Target, BookCheck, Briefcase, MapPin,
 } from 'lucide-react'
@@ -31,7 +31,7 @@ import { HeroVisual } from './_components/HeroVisual'
 import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from '@/components/ui/AppLogos'
 
 export const metadata: Metadata = {
-  title: 'Formation Entreprise Genève & Suisse romande · PME et Équipes · DKDP',
+  title: 'Formation entreprise Genève & Suisse romande · DKDP',
   description: 'Formation informatique pour entreprises et PME à Genève. Formez vos collaborateurs en IA, Excel, cybersécurité. Sessions sur mesure, en présentiel ou en ligne. Devis gratuit.',
   alternates: {
     canonical: 'https://dkdp.ch/formation-entreprise',
@@ -56,6 +56,12 @@ const PROGRAMS = [
   {
     Icon: Sparkles, title: 'Formation Claude IA', href: '/formation-entreprise/claude-ai',
     description: 'Maîtrisez Claude.ai, les Projects collaboratifs et Claude Code. La formation spécialisée sur l\'IA la plus puissante du marché.',
+    badge: 'Populaire',
+    image: '/images/services/dkdp-formation-ia.webp',
+  },
+  {
+    Icon: Bot, title: 'Formation ChatGPT', href: '/formation-entreprise/chatgpt',
+    description: 'Maîtrisez ChatGPT Astra (GPT-6), ChatGPT Work, les GPTs et Codex. La formation dédiée au nouvel OpenAI, sur vos vrais cas.',
     badge: 'Nouveau',
     image: '/images/services/dkdp-formation-ia.webp',
   },

@@ -30,7 +30,7 @@ const EN: Record<string, Partial<City>> = {
       'Multilingual chatbots for hospitality and luxury',
       'Generative AI for corporate communications',
     ],
-    formationContext: 'Geneva teams, often multilingual and in regulated sectors (finance, NGOs, trading), need to master AI within a structured framework. Our on-site training in Geneva covers Claude AI, ChatGPT and workflow automation.',
+    formationContext: 'Geneva teams, often multilingual and in regulated sectors (finance, NGOs, trading), need to master AI within a structured framework. Our on-site training in Geneva covers Claude, ChatGPT Astra and workflow automation.',
   },
   lausanne: {
     name: 'Lausanne',
@@ -120,7 +120,7 @@ const EN: Record<string, Partial<City>> = {
       'Digital marketing automation for local retailers',
       'Recommendation chatbots for tourism and viticulture',
     ],
-    formationContext: 'SMEs in Morges and the region need concrete, immediately applicable AI training. Our hands-on sessions let small teams take advantage of Claude AI, ChatGPT and automation tools.',
+    formationContext: 'SMEs in Morges and the region need concrete, immediately applicable AI training. Our hands-on sessions let small teams take advantage of Claude, ChatGPT Astra and automation tools.',
   },
   montreux: {
     name: 'Montreux',

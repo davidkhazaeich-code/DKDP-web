@@ -109,7 +109,7 @@ const IA_SERVICES = [
     to: 'CHF 6\'500',
     labelFrom: 'Standard',
     labelTo: 'Avancée',
-    desc: 'Intégration de ChatGPT, Claude et autres modèles dans votre stack existant, sans tout reconstruire.',
+    desc: 'Intégration de GPT-6 Astra, Claude Opus 5 et autres modèles dans votre stack existant, sans tout reconstruire.',
   },
 ]
 

@@ -61,12 +61,14 @@
       { "title": "AI agency in Geneva" },
       { "title": "Corporate AI training" },
       { "title": "Claude training" },
+      { "title": "ChatGPT training" },
       { "title": "AI pricing" },
       { "title": "Talk to an expert" }
     ],
     "formationMain": [
       { "title": "Corporate AI training", "description": "Train your teams on the AI tools they use daily." },
       { "title": "Claude training", "description": "Claude.ai, Projects Cowork and Claude Code for your teams." },
+      { "title": "ChatGPT training", "description": "ChatGPT Astra (GPT-6), ChatGPT Work, GPTs and Codex for your teams." },
       { "title": "Office tools", "description": "Save time on every file." },
       { "title": "Social media", "description": "Master every social platform." },
       { "title": "Cybersecurity", "description": "Protect your data and your team." },
@@ -105,7 +107,7 @@
       "Social media", "Video production", "Marketing consulting", "GDPR and cookies", "Free quote"
     ],
     "formationLinks": [
-      "AI training", "Claude training", "Canva training",
+      "AI training", "Claude training", "ChatGPT training", "Canva training",
       "Figma training", "Office tools and Excel", "Cybersecurity",
       "Social media", "Video editing", "IT skills", "For individuals"
     ],

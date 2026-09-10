@@ -34,7 +34,16 @@ const PAGES = [
 
   // Ville pages — generic, used by all city pages
   { file: 'agence-digitale-ville.png',  pillar: 'agence',    label: 'Agence digitale · Suisse romande', title: 'Sites web, SEO & IA',             subtitle: 'Genève · Lausanne · Nyon · Fribourg · Sion · Neuchâtel', size: 'smaller' },
+
+  // Formation pages
+  { file: 'formation-chatgpt.png',      pillar: 'formation', label: 'Formation ChatGPT',               title: 'ChatGPT Astra en entreprise',     subtitle: 'GPT-6 Astra · ChatGPT Work · Genève et Suisse romande', size: 'smaller' },
 ]
+
+// Filtre optionnel : `node tools/og-generator/generate.mjs formation-chatgpt.png`
+// ne rend que les fichiers nommes en argument, sans regenerer les autres images
+// (un rendu complet modifie les pixels de toutes les OG deja en production).
+const ONLY = new Set(process.argv.slice(2))
+const SELECTED = ONLY.size > 0 ? PAGES.filter((p) => ONLY.has(p.file)) : PAGES
 
 async function renderOne(browser, page) {
   const pillar = PILLARS[page.pillar]
@@ -95,8 +104,8 @@ async function renderOne(browser, page) {
 }
 
 const browser = await chromium.launch()
-console.log(`Generating ${PAGES.length} OG images...`)
-for (const p of PAGES) {
+console.log(`Generating ${SELECTED.length} OG images...`)
+for (const p of SELECTED) {
   const path = await renderOne(browser, p)
   console.log(`  ✓ ${p.file} → ${path}`)
 }

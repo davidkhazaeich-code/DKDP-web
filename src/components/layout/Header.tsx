@@ -10,7 +10,7 @@ import {
   Bot, Workflow, BrainCircuit, BookOpen, Users2, Presentation,
   Phone, FileText, ChevronRight, X, Menu,
   Film, Shield, Share2, Palette, LayoutGrid, Wand2,
-  CalendarCheck, MessageCircle, Smartphone, Sparkles, Monitor,
+  CalendarCheck, MessageCircle, Smartphone, Sparkles, Monitor, MessageSquare,
 } from 'lucide-react'
 import {
   NavigationMenu, NavigationMenuContent, NavigationMenuItem,
@@ -70,20 +70,22 @@ function buildNavData(lang: Locale) {
     { title: t.iaSecondary[0].title, href: lp('/intelligence-artificielle/geneve'), icon: Globe },
     { title: t.iaSecondary[1].title, href: lp('/formation-entreprise/ia'), icon: GraduationCap },
     { title: t.iaSecondary[2].title, href: lp('/formation-entreprise/claude-ai'), icon: ClaudeIcon },
-    { title: t.iaSecondary[3].title, href: lp('/tarifs'), icon: FileText },
-    { title: t.iaSecondary[4].title, href: lp('/contact'), icon: Phone },
+    { title: t.iaSecondary[3].title, href: lp('/formation-entreprise/chatgpt'), icon: MessageSquare },
+    { title: t.iaSecondary[4].title, href: lp('/tarifs'), icon: FileText },
+    { title: t.iaSecondary[5].title, href: lp('/contact'), icon: Phone },
   ]
 
   const FORMATION_MAIN: MegaItem[] = [
     { title: t.formationMain[0].title, description: t.formationMain[0].description, href: lp('/formation-entreprise/ia'), icon: BrainCircuit },
     { title: t.formationMain[1].title, description: t.formationMain[1].description, href: lp('/formation-entreprise/claude-ai'), icon: ClaudeIcon },
-    { title: t.formationMain[2].title, description: t.formationMain[2].description, href: lp('/formation-entreprise/bureautique'), icon: BookOpen },
-    { title: t.formationMain[3].title, description: t.formationMain[3].description, href: lp('/formation-entreprise/reseaux-sociaux'), icon: Share2 },
-    { title: t.formationMain[4].title, description: t.formationMain[4].description, href: lp('/formation-entreprise/cybersecurite'), icon: Shield },
-    { title: t.formationMain[5].title, description: t.formationMain[5].description, href: lp('/formation-entreprise/canva'), icon: Wand2 },
-    { title: t.formationMain[6].title, description: t.formationMain[6].description, href: lp('/formation-entreprise/figma'), icon: Palette },
-    { title: t.formationMain[7].title, description: t.formationMain[7].description, href: lp('/formation-entreprise/informatique'), icon: Cpu },
-    { title: t.formationMain[8].title, description: t.formationMain[8].description, href: lp('/formation-entreprise/montage-video'), icon: Film },
+    { title: t.formationMain[2].title, description: t.formationMain[2].description, href: lp('/formation-entreprise/chatgpt'), icon: MessageSquare },
+    { title: t.formationMain[3].title, description: t.formationMain[3].description, href: lp('/formation-entreprise/bureautique'), icon: BookOpen },
+    { title: t.formationMain[4].title, description: t.formationMain[4].description, href: lp('/formation-entreprise/reseaux-sociaux'), icon: Share2 },
+    { title: t.formationMain[5].title, description: t.formationMain[5].description, href: lp('/formation-entreprise/cybersecurite'), icon: Shield },
+    { title: t.formationMain[6].title, description: t.formationMain[6].description, href: lp('/formation-entreprise/canva'), icon: Wand2 },
+    { title: t.formationMain[7].title, description: t.formationMain[7].description, href: lp('/formation-entreprise/figma'), icon: Palette },
+    { title: t.formationMain[8].title, description: t.formationMain[8].description, href: lp('/formation-entreprise/informatique'), icon: Cpu },
+    { title: t.formationMain[9].title, description: t.formationMain[9].description, href: lp('/formation-entreprise/montage-video'), icon: Film },
   ]
 
   const FORMATION_SECONDARY: MegaSecondary[] = [

@@ -2,7 +2,7 @@ export function DayAgenda() {
   const slots: { time: string; title: string; dur: string; type: 'theory' | 'practice' | 'break' | 'workshop' | 'qa' }[] = [
     { time: '09:00', title: "Introduction : comment fonctionne vraiment l'IA", dur: '30 min', type: 'theory' },
     { time: '09:30', title: 'Prompting efficace : techniques avancées', dur: '1h30', type: 'practice' },
-    { time: '11:00', title: "ChatGPT et Claude : cas d'usage réels de votre équipe", dur: '1h', type: 'practice' },
+    { time: '11:00', title: "ChatGPT Astra et Claude : cas d'usage réels de votre équipe", dur: '1h', type: 'practice' },
     { time: '12:00', title: 'Pause déjeuner', dur: '1h', type: 'break' },
     { time: '13:00', title: 'Microsoft Copilot dans Word, Excel, Outlook', dur: '1h30', type: 'practice' },
     { time: '14:30', title: 'Automatisations simples avec Make / Zapier', dur: '1h', type: 'practice' },

@@ -96,8 +96,9 @@ Accueillir les visiteurs du site dkdp.ch, répondre à leurs questions sur les s
 
 ### Formations entreprise (collaborateurs et équipes)
 - Hub formation entreprise → [formation entreprise](/formation-entreprise)
-- Formation IA générale (ChatGPT, Gemini, équipe) → [formation IA entreprise](/formation-entreprise/ia)
+- Formation IA générale (ChatGPT Astra, Claude, Copilot, équipe) → [formation IA entreprise](/formation-entreprise/ia)
 - Formation Claude (Claude.ai, Projects, Claude Code) → [formation Claude IA](/formation-entreprise/claude-ai)
+- Formation ChatGPT (ChatGPT Astra, ChatGPT Work, GPTs, Codex) → [formation ChatGPT](/formation-entreprise/chatgpt)
 - Formation bureautique (Word, Excel, PowerPoint, Outlook) → [formation bureautique](/formation-entreprise/bureautique)
 - Formation Canva → [formation Canva](/formation-entreprise/canva)
 - Formation Figma (maquettes, wireframes, prototypes, design system) → [formation Figma](/formation-entreprise/figma)

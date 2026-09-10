@@ -30,7 +30,12 @@ const article: Article = {
     seoTitle: 'ChatGPT, Claude ou Copilot : lequel pour votre PME ?',
     seoDescription:
       'Comparatif complet ChatGPT vs Claude vs Microsoft Copilot pour les PME suisses en 2026. Prix, forces, limites et recommandations par cas d\'usage.',
-    content: `## Pourquoi ce choix est stratégique pour votre PME
+    content: `<div style="margin:0 0 2.5rem;padding:1.25rem 1.5rem;border-radius:14px;border:1px solid rgba(212,212,216,0.18);background:rgba(212,212,216,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:0.6rem">Mise à jour, septembre 2026</div>
+<div style="font-size:0.9rem;color:#e4e4e7;line-height:1.7">Depuis la rédaction de cet article, OpenAI a sorti GPT-6 Astra (3 septembre 2026) et Anthropic Claude Fable 5.1 (1er septembre 2026). La grille de lecture et les conclusions de méthode restent valables, mais les versions citées datent de mars : notre analyse de <a href="/blog/chatgpt-astra-gpt-6-pme-romandes-2026" style="color:#A78BFA;text-decoration:underline;text-underline-offset:2px">ce que ChatGPT Astra change pour les PME romandes</a> prend le relais.</div>
+</div>
+
+## Pourquoi ce choix est stratégique pour votre PME
 
 Le marché des assistants IA s'est densifié à une vitesse vertigineuse. En 2026, trois acteurs dominent clairement les usages professionnels : ChatGPT d'OpenAI, Claude d'Anthropic et Microsoft Copilot. Mais derrière ces noms familiers se cachent des philosophies de produit radicalement différentes.
 

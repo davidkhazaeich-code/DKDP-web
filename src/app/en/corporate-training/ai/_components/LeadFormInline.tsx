@@ -65,7 +65,7 @@ export function LeadFormInline() {
         </h2>
         <p className="text-text-secondary text-sm leading-relaxed mb-7">
           Tell us what your team does and we will prepare a programme adapted to your
-          real use cases: ChatGPT, Claude, Copilot or all three.
+          real use cases: ChatGPT Astra, Claude, Copilot or all three.
         </p>
 
         <div className="space-y-3 mb-8">

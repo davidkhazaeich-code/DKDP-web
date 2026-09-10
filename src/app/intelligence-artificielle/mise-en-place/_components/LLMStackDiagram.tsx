@@ -24,7 +24,7 @@ export function LLMStackDiagram() {
       textColor: violetColor,
     },
     {
-      label: 'LLM : ChatGPT / Claude / Mistral',
+      label: 'LLM : GPT-6 Astra / Claude / Mistral',
       sublabel: 'Modele de langage en production',
       icon: <Zap size={15} style={{ color: color }} />,
       bg: 'rgba(212,212,216,0.08)',

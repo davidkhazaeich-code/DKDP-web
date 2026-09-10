@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
-  BrainCircuit, BookOpen, Shield, Share2, Palette, Cpu, Film, Sparkles, Wand2,
+  BrainCircuit, BookOpen, Shield, Share2, Palette, Cpu, Film, Sparkles, Wand2, Bot,
   ChevronRight, Award, CalendarCheck, Users, ExternalLink, User, GraduationCap, Monitor,
   Clock, BarChart2, Lightbulb, Target, BookCheck, Briefcase, MapPin,
 } from 'lucide-react'
@@ -28,7 +28,7 @@ import { HeroVisual } from '@/app/formation-entreprise/_components/HeroVisual'
 import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from '@/components/ui/AppLogos'
 
 export const metadata: Metadata = {
-  title: 'Corporate Training Geneva and Switzerland · SMBs and Teams · DKDP',
+  title: 'Corporate training Geneva & Switzerland · DKDP',
   description: 'Corporate IT training in Geneva and across Switzerland. Train your team on AI, Excel, cybersecurity. Tailored sessions, on-site or remote. Free quote.',
   alternates: {
     canonical: 'https://dkdp.ch/en/corporate-training',
@@ -55,6 +55,12 @@ const PROGRAMS = [
   {
     Icon: Sparkles, title: 'Claude AI Training', href: '/en/corporate-training/claude-ai',
     description: 'Master Claude.ai, collaborative Projects and Claude Code. The dedicated training on the most powerful AI on the market.',
+    badge: 'Popular',
+    image: '/images/services/dkdp-formation-ia.webp',
+  },
+  {
+    Icon: Bot, title: 'ChatGPT training', href: '/en/corporate-training/chatgpt',
+    description: 'Master ChatGPT Astra (GPT-6), ChatGPT Work, GPTs and Codex. The dedicated training on the new OpenAI, on your real cases.',
     badge: 'New',
     image: '/images/services/dkdp-formation-ia.webp',
   },

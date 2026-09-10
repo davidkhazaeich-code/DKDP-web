@@ -82,8 +82,8 @@ const TOPICS = [
   {
     Icon: Bot,
     title: 'Artificial Intelligence',
-    desc: 'ChatGPT, Claude, Copilot, Midjourney. Effective prompting, image generation and everyday automation.',
-    tags: ['ChatGPT', 'Claude', 'Prompting'],
+    desc: 'ChatGPT Astra, Claude, Copilot, Midjourney. Effective prompting, image generation and everyday automation.',
+    tags: ['ChatGPT Astra', 'Claude', 'Prompting'],
     href: 'https://cours-informatique.ch/formation-intelligence-artificielle-ai/',
     highlight: true,
   },

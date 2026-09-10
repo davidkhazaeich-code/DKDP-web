@@ -489,9 +489,9 @@ export default function FormationBureautiquePage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Go further</p>
-                  <p className="text-text font-bold text-lg leading-tight">ChatGPT and Claude training</p>
+                  <p className="text-text font-bold text-lg leading-tight">ChatGPT Astra and Claude training</p>
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
-                    You have mastered the office tools. To go even further by automating your repetitive tasks with AI, discover our ChatGPT and Claude training.
+                    You have mastered the office tools. To go even further by automating your repetitive tasks with AI, discover our ChatGPT Astra and Claude training.
                   </p>
                 </div>
               </div>

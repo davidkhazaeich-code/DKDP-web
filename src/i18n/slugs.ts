@@ -50,6 +50,7 @@ export const FR_TO_EN: Record<string, string> = {
 
   // Formation entreprise
   '/formation-entreprise/claude-ai': '/corporate-training/claude-ai',
+  '/formation-entreprise/chatgpt': '/corporate-training/chatgpt',
   '/formation-entreprise/ia': '/corporate-training/ai',
   '/formation-entreprise/bureautique': '/corporate-training/office-tools',
   '/formation-entreprise/canva': '/corporate-training/canva',

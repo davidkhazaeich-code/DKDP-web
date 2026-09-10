@@ -666,7 +666,7 @@ export default function AuditConseilPage() {
                 accentBorder: 'rgba(244,114,182,0.22)',
                 label: 'Mise en place',
                 title: 'Mise en place IA',
-                desc: 'Intégration de ChatGPT, Claude et LLMs dans votre stack existant. Sans tout reconstruire.',
+                desc: 'Intégration de GPT-6 Astra, Claude et LLMs dans votre stack existant. Sans tout reconstruire.',
               },
             ].map((link, i) => (
               <SectionReveal key={link.href} delay={i * 0.08}>

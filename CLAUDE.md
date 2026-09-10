@@ -159,6 +159,80 @@ sans source est un signal negatif et n'est pas repris par les moteurs IA.
 
 ---
 
+## Nommage : Formation ChatGPT (ajoutee le 2026-09-10)
+
+Page `/formation-entreprise/chatgpt` (miroir `/en/corporate-training/chatgpt`),
+creee le 10.09.2026 a la sortie de GPT-6 Astra (3 septembre 2026). Clone de la
+page Claude, accent orange formation, 1230 lignes + `_components/`.
+
+| Contexte | Nom exact FR | Nom exact EN |
+|---|---|---|
+| Page, H1 (grad-tag), breadcrumb | **Formation ChatGPT Genève & Suisse romande** | **ChatGPT training Geneva & French-speaking Switzerland** |
+| `metadata.title` | Formation ChatGPT Astra Genève & Suisse romande \| DKDP | ChatGPT Astra training Geneva & Switzerland \| DKDP |
+| Mega menu (`FORMATION_MAIN[2]`, `IA_SECONDARY[3]`), footer (`formationLinks[2]`), hub, plan du site | **Formation ChatGPT** | **ChatGPT training** |
+
+- Les composants vivent dans `src/app/formation-entreprise/chatgpt/_components/`
+  et sont **bilingues via une prop `lang`** (pattern Figma) : la page EN les
+  importe, il n'y a pas de `_components` cote EN.
+- `src/i18n/slugs.ts` porte la paire FR/EN. Sans elle, `localizedPath()` rend
+  `/en/formation-entreprise/chatgpt` et le sitemap EN ignore la page. Toute
+  nouvelle page a un miroir EN passe par cette table, pas seulement par `ROUTES`.
+- Section « Veille » alimentee par `CHATGPT_TOPIC` (`src/lib/blog/topics.ts` :
+  chatgpt, openai, gpt, astra, codex), meme mecanique que `CLAUDE_TOPIC`. Un
+  article sur OpenAI doit porter un de ces mots dans son slug, son titre ou ses
+  tags pour y remonter.
+- Positionnement (arbitrage David, 10.09.2026) : formation multi-outils, **Claude
+  reste la recommandation DKDP** (analyse, profondeur, confidentialite), ChatGPT
+  Astra pour automatiser un poste de travail et les images, Copilot si Microsoft
+  365. La note de bas de comparatif le dit sur les pages Claude et ChatGPT : ne
+  pas la retirer.
+- La grille « Ou Astra est disponible, forfait par forfait »
+  (`AstraAvailability.tsx`) est le contenu le plus perissable de la page : au
+  10.09.2026, Plus n'a Astra que dans ChatGPT Work et Codex, pas dans le chat.
+  Si OpenAI change la repartition, relire aussi la FAQ de la page, celle de la
+  formation IA, et l'article `chatgpt-astra-gpt-6-pme-romandes-2026`.
+- Statistiques affichees = celles du hub formation (500+, 4.9/5, 100 % sur
+  mesure). Aucune reference client ChatGPT ni chiffre de gain invente.
+
+---
+
+## Noms de modeles IA : la source unique
+
+`docs/astra-facts-2026-09-10.md` (fiche sourcee) et la memory
+`project_ai_models_current`. En septembre 2026 : **ChatGPT Astra (GPT-6)**
+(premiere mention d'une page « ChatGPT Astra (GPT-6) », puis « Astra » ;
+« GPT-6 Astra » en contexte API ou agents), **Claude Fable 5.1** dans les
+comparatifs et les formations, **Claude Opus 5** / **Sonnet 5** dans les stacks
+d'agents, **Gemini 3.8**, **Copilot propulse par GPT-6 Astra**.
+
+**Ne plus ecrire** GPT-4o, GPT-5, GPT-5.3, GPT-5.5, ChatGPT-5, o3, GPT Operator,
+DALL-E 3, Claude Opus 4.7, Sonnet 4.6, « Gemini 3 » seul, hors articles de blog
+dates (qui portent un encart « Mise a jour, septembre 2026 » en tete).
+Controle :
+
+```bash
+grep -rn --exclude-dir=blog -E "GPT-?4o|GPT-?5(\.[0-9])?\b|ChatGPT-5|Opus 4\.7|Sonnet 4\.6" src/app src/components src/data src/lib/cities.ts src/lib/cities-en.ts
+# seules occurrences legitimes : GPT-5.6 (Sol, Terra, Luna) et GPTBot dans robots.ts
+```
+
+---
+
+## Titres et descriptions : mesurer en PIXELS
+
+`node tools/check-serp-width.mjs [base] [filtres...] [--tout]` mesure les
+`<title>` (Arial 20px, Google coupe vers 600px) et les descriptions (Arial 14px,
+~920px) de tout le sitemap, sur la prod par defaut ou sur un `next start` local.
+Meme recette que `cours-informatique/site-v2/tools/check-serp-width.mjs`.
+
+Au 10.09.2026, **17 des 41 pages formation et IA etaient coupees** (les titles
+EN « Geneva & French-speaking Switzerland | … | DKDP » en tete, jusqu'a 794px)
+et **34 descriptions depassaient 160 caracteres**. Les pages touchees par la
+passe Astra ont ete ramenees sous 600px ; le reste est un chantier ouvert (voir
+memory `project_chatgpt_astra_pages_2026_09`). Un title se mesure, il ne se
+compte pas : 52 caracteres en majuscules sont plus larges que 60 en minuscules.
+
+---
+
 ## Design tokens
 
 Source unique : **`src/lib/tokens.ts`**

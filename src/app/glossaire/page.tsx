@@ -101,7 +101,7 @@ const TERMS: Term[] = [
     term: 'Claude',
     category: 'IA',
     definition:
-      'Modèle de langage développé par Anthropic, concurrent de ChatGPT et Gemini. Reconnu pour sa précision, sa capacité à suivre des instructions complexes et sa fiabilité sur les taches professionnelles sensibles.',
+      'Modèle de langage développé par Anthropic, concurrent de ChatGPT et Gemini. Reconnu pour sa précision, sa capacité à suivre des instructions complexes et sa fiabilité sur les taches professionnelles sensibles. Dernière version : Claude Fable 5.1 (septembre 2026).',
   },
   {
     term: 'Conversion',
@@ -165,7 +165,7 @@ const TERMS: Term[] = [
     term: 'GPT',
     category: 'IA',
     definition:
-      'Generative Pre-trained Transformer. Architecture de réseau de neurones développée par OpenAI, à la base de ChatGPT et de nombreux modèles de langage modernes utilisés en entreprise.',
+      'Generative Pre-trained Transformer. Architecture de réseau de neurones développée par OpenAI, à la base de ChatGPT et de nombreux modèles de langage modernes utilisés en entreprise. La génération de septembre 2026 est GPT-6 Astra.',
   },
   // H
   {
@@ -191,7 +191,7 @@ const TERMS: Term[] = [
     term: 'IA générative',
     category: 'IA',
     definition:
-      'Branche de l\'IA qui crée du contenu original : texte, images, code, audio. Principaux modèles en 2026 : ChatGPT, Claude, Gemini, Midjourney. Un collaborateur formé peut réduire jusqu\'à 60 % le temps consacré à la rédaction.',
+      'Branche de l\'IA qui crée du contenu original : texte, images, code, audio. Principaux modèles en 2026 : ChatGPT Astra (GPT-6), Claude Fable 5.1, Gemini 3.8, Midjourney. Un collaborateur formé peut réduire jusqu\'à 60 % le temps consacré à la rédaction.',
     link: '/intelligence-artificielle',
   },
   // K
@@ -224,7 +224,7 @@ const TERMS: Term[] = [
     term: 'LLM',
     category: 'IA',
     definition:
-      'Large Language Model. Modèle de langage entraîné sur des milliards de textes, capable de résumer, traduire, rédiger et analyser. Ex. : Claude, GPT-4o, Gemini. Multiplie la productivité des équipes sur les taches textuelles.',
+      'Large Language Model. Modèle de langage entraîné sur des milliards de textes, capable de résumer, traduire, rédiger et analyser. Ex. : Claude Fable 5.1, GPT-6 Astra, Gemini 3.8. Multiplie la productivité des équipes sur les taches textuelles.',
   },
   {
     term: 'LPD',

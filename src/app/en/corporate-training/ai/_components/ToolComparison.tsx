@@ -2,15 +2,15 @@ export function ToolComparison() {
   const tools = [
     {
       name: 'ChatGPT',
-      maker: 'OpenAI',
-      strengths: ['Versatile and creative', 'Image generation', 'Plugins and GPTs', 'Web browsing'],
+      maker: 'OpenAI · GPT-6 Astra',
+      strengths: ['Astra acts: computer, browser, documents', 'ChatGPT Work for long assignments', 'Images with GPT Image', 'GPTs and web browsing'],
       color: '#10b981',
       cardBg: 'rgba(16,185,129,0.08)',
       cardBorder: 'rgba(16,185,129,0.25)',
     },
     {
       name: 'Claude',
-      maker: 'Anthropic',
+      maker: 'Anthropic · Claude Fable 5.1',
       strengths: ['Very long documents', 'Sensitive data', 'Precise writing', 'PDF analysis'],
       color: '#A78BFA',
       cardBg: 'rgba(124,58,237,0.08)',
@@ -18,7 +18,7 @@ export function ToolComparison() {
     },
     {
       name: 'Copilot',
-      maker: 'Microsoft',
+      maker: 'Microsoft · powered by GPT-6 Astra',
       strengths: ['Integrated with Office 365', 'Word and PowerPoint', 'Excel and Outlook', 'Teams and OneNote'],
       color: '#3b82f6',
       cardBg: 'rgba(59,130,246,0.08)',

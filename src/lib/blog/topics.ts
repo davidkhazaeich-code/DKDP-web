@@ -38,6 +38,21 @@ export const CLAUDE_TOPIC = [
   'agentic',
 ] as const
 
+/**
+ * Vocabulaire du sujet "ChatGPT / OpenAI".
+ * Meme regle que CLAUDE_TOPIC : un article n'a besoin de toucher QU'UN SEUL de
+ * ces mots (slug, titre ou tags) pour rejoindre la section veille des pages
+ * formation ChatGPT (/formation-entreprise/chatgpt et son miroir EN).
+ * Elargir cette liste quand OpenAI sort un nom de produit ou de modele inedit.
+ */
+export const CHATGPT_TOPIC = [
+  'chatgpt',
+  'openai',
+  'gpt',
+  'astra',
+  'codex',
+] as const
+
 /** True si l'article touche au moins un des mots du sujet. */
 function matchesTopic(article: Article, keywords: readonly string[]): boolean {
   const slug = article.slug.toLowerCase()

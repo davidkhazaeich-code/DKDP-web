@@ -41,7 +41,7 @@ const Testimonials = dynamic(() => import('@/components/sections/Testimonials').
 export const metadata: Metadata = {
   title: 'Agence IA à Genève | Agents, chatbots, automatisation | DKDP',
   description:
-    "Agence IA à Genève : agents sur mesure, chatbots Claude Opus 4.7 ou GPT-5, automatisation n8n. 700+ PME romandes accompagnées depuis 2015. Eaux-Vives. Devis 48 h. Tél 079 940 79 69.",
+    "Agence IA à Genève : agents sur mesure, chatbots Claude Opus 5 ou GPT-6 Astra, automatisation n8n. 700+ PME romandes accompagnées depuis 2015. Eaux-Vives. Devis 48 h. Tél 079 940 79 69.",
   alternates: {
     canonical: 'https://dkdp.ch/intelligence-artificielle/geneve',
     languages: {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     url: 'https://dkdp.ch/intelligence-artificielle/geneve',
     title: 'Agence IA à Genève | Agents, chatbots, automatisation | DKDP',
     description:
-      "Agence IA locale à Genève (Eaux-Vives). Agents IA Claude, chatbots GPT-5, automatisation n8n. 700+ PME romandes accompagnées. Audit IA gratuit en 30 minutes.",
+      "Agence IA locale à Genève (Eaux-Vives). Agents IA Claude, chatbots GPT-6 Astra, automatisation n8n. 700+ PME romandes accompagnées. Audit IA gratuit en 30 minutes.",
     type: 'website',
     locale: 'fr_CH',
     siteName: 'DKDP',
@@ -88,7 +88,7 @@ const FAQ = [
   {
     question: "Qu'est-ce qu'une agence IA à Genève fait concrètement ?",
     answer:
-      "Une agence IA comme DKDP conçoit, développe et déploie des solutions d'intelligence artificielle sur mesure pour les PME : agents autonomes (qualification commerciale, support client, analyse de données), chatbots propulsés par Claude Opus 4.7, GPT-5 ou Gemini 3, automatisations n8n/Make/Zapier qui connectent vos outils métier (Bexio, HubSpot, Google Workspace). On intervient de l'audit initial à la mise en production, avec formation des équipes. DKDP est basée aux Eaux-Vives à Genève et accompagne des PME en Suisse romande depuis 2015.",
+      "Une agence IA comme DKDP conçoit, développe et déploie des solutions d'intelligence artificielle sur mesure pour les PME : agents autonomes (qualification commerciale, support client, analyse de données), chatbots propulsés par Claude Opus 5, GPT-6 Astra ou Gemini 3.8, automatisations n8n/Make/Zapier qui connectent vos outils métier (Bexio, HubSpot, Google Workspace). On intervient de l'audit initial à la mise en production, avec formation des équipes. DKDP est basée aux Eaux-Vives à Genève et accompagne des PME en Suisse romande depuis 2015.",
   },
   {
     question: "Combien coûte un projet IA pour PME à Genève ?",
@@ -103,12 +103,12 @@ const FAQ = [
   {
     question: "Faut-il former mes employés à l'IA ?",
     answer:
-      "Oui, et c'est souvent le premier pas le plus rentable. DKDP propose des formations IA en entreprise à Genève (1 jour, en présentiel ou en ligne) qui rendent vos équipes autonomes sur ChatGPT, Claude et Microsoft Copilot. 100 % des participants sont opérationnels dès le lendemain et gagnent en moyenne 8 heures par semaine. Pour en savoir plus, voir la page dédiée formation IA entreprise.",
+      "Oui, et c'est souvent le premier pas le plus rentable. DKDP propose des formations IA en entreprise à Genève (1 jour, en présentiel ou en ligne) qui rendent vos équipes autonomes sur ChatGPT Astra, Claude et Microsoft Copilot. 100 % des participants sont opérationnels dès le lendemain et gagnent en moyenne 8 heures par semaine. Pour en savoir plus, voir la page dédiée formation IA entreprise.",
   },
   {
     question: "Claude, ChatGPT ou Gemini pour ma PME ?",
     answer:
-      "Dépend du cas d'usage. Claude Opus 4.7 (Anthropic) pour le raisonnement long, l'analyse de documents métier, les agents qui manipulent des outils. GPT-5 (OpenAI) pour les agents multimodaux (texte, image, voix) et les intégrations larges. Gemini 3 (Google) si vous êtes déjà 100 % Google Workspace. Pour les données sensibles, on propose aussi Infomaniak Euria ou Mistral Large 2 auto-hébergés. On compare ces modèles en détail dans notre guide ChatGPT, Claude, Copilot : lequel choisir pour votre PME en 2026.",
+      "Dépend du cas d'usage. Claude Opus 5 (Anthropic) pour le raisonnement long, l'analyse de documents métier, les agents qui manipulent des outils. GPT-6 Astra (OpenAI) pour les agents qui pilotent un ordinateur ou un navigateur, les missions longues et les intégrations larges. Gemini 3.8 (Google) si vous êtes déjà 100 % Google Workspace ou si l'audio et la vidéo entrent en jeu. Pour les données sensibles, on propose aussi Infomaniak Euria ou Mistral Large 2 auto-hébergés. On compare ces modèles en détail dans notre guide ChatGPT, Claude, Copilot : lequel choisir pour votre PME en 2026.",
   },
   {
     question: "Quelle est la différence entre agent IA, chatbot et automatisation ?",
@@ -145,7 +145,7 @@ export default function IAGenevePage() {
           name: 'Agence IA à Genève',
           url: '/intelligence-artificielle/geneve',
           description:
-            "Agence IA à Genève spécialisée pour les PME romandes depuis 2015. Conception et déploiement d'agents IA sur mesure (Claude Opus 4.7, GPT-5, Gemini 3), chatbots intelligents connectés à WhatsApp Business et au CRM, automatisation n8n/Make/Zapier des processus métier. Conforme nLPD 2023 et RGPD. Hébergement Suisse disponible (Infomaniak). 700+ clients accompagnés. Basée aux Eaux-Vives (Rue du 31 Décembre 36, 1207 Genève).",
+            "Agence IA à Genève spécialisée pour les PME romandes depuis 2015. Conception et déploiement d'agents IA sur mesure (Claude Opus 5, GPT-6 Astra, Gemini 3.8), chatbots intelligents connectés à WhatsApp Business et au CRM, automatisation n8n/Make/Zapier des processus métier. Conforme nLPD 2023 et RGPD. Hébergement Suisse disponible (Infomaniak). 700+ clients accompagnés. Basée aux Eaux-Vives (Rue du 31 Décembre 36, 1207 Genève).",
           serviceType: "Agence d'intelligence artificielle",
           priceFrom: 890,
           priceSpecDescription: 'À partir de CHF 890 pour un audit IA 360° avec rapport et roadmap',
@@ -179,7 +179,7 @@ export default function IAGenevePage() {
                   Agence IA à Genève : <GradText as="span">agents, chatbots, automatisation</GradText> pour PME romandes.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  700+ PME romandes accompagnées depuis 2015. Basée aux Eaux-Vives à Genève. Technologies Claude Opus 4.7, GPT-5, n8n. Conforme nLPD 2023, hébergement Suisse possible.
+                  700+ PME romandes accompagnées depuis 2015. Basée aux Eaux-Vives à Genève. Technologies Claude Opus 5, GPT-6 Astra, n8n. Conforme nLPD 2023, hébergement Suisse possible.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <HeroPills
@@ -347,7 +347,7 @@ export default function IAGenevePage() {
                 accent: violetToken.color,
                 accentBg: 'rgba(167,139,250,0.08)',
                 accentBorder: 'rgba(167,139,250,0.20)',
-                desc: "Des employés virtuels qui qualifient vos leads, répondent à vos clients et analysent vos données. Propulsés par Claude Opus 4.7 ou GPT-5, connectés à votre stack (HubSpot, Bexio, Salesforce).",
+                desc: "Des employés virtuels qui qualifient vos leads, répondent à vos clients et analysent vos données. Propulsés par Claude Opus 5 ou GPT-6 Astra, connectés à votre stack (HubSpot, Bexio, Salesforce).",
                 examples: "Agent commercial Fiduciaire Eaux-Vives : +40 % de gain de temps sur la qualification leads.",
                 href: '/intelligence-artificielle/agents-ia',
                 cta: "Voir les agents IA",
@@ -495,9 +495,9 @@ export default function IAGenevePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { name: 'Claude Opus 4.7', provider: 'Anthropic', pitch: 'Raisonnement long, analyse de documents, manipulation d\'outils.', accent: V, accentBg: 'rgba(167,139,250,0.08)', accentBorder: 'rgba(167,139,250,0.20)' },
-              { name: 'GPT-5 / GPT-5.3', provider: 'OpenAI', pitch: 'Multimodal : texte, image, voix. Large écosystème d\'intégrations.', accent: C, accentBg: bg, accentBorder: border },
-              { name: 'Gemini 3', provider: 'Google', pitch: 'Intégration native Google Workspace et agents longue mémoire.', accent: '#60a5fa', accentBg: 'rgba(96,165,250,0.08)', accentBorder: 'rgba(96,165,250,0.22)' },
+              { name: 'Claude Opus 5', provider: 'Anthropic', pitch: 'Raisonnement long, analyse de documents, manipulation d\'outils. Le choix DKDP pour les agents métiers sensibles.', accent: V, accentBg: 'rgba(167,139,250,0.08)', accentBorder: 'rgba(167,139,250,0.20)' },
+              { name: 'GPT-6 Astra', provider: 'OpenAI', pitch: 'Pilotage d\'ordinateur et de navigateur, missions longues, large écosystème. GPT-5.6 pour le volume à moindre coût.', accent: C, accentBg: bg, accentBorder: border },
+              { name: 'Gemini 3.8', provider: 'Google', pitch: 'Intégration native Google Workspace, agents longue mémoire, audio et vidéo en natif.', accent: '#60a5fa', accentBg: 'rgba(96,165,250,0.08)', accentBorder: 'rgba(96,165,250,0.22)' },
               { name: 'Mistral Large 2', provider: 'Mistral / Open-source', pitch: 'Open-source performant, auto-hébergeable en Suisse.', accent: '#fbbf24', accentBg: 'rgba(251,191,36,0.08)', accentBorder: 'rgba(251,191,36,0.22)' },
               { name: 'Llama 4', provider: 'Meta / Open-source', pitch: 'Modèles open-source pour souveraineté totale.', accent: '#fbbf24', accentBg: 'rgba(251,191,36,0.08)', accentBorder: 'rgba(251,191,36,0.22)' },
               { name: 'LangChain / LangGraph', provider: 'Orchestration', pitch: 'Chaînes d\'agents complexes, routage, validation, escalade.', accent: C, accentBg: bg, accentBorder: border },
@@ -549,7 +549,7 @@ export default function IAGenevePage() {
               {
                 secteur: 'Fiduciaire',
                 quartier: 'Eaux-Vives',
-                stack: 'Agent commercial Claude Opus 4.7 + HubSpot + Bexio via n8n',
+                stack: 'Agent commercial Claude Opus 5 + HubSpot + Bexio via n8n',
                 resultat: "+40 % gain temps commercial, 18 h/sem libérées, qualification leads 100 % automatisée",
               },
               {
@@ -561,7 +561,7 @@ export default function IAGenevePage() {
               {
                 secteur: 'E-commerce romand',
                 quartier: 'Carouge',
-                stack: 'Agent support GPT-5 multilingue + Notion RAG + Zendesk',
+                stack: 'Agent support GPT-6 Astra multilingue + Notion RAG + Zendesk',
                 resultat: '+35 % NPS client, traitement 24/7, 70 % des tickets niveau 1 automatisés',
               },
             ].map((c) => (
@@ -767,7 +767,7 @@ export default function IAGenevePage() {
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
             {[
-              { href: '/intelligence-artificielle/agents-ia', label: 'Agents IA', desc: "Claude, GPT-5, LangChain" },
+              { href: '/intelligence-artificielle/agents-ia', label: 'Agents IA', desc: "Claude, GPT-6 Astra, LangChain" },
               { href: '/intelligence-artificielle/chatbot-ia', label: 'Chatbots IA', desc: "Claude, WhatsApp, RAG" },
               { href: '/intelligence-artificielle/automatisation', label: 'Automatisation', desc: 'n8n, Make, Zapier' },
               { href: '/formation-entreprise/ia', label: 'Formation IA entreprise', desc: 'Une journée, 100 % opérationnels' },

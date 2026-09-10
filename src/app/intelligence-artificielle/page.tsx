@@ -60,7 +60,7 @@ const SERVICES = [
   },
   {
     Icon: Cpu, title: 'Mise en place IA', href: '/intelligence-artificielle/mise-en-place',
-    description: "Intégration de ChatGPT, Claude et autres LLMs dans votre stack existant. Sans tout reconstruire.",
+    description: "Intégration de GPT-6 Astra, Claude et autres LLMs dans votre stack existant. Sans tout reconstruire.",
     badge: null,
     image: '/images/services/dkdp-ia-mise-en-place.webp',
   },
@@ -326,7 +326,7 @@ export default function IntelligenceArtificiellePage() {
                     Formation IA pour vos équipes
                   </p>
                   <p className="text-text-muted text-[12.5px] mt-0.5">
-                    Vos collaborateurs maîtrisent ChatGPT, Claude et Copilot en une journée.
+                    Vos collaborateurs maîtrisent ChatGPT Astra, Claude et Copilot en une journée.
                   </p>
                 </div>
               </div>
@@ -564,7 +564,7 @@ export default function IntelligenceArtificiellePage() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#FF8C00' }}>Formation IA</p>
                   <p className="text-text font-semibold">Formez vos équipes en une journée</p>
-                  <p className="text-text-muted text-xs mt-1">ChatGPT, Claude, Copilot. Vos collaborateurs autonomes dès demain.</p>
+                  <p className="text-text-muted text-xs mt-1">ChatGPT Astra, Claude, Copilot. Vos collaborateurs autonomes dès demain.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 transition-transform group-hover:translate-x-1" style={{ color: '#FF8C00' }} />
               </Link>

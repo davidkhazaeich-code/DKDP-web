@@ -59,7 +59,7 @@ const SERVICES = [
   },
   {
     Icon: Cpu, title: 'AI implementation', href: '/en/artificial-intelligence/implementation',
-    description: 'Integration of ChatGPT, Claude and other LLMs inside your existing stack. Without rebuilding everything.',
+    description: 'Integration of GPT-6 Astra, Claude and other LLMs inside your existing stack. Without rebuilding everything.',
     badge: null,
     image: '/images/services/dkdp-ia-mise-en-place.webp',
   },
@@ -107,7 +107,7 @@ const FAQ_IA_EN = [
   },
   {
     question: 'Claude, ChatGPT or Gemini, which engine should we pick?',
-    answer: 'Claude Opus 4.7 (Anthropic) for long-context reasoning and document-heavy tasks. GPT-5 (OpenAI) for multimodal use cases (images, PDFs, audio). Gemini 3 (Google) if you are already on Google Workspace. We benchmark all three during the audit phase and pick the right tool for your real needs.',
+    answer: 'Claude Opus 5 (Anthropic) for long-context reasoning and document-heavy tasks. GPT-6 Astra (OpenAI) for use cases that drive tools and a browser, with images and PDFs handled natively. Gemini 3.8 (Google) if you are already on Google Workspace or need native audio and video. We benchmark all three during the audit phase and pick the right tool for your real needs.',
   },
   {
     question: 'How do you measure the success of an AI project?',
@@ -367,7 +367,7 @@ export default function EnArtificialIntelligencePage() {
                       AI training for your team
                     </p>
                     <p className="text-text-muted text-[12.5px] mt-0.5">
-                      Your team masters ChatGPT, Claude and Copilot in a single day.
+                      Your team masters ChatGPT Astra, Claude and Copilot in a single day.
                     </p>
                   </div>
                 </div>
@@ -614,7 +614,7 @@ export default function EnArtificialIntelligencePage() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#FF8C00' }}>AI training</p>
                   <p className="text-text font-semibold">Train your team in a single day</p>
-                  <p className="text-text-muted text-xs mt-1">ChatGPT, Claude, Copilot. Your team is independent from day one.</p>
+                  <p className="text-text-muted text-xs mt-1">ChatGPT Astra, Claude, Copilot. Your team is independent from day one.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 transition-transform group-hover:translate-x-1" style={{ color: '#FF8C00' }} />
               </Link>

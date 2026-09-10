@@ -487,9 +487,9 @@ export default function FormationBureautiquePage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Aller plus loin</p>
-                  <p className="text-text font-bold text-lg leading-tight">Formation ChatGPT et Claude</p>
+                  <p className="text-text font-bold text-lg leading-tight">Formation ChatGPT Astra et Claude</p>
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
-                    Vous maîtrisez la bureautique. Pour aller encore plus loin en automatisant vos tâches répétitives avec l&apos;IA, découvrez notre formation ChatGPT et Claude.
+                    Vous maîtrisez la bureautique. Pour aller encore plus loin en automatisant vos tâches répétitives avec l&apos;IA, découvrez notre formation ChatGPT Astra et Claude.
                   </p>
                 </div>
               </div>

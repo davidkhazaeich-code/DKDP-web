@@ -48,7 +48,7 @@ const SKILLS = [
   },
   {
     Icon: BrainCircuit,
-    title: 'ChatGPT vs Claude vs Copilot',
+    title: 'ChatGPT Astra vs Claude vs Copilot',
     desc: "Savoir quel outil utiliser pour quelle tache. Forces, limites, cas d'usage optimaux de chaque plateforme.",
     span: '',
     visual: (

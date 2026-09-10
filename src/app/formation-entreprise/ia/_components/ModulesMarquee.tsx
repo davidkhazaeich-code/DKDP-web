@@ -6,7 +6,7 @@ import { orange } from '@/lib/tokens'
 const MODULES = [
   'Les bases de l\'IA générative : comment ça fonctionne vraiment',
   'Prompting efficace : les techniques qui font la différence',
-  'ChatGPT en pratique : rédaction, synthèse, analyse',
+  'ChatGPT Astra en pratique : rédaction, synthèse, analyse, ChatGPT Work',
   'Claude pour les tâches longues et sensibles',
   'Microsoft Copilot dans Word, Excel et Outlook',
   'Automatisations simples avec Make ou Zapier',

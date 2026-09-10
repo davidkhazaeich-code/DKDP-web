@@ -30,7 +30,12 @@ const article: Article = {
   seoTitle: 'GPT-5.5 vs Claude Opus 4.7 : quel modèle choisir en 2026 ?',
   seoDescription:
     'Comparaison réelle GPT-5.5 vs Claude Opus 4.7 sur 4 tests pratiques en 2026 : temps, tokens, coût, qualité. Pour quelles tâches choisir l\'un ou l\'autre en agence ou PME à Genève.',
-  content: `## La mauvaise question : "lequel est le meilleur ?"
+  content: `<div style="margin:0 0 2.5rem;padding:1.25rem 1.5rem;border-radius:14px;border:1px solid rgba(212,212,216,0.18);background:rgba(212,212,216,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:0.6rem">Mise à jour, septembre 2026</div>
+<div style="font-size:0.9rem;color:#e4e4e7;line-height:1.7">Depuis la rédaction de cet article, OpenAI a sorti GPT-6 Astra (3 septembre 2026) et Anthropic Claude Fable 5.1 (1er septembre 2026). Les tests et les conclusions de méthode restent valables, mais les versions citées datent d'avril : notre analyse de <a href="/blog/chatgpt-astra-gpt-6-pme-romandes-2026" style="color:#A78BFA;text-decoration:underline;text-underline-offset:2px">ce que ChatGPT Astra change pour les PME romandes</a> prend le relais.</div>
+</div>
+
+## La mauvaise question : "lequel est le meilleur ?"
 
 Chaque sortie d\'un modèle d\'IA majeur déclenche le même réflexe. Tableau de benchmarks, classement, verdict. Comme s\'il existait un gagnant absolu.
 

@@ -30,9 +30,9 @@ import { ModulesMarquee } from './_components/ModulesMarquee'
 import { DayAgenda } from './_components/DayAgenda'
 
 export const metadata: Metadata = {
-  title: 'Formation IA Entreprise Genève & Suisse romande · ChatGPT, Claude · DKDP',
+  title: 'Formation IA entreprise Genève · ChatGPT Astra, Claude · DKDP',
   description:
-    "Former ses équipes à l'IA en 1 jour. Formation entreprise à Genève et en Suisse romande : ChatGPT, Claude, Copilot. 100% opérationnels dès J+1. Programme sur mesure pour PME.",
+    "Former ses équipes à l'IA en 1 jour à Genève et en Suisse romande : ChatGPT Astra (GPT-6), Claude, Copilot. 100% opérationnels dès J+1. Sur mesure pour PME.",
   alternates: {
     canonical: 'https://dkdp.ch/formation-entreprise/ia',
     languages: {
@@ -64,7 +64,12 @@ const FAQ = [
   {
     question: 'Quels outils IA sont abordés dans la formation ?',
     answer:
-      'La formation couvre ChatGPT (OpenAI), Claude (Anthropic), Microsoft Copilot et Gemini (Google). On sélectionne les outils les plus pertinents selon votre stack et vos besoins. Des exemples d\'automatisation avec Make ou Zapier sont également présentés.',
+      'La formation couvre ChatGPT Astra (GPT-6), le nouveau modèle OpenAI de septembre 2026, Claude (Anthropic), Microsoft Copilot et Gemini (Google). On sélectionne les outils les plus pertinents selon votre stack et vos besoins. Des exemples d\'automatisation avec Make ou Zapier sont également présentés.',
+  },
+  {
+    question: 'Couvrez-vous ChatGPT Astra, le nouveau modèle GPT-6 ?',
+    answer:
+      'Oui. ChatGPT Astra (GPT-6), sorti le 3 septembre 2026, est un modèle conçu pour agir : il pilote un ordinateur et un navigateur, enchaîne des étapes seul et produit des documents finis. Son accès dépend de l\'abonnement : Plus l\'a dans ChatGPT Work et Codex seulement, Pro, Business et Enterprise l\'ont aussi dans le chat, Free et Go restent sur GPT-5.6 Luna. La journée le traite sur les vrais cas de votre équipe, et notre formation ChatGPT dédiée (dkdp.ch/formation-entreprise/chatgpt) va plus loin.',
   },
   {
     question: 'Peut-on personnaliser le programme selon notre secteur ?',
@@ -112,7 +117,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationIAPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Intelligence Artificielle Entreprise Suisse romande', url: '/formation-entreprise/ia', description: 'Formation IA pratique pour équipes d\'entreprise à Genève et Suisse romande. ChatGPT, Claude, Copilot maîtrisés en 1 jour. Programme sur mesure.', duration: 'P1D', teaches: ['Prompting avancé', 'ChatGPT', 'Claude', 'Copilot', 'Automatisation IA', 'Confidentialité IA'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: 4.9, ratingCount: 500, image: 'https://dkdp.ch/images/og/formation-ia.png' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Intelligence Artificielle Entreprise Suisse romande', url: '/formation-entreprise/ia', description: 'Formation IA pratique pour équipes d\'entreprise à Genève et Suisse romande. ChatGPT Astra (GPT-6), Claude, Copilot maîtrisés en 1 jour. Programme sur mesure.', duration: 'P1D', teaches: ['Prompting avancé', 'ChatGPT Astra', 'Claude', 'Copilot', 'Automatisation IA', 'Confidentialité IA'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: 4.9, ratingCount: 500, image: 'https://dkdp.ch/images/og/formation-ia.png' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
@@ -138,7 +143,7 @@ export default function FormationIAPage() {
                   <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>1 jour</GradText>{' '}chez nous. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>8 heures</GradText>{' '}gagnées chaque semaine.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos collaborateurs à ChatGPT, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. <strong className="text-text">100% de nos participants sont opérationnels dès J+1</strong> et gagnent en moyenne 8 heures par semaine.
+                  DKDP forme vos collaborateurs à ChatGPT Astra, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. <strong className="text-text">100% de nos participants sont opérationnels dès J+1</strong> et gagnent en moyenne 8 heures par semaine.
                 </p>
                 <HeroPills
                   accentRgb="255, 140, 0"
@@ -167,7 +172,7 @@ export default function FormationIAPage() {
             size="md"
           />
                 </div>
-                <p className="text-text-muted text-xs mb-2 text-center">Programme mis à jour : avril 2026</p>
+                <p className="text-text-muted text-xs mb-2 text-center">Programme mis à jour : septembre 2026</p>
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(255,107,0,0.18)' }}>
                   <Image
                     src="/images/gallery/formation-ia-participant-aha-moment.webp"
@@ -252,8 +257,11 @@ export default function FormationIAPage() {
               <p className="text-text-secondary leading-relaxed mb-6">
                 La plupart des collaborateurs ont testé ChatGPT une fois, obtenu un résultat décevant, et sont passés à autre chose. Pourtant, former ses équipes à l&apos;IA avec les bonnes techniques de prompting réduit de 60 à 80% le temps de traitement des tâches répétitives.
               </p>
-              <p className="text-text-secondary leading-relaxed mb-8">
+              <p className="text-text-secondary leading-relaxed mb-6">
                 DKDP ne fait pas de démonstrations génériques. On travaille sur vos vrais documents, vos vrais emails et vos vrais cas d&apos;usage. Dès le lendemain matin, vous avez des prompts personnels et une routine IA opérationnelle. Pour comparer les outils, consultez notre guide <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-text transition-colors">ChatGPT vs Claude vs Copilot pour les PME</Link>.
+              </p>
+              <p className="text-text-secondary leading-relaxed mb-8">
+                Septembre 2026 a changé la donne : ChatGPT Astra (GPT-6), sorti le 3 septembre, n&apos;est plus un assistant qui discute mais un modèle qui agit. Il pilote un ordinateur et un navigateur, enchaîne des étapes seul et livre des documents finis. Le piège, c&apos;est l&apos;accès : un abonnement Plus l&apos;obtient dans ChatGPT Work et Codex, pas dans la conversation classique, qui reste sur GPT-5.6 Sol. On le traite pendant la journée, et en profondeur dans <Link href="/formation-entreprise/chatgpt" className="underline hover:text-text transition-colors">notre formation ChatGPT dédiée</Link>.
               </p>
               <div className="space-y-3">
                 {[
@@ -336,7 +344,7 @@ export default function FormationIAPage() {
             <SectionReveal>
               <GradTag className="mb-4">Programme</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Programme : ChatGPT, Claude et Copilot maîtrisés en 1 jour.
+                Programme : ChatGPT Astra, Claude et Copilot maîtrisés en 1 jour.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La formation commence par 30 minutes de théorie sur le fonctionnement de l&apos;IA, puis on passe immédiatement à la pratique. Chaque module inclut des exercices sur vos cas d&apos;usage réels. On ne fait pas de démo : on travaille sur vos vrais documents et vos vraies tâches.

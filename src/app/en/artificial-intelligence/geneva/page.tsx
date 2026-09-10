@@ -41,7 +41,7 @@ const Testimonials = dynamic(() => import('@/components/sections/Testimonials').
 export const metadata: Metadata = {
   title: 'AI Agency in Geneva | Agents, chatbots, automation | DKDP',
   description:
-    'AI agency in Geneva: custom agents, Claude Opus 4.7 or GPT-5 chatbots, n8n automation. 700+ Swiss SMEs supported since 2015. Eaux-Vives. Quote in 48h. Tel +41 79 940 79 69.',
+    'AI agency in Geneva: custom agents, Claude Opus 5 or GPT-6 Astra chatbots, n8n automation. 700+ Swiss SMEs supported since 2015. Eaux-Vives. Quote in 48h. Tel +41 79 940 79 69.',
   alternates: {
     canonical: 'https://dkdp.ch/en/artificial-intelligence/geneva',
     languages: {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     url: 'https://dkdp.ch/en/artificial-intelligence/geneva',
     title: 'AI Agency in Geneva | Agents, chatbots, automation | DKDP',
     description:
-      'Local AI agency in Geneva (Eaux-Vives). Claude AI agents, GPT-5 chatbots, n8n automation. 700+ Swiss SMEs supported. Free 30-minute AI audit.',
+      'Local AI agency in Geneva (Eaux-Vives). Claude AI agents, GPT-6 Astra chatbots, n8n automation. 700+ Swiss SMEs supported. Free 30-minute AI audit.',
     type: 'website',
     locale: 'en_US',
     alternateLocale: ['fr_CH'],
@@ -89,7 +89,7 @@ const FAQ = [
   {
     question: 'What does an AI agency in Geneva actually do?',
     answer:
-      'An AI agency like DKDP designs, builds and deploys custom artificial-intelligence solutions for SMEs: autonomous agents (sales qualification, customer support, data analysis), chatbots powered by Claude Opus 4.7, GPT-5 or Gemini 3, n8n/Make/Zapier automations that connect your business tools (Bexio, HubSpot, Google Workspace). We work from the initial audit to production, with team training. DKDP is based in Eaux-Vives, Geneva and has supported SMEs across French-speaking Switzerland since 2015.',
+      'An AI agency like DKDP designs, builds and deploys custom artificial-intelligence solutions for SMEs: autonomous agents (sales qualification, customer support, data analysis), chatbots powered by Claude Opus 5, GPT-6 Astra or Gemini 3.8, n8n/Make/Zapier automations that connect your business tools (Bexio, HubSpot, Google Workspace). We work from the initial audit to production, with team training. DKDP is based in Eaux-Vives, Geneva and has supported SMEs across French-speaking Switzerland since 2015.',
   },
   {
     question: 'How much does an AI project for an SME in Geneva cost?',
@@ -104,12 +104,12 @@ const FAQ = [
   {
     question: 'Do I need to train my employees in AI?',
     answer:
-      'Yes, and it is often the most profitable first step. DKDP offers corporate AI training in Geneva (1 day, on site or online) that makes your teams autonomous on ChatGPT, Claude and Microsoft Copilot. 100% of participants are operational the very next day and save on average 8 hours per week. To learn more, see the dedicated corporate AI training page.',
+      'Yes, and it is often the most profitable first step. DKDP offers corporate AI training in Geneva (1 day, on site or online) that makes your teams autonomous on ChatGPT Astra, Claude and Microsoft Copilot. 100% of participants are operational the very next day and save on average 8 hours per week. To learn more, see the dedicated corporate AI training page.',
   },
   {
     question: 'Claude, ChatGPT or Gemini for my SME?',
     answer:
-      'It depends on the use case. Claude Opus 4.7 (Anthropic) for long reasoning, business document analysis, agents that manipulate tools. GPT-5 (OpenAI) for multimodal agents (text, image, voice) and broad integrations. Gemini 3 (Google) if you are already 100% Google Workspace. For sensitive data, we also offer self-hosted Infomaniak Euria or Mistral Large 2. We compare these models in detail in our guide ChatGPT, Claude, Copilot: which to choose for your SME in 2026.',
+      'It depends on the use case. Claude Opus 5 (Anthropic) for long reasoning, business document analysis, agents that manipulate tools. GPT-6 Astra (OpenAI) for agents that drive a computer or a browser, long assignments and broad integrations. Gemini 3.8 (Google) if you are already 100% Google Workspace or when audio and video come into play. For sensitive data, we also offer self-hosted Infomaniak Euria or Mistral Large 2. We compare these models in detail in our guide ChatGPT, Claude, Copilot: which to choose for your SME in 2026.',
   },
   {
     question: 'What is the difference between an AI agent, a chatbot and automation?',
@@ -146,7 +146,7 @@ export default function AIGenevaPageEN() {
           name: 'AI Agency in Geneva',
           url: '/en/artificial-intelligence/geneva',
           description:
-            "AI agency in Geneva specialised for Swiss SMEs since 2015. Design and deployment of custom AI agents (Claude Opus 4.7, GPT-5, Gemini 3), smart chatbots connected to WhatsApp Business and the CRM, n8n/Make/Zapier automation of business processes. FADP 2023 and GDPR compliant. Swiss hosting available (Infomaniak). 700+ clients supported. Based in Eaux-Vives (Rue du 31 Décembre 36, 1207 Geneva).",
+            "AI agency in Geneva specialised for Swiss SMEs since 2015. Design and deployment of custom AI agents (Claude Opus 5, GPT-6 Astra, Gemini 3.8), smart chatbots connected to WhatsApp Business and the CRM, n8n/Make/Zapier automation of business processes. FADP 2023 and GDPR compliant. Swiss hosting available (Infomaniak). 700+ clients supported. Based in Eaux-Vives (Rue du 31 Décembre 36, 1207 Geneva).",
           serviceType: 'Artificial intelligence agency',
           priceFrom: 890,
           priceSpecDescription: 'From CHF 890 for a 360° AI audit with report and roadmap',
@@ -181,7 +181,7 @@ export default function AIGenevaPageEN() {
                   AI agency in Geneva: <GradText as="span">agents, chatbots, automation</GradText> for Swiss SMEs.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  700+ Swiss SMEs supported since 2015. Based in Eaux-Vives, Geneva. Claude Opus 4.7, GPT-5 and n8n technologies. FADP 2023 compliant, Swiss hosting available.
+                  700+ Swiss SMEs supported since 2015. Based in Eaux-Vives, Geneva. Claude Opus 5, GPT-6 Astra and n8n technologies. FADP 2023 compliant, Swiss hosting available.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <HeroPills
@@ -344,7 +344,7 @@ export default function AIGenevaPageEN() {
                 accent: violetToken.color,
                 accentBg: 'rgba(167,139,250,0.08)',
                 accentBorder: 'rgba(167,139,250,0.20)',
-                desc: 'Virtual employees that qualify your leads, answer your clients and analyse your data. Powered by Claude Opus 4.7 or GPT-5, connected to your stack (HubSpot, Bexio, Salesforce).',
+                desc: 'Virtual employees that qualify your leads, answer your clients and analyse your data. Powered by Claude Opus 5 or GPT-6 Astra, connected to your stack (HubSpot, Bexio, Salesforce).',
                 examples: 'Sales agent, Eaux-Vives accounting firm: +40% time saved on lead qualification.',
                 href: '/intelligence-artificielle/agents-ia',
                 cta: 'See the AI agents',
@@ -492,9 +492,9 @@ export default function AIGenevaPageEN() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { name: 'Claude Opus 4.7', provider: 'Anthropic', pitch: 'Long reasoning, document analysis, tool manipulation.', accent: V, accentBg: 'rgba(167,139,250,0.08)', accentBorder: 'rgba(167,139,250,0.20)' },
-              { name: 'GPT-5 / GPT-5.3', provider: 'OpenAI', pitch: 'Multimodal: text, image, voice. Large integration ecosystem.', accent: C, accentBg: bg, accentBorder: border },
-              { name: 'Gemini 3', provider: 'Google', pitch: 'Native Google Workspace integration and long-memory agents.', accent: '#60a5fa', accentBg: 'rgba(96,165,250,0.08)', accentBorder: 'rgba(96,165,250,0.22)' },
+              { name: 'Claude Opus 5', provider: 'Anthropic', pitch: 'Long reasoning, document analysis, tool manipulation. The DKDP choice for sensitive business agents.', accent: V, accentBg: 'rgba(167,139,250,0.08)', accentBorder: 'rgba(167,139,250,0.20)' },
+              { name: 'GPT-6 Astra', provider: 'OpenAI', pitch: 'Drives a computer and a browser, long assignments, large ecosystem. GPT-5.6 for volume at lower cost.', accent: C, accentBg: bg, accentBorder: border },
+              { name: 'Gemini 3.8', provider: 'Google', pitch: 'Native Google Workspace integration, long-memory agents, native audio and video.', accent: '#60a5fa', accentBg: 'rgba(96,165,250,0.08)', accentBorder: 'rgba(96,165,250,0.22)' },
               { name: 'Mistral Large 2', provider: 'Mistral / Open-source', pitch: 'High-performing open-source, self-hostable in Switzerland.', accent: '#fbbf24', accentBg: 'rgba(251,191,36,0.08)', accentBorder: 'rgba(251,191,36,0.22)' },
               { name: 'Llama 4', provider: 'Meta / Open-source', pitch: 'Open-source models for total sovereignty.', accent: '#fbbf24', accentBg: 'rgba(251,191,36,0.08)', accentBorder: 'rgba(251,191,36,0.22)' },
               { name: 'LangChain / LangGraph', provider: 'Orchestration', pitch: 'Complex agent chains, routing, validation, escalation.', accent: C, accentBg: bg, accentBorder: border },
@@ -546,7 +546,7 @@ export default function AIGenevaPageEN() {
               {
                 secteur: 'Accounting firm',
                 quartier: 'Eaux-Vives',
-                stack: 'Claude Opus 4.7 sales agent + HubSpot + Bexio via n8n',
+                stack: 'Claude Opus 5 sales agent + HubSpot + Bexio via n8n',
                 resultat: '+40% sales time saved, 18 h/week freed up, lead qualification 100% automated',
               },
               {
@@ -558,7 +558,7 @@ export default function AIGenevaPageEN() {
               {
                 secteur: 'Swiss e-commerce',
                 quartier: 'Carouge',
-                stack: 'Multilingual GPT-5 support agent + Notion RAG + Zendesk',
+                stack: 'Multilingual GPT-6 Astra support agent + Notion RAG + Zendesk',
                 resultat: '+35% customer NPS, 24/7 handling, 70% of level-1 tickets automated',
               },
             ].map((c) => (
@@ -764,7 +764,7 @@ export default function AIGenevaPageEN() {
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
             {[
-              { href: '/intelligence-artificielle/agents-ia', label: 'AI agents', desc: 'Claude, GPT-5, LangChain' },
+              { href: '/intelligence-artificielle/agents-ia', label: 'AI agents', desc: 'Claude, GPT-6 Astra, LangChain' },
               { href: '/intelligence-artificielle/chatbot-ia', label: 'AI chatbots', desc: 'Claude, WhatsApp, RAG' },
               { href: '/intelligence-artificielle/automatisation', label: 'Automation', desc: 'n8n, Make, Zapier' },
               { href: '/formation-entreprise/ia', label: 'Corporate AI training', desc: 'One day, 100% operational' },

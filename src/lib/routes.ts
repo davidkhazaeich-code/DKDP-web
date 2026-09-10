@@ -56,8 +56,8 @@ export const ROUTES: Route[] = [
   // Passe du 2026-08-23 : section « Veille technologique » ajoutée à l'accueil.
   { url: '/',                          priority: 1.00, changeFrequency: 'weekly', lastModified: '2026-08-23' },
   { url: '/agence-digitale',           priority: 0.90, changeFrequency: 'monthly' },
-  { url: '/intelligence-artificielle', priority: 0.90, changeFrequency: 'monthly' },
-  { url: '/formation-entreprise',      priority: 0.90, changeFrequency: 'monthly' },
+  { url: '/intelligence-artificielle', priority: 0.90, changeFrequency: 'monthly', lastModified: '2026-09-10' },
+  { url: '/formation-entreprise',      priority: 0.90, changeFrequency: 'monthly', lastModified: '2026-09-10' },
 
   // ─── Agence Digitale — Services ───────────────────────────────────────────
   { url: '/agence-digitale/creation-site-web',              priority: 0.85, changeFrequency: 'monthly' },
@@ -76,28 +76,30 @@ export const ROUTES: Route[] = [
   { url: '/agence-digitale/creation-site-web/estimation',   priority: 0.80, changeFrequency: 'monthly' },
 
   // ─── Pages Ville (SEO local) ───────────────────────────────────────────────
-  { url: '/agence-digitale/geneve',    priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/geneve',    priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
   { url: '/agence-digitale/lausanne',  priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/nyon',      priority: 0.80, changeFrequency: 'monthly' },
   { url: '/agence-digitale/fribourg',  priority: 0.80, changeFrequency: 'monthly' },
   { url: '/agence-digitale/sion',      priority: 0.80, changeFrequency: 'monthly' },
   { url: '/agence-digitale/neuchatel', priority: 0.80, changeFrequency: 'monthly' },
-  { url: '/agence-digitale/morges',    priority: 0.75, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/morges',    priority: 0.75, changeFrequency: 'monthly', lastModified: '2026-09-10' },
   { url: '/agence-digitale/montreux',  priority: 0.75, changeFrequency: 'monthly' },
 
   // ─── Intelligence Artificielle ────────────────────────────────────────────
-  { url: '/intelligence-artificielle/agents-ia',    priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/intelligence-artificielle/agents-ia',    priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
   { url: '/intelligence-artificielle/automatisation', priority: 0.85, changeFrequency: 'monthly' },
-  { url: '/intelligence-artificielle/audit-conseil', priority: 0.80, changeFrequency: 'monthly' },
-  { url: '/intelligence-artificielle/mise-en-place', priority: 0.80, changeFrequency: 'monthly' },
-  { url: '/intelligence-artificielle/chatbot-ia',   priority: 0.85, changeFrequency: 'monthly' },
-  { url: '/intelligence-artificielle/geneve',       priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-06-04' },
+  { url: '/intelligence-artificielle/audit-conseil', priority: 0.80, changeFrequency: 'monthly', lastModified: '2026-09-10' },
+  { url: '/intelligence-artificielle/mise-en-place', priority: 0.80, changeFrequency: 'monthly', lastModified: '2026-09-10' },
+  { url: '/intelligence-artificielle/chatbot-ia',   priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
+  { url: '/intelligence-artificielle/geneve',       priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
 
   // ─── Formation Entreprise ─────────────────────────────────────────────────
   // Passe du 2026-08-23 : section « Veille et actualité » (ArticleCarousel).
-  { url: '/formation-entreprise/claude-ai',       priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-08-23' },
-  { url: '/formation-entreprise/ia',              priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-08-03' },
-  { url: '/formation-entreprise/bureautique',     priority: 0.80, changeFrequency: 'monthly' },
+  { url: '/formation-entreprise/claude-ai',       priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
+  // Page creee le 2026-09-10 : formation dediee ChatGPT Astra (GPT-6), miroir EN declare dans i18n/slugs.ts.
+  { url: '/formation-entreprise/chatgpt',         priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
+  { url: '/formation-entreprise/ia',              priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
+  { url: '/formation-entreprise/bureautique',     priority: 0.80, changeFrequency: 'monthly', lastModified: '2026-09-10' },
   { url: '/formation-entreprise/canva',           priority: 0.80, changeFrequency: 'monthly' },
   // Passe du 2026-08-31 : la page « web design » devient la page pilier Figma
   // (URL alignée sur le mot-clé, contenu triplé, miroir EN). Montée à 0.85 : elle
@@ -109,11 +111,11 @@ export const ROUTES: Route[] = [
   { url: '/formation-entreprise/montage-video',   priority: 0.75, changeFrequency: 'monthly' },
 
   // ─── Formation Particuliers ───────────────────────────────────────────────
-  { url: '/formation-particuliers', priority: 0.80, changeFrequency: 'monthly' },
+  { url: '/formation-particuliers', priority: 0.80, changeFrequency: 'monthly', lastModified: '2026-09-10' },
 
   // ─── Agence & Contact ─────────────────────────────────────────────────────
   { url: '/contact',   priority: 0.70, changeFrequency: 'monthly' },
-  { url: '/tarifs',    priority: 0.80, changeFrequency: 'monthly' },
+  { url: '/tarifs',    priority: 0.80, changeFrequency: 'monthly', lastModified: '2026-09-10' },
   { url: '/a-propos',  priority: 0.70, changeFrequency: 'monthly' },
 
   // ─── Contenu & Ressources ─────────────────────────────────────────────────
@@ -122,7 +124,7 @@ export const ROUTES: Route[] = [
   // donc elles se mettent à jour toutes seules à chaque publication.
   { url: '/blog',           priority: 0.75, changeFrequency: 'weekly'  },
   { url: '/realisations',   priority: 0.80, changeFrequency: 'monthly' },
-  { url: '/glossaire',      priority: 0.70, changeFrequency: 'weekly', lastModified: '2026-06-04' },
+  { url: '/glossaire',      priority: 0.70, changeFrequency: 'weekly', lastModified: '2026-09-10' },
 
   // ─── Utilitaires / Légales ────────────────────────────────────────────────
   { url: '/plan-du-site',                    priority: 0.30, changeFrequency: 'yearly' },

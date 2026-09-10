@@ -49,7 +49,7 @@ const PILLARS = [
     href: '/intelligence-artificielle',
     title: 'Intelligence Artificielle',
     description: "Automatisez ce qui vous ralentit. Déployez l'IA là où ça compte.",
-    services: ['Agents IA sur mesure', 'Automatisation', 'ChatGPT / Claude', 'Audit & Conseil IA'],
+    services: ['Agents IA sur mesure', 'Automatisation', 'ChatGPT Astra / Claude', 'Audit & Conseil IA'],
     cta: "Explorer l'IA",
     image: '/images/pillars/intelligence-artificielle.webp',
     imageAlt: "Réseau neuronal violet dans un espace sombre futuriste",

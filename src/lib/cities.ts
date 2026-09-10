@@ -35,7 +35,7 @@ export const CITIES: City[] = [
       'Chatbots multilingues pour l\'hotellerie et le luxe',
       'IA generative pour la communication corporate',
     ],
-    formationContext: 'Les équipes genevoises, souvent multilingues et dans des secteurs réglementés (finance, ONG, négoce), ont besoin de maîtriser l\'IA dans un cadre structuré. Nos formations sur site à Genève couvrent Claude AI, ChatGPT et l\'automatisation des workflows.',
+    formationContext: 'Les équipes genevoises, souvent multilingues et dans des secteurs réglementés (finance, ONG, négoce), ont besoin de maîtriser l\'IA dans un cadre structuré. Nos formations sur site à Genève couvrent Claude, ChatGPT Astra et l\'automatisation des workflows.',
     videoSrc: '/videos/hero-geneve.mp4',
   },
   {
@@ -149,7 +149,7 @@ export const CITIES: City[] = [
       'Automatisation du marketing digital pour commerces locaux',
       'Chatbots de recommandation pour le tourisme et la viticulture',
     ],
-    formationContext: 'Les PME de Morges et de la region ont besoin de formations IA concretes et directement applicables. Nos sessions pratiques permettent aux petites équipes de tirer parti de Claude AI, ChatGPT et des outils d\'automatisation.',
+    formationContext: 'Les PME de Morges et de la region ont besoin de formations IA concretes et directement applicables. Nos sessions pratiques permettent aux petites équipes de tirer parti de Claude, ChatGPT Astra et des outils d\'automatisation.',
     imageSrc: '/images/cities/hero-morges.jpg',
   },
   {

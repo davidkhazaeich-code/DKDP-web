@@ -12,7 +12,7 @@ export const FAQ_IA = [
   {
     question: "Est-ce que l'IA est sécurisée pour mes données confidentielles ?",
     answer:
-      "C'est une priorité pour DKDP. On peut déployer des solutions sur hébergement local (sans envoi de données vers des serveurs tiers), utiliser des instances cloud privées, ou configurer des LLMs open-source comme Llama 3 pour les données les plus sensibles. Chaque projet IA inclut une analyse des risques de confidentialité.",
+      "C'est une priorité pour DKDP. On peut déployer des solutions sur hébergement local (sans envoi de données vers des serveurs tiers), utiliser des instances cloud privées, ou configurer des LLMs open-source comme Llama 4 pour les données les plus sensibles. Chaque projet IA inclut une analyse des risques de confidentialité.",
   },
   {
     question: "En combien de temps peut-on déployer une première solution IA ?",
@@ -32,7 +32,7 @@ export const FAQ_IA = [
   {
     question: "Quels outils IA recommandez-vous pour une PME suisse ?",
     answer:
-      "Pour la productivité quotidienne : ChatGPT Plus ou Claude Pro. Pour l'automatisation de workflows : Make (ex-Integromat) ou n8n. Pour les agents sur mesure : LangChain ou CrewAI. Pour l'hébergement local : Ollama avec Llama 3. DKDP sélectionne les outils en fonction de votre stack existant et de vos contraintes budgétaires.",
+      "Pour la productivité quotidienne : ChatGPT Plus ou Claude Pro. Pour l'automatisation de workflows : Make (ex-Integromat) ou n8n. Pour les agents sur mesure : LangChain ou CrewAI. Pour l'hébergement local : Ollama avec Llama 4. DKDP sélectionne les outils en fonction de votre stack existant et de vos contraintes budgétaires.",
   },
   {
     question: "Comment mesurer le retour sur investissement d'une solution IA ?",

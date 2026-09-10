@@ -48,9 +48,9 @@ const Testimonials = dynamic(() =>
 )
 
 export const metadata: Metadata = {
-  title: 'Chatbot IA Genève & Suisse romande | Claude, GPT-5 | DKDP',
+  title: 'Chatbot IA sur mesure Genève | Claude, GPT-6 Astra | DKDP',
   description:
-    'Création de chatbots IA pour PME Genève : support 24/7, qualification leads, prise RDV. Basés Claude (Anthropic), GPT-5. Intégration WhatsApp, site web, Messenger. Déploiement 2 semaines.',
+    'Création de chatbots IA pour PME Genève : support 24/7, qualification leads, prise RDV. Basés Claude (Anthropic), GPT-6 Astra. Intégration WhatsApp, site web, Messenger. Déploiement 2 semaines.',
   alternates: {
     canonical: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
     languages: {
@@ -60,18 +60,18 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Chatbot IA Genève & Suisse romande | Claude, GPT-5 | DKDP',
+    title: 'Chatbot IA sur mesure Genève | Claude, GPT-6 Astra | DKDP',
     description:
-      "Chatbot IA conçu pour votre métier : support client 24/7, qualification de leads, prise de rendez-vous automatique. Moteurs Claude Opus 4.7, GPT-5, Gemini 3. Agence DKDP, Genève.",
+      "Chatbot IA conçu pour votre métier : support client 24/7, qualification de leads, prise de rendez-vous automatique. Moteurs Claude Opus 5, GPT-6 Astra, Gemini 3.8. Agence DKDP, Genève.",
     url: 'https://dkdp.ch/intelligence-artificielle/chatbot-ia',
     type: 'website',
     locale: 'fr_CH',
     siteName: 'DKDP',
-    images: [{ url: '/images/og/chatbot-ia.png', width: 1376, height: 768, alt: 'Chatbot IA sur mesure Genève propulsé par Claude et GPT-5, agence DKDP' }],
+    images: [{ url: '/images/og/chatbot-ia.png', width: 1376, height: 768, alt: 'Chatbot IA sur mesure Genève propulsé par Claude et GPT-6 Astra, agence DKDP' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Chatbot IA Genève & Suisse romande | Claude, GPT-5 | DKDP',
+    title: 'Chatbot IA sur mesure Genève | Claude, GPT-6 Astra | DKDP',
     description:
       "Chatbot IA conçu pour votre métier : support 24/7, leads qualifiés, RDV automatiques. Dès CHF 2'900. Agence DKDP Genève.",
   },
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     'chatbot IA Genève',
     'chatbot entreprise Suisse',
     'chatbot Claude',
-    'chatbot GPT-5',
+    'chatbot GPT-6 Astra',
     'chatbot WhatsApp PME',
     'chatbot souverain Suisse',
     'assistant virtuel PME',
@@ -99,7 +99,7 @@ const FAQ = [
   {
     question: 'Claude ou GPT pour mon chatbot ?',
     answer:
-      "Claude Opus 4.7 (Anthropic) pour les chatbots qui raisonnent sur de longs documents : contrats, FAQ techniques, bases juridiques, dossiers médicaux anonymisés. Meilleur choix si vos clients posent des questions complexes. GPT-5 (OpenAI) pour les chatbots multimodaux (photos, PDF, audio) : idéal pour le support technique ou médical avec pièces jointes. Gemini 3 (Google) si vous êtes déjà dans Google Workspace. Tous nos chatbots sont connectés à votre base documentaire privée (RAG) pour répondre avec vos propres contenus, jamais en hallucinant.",
+      "Claude Opus 5 (Anthropic) pour les chatbots qui raisonnent sur de longs documents : contrats, FAQ techniques, bases juridiques, dossiers médicaux anonymisés. Meilleur choix si vos clients posent des questions complexes. GPT-6 Astra (OpenAI) pour les chatbots qui doivent agir : prendre un rendez-vous, remplir un formulaire, piloter un outil web, avec photos et PDF traités nativement. Idéal pour le support technique ou médical avec pièces jointes. Gemini 3.8 (Google) si vous êtes déjà dans Google Workspace ou si vos clients envoient de l'audio et de la vidéo. Tous nos chatbots sont connectés à votre base documentaire privée (RAG) pour répondre avec vos propres contenus, jamais en hallucinant.",
   },
   {
     question: 'Peut-on utiliser une IA souveraine Suisse pour mon chatbot ?',
@@ -316,7 +316,7 @@ export default function ChatbotIAPage() {
           name: 'Chatbot IA sur mesure Genève & Suisse romande',
           url: '/intelligence-artificielle/chatbot-ia',
           description:
-            "Conception et déploiement de chatbots IA sur mesure pour PME à Genève et en Suisse romande. Propulsés par Claude Opus 4.7 (Anthropic), GPT-5 (OpenAI) ou Gemini 3 (Google). Intégration WhatsApp Business, site web, Messenger. RAG sur base documentaire privée. Conforme nLPD 2023, hébergement Suisse disponible.",
+            "Conception et déploiement de chatbots IA sur mesure pour PME à Genève et en Suisse romande. Propulsés par Claude Opus 5 (Anthropic), GPT-6 Astra (OpenAI) ou Gemini 3.8 (Google). Intégration WhatsApp Business, site web, Messenger. RAG sur base documentaire privée. Conforme nLPD 2023, hébergement Suisse disponible.",
           serviceType: 'Développement de chatbot IA sur mesure',
           priceFrom: 2900,
           priceSpecDescription: "À partir de CHF 2'900 pour un chatbot Essentiel déployé en 2 semaines",
@@ -655,30 +655,30 @@ export default function ChatbotIAPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                name: 'Claude Opus 4.7',
+                name: 'Claude Opus 5',
                 provider: 'Anthropic',
                 accentColor: violet.color,
                 accentBg: 'rgba(167,139,250,0.08)',
                 accentBorder: 'rgba(167,139,250,0.22)',
-                pitch: 'Raisonnement long, documents volumineux, analyses juridiques ou techniques.',
+                pitch: 'Raisonnement long, documents volumineux, manipulation d\'outils. Le choix DKDP pour les chatbots métiers sensibles.',
                 useCase: 'Fiduciaire, juridique, support technique niveau 2',
               },
               {
-                name: 'GPT-5',
+                name: 'GPT-6 Astra',
                 provider: 'OpenAI',
                 accentColor: chrome.color,
                 accentBg: 'rgba(212,212,216,0.06)',
                 accentBorder: 'rgba(212,212,216,0.18)',
-                pitch: 'Multimodal : texte, image, voix. Pièces jointes traitées nativement.',
+                pitch: 'Pilote un navigateur et des outils, missions longues, large écosystème. GPT-5.6 pour le volume à moindre coût.',
                 useCase: 'Support technique, médical avec pièces jointes, e-commerce',
               },
               {
-                name: 'Gemini 3',
+                name: 'Gemini 3.8',
                 provider: 'Google',
                 accentColor: '#60a5fa',
                 accentBg: 'rgba(96,165,250,0.06)',
                 accentBorder: 'rgba(96,165,250,0.20)',
-                pitch: 'Intégration native Google Workspace, Gmail, Drive, Docs.',
+                pitch: 'Intégration native Google Workspace, Gmail, Drive, Docs. Audio et vidéo en natif.',
                 useCase: 'Équipes déjà 100 % Google, onboarding RH',
               },
               {

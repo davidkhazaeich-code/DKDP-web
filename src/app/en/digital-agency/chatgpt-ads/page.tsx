@@ -129,7 +129,7 @@ export default function ChatGptAdsPageEN() {
                   ]}
                 />
                 <div className="flex flex-wrap gap-4 items-center mt-8">
-                  <LiquidMetalButton href={CONTACT} size="lg">Start a ChatGPT Ads pilot →</LiquidMetalButton>
+                  <LiquidMetalButton href={CONTACT} size="lg">Launch a ChatGPT Ads campaign →</LiquidMetalButton>
                   <Link href="#simulateur" className="text-sm text-text-muted hover:text-text transition-colors">
                     Estimate my budget ↓
                   </Link>
@@ -172,7 +172,7 @@ export default function ChatGptAdsPageEN() {
           { label: 'Pricing', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
         ]}
-        cta={{ label: 'Start a pilot', href: CONTACT }}
+        cta={{ label: 'Launch a campaign', href: CONTACT }}
         accentColor="#A78BFA"
         accentBg="rgba(124,58,237,0.18)"
         accentBorder="rgba(124,58,237,0.30)"

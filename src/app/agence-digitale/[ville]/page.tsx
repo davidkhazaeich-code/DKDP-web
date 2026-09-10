@@ -70,6 +70,7 @@ const SERVICES = [
   { label: 'Creation de site web', href: '/agence-digitale/creation-site-web', desc: 'Sites vitrines, e-commerce et applications web sur mesure.' },
   { label: 'référencement SEO', href: '/agence-digitale/seo', desc: 'SEO local et national pour dominer Google dans votre region.' },
   { label: 'Publicite Google Ads', href: '/agence-digitale/publicite-sea', desc: 'Campagnes Search et Performance Max, leads qualifies.' },
+  { label: 'Publicité ChatGPT Ads', href: '/agence-digitale/chatgpt-ads', desc: 'Annonces dans ChatGPT, canal ouvert aux entreprises suisses depuis août 2026.' },
 ]
 
 const IA_CAPABILITIES = [

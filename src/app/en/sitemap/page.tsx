@@ -55,6 +55,7 @@ const GROUPS: SitemapGroup[] = [
       { label: 'SEO', href: lp('/agence-digitale/seo') },
       { label: 'Free SEO audit', href: lp('/agence-digitale/seo/audit-seo') },
       { label: 'Google Ads', href: lp('/agence-digitale/publicite-sea') },
+      { label: 'ChatGPT Ads', href: lp('/agence-digitale/chatgpt-ads') },
       { label: 'Social media', href: lp('/agence-digitale/reseaux-sociaux') },
       { label: 'Video production', href: lp('/agence-digitale/creation-video') },
       { label: 'Marketing consulting', href: lp('/agence-digitale/consulting-marketing') },

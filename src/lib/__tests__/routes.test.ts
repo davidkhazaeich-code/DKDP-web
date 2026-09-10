@@ -91,6 +91,11 @@ describe('Miroir FR / EN', () => {
     expect(FR_TO_EN['/formation-entreprise/figma']).toBe('/corporate-training/figma')
   })
 
+  it('expose la page ChatGPT Ads dans les deux langues', () => {
+    expect(ROUTES.some((r) => r.url === '/agence-digitale/chatgpt-ads')).toBe(true)
+    expect(FR_TO_EN['/agence-digitale/chatgpt-ads']).toBe('/digital-agency/chatgpt-ads')
+  })
+
   it('redirige les anciennes URL web design vers la page Figma', () => {
     const fr = REDIRECTS.find((r) => r.source === '/formation-entreprise/web-design')
     const en = REDIRECTS.find((r) => r.source === '/en/corporate-training/web-design')

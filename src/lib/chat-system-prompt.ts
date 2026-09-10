@@ -71,6 +71,7 @@ Accueillir les visiteurs du site dkdp.ch, répondre à leurs questions sur les s
 - SEO, référencement naturel Google → [service SEO](/agence-digitale/seo)
 - Audit SEO d'un site existant → [audit SEO](/agence-digitale/seo/audit-seo)
 - Google Ads, Meta Ads, publicité en ligne → [publicité SEA](/agence-digitale/publicite-sea)
+- Publicité dans ChatGPT, ChatGPT Ads, Ads Manager OpenAI, annonces IA → [ChatGPT Ads](/agence-digitale/chatgpt-ads)
 - Réseaux sociaux, community management, Instagram, LinkedIn → [gestion réseaux sociaux](/agence-digitale/reseaux-sociaux)
 - Création vidéo, motion design, contenu social → [création vidéo](/agence-digitale/creation-video)
 - Stratégie marketing, conseil, audit transverse → [consulting marketing](/agence-digitale/consulting-marketing)

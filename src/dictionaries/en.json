@@ -38,6 +38,7 @@
       { "title": "App development", "description": "iOS, Android, web apps and PWAs tailored for SMBs." },
       { "title": "SEO and search", "description": "Sustainable organic visibility on Google and AI search." },
       { "title": "Google Ads", "description": "Profitable Google Ads and paid campaigns." },
+      { "title": "ChatGPT Ads", "description": "Advertising inside ChatGPT, new 2026 channel in Switzerland." },
       { "title": "Social media", "description": "Consistent, engaging social presence." },
       { "title": "Video production", "description": "Videos that captivate and convert." },
       { "title": "Marketing consulting", "description": "Digital strategy and hands-on guidance." },
@@ -103,7 +104,7 @@
     },
     "agenceLinks": [
       "Free site audit", "Free SEO audit", "Web design",
-      "Website redesign", "SEO", "Google Ads",
+      "Website redesign", "SEO", "Google Ads", "ChatGPT Ads",
       "Social media", "Video production", "Marketing consulting", "GDPR and cookies", "Free quote"
     ],
     "formationLinks": [

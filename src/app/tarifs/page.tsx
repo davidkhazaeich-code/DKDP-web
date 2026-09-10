@@ -137,6 +137,13 @@ const AGENCE_ITEMS = [
     note: 'frais de gestion · budget publicitaire en sus',
   },
   {
+    Icon: Megaphone,
+    title: 'ChatGPT Ads',
+    href: '/agence-digitale/chatgpt-ads',
+    price: 'Pilote CHF 1\'200 · puis CHF 450 / mois',
+    note: 'frais de gestion · budget publicitaire en sus, sans commission',
+  },
+  {
     Icon: BarChart2,
     title: 'Consulting marketing',
     href: '/agence-digitale/consulting-marketing',

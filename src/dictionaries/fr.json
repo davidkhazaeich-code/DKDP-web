@@ -38,6 +38,7 @@
       { "title": "Développement d'application", "description": "iOS, Android, web app et PWA sur mesure pour PME." },
       { "title": "SEO et Référencement", "description": "Visibilité organique durable sur Google et les IA." },
       { "title": "Publicité SEA", "description": "Google Ads et campagnes payantes rentables." },
+      { "title": "ChatGPT Ads", "description": "Publicité dans ChatGPT, nouveau canal 2026 en Suisse." },
       { "title": "Réseaux sociaux", "description": "Présence sociale cohérente et engageante." },
       { "title": "Création vidéo", "description": "Vidéos qui captivent et convertissent." },
       { "title": "Consulting marketing", "description": "Stratégie digitale et accompagnement." },
@@ -103,7 +104,7 @@
     },
     "agenceLinks": [
       "Audit site gratuit", "Audit SEO gratuit", "Création de site web",
-      "Refonte de site web", "Référencement SEO", "Publicité Google Ads",
+      "Refonte de site web", "Référencement SEO", "Publicité Google Ads", "ChatGPT Ads",
       "Réseaux sociaux", "Création vidéo", "Consulting marketing", "Estimation gratuite"
     ],
     "formationLinks": [

@@ -37,6 +37,9 @@ const PAGES = [
 
   // Formation pages
   { file: 'formation-chatgpt.png',      pillar: 'formation', label: 'Formation ChatGPT',               title: 'ChatGPT Astra en entreprise',     subtitle: 'GPT-6 Astra · ChatGPT Work · Genève et Suisse romande', size: 'smaller' },
+
+  // Service pages
+  { file: 'chatgpt-ads.png',            pillar: 'agence',    label: 'ChatGPT Ads · Genève',            title: 'Publicité dans ChatGPT',          subtitle: 'Cartes sponsorisées · Pilote 30 jours · Suisse romande', size: 'smaller' },
 ]
 
 // Filtre optionnel : `node tools/og-generator/generate.mjs formation-chatgpt.png`

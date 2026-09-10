@@ -31,6 +31,7 @@ export const FR_TO_EN: Record<string, string> = {
   '/agence-digitale/developpement-application': '/digital-agency/app-development',
   '/agence-digitale/seo': '/digital-agency/seo',
   '/agence-digitale/publicite-sea': '/digital-agency/google-ads',
+  '/agence-digitale/chatgpt-ads': '/digital-agency/chatgpt-ads',
   '/agence-digitale/reseaux-sociaux': '/digital-agency/social-media',
   '/agence-digitale/creation-video': '/digital-agency/video-production',
   '/agence-digitale/consulting-marketing': '/digital-agency/marketing-consulting',

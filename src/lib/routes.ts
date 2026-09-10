@@ -65,6 +65,8 @@ export const ROUTES: Route[] = [
   { url: '/agence-digitale/developpement-application',      priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/seo',                  priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/publicite-sea',        priority: 0.80, changeFrequency: 'monthly' },
+  // Page créée le 2026-09-10 : publicité dans ChatGPT (canal ouvert aux entreprises suisses le 31.08.2026).
+  { url: '/agence-digitale/chatgpt-ads',          priority: 0.85, changeFrequency: 'weekly', lastModified: '2026-09-10' },
   { url: '/agence-digitale/reseaux-sociaux',      priority: 0.80, changeFrequency: 'monthly' },
   { url: '/agence-digitale/creation-video',       priority: 0.80, changeFrequency: 'monthly' },
   { url: '/agence-digitale/consulting-marketing', priority: 0.80, changeFrequency: 'monthly' },

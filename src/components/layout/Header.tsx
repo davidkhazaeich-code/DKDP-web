@@ -44,10 +44,11 @@ function buildNavData(lang: Locale) {
     { title: t.agenceMain[2].title, description: t.agenceMain[2].description, href: lp('/agence-digitale/developpement-application'), icon: Smartphone },
     { title: t.agenceMain[3].title, description: t.agenceMain[3].description, href: lp('/agence-digitale/seo'), icon: Search },
     { title: t.agenceMain[4].title, description: t.agenceMain[4].description, href: lp('/agence-digitale/publicite-sea'), icon: Megaphone },
-    { title: t.agenceMain[5].title, description: t.agenceMain[5].description, href: lp('/agence-digitale/reseaux-sociaux'), icon: Share2 },
-    { title: t.agenceMain[6].title, description: t.agenceMain[6].description, href: lp('/agence-digitale/creation-video'), icon: Film },
-    { title: t.agenceMain[7].title, description: t.agenceMain[7].description, href: lp('/agence-digitale/consulting-marketing'), icon: Presentation },
-    { title: t.agenceMain[8].title, description: t.agenceMain[8].description, href: lp('/agence-digitale/rgpd-cookies'), icon: Shield },
+    { title: t.agenceMain[5].title, description: t.agenceMain[5].description, href: lp('/agence-digitale/chatgpt-ads'), icon: Sparkles },
+    { title: t.agenceMain[6].title, description: t.agenceMain[6].description, href: lp('/agence-digitale/reseaux-sociaux'), icon: Share2 },
+    { title: t.agenceMain[7].title, description: t.agenceMain[7].description, href: lp('/agence-digitale/creation-video'), icon: Film },
+    { title: t.agenceMain[8].title, description: t.agenceMain[8].description, href: lp('/agence-digitale/consulting-marketing'), icon: Presentation },
+    { title: t.agenceMain[9].title, description: t.agenceMain[9].description, href: lp('/agence-digitale/rgpd-cookies'), icon: Shield },
   ]
 
   const AGENCE_SECONDARY: MegaSecondary[] = [

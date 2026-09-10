@@ -68,6 +68,12 @@ const SERVICES = [
     image: '/images/services/dkdp-agence-sea.webp',
   },
   {
+    Icon: Megaphone, title: 'ChatGPT Ads', href: '/en/digital-agency/chatgpt-ads',
+    description: 'Sponsored cards below ChatGPT answers, open to Swiss businesses since August 2026. 30-day pilot, conversion tracking.',
+    badge: 'New',
+    image: '/images/services/dkdp-agence-chatgpt-ads.webp',
+  },
+  {
     Icon: Share2, title: 'Social media', href: '/en/digital-agency/social-media',
     description: 'Consistent presence on Instagram, LinkedIn, Facebook. Content, community management, ads.',
     badge: null,

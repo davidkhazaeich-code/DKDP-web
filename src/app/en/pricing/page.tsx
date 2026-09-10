@@ -120,6 +120,13 @@ const DIGITAL_ITEMS = [
     note: 'management fee · ad spend on top',
   },
   {
+    Icon: Megaphone,
+    title: 'ChatGPT Ads',
+    href: '/en/digital-agency/chatgpt-ads',
+    price: 'Pilot CHF 1\'200 · then CHF 450 / month',
+    note: 'management fee · ad spend on top, no commission',
+  },
+  {
     Icon: BarChart2,
     title: 'Marketing consulting',
     href: '/en/digital-agency/marketing-consulting',

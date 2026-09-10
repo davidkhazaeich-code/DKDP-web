@@ -15,6 +15,7 @@ import {
   Star,
   Search,
   Target,
+  Sparkles,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
@@ -657,6 +658,44 @@ export default function PubliciteSEAPage() {
       <div id="faq" className="scroll-mt-[124px]">
         <FAQSection items={FAQ} title="Vos questions sur Google Ads" />
       </div>
+
+      {/* ── Bridge ChatGPT Ads (canal ouvert aux entreprises suisses le 31.08.2026) ── */}
+      <section className="py-16 border-t border-border">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <SectionReveal>
+            <Link
+              href="/agence-digitale/chatgpt-ads"
+              className="group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 rounded-[14px] p-6 md:p-8 border transition-all hover:-translate-y-0.5 duration-200"
+              style={{
+                background: 'linear-gradient(135deg, rgba(124,58,237,0.10) 0%, rgba(124,58,237,0.03) 100%)',
+                borderColor: 'rgba(124,58,237,0.28)',
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <div
+                  className="flex h-12 w-12 items-center justify-center rounded-[10px] flex-shrink-0"
+                  style={{ background: bg, border: `1px solid ${border}` }}
+                >
+                  <Sparkles size={20} style={{ color }} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Nouveau canal</p>
+                  <p className="text-text font-bold text-lg leading-tight">Publicité ChatGPT Ads</p>
+                  <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
+                    ChatGPT affiche des annonces en Suisse depuis le 24 août 2026. Cartes sponsorisées sous les réponses, pilote de 30 jours, même règle de zéro commission.
+                  </p>
+                </div>
+              </div>
+              <span
+                className="flex-shrink-0 inline-flex items-center gap-1.5 text-[12px] font-semibold px-4 py-2 rounded-[8px] transition-opacity group-hover:opacity-80"
+                style={{ background: bg, color, border: `1px solid ${border}` }}
+              >
+                Voir ChatGPT Ads <ChevronRight size={12} />
+              </span>
+            </Link>
+          </SectionReveal>
+        </div>
+      </section>
 
       {/* ── Bridge SEO ── */}
       <section className="py-16 border-t border-border">

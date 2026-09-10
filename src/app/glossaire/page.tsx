@@ -98,6 +98,12 @@ const TERMS: Term[] = [
       'Click-Through Rate. Ratio entre les impressions et les clics sur un lien dans Google. Un bon CTR (3 à 5 %) signale un titre et une meta description attractifs qui incitent l\'internaute à visiter la page.',
   },
   {
+    term: 'ChatGPT Ads',
+    category: 'SEO',
+    definition:
+      'Publicité dans ChatGPT. Une carte sponsorisée (nom de l\'annonceur, favicon, titre, texte, image, lien) s\'affiche sous la réponse pour les utilisateurs des forfaits Free et Go, sans influencer la réponse. Ouvert aux entreprises suisses en libre-service via Ads Manager depuis le 31 août 2026, enchères au CPM ou au CPC, budget quotidien minimum de CHF 20.',
+  },
+  {
     term: 'Claude',
     category: 'IA',
     definition:

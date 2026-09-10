@@ -10,9 +10,47 @@ qui envoie chaque evenement **deux fois** :
 1. `gtag('event', ...)`  → Google Analytics 4 (chemin fiable, GA4 le recoit toujours)
 2. `dataLayer.push({ event, ... })` → Google Tag Manager (declenche les tags Ads / remarketing)
 
-On n'ecrit AUCUN identifiant de conversion Google Ads en dur dans le code. On
-marque les evenements GA4 comme **Key events** dans GA4, puis on les importe
-comme actions de conversion dans Google Ads.
+3. `gtag('event', 'conversion', { send_to: 'AW-395809057/<libelle>' })` → Google Ads
+   (depuis le 2026-09-10, voir « Conversions Google Ads en direct » ci-dessous)
+
+> ### ⚠️ Changement du 2026-09-10 : les conversions Ads partent en direct
+>
+> La route decrite jusqu'ici — marquer les evenements en **Key events** GA4 puis les
+> importer dans Google Ads — **n'a jamais abouti** entre juin et septembre 2026.
+> Constat au 10.09.2026 sur les 90 jours precedents : **0 conversion** sur la
+> campagne DKDP, les actions « Envoi de formulaire - CI » et « Formulaire - Demande
+> professionnelle » affichees en **« Mauvaise configuration »**, les 4 actions
+> d'appel en **« En attente de conversions »** (jamais rien enregistre), et les 14
+> imports GA4 restes en statut **masque**.
+>
+> Diagnostic : la balise `AW-395809057` **est** bien active sur dkdp.ch (13
+> occurrences dans la config de `gtag/js?id=G-SCXF5R826D`, via les balises Google
+> liees — ce mecanisme n'apparait jamais dans le HTML, ne pas conclure de son
+> absence dans la source). Mais **aucun evenement de conversion avec libelle**
+> n'etait jamais envoye : Google Ads recevait du remarketing, jamais une conversion.
+>
+> Correctif : `GA4_TO_GOOGLE_ADS` dans `src/lib/analytics.ts` envoie desormais la
+> conversion en direct, avec les libelles releves dans les `tag_snippets` des
+> actions **existantes** du compte (aucune action creee).
+>
+> | Evenement GA4 | Action de conversion | ID | Libelle |
+> |---|---|---|---|
+> | `generate_lead` | Formulaire - Demande professionnelle | 6919766282 | `0utiCIqCzeMZEKGi3rwB` |
+> | `book_appointment` | RDV Call avec formulaire - Formation IA - DKDP | 7155635183 | `6dkTCO-nidQaEKGi3rwB` |
+> | `whatsapp_click` | Contact Whatsapp | 957006627 | `nBXMCKOGq8gDEKGi3rwB` |
+>
+> ⚠️ **Ne PAS importer en plus ces evenements GA4 comme conversions dans Google
+> Ads** : ils seraient comptes deux fois.
+>
+> ⚠️ `phone_click` n'est pas mappe : le compte n'a aucune action de type page web
+> pour le clic telephone (« Appel depuis site » est de type `WEBSITE_CALL`, le
+> numero de renvoi de Google, qu'un gtag ne peut pas declencher). Creer une action
+> « DKDP - Clic telephone » dans l'interface, puis ajouter son libelle.
+>
+> ⚠️ « Formulaire - Demande professionnelle » est encore en **plusieurs par clic** :
+> deux envois du meme formulaire comptent deux conversions. Le `transaction_id`
+> (reutilise depuis `event_id`) neutralise les doubles envois accidentels, mais le
+> reglage doit passer a « une par clic » dans l'interface Google Ads.
 
 ### Tags presents sur le site (constate le 2026-06-22 via trace reseau)
 

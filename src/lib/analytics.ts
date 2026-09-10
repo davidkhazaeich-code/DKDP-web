@@ -8,9 +8,16 @@
  *   - dataLayer Google Tag Manager (GTM-NDMXZL8)        ← permet de declencher des tags Ads/remarketing
  *   - pixel OpenAI (ChatGPT Ads, MhbGMaod48Cuvp7YJVsNgA) ← conversions des campagnes ChatGPT
  *
- * Cote Google Ads, on N'IMPORTE PAS de conversions en dur ici : on marque les
- * evenements GA4 ci-dessous comme « Key events » dans GA4, puis on les importe
- * comme actions de conversion dans Google Ads (property GA4 liee a Ads).
+ * Cote Google Ads, les conversions partent MAINTENANT en direct depuis ce fichier
+ * (`GA4_TO_GOOGLE_ADS` plus bas). La route precedente — marquer les evenements en
+ * « Key events » GA4 puis les importer dans Ads — est restee inachevee de juin a
+ * septembre 2026 : la balise `AW-395809057` etait bien active sur le site (via les
+ * balises Google liees, invisible dans le HTML) mais AUCUN evenement de conversion
+ * avec libelle n'etait jamais envoye. Resultat : 0 conversion enregistree en 90
+ * jours et des actions affichees « Mauvaise configuration » dans Google Ads.
+ *
+ * ⚠️ Ne PAS importer en plus ces memes evenements GA4 comme conversions dans
+ * Google Ads : ils seraient comptes deux fois.
  * Procedure complete + mapping : docs/analytics-conversions.md
  *
  * Cote OpenAI Ads, le mapping evenement GA4 -> evenement OpenAI vit dans
@@ -104,6 +111,7 @@ export function trackEvent(name: string, params: ConversionParams = {}): void {
     /* dataLayer indisponible : on ignore */
   }
   sendToOpenAi(name, clean)
+  sendToGoogleAds(name, clean)
 }
 
 /**
@@ -145,6 +153,78 @@ function sendToOpenAi(
     window.oaiq?.('measure', mapping.event, data, options)
   } catch {
     /* pixel bloque ou indisponible : on ignore */
+  }
+}
+
+/**
+ * Libelles de conversion Google Ads (compte `AW-395809057`), releves le
+ * 2026-09-10 dans les `tag_snippets` des actions de conversion existantes du
+ * compte. Ce ne sont PAS de nouvelles actions : elles existaient deja, personne
+ * ne les declenchait.
+ *
+ *   generate_lead    -> « Formulaire - Demande professionnelle »  (id 6919766282)
+ *   book_appointment -> « RDV Call avec formulaire - Formation IA - DKDP » (7155635183)
+ *   whatsapp_click   -> « Contact Whatsapp »                      (id 957006627)
+ *
+ * ⚠️ `phone_click` n'est volontairement PAS mappe : le compte n'a pas d'action de
+ * type page web pour le clic telephone (« Appel depuis site » est de type
+ * WEBSITE_CALL, le numero de renvoi de Google, qu'un gtag ne peut pas declencher).
+ * Creer une action « DKDP - Clic telephone » dans Google Ads, puis ajouter son
+ * libelle ici.
+ *
+ * ⚠️ « Formulaire - Demande professionnelle » compte encore *plusieurs par clic* :
+ * deux envois du meme formulaire font deux conversions. Le `transaction_id`
+ * ci-dessous neutralise les doubles envois accidentels, mais le reglage lui-meme
+ * doit passer a « une par clic » dans l'interface Google Ads.
+ */
+const GA4_TO_GOOGLE_ADS: Record<
+  string,
+  { sendTo: string; value?: number }
+> = {
+  [ConversionEvent.Lead]: {
+    sendTo: 'AW-395809057/0utiCIqCzeMZEKGi3rwB',
+    value: 1,
+  },
+  [ConversionEvent.BookingComplete]: {
+    sendTo: 'AW-395809057/6dkTCO-nidQaEKGi3rwB',
+  },
+  [ConversionEvent.WhatsAppClick]: {
+    sendTo: 'AW-395809057/nBXMCKOGq8gDEKGi3rwB',
+  },
+}
+
+/**
+ * Envoie la conversion Google Ads correspondante, si l'evenement est mappe.
+ * Les evenements non mappes ne partent pas : une conversion sans libelle est
+ * ignoree par Google Ads.
+ *
+ * `event_id` (deja genere par les formulaires pour la deduplication OpenAI) est
+ * reutilise comme `transaction_id`, la cle de deduplication de Google Ads.
+ */
+function sendToGoogleAds(
+  name: string,
+  params: Record<string, string | number | boolean>,
+): void {
+  const mapping = GA4_TO_GOOGLE_ADS[name]
+  if (!mapping) return
+
+  const payload: Record<string, unknown> = { send_to: mapping.sendTo }
+
+  const value =
+    typeof params.value === 'number' ? params.value : mapping.value
+  if (typeof value === 'number' && Number.isFinite(value)) {
+    payload.value = value
+    payload.currency =
+      typeof params.currency === 'string' ? params.currency.toUpperCase() : 'CHF'
+  }
+  if (typeof params.event_id === 'string' && params.event_id) {
+    payload.transaction_id = params.event_id
+  }
+
+  try {
+    window.gtag?.('event', 'conversion', payload)
+  } catch {
+    /* gtag indisponible (bloqueur, consentement refuse...) : on ignore */
   }
 }
 

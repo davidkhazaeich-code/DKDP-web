@@ -720,6 +720,7 @@ export function Header() {
                         { text: lang === 'en' ? 'Agents' : 'Agents', href: lp('/intelligence-artificielle/agents-ia') },
                         { text: lang === 'en' ? 'Automation' : 'Automatisation', href: lp('/intelligence-artificielle/automatisation') },
                         { text: lang === 'en' ? 'Consulting' : 'Conseil', href: lp('/intelligence-artificielle/audit-conseil') },
+                        { text: 'ChatGPT Ads', href: lp('/agence-digitale/chatgpt-ads') },
                       ]
                     )}
                   </NavigationMenuContent>
@@ -807,6 +808,7 @@ export function Header() {
                         { text: lang === 'en' ? 'Agents' : 'Agents', href: lp('/intelligence-artificielle/agents-ia') },
                         { text: lang === 'en' ? 'Automation' : 'Automatisation', href: lp('/intelligence-artificielle/automatisation') },
                         { text: lang === 'en' ? 'Consulting' : 'Conseil', href: lp('/intelligence-artificielle/audit-conseil') },
+                        { text: 'ChatGPT Ads', href: lp('/agence-digitale/chatgpt-ads') },
                       ]
                     )}
                   </NavigationMenuContent>

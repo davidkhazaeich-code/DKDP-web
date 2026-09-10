@@ -769,6 +769,7 @@ export default function IAGenevePage() {
             {[
               { href: '/intelligence-artificielle/agents-ia', label: 'Agents IA', desc: "Claude, GPT-6 Astra, LangChain" },
               { href: '/intelligence-artificielle/chatbot-ia', label: 'Chatbots IA', desc: "Claude, WhatsApp, RAG" },
+              { href: '/agence-digitale/chatgpt-ads', label: 'Publicité ChatGPT Ads', desc: 'Annonces dans ChatGPT, Ads Manager' },
               { href: '/intelligence-artificielle/automatisation', label: 'Automatisation', desc: 'n8n, Make, Zapier' },
               { href: '/formation-entreprise/ia', label: 'Formation IA entreprise', desc: 'Une journée, 100 % opérationnels' },
             ].map((link) => (

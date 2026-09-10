@@ -69,6 +69,12 @@ const SERVICES = [
     badge: 'New',
     image: '/images/services/dkdp-ia-agents-ia.webp',
   },
+  {
+    Icon: MessageCircle, title: 'ChatGPT Ads', href: '/en/digital-agency/chatgpt-ads',
+    description: 'Your ads below ChatGPT answers, a channel open to Swiss businesses since August 2026. Ads Manager account, sponsored cards, 30-day pilot.',
+    badge: 'New',
+    image: '/images/services/dkdp-agence-chatgpt-ads.webp',
+  },
 ]
 
 const STATS = [

@@ -73,6 +73,7 @@ const GROUPS: SitemapGroup[] = [
       { label: 'Custom AI agents', href: lp('/intelligence-artificielle/agents-ia') },
       { label: 'Business automation', href: lp('/intelligence-artificielle/automatisation') },
       { label: 'AI implementation', href: lp('/intelligence-artificielle/mise-en-place') },
+      { label: 'ChatGPT Ads', href: lp('/agence-digitale/chatgpt-ads') },
     ],
   },
   {

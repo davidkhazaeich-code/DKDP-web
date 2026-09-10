@@ -69,6 +69,7 @@ function getPillars(lang: Locale, dict: FooterDict) {
         { label: t.iaLinks[3], href: lp('/intelligence-artificielle/automatisation') },
         { label: t.iaLinks[4], href: lp('/intelligence-artificielle/audit-conseil') },
         { label: t.iaLinks[5], href: lp('/intelligence-artificielle/mise-en-place') },
+        { label: t.iaLinks[6], href: lp('/agence-digitale/chatgpt-ads') },
       ],
       hub: { label: dict.common.viewAllAi, href: lp('/intelligence-artificielle') },
     },

@@ -70,6 +70,7 @@ const GROUPS: SitemapGroup[] = [
       { label: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia' },
       { label: 'Automatisation métier', href: '/intelligence-artificielle/automatisation' },
       { label: 'Mise en place IA', href: '/intelligence-artificielle/mise-en-place' },
+      { label: 'Publicité ChatGPT Ads', href: '/agence-digitale/chatgpt-ads' },
     ],
   },
   {

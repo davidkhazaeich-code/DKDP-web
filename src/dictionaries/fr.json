@@ -56,7 +56,8 @@
       { "title": "Automatisation métier", "description": "Workflows sans code, zéro friction." },
       { "title": "Audit et Conseil IA", "description": "Diagnostiquez votre potentiel d'automatisation." },
       { "title": "Mise en place IA", "description": "Déployez l'IA dans votre stack existant." },
-      { "title": "Chatbot IA", "description": "Un assistant 24/7 conçu pour votre métier." }
+      { "title": "Chatbot IA", "description": "Un assistant 24/7 conçu pour votre métier." },
+      { "title": "Publicité ChatGPT Ads", "description": "Vos annonces dans les réponses de ChatGPT, canal ouvert en Suisse." }
     ],
     "iaSecondary": [
       { "title": "Agence IA à Genève" },
@@ -114,7 +115,7 @@
     ],
     "iaLinks": [
       "Agence IA à Genève", "Agents IA sur mesure", "Chatbot IA",
-      "Automatisation métier", "Audit et Conseil IA", "Mise en place IA"
+      "Automatisation métier", "Audit et Conseil IA", "Mise en place IA", "Publicité ChatGPT Ads"
     ],
     "aproposLinks": ["À propos de l'agence", "Tarifs", "Blog", "Glossaire"],
     "legalLinks": [

@@ -766,6 +766,7 @@ export default function AIGenevaPageEN() {
             {[
               { href: '/intelligence-artificielle/agents-ia', label: 'AI agents', desc: 'Claude, GPT-6 Astra, LangChain' },
               { href: '/intelligence-artificielle/chatbot-ia', label: 'AI chatbots', desc: 'Claude, WhatsApp, RAG' },
+              { href: '/agence-digitale/chatgpt-ads', label: 'ChatGPT Ads', desc: 'Ads inside ChatGPT, Ads Manager' },
               { href: '/intelligence-artificielle/automatisation', label: 'Automation', desc: 'n8n, Make, Zapier' },
               { href: '/formation-entreprise/ia', label: 'Corporate AI training', desc: 'One day, 100% operational' },
             ].map((link) => (

@@ -91,6 +91,7 @@ Accueillir les visiteurs du site dkdp.ch, répondre à leurs questions sur les s
 - Hub IA général → [intelligence artificielle](/intelligence-artificielle)
 - Agents IA sur mesure, automatisation avancée → [agents IA](/intelligence-artificielle/agents-ia)
 - Chatbot IA, assistant FAQ, support 24/7 → [chatbot IA](/intelligence-artificielle/chatbot-ia)
+- Publicité dans ChatGPT, annonces sous les réponses, Ads Manager OpenAI → [ChatGPT Ads](/agence-digitale/chatgpt-ads)
 - Automatisation no-code (n8n, Make, workflows) → [automatisation métier](/intelligence-artificielle/automatisation)
 - Audit IA, identification d'opportunités → [audit et conseil IA](/intelligence-artificielle/audit-conseil)
 - Intégration LLM, déploiement IA dans l'entreprise → [mise en place IA](/intelligence-artificielle/mise-en-place)

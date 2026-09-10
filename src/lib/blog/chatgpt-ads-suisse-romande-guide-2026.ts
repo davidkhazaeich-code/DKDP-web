@@ -178,7 +178,7 @@ OpenAI publie ses bonnes pratiques, et elles vont à l'encontre de deux réflexe
 
 Premier réflexe à désapprendre : une annonce parfaite. OpenAI recommande de **construire pour la couverture** : plusieurs variations de titre et de texte par offre, chacune avec un angle différent, pour multiplier les conversations où l'annonce peut être pertinente. Six à huit cartes par offre est un bon point de départ.
 
-Deuxième réflexe : le slogan. OpenAI demande un texte **orienté bénéfice** : la valeur pratique, pour qui, quand c'est utile. « Yoga du soir dès 18h45, séance d'essai offerte, à cinq minutes de la gare des Eaux-Vives » bat « Retrouvez votre équilibre » à tous les coups, parce que la première phrase répond à une conversation réelle.
+Deuxième réflexe : le slogan. OpenAI demande un texte **orienté bénéfice** : la valeur pratique, pour qui, quand c'est utile. « Pilates du soir dès 18h45, séance d'essai offerte, à cinq minutes de la gare des Eaux-Vives » bat « Retrouvez votre équilibre » à tous les coups, parce que la première phrase répond à une conversation réelle. Même logique pour une pizzeria (« table pour six ce soir, réservation en ligne »), un concept store (« livré en 24 h à Lausanne, emballage cadeau offert ») ou une entreprise de nettoyage de bureaux (« devis après visite sous 48 h ») : la carte répond à la question telle qu'elle a été posée.
 
 Trois autres règles, plus techniques :
 

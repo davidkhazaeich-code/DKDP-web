@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { ARTICLES } from '../index'
-import { CLAUDE_TOPIC, getArticlesByTopic, countArticlesByTopic } from '../topics'
+import { CLAUDE_TOPIC, CHATGPT_TOPIC, getArticlesByTopic, countArticlesByTopic } from '../topics'
 
 /**
  * Ces tests protegent la section "Veille et actualite" des pages
@@ -56,6 +56,26 @@ describe('getArticlesByTopic', () => {
     const oublies = attendus.filter((s) => !rendus.includes(s))
 
     expect(oublies).toEqual([])
+  })
+})
+
+describe('CHATGPT_TOPIC', () => {
+  /**
+   * La section « Veille » de la page /agence-digitale/chatgpt-ads (et de son
+   * miroir EN) est alimentée par CHATGPT_TOPIC. Le guide ChatGPT Ads du
+   * 10.09.2026 doit y remonter : son slug porte « chatgpt ».
+   */
+  it('remonte le guide ChatGPT Ads dans la veille ChatGPT', () => {
+    const slugs = getArticlesByTopic(CHATGPT_TOPIC, ARTICLES.length).map((a) => a.slug)
+    expect(slugs).toContain('chatgpt-ads-suisse-romande-guide-2026')
+  })
+
+  it('n oublie aucun article dont le slug ou le titre parle de ChatGPT', () => {
+    const attendus = ARTICLES.filter(
+      (a) => a.slug.includes('chatgpt') || a.title.toLowerCase().includes('chatgpt'),
+    ).map((a) => a.slug)
+    const rendus = getArticlesByTopic(CHATGPT_TOPIC, ARTICLES.length).map((a) => a.slug)
+    expect(attendus.filter((s) => !rendus.includes(s))).toEqual([])
   })
 })
 

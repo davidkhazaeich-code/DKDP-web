@@ -38,19 +38,22 @@ qui envoie chaque evenement **deux fois** :
 > | `generate_lead` | Formulaire - Demande professionnelle | 6919766282 | `0utiCIqCzeMZEKGi3rwB` |
 > | `book_appointment` | RDV Call avec formulaire - Formation IA - DKDP | 7155635183 | `6dkTCO-nidQaEKGi3rwB` |
 > | `whatsapp_click` | Contact Whatsapp | 957006627 | `nBXMCKOGq8gDEKGi3rwB` |
+> | `phone_click` | DKDP - Clic téléphone | 7759168237 | `rwDxCO2F7vMcEKGi3rwB` |
 >
 > ⚠️ **Ne PAS importer en plus ces evenements GA4 comme conversions dans Google
 > Ads** : ils seraient comptes deux fois.
 >
-> ⚠️ `phone_click` n'est pas mappe : le compte n'a aucune action de type page web
-> pour le clic telephone (« Appel depuis site » est de type `WEBSITE_CALL`, le
-> numero de renvoi de Google, qu'un gtag ne peut pas declencher). Creer une action
-> « DKDP - Clic telephone » dans l'interface, puis ajouter son libelle.
+> `DKDP - Clic telephone` a ete creee le 2026-09-11 (source Site Web, categorie
+> Contact, evenement manuel) : le compte n'avait aucune action de type page web pour
+> le clic telephone, « Appel depuis site » etant le numero de renvoi de Google, hors
+> de portee d'un gtag. ⚠️ Dans l'assistant Google Ads, la categorie « Lead par
+> telephone » ne propose QUE les mecanismes d'appel de Google : pour un clic sur un
+> lien `tel:`, passer par la categorie « Contact » avec la source `www.dkdp.ch`.
 >
-> ⚠️ « Formulaire - Demande professionnelle » est encore en **plusieurs par clic** :
-> deux envois du meme formulaire comptent deux conversions. Le `transaction_id`
-> (reutilise depuis `event_id`) neutralise les doubles envois accidentels, mais le
-> reglage doit passer a « une par clic » dans l'interface Google Ads.
+> Les quatre actions comptent **une conversion par clic** (le formulaire a ete passe
+> de « toutes » a « une » le 2026-09-11, Google le recommande lui-meme pour les
+> leads) ; le `transaction_id` (reutilise depuis `event_id`) neutralise en plus les
+> doubles envois accidentels.
 
 ### Tags presents sur le site (constate le 2026-06-22 via trace reseau)
 

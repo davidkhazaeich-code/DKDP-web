@@ -165,17 +165,14 @@ function sendToOpenAi(
  *   generate_lead    -> « Formulaire - Demande professionnelle »  (id 6919766282)
  *   book_appointment -> « RDV Call avec formulaire - Formation IA - DKDP » (7155635183)
  *   whatsapp_click   -> « Contact Whatsapp »                      (id 957006627)
+ *   phone_click      -> « DKDP - Clic telephone »                  (id 7759168237,
+ *                       creee le 2026-09-11 : le compte n'avait aucune action de
+ *                       type page web pour le clic telephone, « Appel depuis site »
+ *                       etant le numero de renvoi de Google, hors de portee d'un gtag)
  *
- * ⚠️ `phone_click` n'est volontairement PAS mappe : le compte n'a pas d'action de
- * type page web pour le clic telephone (« Appel depuis site » est de type
- * WEBSITE_CALL, le numero de renvoi de Google, qu'un gtag ne peut pas declencher).
- * Creer une action « DKDP - Clic telephone » dans Google Ads, puis ajouter son
- * libelle ici.
- *
- * ⚠️ « Formulaire - Demande professionnelle » compte encore *plusieurs par clic* :
- * deux envois du meme formulaire font deux conversions. Le `transaction_id`
- * ci-dessous neutralise les doubles envois accidentels, mais le reglage lui-meme
- * doit passer a « une par clic » dans l'interface Google Ads.
+ * Toutes ces actions comptent « une conversion par clic » (le formulaire a ete
+ * passe de « toutes » a « une » le 2026-09-11) ; le `transaction_id` ci-dessous
+ * neutralise en plus les doubles envois accidentels d'un meme formulaire.
  */
 const GA4_TO_GOOGLE_ADS: Record<
   string,
@@ -190,6 +187,10 @@ const GA4_TO_GOOGLE_ADS: Record<
   },
   [ConversionEvent.WhatsAppClick]: {
     sendTo: 'AW-395809057/nBXMCKOGq8gDEKGi3rwB',
+  },
+  [ConversionEvent.PhoneClick]: {
+    sendTo: 'AW-395809057/rwDxCO2F7vMcEKGi3rwB',
+    value: 1,
   },
 }
 

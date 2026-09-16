@@ -39,7 +39,7 @@ const article: Article = {
   tags: ['Team building', 'Formation IA', 'Cohésion d\'équipe', 'Séminaire', 'PME', 'Suisse romande', '2026'],
   seoTitle: "Team building IA : une journée d'équipe qui laisse des outils",
   seoDescription:
-    "Même journée, même lieu, même budget qu'un team building. Mais l'équipe construit ses propres outils IA et rentre avec quelque chose qui tourne le lundi. Le format DKDP en Suisse romande.",
+    "Même journée, même lieu, même budget qu'un team building, mais l'équipe construit ses outils IA et rentre avec quelque chose qui tourne le lundi matin.",
   faq: [
     {
       question: "Faut-il déjà connaître l'IA pour participer ?",

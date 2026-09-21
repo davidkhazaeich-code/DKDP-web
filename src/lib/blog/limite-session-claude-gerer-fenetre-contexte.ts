@@ -8,6 +8,8 @@ const article: Article = {
     'La limite de session Claude n\'est pas le vrai problème. C\'est juste le symptôme d\'une mauvaise gestion du contexte. Voici les 6 réflexes concrets qui font la différence entre une équipe qui épuise ses crédits en 2 heures et une autre qui tient toute la semaine.',
   date: '23 avril 2026',
   dateISO: '2026-04-23',
+  dateModified: '21 septembre 2026',
+  dateModifiedISO: '2026-09-21',
   readTime: '8 min',
   author: 'David Khazaei',
   heroImage: {
@@ -30,7 +32,29 @@ const article: Article = {
   seoTitle: 'Limite de session Claude : 6 réflexes pour ne plus l\'exploser',
   seoDescription:
     'Pourquoi vos sessions Claude atteignent leur limite trop vite, et les 6 réflexes concrets pour reprendre le contrôle. Guide pratique 2026 pour agences et PME à Genève.',
-  content: `## Le vrai problème n\'est pas la limite
+  faq: [
+    {
+      question: 'Quelle est la limite de session de Claude ?',
+      answer:
+        'Il y en a deux, souvent confondues. La limite d\'usage dépend de l\'abonnement : sur Pro et Max, une enveloppe se recharge par fenêtre de cinq heures, avec un plafond hebdomadaire par-dessus. La fenêtre de contexte, elle, borne une conversation : un million de tokens sur la famille Claude 5 (Fable 5.1, Opus 5, Sonnet 5), 200 000 sur Haiku 4.5. Une session qui « explose » a presque toujours saturé la seconde avant d\'épuiser la première.',
+    },
+    {
+      question: 'Pourquoi Claude devient moins précis au fil d\'une longue conversation ?',
+      answer:
+        'Parce que chaque réponse est calculée sur tout l\'historique. Les essais ratés, les fichiers chargés « au cas où » et les digressions restent dans la fenêtre et pèsent autant que l\'instruction du moment. Le modèle ne perd pas ses capacités, il travaille avec du bruit. Un résumé propre suivi d\'une nouvelle session rend la précision d\'origine.',
+    },
+    {
+      question: 'Faut-il un abonnement plus cher pour ne plus atteindre la limite ?',
+      answer:
+        'Rarement. Une équipe qui applique les six réflexes de cet article divise sa consommation sans changer de forfait. Un plan Team ou Enterprise se justifie pour d\'autres raisons : administration des comptes, données exclues de l\'entraînement, contrat de traitement. C\'est un choix de gouvernance, pas une réponse à une session saturée.',
+    },
+  ],
+  content: `<div style="margin:0 0 2.5rem;padding:1.25rem 1.5rem;border-radius:14px;border:1px solid rgba(212,212,216,0.18);background:rgba(212,212,216,0.05)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#D4D4D8;margin-bottom:0.6rem">Mise à jour, septembre 2026</div>
+<div style="font-size:0.9rem;color:#e4e4e7;line-height:1.7">Depuis avril, la famille Claude 5 (Fable 5.1, Opus 5, Sonnet 5) est passée à un million de tokens de contexte. La limite recule, la discipline décrite ici compte davantage : une fenêtre cinq fois plus grande se remplit de cinq fois plus de bruit. Les six réflexes sont inchangés ; les chiffres, les réglages des abonnements et une FAQ ont été mis à jour, et pour comparer les modèles du moment, voir <a href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" style="color:#A78BFA;text-decoration:underline;text-underline-offset:2px">ChatGPT, Claude ou Copilot pour votre PME</a>.</div>
+</div>
+
+## Le vrai problème n\'est pas la limite
 
 Travailler avec Claude change la donne. Coder plus vite, rédiger des contenus, analyser des documents, piloter un projet. Mais un réflexe revient chez presque tous les utilisateurs : ils poussent la même session jusqu\'à ce qu\'elle explose. Les crédits partent, la qualité baisse, les réponses deviennent floues.
 
@@ -71,7 +95,7 @@ ___IMG:limite-session-claude-courbe-qualite.webp___
 
 ## Le mythe de la grande fenêtre de contexte
 
-Depuis que les modèles affichent des fenêtres de 200 000 tokens ou plus, un mythe s\'est installé. Puisqu\'on peut tout charger, on peut tout garder. Une seule conversation pour un projet entier. Tous les fichiers, tous les échanges, toute la mémoire.
+Depuis que la famille Claude 5 affiche un million de tokens de contexte (Fable 5.1, Opus 5 et Sonnet 5 ; Haiku 4.5 reste à 200 000), un mythe s\'est installé. Puisqu\'on peut tout charger, on peut tout garder. Une seule conversation pour un projet entier. Tous les fichiers, tous les échanges, toute la mémoire.
 
 C\'est une erreur de raisonnement. La grande fenêtre de contexte n\'est pas un objectif à remplir. C\'est une marge de sécurité pour les cas où vous en avez vraiment besoin.
 
@@ -227,6 +251,11 @@ Un bon plan au départ coûte quelques tokens. Pas de plan coûte dix fois plus 
 </div>
 </div>
 
+<div style="margin:2.5rem 0;padding:1.5rem 1.75rem;border-radius:16px;border:1px solid rgba(167,139,250,0.3);background:rgba(124,58,237,0.06)">
+<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A78BFA;margin-bottom:0.6rem">Formation Claude en entreprise</div>
+<div style="font-size:0.95rem;color:#e4e4e7;line-height:1.7">Ces six réflexes s\'apprennent en une journée, sur les vrais dossiers de votre équipe : sessions structurées, projets et fichiers de contexte, sous-agents, règles de confidentialité selon le plan. DKDP anime la <a href="/formation-entreprise/claude-ai" style="color:#A78BFA;text-decoration:underline;text-underline-offset:2px">formation Claude IA</a> dans vos locaux à Genève et en Suisse romande, à partir de CHF 200 de l\'heure pour une personne, sur devis pour un groupe.</div>
+</div>
+
 ## La discipline du contexte
 
 Ces six réflexes ne sont pas des astuces isolées. Ils forment une discipline : traiter le contexte comme une ressource limitée et précieuse, pas comme un réservoir à remplir.
@@ -263,6 +292,20 @@ Une session propre n\'est pas seulement moins chère. Elle est plus stable, plus
 </div>
 
 La différence entre les deux colonnes n\'est pas un abonnement plus cher. C\'est une manière de travailler.
+
+## Questions fréquentes
+
+**Quelle est la limite de session de Claude ?**
+
+Il y en a deux, souvent confondues. La limite d\'usage dépend de l\'abonnement : sur Pro et Max, une enveloppe se recharge par fenêtre de cinq heures, avec un plafond hebdomadaire par-dessus. La fenêtre de contexte, elle, borne une conversation : un million de tokens sur la famille Claude 5 (Fable 5.1, Opus 5, Sonnet 5), 200 000 sur Haiku 4.5. Une session qui « explose » a presque toujours saturé la seconde avant d\'épuiser la première.
+
+**Pourquoi Claude devient moins précis au fil d\'une longue conversation ?**
+
+Parce que chaque réponse est calculée sur tout l\'historique. Les essais ratés, les fichiers chargés « au cas où » et les digressions restent dans la fenêtre et pèsent autant que l\'instruction du moment. Le modèle ne perd pas ses capacités, il travaille avec du bruit. Un résumé propre suivi d\'une nouvelle session rend la précision d\'origine.
+
+**Faut-il un abonnement plus cher pour ne plus atteindre la limite ?**
+
+Rarement. Une équipe qui applique les six réflexes de cet article divise sa consommation sans changer de forfait. Un plan Team ou Enterprise se justifie pour d\'autres raisons : administration des comptes, données exclues de l\'entraînement, contrat de traitement. C\'est un choix de gouvernance, pas une réponse à une session saturée.
 
 ## Ce qu\'il faut retenir
 

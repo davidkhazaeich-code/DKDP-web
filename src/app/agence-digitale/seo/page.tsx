@@ -249,6 +249,7 @@ export default function SEOPage() {
           { label: 'Notre approche', href: '#approche' },
           { label: 'Résultats', href: '#resultats' },
           { label: 'SEO local', href: '#seo-local-geneve' },
+          { label: 'Choisir', href: '#choisir' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'Processus', href: '#process' },
           { label: 'Réalisations', href: '#realisations' },
@@ -312,7 +313,7 @@ export default function SEOPage() {
                 GEO · Nouveau en 2026
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Votre site doit aussi apparaître dans les IA.
+                Comment apparaître dans ChatGPT et les moteurs de réponse ?
               </h2>
               <p className="text-text-secondary leading-relaxed mb-4">
                 ChatGPT, Perplexity, Google AI Overviews et Copilot répondent directement aux questions de vos prospects, sans clic Google. Si votre contenu n&apos;est pas citable par ces IA, vous êtes absent là où une part croissante des décisions d&apos;achat se forme.
@@ -386,7 +387,7 @@ export default function SEOPage() {
             <SectionReveal>
               <GradTag className="mb-4">Le vrai problème</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                Être en page 2 Google, c&apos;est être invisible.
+                Pourquoi la page 2 de Google ne rapporte rien ?
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
                 La position que vous occupez sur Google détermine directement combien de visiteurs vous recevez. La différence entre la position 1 et la page 2 n&apos;est pas de 50% : c&apos;est de 97%. Les clics ne se distribuent pas, ils se concentrent.
@@ -557,6 +558,45 @@ export default function SEOPage() {
         </div>
       </section>
 
+      {/* ── Choisir une agence SEO (D17, plan SEO du 20/09/2026) : reponse
+          directe dans les 40 premiers mots, criteres verifiables ensuite. ── */}
+      <section id="choisir" className="py-24 border-b border-border scroll-mt-[124px]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <SectionReveal>
+              <GradTag className="mb-5">Avant de signer</GradTag>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
+                Comment choisir une agence SEO à Genève ?
+              </h2>
+              <p className="text-text-secondary leading-relaxed mb-4">
+                Choisissez une agence SEO à Genève sur trois preuves : des résultats vérifiables chez des clients nommés, un audit chiffré avant tout devis, et un rapport mensuel que vous comprenez sans elle. Le reste, classement garanti, volume de mots-clés, nombre de liens, ne dit rien de ce que vous encaisserez.
+              </p>
+              <p className="text-text-secondary leading-relaxed mb-4">
+                Demandez d&apos;abord des études de cas avec le nom de l&apos;entreprise, la requête visée et la date : une agence qui refuse de nommer ses clients vous laisse sur parole. Demandez ensuite ce qui sera mesuré : des positions moyennes ne paient pas les salaires, des demandes de devis attribuées au trafic organique, oui. Vérifiez enfin qui fera le travail, un référenceur identifié ou un sous-traitant, et si le contenu est rédigé pour votre métier ou généré en série.
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                Chez DKDP, le premier mois est un audit technique, sémantique et local facturé une fois, avec un plan priorisé que vous pouvez confier à qui vous voulez. Nos deux études de cas publiées, <Link href="/realisations/sos-relevage" className="underline hover:text-text transition-colors">SOS Relevage</Link> et <Link href="/realisations/goldencash-refonte" className="underline hover:text-text transition-colors">Golden Cash</Link>, montrent la méthode et les chiffres.
+              </p>
+            </SectionReveal>
+            <SectionReveal delay={0.1}>
+              <div className="space-y-4">
+                {[
+                  { k: 'Des clients nommés', v: 'Une étude de cas sans nom d\'entreprise ni date ne se vérifie pas. Exigez les deux, puis cherchez la requête vous-même.' },
+                  { k: 'Un audit avant le devis', v: 'Personne ne peut chiffrer un accompagnement sans avoir lu votre site, votre Search Console et votre fiche Google. Un prix annoncé au premier appel est un prix au hasard.' },
+                  { k: 'Des leads, pas des positions', v: 'Le rapport mensuel doit compter les demandes de devis et les appels venus de Google, avec la page qui les a produits.' },
+                  { k: 'Un interlocuteur qui fait le travail', v: 'Demandez qui rédige, qui code, qui répond. Une agence de 3 personnes qui fait tout vaut mieux qu\'un commercial et des sous-traitants.' },
+                ].map((item) => (
+                  <div key={item.k} className="p-6 bg-bg-card border border-border rounded-[16px]">
+                    <p className="text-text font-semibold mb-1.5">{item.k}</p>
+                    <p className="text-text-secondary text-sm leading-relaxed">{item.v}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionReveal>
+          </div>
+        </div>
+      </section>
+
       {/* ── Offres ── */}
       <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
         <section id="tarifs" className="py-24 border-y border-border scroll-mt-[124px]">
@@ -676,7 +716,7 @@ export default function SEOPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Méthode</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Comment on construit votre visibilité.
+                Comment se déroule une mission SEO chez DKDP ?
               </h2>
             </div>
           </SectionReveal>
@@ -695,57 +735,6 @@ export default function SEOPage() {
       </section>
 
       {/* ── Témoignages ── */}
-      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Témoignages</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que disent nos clients.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'On était en page 3 sur tous nos mots-clés. Six mois après, on est top 3 sur 8 requêtes stratégiques. Notre téléphone ne s\'arrête plus.',
-                author: 'Directrice, cabinet d\'avocats',
-                location: 'Genève',
-              },
-              {
-                quote: 'DKDP a d\'abord corrigé les erreurs techniques de notre site, puis construit une stratégie de contenu. Le trafic a triplé en 10 mois.',
-                author: 'Responsable marketing, PME industrielle',
-                location: 'Vaud',
-              },
-              {
-                quote: 'Le SEO local a tout changé. Avant, personne ne nous trouvait. Maintenant, 60% de nos nouveaux patients viennent de Google.',
-                author: 'Fondatrice, clinique esthétique',
-                location: 'Genève',
-              },
-            ].map((t, i) => (
-              <SectionReveal key={t.author} delay={i * 0.1}>
-                <div className="flex flex-col gap-4 p-7 bg-bg-card border border-border rounded-[16px] h-full">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} size={14} fill={color} style={{ color }} />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary text-sm leading-relaxed flex-1">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div>
-                    <p className="text-text text-sm font-semibold">{t.author}</p>
-                    <p className="text-text-muted text-xs">{t.location}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
-
       {/* ── Réalisations + Garanties ── */}
       <section id="realisations" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">

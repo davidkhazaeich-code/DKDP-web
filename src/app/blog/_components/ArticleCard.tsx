@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { BLOG_CATEGORIES, type Article } from '@/lib/blog'
 import type { Locale } from '@/i18n/config'
@@ -22,10 +23,14 @@ export function ArticleCard({ article, delay, lang = 'fr' }: { article: Article;
       >
         {/* Hero image */}
         <div className="h-[200px] flex-shrink-0 relative overflow-hidden">
-          <img
+          {/* next/image et non <img> : React 19 precharge tout <img> non lazy,
+              /blog emettait 36 preloads pour 17 Mo de PNG (action D22). */}
+          <Image
             src={article.heroImage.src}
             alt={article.heroImage.alt}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <span

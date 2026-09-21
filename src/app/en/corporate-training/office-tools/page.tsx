@@ -24,7 +24,7 @@ import { AppLogoMarquee, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from '@/compone
 import { ExcelSkillsComparison } from './_components/ExcelSkillsComparison'
 
 export const metadata: Metadata = {
-  title: 'Office and Excel Training Geneva and French-speaking Switzerland | DKDP',
+  title: 'Office and Excel Training Geneva & Switzerland | DKDP',
   description:
     'Office and Excel corporate training in Geneva and French-speaking Switzerland. Word, PowerPoint, Microsoft 365. Programme tailored to your team, SME or large company. Free quote.',
   alternates: {

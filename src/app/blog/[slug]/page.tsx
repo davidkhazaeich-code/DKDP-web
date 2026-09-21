@@ -16,6 +16,7 @@ import {
   type CategoryKey,
 } from '@/lib/blog'
 import { violet, orange, chrome } from '@/lib/tokens'
+import { intrinsicSize } from '@/lib/image-size'
 import { InlineCTA } from './_components/InlineCTA'
 import { ServiceGrid } from './_components/ServiceGrid'
 import { SummarizeWithAI } from './_components/SummarizeWithAI'
@@ -60,6 +61,7 @@ export async function generateMetadata(
       url: `https://dkdp.ch/blog/${slug}`,
       type: 'article',
       publishedTime: article.dateISO,
+      modifiedTime: article.dateModifiedISO ?? article.dateISO,
       images: article.heroImage.src
         ? [{ url: `https://dkdp.ch${article.heroImage.src}` }]
         : [],
@@ -372,7 +374,7 @@ export default async function ArticlePage(
       description:   article.seoDescription,
       url:           `/blog/${article.slug}`,
       datePublished: article.dateISO,
-      dateModified:  article.dateISO,
+      dateModified:  article.dateModifiedISO ?? article.dateISO,
       authorName:    article.author,
       image:         `https://dkdp.ch${article.heroImage.src}`,
       readTime:      article.readTime,
@@ -415,10 +417,25 @@ export default async function ArticlePage(
       // Inline image
       const img = article.images?.find(im => im.src.includes(seg))
       if (!img) return null
+      const size = intrinsicSize(img.src)
       return (
         <figure key={`img-${i}`} className="my-10">
           <div className="rounded-[16px] overflow-hidden border border-zinc-800">
-            <img src={img.src} alt={img.alt} className="w-full h-auto" />
+            {/* Dimensions lues dans le fichier : next/image sert un WebP a la
+                taille affichee au lieu du PNG brut (720 Ko vers 27 Ko mesure). */}
+            {size ? (
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={size.width}
+                height={size.height}
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="w-full h-auto"
+              />
+            ) : (
+              // eslint-disable-next-line @next/next/no-img-element -- format inconnu du lecteur d'en-tete
+              <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-auto" />
+            )}
           </div>
           {img.caption && (
             <figcaption className="text-center text-sm text-zinc-500 mt-3 italic">
@@ -459,9 +476,22 @@ export default async function ArticlePage(
           </h1>
 
           <div className="flex items-center gap-4 text-sm text-zinc-500 mb-10 flex-wrap">
-            <span>Par {article.author}</span>
+            <span>
+              Par{' '}
+              <Link href="/a-propos" className="text-zinc-300 hover:text-white underline-offset-4 hover:underline">
+                {article.author}
+              </Link>
+            </span>
             <span>·</span>
             <time dateTime={article.dateISO}>{article.date}</time>
+            {article.dateModifiedISO && article.dateModified && (
+              <>
+                <span>·</span>
+                <span>
+                  Mis à jour le <time dateTime={article.dateModifiedISO}>{article.dateModified}</time>
+                </span>
+              </>
+            )}
             <span>·</span>
             <span>{article.readTime} de lecture</span>
           </div>
@@ -583,11 +613,13 @@ export default async function ArticlePage(
                       href={`/blog/${rel.slug}`}
                       className="flex flex-col h-full bg-zinc-900/60 border border-zinc-800 rounded-[16px] overflow-hidden hover:-translate-y-0.5 transition-all duration-300 hover:border-zinc-600 group"
                     >
-                      <div className="aspect-video overflow-hidden">
-                        <img
+                      <div className="relative aspect-video overflow-hidden">
+                        <Image
                           src={rel.heroImage.src}
                           alt={rel.heroImage.alt}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 340px"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
                       <div className="p-5 flex flex-col flex-1">

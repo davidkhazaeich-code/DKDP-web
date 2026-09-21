@@ -39,6 +39,13 @@ export type Route = {
    * et un `lastmod` qui ment à chaque passage finit par être ignoré lui aussi.
    */
   lastModified?: string
+  /**
+   * Page servie avec `robots: { index: false }` (pages legales). Elle reste
+   * dans ROUTES pour le plan du site et les tests de routage, mais le sitemap
+   * la saute avec son miroir EN : lister une URL noindex dans le sitemap est
+   * une contradiction que Search Console signale (6 cas au 14/09/2026, D20).
+   */
+  noindex?: boolean
 }
 
 export type Redirect = {
@@ -128,9 +135,9 @@ export const ROUTES: Route[] = [
 
   // ─── Utilitaires / Légales ────────────────────────────────────────────────
   { url: '/plan-du-site',                    priority: 0.30, changeFrequency: 'yearly' },
-  { url: '/mentions-legales',                priority: 0.20, changeFrequency: 'yearly' },
-  { url: '/politique-de-confidentialite',    priority: 0.20, changeFrequency: 'yearly' },
-  { url: '/conditions-generales-de-vente',   priority: 0.20, changeFrequency: 'yearly' },
+  { url: '/mentions-legales',                priority: 0.20, changeFrequency: 'yearly', noindex: true },
+  { url: '/politique-de-confidentialite',    priority: 0.20, changeFrequency: 'yearly', noindex: true },
+  { url: '/conditions-generales-de-vente',   priority: 0.20, changeFrequency: 'yearly', noindex: true },
 
 ]
 

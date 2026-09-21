@@ -20,7 +20,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
-  title: 'Corporate Video Production Geneva & French-speaking Switzerland · DKDP',
+  title: 'Corporate Video Production Geneva & Switzerland · DKDP',
   description:
     'Professional video production in Geneva. Brand films, client testimonials, Reels and short-form content. Capture attention and stay memorable.',
   alternates: {

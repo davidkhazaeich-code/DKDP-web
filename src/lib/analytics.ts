@@ -5,7 +5,7 @@
  *
  * Chaque evenement est envoye a la fois a :
  *   - Google Analytics 4  (gtag, mesure G-SCXF5R826D)  ← chemin fiable, GA4 le recoit toujours
- *   - dataLayer Google Tag Manager (GTM-NDMXZL8)        ← permet de declencher des tags Ads/remarketing
+ *   - dataLayer (file gtag ; GTM-NDMXZL8 n'est plus charge depuis le 21/09/2026, action D21)
  *   - pixel OpenAI (ChatGPT Ads, MhbGMaod48Cuvp7YJVsNgA) ← conversions des campagnes ChatGPT
  *
  * Cote Google Ads, les conversions partent MAINTENANT en direct depuis ce fichier
@@ -84,7 +84,8 @@ function currentPagePath(): string | undefined {
 }
 
 /**
- * Pousse un evenement vers GA4 (gtag) ET le dataLayer (GTM).
+ * Pousse un evenement vers GA4 (gtag) ET le dataLayer (sans GTM depuis le
+ * 21/09/2026 : la file reste utile a un futur conteneur, elle ne coute rien).
  * No-op cote serveur. Les valeurs `undefined` sont retirees, et `page_path`
  * est ajoute automatiquement s'il n'est pas fourni.
  */

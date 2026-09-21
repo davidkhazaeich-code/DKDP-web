@@ -20,7 +20,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
-  title: 'Marketing Consulting Geneva & French-speaking Switzerland · DKDP',
+  title: 'Marketing Consulting Geneva & Switzerland · DKDP',
   description:
     'Digital marketing consulting for SMBs in Geneva. Digital presence audit, bespoke strategy and ongoing support. Clarify your digital direction.',
   alternates: {

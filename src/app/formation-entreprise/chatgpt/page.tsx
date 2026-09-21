@@ -602,7 +602,7 @@ export default function FormationChatGptPage() {
                 Programme de formation ChatGPT : une journée pour passer à l&apos;action
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-                7 heures de formation pratique, construites sur vos propres documents et cas d&apos;usage.
+                6 heures de formation pratique sur place, construites sur vos propres documents et cas d&apos;usage.
                 Pas de slides génériques. Pas d&apos;exemples inventés.
               </p>
             </div>

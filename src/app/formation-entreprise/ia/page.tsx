@@ -63,7 +63,7 @@ const FAQ = [
   {
     question: 'Combien de temps dure la formation IA en entreprise ?',
     answer:
-      'La formation standard dure une journée complète (7h). On propose aussi un format demi-journée (3h30) pour une introduction aux outils IA, et un format sur 2 jours pour une maîtrise approfondie incluant la création d\'automatisations.',
+      'La formation standard dure une journée : 6 h de formation sur place, précédées de 2 h de préparation de votre programme. On propose aussi une demi-journée (3 h) pour une introduction aux outils IA, et un format sur 2 jours pour une maîtrise approfondie incluant la création d\'automatisations.',
   },
   {
     question: 'Quels outils IA sont abordés dans la formation ?',
@@ -84,6 +84,11 @@ const FAQ = [
     question: 'Combien de personnes peuvent participer à la formation ?',
     answer:
       'Le format idéal est de 4 à 10 personnes par groupe pour garantir que chaque participant puisse pratiquer et poser ses questions. Pour les grandes équipes, on organise plusieurs sessions successives.',
+  },
+  {
+    question: 'Quelles données peut-on confier à ChatGPT ou Claude ?',
+    answer:
+      'Cela dépend du compte, pas de l\'outil. Sur un compte gratuit ou personnel, les échanges peuvent servir à entraîner les modèles par défaut : on n\'y colle ni données de clients identifiés, ni dossiers RH, ni chiffres non publics, la nLPD (loi fédérale sur la protection des données, en vigueur depuis le 1er septembre 2023) vous en rend responsable. Sur un compte Team ou Enterprise, les données ne servent pas à l\'entraînement et un contrat de traitement encadre le fournisseur. La formation consacre un module à ces règles et à la configuration des espaces d\'équipe ; notre guide détaillé : dkdp.ch/blog/protection-donnees-ia-nlpd-pme-suisse.',
   },
   {
     question: 'Combien coûte une journée de formation IA pour mon équipe ?',
@@ -147,7 +152,7 @@ export default function FormationIAPage() {
                   <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>1 jour</GradText>{' '}chez nous. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>8 heures</GradText>{' '}gagnées chaque semaine.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP forme vos collaborateurs à ChatGPT Astra, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. <strong className="text-text">100% de nos participants sont opérationnels dès J+1</strong> et gagnent en moyenne 8 heures par semaine.
+                  DKDP forme vos collaborateurs à ChatGPT Astra, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. <strong className="text-text">Vos collaborateurs sont opérationnels dès le lendemain</strong>, avec leurs propres prompts et une routine IA en place.
                 </p>
                 <HeroPills
                   accentRgb="255, 140, 0"
@@ -262,7 +267,7 @@ export default function FormationIAPage() {
                 La plupart des collaborateurs ont testé ChatGPT une fois, obtenu un résultat décevant, et sont passés à autre chose. Pourtant, former ses équipes à l&apos;IA avec les bonnes techniques de prompting réduit de 60 à 80% le temps de traitement des tâches répétitives.
               </p>
               <p className="text-text-secondary leading-relaxed mb-6">
-                DKDP ne fait pas de démonstrations génériques. On travaille sur vos vrais documents, vos vrais emails et vos vrais cas d&apos;usage. Dès le lendemain matin, vous avez des prompts personnels et une routine IA opérationnelle. Pour comparer les outils, consultez notre guide <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-text transition-colors">ChatGPT vs Claude vs Copilot pour les PME</Link>.
+                DKDP ne fait pas de démonstrations génériques. On travaille sur vos vrais documents, vos vrais emails et vos vrais cas d&apos;usage. Dès le lendemain matin, vous avez des prompts personnels et une routine IA opérationnelle. Pour comparer les outils, consultez notre guide <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-text transition-colors">ChatGPT vs Claude vs Copilot pour les PME</Link> ; pour savoir quelles données leur confier, notre guide <Link href="/blog/protection-donnees-ia-nlpd-pme-suisse" className="underline hover:text-text transition-colors">protection des données et IA en Suisse (nLPD)</Link>.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
                 Septembre 2026 a changé la donne : ChatGPT Astra (GPT-6), sorti le 3 septembre, n&apos;est plus un assistant qui discute mais un modèle qui agit. Il pilote un ordinateur et un navigateur, enchaîne des étapes seul et livre des documents finis. Le piège, c&apos;est l&apos;accès : un abonnement Plus l&apos;obtient dans ChatGPT Work et Codex, pas dans la conversation classique, qui reste sur GPT-5.6 Sol. On le traite pendant la journée, et en profondeur dans <Link href="/formation-entreprise/chatgpt" className="underline hover:text-text transition-colors">notre formation ChatGPT dédiée</Link>.
@@ -387,7 +392,7 @@ export default function FormationIAPage() {
               </p>
               <div className="space-y-3">
                 {[
-                  '7 heures de formation, moins de 45 min de théorie pure',
+                  '6 heures de formation sur place, moins de 45 min de théorie pure',
                   'Exercices sur vos vrais documents et vos vraies tâches',
                   'Chaque participant repart avec ses templates de prompts personnels',
                   'Attestation individuelle de formation remise en fin de journée',

@@ -13,6 +13,17 @@ export interface Article {
   excerpt: string
   date: string
   dateISO: string
+  /**
+   * Revision de fond, optionnelle (21/09/2026, plan SEO, action X06.2).
+   * A remplir UNIQUEMENT quand le contenu a reellement change (modeles mis a
+   * jour, section ajoutee), jamais pour une correction de lien ou de typo :
+   * `dateModified` du BlogPosting et la ligne « Mis a jour le » viennent d'ici,
+   * et un faux signal de fraicheur vaut moins qu'aucun (regle lastmod honnete).
+   * Les deux champs vont ensemble : `dateModified` en toutes lettres pour la
+   * page, `dateModifiedISO` (AAAA-MM-JJ) pour le schema et l'Open Graph.
+   */
+  dateModified?: string
+  dateModifiedISO?: string
   readTime: string
   author: string
   heroImage: BlogImage

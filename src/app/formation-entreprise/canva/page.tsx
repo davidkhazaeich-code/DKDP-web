@@ -24,9 +24,9 @@ import { AppLogoMarquee, DESIGN_WEB_LOGOS, SOCIAL_LOGOS } from '@/components/ui/
 import { CanvaFeatureCards } from './_components/CanvaFeatureCards'
 
 export const metadata: Metadata = {
-  title: 'Formation Canva Genève & Suisse romande | Brand Kit, Magic Studio | DKDP',
+  title: 'Formation Canva à Genève : Brand Kit, Magic Studio | DKDP',
   description:
-    'Formation Canva pour PME et entreprises à Genève et en Suisse romande. Brand Kit, templates, posts sociaux, présentations, IA Magic Studio. Vos équipes créent des visuels professionnels en une journée. Devis gratuit.',
+    'Formation Canva à Genève pour vos équipes : Brand Kit, templates, posts sociaux, présentations et Magic Studio en une journée. Devis sous 48 h.',
   alternates: {
     canonical: 'https://dkdp.ch/formation-entreprise/canva',
     languages: {

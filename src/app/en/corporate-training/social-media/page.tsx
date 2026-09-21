@@ -25,7 +25,7 @@ import { AppLogoMarquee, SOCIAL_LOGOS, DESIGN_WEB_LOGOS } from '@/components/ui/
 import { SocialBeforeAfter } from './_components/SocialBeforeAfter'
 
 export const metadata: Metadata = {
-  title: 'Social Media Training Geneva & French-speaking Switzerland · DKDP',
+  title: 'Social Media Training Geneva & Switzerland · DKDP',
   description:
     'Social media training for SMEs in French-speaking Switzerland and Geneva. Instagram, LinkedIn, TikTok, Facebook. Strategy, Canva, content calendar. Request your free quote.',
   alternates: {

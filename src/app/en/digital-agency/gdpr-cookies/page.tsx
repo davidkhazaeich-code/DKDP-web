@@ -20,7 +20,7 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
-  title: 'GDPR and FADP Geneva & French-speaking Switzerland | Cookie banner | DKDP',
+  title: 'GDPR and FADP Geneva & Switzerland | Cookie banner | DKDP',
   description:
     'GDPR and FADP compliance for companies and SMBs in Geneva. Cookie banner, privacy policy, processing register. Audit within 48h, from CHF 800.',
   alternates: {

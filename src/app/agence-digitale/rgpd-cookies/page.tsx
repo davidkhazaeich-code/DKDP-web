@@ -22,9 +22,9 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 
 export const metadata: Metadata = {
-  title: 'RGPD et nLPD Genève & Suisse romande | Bandeau cookies | DKDP',
+  title: 'RGPD et nLPD à Genève : bandeau cookies conforme | DKDP',
   description:
-    'Mise en conformité RGPD et nLPD pour entreprises et PME à Genève. Bandeau cookies, politique de confidentialité, registre des traitements. Audit sous 48h, dès CHF 800.',
+    'Conformité RGPD et nLPD pour PME à Genève : bandeau cookies, politique de confidentialité, registre des traitements. Audit CHF 800, réponse sous 48 h.',
   alternates: {
     canonical: 'https://dkdp.ch/agence-digitale/rgpd-cookies',
     languages: {

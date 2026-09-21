@@ -16,6 +16,7 @@ import remarkGfm from 'remark-gfm'
 import { getCalApi } from '@calcom/embed-react'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 import { trackChatOpen } from '@/lib/analytics'
+import { consumeHandover } from './chat-handover'
 
 // Ouvre la modale Cal.com. Utilisee par la SmartCTABar quand l'assistant
 // emet le token [BOOK] dans son message.
@@ -545,12 +546,15 @@ function LimitReachedCTA() {
 // ── Main ChatWidget ─────────────────────────────────────────────────────────
 
 export function ChatWidget() {
+  // Relais depuis la barre statique de LazyChatWidget (action D21) : saisie
+  // et focus deja acquis, et pas d'animation d'entree si la barre etait la.
+  const [handover] = useState(consumeHandover)
   const [isEurope, setIsEurope] = useState(true)
   const [isOpen, setIsOpen] = useState(false)
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState(handover.input)
   const [placeholderIndex, setPlaceholderIndex] = useState(0)
   const [showPlaceholder, setShowPlaceholder] = useState(true)
-  const [barFocused, setBarFocused] = useState(false)
+  const [barFocused, setBarFocused] = useState(handover.focus)
   const pathname = usePathname()
   // Textes du widget selon la langue de la page (voir copyFor plus haut).
   const copy = copyFor(localeFromPath(pathname))
@@ -633,6 +637,12 @@ export function ChatWidget() {
   useEffect(() => {
     if (speech.error) console.warn('[chatbot dictation]', speech.error)
   }, [speech.error])
+
+  // Relais depuis la barre statique : le champ qu'on vient de remplacer avait
+  // le focus, le visiteur doit pouvoir continuer a taper sans recliquer.
+  useEffect(() => {
+    if (handover.focus) inputRef.current?.focus()
+  }, [handover.focus])
 
   // Hide chat outside Europe
   useEffect(() => {
@@ -1009,7 +1019,7 @@ export function ChatWidget() {
         {!isOpen && (
           <div ref={barRef} className="chat-bottom-bar-wrapper">
           <m.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={handover.skipIntro ? false : { opacity: 0, y: 30 }}
             animate={{
               opacity: 1,
               y: 0,

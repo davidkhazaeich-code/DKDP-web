@@ -62,7 +62,7 @@ const FAQ = [
   {
     question: 'How long does corporate AI training last?',
     answer:
-      'The standard training lasts a full day (7h). We also offer a half-day format (3h30) for an introduction to AI tools, and a 2-day format for in-depth mastery including building automations.',
+      'The standard training lasts one day: 6 hours on site, preceded by 2 hours preparing your programme. We also offer a half day (3 hours) as an introduction to AI tools, and a 2-day format for in-depth mastery including building automations.',
   },
   {
     question: 'Which AI tools are covered in the training?',
@@ -83,6 +83,11 @@ const FAQ = [
     question: 'How many people can take part in the training?',
     answer:
       'The ideal format is 4 to 10 people per group to ensure each participant can practise and ask their questions. For large teams, we organise several successive sessions.',
+  },
+  {
+    question: 'What data can you share with ChatGPT or Claude?',
+    answer:
+      'It depends on the account, not the tool. On a free or personal account, conversations may be used to train the models by default: no identified customer data, HR files or non-public figures go there, and the Swiss nFADP (in force since 1 September 2023) makes you accountable for it. On a Team or Enterprise account, data is not used for training and a data processing agreement binds the provider. The training dedicates a module to these rules and to configuring team workspaces; our detailed guide (in French): dkdp.ch/blog/protection-donnees-ia-nlpd-pme-suisse.',
   },
   {
     question: 'How much does a day of AI training for my team cost?',
@@ -146,7 +151,7 @@ export default function FormationIAPage() {
                   <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>1 day</GradText>{' '}with us. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>8 hours</GradText>{' '}saved every week.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP trains your staff on ChatGPT Astra, Claude and Microsoft Copilot on-site in Geneva and across French-speaking Switzerland. A 100% tailored programme for SMEs and large companies, focused on practice. <strong className="text-text">100% of our participants are operational from day one</strong> and save an average of 8 hours per week.
+                  DKDP trains your staff on ChatGPT Astra, Claude and Microsoft Copilot on-site in Geneva and across French-speaking Switzerland. A 100% tailored programme for SMEs and large companies, focused on practice. <strong className="text-text">Your staff are operational the next day</strong>, with their own prompts and an AI routine in place.
                 </p>
                 <HeroPills
                   accentRgb="255, 140, 0"
@@ -386,7 +391,7 @@ export default function FormationIAPage() {
               </p>
               <div className="space-y-3">
                 {[
-                  '7 hours of training, less than 45 min of pure theory',
+                  '6 hours of on-site training, less than 45 min of pure theory',
                   'Exercises on your real documents and your real tasks',
                   'Each participant leaves with their personal prompt templates',
                   'Individual completion certificate handed out at the end of the day',

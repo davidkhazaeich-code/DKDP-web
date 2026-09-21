@@ -25,7 +25,7 @@ const Testimonials = dynamic(() => import('@/components/sections/Testimonials').
 
 export const metadata: Metadata = {
   // 21/09/2026 (SEO plan, D02.1): the previous title measured 692 px, Google cut it.
-  title: 'SEO Agency Geneva & French-speaking Switzerland | DKDP',
+  title: 'SEO Agency Geneva & Switzerland | DKDP',
   description:
     'SEO agency in Geneva and French-speaking Switzerland: audit, local SEO, content and link building for Swiss SMBs. No commitment.',
   alternates: {

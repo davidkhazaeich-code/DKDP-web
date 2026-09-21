@@ -655,7 +655,7 @@ export default function FormationClaudeAIPage() {
                 Programme de formation Claude IA : une journée pour maîtriser l&apos;outil
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-                7 heures de formation pratique, construites sur vos propres documents et cas d&apos;usage.
+                6 heures de formation pratique sur place, construites sur vos propres documents et cas d&apos;usage.
                 Pas de slides génériques. Pas d&apos;exemples inventés.
               </p>
             </div>

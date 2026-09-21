@@ -49,7 +49,11 @@ const LISTING_DATES: Record<string, string> = {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes: MetadataRoute.Sitemap = ROUTES.map((route) => {
+  // Les pages noindex (legales) et leurs miroirs EN restent hors du sitemap.
+  const indexable = ROUTES.filter((route) => !route.noindex)
+  const noindexUrls = new Set(ROUTES.filter((route) => route.noindex).map((route) => route.url))
+
+  const staticRoutes: MetadataRoute.Sitemap = indexable.map((route) => {
     const enSlug = FR_TO_EN[route.url]
     const alternates =
       enSlug !== undefined
@@ -73,7 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // EN routes : on n'inclut que les pages avec un equivalent traduit.
   // La version EN est un miroir 1:1 : elle hérite de la date de la page FR
   // plutôt que d'en inventer une.
-  const enRoutes: MetadataRoute.Sitemap = Object.entries(FR_TO_EN).map(([frPath, enPath]) => {
+  const enRoutes: MetadataRoute.Sitemap = Object.entries(FR_TO_EN).filter(([frPath]) => !noindexUrls.has(frPath)).map(([frPath, enPath]) => {
     const matchingFrRoute = ROUTES.find((r) => r.url === frPath)
     return {
       url: enPath === '/' ? `${BASE_URL}/en` : `${BASE_URL}/en${enPath}`,

@@ -6,6 +6,7 @@ import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvide
 import { CalProvider } from '@/components/providers/CalProvider'
 import { ConversionTracker } from '@/components/providers/ConversionTracker'
 import { OpenAiPageView } from '@/components/providers/OpenAiPageView'
+import { WebVitals } from '@/components/providers/WebVitals'
 import { MotionProvider } from '@/components/providers/MotionProvider'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { Header } from '@/components/layout/Header'
@@ -13,7 +14,7 @@ import { FooterWrapper } from '@/components/layout/FooterWrapper'
 import { LazyChatWidget } from '@/components/ui/LazyChatWidget'
 import { OPENAI_PIXEL_ID } from '@/lib/openai-ads'
 
-/** Seul hote ou la mesure (GA4, GTM, pixel OpenAI) est active. */
+/** Seul hote ou la mesure (GA4, pixel OpenAI) est active. */
 const TRACKING_HOST = 'dkdp.ch'
 import { getServerLocale } from '@/i18n/server'
 import { htmlLangs, ogLocales } from '@/i18n/config'
@@ -100,10 +101,22 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             __html: `!function(w,d,s,u){if(w.oaiq)return;if(w.location.hostname!=="${TRACKING_HOST}"){w.oaiq=function(){};return}var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"${OPENAI_PIXEL_ID}"${process.env.NODE_ENV === 'production' ? '' : ',debug:true'}});`,
           }}
         />
-        {/* Google Tag Manager */}
-        <Script id="gtm-head" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];if(w.location.hostname!=='${TRACKING_HOST}')return;w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NDMXZL8');`}
-        </Script>
+        {/* GTM-NDMXZL8 retire le 21/09/2026 (plan SEO, action D21) : le conteneur
+            ne portait que 7 balises en pause et une conversion RDV sur un
+            selecteur Webflow inexistant ici, deja envoyee par analytics.ts.
+            149 Ko de JS tiers en moins, aucune mesure perdue (audit API dans
+            seo-plan-2026-09/AUDIT-GTM-PORTEFEUILLE-2026-09-21.md). */}
+        {/* Stub gtag, inline et synchrone : analytics.ts appelle
+            `window.gtag?.()` des le premier rendu (conversions, vues de page
+            OpenAI), la file dataLayer doit donc exister avant React. La
+            bibliotheque gtag.js elle-meme se charge apres `load` (script
+            gtag-lib en bas de page) et rejoue la file. */}
+        <script
+          id="gtag-stub"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-SCXF5R826D');`,
+          }}
+        />
         <link rel="dns-prefetch" href="https://app.cal.com" />
         <link rel="help" href="/llms.txt" type="text/plain" title="LLM Information" />
         <meta name="ai-content-declarations" content="This site contains original content by DKDP, a digital agency in Geneva, Switzerland." />
@@ -125,21 +138,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         className="font-sans antialiased"
         style={{ background: 'var(--bg)', color: 'var(--text)' }}
       >
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-NDMXZL8"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
         <MotionProvider>
           <ThemeProvider>
             <SmoothScrollProvider>
               <CalProvider />
               <ConversionTracker />
               <OpenAiPageView />
+              <WebVitals />
               <Header />
               {children}
               <FooterWrapper />
@@ -148,22 +153,19 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </ThemeProvider>
         </MotionProvider>
         <Analytics />
-        {/* Google tag (gtag.js), charge par le script lui-meme apres la garde
-            d'hote : hors dkdp.ch, `gtag` existe (il alimente le dataLayer) mais
-            aucune bibliotheque n'est chargee, donc rien ne part. */}
-        <Script id="gtag-init" strategy="afterInteractive">
+        {/* Google tag (gtag.js), charge apres `load` (lazyOnload, action D21 :
+            il partait en priorite haute avant les chunks Next). Garde d'hote :
+            hors dkdp.ch, le stub du head garde la file mais aucune bibliotheque
+            n'est chargee, donc rien ne part. Les appels faits avant ce moment
+            (page_view, conversions) attendent dans dataLayer et sont rejoues. */}
+        <Script id="gtag-lib" strategy="lazyOnload">
           {`
             (function(){
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              window.gtag = gtag;
               if (window.location.hostname !== '${TRACKING_HOST}') return;
               var s = document.createElement('script');
               s.async = true;
               s.src = 'https://www.googletagmanager.com/gtag/js?id=G-SCXF5R826D';
               document.head.appendChild(s);
-              gtag('js', new Date());
-              gtag('config', 'G-SCXF5R826D');
             })();
           `}
         </Script>

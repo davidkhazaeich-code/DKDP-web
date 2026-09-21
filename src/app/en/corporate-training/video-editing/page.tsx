@@ -24,7 +24,7 @@ import { orange } from '@/lib/tokens'
 import { VideoToolCards } from './_components/VideoToolCards'
 
 export const metadata: Metadata = {
-  title: 'Video Editing Training Geneva & French-speaking Switzerland · DKDP',
+  title: 'Video Editing Training Geneva & Switzerland · DKDP',
   description:
     'Video editing training for SMEs in French-speaking Switzerland. CapCut, DaVinci Resolve, Premiere Pro. Your teams produce in house. Free quote.',
   alternates: {

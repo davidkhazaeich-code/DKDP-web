@@ -24,7 +24,7 @@ import { orange } from '@/lib/tokens'
 import { AppLogoMarquee, DESIGN_WEB_LOGOS, SOCIAL_LOGOS } from '@/components/ui/AppLogos'
 
 export const metadata: Metadata = {
-  title: 'Canva Training Geneva & French-speaking Switzerland | Brand Kit, Magic Studio | DKDP',
+  title: 'Canva Training in Geneva: Brand Kit, Magic Studio | DKDP',
   description:
     'Canva training for SMEs and companies in Geneva and French-speaking Switzerland. Brand Kit, templates, social posts, presentations, Magic Studio AI. Your teams create professional visuals in a single day. Free quote.',
   alternates: {

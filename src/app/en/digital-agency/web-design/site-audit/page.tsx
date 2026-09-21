@@ -13,7 +13,7 @@ import { violet as violetToken, chrome as chromeToken, orange as orangeToken, gr
 import { AuditHeroFormEn } from './_components/AuditHeroFormEn'
 
 export const metadata: Metadata = {
-  title: 'Free website audit · Geneva & French-speaking Switzerland · DKDP',
+  title: 'Free website audit · Geneva & Switzerland · DKDP',
   description:
     'Receive a complete analysis of your website in 48h: performance, SEO, UX, security, accessibility. Free for SMBs in French-speaking Switzerland.',
   alternates: {

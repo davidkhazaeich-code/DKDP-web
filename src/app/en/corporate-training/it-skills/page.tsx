@@ -26,7 +26,7 @@ import { AppLogoMarquee, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from '@/compone
 import { ITProblemsComparison } from './_components/ITProblemsComparison'
 
 export const metadata: Metadata = {
-  title: 'IT Skills Training Geneva and French-speaking Switzerland · DKDP',
+  title: 'IT Skills Training Geneva & Switzerland · DKDP',
   description:
     'IT skills training for SMEs in Geneva and French-speaking Switzerland. Windows, emails, network, collaboration tools. All levels, on site. Request your free quote.',
   alternates: {

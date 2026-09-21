@@ -40,7 +40,7 @@ const Testimonials = dynamic(() => import('@/components/sections/Testimonials').
 const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBlock').then(m => ({ default: m.SiteAuditBlock })))
 
 export const metadata: Metadata = {
-  title: 'Website redesign Geneva & French-speaking Switzerland | No SEO loss | DKDP',
+  title: 'Website redesign Geneva & Switzerland | No SEO loss | DKDP',
   description:
     'Redesign of outdated websites in Geneva: modern design, rethought UX, WordPress or Next.js migration with no SEO loss. +240% traffic in 6 months on average. Free audit, 48-hour quote.',
   alternates: {

@@ -8,8 +8,8 @@ const border = orange.border
 const SKILLS = [
   {
     Icon: MessageSquare,
-    title: 'Prompting avance',
-    desc: 'Techniques de chain-of-thought, few-shot, role-playing et meta-prompting. Vos instructions deviennent precises, vos résultats fiables.',
+    title: 'Prompting avancé',
+    desc: 'Techniques de chain-of-thought, few-shot, role-playing et meta-prompting. Vos instructions deviennent précises, vos résultats fiables.',
     span: 'md:col-span-2',
     visual: (
       <div className="mt-4 space-y-2 font-mono text-[11px]">
@@ -19,7 +19,7 @@ const SKILLS = [
         </div>
         <div className="flex items-center gap-2">
           <span style={{ color: 'var(--green-text)' }}>{'✓'}</span>
-          <span className="text-text">Synthese structuree en 30s au lieu de 15min</span>
+          <span className="text-text">Synthèse structurée en 30 s au lieu de 15 min</span>
         </div>
       </div>
     ),
@@ -49,7 +49,7 @@ const SKILLS = [
   {
     Icon: BrainCircuit,
     title: 'ChatGPT Astra vs Claude vs Copilot',
-    desc: "Savoir quel outil utiliser pour quelle tache. Forces, limites, cas d'usage optimaux de chaque plateforme.",
+    desc: "Savoir quel outil utiliser pour quelle tâche. Forces, limites, cas d'usage optimaux de chaque plateforme.",
     span: '',
     visual: (
       <div className="mt-4 grid grid-cols-3 gap-2">
@@ -74,7 +74,7 @@ const SKILLS = [
   {
     Icon: Zap,
     title: 'Automatisations quotidiennes',
-    desc: 'Emails, comptes-rendus, syntheses, traductions, reponses clients. Les taches repetitives passent de 15 minutes a 30 secondes.',
+    desc: 'Emails, comptes-rendus, synthèses, traductions, réponses clients. Les tâches répétitives passent de 15 minutes à 30 secondes.',
     span: '',
     visual: (
       <div className="mt-4 flex flex-col gap-1.5">
@@ -96,8 +96,8 @@ const SKILLS = [
   },
   {
     Icon: Shield,
-    title: 'Confidentialite et bonnes pratiques',
-    desc: 'Ce qu\'on peut envoyer, ce qu\'on ne doit jamais partager. Configuration securisee des espaces d\'équipe.',
+    title: 'Confidentialité et bonnes pratiques',
+    desc: 'Ce qu\'on peut envoyer, ce qu\'on ne doit jamais partager. Configuration sécurisée des espaces d\'équipe.',
     span: '',
     visual: (
       <div className="mt-4 flex gap-2">
@@ -113,7 +113,7 @@ const SKILLS = [
   {
     Icon: BarChart2,
     title: 'Templates personnels',
-    desc: 'Chaque participant repart avec une bibliotheque de prompts testes et valides, adaptés a son poste et ses taches quotidiennes.',
+    desc: 'Chaque participant repart avec une bibliothèque de prompts testés et validés, adaptés à son poste et ses tâches quotidiennes.',
     span: 'md:col-span-2',
     visual: (
       <div className="mt-4 flex flex-wrap gap-2">

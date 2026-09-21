@@ -31,7 +31,14 @@ let urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
 if (filtres.length) urls = urls.filter((u) => filtres.some((f) => u.includes(f)))
 if (!urls.length) { console.error('Aucune URL a mesurer'); process.exit(1) }
 
-const decode = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+// Entites nommees ET numeriques (decimales `&#39;`, hexadecimales `&#x27;`) :
+// Next emet `&#x27;` pour l'apostrophe, et sans ce cas 4 titles sur 144 etaient
+// mesures avec 5 caracteres de trop (constat D11 du plan SEO du 20/09/2026).
+const NAMED = { amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', nbsp: '\u00a0' }
+const decode = (s) => s
+  .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+  .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number(dec)))
+  .replace(/&(amp|quot|apos|lt|gt|nbsp);/g, (_, name) => NAMED[name])
 
 const pages = []
 for (const url of urls) {

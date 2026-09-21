@@ -843,7 +843,7 @@ export default function ClaudeAITrainingPage() {
                 Claude AI training programme: one day to master the tool
               </h2>
               <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-                7 hours of hands-on training, built on your own documents and use cases.
+                6 hours of hands-on training on site, built on your own documents and use cases.
                 No generic slides. No made-up examples.
               </p>
             </div>

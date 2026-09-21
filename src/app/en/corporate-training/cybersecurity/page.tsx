@@ -24,7 +24,7 @@ import { orange } from '@/lib/tokens'
 import { ThreatLevelChart } from './_components/ThreatLevelChart'
 
 export const metadata: Metadata = {
-  title: 'Cybersecurity Training Geneva & French-speaking Switzerland · DKDP',
+  title: 'Cybersecurity Training Geneva & Switzerland · DKDP',
   description:
     'Cybersecurity training for SMEs and companies in French-speaking Switzerland. Phishing, ransomware, social engineering. Real simulations, best practices and an incident response plan. Free quote.',
   alternates: {

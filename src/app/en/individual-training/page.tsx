@@ -30,7 +30,7 @@ import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, DESIGN_WEB_LOGOS, SOCIAL_L
 export const metadata: Metadata = {
   title: 'Computer Training for Individuals Geneva · DKDP',
   description:
-    'In-home computer lessons for individuals in Geneva, with cours-informatique.ch: computer, smartphone, Excel, AI, cybersecurity. From CHF 140/h, no commitment.',
+    'In-home computer lessons in Geneva for individuals: computer, smartphone, Excel, AI, cybersecurity. From CHF 140/h, no commitment.',
   alternates: {
     canonical: 'https://dkdp.ch/en/individual-training',
     languages: {

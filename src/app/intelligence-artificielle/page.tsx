@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   // 21/09/2026 (plan SEO, D03) : la page /intelligence-artificielle/geneve est
   // fusionnée ici (301). Title 557 px, description 899 px, prix de src/data/pricing.
   title: 'Agence IA Genève & Suisse romande | Agents IA PME | DKDP',
-  description: `Agence IA à Genève (Eaux-Vives) : agents IA, chatbots et automatisation n8n pour PME romandes. Audit IA dès ${chf(PRIX.auditIaStandard)}, agent dès ${chf(PRIX.agentFrom)}.`,
+  description: `Agence IA à Genève (Eaux-Vives) : agents IA, chatbots et automatisation pour PME romandes. Audit IA dès ${chf(PRIX.auditIaStandard)}, agent dès ${chf(PRIX.agentFrom)}.`,
   alternates: {
     canonical: 'https://dkdp.ch/intelligence-artificielle',
     languages: {

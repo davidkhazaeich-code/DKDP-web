@@ -29,7 +29,7 @@ export function ProgressionDiagram({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
           <p className="text-right text-[10px] font-bold mt-0.5" style={{ color: lvl.color }}>{lvl.pct}%</p>
         </div>
       ))}
-      <p className="text-text-muted text-[11px] text-center pt-2">{lang === 'en' ? 'Typical progress observed in training' : 'Progression moyenne observée sur 500+ participants'}</p>
+      <p className="text-text-muted text-[11px] text-center pt-2">{lang === 'en' ? 'Typical progress observed in training' : 'Progression type observée en formation'}</p>
     </div>
   )
 }

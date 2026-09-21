@@ -29,7 +29,7 @@ import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, DESIGN_WEB_LOGOS, SOCIAL_L
 export const metadata: Metadata = {
   title: 'Formation Informatique Particuliers Genève · DKDP',
   description:
-    "Cours d'informatique à domicile pour particuliers à Genève, avec cours-informatique.ch : ordinateur, smartphone, Excel, IA, cybersécurité. Dès CHF 140/h, sans engagement.",
+    "Cours d'informatique à domicile à Genève pour particuliers : ordinateur, smartphone, Excel, IA, cybersécurité. Dès CHF 140/h, sans engagement.",
   alternates: {
     canonical: 'https://dkdp.ch/formation-particuliers',
     languages: {

@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!city) return {}
 
   const title = `Digital agency in ${city.name} | Web, SEO, AI | DKDP`
-  const description = `Digital agency in ${city.name} (${city.canton}): web design and redesign, local SEO, Google Ads and AI for ${city.name} SMBs. Based in Geneva since 2019. Quote within 48h.`
+  const description = `Digital agency in ${city.name} (${city.canton}): websites, local SEO, Google Ads and AI for SMBs. Based in Geneva since 2019. Quote within 48h.`
 
   return {
     title,

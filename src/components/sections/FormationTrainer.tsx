@@ -32,7 +32,7 @@ const CONTENT = {
     ratingCount: '22 avis',
     ratingPost: 'sur la fiche DKDP',
     trainers: [
-      { role: 'Fondateur DKDP, cadrage des formations', bio: 'Accompagne les entreprises suisses dans leur transformation digitale depuis 2015 et cadre chaque formation avec l\'équipe concernée, de la PME aux grandes structures.', skills: ['IA et automatisation', 'Stratégie digitale', 'Développement web'], highlight: '700+ clients' },
+      { role: 'Fondateur DKDP, cadrage des formations', bio: 'Accompagne les entreprises suisses dans leur transformation digitale depuis 2015 et cadre chaque formation avec l\'équipe concernée, de la PME aux grandes structures.', skills: ['IA et automatisation', 'Stratégie digitale', 'Développement web'], highlight: 'Depuis 2019' },
       { role: 'Experte IA, SEO et UX, formatrice', bio: 'Spécialiste en intelligence artificielle et UX design. Combine expertise technique et pédagogie pour rendre chaque concept accessible.', skills: ['Intelligence artificielle', 'SEO et GEO', 'UX Design'], highlight: 'IA et SEO' },
       { role: 'Formateur développement et informatique', bio: 'Développeur et formateur passionné. Approche structurée et concrète pour que chaque participant reparte avec des bases solides.', skills: ['Développement web', 'Python', 'Bureautique'], highlight: 'Dev et IT' },
     ],
@@ -54,7 +54,7 @@ const CONTENT = {
     ratingCount: '22 reviews',
     ratingPost: 'on the DKDP listing',
     trainers: [
-      { role: 'DKDP founder, training design', bio: 'Supports Swiss companies in their digital transformation since 2015 and frames every training with the team concerned, from SMEs to large organisations.', skills: ['AI and automation', 'Digital strategy', 'Web development'], highlight: '700+ clients' },
+      { role: 'DKDP founder, training design', bio: 'Supports Swiss companies in their digital transformation since 2015 and frames every training with the team concerned, from SMEs to large organisations.', skills: ['AI and automation', 'Digital strategy', 'Web development'], highlight: 'Depuis 2019' },
       { role: 'AI, SEO and UX expert, trainer', bio: 'Specialist in artificial intelligence and UX design. Combines technical expertise and teaching to make every concept accessible.', skills: ['Artificial intelligence', 'SEO and GEO', 'UX Design'], highlight: 'AI and SEO' },
       { role: 'Development and IT trainer', bio: 'A passionate developer and trainer. A structured, concrete approach so every participant leaves with solid foundations.', skills: ['Web development', 'Python', 'Office tools'], highlight: 'Dev and IT' },
     ],

@@ -24,7 +24,7 @@ import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 export const metadata: Metadata = {
   // 21/09/2026 (SEO plan, D03): /en/artificial-intelligence/geneva merged here (301).
   title: 'AI Agency Geneva & Romandy | AI agents for SMBs | DKDP',
-  description: `AI agency in Geneva (Eaux-Vives): AI agents, chatbots and n8n automation for Swiss SMBs. AI audit from ${chf(PRIX.auditIaStandard)}, agent from ${chf(PRIX.agentFrom)}.`,
+  description: `AI agency in Geneva (Eaux-Vives): AI agents, chatbots and automation for Swiss SMBs. AI audit from ${chf(PRIX.auditIaStandard)}, agent from ${chf(PRIX.agentFrom)}.`,
   alternates: {
     canonical: 'https://dkdp.ch/en/artificial-intelligence',
     languages: {

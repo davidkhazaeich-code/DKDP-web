@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Gabarit sous 580 px pour les 7 villes (21/09/2026, plan SEO, D10) ; Montreux et
   // Neuchâtel ont leur seoTitle dans lib/cities.ts.
   const title = city.seoTitle ?? `Agence digitale à ${city.name} | Sites web, SEO, IA | DKDP`
-  const description = `Agence digitale à ${city.name} (${city.canton}) : création et refonte de sites web, SEO local, Google Ads et IA pour les PME de ${city.name}. Basée à Genève depuis 2019. Devis sous 48 h.`
+  const description = `Agence digitale à ${city.name} (${city.canton}) : sites web, SEO local, Google Ads et IA pour les PME. Basée à Genève depuis 2019. Devis sous 48 h.`
 
   const enSlug = city.slug
 

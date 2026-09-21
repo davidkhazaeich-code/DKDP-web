@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { PRIX, chf } from '@/data/pricing'
 import Image from 'next/image'
 import {
   CheckCircle2,
@@ -95,9 +96,9 @@ function PlatformGrid() {
 }
 
 export const metadata: Metadata = {
-  title: 'Social Media Geneva & French-speaking Switzerland · Instagram, LinkedIn · DKDP',
-  description:
-    'Social media agency in Geneva: community management, content creation and Social Ads for SMBs. Instagram, LinkedIn, TikTok, YouTube.',
+  // 21/09/2026 (SEO plan, D07.A), mirror of the FR page.
+  title: 'Social media agency Geneva & Romandy | DKDP',
+  description: `Social media agency in Geneva: community management, Instagram and LinkedIn content for Swiss SMBs. Plans from ${chf(PRIX.socialFrom)}/month.`,
   alternates: {
     canonical: 'https://dkdp.ch/en/digital-agency/social-media',
     languages: {
@@ -155,9 +156,9 @@ const FAQ = [
 const BENEFITS = [
   {
     Icon: TrendingUp,
-    value: '+180%',
-    title: 'Engagement on the rise',
-    desc: 'Our clients see their engagement increase by 180% on average within the first 3 months thanks to a content strategy tailored to each platform.',
+    value: 'Steady',
+    title: 'A presence that lasts',
+    desc: 'An editorial calendar kept every week and tailored to each platform, rather than one-off posts whenever time allows.'
   },
   {
     Icon: Clock,
@@ -229,12 +230,12 @@ export default function ReseauxSociauxPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Social media management Geneva & French-speaking Switzerland</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Social media agency Geneva & French-speaking Switzerland: community management for SMBs</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Posts that <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>do the work</GradText>, not presence for the sake of it.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  Your community manager in Geneva: DKDP, a social media agency, manages your presence from A to Z. Strategy, content creation, publishing and community management. +180% average engagement in 3 months. You focus on your business, we handle the rest.
+                  DKDP is a social media agency in Geneva: strategy, content creation, publishing and community management for SMBs across French-speaking Switzerland, on Instagram, LinkedIn, Facebook and TikTok. You focus on your business, we handle the rest.
                 </p>
                 <HeroPills
                   items={[
@@ -284,10 +285,10 @@ export default function ReseauxSociauxPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '+180%', l: 'Average engagement', sub: 'Over first 3 months' },
+              { v: `${chf(PRIX.socialFrom)}/mo`, l: 'Base plan', sub: 'One platform, no commitment' },
               { v: '5', l: 'Platforms managed', sub: 'Meta, LinkedIn, TikTok, YT...' },
-              { v: '12h/wk', l: 'Freed up', sub: 'For your team' },
-              { v: '2.7M', l: 'Cumulative impressions', sub: 'Active clients 2025/2026' },
+              { v: '1', l: 'Point of contact', sub: 'Strategy, content and publishing' },
+              { v: 'Monthly', l: 'Report', sub: 'Reach, engagement, leads' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -310,7 +311,6 @@ export default function ReseauxSociauxPage() {
           { label: 'Results', href: '#résultats' },
           { label: 'Pricing', href: '#tarifs' },
           { label: 'Process', href: '#process' },
-          { label: 'Work', href: '#realisations' },
           { label: 'FAQ', href: '#faq' },
         ]}
         cta={{ label: 'Get in touch', href: '/contact' }}
@@ -565,7 +565,7 @@ export default function ReseauxSociauxPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Method</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                How our social media agency manages your networks.
+                What does community management include?
               </h2>
             </div>
           </SectionReveal>
@@ -583,60 +583,7 @@ export default function ReseauxSociauxPage() {
         </div>
       </section>
 
-      {/* ── Témoignages ── */}
-      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
-        <section id="realisations" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Testimonials</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                What our clients say.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'In 3 months, our Instagram account grew from 800 to 4\'200 engaged followers. But above all, we generate 8 to 10 leads per week via DM. The ROI is real.',
-                name: 'Founder',
-                company: 'Lifestyle brand, Geneva',
-              },
-              {
-                quote: 'DKDP has managed our networks for 8 months. Our LinkedIn engagement has been multiplied by 5. Our prospects know our name even before we call them.',
-                name: 'Sales Director',
-                company: 'B2B SMB, Vaud',
-              },
-              {
-                quote: 'We had tried to do it in-house. It was time-consuming and the results were not there. DKDP changed everything in 60 days.',
-                name: 'Communications Manager',
-                company: '50-person company',
-              },
-            ].map((t, i) => (
-              <SectionReveal key={t.company} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] p-7 border"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-0.5 mb-4">
-                    {[...Array(5)].map((_, j) => (
-                      <svg key={j} className="w-3.5 h-3.5 fill-current" style={{ color }} viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-text-secondary text-sm leading-relaxed flex-1 mb-6">&quot;{t.quote}&quot;</p>
-                  <div>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs mt-0.5">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* Anonymous testimonials removed on 21/09/2026 (SEO plan, D07.A): no nameable social client, unsourced figures. */}
 
       {/* ── Engagements ── */}
       <section className="py-16 border-t border-border">

@@ -37,10 +37,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = getCity(ville)
   if (!city) return {}
 
-  const title = `Agence digitale à ${city.name} | Sites web, SEO, IA & Formation | DKDP`
-  const description = `Agence digitale à ${city.name} (${city.canton}) : création et refonte de sites web, SEO, intelligence artificielle, formation. DKDP accompagne les PME de ${city.name} depuis 2015. Devis 48 h.`
+  // Gabarit sous 580 px pour les 7 villes (21/09/2026, plan SEO, D10) ; Montreux et
+  // Neuchâtel ont leur seoTitle dans lib/cities.ts.
+  const title = city.seoTitle ?? `Agence digitale à ${city.name} | Sites web, SEO, IA | DKDP`
+  const description = `Agence digitale à ${city.name} (${city.canton}) : création et refonte de sites web, SEO local, Google Ads et IA pour les PME de ${city.name}. Basée à Genève depuis 2019. Devis sous 48 h.`
 
-  const enSlug = city.slug === 'geneve' ? 'geneva' : city.slug
+  const enSlug = city.slug
 
   return {
     title,
@@ -116,7 +118,7 @@ export default async function CityPage({ params }: Props) {
     },
     {
       question: `Pourquoi choisir DKDP comme agence IA a ${city.name} ?`,
-      answer: `DKDP combine expertise technique (web, IA, automatisation) et 10+ ans d'expérience avec 700+ clients en Suisse romande. Contrairement aux pure players IA, nous integrons l'intelligence artificielle dans une stratégie digitale globale (site web, SEO, formation). Notre proximite avec ${city.name} permet un accompagnement regulier.`,
+      answer: `DKDP combine expertise technique (web, IA, automatisation) et connaissance du terrain romand depuis 2019, avec deux réalisations publiées (Golden Cash, SOS Relevage). Contrairement aux pure players IA, nous integrons l'intelligence artificielle dans une stratégie digitale globale (site web, SEO, formation). Notre proximite avec ${city.name} permet un accompagnement regulier.`,
     },
   ]
 
@@ -157,12 +159,18 @@ export default async function CityPage({ params }: Props) {
                   Agence digitale à {city.name}
                 </GradTag>
                 <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
-                  Agence digitale à{' '}
-                  <GradText as="span">{city.name}</GradText>{' '}
-                  : sites web, SEO, IA et formation pour PME.
+                  {city.h1 ? (
+                    city.h1
+                  ) : (
+                    <>
+                      Agence digitale à{' '}
+                      <GradText as="span">{city.name}</GradText>{' '}
+                      : sites web, SEO, IA et formation pour PME.
+                    </>
+                  )}
                 </h1>
                 <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.85)' }} data-speakable="true">
-                  Création et refonte de sites web, référencement SEO et GEO, intelligence artificielle et formation entreprise. DKDP accompagne les PME de {city.name} depuis 2015. 700+ clients, conforme nLPD 2023.
+                  Création et refonte de sites web, référencement SEO local, Google Ads, intelligence artificielle et formation entreprise. DKDP, agence fondée à Genève en 2019, accompagne les PME de {city.name}. Sites conformes à la nLPD.
                 </p>
                 <HeroPills
                   align="center"
@@ -203,9 +211,9 @@ export default async function CityPage({ params }: Props) {
         <div className="max-w-[1200px] mx-auto px-5 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
-              { v: '700+', l: 'Clients accompagnes' },
-              { v: '10+ ans', l: "D'expérience" },
-              { v: '5/5', l: 'Note Google' },
+              { v: '2019', l: 'Agence fondée à Genève' },
+              { v: '2', l: 'Réalisations publiées' },
+              { v: '5,0/5', l: 'Note Google, 22 avis' },
               { v: city.distance, l: `De ${city.name}` },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -329,7 +337,7 @@ export default async function CityPage({ params }: Props) {
         <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border">
           <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: V }}>Nos services</p>
           <h2 className="text-2xl md:text-3xl font-bold mb-3 text-text">
-            Solutions digitales completes a {city.name}
+            {city.h2Services ?? `Solutions digitales complètes à ${city.name}`}
           </h2>
           <p className="text-text-secondary text-sm md:text-base mb-10 max-w-xl">
             De l'agent IA a la création de site web, DKDP couvre l'ensemble de vos besoins digitaux pour les entreprises de {city.name} et du canton de {city.canton}.

@@ -20,7 +20,7 @@ const EN: Record<string, Partial<City>> = {
   geneve: {
     name: 'Geneva',
     description: 'Digital agency in Geneva: web design, SEO, AI and training for Geneva SMEs. Based in Eaux-Vives, 5 minutes from Rive.',
-    localContext: 'Based at 36 rue du 31 Décembre, in Eaux-Vives, DKDP has supported Geneva companies since 2015. From the Old Town to Carouge, from the Nations district to Grand-Saconnex, we know the local business landscape and its challenges.',
+    localContext: 'Based at 36 rue du 31 Décembre, in Eaux-Vives, DKDP has supported Geneva companies since 2019. From the Old Town to Carouge, from the Nations district to Grand-Saconnex, we know the local business landscape and its challenges.',
     distance: 'On site',
     population: '200,000+ residents',
     economicProfile: 'International organisations, banks, watchmaking, commodity trading, tech startups',

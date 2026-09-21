@@ -16,6 +16,14 @@ export type City = {
   videoSrc?: string
   /** Static image for hero background (used if no videoSrc) */
   imageSrc?: string
+  /**
+   * Textes propres a une ville quand le gabarit ne suffit pas (21/09/2026,
+   * plan SEO, D10). Absents = gabarit `Agence digitale à ${name}`.
+   */
+  seoTitle?: string
+  h1?: string
+  /** H2 de la section services, orientee sur la requete qui rapporte. */
+  h2Services?: string
 }
 
 export const CITIES: City[] = [
@@ -25,7 +33,7 @@ export const CITIES: City[] = [
     canton: 'GE',
     heroLine: 'Votre agence digitale au cœur de Genève',
     description: 'Agence digitale à Genève : création de sites web, SEO, IA et formation pour les PME genevoises. Basée aux Eaux-Vives, à 5 minutes de Rive.',
-    localContext: 'Basée au 36 rue du 31 Décembre, aux Eaux-Vives, DKDP accompagne les entreprises genevoises depuis 2015. De la Vieille-Ville à Carouge, du quartier des Nations au Grand-Saconnex, nous connaissons le tissu économique local et ses enjeux.',
+    localContext: 'Basée au 36 rue du 31 Décembre, aux Eaux-Vives, DKDP accompagne les entreprises genevoises depuis 2019. De la Vieille-Ville à Carouge, du quartier des Nations au Grand-Saconnex, nous connaissons le tissu économique local et ses enjeux.',
     distance: 'Sur place',
     population: '200 000+ habitants',
     economicProfile: 'Organisations internationales, banques, horlogerie, négoce de matieres premieres, startups tech',
@@ -81,7 +89,7 @@ export const CITIES: City[] = [
     name: 'Fribourg',
     canton: 'FR',
     heroLine: 'Agence digitale au service des entreprises fribourgeoises',
-    description: 'DKDP créé des sites web, optimisé le SEO et déploie l\'IA pour les entreprises de Fribourg. Expertise Suisse romande depuis Geneve.',
+    description: 'DKDP crée des sites web, optimise le SEO et déploie l\'IA pour les entreprises de Fribourg. Expertise Suisse romande depuis Genève.',
     localContext: 'Fribourg, ville bilingue au carrefour de la Suisse romande et alemannique, offre un positionnement unique pour les entreprises. DKDP apporte son expertise digitale aux PME fribourgeoises qui veulent se demarquer en ligne.',
     distance: '140 km de Geneve (1h30)',
     population: '42 000+ habitants',
@@ -116,11 +124,16 @@ export const CITIES: City[] = [
   },
   {
     slug: 'neuchatel',
-    name: 'Neuchatel',
+    name: 'Neuchâtel',
     canton: 'NE',
+    // « agence digitale neuchatel » : la page est en position 9 sans accent dans
+    // le H1 ; l'accent est celui de la ville et du canton.
+    seoTitle: 'Agence digitale Neuchâtel : site web, SEO, IA | DKDP',
+    h1: 'Agence digitale à Neuchâtel : site web, référencement SEO et Google Ads pour PME',
+    h2Services: 'Référencement SEO et Google Ads à Neuchâtel',
     heroLine: 'Agence digitale pour les entreprises neuchateloises',
-    description: 'DKDP créé des sites web, optimisé le SEO et déploie l\'IA pour les entreprises de Neuchatel. Expertise en Suisse romande.',
-    localContext: 'Neuchatel, berceau de l\'horlogerie et de la microtechnique, abrite des entreprises innovantes qui ont besoin d\'une presence digitale a la hauteur de leur savoir-faire. DKDP accompagne cette transformation.',
+    description: 'DKDP crée des sites web, optimise le SEO et déploie l\'IA pour les entreprises de Neuchâtel. Expertise en Suisse romande.',
+    localContext: 'Neuchâtel, berceau de l\'horlogerie et de la microtechnique, abrite des entreprises innovantes qui ont besoin d\'une presence digitale a la hauteur de leur savoir-faire. DKDP accompagne cette transformation.',
     distance: '155 km de Geneve (1h30)',
     population: '34 000+ habitants',
     economicProfile: 'Horlogerie, microtechnique, CSEM, startups deeptech, universite',
@@ -130,7 +143,7 @@ export const CITIES: City[] = [
       'Automatisation des processus de production deeptech',
       'IA generative pour la documentation technique et brevets',
     ],
-    formationContext: 'L\'ecosysteme deeptech neuchatelois (CSEM, horlogerie, microtechnique) requiert des formations IA pointues. Nos sessions a Neuchatel couvrent l\'IA appliquee a l\'industrie, au controle qualité et a l\'innovation.',
+    formationContext: 'L\'ecosysteme deeptech neuchatelois (CSEM, horlogerie, microtechnique) requiert des formations IA pointues. Nos sessions à Neuchâtel couvrent l\'IA appliquee a l\'industrie, au controle qualité et a l\'innovation.',
     videoSrc: '/videos/hero-neuchatel.mp4',
   },
   {
@@ -156,6 +169,11 @@ export const CITIES: City[] = [
     slug: 'montreux',
     name: 'Montreux',
     canton: 'VD',
+    // Position 9,1 sur « agence digitale montreux » : « digitale » garde,
+    // « web » ajoute pour la requete creation de site (D10).
+    seoTitle: 'Agence web et digitale à Montreux : sites, SEO, IA | DKDP',
+    h1: 'Agence web et digitale à Montreux : création de site, SEO et IA pour la Riviera',
+    h2Services: 'Création de site web à Montreux',
     heroLine: 'Agence digitale pour les entreprises de Montreux',
     description: 'Agence digitale pour Montreux et la Riviera vaudoise. Sites web, SEO, IA et formation par DKDP.',
     localContext: 'Montreux, celebre pour son festival de jazz et le tourisme de la Riviera, est aussi une ville d\'affaires. DKDP aide les entreprises locales, de l\'hotellerie aux services, a renforcer leur presence en ligne.',

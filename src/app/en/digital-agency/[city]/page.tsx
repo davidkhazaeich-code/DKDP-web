@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = getCityEN(citySlug)
   if (!city) return {}
 
-  const title = `Digital agency in ${city.name} | Web, SEO, AI & Training | DKDP`
-  const description = `Digital agency in ${city.name} (${city.canton}): web design and redesign, SEO, artificial intelligence, training. DKDP supports ${city.name} SMEs since 2015. Quote in 48h.`
+  const title = `Digital agency in ${city.name} | Web, SEO, AI | DKDP`
+  const description = `Digital agency in ${city.name} (${city.canton}): web design and redesign, local SEO, Google Ads and AI for ${city.name} SMBs. Based in Geneva since 2019. Quote within 48h.`
 
   return {
     title,
@@ -118,7 +118,7 @@ export default async function CityPageEN({ params }: Props) {
     },
     {
       question: `Why choose DKDP as an AI agency in ${city.name}?`,
-      answer: `DKDP combines technical expertise (web, AI, automation) and 10+ years of experience with 700+ clients across French-speaking Switzerland. Unlike pure-play AI shops, we integrate artificial intelligence into a global digital strategy (website, SEO, training). Our proximity to ${city.name} allows ongoing support.`,
+      answer: `DKDP combines technical expertise (web, AI, automation) and hands-on knowledge of French-speaking Switzerland since 2019, with two published case studies (Golden Cash, SOS Relevage). Unlike pure-play AI shops, we integrate artificial intelligence into a global digital strategy (website, SEO, training). Our proximity to ${city.name} allows ongoing support.`,
     },
   ]
 
@@ -166,7 +166,7 @@ export default async function CityPageEN({ params }: Props) {
                   : websites, SEO, AI and training for SMEs.
                 </h1>
                 <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.85)' }} data-speakable="true">
-                  Website creation and redesign, SEO and GEO, artificial intelligence and corporate training. DKDP supports {city.name} SMEs since 2015. 700+ clients, FADP 2023 compliant.
+                  Website creation and redesign, local SEO, Google Ads, artificial intelligence and corporate training. DKDP, founded in Geneva in 2019, supports {city.name} SMBs. FADP-compliant websites.
                 </p>
                 <HeroPills
                   align="center"
@@ -207,9 +207,9 @@ export default async function CityPageEN({ params }: Props) {
         <div className="max-w-[1200px] mx-auto px-5 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
-              { v: '700+', l: 'Clients supported' },
-              { v: '10+ yrs', l: 'Of experience' },
-              { v: '5/5', l: 'Google rating' },
+              { v: '2019', l: 'Founded in Geneva' },
+              { v: '2', l: 'Published case studies' },
+              { v: '5.0/5', l: 'Google rating, 22 reviews' },
               { v: city.distance, l: `From ${city.name}` },
             ].map((s) => (
               <SectionReveal key={s.l}>

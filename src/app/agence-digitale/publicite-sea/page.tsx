@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import Image from 'next/image'
+import { PRIX, chf, chfMois } from '@/data/pricing'
 import {
   CheckCircle2,
   Zap,
@@ -12,7 +12,7 @@ import {
   BarChart2,
   Clock,
   Globe2,
-  Star,
+
   Search,
   Target,
   Sparkles,
@@ -25,7 +25,7 @@ import { TrustLine } from '@/components/ui/TrustLine'
 import { HeroPills } from '@/components/ui/HeroPills'
 import { HeroBg } from '@/components/ui/HeroBg'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { AdComparison } from './_components/AdComparison'
 import { HeroVisual } from './_components/HeroVisual'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
@@ -36,9 +36,11 @@ const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 export const metadata: Metadata = {
-  title: 'Google Ads Genève & Suisse romande · Campagnes SEA · DKDP',
+  // 21/09/2026 (plan SEO, D08) : title 558 px, description 797 px sans prix ;
+  // dashboard fictif, ROAS 4,2x, -32 %, temoignages anonymes et « SLA 24h » retires.
+  title: 'Agence Google Ads & SEA Genève & Suisse romande · DKDP',
   description:
-    'Agence Google Ads à Genève. Campagnes Search et Display rentables, avec suivi précis du ROI. Résultats dès la première semaine.',
+    'Agence SEA à Genève : audit et gestion de vos campagnes Google Ads pour PME romandes, budget maîtrisé, rapport mensuel.',
   alternates: {
     canonical: 'https://dkdp.ch/agence-digitale/publicite-sea',
     languages: {
@@ -106,9 +108,9 @@ const BENEFITS = [
   },
   {
     Icon: TrendingUp,
-    value: '-32%',
-    title: 'CPA en baisse continue',
-    desc: 'En moyenne, nos clients réduisent leur coût par acquisition de 32% dans les 3 premiers mois grâce à l\'optimisation systématique.',
+    value: 'Hebdo',
+    title: 'CPA suivi chaque semaine',
+    desc: 'Termes de recherche, exclusions, enchères et annonces sont relus chaque semaine : le coût par lead se pilote, il ne se constate pas en fin de mois.',
   },
 ]
 
@@ -140,28 +142,17 @@ const PROCESS = [
   },
 ]
 
-const REALISATIONS = [
-  {
-    client: 'Cabinet comptable B2B',
-    type: 'Campagne Search',
-    image: '/images/services/dkdp-agence-sea.webp',
-    results: ['+340% de leads qualifiés', 'CPA de CHF 185 → CHF 58', 'ROAS 6.2× en 90 jours'],
-    tech: 'Google Ads · Search · Extensions',
-  },
-  {
-    client: 'Clinique spécialisée',
-    type: 'Search + Display',
-    image: '/images/services/dkdp-agence-creation-web.webp',
-    results: ['0 à 40 patients/mois via Ads', 'CTR 5.8% (moyenne secteur: 1.4%)', 'Budget CHF 1\'200/mois, CA +220k'],
-    tech: 'Google Ads · Display · Call Tracking',
-  },
-  {
-    client: 'E-commerce lifestyle',
-    type: 'Shopping + Performance Max',
-    image: '/images/services/dkdp-agence-reseaux-sociaux.webp',
-    results: ['ROAS 8.1× sur Shopping', '+180% chiffre d\'affaires Q4', 'Taux conversion 4.2% vs 1.1%'],
-    tech: 'Google Shopping · Performance Max · GA4',
-  },
+/**
+ * Ce qu'on regarde vraiment dans un compte (remplace les trois cas fictifs
+ * retires le 21/09/2026). C'est la grille du workflow google-ads-audit-compte.
+ */
+const METHODE_AUDIT = [
+  { title: 'Conversions', desc: 'Quelles actions comptent, lesquelles sont mortes ou doublonnent, et si l\'enchère automatique optimise sur un signal réel.' },
+  { title: 'Termes de recherche', desc: 'Les requêtes qui ont réellement déclenché vos annonces sur 90 jours, celles qui coûtent sans convertir, les exclusions à poser.' },
+  { title: 'Structure', desc: 'Campagnes, groupes et correspondances : un mot-clé gagnant ne se déplace pas, un groupe fourre-tout se scinde.' },
+  { title: 'Annonces et extensions', desc: 'Titres alignés sur la requête, pages de destination qui tiennent la promesse, extensions à jour.' },
+  { title: 'Enchères et budget', desc: 'Stratégie adaptée au volume de conversions disponible, plafonds de CPC, répartition par appareil et par zone.' },
+  { title: 'Mesure', desc: 'GA4, balises et import des conversions vérifiés en réel, dans un navigateur propre, avant toute conclusion.' },
 ]
 
 const ENGAGEMENTS = [
@@ -177,28 +168,13 @@ const ENGAGEMENTS = [
   },
   {
     Icon: Clock,
-    title: 'Résultats sous 48h',
-    desc: 'Les campagnes sont actives sous 48h après validation. Vous voyez les premières données dès la première semaine.',
+    title: 'Campagnes actives sous 48h',
+    desc: 'Une fois les annonces validées par Google, les campagnes tournent sous 48h. Les premières données arrivent dès la première semaine, les premières décisions aussi.',
   },
   {
     Icon: Globe2,
     title: 'Contrat mensuel',
     desc: 'Pas d\'engagement 12 mois. Contrat mensuel résiliable avec 30 jours de préavis. La performance justifie la relation.',
-  },
-]
-
-const TESTIMONIALS = [
-  {
-    quote: 'Avant DKDP, on dépensait CHF 2\'500/mois en Ads avec 3 leads par mois. Maintenant on a 18 leads pour CHF 1\'800. La différence c\'est la gestion.',
-    author: 'Directeur commercial, PME B2B, Genève',
-  },
-  {
-    quote: 'Le suivi des conversions qu\'ils ont mis en place nous a permis de voir exactement d\'où venaient nos clients. On a pu couper 30% du budget inutile.',
-    author: 'Fondatrice, boutique en ligne, Lausanne',
-  },
-  {
-    quote: 'On avait essayé de gérer nos Ads en interne. On perdait de l\'argent sans le savoir. DKDP a multiplié notre ROAS par 3 en moins de 2 mois.',
-    author: 'Gérant, clinique dentaire, Genève',
   },
 ]
 
@@ -209,7 +185,7 @@ const border = violet.border
 export default function PubliciteSEAPage() {
   return (
     <main>
-      <SchemaOrg schema={buildService({ name: 'Publicité Google Ads Suisse romande', url: '/agence-digitale/publicite-sea', description: 'Gestion de campagnes Google Ads pour PME à Genève. Search, Display et remarketing avec suivi ROI précis.' })} />
+      <SchemaOrg schema={buildServiceWithLocalBusiness({ name: 'Agence SEA et Google Ads Genève et Suisse romande', url: '/agence-digitale/publicite-sea', description: 'Audit et gestion de campagnes Google Ads pour PME à Genève et en Suisse romande : Search, Performance Max, remarketing, budget maîtrisé, rapport mensuel.', serviceType: 'Gestion de campagnes Google Ads (SEA)', priceFrom: PRIX.adsManagementFrom, priceSpecDescription: `Gestion à partir de ${chfMois(PRIX.adsManagementFrom)}, budget média en sus` })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
@@ -230,7 +206,7 @@ export default function PubliciteSEAPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Campagnes Google Ads Genève & Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Agence SEA & Google Ads Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Chaque franc investi, <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>mesuré</GradText>. Chaque lead, <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>compté</GradText>.
                 </p>
@@ -263,8 +239,8 @@ export default function PubliciteSEAPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '4.2×', l: 'ROAS moyen', sub: 'Retour sur dépense pub' },
-              { v: '-32%', l: 'Coût par lead', sub: 'Gain en 90 jours' },
+              { v: `dès ${chf(PRIX.adsManagementFrom)}`, l: 'Gestion par mois', sub: 'Budget média en sus' },
+              { v: 'Mensuel', l: 'Rapport', sub: 'Coût par lead, termes, décisions' },
               { v: '48h', l: 'Trafic qualifié', sub: 'Dès le lancement' },
               { v: '0 CHF', l: 'Commission media', sub: 'Budget 100% à Google' },
             ].map((s) => (
@@ -289,7 +265,7 @@ export default function PubliciteSEAPage() {
           { label: 'Résultats', href: '#résultats' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'Processus', href: '#process' },
-          { label: 'Réalisations', href: '#realisations' },
+          { label: 'Méthode', href: '#realisations' },
           { label: 'FAQ', href: '#faq' },
         ]}
         cta={{ label: 'Prendre contact', href: '/contact' }}
@@ -421,30 +397,6 @@ export default function PubliciteSEAPage() {
         </div>
       </section>
 
-      {/* ── Témoignages ── */}
-      <section className="py-16 border-y border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <p className="text-[11px] font-bold uppercase tracking-widest text-center mb-10" style={{ color }}>
-              Ce que disent nos clients
-            </p>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, i) => (
-              <SectionReveal key={t.author} delay={i * 0.08}>
-                <div
-                  className="flex flex-col gap-4 p-6 rounded-[16px] border h-full"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <p className="text-text-secondary text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
-                  <p className="text-[11px] font-semibold" style={{ color }}>{t.author}</p>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Offres ── */}
       <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
         <section id="tarifs" className="py-24 border-y border-border scroll-mt-[124px]">
@@ -498,7 +450,7 @@ export default function PubliciteSEAPage() {
                   'Audience custom + lookalike',
                   'Stratégie multi-canal',
                   'Réunion mensuelle + deck',
-                  'SLA 24h garanti',
+                  'Réponse sous 1 jour ouvré',
                 ],
               },
             ].map((offer, i) => (
@@ -578,52 +530,27 @@ export default function PubliciteSEAPage() {
         </div>
       </section>
 
-      {/* ── Réalisations ── */}
+      {/* ── Méthode d'audit ── */}
       <section id="realisations" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
-              <GradTag className="mb-4">Réalisations</GradTag>
+              <GradTag className="mb-4">Méthode</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Des résultats, pas des promesses.
+                Ce qu&apos;on audite avant de toucher à une enchère.
               </h2>
+              <p className="text-text-secondary mt-4 max-w-2xl mx-auto">
+                Un compte Google Ads se lit dans ses données, pas dans son interface. Six contrôles, dans cet ordre, avant la première modification.
+              </p>
             </div>
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {REALISATIONS.map((r, i) => (
-              <SectionReveal key={r.client} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border overflow-hidden"
-                  style={{ borderColor: border }}
-                >
-                  <div className="relative h-44 overflow-hidden flex-shrink-0">
-                    <Image
-                      src={r.image}
-                      alt={r.client}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
-                    <span
-                      className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full"
-                      style={{ background: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(6px)', color, border: `1px solid ${border}` }}
-                    >
-                      {r.type}
-                    </span>
-                  </div>
-                  <div className="p-6 flex flex-col flex-1" style={{ background: bg }}>
-                    <p className="text-text font-bold mb-4">{r.client}</p>
-                    <div className="space-y-2 flex-1">
-                      {r.results.map((res) => (
-                        <div key={res} className="flex items-center gap-2">
-                          <Star size={11} style={{ color }} className="flex-shrink-0" />
-                          <span className="text-text text-sm font-semibold">{res}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-text-muted text-[11px] mt-4 font-mono">{r.tech}</p>
-                  </div>
+            {METHODE_AUDIT.map((m, i) => (
+              <SectionReveal key={m.title} delay={i * 0.08}>
+                <div className="flex flex-col h-full rounded-[16px] border p-6" style={{ background: bg, borderColor: border }}>
+                  <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color }}>0{i + 1}</p>
+                  <p className="text-text font-bold mb-2">{m.title}</p>
+                  <p className="text-text-secondary text-sm leading-relaxed">{m.desc}</p>
                 </div>
               </SectionReveal>
             ))}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { PRIX, chfMois } from '@/data/pricing'
 import Image from 'next/image'
 import {
   CheckCircle2,
@@ -32,9 +33,9 @@ const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 export const metadata: Metadata = {
-  title: 'Réseaux Sociaux Genève & Suisse romande · Instagram, LinkedIn · DKDP',
-  description:
-    'Agence social media à Genève : community management, création de contenu et Social Ads pour PME. Instagram, LinkedIn, TikTok, YouTube.',
+  // 21/09/2026 (plan SEO, D07.A) : title 534 px, description 889 px, prix de src/data/pricing.
+  title: 'Agence réseaux sociaux Genève & Suisse romande | DKDP',
+  description: `Agence réseaux sociaux à Genève : community management, contenu Instagram et LinkedIn pour PME romandes. Forfaits dès ${chfMois(PRIX.socialFrom)}.`,
   alternates: {
     canonical: 'https://dkdp.ch/agence-digitale/reseaux-sociaux',
     languages: {
@@ -90,9 +91,9 @@ const FAQ = [
 const BENEFITS = [
   {
     Icon: TrendingUp,
-    value: '+180%',
-    title: 'Engagement en hausse',
-    desc: 'Nos clients voient leur engagement augmenter de 180% en moyenne dans les 3 premiers mois grâce à une stratégie de contenu adaptée à chaque plateforme.',
+    value: 'Régulier',
+    title: 'Une présence qui tient dans la durée',
+    desc: 'Un calendrier éditorial tenu chaque semaine, adapté à chaque plateforme, plutôt que des publications au coup par coup quand il reste du temps.',
   },
   {
     Icon: Clock,
@@ -164,12 +165,12 @@ export default function ReseauxSociauxPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Gestion de réseaux sociaux Genève & Suisse romande</h1>
+                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Agence réseaux sociaux Genève & Suisse romande : community management pour PME</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Des posts <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>qui bossent</GradText>, pas de la présence pour la présence.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  Votre community manager à Genève : DKDP, agence social media, gère votre présence de A à Z. Stratégie, création de contenu, publication et community management. +180% d&apos;engagement moyen en 3 mois. Vous vous concentrez sur votre métier, on s&apos;occupe du reste.
+                  DKDP est une agence réseaux sociaux à Genève : stratégie, création de contenu, publication et community management pour les PME de Suisse romande, sur Instagram, LinkedIn, Facebook et TikTok. Vous vous concentrez sur votre métier, on s&apos;occupe du reste.
                 </p>
                 <HeroPills
                   items={[
@@ -219,10 +220,10 @@ export default function ReseauxSociauxPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '+180%', l: 'Engagement moyen', sub: 'Sur 3 premiers mois' },
+              { v: chfMois(PRIX.socialFrom), l: 'Forfait de base', sub: 'Une plateforme, sans engagement' },
               { v: '5', l: 'Plateformes gérées', sub: 'Meta, LinkedIn, TikTok, YT...' },
-              { v: '12h/sem', l: 'Libérées', sub: 'À votre équipe' },
-              { v: '2.7M', l: 'Impressions cumulées', sub: 'Clients actifs 2025/2026' },
+              { v: '1', l: 'Interlocuteur', sub: 'Stratégie, contenu et publication' },
+              { v: 'Mensuel', l: 'Rapport', sub: 'Portée, engagement, leads' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -245,7 +246,6 @@ export default function ReseauxSociauxPage() {
           { label: 'Résultats', href: '#résultats' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'Processus', href: '#process' },
-          { label: 'Réalisations', href: '#realisations' },
           { label: 'FAQ', href: '#faq' },
         ]}
         cta={{ label: 'Prendre contact', href: '/contact' }}
@@ -500,7 +500,7 @@ export default function ReseauxSociauxPage() {
             <div className="text-center mb-14">
               <GradTag className="mb-4">Méthode</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Comment notre agence social media gère vos réseaux.
+                Que comprend le community management ?
               </h2>
             </div>
           </SectionReveal>
@@ -518,60 +518,7 @@ export default function ReseauxSociauxPage() {
         </div>
       </section>
 
-      {/* ── Témoignages ── */}
-      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
-        <section id="realisations" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Témoignages</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que disent nos clients.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'En 3 mois, notre compte Instagram est passé de 800 à 4\'200 abonnés engagés. Mais surtout, on génère 8 à 10 leads par semaine via DM. Le ROI est réel.',
-                name: 'Fondatrice',
-                company: 'Marque lifestyle, Genève',
-              },
-              {
-                quote: 'DKDP gère nos réseaux depuis 8 mois. Notre engagement LinkedIn a été multiplié par 5. Nos prospects connaissent notre nom avant même qu\'on les appelle.',
-                name: 'Directeur commercial',
-                company: 'PME B2B, Vaud',
-              },
-              {
-                quote: 'On avait essayé de le faire en interne. C\'était chronophage et les résultats n\'étaient pas là. DKDP a tout changé en 60 jours.',
-                name: 'Responsable communication',
-                company: 'Entreprise de 50 personnes',
-              },
-            ].map((t, i) => (
-              <SectionReveal key={t.company} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] p-7 border"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-0.5 mb-4">
-                    {[...Array(5)].map((_, j) => (
-                      <svg key={j} className="w-3.5 h-3.5 fill-current" style={{ color }} viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-text-secondary text-sm leading-relaxed flex-1 mb-6">&quot;{t.quote}&quot;</p>
-                  <div>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs mt-0.5">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* Témoignages anonymes retirés le 21/09/2026 (plan SEO, D07.A) : aucun client social nommable, chiffres non sourcés. */}
 
       {/* ── Engagements ── */}
       <section className="py-16 border-t border-border">

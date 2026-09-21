@@ -135,7 +135,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationReseauxSociauxPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Social Media Corporate Training French-speaking Switzerland', url: '/en/corporate-training/social-media', description: 'Professional social media training in Geneva. Instagram, LinkedIn, TikTok, Facebook. Strategy, Canva, content calendar. Autonomy from the next day.', duration: 'P1D', teaches: ['Social media strategy', 'Content creation', 'Content calendar', 'Instagram', 'LinkedIn', 'TikTok'], prerequisites: 'No technical prerequisites', priceFrom: 200, ratingValue: '4.9', ratingCount: 500, lang: 'en' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Social Media Corporate Training French-speaking Switzerland', url: '/en/corporate-training/social-media', description: 'Professional social media training in Geneva. Instagram, LinkedIn, TikTok, Facebook. Strategy, Canva, content calendar. Autonomy from the next day.', duration: 'P1D', teaches: ['Social media strategy', 'Content creation', 'Content calendar', 'Instagram', 'LinkedIn', 'TikTok'], prerequisites: 'No technical prerequisites', priceFrom: 200, lang: 'en' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Home', url: 'https://dkdp.ch/en' },

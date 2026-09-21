@@ -126,7 +126,7 @@ const steps = [
 export default function FormationCanvaPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Canva Entreprise Suisse romande', url: '/formation-entreprise/canva', description: 'Formation Canva pour équipes de PME et entreprises à Genève et en Suisse romande. Brand Kit, templates, posts sociaux, présentations, IA Magic Studio. Devenez autonome sur Canva en une journée.', duration: 'P1D', teaches: ['Canva', 'Brand Kit', 'Magic Studio IA', 'Templates', 'Réseaux sociaux', 'Présentations'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Canva Entreprise Suisse romande', url: '/formation-entreprise/canva', description: 'Formation Canva pour équipes de PME et entreprises à Genève et en Suisse romande. Brand Kit, templates, posts sociaux, présentations, IA Magic Studio. Devenez autonome sur Canva en une journée.', duration: 'P1D', teaches: ['Canva', 'Brand Kit', 'Magic Studio IA', 'Templates', 'Réseaux sociaux', 'Présentations'], prerequisites: 'Aucun prérequis technique', priceFrom: 200 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

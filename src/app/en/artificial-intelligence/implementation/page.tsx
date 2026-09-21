@@ -238,7 +238,7 @@ export default function ImplementationPage() {
                     See supported LLMs
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Offer updated: April 2026</p>
+                <p className="text-text-muted text-xs mt-6">Offer updated: September 2026</p>
               </div>
 
               <div className="relative">

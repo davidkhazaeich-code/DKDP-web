@@ -30,9 +30,10 @@ import { ModulesMarquee } from './_components/ModulesMarquee'
 import { DayAgenda } from './_components/DayAgenda'
 
 export const metadata: Metadata = {
-  title: 'Corporate AI training Geneva · ChatGPT Astra, Claude · DKDP',
+  // 21/09/2026 (SEO plan, D05.1), mirror of the FR page: no unsourced promise, grid price.
+  title: 'Corporate AI training Geneva & Romandy | DKDP',
   description:
-    'Train your teams on AI in 1 day in Geneva and French-speaking Switzerland: ChatGPT Astra (GPT-6), Claude, Copilot. 100% operational from day one. Made for SMEs.',
+    'AI training for your teams, at your premises in Geneva or Romandy: ChatGPT, Claude, business cases. From CHF 200/h, groups on quote.',
   alternates: {
     canonical: 'https://dkdp.ch/en/corporate-training/ai',
     languages: {
@@ -119,7 +120,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationIAPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Corporate Artificial Intelligence Training French-speaking Switzerland', url: '/en/corporate-training/ai', description: 'Hands-on AI training for corporate teams in Geneva and French-speaking Switzerland. ChatGPT Astra (GPT-6), Claude, Copilot mastered in 1 day. Tailored programme.', duration: 'P1D', teaches: ['Advanced prompting', 'ChatGPT Astra', 'Claude', 'Copilot', 'AI automation', 'AI privacy'], prerequisites: 'No technical prerequisites', priceFrom: 200, ratingValue: 4.9, ratingCount: 500, image: 'https://dkdp.ch/images/og/formation-ia.png', lang: 'en' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Corporate Artificial Intelligence Training French-speaking Switzerland', url: '/en/corporate-training/ai', description: 'Hands-on AI training for corporate teams in Geneva and French-speaking Switzerland. ChatGPT Astra (GPT-6), Claude, Copilot mastered in 1 day. Tailored programme.', duration: 'P1D', teaches: ['Advanced prompting', 'ChatGPT Astra', 'Claude', 'Copilot', 'AI automation', 'AI privacy'], prerequisites: 'No technical prerequisites', priceFrom: 200, image: 'https://dkdp.ch/images/og/formation-ia.png', lang: 'en' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Home', url: 'https://dkdp.ch/en' },

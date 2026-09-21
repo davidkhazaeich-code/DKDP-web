@@ -46,11 +46,6 @@ const PERSON_JOB_TITLE: Record<SchemaLang, string> = {
   en: 'Founder and Director',
 }
 
-const TRAINER_JOB_TITLE: Record<SchemaLang, string> = {
-  fr: 'Fondateur et formateur principal',
-  en: 'Founder and lead trainer',
-}
-
 const ABOUT_PATH: Record<SchemaLang, string> = {
   fr: '/a-propos',
   en: '/en/about',
@@ -115,13 +110,6 @@ export function buildLocalBusiness(lang: SchemaLang = 'fr') {
         closes: '18:00',
       },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '18',
-      bestRating: '5',
-      worstRating: '1',
-    },
     priceRange: '$$',
     currenciesAccepted: 'CHF',
     areaServed: CITIES_LOCALIZED[lang],
@@ -242,6 +230,15 @@ export function buildServiceWithLocalBusiness({
   }
 }
 
+/**
+ * Balisage Course d'une page formation.
+ *
+ * 21/09/2026 (plan SEO, action D01) : plus d'`aggregateRating`, plus de
+ * `startDate` ni d'`instructor` codes en dur. Les notes annoncees (4,9 sur
+ * 500 avis, 5 sur 18) ne correspondaient a aucun avis publie sur ces pages ;
+ * la fiche Google porte ses propres avis, hors de ce balisage. Ne pas les
+ * remettre sans une source affichee sur la page.
+ */
 export function buildCourse({
   name,
   url,
@@ -250,8 +247,6 @@ export function buildCourse({
   teaches,
   prerequisites,
   priceFrom,
-  ratingValue,
-  ratingCount,
   image,
   lang = 'fr',
 }: {
@@ -262,8 +257,6 @@ export function buildCourse({
   teaches?: string[]
   prerequisites?: string
   priceFrom?: number
-  ratingValue?: number | string
-  ratingCount?: number
   image?: string
   lang?: SchemaLang
 }) {
@@ -298,21 +291,10 @@ export function buildCourse({
     ...(duration ? { duration } : {}),
     ...(teaches ? { teaches } : {}),
     ...(prerequisites ? { coursePrerequisites: prerequisites } : {}),
-    ...(ratingValue
-      ? {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: Number(ratingValue),
-            reviewCount: ratingCount ?? 500,
-            bestRating: 5,
-          },
-        }
-      : {}),
     hasCourseInstance: {
       '@type': 'CourseInstance',
       courseMode: ['onsite', 'online'],
       inLanguage: courseLanguage,
-      startDate: '2026-01-06',
       location: {
         '@type': 'Place',
         name: locationName,
@@ -322,12 +304,6 @@ export function buildCourse({
           postalCode: '1207',
           addressCountry: 'CH',
         },
-      },
-      instructor: {
-        '@type': 'Person',
-        name: 'David Khazaei',
-        jobTitle: TRAINER_JOB_TITLE[lang],
-        url: `${BASE_URL}${ABOUT_PATH[lang]}`,
       },
       offers: {
         '@type': 'Offer',
@@ -513,13 +489,6 @@ export function buildOrganization(lang: SchemaLang = 'fr') {
         areaServed: 'CH',
       },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '18',
-      bestRating: '5',
-      worstRating: '1',
-    },
     sameAs: [
       'https://www.linkedin.com/company/dkdp',
       'https://www.instagram.com/davidkhazaei',

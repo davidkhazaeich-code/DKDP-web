@@ -193,8 +193,6 @@ export default function FormationChatGptPage() {
         teaches: ['ChatGPT Astra (GPT-6)', 'ChatGPT Work', 'GPTs personnalisés', 'Codex', 'Prompt engineering', 'Protection des données et nLPD'],
         prerequisites: 'Aucun prérequis technique',
         priceFrom: 200,
-        ratingValue: '4.9',
-        ratingCount: 500,
         image: 'https://dkdp.ch/images/og/formation-chatgpt.png',
       })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />

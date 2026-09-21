@@ -366,8 +366,6 @@ export default function ClaudeAITrainingPage() {
         teaches: ['Claude.ai', 'Claude Projects', 'Claude Code', 'Prompt engineering', 'Automation'],
         prerequisites: 'No technical prerequisites',
         priceFrom: 200,
-        ratingValue: '4.9',
-        ratingCount: 500,
         lang: 'en',
       })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
@@ -446,7 +444,7 @@ export default function ClaudeAITrainingPage() {
                     See the programme ↓
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Programme updated: April 2026</p>
+                <p className="text-text-muted text-xs mt-6">Programme updated: September 2026</p>
               </div>
 
               {/* Right - visual */}

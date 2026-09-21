@@ -210,7 +210,7 @@ Le site n\'est pas une dépense, c\'est un commercial qui travaille 24h/24. La q
 
 À Genève en 2026, un site vitrine professionnel bien référencé coûte entre 5\'000 et 12\'000 CHF pour une PME standard. En dessous, attendez-vous à des compromis importants sur le SEO, les performances ou la personnalisation. Au-dessus, vous payez la complexité fonctionnelle ou un positionnement premium.
 
-La meilleure démarché : demandez 3 devis détaillés, comparez ligne par ligne, et choisissez l\'agence qui vous explique clairement ce qui est inclus, et ce qui ne l\'est pas.
+La meilleure démarche : demandez 3 devis détaillés, comparez ligne par ligne, et choisissez l\'agence qui vous explique clairement ce qui est inclus, et ce qui ne l\'est pas.
 
 ## Questions fréquentes
 

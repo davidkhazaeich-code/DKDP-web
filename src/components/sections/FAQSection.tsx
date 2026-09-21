@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { m, AnimatePresence } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
@@ -10,8 +10,16 @@ import type { Locale } from '@/i18n/config'
 
 type FAQItemType = { question: string; answer: string }
 
+/**
+ * La reponse est TOUJOURS dans le DOM, repliee a hauteur 0 quand l'item est
+ * ferme (21/09/2026, plan SEO, action D14). Avant, elle n'etait montee qu'au
+ * clic : le HTML servi ne contenait aucune reponse hors JSON-LD, donc rien a
+ * citer pour un crawler qui n'execute pas le JS (ChatGPT, Perplexity, Claude).
+ * L'animation est la meme, seule la strategie de montage change.
+ */
 function FAQItem({ item, index }: { item: FAQItemType; index: number }) {
   const [open, setOpen] = useState(false)
+  const answerId = `faq-answer-${index}`
 
   return (
     <SectionReveal delay={index * 0.07}>
@@ -21,6 +29,7 @@ function FAQItem({ item, index }: { item: FAQItemType; index: number }) {
           onClick={() => setOpen((v) => !v)}
           className="w-full flex items-start justify-between gap-4 py-5 text-left group"
           aria-expanded={open}
+          aria-controls={answerId}
         >
           <span className="text-text font-medium text-base leading-snug group-hover:text-violet-light transition-colors duration-150">
             {item.question}
@@ -33,22 +42,18 @@ function FAQItem({ item, index }: { item: FAQItemType; index: number }) {
           </span>
         </button>
 
-        <AnimatePresence initial={false}>
-          {open && (
-            <m.div
-              key="answer"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              style={{ overflow: 'hidden' }}
-            >
-              <p className="text-text-secondary text-sm leading-relaxed pb-6 max-w-3xl">
-                {item.answer}
-              </p>
-            </m.div>
-          )}
-        </AnimatePresence>
+        <m.div
+          id={answerId}
+          initial={false}
+          animate={open ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          style={{ overflow: 'hidden' }}
+          aria-hidden={!open}
+        >
+          <p className="text-text-secondary text-sm leading-relaxed pb-6 max-w-3xl">
+            {item.answer}
+          </p>
+        </m.div>
       </div>
     </SectionReveal>
   )

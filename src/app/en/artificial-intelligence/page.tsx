@@ -200,7 +200,7 @@ export default function EnArtificialIntelligencePage() {
                     See our solutions ↓
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Offer updated: April 2026</p>
+                <p className="text-text-muted text-xs mt-6">Offer updated: September 2026</p>
               </div>
               <div className="relative">
                 <div className="mb-6 lg:mb-8" aria-label="AI tools deployed in business">

@@ -177,8 +177,6 @@ export default function FormationClaudeAIPage() {
         teaches: ['Claude.ai', 'Claude Projects', 'Claude Code', 'Prompt engineering', 'Automatisation'],
         prerequisites: 'Aucun prérequis technique',
         priceFrom: 200,
-        ratingValue: '4.9',
-        ratingCount: 500,
       })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
@@ -256,7 +254,7 @@ export default function FormationClaudeAIPage() {
                     Voir le programme ↓
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
+                <p className="text-text-muted text-xs mt-6">Programme mis à jour : septembre 2026</p>
               </div>
 
               {/* Right - visual */}

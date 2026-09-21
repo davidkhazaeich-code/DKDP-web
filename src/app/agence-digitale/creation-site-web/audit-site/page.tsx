@@ -379,7 +379,7 @@ export default function AuditSitePage() {
 
 
       <LogoBanner />
-      {/* ── Section 4 : Comment ça marché ────────────────────────────────── */}
+      {/* ── Section 4 : Comment ça marche ────────────────────────────────── */}
       <section aria-labelledby="process-heading" className="py-20 px-6">
         <div className="max-w-[1100px] mx-auto">
           <SectionReveal>

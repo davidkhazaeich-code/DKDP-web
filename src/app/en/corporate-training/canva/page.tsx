@@ -191,7 +191,7 @@ function CanvaFeatureCards() {
 export default function FormationCanvaPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Canva Corporate Training French-speaking Switzerland', url: '/en/corporate-training/canva', description: 'Canva training for SME and corporate teams in Geneva and French-speaking Switzerland. Brand Kit, templates, social posts, presentations, Magic Studio AI. Become autonomous on Canva in a single day.', duration: 'P1D', teaches: ['Canva', 'Brand Kit', 'Magic Studio AI', 'Templates', 'Social media', 'Presentations'], prerequisites: 'No technical prerequisites', priceFrom: 200, ratingValue: '4.9', ratingCount: 500, lang: 'en' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Canva Corporate Training French-speaking Switzerland', url: '/en/corporate-training/canva', description: 'Canva training for SME and corporate teams in Geneva and French-speaking Switzerland. Brand Kit, templates, social posts, presentations, Magic Studio AI. Become autonomous on Canva in a single day.', duration: 'P1D', teaches: ['Canva', 'Brand Kit', 'Magic Studio AI', 'Templates', 'Social media', 'Presentations'], prerequisites: 'No technical prerequisites', priceFrom: 200, lang: 'en' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Home', url: 'https://dkdp.ch/en' },

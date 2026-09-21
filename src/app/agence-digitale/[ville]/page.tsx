@@ -11,7 +11,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { TrustLine } from '@/components/ui/TrustLine'
 import { HeroPills } from '@/components/ui/HeroPills'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildLocalBusiness, buildBreadcrumbList, buildFAQPage, buildWebPageWithSpeakable, buildService, buildCourse } from '@/lib/schema'
+import { buildLocalBusiness, buildBreadcrumbList, buildFAQPage, buildWebPageWithSpeakable, buildService } from '@/lib/schema'
 import { CITIES, getCity } from '@/lib/cities'
 import { violet, chrome, orange } from '@/lib/tokens'
 import dynamic from 'next/dynamic'
@@ -20,7 +20,6 @@ const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m =
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
-const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
 
 const V = violet.color, VB = violet.bg, VD = violet.border
 const CH = chrome.color, CHB = chrome.bg, CHD = chrome.border
@@ -130,11 +129,6 @@ export default async function CityPage({ params }: Props) {
         name: `Agence digitale à ${city.name}`,
         url: `/agence-digitale/${city.slug}`,
         description: `Services digitaux complets pour les entreprises de ${city.name} : création et refonte de sites web, SEO local, agents IA, automatisation, formation IA entreprise.`,
-      })} />
-      <SchemaOrg schema={buildCourse({
-        name: `Formation IA entreprise a ${city.name}`,
-        url: `/agence-digitale/${city.slug}`,
-        description: `Formation intelligence artificielle pour les entreprises de ${city.name}. Claude AI, ChatGPT, prompt engineering et automatisation. Sur site ou en visioconference.`,
       })} />
 
       {/* ── Hero ── */}
@@ -278,10 +272,14 @@ export default async function CityPage({ params }: Props) {
         </section>
       </SectionReveal>
 
-      {/* ── Section Formation IA ── */}
+      {/* ── Section Formation IA ──
+          21/09/2026 (plan SEO, D01) : plus de schema Course ni de grille de prix
+          ici. Les 8 pages villes se disputaient « formation ia geneve » avec
+          /formation-entreprise/ia, qui est la seule page formation. Cette
+          section presente et renvoie, elle ne vend pas. */}
       <SectionReveal>
         <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+          <div className="max-w-3xl">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: OR }}>Formation IA</p>
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-text">
@@ -310,13 +308,8 @@ export default async function CityPage({ params }: Props) {
                 className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors hover:opacity-80"
                 style={{ color: OR }}
               >
-                Voir toutes nos formations <ChevronRight size={12} />
+                Formation IA entreprise : programme et tarifs <ChevronRight size={12} />
               </Link>
-            </div>
-
-            {/* Pricing */}
-            <div>
-              <FormationPricing />
             </div>
           </div>
         </section>

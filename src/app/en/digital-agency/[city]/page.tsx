@@ -10,7 +10,7 @@ import { ImageHeroBg } from '@/components/ui/ImageHeroBg'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { HeroPills } from '@/components/ui/HeroPills'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildLocalBusiness, buildBreadcrumbList, buildFAQPage, buildWebPageWithSpeakable, buildService, buildCourse } from '@/lib/schema'
+import { buildLocalBusiness, buildBreadcrumbList, buildFAQPage, buildWebPageWithSpeakable, buildService } from '@/lib/schema'
 import { CITIES_EN, getCityEN } from '@/lib/cities-en'
 import { localizedPath } from '@/i18n/slugs'
 import { violet, chrome, orange } from '@/lib/tokens'
@@ -20,7 +20,6 @@ const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m =
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
-const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
 
 const V = violet.color, VB = violet.bg, VD = violet.border
 const CH = chrome.color, CHB = chrome.bg, CHD = chrome.border
@@ -133,15 +132,6 @@ export default async function CityPageEN({ params }: Props) {
         name: `Digital agency in ${city.name}`,
         url: enBase,
         description: `Complete digital services for ${city.name} companies: website creation and redesign, local SEO, AI agents, automation, corporate AI training.`,
-        lang: 'en',
-      })} />
-      <SchemaOrg schema={buildCourse({
-        name: `Corporate AI training in ${city.name}`,
-        url: enBase,
-        description: `Artificial intelligence training for ${city.name} companies. Claude AI, ChatGPT, prompt engineering and automation. On site or by video call.`,
-        duration: 'PT4H',
-        teaches: ['Claude AI', 'ChatGPT', 'Prompt engineering', 'Automation'],
-        priceFrom: 150,
         lang: 'en',
       })} />
 
@@ -284,10 +274,13 @@ export default async function CityPageEN({ params }: Props) {
         </section>
       </SectionReveal>
 
-      {/* ── AI Training ── */}
+      {/* ── AI Training ──
+          21/09/2026 (SEO plan, D01): no Course schema and no pricing grid here.
+          The city pages competed with the single training page; this section
+          presents and links, it does not sell. */}
       <SectionReveal>
         <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+          <div className="max-w-3xl">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: OR }}>AI training</p>
               <h2 className="text-2xl md:text-3xl font-bold mb-5 text-text">
@@ -316,12 +309,8 @@ export default async function CityPageEN({ params }: Props) {
                 className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors hover:opacity-80"
                 style={{ color: OR }}
               >
-                See all our training <ChevronRight size={12} />
+                Corporate AI training: programme and pricing <ChevronRight size={12} />
               </Link>
-            </div>
-
-            <div>
-              <FormationPricing lang="en" />
             </div>
           </div>
         </section>

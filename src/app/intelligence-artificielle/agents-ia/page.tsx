@@ -179,7 +179,7 @@ export default function AgentsIAPage() {
                     Voir les agents →
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
+                <p className="text-text-muted text-xs mt-6">Offre mise à jour : septembre 2026</p>
               </div>
 
               <div className="relative">
@@ -740,7 +740,7 @@ export default function AgentsIAPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <p className="text-center text-text-muted text-xs font-semibold uppercase tracking-widest mb-8">
-              Compléter votre démarché IA
+              Compléter votre démarche IA
             </p>
           </SectionReveal>
 

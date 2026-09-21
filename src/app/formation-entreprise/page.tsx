@@ -140,7 +140,7 @@ const badgeColors: Record<string, { background: string; color: string; border: s
 export default function FormationEntreprisePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation informatique en entreprise', url: '/formation-entreprise', description: 'Formation informatique pour entreprises et PME à Genève. IA, bureautique, cybersécurité, réseaux sociaux. Formez vos collaborateurs avec des sessions sur mesure.', duration: 'P1D', teaches: ['IA', 'Bureautique', 'Cybersécurité', 'Réseaux sociaux', 'Web design', 'Informatique', 'Montage vidéo'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation informatique en entreprise', url: '/formation-entreprise', description: 'Formation informatique pour entreprises et PME à Genève. IA, bureautique, cybersécurité, réseaux sociaux. Formez vos collaborateurs avec des sessions sur mesure.', duration: 'P1D', teaches: ['IA', 'Bureautique', 'Cybersécurité', 'Réseaux sociaux', 'Web design', 'Informatique', 'Montage vidéo'], prerequisites: 'Aucun prérequis technique', priceFrom: 200 })} />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Formation Entreprise', url: '/formation-entreprise' }])} />
       <SchemaOrg schema={buildFAQPage(FAQ_FORMATION)} />
 
@@ -175,7 +175,7 @@ export default function FormationEntreprisePage() {
                     Voir les programmes ↓
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
+                <p className="text-text-muted text-xs mt-6">Programme mis à jour : septembre 2026</p>
               </div>
               <div>
                 <div className="mb-6 lg:mb-8" aria-label="Outils enseignes en formation entreprise">

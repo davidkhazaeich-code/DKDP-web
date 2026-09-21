@@ -98,7 +98,7 @@ const steps = [
 export default function FormationCybersecuritePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Corporate Cybersecurity Training French-speaking Switzerland', url: '/en/corporate-training/cybersecurity', description: 'Cybersecurity training for SMEs in Geneva. Phishing, ransomware, social engineering and best practices for non-technical teams.', duration: 'PT3H30M', teaches: ['Phishing', 'Ransomware', 'Passwords', 'GDPR', 'Cyber incident response plan'], prerequisites: 'No technical prerequisites', priceFrom: 200, ratingValue: '4.9', ratingCount: 500, lang: 'en' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Corporate Cybersecurity Training French-speaking Switzerland', url: '/en/corporate-training/cybersecurity', description: 'Cybersecurity training for SMEs in Geneva. Phishing, ransomware, social engineering and best practices for non-technical teams.', duration: 'PT3H30M', teaches: ['Phishing', 'Ransomware', 'Passwords', 'GDPR', 'Cyber incident response plan'], prerequisites: 'No technical prerequisites', priceFrom: 200, lang: 'en' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Home', url: 'https://dkdp.ch/en' },

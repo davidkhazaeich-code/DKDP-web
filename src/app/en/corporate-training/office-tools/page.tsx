@@ -114,7 +114,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationBureautiquePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Office and Excel Microsoft 365 Training French-speaking Switzerland', url: '/en/corporate-training/office-tools', description: 'Professional office training in Geneva. Excel, Word, PowerPoint, Outlook and Microsoft 365 for corporate teams.', duration: 'P1D', teaches: ['Excel', 'Word', 'PowerPoint', 'Microsoft 365', 'Pivot tables'], prerequisites: 'No technical prerequisites', priceFrom: 200, ratingValue: '4.9', ratingCount: 500, lang: 'en' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Office and Excel Microsoft 365 Training French-speaking Switzerland', url: '/en/corporate-training/office-tools', description: 'Professional office training in Geneva. Excel, Word, PowerPoint, Outlook and Microsoft 365 for corporate teams.', duration: 'P1D', teaches: ['Excel', 'Word', 'PowerPoint', 'Microsoft 365', 'Pivot tables'], prerequisites: 'No technical prerequisites', priceFrom: 200, lang: 'en' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Home', url: 'https://dkdp.ch/en' },
@@ -156,7 +156,7 @@ export default function FormationBureautiquePage() {
                     See the programme ↓
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Programme updated: April 2026</p>
+                <p className="text-text-muted text-xs mt-6">Programme updated: September 2026</p>
               </div>
               <div className="relative">
                 <div className="mb-6 lg:mb-8" aria-label="Office applications your teams master">

@@ -107,7 +107,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationMontageVideoPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Corporate Video Editing Training French-speaking Switzerland', url: '/en/corporate-training/video-editing', description: 'Video editing training for company teams in Geneva. CapCut, DaVinci Resolve and Premiere Pro. Produce your professional videos in house.', duration: 'P1D', teaches: ['CapCut', 'DaVinci Resolve', 'Premiere Pro', 'Smartphone filming', 'Multi-format export'], prerequisites: 'No technical prerequisites', priceFrom: 200, ratingValue: '4.9', ratingCount: 500, lang: 'en' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Corporate Video Editing Training French-speaking Switzerland', url: '/en/corporate-training/video-editing', description: 'Video editing training for company teams in Geneva. CapCut, DaVinci Resolve and Premiere Pro. Produce your professional videos in house.', duration: 'P1D', teaches: ['CapCut', 'DaVinci Resolve', 'Premiere Pro', 'Smartphone filming', 'Multi-format export'], prerequisites: 'No technical prerequisites', priceFrom: 200, lang: 'en' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Home', url: 'https://dkdp.ch/en' },

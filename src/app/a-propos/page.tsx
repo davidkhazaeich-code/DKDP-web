@@ -35,7 +35,7 @@ const CircularTestimonials = dynamic(() => import('@/components/ui/circular-test
 export const metadata: Metadata = {
   title: 'À propos · David Khazaei · DKDP Genève',
   description:
-    "DKDP est une service digital genevoise fondée par David Khazaei. Spécialiste en intelligence artificielle, formation entreprise et web pour les PME de Suisse romande.",
+    "DKDP est une agence digitale genevoise fondée par David Khazaei. Spécialiste en intelligence artificielle, formation entreprise et web pour les PME de Suisse romande.",
   alternates: {
     canonical: 'https://dkdp.ch/a-propos',
     languages: {

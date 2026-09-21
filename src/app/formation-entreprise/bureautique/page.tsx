@@ -112,7 +112,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationBureautiquePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Bureautique Excel Microsoft 365 Suisse romande', url: '/formation-entreprise/bureautique', description: 'Formation bureautique professionnelle à Genève. Excel, Word, PowerPoint, Outlook et Microsoft 365 pour équipes d\'entreprise.', duration: 'P1D', teaches: ['Excel', 'Word', 'PowerPoint', 'Microsoft 365', 'Tableaux croisés dynamiques'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: '4.9', ratingCount: 500 })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Bureautique Excel Microsoft 365 Suisse romande', url: '/formation-entreprise/bureautique', description: 'Formation bureautique professionnelle à Genève. Excel, Word, PowerPoint, Outlook et Microsoft 365 pour équipes d\'entreprise.', duration: 'P1D', teaches: ['Excel', 'Word', 'PowerPoint', 'Microsoft 365', 'Tableaux croisés dynamiques'], prerequisites: 'Aucun prérequis technique', priceFrom: 200 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
@@ -154,7 +154,7 @@ export default function FormationBureautiquePage() {
                     Voir le programme ↓
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Programme mis à jour : avril 2026</p>
+                <p className="text-text-muted text-xs mt-6">Programme mis à jour : septembre 2026</p>
               </div>
               <div className="relative">
                 <div className="mb-6 lg:mb-8" aria-label="Logiciels bureautiques que vos equipes maitrisent">

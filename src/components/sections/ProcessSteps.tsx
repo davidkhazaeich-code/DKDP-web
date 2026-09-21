@@ -97,7 +97,7 @@ const STEP_META = [
 const CONTENT = {
   fr: {
     tag: 'Notre méthode',
-    heading: 'Comment ça marché',
+    heading: 'Comment ça marche',
     subtitle: '5 étapes claires, un processus éprouvé sur 700+ projets.',
     steps: [
       { title: 'Premier échange', description: '15 minutes gratuites pour comprendre votre situation. On vous dit honnêtement si on peut vous aider et comment.' },

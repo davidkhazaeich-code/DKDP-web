@@ -89,7 +89,7 @@ const schemas = [
     },
     {
       question: "Que se passe-t-il après l'audit SEO ?",
-      answer: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. Nos clients SEO observent en moyenne +240% de trafic organique à 6 mois. Mais la décision et le timing restent entièrement les vôtrès.",
+      answer: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. Nos clients SEO observent en moyenne +240% de trafic organique à 6 mois. Mais la décision et le timing restent entièrement les vôtres.",
     },
   ]),
 ]
@@ -233,7 +233,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Que se passe-t-il après l'audit SEO ?",
-    a: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. Nos clients SEO observent en moyenne +240% de trafic organique à 6 mois. Mais la décision et le timing restent entièrement les vôtrès.",
+    a: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. Nos clients SEO observent en moyenne +240% de trafic organique à 6 mois. Mais la décision et le timing restent entièrement les vôtres.",
   },
 ]
 
@@ -378,7 +378,7 @@ export default function AuditSEOPage() {
 
 
       <LogoBanner />
-      {/* Section 4 : Comment ca marché */}
+      {/* Section 4 : Comment ça marche */}
       <section aria-labelledby="process-heading" className="py-20 px-6">
         <div className="max-w-[1100px] mx-auto">
           <SectionReveal>

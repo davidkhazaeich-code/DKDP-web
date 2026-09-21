@@ -160,8 +160,6 @@ export default function FormationFigmaPage() {
         teaches: ['Figma', 'Conception de maquettes', 'Wireframes', 'Prototypes interactifs', 'Auto Layout', 'Design system', 'Composants et variantes', 'Dev Mode', 'UI/UX Design'],
         prerequisites: 'Aucun prérequis technique ni compétence en graphisme',
         priceFrom: 200,
-        ratingValue: '4.9',
-        ratingCount: 500,
         image: 'https://dkdp.ch/images/services/dkdp-formation-figma-geneve.webp',
       })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />

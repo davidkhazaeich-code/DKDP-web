@@ -12,7 +12,7 @@ const border = 'rgba(124,58,237,0.18)'
 
 const INCLUDES = [
   'Performance & temps de chargement (Core Web Vitals)',
-  'SEO on-page et structuré technique',
+  'SEO on-page et structure technique',
   'Compatibilité mobile et accessibilité',
   'Sécurité HTTPS et redirections',
   '3 recommandations prioritaires personnalisées',

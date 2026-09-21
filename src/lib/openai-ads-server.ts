@@ -60,6 +60,27 @@ export type OpenAiAdsResult =
   | { sent: true; status: number; body: string }
   | { sent: false; reason: 'no_api_key' | 'http_error' | 'network_error'; detail?: string }
 
+/**
+ * Hote de production. Hors de lui (preview Vercel, localhost, `next start` de
+ * recette), la conversion part en `validate_only` : OpenAI verifie la charge
+ * utile sans rien enregistrer. 21/09/2026 (plan SEO, action X04) : des tests
+ * locaux comptaient comme de vraies conversions.
+ */
+const PRODUCTION_HOST = 'dkdp.ch'
+
+export function horsProduction(sourceUrl?: string | null): boolean {
+  const vercelEnv = process.env.VERCEL_ENV
+  if (vercelEnv && vercelEnv !== 'production') return true
+  if (sourceUrl) {
+    try {
+      return new URL(sourceUrl).hostname !== PRODUCTION_HOST
+    } catch {
+      return false
+    }
+  }
+  return false
+}
+
 function sha256(value: string): string {
   return createHash('sha256').update(value, 'utf8').digest('hex')
 }
@@ -156,7 +177,7 @@ export async function sendOpenAiAdsEvent(
   if (user) event.user = user
 
   const payload = {
-    validate_only: input.validateOnly ?? false,
+    validate_only: input.validateOnly ?? horsProduction(input.sourceUrl),
     events: [event],
   }
 

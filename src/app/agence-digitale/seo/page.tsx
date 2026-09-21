@@ -24,8 +24,11 @@ const Testimonials = dynamic(() => import('@/components/sections/Testimonials').
 
 export const metadata: Metadata = {
   title: 'Agence SEO Genève & Suisse romande | Local, GEO, AI | DKDP',
+  // 21/09/2026 (plan SEO, D02.1) : description 883 px (l'ancienne depassait
+  // les 920 px et Google la coupait). Le title, 581 px, ouvre sur la requete
+  // exacte « agence seo geneve » : garde.
   description:
-    "Agence SEO et GEO à Genève : audit SEO, SEO local (Google Business Profile, citations), stratégie contenu, E-E-A-T. Dominez Google, ChatGPT, Perplexity et les AI Overviews. PME Suisse romande, résultats 6-12 semaines.",
+    'Agence SEO à Genève et en Suisse romande : audit, SEO local (fiche Google), contenu et netlinking pour PME romandes. Sans engagement.',
   alternates: {
     canonical: 'https://dkdp.ch/agence-digitale/seo',
     languages: {
@@ -170,9 +173,15 @@ export default function SEOPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Référencement SEO Genève & Suisse romande</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  La <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>première page</GradText>{' '}de Google. Pas la troisième.
+                {/* 21/09/2026 (plan SEO, D02.1) : le H1 est le gros titre, pas le badge.
+                    La page porte 34 % des impressions du site (20'580 sur 90 j) pour
+                    6 clics : le H1 doit repondre a la requete, le badge reste un span. */}
+                <span className="grad-tag inline-block text-xs md:text-sm mb-6">Référencement SEO Genève & Suisse romande</span>
+                <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.03em] leading-[1.1] text-text mb-5">
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>Agence SEO à Genève</GradText>{' '}et en Suisse romande : référencement naturel, SEO local et GEO
+                </h1>
+                <p className="text-xl md:text-2xl font-semibold text-text mb-4">
+                  La première page de Google. Pas la troisième.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP, agence SEO à Genève, construit votre autorité organique avec une stratégie de référencement naturel complète : audit technique, contenu optimisé et netlinking. Notre agence SEO accompagne les PME suisses vers un référencement naturel durable, sans frais par clic.
@@ -448,6 +457,12 @@ export default function SEOPage() {
               <p className="text-text-secondary leading-relaxed mb-4">
                 À Genève, 46 % des recherches commerciales sont locales (source : Think with Google 2026). Sur mobile, 78 % des requêtes &laquo; près de moi &raquo; finissent par un appel ou un trajet dans les 24 h. Si vous n&apos;apparaissez pas dans le <strong className="text-text">pack local</strong> (les 3 fiches Google Maps au-dessus des résultats bleus), vous êtes invisibles pour la moitié de vos prospects genevois.
               </p>
+              {/* Suisse romande : une phrase par canton, chacune liant sa page ville
+                  (plan SEO du 21/09/2026, D02.1). Pas de compte de clients par canton :
+                  les deux etudes de cas publiees sont genevoises. */}
+              <p className="text-text-secondary leading-relaxed mb-4">
+                Le SEO local ne s&apos;arrête pas au canton de <Link href="/agence-digitale/geneve" className="underline hover:text-text transition-colors">Genève</Link>. Dans le canton de Vaud, la même méthode s&apos;applique aux PME de <Link href="/agence-digitale/lausanne" className="underline hover:text-text transition-colors">Lausanne</Link>, de <Link href="/agence-digitale/nyon" className="underline hover:text-text transition-colors">Nyon</Link>, de <Link href="/agence-digitale/morges" className="underline hover:text-text transition-colors">Morges</Link> et de <Link href="/agence-digitale/montreux" className="underline hover:text-text transition-colors">Montreux</Link>. Dans le canton de Fribourg, elle vise le pack local bilingue de <Link href="/agence-digitale/fribourg" className="underline hover:text-text transition-colors">Fribourg</Link>. En Valais, elle sert les entreprises de <Link href="/agence-digitale/sion" className="underline hover:text-text transition-colors">Sion</Link> et du tourisme alpin. Dans le canton de Neuchâtel, elle accompagne l&apos;industrie et les services de <Link href="/agence-digitale/neuchatel" className="underline hover:text-text transition-colors">Neuchâtel</Link>.
+              </p>
               <p className="text-text-secondary leading-relaxed mb-6">
                 DKDP déploie une stratégie SEO local complète : optimisation de votre <strong className="text-text">Google Business Profile</strong> (ex-Google My Business), construction d&apos;un réseau de citations locales cohérentes (NAP : Name, Address, Phone), récolte structurée d&apos;avis clients, schema <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded">LocalBusiness</code> sur toutes vos pages et optimisation mobile Core Web Vitals (LCP, CLS, INP) pour le ranking mobile-first. Pour un guide complet, lisez <Link href="/blog/seo-local-geneve-2026" className="underline hover:text-text transition-colors">SEO local Genève 2026 : dominer Google Maps</Link>.
               </p>
@@ -458,7 +473,7 @@ export default function SEOPage() {
                   { k: 'Avis clients', v: "Processus de collecte automatisé post-prestation (email, SMS, QR code). Réponse personnalisée à chaque avis, positif ou négatif." },
                   { k: 'Pack local & Maps', v: 'Positionnement dans les 3 fiches du pack local pour vos mots-clés géolocalisés (ex. « fiduciaire Eaux-Vives », « dentiste Carouge »).' },
                   { k: 'Mobile-first ranking', v: 'Core Web Vitals au vert : LCP < 2,5 s, INP < 200 ms, CLS < 0,1. Test systématique sur iPhone et Android.' },
-                  { k: 'Schema LocalBusiness', v: 'JSON-LD enrichi avec geo-coordinates, openingHoursSpecification, areaServed, aggregateRating.' },
+                  { k: 'Schema LocalBusiness', v: 'JSON-LD enrichi avec geo-coordinates, openingHoursSpecification et areaServed.' },
                 ].map((row) => (
                   <div key={row.k} className="flex gap-3">
                     <CheckCircle2 size={14} className="mt-1 flex-shrink-0" style={{ color }} />
@@ -803,7 +818,7 @@ export default function SEOPage() {
                   { Icon: ShieldCheck, title: 'Résultats mesurables', desc: 'Rapport mensuel de positions, trafic et conversions. Les progrès sont chiffrés, pas racontés.' },
                   { Icon: TrendingUp, title: 'SEO white-hat', desc: 'Pas de techniques black-hat. Chaque action respecte les guidelines Google et construit une autorité durable.' },
                   { Icon: Clock, title: 'Premiers signaux en 30j', desc: 'Les corrections techniques et premières optimisations sont visibles dans Search Console dans les 4 premières semaines.' },
-                  { Icon: Globe2, title: 'Vos données restent vôtrès', desc: 'Vous gardez la main sur Search Console, Analytics et GBP. DKDP travaille sur vos plateformes, jamais en silo.' },
+                  { Icon: Globe2, title: 'Vos données restent les vôtres', desc: 'Vous gardez la main sur Search Console, Analytics et GBP. DKDP travaille sur vos plateformes, jamais en silo.' },
                 ].map((g) => (
                   <div key={g.title} className="text-center">
                     <div

@@ -184,8 +184,6 @@ export default function EnCorporateTrainingPage() {
         teaches: ['AI', 'Office tools', 'Cybersecurity', 'Social media', 'Web design', 'IT skills', 'Video editing'],
         prerequisites: 'No technical prerequisites',
         priceFrom: 200,
-        ratingValue: '4.9',
-        ratingCount: 500,
         lang: 'en',
       })} />
       <SchemaOrg schema={buildBreadcrumbList([
@@ -224,7 +222,7 @@ export default function EnCorporateTrainingPage() {
                     See the programmes ↓
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Programme updated: April 2026</p>
+                <p className="text-text-muted text-xs mt-6">Programme updated: September 2026</p>
               </div>
               <div>
                 <div className="mb-6 lg:mb-8" aria-label="Tools taught in corporate training">

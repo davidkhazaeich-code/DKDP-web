@@ -21,9 +21,10 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
-  title: 'SEO Agency Geneva & French-speaking Switzerland | Local, GEO, AI | DKDP',
+  // 21/09/2026 (SEO plan, D02.1): the previous title measured 692 px, Google cut it.
+  title: 'SEO Agency Geneva & French-speaking Switzerland | DKDP',
   description:
-    'SEO and GEO agency in Geneva: SEO audit, local SEO (Google Business Profile, citations), content strategy, E-E-A-T. Dominate Google, ChatGPT, Perplexity and AI Overviews. Swiss SMBs, results in 6 to 12 weeks.',
+    'SEO agency in Geneva and French-speaking Switzerland: audit, local SEO, content and link building for Swiss SMBs. No commitment.',
   alternates: {
     canonical: 'https://dkdp.ch/en/digital-agency/seo',
     languages: {
@@ -171,9 +172,13 @@ export default function SEOPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">SEO Geneva & French-speaking Switzerland</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  The <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>first page</GradText>{' '}of Google. Not the third.
+                {/* 21/09/2026 (SEO plan, D02.1): the H1 is the big title, the badge is a span. */}
+                <span className="grad-tag inline-block text-xs md:text-sm mb-6">SEO Geneva & French-speaking Switzerland</span>
+                <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.03em] leading-[1.1] text-text mb-5">
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #A78BFA, #C4B5FD)' }}>SEO agency in Geneva</GradText>{' '}and French-speaking Switzerland: organic search, local SEO and GEO
+                </h1>
+                <p className="text-xl md:text-2xl font-semibold text-text mb-4">
+                  The first page of Google. Not the third.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP, an SEO agency in Geneva, builds your organic authority with a complete search strategy: technical audit, optimised content and link building. Our SEO agency guides Swiss SMBs toward durable organic search, with no cost per click.
@@ -636,7 +641,7 @@ export default function SEOPage() {
                   { k: 'Customer reviews', v: 'Automated collection process after service (email, SMS, QR code). Personalised response to each review, positive or negative.' },
                   { k: 'Local pack & Maps', v: 'Positioning in the 3 listings of the local pack for your geo-located keywords (e.g. "fiduciary Eaux-Vives", "dentist Carouge").' },
                   { k: 'Mobile-first ranking', v: 'Core Web Vitals in the green: LCP < 2.5 s, INP < 200 ms, CLS < 0.1. Systematic testing on iPhone and Android.' },
-                  { k: 'LocalBusiness schema', v: 'JSON-LD enriched with geo-coordinates, openingHoursSpecification, areaServed, aggregateRating.' },
+                  { k: 'LocalBusiness schema', v: 'JSON-LD enriched with geo-coordinates, openingHoursSpecification and areaServed.' },
                 ].map((row) => (
                   <div key={row.k} className="flex gap-3">
                     <CheckCircle2 size={14} className="mt-1 flex-shrink-0" style={{ color }} />

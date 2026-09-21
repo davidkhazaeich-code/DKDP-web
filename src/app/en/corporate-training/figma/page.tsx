@@ -162,8 +162,6 @@ export default function FigmaTrainingPage() {
         teaches: ['Figma', 'Mockup design', 'Wireframes', 'Interactive prototypes', 'Auto Layout', 'Design system', 'Components and variants', 'Dev Mode', 'UI/UX Design'],
         prerequisites: 'No technical prerequisites and no graphic design skills required',
         priceFrom: 200,
-        ratingValue: '4.9',
-        ratingCount: 500,
         image: 'https://dkdp.ch/images/services/dkdp-formation-figma-geneve.webp',
         lang: 'en',
       })} />

@@ -30,9 +30,13 @@ import { ModulesMarquee } from './_components/ModulesMarquee'
 import { DayAgenda } from './_components/DayAgenda'
 
 export const metadata: Metadata = {
-  title: 'Formation IA entreprise Genève · ChatGPT Astra, Claude · DKDP',
+  // 21/09/2026 (plan SEO, D05.1) : title 524 px, description 918 px, mesures
+  // tools/check-serp-width.mjs. Plus de « 100 % operationnels des J+1 »
+  // (promesse sans source) ; le prix est celui de la grille (CHF 200/h, groupe
+  // sur devis).
+  title: 'Formation IA entreprise Genève & Suisse romande | DKDP',
   description:
-    "Former ses équipes à l'IA en 1 jour à Genève et en Suisse romande : ChatGPT Astra (GPT-6), Claude, Copilot. 100% opérationnels dès J+1. Sur mesure pour PME.",
+    'Formation IA pour vos équipes, dans vos locaux à Genève ou en Suisse romande : ChatGPT, Claude, cas métier. Dès CHF 200/h, groupe sur devis.',
   alternates: {
     canonical: 'https://dkdp.ch/formation-entreprise/ia',
     languages: {
@@ -117,7 +121,7 @@ const color = orange.color, bg = orange.bg, border = orange.border
 export default function FormationIAPage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Intelligence Artificielle Entreprise Suisse romande', url: '/formation-entreprise/ia', description: 'Formation IA pratique pour équipes d\'entreprise à Genève et Suisse romande. ChatGPT Astra (GPT-6), Claude, Copilot maîtrisés en 1 jour. Programme sur mesure.', duration: 'P1D', teaches: ['Prompting avancé', 'ChatGPT Astra', 'Claude', 'Copilot', 'Automatisation IA', 'Confidentialité IA'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, ratingValue: 4.9, ratingCount: 500, image: 'https://dkdp.ch/images/og/formation-ia.png' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Formation Intelligence Artificielle Entreprise Suisse romande', url: '/formation-entreprise/ia', description: 'Formation IA pratique pour équipes d\'entreprise à Genève et Suisse romande. ChatGPT Astra (GPT-6), Claude, Copilot maîtrisés en 1 jour. Programme sur mesure.', duration: 'P1D', teaches: ['Prompting avancé', 'ChatGPT Astra', 'Claude', 'Copilot', 'Automatisation IA', 'Confidentialité IA'], prerequisites: 'Aucun prérequis technique', priceFrom: 200, image: 'https://dkdp.ch/images/og/formation-ia.png' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },

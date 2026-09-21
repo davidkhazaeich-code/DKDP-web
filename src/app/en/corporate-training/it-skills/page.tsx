@@ -99,7 +99,7 @@ const steps = [
 export default function FormationInformatiquePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Corporate IT Skills Training French-speaking Switzerland', url: '/en/corporate-training/it-skills', description: 'IT skills training for SMEs in Geneva. Windows, emails, network, collaboration tools. All levels, on site.', duration: 'P1D', teaches: ['Windows', 'File management', 'Professional emails', 'Collaboration tools', 'Cloud'], prerequisites: 'No technical prerequisites', priceFrom: 200, ratingValue: '4.9', ratingCount: 500, lang: 'en' })} />
+      <SchemaOrg schema={buildCourse({ name: 'Corporate IT Skills Training French-speaking Switzerland', url: '/en/corporate-training/it-skills', description: 'IT skills training for SMEs in Geneva. Windows, emails, network, collaboration tools. All levels, on site.', duration: 'P1D', teaches: ['Windows', 'File management', 'Professional emails', 'Collaboration tools', 'Cloud'], prerequisites: 'No technical prerequisites', priceFrom: 200, lang: 'en' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Home', url: 'https://dkdp.ch/en' },

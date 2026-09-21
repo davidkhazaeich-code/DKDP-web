@@ -10,9 +10,9 @@ export const FAQ_ITEMS = [
       "Une formation IA adaptée à vos équipes leur permet d'automatiser les tâches répétitives, de produire des rapports et des contenus plus rapidement, et de libérer du temps pour les missions à forte valeur ajoutée. Nos formations sont dispensées en présentiel à Genève ou en visioconférence, en français, et adaptées à votre secteur d'activité.",
   },
   {
-    question: "Comment une service digital à Genève peut améliorer mon référencement SEO ?",
+    question: "Comment une agence digitale à Genève peut améliorer mon référencement SEO ?",
     answer:
-      "Nous commençons par un audit complet de votre site : structuré technique, vitesse, maillage interne, mots-clés, et présence locale. Ensuite, nous mettons en place les optimisations on-page, la stratégie de contenu, et les actions off-page. Nos clients observent des résultats mesurables (trafic organique, leads) entre 3 et 6 mois.",
+      "Nous commençons par un audit complet de votre site : structure technique, vitesse, maillage interne, mots-clés, et présence locale. Ensuite, nous mettons en place les optimisations on-page, la stratégie de contenu, et les actions off-page. Nos clients observent des résultats mesurables (trafic organique, leads) entre 3 et 6 mois.",
   },
   {
     question: "L'intelligence artificielle est-elle adaptée aux PME suisses ?",

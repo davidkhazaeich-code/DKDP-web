@@ -230,7 +230,7 @@ export default function AuditConsultingPage() {
                   </LiquidMetalButton>
                   <p className="text-text-muted text-sm">Full report in 48 hours</p>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Offer updated: April 2026</p>
+                <p className="text-text-muted text-xs mt-6">Offer updated: September 2026</p>
               </div>
 
               <div className="relative">

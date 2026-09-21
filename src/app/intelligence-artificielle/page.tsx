@@ -149,7 +149,7 @@ export default function IntelligenceArtificiellePage() {
                     Voir nos solutions ↓
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
+                <p className="text-text-muted text-xs mt-6">Offre mise à jour : septembre 2026</p>
               </div>
               <div className="relative">
                 <div className="mb-6 lg:mb-8" aria-label="Outils IA deployes en entreprise">
@@ -557,7 +557,7 @@ export default function IntelligenceArtificiellePage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <p className="text-center text-text-muted text-xs font-semibold uppercase tracking-widest mb-8">
-              Compléter votre démarché IA
+              Compléter votre démarche IA
             </p>
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

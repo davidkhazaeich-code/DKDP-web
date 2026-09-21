@@ -204,8 +204,6 @@ export default function ChatGptTrainingPage() {
         teaches: ['ChatGPT Astra (GPT-6)', 'ChatGPT Work', 'Custom GPTs', 'Codex', 'Prompt engineering', 'Data protection and nLPD'],
         prerequisites: 'No technical prerequisites',
         priceFrom: 200,
-        ratingValue: '4.9',
-        ratingCount: 500,
         image: 'https://dkdp.ch/images/og/formation-chatgpt.png',
         lang: 'en',
       })} />

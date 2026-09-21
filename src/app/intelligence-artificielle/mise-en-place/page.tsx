@@ -159,7 +159,7 @@ export default function MiseEnPlacePage() {
                     Voir les LLMs supportes
                   </Link>
                 </div>
-                <p className="text-text-muted text-xs mt-6">Offre mise à jour : avril 2026</p>
+                <p className="text-text-muted text-xs mt-6">Offre mise à jour : septembre 2026</p>
               </div>
 
               <div className="relative">

@@ -283,6 +283,24 @@ reste en `queued` sans flush = collecte bloquee (CSP ou bloqueur).
 Garde-fous automatiques : `src/lib/__tests__/openai-ads.test.ts` et
 `openai-ads-server.test.ts` (mapping, forme de la charge utile, hachage).
 
+### Garde d'hote (21/09/2026, plan SEO, action X04)
+
+**Rien ne part hors de `dkdp.ch`.** Dans `app/layout.tsx`, le pixel OpenAI, GTM
+et gtag ne se chargent que si `location.hostname === 'dkdp.ch'` (constante
+`TRACKING_HOST`). Ailleurs (localhost, `next start` de recette, previews
+Vercel), `oaiq`, `gtag` et `dataLayer` existent en stubs muets : le code
+applicatif appelle les memes fonctions, aucune requete ne part. GA4 comptait
+19 sessions « localhost » sur l'ete 2026 avant cette garde.
+
+Cote serveur, `sendOpenAiAdsEvent()` passe en `validate_only: true` quand
+`VERCEL_ENV` n'est pas `production` ou quand `source_url` n'est pas sur
+`dkdp.ch` (`horsProduction()` dans `openai-ads-server.ts`).
+
+**Consequence** : un test de conversion de bout en bout se fait desormais **en
+production**, dans le navigateur integre (jamais dans le Chrome de David, cf.
+memory `feedback_tracking_diagnostic_pieges`), et se retire des rapports par le
+filtre de trafic interne GA4.
+
 ## Ce qui reste a faire hors code
 
 1. **Poser `OPENAI_ADS_API_KEY` sur Vercel** (Settings > Environment Variables,

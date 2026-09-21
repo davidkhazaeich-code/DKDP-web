@@ -12,6 +12,9 @@ import { Header } from '@/components/layout/Header'
 import { FooterWrapper } from '@/components/layout/FooterWrapper'
 import { LazyChatWidget } from '@/components/ui/LazyChatWidget'
 import { OPENAI_PIXEL_ID } from '@/lib/openai-ads'
+
+/** Seul hote ou la mesure (GA4, GTM, pixel OpenAI) est active. */
+const TRACKING_HOST = 'dkdp.ch'
 import { getServerLocale } from '@/i18n/server'
 import { htmlLangs, ogLocales } from '@/i18n/config'
 import './globals.css'
@@ -80,6 +83,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             __html: `(function(){try{var t=localStorage.getItem('dkdp-theme');var d=document.documentElement;if(t==='light'){d.setAttribute('data-theme','light');d.style.colorScheme='light';}else{d.setAttribute('data-theme','dark');d.style.colorScheme='dark';}}catch(e){document.documentElement.setAttribute('data-theme','dark');document.documentElement.style.colorScheme='dark';}})();`,
           }}
         />
+        {/* GARDE D'HOTE (21/09/2026, plan SEO, action X04) : pixel OpenAI, GTM et
+            gtag ne se chargent que sur dkdp.ch. Localhost, les previews Vercel et
+            tout miroir gardent des stubs muets (`oaiq`, `gtag`, `dataLayer`), donc
+            le code applicatif ne change pas et rien ne part vers GA4, Ads ou
+            OpenAI. GA4 comptait 19 sessions « localhost » sur l'ete 2026. */}
         {/* Pixel de mesure OpenAI (ChatGPT Ads).
             Inline et synchrone comme le recommande OpenAI : le stub `oaiq` doit
             exister avant tout code React, sinon les conversions declenchees tot
@@ -88,12 +96,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <script
           id="openai-pixel"
           dangerouslySetInnerHTML={{
-            __html: `!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"${OPENAI_PIXEL_ID}"${process.env.NODE_ENV === 'production' ? '' : ',debug:true'}});`,
+            __html: `!function(w,d,s,u){if(w.oaiq)return;if(w.location.hostname!=="${TRACKING_HOST}"){w.oaiq=function(){};return}var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"${OPENAI_PIXEL_ID}"${process.env.NODE_ENV === 'production' ? '' : ',debug:true'}});`,
           }}
         />
         {/* Google Tag Manager */}
         <Script id="gtm-head" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NDMXZL8');`}
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];if(w.location.hostname!=='${TRACKING_HOST}')return;w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NDMXZL8');`}
         </Script>
         <link rel="dns-prefetch" href="https://app.cal.com" />
         <link rel="help" href="/llms.txt" type="text/plain" title="LLM Information" />
@@ -139,17 +147,23 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </ThemeProvider>
         </MotionProvider>
         <Analytics />
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-SCXF5R826D"
-          strategy="afterInteractive"
-        />
+        {/* Google tag (gtag.js), charge par le script lui-meme apres la garde
+            d'hote : hors dkdp.ch, `gtag` existe (il alimente le dataLayer) mais
+            aucune bibliotheque n'est chargee, donc rien ne part. */}
         <Script id="gtag-init" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-SCXF5R826D');
+            (function(){
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+              if (window.location.hostname !== '${TRACKING_HOST}') return;
+              var s = document.createElement('script');
+              s.async = true;
+              s.src = 'https://www.googletagmanager.com/gtag/js?id=G-SCXF5R826D';
+              document.head.appendChild(s);
+              gtag('js', new Date());
+              gtag('config', 'G-SCXF5R826D');
+            })();
           `}
         </Script>
       </body>

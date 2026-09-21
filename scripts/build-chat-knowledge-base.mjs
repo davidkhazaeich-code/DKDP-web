@@ -31,6 +31,19 @@ const EXCLUDED_PATHS = new Set([
   '/rgpd-cookies',
   '/plan-du-site',
   '/en', // accueil anglais, voir EXCLUDED_PREFIXES
+  // 21/09/2026 : la KB a dépassé son plafond (166k tokens) le jour où les
+  // réponses FAQ sont entrées dans le HTML de toutes les pages. Retirés,
+  // décision David : le glossaire (13 Ko de définitions, le modèle les
+  // connaît) et six des sept pages villes, copies à 86 % de la même page
+  // (Lausanne reste comme représentante, la liste des villes servies est sur
+  // /agence-digitale et dans le prompt statique). 63 Ko en moins.
+  '/glossaire',
+  '/agence-digitale/neuchatel',
+  '/agence-digitale/montreux',
+  '/agence-digitale/fribourg',
+  '/agence-digitale/morges',
+  '/agence-digitale/nyon',
+  '/agence-digitale/sion',
 ])
 
 const EXCLUDED_PREFIXES = [

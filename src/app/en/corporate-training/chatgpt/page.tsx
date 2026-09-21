@@ -978,7 +978,7 @@ export default function ChatGptTrainingPage() {
 
       {/* ══ 13. ROI ══ */}
       <section id="roi" className="scroll-mt-[124px]">
-        <ROICalculatorFormation />
+        <ROICalculatorFormation lang="en" />
       </section>
 
       {/* ══ 14. Pricing ══ */}

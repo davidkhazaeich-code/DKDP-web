@@ -338,7 +338,7 @@ export default function FormationIAPage() {
       </section>
 
       {/* ── ROI Calculator Training ── */}
-      <ROICalculatorFormation />
+      <ROICalculatorFormation lang="en" />
 
       {/* ── Programme ── */}
       <section id="programme" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">

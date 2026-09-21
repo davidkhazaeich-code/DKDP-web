@@ -112,6 +112,12 @@ const ALL_SERVICES: ServiceLink[] = [
     desc: 'Sensibilisez vos équipes aux risques et aux bons réflexes.',
     color: orangeColor, bg: orangeBg, border: orangeBd,
   },
+  {
+    label: 'Formation Claude IA',
+    href: '/formation-entreprise/claude-ai',
+    desc: 'Claude.ai, Projects et Claude Code pour vos équipes, du débutant à l\'avancé.',
+    color: orangeColor, bg: orangeBg, border: orangeBd,
+  },
 ]
 
 const CATEGORY_SERVICES: Record<CategoryKey, string[]> = {
@@ -119,6 +125,7 @@ const CATEGORY_SERVICES: Record<CategoryKey, string[]> = {
     '/intelligence-artificielle/audit-conseil',
     '/intelligence-artificielle/automatisation',
     '/formation-entreprise/ia',
+    '/formation-entreprise/claude-ai',
   ],
   seo: [
     '/agence-digitale/seo',

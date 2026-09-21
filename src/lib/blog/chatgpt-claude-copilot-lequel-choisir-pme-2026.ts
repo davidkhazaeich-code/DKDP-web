@@ -190,7 +190,7 @@ Claude offre la politique de confidentialité la plus solide : Anthropic s'engag
 Oui, et c'est souvent la stratégie la plus efficace. Beaucoup de PME utilisent Copilot pour les tâches bureautiques quotidiennes (emails, résumés Teams, Excel) et ChatGPT ou Claude pour la production de contenu et les tâches stratégiques. Le coût reste maîtrisable et le gain de productivité est maximal.
 
 **Existe-t-il une formation pour apprendre à utiliser ces outils en PME ?**
-DKDP propose des [formations pratiques aux outils IA pour les équipes](/formation-entreprise/ia) à Genève, adaptées aux profils non techniques. Les sessions couvrent ChatGPT, Claude et Copilot selon vos outils et vos cas d'usage réels.`,
+DKDP propose des [formations pratiques aux outils IA pour les équipes](/formation-entreprise/ia) à Genève, adaptées aux profils non techniques, et une [formation Claude IA dédiée](/formation-entreprise/claude-ai) (Claude.ai, Projects, Claude Code). Les sessions couvrent ChatGPT, Claude et Copilot selon vos outils et vos cas d'usage réels.`,
   }
 
 export default article

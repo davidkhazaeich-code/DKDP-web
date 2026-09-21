@@ -33,7 +33,7 @@ import { LeadFormInlineClaudeAIEN } from './_components/LeadFormInlineClaudeAIEN
 import { GalleryFormationClaudeAIEN } from './_components/GalleryFormationClaudeAIEN'
 
 export const metadata: Metadata = {
-  title: 'Claude AI training Geneva & Switzerland | DKDP',
+  title: 'Claude AI corporate training Geneva & Romandy | DKDP',
   description:
     'Claude AI training for companies in Geneva and French-speaking Switzerland. Claude.ai, collaborative Projects, Claude Code. Tailored programme, 1 to 2 days, on-site or remote.',
   alternates: {
@@ -484,9 +484,9 @@ export default function ClaudeAITrainingPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '2h30', l: 'Saved / day / person', sub: 'Post-training average' },
-              { v: '94%', l: 'Apply from day 1', sub: 'Skills used' },
-              { v: '4.9/5', l: 'Satisfaction', sub: 'DKDP average rating' },
+              { v: '1 day', l: 'Format', sub: 'Half-day or full day' },
+              { v: '1 to 10', l: 'People', sub: 'Groups on quote from 3' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
               { v: '100%', l: 'Tailored', sub: 'Your real use cases' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -1226,7 +1226,7 @@ export default function ClaudeAITrainingPage() {
 
       {/* ══ 10. ROI ══ */}
       <section id="roi" className="scroll-mt-[124px]">
-        <ROICalculatorFormation />
+        <ROICalculatorFormation lang="en" />
       </section>
 
       {/* ══ 12. Pricing ══ */}
@@ -1310,9 +1310,9 @@ export default function ClaudeAITrainingPage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { v: '700+', l: 'Clients supported', c: V },
-                  { v: '10+', l: 'Years of experience', c: CH },
-                  { v: '5/5', l: 'Google rating', c: OR },
+                  { v: '2019', l: 'Founded in Geneva', c: V },
+                  { v: '2', l: 'Published case studies', c: CH },
+                  { v: '5.0/5', l: 'Google rating, 22 reviews', c: OR },
                   { v: '100%', l: 'Tailored', c: V },
                 ].map((s) => (
                   <div

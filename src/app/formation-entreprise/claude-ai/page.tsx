@@ -37,7 +37,9 @@ import { LeadFormInlineClaudeAI } from './_components/LeadFormInlineClaudeAI'
 import { GalleryFormationClaudeAI } from './_components/GalleryFormationClaudeAI'
 
 export const metadata: Metadata = {
-  title: 'Formation Claude IA Genève & Suisse romande | DKDP',
+  // 21/09/2026 (plan SEO, D06) : les deux graphies « Claude IA » et « Claude AI »
+  // (rangs 1, 2, 4, 6 titrent « Claude AI »), 535 px.
+  title: 'Formation Claude IA & Claude AI entreprise Genève | DKDP',
   description:
     'Formation Claude IA pour entreprises à Genève et en Suisse romande. Claude.ai, Projects collaboratifs, Claude Code. Programme sur mesure, 1 à 2 jours, présentiel ou distanciel.',
   alternates: {
@@ -294,9 +296,9 @@ export default function FormationClaudeAIPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '2h30', l: 'Gagnées / jour / pers.', sub: 'Moyenne post-formation' },
-              { v: '94%', l: 'Appliquent dès J+1', sub: 'Compétences utilisées' },
-              { v: '4.9/5', l: 'Satisfaction', sub: 'Note moyenne DKDP' },
+              { v: '1 jour', l: 'Format', sub: 'Demi-journée ou journée' },
+              { v: '1 à 10', l: 'Personnes', sub: 'Groupe sur devis dès 3' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
               { v: '100%', l: 'Sur mesure', sub: 'Vos cas d\'usage réels' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -1120,9 +1122,9 @@ export default function FormationClaudeAIPage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { v: '700+', l: 'Clients accompagnés', c: V },
-                  { v: '10+', l: 'Ans d\'expérience', c: CH },
-                  { v: '5/5', l: 'Note Google', c: OR },
+                  { v: '2019', l: 'Agence fondée à Genève', c: V },
+                  { v: '2', l: 'Réalisations publiées', c: CH },
+                  { v: '5,0/5', l: 'Note Google, 22 avis', c: OR },
                   { v: '100%', l: 'Sur mesure', c: V },
                 ].map((s) => (
                   <div

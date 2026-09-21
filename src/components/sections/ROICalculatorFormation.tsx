@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { formatSwissInt } from '@/lib/format'
 import Link from 'next/link'
+import { PRIX } from '@/data/pricing'
 import { ChevronRight, Users, Clock, Banknote, Timer, TrendingUp, Tag, BarChart2, CalendarClock } from 'lucide-react'
 import { HeroBg } from '@/components/ui/HeroBg'
 
@@ -98,7 +99,11 @@ function SliderInput({
   )
 }
 
-export function ROICalculatorFormation() {
+/**
+ * `lang` (21/09/2026, plan SEO, D25) : le composant est en francais mais sert
+ * aussi les pages EN ; au minimum le CTA doit rester dans la locale.
+ */
+export function ROICalculatorFormation({ lang = 'fr' }: { lang?: 'fr' | 'en' } = {}) {
   const [collaborateurs, setCollaborateurs] = useState(5)
   const [tauxHoraire, setTauxHoraire]       = useState(90)
   const [tempsEco, setTempsEco]             = useState(60) // minutes / jour
@@ -107,8 +112,10 @@ export function ROICalculatorFormation() {
   const heuresAn           = Math.round(heuresEcoParPersAn * collaborateurs)
   const gainsAn            = heuresAn * tauxHoraire
 
-  // Coût formation DKDP selon nombre de participants
-  const prixFormation = collaborateurs <= 8 ? 1_500 : collaborateurs <= 15 ? 2_800 : 4_500
+  // Coût d'une journée (6h de formation + 2h de préparation, cf. /tarifs) au
+  // tarif horaire de src/data/pricing : 1 personne, 2 personnes, puis devis.
+  // Au-delà de 2, l'estimation basse reprend le tarif 2 personnes.
+  const prixFormation = collaborateurs <= 1 ? 8 * PRIX.formationHourly1 : 8 * PRIX.formationHourly2
   const roi           = gainsAn > 0 ? gainsAn / prixFormation : 0
   const moisRetour    = gainsAn > 0 ? Math.max(1, Math.ceil((prixFormation / gainsAn) * 12)) : 0
 
@@ -238,7 +245,7 @@ export function ROICalculatorFormation() {
               <div className="space-y-3.5">
                 <div className="flex justify-between items-center">
                   <span className="flex items-center gap-2 text-text-muted text-sm">
-                    <Tag size={13} style={{ color: 'rgba(212,212,216,0.40)' }} />Coût de la formation
+                    <Tag size={13} style={{ color: 'rgba(212,212,216,0.40)' }} />{collaborateurs > 2 ? 'Coût d\'une journée (estimation basse, devis dès 3)' : 'Coût d\'une journée de formation'}
                   </span>
                   <span className="text-text font-bold text-sm">
                     {formatCHF(prixFormation)}
@@ -271,16 +278,16 @@ export function ROICalculatorFormation() {
 
             {/* CTA - liquid metal chrome */}
             <Link
-              href="/contact#formulaire"
+              href={lang === 'en' ? '/en/contact#formulaire' : '/contact#formulaire'}
               className="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-[12px] text-sm font-bold transition-all hover:opacity-90 active:scale-[0.98] duration-150"
               style={{
                 background: 'linear-gradient(135deg, #e8e8e8 0%, #a0a0a8 30%, #d4d4d8 58%, #707078 100%)',
                 color: '#0a0a0a',
                 boxShadow: '0 0 24px rgba(212,212,216,0.20), inset 0 1px 0 rgba(255,255,255,0.35)',
               }}
-              aria-label="Demander un devis de formation"
+              aria-label={lang === 'en' ? 'Request a training quote' : 'Demander un devis de formation'}
             >
-              Demander un devis <ChevronRight size={16} />
+              {lang === 'en' ? 'Request a quote' : 'Demander un devis'} <ChevronRight size={16} />
             </Link>
           </div>
         </div>

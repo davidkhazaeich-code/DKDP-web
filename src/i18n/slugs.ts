@@ -107,6 +107,9 @@ export const TRANSLATED_PAGES = Object.keys(FR_TO_EN)
  */
 export function localizedPath(frPath: string, locale: Locale): string {
   if (locale === 'fr') return frPath
+  // Les articles de blog n'ont pas de version EN (seul le hub /en/blog existe) :
+  // /en/blog/<slug> repondait 404 sur 8 liens (21/09/2026, plan SEO, D25).
+  if (frPath.startsWith('/blog/')) return frPath
   const translated = FR_TO_EN[frPath]
   if (translated === undefined) return `/en${frPath}`
   if (translated === '/') return '/en'

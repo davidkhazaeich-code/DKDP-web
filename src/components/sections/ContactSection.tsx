@@ -5,11 +5,12 @@ import { MapPin, Phone, Mail, Clock, CalendarCheck, MessageSquare } from 'lucide
 import { ContactForm } from '@/components/sections/ContactForm'
 import { CalBooking } from '@/components/sections/CalBooking'
 import type { Locale } from '@/i18n/config'
+import { ENTITY } from '@/lib/entity'
 
 const INFO_META = [
   { Icon: Phone, href: 'tel:+41799407969' as string | undefined },
   { Icon: Mail, href: 'mailto:dk@dkdp.ch' as string | undefined },
-  { Icon: MapPin, href: 'https://maps.google.com/?q=36+Rue+du+31+Décembre+1207+Genève' as string | undefined },
+  { Icon: MapPin, href: ENTITY.mapsUrl as string | undefined },
   { Icon: Clock, href: undefined as string | undefined },
 ]
 

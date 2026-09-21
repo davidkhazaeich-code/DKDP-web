@@ -3,9 +3,10 @@
 import { useState } from 'react'
 import { MapPin, Navigation, Clock, Phone } from 'lucide-react'
 import type { Locale } from '@/i18n/config'
+import { ENTITY } from '@/lib/entity'
 
-const LAT = 46.2017
-const LNG = 6.1630
+const LAT = ENTITY.geo.latitude
+const LNG = ENTITY.geo.longitude
 const MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''
 
 // Embed URL with dark mode via style param
@@ -104,7 +105,7 @@ export function GoogleMapSection({ lang = 'fr' }: { lang?: Locale } = {}) {
             </div>
 
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+Décembre,1207+Genève"
+              href={ENTITY.directionsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[12px] text-sm font-semibold transition-all duration-200 hover:scale-[1.02] hover:shadow-lg w-full"
@@ -130,7 +131,7 @@ export function GoogleMapSection({ lang = 'fr' }: { lang?: Locale } = {}) {
           >
             <iframe
               src={EMBED_SRC}
-              title="DKDP, Service Digital Genève, 36 Rue du 31 Décembre, 1207 Genève"
+              title="DKDP, agence digitale à Genève, Rue du 31 Décembre 36, 1207 Genève"
               className="absolute inset-0 w-full h-full"
               style={{
                 border: 0,

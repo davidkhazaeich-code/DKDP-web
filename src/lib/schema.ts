@@ -1,4 +1,6 @@
-const BASE_URL = 'https://dkdp.ch'
+import { ENTITY } from '@/lib/entity'
+
+const BASE_URL = ENTITY.url
 
 export type SchemaLang = 'fr' | 'en'
 
@@ -32,8 +34,8 @@ const ORG_DESCRIPTION: Record<SchemaLang, string> = {
 }
 
 const LOCAL_BUSINESS_DESCRIPTION: Record<SchemaLang, string> = {
-  fr: "Agence digitale à Genève (quartier des Eaux-Vives) spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME. 700+ clients accompagnés en Suisse romande depuis 2015.",
-  en: 'Digital agency based in Geneva (Eaux-Vives district), specialised in web design, SEO, artificial intelligence and corporate training for SMBs. 700+ clients served across French-speaking Switzerland since 2015.',
+  fr: "Agence digitale à Genève (quartier des Eaux-Vives) spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME de Suisse romande, fondée en 2019.",
+  en: 'Digital agency based in Geneva (Eaux-Vives district), specialised in web design, SEO, artificial intelligence and corporate training for SMBs across French-speaking Switzerland, founded in 2019.',
 }
 
 const WEBSITE_DESCRIPTION: Record<SchemaLang, string> = {
@@ -87,21 +89,26 @@ export function buildLocalBusiness(lang: SchemaLang = 'fr') {
     name: 'DKDP',
     description: LOCAL_BUSINESS_DESCRIPTION[lang],
     url: BASE_URL,
-    telephone: '+41799407969',
-    email: 'dk@dkdp.ch',
+    legalName: ENTITY.legalName,
+    alternateName: ENTITY.gbpName,
+    vatID: ENTITY.vatID,
+    foundingDate: ENTITY.foundingDate,
+    telephone: ENTITY.telephone,
+    email: ENTITY.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Rue du 31 Décembre 36',
+      streetAddress: ENTITY.address.streetAddress,
       addressLocality: LOCALITY[lang],
       addressRegion: LOCALITY[lang],
-      postalCode: '1207',
-      addressCountry: 'CH',
+      postalCode: ENTITY.address.postalCode,
+      addressCountry: ENTITY.address.country,
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 46.20440,
-      longitude: 6.14320,
+      latitude: ENTITY.geo.latitude,
+      longitude: ENTITY.geo.longitude,
     },
+    hasMap: ENTITY.mapsUrl,
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -115,12 +122,12 @@ export function buildLocalBusiness(lang: SchemaLang = 'fr') {
     areaServed: CITIES_LOCALIZED[lang],
     logo: {
       '@type': 'ImageObject',
-      url: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
+      url: ENTITY.logo.url,
+      width: ENTITY.logo.width,
+      height: ENTITY.logo.height,
     },
     sameAs: [
-      'https://www.linkedin.com/company/dkdp',
-      'https://www.instagram.com/davidkhazaei',
-      `https://maps.google.com/?cid=13230766909416496931`,
+      ...ENTITY.sameAs,
     ],
   }
 }
@@ -136,23 +143,26 @@ export function buildService({
   description?: string
   lang?: SchemaLang
 }) {
+  // 21/09/2026 (plan SEO, D15) : meme montage que buildServiceWithLocalBusiness,
+  // un seul graph Service + LocalBusiness lie par @id, sans Offer. Avant, ce
+  // builder emettait un Service orphelin (provider Organization sans adresse ni
+  // telephone) sur 30 pages, et l'autre un montage different sur 17.
   return {
     '@context': 'https://schema.org',
-    '@type': 'Service',
-    name,
-    ...(description ? { description } : {}),
-    url: `${BASE_URL}${url}`,
-    inLanguage: IN_LANGUAGE[lang],
-    provider: {
-      '@type': 'Organization',
-      name: 'DKDP',
-      url: BASE_URL,
-    },
-    areaServed: {
-      '@type': 'Place',
-      name: `${LOCALITY[lang]}, ${REGION[lang]}`,
-    },
-    serviceType: name,
+    '@graph': [
+      {
+        '@type': 'Service',
+        '@id': `${BASE_URL}${url}#service`,
+        name,
+        ...(description ? { description } : {}),
+        url: `${BASE_URL}${url}`,
+        inLanguage: IN_LANGUAGE[lang],
+        provider: { '@id': 'https://dkdp.ch/#local-business' },
+        areaServed: [...CITIES_LOCALIZED[lang], { '@type': 'City', name: 'Montreux' }],
+        serviceType: name,
+      },
+      buildLocalBusiness(lang),
+    ],
   }
 }
 
@@ -283,7 +293,7 @@ export function buildCourse({
       '@type': 'Organization',
       name: 'DKDP',
       url: BASE_URL,
-      logo: { '@type': 'ImageObject', url: `${BASE_URL}/images/logo/dkdp_blanc-croped.png` },
+      logo: { '@type': 'ImageObject', url: ENTITY.logo.url },
     },
     courseMode: ['onsite', 'online'],
     inLanguage: courseLanguage,
@@ -426,7 +436,7 @@ export function buildArticle(data: {
       url: BASE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
+        url: ENTITY.logo.url,
       },
     },
     isPartOf: {
@@ -453,18 +463,20 @@ export function buildOrganization(lang: SchemaLang = 'fr') {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': 'https://dkdp.ch/#organization',
-    name: 'DKDP',
-    legalName: 'DKDP',
+    name: ENTITY.name,
+    legalName: ENTITY.legalName,
+    alternateName: ENTITY.gbpName,
+    vatID: ENTITY.vatID,
     url: BASE_URL,
     logo: {
       '@type': 'ImageObject',
-      url: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
-      width: 512,
-      height: 512,
+      url: ENTITY.logo.url,
+      width: ENTITY.logo.width,
+      height: ENTITY.logo.height,
     },
-    image: `${BASE_URL}/images/logo/dkdp_blanc-croped.png`,
+    image: ENTITY.logo.url,
     description: ORG_DESCRIPTION[lang],
-    foundingDate: '2015',
+    foundingDate: ENTITY.foundingDate,
     founder: {
       '@type': 'Person',
       name: 'David Khazaei',
@@ -473,27 +485,23 @@ export function buildOrganization(lang: SchemaLang = 'fr') {
     },
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Rue du 31 Décembre 36',
+      streetAddress: ENTITY.address.streetAddress,
       addressLocality: LOCALITY[lang],
-      postalCode: '1207',
+      postalCode: ENTITY.address.postalCode,
       addressRegion: LOCALITY[lang],
-      addressCountry: 'CH',
+      addressCountry: ENTITY.address.country,
     },
     contactPoint: [
       {
         '@type': 'ContactPoint',
         contactType: 'customer service',
-        telephone: '+41799407969',
-        email: 'dk@dkdp.ch',
+        telephone: ENTITY.telephone,
+        email: ENTITY.email,
         availableLanguage: ['French', 'English'],
         areaServed: 'CH',
       },
     ],
-    sameAs: [
-      'https://www.linkedin.com/company/dkdp',
-      'https://www.instagram.com/davidkhazaei',
-      'https://maps.google.com/?cid=13230766909416496931',
-    ],
+    sameAs: [...ENTITY.sameAs],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: lang === 'fr' ? 'Services DKDP' : 'DKDP Services',

@@ -5,6 +5,7 @@ import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 import type { Locale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { localizedPath } from '@/i18n/slugs'
+import { ENTITY } from '@/lib/entity'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -143,7 +144,7 @@ function FooterInner({
   const cityLinks = getCityLinks(lang)
   const t = dict.common
   const copyrightText = t.copyright.replace('{year}', String(year))
-  const logoAlt = lang === 'en' ? 'DKDP, digital agency in Geneva' : 'DKDP, Service Digital Genève'
+  const logoAlt = lang === 'en' ? 'DKDP, digital agency in Geneva' : 'DKDP, agence digitale à Genève'
   const ariaCitiesLabel = lang === 'en' ? 'Cities we serve' : 'Villes desservies'
 
   return (
@@ -179,7 +180,7 @@ function FooterInner({
               {t.agencyTagline}
             </p>
             <address className="not-italic space-y-2 flex-1">
-              <a href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+D%C3%A9cembre,1207+Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-text-muted hover:text-text text-xs transition-colors">
+              <a href={ENTITY.directionsUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-text-muted hover:text-text text-xs transition-colors">
                 <MapPin size={12} className="mt-0.5 flex-shrink-0 text-violet-light" />
                 <span>{t.address}<br />{t.neighborhood}<br />{t.city}</span>
               </a>
@@ -260,7 +261,7 @@ function FooterInner({
             </p>
           </div>
           <address className="not-italic space-y-2 sm:text-right">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=DKDP+Service+Digital,36+Rue+du+31+D%C3%A9cembre,1207+Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 sm:justify-end text-text-muted hover:text-text text-xs transition-colors">
+            <a href={ENTITY.directionsUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 sm:justify-end text-text-muted hover:text-text text-xs transition-colors">
               <MapPin size={12} className="mt-0.5 flex-shrink-0 text-violet-light sm:order-last sm:ml-0" />
               <span>{t.address} · {t.neighborhood.replace(/Quartier des |District/g, '').trim()} · {t.city.replace(', Suisse', '').replace(', Switzerland', '')}</span>
             </a>

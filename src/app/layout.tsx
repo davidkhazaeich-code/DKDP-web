@@ -18,6 +18,7 @@ const TRACKING_HOST = 'dkdp.ch'
 import { getServerLocale } from '@/i18n/server'
 import { htmlLangs, ogLocales } from '@/i18n/config'
 import './globals.css'
+import { ENTITY } from '@/lib/entity'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -112,8 +113,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <meta name="citation_geo_region" content="CH-GE" />
         <meta name="geo.region" content="CH-GE" />
         <meta name="geo.placename" content="Genève" />
-        <meta name="geo.position" content="46.20440;6.14320" />
-        <meta name="ICBM" content="46.20440,6.14320" />
+        <meta name="geo.position" content={`${ENTITY.geo.latitude};${ENTITY.geo.longitude}`} />
+        <meta name="ICBM" content={`${ENTITY.geo.latitude},${ENTITY.geo.longitude}`} />
         <meta name="format-detection" content="telephone=yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

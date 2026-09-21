@@ -85,6 +85,8 @@ function getPillars(lang: Locale, dict: FooterDict) {
         { label: t.aproposLinks[1], href: lp('/tarifs') },
         { label: t.aproposLinks[2], href: lp('/blog') },
         { label: t.aproposLinks[3], href: lp('/glossaire') },
+        // M4 (21/09/2026) : /realisations n'avait aucun lien depuis le pied de page.
+        { label: t.aproposLinks[4], href: lp('/realisations') },
       ],
       hub: { label: dict.common.contactAgency, href: lp('/contact') },
     },

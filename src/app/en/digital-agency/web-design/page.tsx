@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { REALISATIONS } from '@/lib/realisations'
+import { localizeRealisation } from '@/lib/realisations/en'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { CheckCircle2, Zap, Search, Settings, ChevronRight, TrendingUp, BarChart2, ShieldCheck, Star, Globe2, Clock, FileText } from 'lucide-react'
@@ -93,6 +95,16 @@ const FAQ_EN = [
       'Yes. We offer maintenance, evolution and monthly SEO packages. You are never alone once the site is delivered.',
   },
 ]
+
+/** The two published case studies, in /en/portfolio order. */
+const CAS_SITES = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => localizeRealisation(r, 'en')).map((r) => ({
+  client: r.client.name,
+  type: r.category === 'site-web' ? 'Website' : r.category === 'projet-ia' ? 'AI project' : 'Website and AI',
+  image: r.hero.desktopFull,
+  results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric}: ${x.value}`),
+  tech: r.tags.slice(0, 4).join(' · '),
+  href: `/en/portfolio/${r.slug}`,
+}))
 
 const BENEFITS = [
   {
@@ -528,33 +540,13 @@ export default function EnWebDesignPage() {
               </h2>
             </div>
           </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                client: 'B2B consulting firm',
-                type: 'Showcase rebuild',
-                image: '/images/services/dkdp-agence-creation-web.webp',
-                results: ['+340% organic traffic', '15 qualified leads / month', 'Delivered in 4 weeks'],
-                tech: 'Next.js · Sanity · Vercel',
-              },
-              {
-                client: 'Geneva lifestyle shop',
-                type: 'Shopify e-commerce',
-                image: '/images/services/dkdp-agence-reseaux-sociaux.webp',
-                results: ['+220% online revenue', 'Conversion rate x2.8', 'Full mobile-first build'],
-                tech: 'Shopify · Liquid · Klaviyo',
-              },
-              {
-                client: 'Specialist clinic',
-                type: 'Showcase + CRM',
-                image: '/images/services/dkdp-agence-consulting.webp',
-                results: ['0 to 80 patients / month via web', 'PageSpeed score 98/100', 'Bilingual FR / EN'],
-                tech: 'Astro · HubSpot · Infomaniak',
-              },
-            ].map((r, i) => (
+          {/* Two published case studies from src/lib/realisations (21/09/2026, SEO plan, M4): the three fictional cases were removed. */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {CAS_SITES.map((r, i) => (
               <SectionReveal key={r.client} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border overflow-hidden"
+                <Link
+                  href={r.href}
+                  className="flex flex-col h-full rounded-[16px] border overflow-hidden transition-colors hover:border-violet-light"
                   style={{ borderColor: border }}
                 >
                   <div className="relative h-44 overflow-hidden flex-shrink-0">
@@ -563,7 +555,7 @@ export default function EnWebDesignPage() {
                       alt={r.client}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
                     <span
@@ -584,8 +576,11 @@ export default function EnWebDesignPage() {
                       ))}
                     </div>
                     <p className="text-text-muted text-[11px] mt-4 font-mono">{r.tech}</p>
+                    <span className="text-sm font-semibold mt-4 inline-flex items-center gap-1" style={{ color }}>
+                      See the case study <ChevronRight size={12} />
+                    </span>
                   </div>
-                </div>
+                </Link>
               </SectionReveal>
             ))}
           </div>

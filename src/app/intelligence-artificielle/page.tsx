@@ -610,6 +610,20 @@ export default function IntelligenceArtificiellePage() {
                 <ChevronRight size={18} className="flex-shrink-0 text-[#A78BFA] transition-transform group-hover:translate-x-1" />
               </Link>
             </SectionReveal>
+            <SectionReveal delay={0.15}>
+              <Link
+                href="/realisations/sos-relevage"
+                className="group flex items-center justify-between gap-5 rounded-[14px] p-6 border transition-all hover:-translate-y-0.5 duration-200 md:col-span-2"
+                style={{ background: 'rgba(212,212,216,0.06)', borderColor: 'rgba(212,212,216,0.2)' }}
+              >
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest mb-1 text-text-secondary">Réalisation</p>
+                  <p className="text-text font-semibold">SOS Relevage : site de service et CRM terrain, livrés et mesurés</p>
+                  <p className="text-text-muted text-xs mt-1">Un tunnel de demande qui alimente directement l&apos;outil du terrain, 22 pages indexées six semaines après la mise en ligne.</p>
+                </div>
+                <ChevronRight size={18} className="flex-shrink-0 text-text-secondary transition-transform group-hover:translate-x-1" />
+              </Link>
+            </SectionReveal>
           </div>
         </div>
       </section>

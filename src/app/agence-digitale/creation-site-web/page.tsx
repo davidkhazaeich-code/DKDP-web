@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { REALISATIONS } from '@/lib/realisations'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { CheckCircle2, Zap, Search, Settings, ChevronRight, TrendingUp, BarChart2, ShieldCheck, Star, Globe2, Clock, FileText } from 'lucide-react'
@@ -42,6 +43,16 @@ export const metadata: Metadata = {
   },
 }
 
+
+/** Les deux réalisations publiées, dans l'ordre de /realisations. */
+const CAS_SITES = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => ({
+  client: r.client.name,
+  type: r.category === 'site-web' ? 'Site web' : r.category === 'projet-ia' ? 'Projet IA' : 'Site et IA',
+  image: r.hero.desktopFull,
+  results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric} : ${x.value}`),
+  tech: r.tags.slice(0, 4).join(' · '),
+  href: `/realisations/${r.slug}`,
+}))
 
 const FAQ = [
   {
@@ -545,33 +556,14 @@ export default function CreationSiteWebPage() {
               </h2>
             </div>
           </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                client: 'Cabinet de conseil B2B',
-                type: 'Refonte site vitrine',
-                image: '/images/services/dkdp-agence-creation-web.webp',
-                results: ['+340% trafic organique', '15 leads qualifiés / mois', 'Livré en 4 semaines'],
-                tech: 'Next.js · Sanity · Vercel',
-              },
-              {
-                client: 'Boutique lifestyle Genève',
-                type: 'E-commerce Shopify',
-                image: '/images/services/dkdp-agence-reseaux-sociaux.webp',
-                results: ['+220% chiffre d\'affaires online', 'Taux de conversion x2.8', 'Mobile-first complet'],
-                tech: 'Shopify · Liquid · Klaviyo',
-              },
-              {
-                client: 'Clinique spécialisée',
-                type: 'Site vitrine + CRM',
-                image: '/images/services/dkdp-agence-consulting.webp',
-                results: ['0 à 80 patients / mois via web', 'Score PageSpeed 98/100', 'Multilingue FR / EN'],
-                tech: 'Astro · HubSpot · Infomaniak',
-              },
-            ].map((r, i) => (
+          {/* Les deux réalisations publiées, lues dans src/lib/realisations (21/09/2026, plan SEO, M4) :
+              les trois cas fictifs (+340 %, +220 %, 0 à 80 patients) ont été retirés. */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {CAS_SITES.map((r, i) => (
               <SectionReveal key={r.client} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border overflow-hidden"
+                <Link
+                  href={r.href}
+                  className="flex flex-col h-full rounded-[16px] border overflow-hidden transition-colors hover:border-violet-light"
                   style={{ borderColor: border }}
                 >
                   <div className="relative h-44 overflow-hidden flex-shrink-0">
@@ -580,7 +572,7 @@ export default function CreationSiteWebPage() {
                       alt={r.client}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
                     <span
@@ -601,8 +593,11 @@ export default function CreationSiteWebPage() {
                       ))}
                     </div>
                     <p className="text-text-muted text-[11px] mt-4 font-mono">{r.tech}</p>
+                    <span className="text-sm font-semibold mt-4 inline-flex items-center gap-1" style={{ color }}>
+                      Voir la réalisation <ChevronRight size={12} />
+                    </span>
                   </div>
-                </div>
+                </Link>
               </SectionReveal>
             ))}
           </div>

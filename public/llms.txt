@@ -34,7 +34,7 @@ Zone géographique : Genève, Lausanne, Fribourg, Sion, Neuchâtel, toute la Sui
 - [Formation Bureautique](https://dkdp.ch/formation-entreprise/bureautique): Excel avancé, Word, PowerPoint, Outlook, Google Workspace pour équipes.
 - [Formation Cybersécurité](https://dkdp.ch/formation-entreprise/cybersecurite): Sensibilisation aux risques cyber. Phishing, mots de passe, données personnelles.
 - [Formation Réseaux sociaux](https://dkdp.ch/formation-entreprise/reseaux-sociaux): LinkedIn, Instagram, TikTok pour équipes marketing et commerciaux.
-- [Formation Web design](https://dkdp.ch/formation-entreprise/web-design): Canva, Figma, notions de design pour non-designers.
+- [Formation Web design](https://dkdp.ch/formation-entreprise/figma): Canva, Figma, notions de design pour non-designers.
 - [Formation Montage vidéo](https://dkdp.ch/formation-entreprise/montage-video): CapCut, Premiere, iMovie pour créer des vidéos professionnelles.
 - [Formation Informatique](https://dkdp.ch/formation-entreprise/informatique): Prise en main PC/Mac, outils collaboratifs, Microsoft 365, Google Workspace.
 - [Formation pour particuliers](https://dkdp.ch/formation-particuliers): Cours d'informatique à domicile pour particuliers à Genève, via cours-informatique.ch. CHF 140/h (ordinateur, smartphone), CHF 150/h (bureautique, but professionnel), CHF 200/h (IA).
@@ -160,7 +160,7 @@ Geographic coverage: Geneva, Lausanne, Fribourg, Sion, Neuchatel, French-speakin
 - [Social media training](https://dkdp.ch/en/corporate-training/social-media): LinkedIn, Instagram, TikTok mastery for marketing and sales teams.
 - [Cybersecurity](https://dkdp.ch/en/corporate-training/cybersecurity): Phishing, password hygiene, MFA, social engineering, AI-specific risks.
 - [Canva](https://dkdp.ch/en/corporate-training/canva): Brand Kit, templates, Magic Studio AI. Build a design system in one day.
-- [Web design with Figma](https://dkdp.ch/en/corporate-training/web-design): UI/UX, wireframes, design systems, interactive prototypes.
+- [Web design with Figma](https://dkdp.ch/en/corporate-training/figma): UI/UX, wireframes, design systems, interactive prototypes.
 - [IT skills](https://dkdp.ch/en/corporate-training/it-skills): Cloud collaboration, productivity, automation, AI literacy for non-tech teams.
 - [Video editing](https://dkdp.ch/en/corporate-training/video-editing): Premiere Pro, DaVinci Resolve, CapCut. Phone-first option available.
 - [Individual training](https://dkdp.ch/en/individual-training): Private 1-to-1 lessons via cours-informatique.ch. CHF 140/h (computer, smartphone), CHF 150/h (office software), CHF 200/h (AI).

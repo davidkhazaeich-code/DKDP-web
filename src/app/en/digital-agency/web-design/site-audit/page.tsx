@@ -199,8 +199,8 @@ const STEPS = [
 ]
 
 const STATS = [
-  { value: '500+', label: 'sites analysed in French-speaking Switzerland' },
-  { value: '94%', label: 'of sites have at least 3 critical issues identified' },
+  { value: 'Free', label: 'automated audit of your site, no commitment' },
+  { value: '3', label: 'areas checked: performance, SEO, accessibility' },
   { value: '48h', label: 'maximum guaranteed delivery time' },
 ]
 

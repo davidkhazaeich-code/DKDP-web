@@ -561,7 +561,7 @@ export default function CreationVideoPage() {
                 client: 'Marque lifestyle Genève',
                 type: 'Série Reels Instagram',
                 image: '/images/services/dkdp-agence-reseaux-sociaux.webp',
-                results: ['12 Reels produits / trimestre', "Reach moyen 28'000 / Reel", '+340% abonnés en 4 mois'],
+                results: ['12 Reels produits / trimestre', "Reach moyen 28'000 / Reel", 'Ligne éditoriale et formats fixés'],
                 tech: 'Reels · 9:16 · CapCut Pro',
               },
               {

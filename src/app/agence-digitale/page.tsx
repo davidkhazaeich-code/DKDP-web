@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { REALISATIONS } from '@/lib/realisations'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import {
@@ -44,6 +45,16 @@ export const metadata: Metadata = {
     images: [{ url: '/images/og/agence-digitale.png', width: 1376, height: 768, alt: 'Agence digitale Genève DKDP' }],
   },
 }
+
+/** Les deux réalisations publiées, dans l'ordre de /realisations. */
+const CAS_AGENCE = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => ({
+  client: r.client.name,
+  sector: r.client.sector,
+  results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric} : ${x.value}`),
+  before: r.problem.title,
+  after: r.approach.title,
+  href: `/realisations/${r.slug}`,
+}))
 
 const SERVICES = [
   {
@@ -104,8 +115,8 @@ const SERVICES = [
 
 const STATS = [
   { value: '100+', label: 'Sites livrés' },
-  { value: '10+ ans', label: "D'expérience" },
-  { value: '4.9/5', label: 'Satisfaction client' },
+  { value: '2019', label: 'Fondée à Genève' },
+  { value: '5,0/5', label: 'Note Google, 22 avis' },
 ]
 
 const WHY = [
@@ -159,7 +170,7 @@ export default function AgenceDigitalePage() {
                   items={[
                     { label: 'Devis fixe sous 48h', Icon: FileText },
                     { label: 'Sur mesure pour PME', Icon: Target },
-                    { label: '10+ ans d\'expérience', Icon: Award },
+                    { label: 'Fondée à Genève en 2019', Icon: Award },
                   ]}
                 />
                 <div className="flex flex-wrap gap-4 items-center">
@@ -574,33 +585,13 @@ export default function AgenceDigitalePage() {
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                client: 'PME B2B Genève',
-                sector: 'Services financiers',
-                results: ['+340% trafic organique', '15 leads qualifiés/mois', 'Délai : 5 mois'],
-                before: 'Site vieillissant, aucun SEO, 0 lead entrant',
-                after: 'Refonte complète, stratégie de contenu, position Top 3 sur 12 mots-clés cibles',
-              },
-              {
-                client: 'Startup SaaS',
-                sector: 'Technologie',
-                results: ['ROI Google Ads x4.2', 'CPA réduit de 68%', 'Délai : 6 semaines'],
-                before: 'Budget Google Ads brûlé sans résultats, 0 suivi conversion',
-                after: 'Restructuration complète des campagnes, tracking précis, croissance continue',
-              },
-              {
-                client: 'Commerce local',
-                sector: 'Retail',
-                results: ['+180% appels entrants', 'Note Google 4.8/5', 'Délai : 3 mois'],
-                before: 'Invisible sur Google Maps, aucune présence locale',
-                after: 'Google My Business optimisé, avis gérés, top 3 des recherches locales',
-              },
-            ].map((c, i) => (
+          {/* Les deux réalisations publiées, lues dans src/lib/realisations (21/09/2026, plan SEO) : cas fictifs retirés. */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {CAS_AGENCE.map((c, i) => (
               <SectionReveal key={c.client} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border overflow-hidden"
+                <Link
+                  href={c.href}
+                  className="flex flex-col h-full rounded-[16px] border overflow-hidden transition-colors hover:border-violet-light"
                   style={{ borderColor: border }}
                 >
                   <div className="p-6 flex-1" style={{ background: bg }}>
@@ -629,7 +620,7 @@ export default function AgenceDigitalePage() {
                       <p className="text-text-muted text-xs"><span className="text-text font-medium">Après :</span> {c.after}</p>
                     </div>
                   </div>
-                </div>
+                </Link>
               </SectionReveal>
             ))}
           </div>

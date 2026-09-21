@@ -108,7 +108,7 @@ export function LeadFormInline() {
                 <Star key={i} size={11} fill={O} style={{ color: O }} />
               ))}
             </div>
-            <p className="text-[11px] text-text-muted">4.9/5 · 500+ participants · French-speaking Switzerland</p>
+            <p className="text-[11px] text-text-muted">5.0/5 on Google · 22 reviews · French-speaking Switzerland</p>
           </div>
           <div
             className="ml-auto text-center px-3 py-2 rounded-[8px]"

@@ -18,7 +18,7 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
         trained: 'People trained', trainedSub: 'in French-speaking Switzerland',
         formatsLabel: 'Available formats',
         formats: [{ format: 'On-site', icon: '🏢' }, { format: 'Online', icon: '💻' }, { format: 'Hybrid', icon: '🔄' }],
-        stats: [{ v: '4.9/5', l: 'Satisfaction', c: '#4ade80' }, { v: '100%', l: 'Tailored', c: O }, { v: '7', l: 'Programmes', c: '#FF8C00' }],
+        stats: [{ v: '5,0/5', l: 'Note Google', c: '#4ade80' }, { v: '100%', l: 'Tailored', c: O }, { v: '7', l: 'Programmes', c: '#FF8C00' }],
       }
     : {
         header: 'DKDP Formation · Catalogue', programsBadge: '7 programmes',
@@ -33,7 +33,7 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
         trained: 'Personnes formees', trainedSub: 'en Suisse romande',
         formatsLabel: 'Formats disponibles',
         formats: [{ format: 'Presentiel', icon: '🏢' }, { format: 'En ligne', icon: '💻' }, { format: 'Hybride', icon: '🔄' }],
-        stats: [{ v: '4.9/5', l: 'Satisfaction', c: '#4ade80' }, { v: '100%', l: 'Sur mesure', c: O }, { v: '7', l: 'Programmes', c: '#FF8C00' }],
+        stats: [{ v: '5,0/5', l: 'Note Google', c: '#4ade80' }, { v: '100%', l: 'Sur mesure', c: O }, { v: '7', l: 'Programmes', c: '#FF8C00' }],
       }
   return (
     <div className="relative flex flex-col gap-4">
@@ -115,7 +115,7 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
           style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(255,140,0,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
           <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1">{t.trained}</p>
-          <p className="text-xl font-bold" style={{ color: O }}>500+</p>
+          <p className="text-xl font-bold" style={{ color: O }}>1 à 10</p>
           <p className="text-[8px] text-zinc-500 mt-0.5">{t.trainedSub}</p>
         </div>
       </div>

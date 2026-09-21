@@ -32,13 +32,16 @@ describe('buildLocalBusiness', () => {
 })
 
 describe('buildService', () => {
-  it('returns @type Service', () => {
-    expect(buildService({ name: 'Création de site web', url: '/agence-digitale/creation-site-web' })['@type']).toBe('Service')
+  // Depuis le 21/09/2026 (plan SEO, D15), buildService emet un graph Service + LocalBusiness.
+  it('returns a graph with a Service and the LocalBusiness', () => {
+    const s = buildService({ name: 'Création de site web', url: '/agence-digitale/creation-site-web' })
+    expect(s['@graph'][0]['@type']).toBe('Service')
+    expect(s['@graph'][1]['@id']).toBe('https://dkdp.ch/#local-business')
   })
 
   it('includes areaServed Genève', () => {
     const s = buildService({ name: 'SEO', url: '/agence-digitale/seo' })
-    expect(s.areaServed.name).toContain('Genève')
+    expect(s['@graph'][0].areaServed.map((a: { name: string }) => a.name)).toContain('Genève')
   })
 })
 

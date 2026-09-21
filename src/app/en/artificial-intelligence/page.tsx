@@ -80,7 +80,7 @@ const SERVICES = [
 ]
 
 const STATS = [
-  { value: '700+', label: 'Clients supported' },
+  { value: '2019', label: 'Founded in Geneva' },
   { value: '10h', label: 'Saved per week on average' },
   { value: '3 months', label: 'To a positive ROI' },
 ]

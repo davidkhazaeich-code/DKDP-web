@@ -244,8 +244,8 @@ export default function CreationSiteWebPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: '100+', l: 'Sites livrés', sub: 'En Suisse romande' },
-              { v: '10+ ans', l: "D'expérience", sub: 'Dans le digital genevois' },
-              { v: '4.9/5', l: 'Satisfaction', sub: 'Note client vérifiée' },
+              { v: '2019', l: 'Fondée à Genève', sub: 'Aux Eaux-Vives' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
               { v: '< 1.5s', l: 'Vitesse moyenne', sub: 'Score PageSpeed 90+' },
             ].map((s) => (
               <SectionReveal key={s.l}>

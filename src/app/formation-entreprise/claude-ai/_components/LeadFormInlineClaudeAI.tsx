@@ -107,7 +107,7 @@ export function LeadFormInlineClaudeAI() {
                 <Star key={i} size={11} fill={C} style={{ color: C }} />
               ))}
             </div>
-            <p className="text-[11px] text-text-muted">4.9/5 · 500+ participants · Suisse romande</p>
+            <p className="text-[11px] text-text-muted">5,0/5 sur Google · 22 avis · Suisse romande</p>
           </div>
           <div
             className="ml-auto text-center px-3 py-2 rounded-[8px]"

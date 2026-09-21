@@ -1,37 +1,35 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 import type { Locale } from '@/i18n/config'
 
-const STAT_NUMBERS = [
-  { end: 10, suffix: '+' },
-  { end: 700, suffix: '+' },
-  { end: 500, suffix: '+' },
-  { end: 4.9, suffix: '/5' },
-]
-
+/**
+ * Chiffres de preuve, rendus tels quels cote serveur (21/09/2026, plan SEO,
+ * D16). Avant : 10+ ans, 700+ clients, 500+ formes, 4,9/5 animes de 0 par un
+ * compteur, sans source. Ceux-ci sont verifiables : fiche Google (5,0 sur 22),
+ * page A propos (fondation 2019), /realisations (2 etudes de cas).
+ */
 const CONTENT = {
   fr: {
     tag: 'Ils nous ont fait confiance',
-    heading: '700+ clients et PME nous font confiance.',
+    heading: 'Des PME de toute la Suisse romande nous font confiance.',
     stats: [
-      { label: "ans d'expérience", description: 'Dans le digital suisse romand' },
-      { label: 'clients accompagnés', description: 'Entreprises et PME suisses' },
-      { label: 'professionnels formés', description: 'En Suisse romande' },
-      { label: 'note Google', description: 'Vérifiée et certifiée' },
+      { value: '2019', label: 'agence fondée à Genève', description: 'Aux Eaux-Vives, rue du 31-Décembre' },
+      { value: '5,0/5', label: 'note Google', description: '22 avis sur la fiche DKDP' },
+      { value: '2', label: 'réalisations publiées', description: 'Golden Cash, SOS Relevage' },
+      { value: '48 h', label: 'pour un devis', description: 'Après un premier appel gratuit' },
     ],
   },
   en: {
     tag: 'They trusted us',
-    heading: '700+ clients and SMEs trust us.',
+    heading: 'SMBs across French-speaking Switzerland trust us.',
     stats: [
-      { label: 'years of experience', description: 'In Swiss digital' },
-      { label: 'clients supported', description: 'Swiss companies and SMEs' },
-      { label: 'professionals trained', description: 'Across French-speaking Switzerland' },
-      { label: 'Google rating', description: 'Verified and certified' },
+      { value: '2019', label: 'founded in Geneva', description: 'Eaux-Vives, rue du 31-Décembre' },
+      { value: '5.0/5', label: 'Google rating', description: '22 reviews on the DKDP listing' },
+      { value: '2', label: 'published case studies', description: 'Golden Cash, SOS Relevage' },
+      { value: '48 h', label: 'to get a quote', description: 'After a free first call' },
     ],
   },
 } as const
@@ -53,47 +51,6 @@ const LOGO_GRID = [
   { name: 'World Economic Forum', file: 'world-economic-forum.webp', width: 115, shrink: 0.65 },
 ]
 
-function AnimatedCounter({ end, suffix }: { end: number; suffix: string }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const [count, setCount] = useState(0)
-  const isDecimal = !Number.isInteger(end)
-  const triggered = useRef(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !triggered.current) {
-          triggered.current = true
-          io.disconnect()
-          const duration = 1500
-          const fps = 60
-          const totalFrames = (duration / 1000) * fps
-          let frame = 0
-          const timer = setInterval(() => {
-            frame++
-            const progress = frame / totalFrames
-            const eased = 1 - Math.pow(1 - progress, 3)
-            const value = Math.min(end * eased, end)
-            setCount(isDecimal ? parseFloat(value.toFixed(1)) : Math.floor(value))
-            if (frame >= totalFrames) clearInterval(timer)
-          }, 1000 / fps)
-        }
-      },
-      { rootMargin: '-50px' }
-    )
-    io.observe(el)
-    return () => io.disconnect()
-  }, [end, isDecimal])
-
-  return (
-    <span ref={ref} className="text-3xl sm:text-4xl md:text-5xl font-bold text-text" aria-label={`${end}${suffix}`}>
-      {isDecimal ? count.toFixed(1) : count}{suffix}
-    </span>
-  )
-}
-
 export function ProofStack({ lang = 'fr' }: { lang?: Locale } = {}) {
   const t = CONTENT[lang]
   return (
@@ -109,12 +66,12 @@ export function ProofStack({ lang = 'fr' }: { lang?: Locale } = {}) {
         </SectionReveal>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          {STAT_NUMBERS.map((stat, i) => (
-            <SectionReveal key={t.stats[i].label}>
+          {t.stats.map((stat) => (
+            <SectionReveal key={stat.label}>
               <div className="text-center">
-                <AnimatedCounter end={stat.end} suffix={stat.suffix} />
-                <p className="text-text font-semibold mt-2 text-sm">{t.stats[i].label}</p>
-                <p className="text-text-muted text-xs mt-1">{t.stats[i].description}</p>
+                <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-text">{stat.value}</span>
+                <p className="text-text font-semibold mt-2 text-sm">{stat.label}</p>
+                <p className="text-text-muted text-xs mt-1">{stat.description}</p>
               </div>
             </SectionReveal>
           ))}

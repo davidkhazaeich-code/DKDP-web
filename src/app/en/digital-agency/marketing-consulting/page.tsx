@@ -247,7 +247,7 @@ export default function ConsultingMarketingPage() {
                     style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
                   >
                     <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1">ROI at 6 months</p>
-                    <p className="text-xl font-bold text-green-400">+340%</p>
+                    <p className="text-xl font-bold text-green-400">Objectif</p>
                     <p className="text-[8px] text-zinc-500">on the marketing budget</p>
                   </div>
                 </div>
@@ -311,7 +311,7 @@ export default function ConsultingMarketingPage() {
             {[
               { v: '+65%', l: 'Leads generated', sub: 'Average gain at 6 months' },
               { v: '10 years', l: 'Of expertise', sub: 'B2B and B2C Switzerland' },
-              { v: '95%', l: 'Client renewal', sub: 'After the first year' },
+              { v: '2019', l: 'Agency founded', sub: 'In Geneva, Eaux-Vives' },
               { v: '6 months', l: 'Measurable ROI', sub: 'Average timeframe observed' },
             ].map((s) => (
               <SectionReveal key={s.l}>

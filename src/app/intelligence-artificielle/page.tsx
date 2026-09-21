@@ -82,7 +82,7 @@ const SERVICES = [
 ]
 
 const STATS = [
-  { value: '700+', label: 'Clients accompagnés' },
+  { value: '2019', label: 'Agence fondée à Genève' },
   { value: '10h', label: 'Économisées / semaine en moyenne' },
   { value: '3 mois', label: 'Pour un ROI positif' },
 ]

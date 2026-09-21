@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     url: 'https://dkdp.ch/en/about',
     locale: 'en_US',
     alternateLocale: ['fr_CH'],
-    images: [{ url: '/images/og/a-propos.png', width: 1376, height: 768, alt: 'About DKDP Geneva: David Khazaei founder, digital agency since 2015' }],
+    images: [{ url: '/images/og/a-propos.png', width: 1376, height: 768, alt: 'About DKDP Geneva: David Khazaei founder, digital agency since 2019' }],
   },
   twitter: { card: 'summary_large_image', images: ['/images/og/a-propos.png'] },
 }
@@ -85,7 +85,7 @@ const VALUES = [
 ]
 
 const STATS = [
-  { value: '700+', label: 'Clients supported' },
+  { value: '2019', label: 'Founded in Geneva' },
   { value: '3',   label: 'Pillars of expertise' },
   { value: '98%', label: 'Satisfied clients' },
   { value: '2015', label: 'Active since' },
@@ -294,8 +294,8 @@ export default function AboutPageEN() {
                     className="apropos-floating-stat absolute -top-5 -right-8 px-4 py-2.5 rounded-[14px] text-center"
                     style={{ background: 'rgba(9,9,11,0.88)', border: `1px solid ${violetBd}`, backdropFilter: 'blur(12px)' }}
                   >
-                    <p className="font-bold text-xl leading-none" style={{ color: violetColor }}>700+</p>
-                    <p className="text-text-muted text-[10px] mt-0.5">Clients</p>
+                    <p className="font-bold text-xl leading-none" style={{ color: violetColor }}>2019</p>
+                    <p className="text-text-muted text-[10px] mt-0.5">Founded</p>
                   </div>
 
                   {/* Floating stat : experience */}
@@ -349,7 +349,7 @@ export default function AboutPageEN() {
       </section>
 
 
-      <LogoBanner lang="en" label="700+ clients supported" />
+      <LogoBanner lang="en" label="They trust us" />
       {/* ── Story ── */}
       <section id="story" className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">

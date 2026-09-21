@@ -180,7 +180,7 @@ export default function FormationInformatiquePage() {
             {[
               { v: '-40%', l: 'IT tickets reduced', sub: 'After training the teams' },
               { v: '2h/week', l: 'Saved', sub: 'Per trained employee' },
-              { v: '95%', l: 'Autonomy', sub: 'On common IT tasks' },
+              { v: '1 day', l: 'Format', sub: 'Half-day or full day' },
               { v: '15 years', l: 'Of IT experience', sub: 'Geneva and French-speaking Switzerland' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -238,7 +238,7 @@ export default function FormationInformatiquePage() {
                 {[
                   'Trained teams reduce their IT tickets by 40% on average',
                   'Each trained employee saves 2 hours per week on common tasks',
-                  '95% of participants report being autonomous on IT tasks after the training',
+                  'Every participant leaves with a procedure sheet specific to their role',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />

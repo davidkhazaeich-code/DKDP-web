@@ -642,7 +642,7 @@ export default function VideoProductionPage() {
                 client: 'Geneva lifestyle brand',
                 type: 'Instagram Reels series',
                 image: '/images/services/dkdp-agence-reseaux-sociaux.webp',
-                results: ['12 Reels produced / quarter', "Average reach 28'000 / Reel", '+340% followers in 4 months'],
+                results: ['12 Reels produced / quarter', "Average reach 28'000 / Reel", 'Editorial line and formats set'],
                 tech: 'Reels · 9:16 · CapCut Pro',
               },
               {

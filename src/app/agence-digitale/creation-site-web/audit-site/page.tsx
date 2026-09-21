@@ -196,8 +196,8 @@ const STEPS = [
 ]
 
 const STATS = [
-  { value: '500+', label: 'sites analysés en Suisse romande' },
-  { value: '94%', label: 'des sites ont au moins 3 problèmes critiques identifiés' },
+  { value: 'Gratuit', label: 'audit automatisé de votre site, sans engagement' },
+  { value: '3', label: 'axes contrôlés : performance, SEO, accessibilité' },
   { value: '48h', label: 'délai de livraison maximum garanti' },
 ]
 

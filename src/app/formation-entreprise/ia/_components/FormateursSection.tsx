@@ -17,11 +17,11 @@ const PRINCIPALS = [
   {
     name: 'David K.',
     role: 'Fondateur DKDP, formateur principal IA',
-    bio: '10 ans à former des équipes suisses sur les outils digitaux et IA. 700+ clients accompagnés, de la PME aux grandes structures.',
+    bio: 'Cadre chaque formation avec l\'entreprise, du brief au suivi, et s\'assure que les cas traités sont ceux de l\'équipe, de la PME aux grandes structures.',
     image: '/images/team/david-portrait.png',
     skills: ['ChatGPT et Claude', 'Automatisation IA', 'Stratégie digitale'],
     linkedin: 'https://www.linkedin.com/in/davidkhazaei/',
-    stat: '700+ clients',
+    stat: 'Depuis 2019',
   },
   {
     name: 'Romane D.',
@@ -67,7 +67,7 @@ export function FormateursSection() {
             </h2>
             <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm leading-relaxed">
               Nos formateurs utilisent chaque jour les outils qu&apos;ils enseignent.
-              Plus de 500 professionnels formés en Suisse romande depuis 2015.
+              Des professionnels formés en Suisse romande, en entreprise et en cours particulier.
             </p>
           </div>
         </SectionReveal>

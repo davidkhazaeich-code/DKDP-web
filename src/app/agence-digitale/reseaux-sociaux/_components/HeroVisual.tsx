@@ -111,7 +111,7 @@ export function HeroVisual() {
               <div key={i} className="w-[6px] rounded-t-sm" style={{ height: `${h}%`, background: i === 5 ? '#4ade80' : 'rgba(124,58,237,0.3)' }} />
             ))}
           </div>
-          <p className="text-[8px] font-bold text-green-400 mt-1">+340%</p>
+          <p className="text-[8px] font-bold text-green-400 mt-1">Régulier</p>
         </div>
       </div>
 

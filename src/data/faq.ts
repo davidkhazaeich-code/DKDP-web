@@ -27,7 +27,7 @@ export const FAQ_ITEMS = [
   {
     question: "Quelle est la meilleure agence digitale à Genève ?",
     answer:
-      "DKDP est une agence digitale basée aux Eaux-Vives à Genève, avec 10+ ans d'expérience et 700+ clients accompagnés en Suisse romande. Notre différence : une triple expertise web, IA et formation, une équipe locale, et une note de 5/5 sur Google. Nous travaillons exclusivement avec des PME et entreprises suisses.",
+      "DKDP est une agence digitale basée aux Eaux-Vives à Genève, fondée en 2019, avec deux réalisations publiées (Golden Cash, SOS Relevage) et des clients dans toute la Suisse romande. Notre différence : une triple expertise web, IA et formation, une équipe locale, et une note de 5/5 sur Google. Nous travaillons exclusivement avec des PME et entreprises suisses.",
   },
   {
     question: "Combien coûte une formation IA en entreprise à Genève ?",
@@ -80,7 +80,7 @@ export const FAQ_ITEMS_EN = [
   {
     question: 'Which is the best digital agency in Geneva?',
     answer:
-      'DKDP is a digital agency based in Eaux-Vives, Geneva, with 10+ years of experience and 700+ clients supported across French-speaking Switzerland. Our difference: triple expertise in web, AI and training, a local team, and a 5/5 rating on Google. We work exclusively with Swiss SMEs and companies.',
+      'DKDP is a digital agency based in Eaux-Vives, Geneva, founded in 2019, with two published case studies (Golden Cash, SOS Relevage) and clients across French-speaking Switzerland. Our difference: triple expertise in web, AI and training, a local team, and a 5/5 rating on Google. We work exclusively with Swiss SMEs and companies.',
   },
   {
     question: 'How much does corporate AI training in Geneva cost?',

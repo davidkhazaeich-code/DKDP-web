@@ -64,7 +64,7 @@ const violet = violetToken.color
 function AuditScoreCard() {
   const scoreBorder = 'rgba(212,212,216,0.15)'
   const rows = [
-    { label: 'Lead qualification', niveau: 'High',   gain: '12h/week', roi: 'x4.2', niveauColor: green },
+    { label: 'Lead qualification', niveau: 'High',   gain: '12h/week', roi: 'high', niveauColor: green },
     { label: 'Email handling',     niveau: 'Medium', gain: '5h/week',  roi: 'x2.8', niveauColor: '#FBBF24' },
     { label: 'Monthly reporting',  niveau: 'High',   gain: '8h/week',  roi: 'x3.5', niveauColor: green },
   ]

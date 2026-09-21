@@ -22,7 +22,7 @@ const CTAFinal         = dynamic(() => import('@/components/sections/CTAFinal').
 export const metadata: Metadata = {
   title: 'Digital Agency Geneva · Web, AI & Training | DKDP',
   description:
-    'Geneva digital agency for web design, SEO, AI rollouts and corporate AI training. 700+ Swiss clients. Free quote in 24 hours, fixed price, ships in weeks.',
+    'Geneva digital agency for web design, SEO, AI rollouts and corporate AI training. Swiss SMBs. Quote within 48 hours, fixed price, ships in weeks.',
   alternates: {
     canonical: 'https://dkdp.ch/en',
     languages: {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Digital Agency Geneva · Web, AI & Training | DKDP',
     description:
-      'Websites that convert, AI that scales, training that sticks. 700+ Swiss clients trust DKDP. Free quote in 24h.',
+      'Websites that convert, AI that scales, training that sticks. Swiss SMBs trust DKDP. Quote within 48 hours.',
     url: 'https://dkdp.ch/en',
     locale: 'en_US',
     alternateLocale: ['fr_CH'],

@@ -160,7 +160,7 @@ const CASE_STUDIES = [
     pain: 'Boutique Prestashop lente, tunnel d\'achat à 5 étapes.',
     result: 'Migration Shopify Hydrogen, checkout 2 étapes, Twint.',
     kpis: [
-      { label: 'Taux de conversion', v: '+180 %', sub: '6 mois' },
+      { label: 'Taux de conversion', v: 'Mesuré', sub: 'Avant et après, GA4' },
       { label: 'LCP mobile', v: '1,8 s', sub: 'vert' },
       { label: 'Panier moyen', v: '+22 %', sub: 'Twint inclus' },
     ],

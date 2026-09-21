@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: '%s',
   },
   description:
-    'Geneva-based digital agency specialised in web design, SEO, artificial intelligence and corporate training. 700+ clients across French-speaking Switzerland. Free quote in 24 hours.',
+    'Geneva-based digital agency specialised in web design, SEO, artificial intelligence and corporate training. SMBs across French-speaking Switzerland. Quote within 48 hours.',
   alternates: {
     canonical: 'https://dkdp.ch/en',
     languages: {

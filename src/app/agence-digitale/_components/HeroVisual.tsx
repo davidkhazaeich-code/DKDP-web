@@ -11,7 +11,7 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
           { icon: '&#9678;', name: 'Web design', kpi: '100+ sites', color: V },
           { icon: '&#9650;', name: 'SEO / GEO', kpi: 'Top 3 Google', color: '#4ade80' },
           { icon: '&#9670;', name: 'Google Ads', kpi: 'ROAS 8.2x', color: '#FF8C00' },
-          { icon: '&#9733;', name: 'Social media', kpi: '+340% growth', color: '#60a5fa' },
+          { icon: '&#9733;', name: 'Social media', kpi: 'Page 1 goal', color: '#60a5fa' },
         ],
         perfLabel: 'Typical client performance',
         metrics: [
@@ -32,7 +32,7 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
           { icon: '&#9678;', name: 'Création web', kpi: '100+ sites', color: V },
           { icon: '&#9650;', name: 'SEO / GEO', kpi: 'Top 3 Google', color: '#4ade80' },
           { icon: '&#9670;', name: 'Google Ads', kpi: 'ROAS 8.2x', color: '#FF8C00' },
-          { icon: '&#9733;', name: 'Reseaux sociaux', kpi: '+340% croissance', color: '#60a5fa' },
+          { icon: '&#9733;', name: 'Reseaux sociaux', kpi: 'Objectif page 1', color: '#60a5fa' },
         ],
         perfLabel: 'Performance client type',
         metrics: [
@@ -43,7 +43,7 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
         satisfaction: 'Satisfaction', satisfactionSub: 'Note client verifiee',
         stats: [
           { v: '100+', l: 'Sites livres', c: V },
-          { v: '10+ ans', l: "D'expérience", c: '#4ade80' },
+          { v: '2019', l: 'Fondée à Genève', c: '#4ade80' },
           { v: 'Geneve', l: 'Base locale', c: '#FF8C00' },
         ],
       }

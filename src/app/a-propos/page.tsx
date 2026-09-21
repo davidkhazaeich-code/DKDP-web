@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'À propos · David Khazaei · DKDP Genève',
-    description: "Agence digitale genevoise fondée par David Khazaei : IA, formation entreprise et web pour PME romandes depuis 2015.",
+    description: "Agence digitale genevoise fondée par David Khazaei : IA, formation entreprise et web pour PME romandes depuis 2019.",
     url: 'https://dkdp.ch/a-propos',
-    images: [{ url: '/images/og/a-propos.png', width: 1376, height: 768, alt: 'À propos de DKDP Genève : David Khazaei fondateur, agence digitale depuis 2015' }],
+    images: [{ url: '/images/og/a-propos.png', width: 1376, height: 768, alt: 'À propos de DKDP Genève : David Khazaei fondateur, agence digitale depuis 2019' }],
   },
   twitter: { card: 'summary_large_image', images: ['/images/og/a-propos.png'] },
 }
@@ -84,7 +84,7 @@ const VALUES = [
 ]
 
 const STATS = [
-  { value: '700+', label: 'Clients accompagnés' },
+  { value: '2019', label: 'Agence fondée à Genève' },
   { value: '3',   label: "Piliers d'expertise" },
   { value: '98%', label: 'Clients satisfaits' },
   { value: '2015', label: 'Actif depuis' },
@@ -294,8 +294,8 @@ export default function AProposPage() {
                     className="apropos-floating-stat absolute -top-5 -right-8 px-4 py-2.5 rounded-[14px] text-center"
                     style={{ background: 'rgba(9,9,11,0.88)', border: `1px solid ${violetBd}`, backdropFilter: 'blur(12px)' }}
                   >
-                    <p className="font-bold text-xl leading-none" style={{ color: violetColor }}>700+</p>
-                    <p className="text-text-muted text-[10px] mt-0.5">Clients</p>
+                    <p className="font-bold text-xl leading-none" style={{ color: violetColor }}>2019</p>
+                    <p className="text-text-muted text-[10px] mt-0.5">Fondation</p>
                   </div>
 
                   {/* Floating stat : expérience */}
@@ -349,7 +349,7 @@ export default function AProposPage() {
       </section>
 
 
-      <LogoBanner label="700+ clients accompagnés" />
+      <LogoBanner label="Ils nous font confiance" />
       {/* ── Histoire ── */}
       <section id="histoire" className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">

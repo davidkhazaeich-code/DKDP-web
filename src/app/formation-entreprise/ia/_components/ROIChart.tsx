@@ -74,8 +74,8 @@ export function ROIChart() {
       >
         {[
           { v: '100%', l: 'opérationnels dès J+1' },
-          { v: '4.9/5', l: 'satisfaction moyenne' },
-          { v: '500+', l: 'participants formés' },
+          { v: '5,0/5', l: 'note Google, 22 avis' },
+          { v: '1 à 10', l: 'personnes par session' },
         ].map(({ v, l }) => (
           <div key={l} style={{ textAlign: 'center' }}>
             <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#FF8C00' }}>{v}</div>

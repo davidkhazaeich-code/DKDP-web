@@ -6,7 +6,7 @@ const greenColor = green.color
 
 export function AuditScoreCard() {
   const rows = [
-    { label: 'Qualification des leads', niveau: 'Elevé', gain: '12h/semaine', roi: 'x4.2', niveauColor: greenColor },
+    { label: 'Qualification des leads', niveau: 'Elevé', gain: '12h/semaine', roi: 'élevé', niveauColor: greenColor },
     { label: 'Traitement des emails',   niveau: 'Moyen', gain: '5h/semaine',  roi: 'x2.8', niveauColor: '#FBBF24' },
     { label: 'Reporting mensuel',       niveau: 'Elevé', gain: '8h/semaine',  roi: 'x3.5', niveauColor: greenColor },
   ]

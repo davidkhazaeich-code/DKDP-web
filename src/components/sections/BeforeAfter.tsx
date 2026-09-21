@@ -10,7 +10,7 @@ const TRANSFORMATIONS = [
       description: 'Site vieillissant, aucune stratégie SEO, 0 lead entrant par mois',
     },
     after: {
-      description: 'Refonte complète, +340% de trafic organique en 6 mois, 15 leads/mois',
+      description: 'Refonte complète : structure, vitesse, contenu et suivi Search Console',
     },
   },
   {

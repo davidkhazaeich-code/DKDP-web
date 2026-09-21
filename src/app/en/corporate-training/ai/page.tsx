@@ -202,8 +202,8 @@ export default function FormationIAPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '500+', l: 'Participants trained', sub: 'In French-speaking Switzerland' },
-              { v: '4.9/5', l: 'Satisfaction', sub: 'Post-training rating' },
+              { v: '1 to 10', l: 'People per session', sub: 'Groups on quote from 3' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
               { v: '100%', l: 'Operational from day one', sub: 'Post-training score' },
               { v: '1h30', l: 'Saved / day / person', sub: 'Observed average' },
             ].map((s) => (

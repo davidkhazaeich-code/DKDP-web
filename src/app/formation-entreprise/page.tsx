@@ -110,8 +110,8 @@ const PROGRAMS = [
 ]
 
 const STATS = [
-  { value: '500+', label: 'Personnes formées' },
-  { value: '4.9/5', label: 'Satisfaction moyenne' },
+  { value: '1 à 10', label: 'Personnes par session' },
+  { value: '5,0/5', label: 'Note Google, 22 avis' },
   { value: '100%', label: 'Sur mesure' },
 ]
 
@@ -366,7 +366,7 @@ export default function FormationEntreprisePage() {
                 style={{ background: bg, borderColor: border }}
               >
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6" style={{ color }}>
-                  Progression observée sur 500+ participants
+                  Progression type observée en formation
                 </p>
                 <ProgressionDiagram />
               </div>
@@ -375,8 +375,8 @@ export default function FormationEntreprisePage() {
             {/* KPIs — droite */}
             <div className="grid grid-cols-2 gap-4 items-stretch">
               {[
-                { v: '500+',     l: 'Participants formés',     sub: 'En Suisse romande depuis 2015' },
-                { v: '4.9/5',    l: 'Satisfaction',            sub: 'Note moyenne post-formation' },
+                { v: '1 à 10',   l: 'Personnes par session',   sub: 'Groupe sur devis dès 3' },
+                { v: '5,0/5',    l: 'Note Google',             sub: '22 avis sur la fiche DKDP' },
                 { v: '91%',      l: 'Appliquent dès J+1',      sub: 'Compétences utilisées immédiatement' },
                 { v: '< 3 sem.', l: 'Pour constater l\'effet', sub: 'Gain de productivité mesurable' },
               ].map((kpi, i) => (

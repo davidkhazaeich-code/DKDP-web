@@ -25,14 +25,14 @@ const CONTENT = {
     tag: 'Vos formateurs',
     headingA: 'Formés par des praticiens,',
     headingB: 'pas des théoriciens.',
-    subtitle: "Nos formateurs utilisent chaque jour les outils qu'ils enseignent. Plus de 500 professionnels formés en Suisse romande depuis 2015.",
+    subtitle: "Nos formateurs utilisent chaque jour les outils qu'ils enseignent. Des professionnels formés en Suisse romande, en entreprise et en cours particulier.",
     altSuffix: 'formateur DKDP',
     linkedinAria: (n: string) => `LinkedIn de ${n}`,
-    ratingPre: 'Satisfaction moyenne sur',
-    ratingCount: '500+ participants',
-    ratingPost: 'formés',
+    ratingPre: 'Note Google,',
+    ratingCount: '22 avis',
+    ratingPost: 'sur la fiche DKDP',
     trainers: [
-      { role: 'Fondateur DKDP, formateur principal', bio: 'Plus de 10 ans à accompagner les entreprises suisses dans leur transformation digitale. 700+ clients formés, de la PME aux grandes équipes.', skills: ['IA et automatisation', 'Stratégie digitale', 'Développement web'], highlight: '700+ clients' },
+      { role: 'Fondateur DKDP, cadrage des formations', bio: 'Accompagne les entreprises suisses dans leur transformation digitale depuis 2015 et cadre chaque formation avec l\'équipe concernée, de la PME aux grandes structures.', skills: ['IA et automatisation', 'Stratégie digitale', 'Développement web'], highlight: '700+ clients' },
       { role: 'Experte IA, SEO et UX, formatrice', bio: 'Spécialiste en intelligence artificielle et UX design. Combine expertise technique et pédagogie pour rendre chaque concept accessible.', skills: ['Intelligence artificielle', 'SEO et GEO', 'UX Design'], highlight: 'IA et SEO' },
       { role: 'Formateur développement et informatique', bio: 'Développeur et formateur passionné. Approche structurée et concrète pour que chaque participant reparte avec des bases solides.', skills: ['Développement web', 'Python', 'Bureautique'], highlight: 'Dev et IT' },
     ],
@@ -47,14 +47,14 @@ const CONTENT = {
     tag: 'Your trainers',
     headingA: 'Trained by practitioners,',
     headingB: 'not theorists.',
-    subtitle: 'Our trainers use the tools they teach every day. Over 500 professionals trained across French-speaking Switzerland since 2015.',
+    subtitle: 'Our trainers use the tools they teach every day. Professionals trained across French-speaking Switzerland, in companies and one-to-one.',
     altSuffix: 'DKDP trainer',
     linkedinAria: (n: string) => `${n} on LinkedIn`,
-    ratingPre: 'Average satisfaction across',
-    ratingCount: '500+ participants',
-    ratingPost: 'trained',
+    ratingPre: 'Google rating,',
+    ratingCount: '22 reviews',
+    ratingPost: 'on the DKDP listing',
     trainers: [
-      { role: 'DKDP founder, lead trainer', bio: 'Over 10 years supporting Swiss companies in their digital transformation. 700+ clients trained, from SMEs to large teams.', skills: ['AI and automation', 'Digital strategy', 'Web development'], highlight: '700+ clients' },
+      { role: 'DKDP founder, training design', bio: 'Supports Swiss companies in their digital transformation since 2015 and frames every training with the team concerned, from SMEs to large organisations.', skills: ['AI and automation', 'Digital strategy', 'Web development'], highlight: '700+ clients' },
       { role: 'AI, SEO and UX expert, trainer', bio: 'Specialist in artificial intelligence and UX design. Combines technical expertise and teaching to make every concept accessible.', skills: ['Artificial intelligence', 'SEO and GEO', 'UX Design'], highlight: 'AI and SEO' },
       { role: 'Development and IT trainer', bio: 'A passionate developer and trainer. A structured, concrete approach so every participant leaves with solid foundations.', skills: ['Web development', 'Python', 'Office tools'], highlight: 'Dev and IT' },
     ],
@@ -201,7 +201,7 @@ export function FormationTrainer({ accentColor = '#FF8C00', lang = 'fr' }: { acc
                     <Star key={i} size={15} fill={accentColor} color={accentColor} />
                   ))}
                 </div>
-                <span className="text-text font-bold text-lg">4.9/5</span>
+                <span className="text-text font-bold text-lg">5,0/5</span>
               </div>
               <div className="h-4 w-px bg-border hidden sm:block" />
               <p className="text-text-muted text-sm">

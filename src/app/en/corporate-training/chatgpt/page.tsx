@@ -307,8 +307,8 @@ export default function ChatGptTrainingPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '500+', l: 'People trained', sub: 'In French-speaking Switzerland' },
-              { v: '4.9/5', l: 'Satisfaction', sub: 'DKDP average rating' },
+              { v: '1 to 10', l: 'People per session', sub: 'Groups on quote from 3' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
               { v: '100%', l: 'Tailored', sub: 'Your real use cases' },
               { v: '30 d', l: 'Email follow-up', sub: 'After the training' },
             ].map((s) => (
@@ -1063,9 +1063,9 @@ export default function ChatGptTrainingPage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { v: '700+', l: 'Clients supported', c: V },
-                  { v: '10+', l: 'Years of experience', c: CH },
-                  { v: '4.9/5', l: 'Google rating', c: OR },
+                  { v: '2019', l: 'Founded in Geneva', c: V },
+                  { v: '2', l: 'Published case studies', c: CH },
+                  { v: '5.0/5', l: 'Google rating, 22 reviews', c: OR },
                   { v: '100%', l: 'Tailored', c: V },
                 ].map((s) => (
                   <div

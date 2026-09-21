@@ -238,7 +238,7 @@ export default function EnWebDesignPage() {
             {[
               { v: '100+', l: 'Websites delivered', sub: 'In French-speaking Switzerland' },
               { v: '10+ yrs', l: 'Of experience', sub: 'In Geneva digital' },
-              { v: '4.9/5', l: 'Satisfaction', sub: 'Verified client score' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
               { v: '< 1.5s', l: 'Average load time', sub: 'PageSpeed score 90+' },
             ].map((s) => (
               <SectionReveal key={s.l}>

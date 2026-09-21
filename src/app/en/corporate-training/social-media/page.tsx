@@ -213,10 +213,10 @@ export default function FormationReseauxSociauxPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '+180%', l: 'Average engagement', sub: 'After team training' },
+              { v: 'Steady', l: 'Calendar kept', sub: 'After team training' },
               { v: '5', l: 'Platforms covered', sub: 'Meta, LinkedIn, TikTok, YT' },
               { v: '2h/week', l: 'To manage everything', sub: 'With the right tools' },
-              { v: '500+', l: 'Participants trained', sub: 'In French-speaking Switzerland' },
+              { v: '1 to 10', l: 'People per session', sub: 'Groups on quote from 3' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">

@@ -17,11 +17,11 @@ const PRINCIPALS = [
   {
     name: 'David K.',
     role: 'DKDP founder, lead AI trainer',
-    bio: '10 years training Swiss teams on digital and AI tools. 700+ clients supported, from SMEs to large organisations.',
+    bio: 'Frames every training with the company, from brief to follow-up, and makes sure the cases covered are the team\'s own, from SMEs to large organisations.',
     image: '/images/team/david-portrait.png',
     skills: ['ChatGPT and Claude', 'AI automation', 'Digital strategy'],
     linkedin: 'https://www.linkedin.com/in/davidkhazaei/',
-    stat: '700+ clients',
+    stat: 'Since 2019',
   },
   {
     name: 'Romane D.',

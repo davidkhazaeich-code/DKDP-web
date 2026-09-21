@@ -224,7 +224,7 @@ export default function DeveloppementApplicationPage() {
             {[
               { v: '30+', l: 'Applications livrées', sub: 'Mobile, web et PWA' },
               { v: '3 plateformes', l: 'iOS · Android · Web', sub: 'Un seul interlocuteur' },
-              { v: '4.9/5', l: 'Satisfaction client', sub: 'Note vérifiée' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis' },
               { v: '8 ans', l: "D'expertise dev", sub: 'En Suisse romande' },
             ].map((s) => (
               <SectionReveal key={s.l}>

@@ -87,8 +87,8 @@ export function HeroVisual() {
           style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(255,140,0,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
           <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1">Satisfaction</p>
-          <p className="text-xl font-bold" style={{ color: O }}>4.9/5</p>
-          <p className="text-[8px] text-zinc-500 mt-0.5">500+ participants</p>
+          <p className="text-xl font-bold" style={{ color: O }}>5,0/5</p>
+          <p className="text-[8px] text-zinc-500 mt-0.5">22 avis Google</p>
         </div>
       </div>
 

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { REALISATIONS } from '@/lib/realisations'
+import { localizeRealisation } from '@/lib/realisations/en'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import {
@@ -41,6 +43,16 @@ export const metadata: Metadata = {
     images: [{ url: '/images/og/agence-digitale.png', width: 1376, height: 768, alt: 'Digital agency Geneva, DKDP' }],
   },
 }
+
+/** The two published case studies, in /en/portfolio order. */
+const CAS_AGENCE = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => localizeRealisation(r, 'en')).map((r) => ({
+  client: r.client.name,
+  sector: r.client.sector,
+  results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric}: ${x.value}`),
+  before: r.problem.title,
+  after: r.approach.title,
+  href: `/en/portfolio/${r.slug}`,
+}))
 
 const SERVICES = [
   {
@@ -102,7 +114,7 @@ const SERVICES = [
 const STATS = [
   { value: '100+', label: 'Websites delivered' },
   { value: '10+ yrs', label: 'Of experience' },
-  { value: '4.9/5', label: 'Client satisfaction' },
+  { value: '5.0/5', label: 'Google rating, 22 reviews' },
 ]
 
 const WHY = [
@@ -204,7 +216,7 @@ export default function EnDigitalAgencyPage() {
                   items={[
                     { label: 'Fixed quote in 48 hours', Icon: FileText },
                     { label: 'Tailored to SMBs', Icon: Target },
-                    { label: '10+ years experience', Icon: Award },
+                    { label: 'Founded in Geneva in 2019', Icon: Award },
                   ]}
                 />
                 <div className="flex flex-wrap gap-4 items-center">
@@ -599,33 +611,13 @@ export default function EnDigitalAgencyPage() {
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                client: 'B2B SMB Geneva',
-                sector: 'Financial services',
-                results: ['+340% organic traffic', '15 qualified leads/month', 'Timeline: 5 months'],
-                before: 'Ageing website, no SEO, zero inbound leads',
-                after: 'Full rebuild, content strategy, Top 3 ranking on 12 target keywords',
-              },
-              {
-                client: 'SaaS startup',
-                sector: 'Technology',
-                results: ['Google Ads ROI x4.2', 'CPA cut by 68%', 'Timeline: 6 weeks'],
-                before: 'Google Ads budget burned with no results, zero conversion tracking',
-                after: 'Full campaign restructure, precise tracking, continuous growth',
-              },
-              {
-                client: 'Local retailer',
-                sector: 'Retail',
-                results: ['+180% inbound calls', 'Google rating 4.8/5', 'Timeline: 3 months'],
-                before: 'Invisible on Google Maps, no local presence',
-                after: 'Optimised Google Business Profile, managed reviews, top 3 in local searches',
-              },
-            ].map((c, i) => (
+          {/* Two published case studies from src/lib/realisations (21/09/2026, SEO plan): fictional cases removed. */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {CAS_AGENCE.map((c, i) => (
               <SectionReveal key={c.client} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border overflow-hidden"
+                <Link
+                  href={c.href}
+                  className="flex flex-col h-full rounded-[16px] border overflow-hidden transition-colors hover:border-violet-light"
                   style={{ borderColor: border }}
                 >
                   <div className="p-6 flex-1" style={{ background: bg }}>
@@ -654,7 +646,7 @@ export default function EnDigitalAgencyPage() {
                       <p className="text-text-muted text-xs"><span className="text-text font-medium">After:</span> {c.after}</p>
                     </div>
                   </div>
-                </div>
+                </Link>
               </SectionReveal>
             ))}
           </div>

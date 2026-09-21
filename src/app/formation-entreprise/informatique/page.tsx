@@ -235,7 +235,7 @@ export default function FormationInformatiquePage() {
                 {[
                   'Les équipes formées réduisent leurs tickets IT de 40% en moyenne',
                   'Chaque collaborateur formé gagne 2 heures par semaine sur des tâches courantes',
-                  '95% des participants se déclarent autonomes sur les tâches informatiques après la formation',
+                  'Chaque participant repart avec une fiche de procédures propre à son poste',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />

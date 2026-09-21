@@ -295,8 +295,8 @@ export default function FormationChatGptPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '500+', l: 'Personnes formées', sub: 'En Suisse romande' },
-              { v: '4.9/5', l: 'Satisfaction', sub: 'Note moyenne DKDP' },
+              { v: '1 à 10', l: 'Personnes par session', sub: 'Groupe sur devis dès 3' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
               { v: '100%', l: 'Sur mesure', sub: 'Vos cas d\'usage réels' },
               { v: '30 j', l: 'Suivi par email', sub: 'Après la formation' },
             ].map((s) => (
@@ -1051,9 +1051,9 @@ export default function FormationChatGptPage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { v: '700+', l: 'Clients accompagnés', c: V },
-                  { v: '10+', l: 'Ans d\'expérience', c: CH },
-                  { v: '4.9/5', l: 'Note Google', c: OR },
+                  { v: '2019', l: 'Agence fondée à Genève', c: V },
+                  { v: '2', l: 'Réalisations publiées', c: CH },
+                  { v: '5,0/5', l: 'Note Google, 22 avis', c: OR },
                   { v: '100%', l: 'Sur mesure', c: V },
                 ].map((s) => (
                   <div

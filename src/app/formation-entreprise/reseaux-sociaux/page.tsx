@@ -210,10 +210,10 @@ export default function FormationReseauxSociauxPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '+180%', l: 'Engagement moyen', sub: 'Après formation équipes' },
+              { v: 'Régulier', l: 'Calendrier tenu', sub: 'Après formation équipes' },
               { v: '5', l: 'Plateformes couvertes', sub: 'Meta, LinkedIn, TikTok, YT' },
               { v: '2h/sem', l: 'Pour tout gérer', sub: 'Avec les bons outils' },
-              { v: '500+', l: 'Participants formés', sub: 'En Suisse romande' },
+              { v: '1 à 10', l: 'Personnes par session', sub: 'Groupe sur devis dès 3' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">

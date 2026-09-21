@@ -2,7 +2,7 @@ import { CheckCircle2 } from 'lucide-react'
 
 export function SocialBeforeAfter() {
   const before = ['Irregular and spontaneous posts', 'Inconsistent visuals', 'Random hashtags', 'No defined strategy', 'Low engagement']
-  const after = ['30-day content calendar', 'Consistent Canva visual identity', 'Targeted hashtags by niche', 'Storytelling and call-to-action', '+180% average engagement']
+  const after = ['30-day content calendar', 'Consistent Canva visual identity', 'Targeted hashtags by niche', 'Storytelling and call-to-action', 'Regular posting, results tracked']
   return (
     <div className="grid grid-cols-2 gap-3 w-full">
       <div className="p-4 rounded-[12px]" style={{ background: 'var(--red-bg)', border: '1px solid var(--red-border)' }}>

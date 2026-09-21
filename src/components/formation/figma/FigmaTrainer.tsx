@@ -53,7 +53,7 @@ const CONTENT: Record<
       },
     ],
     ratingPre: 'Satisfaction moyenne sur',
-    ratingCount: '500+ participants',
+    ratingCount: '22 avis Google',
     ratingPost: 'formés depuis 2015',
   },
   en: {
@@ -80,7 +80,7 @@ const CONTENT: Record<
       },
     ],
     ratingPre: 'Average satisfaction across',
-    ratingCount: '500+ participants',
+    ratingCount: '22 avis Google',
     ratingPost: 'trained since 2015',
   },
 }

@@ -98,7 +98,7 @@ const CONTENT = {
   fr: {
     tag: 'Notre méthode',
     heading: 'Comment ça marche',
-    subtitle: '5 étapes claires, un processus éprouvé sur 700+ projets.',
+    subtitle: '5 étapes claires, le même processus pour chaque projet depuis 2019.',
     steps: [
       { title: 'Premier échange', description: '15 minutes gratuites pour comprendre votre situation. On vous dit honnêtement si on peut vous aider et comment.' },
       { title: 'Diagnostic', description: 'Analyse de votre présence digitale, de vos concurrents, de vos objectifs. Un diagnostic complet, sans langue de bois.' },
@@ -110,7 +110,7 @@ const CONTENT = {
   en: {
     tag: 'Our method',
     heading: 'How it works',
-    subtitle: '5 clear steps, a process proven across 700+ projects.',
+    subtitle: '5 clear steps, the same process for every project since 2019.',
     steps: [
       { title: 'First conversation', description: '15 free minutes to understand your situation. We tell you honestly whether we can help, and how.' },
       { title: 'Diagnosis', description: 'Analysis of your digital presence, your competitors and your goals. A complete diagnosis, no fluff.' },

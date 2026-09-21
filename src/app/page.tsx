@@ -22,7 +22,8 @@ const CTAFinal       = dynamic(() => import('@/components/sections/CTAFinal').th
 export const metadata: Metadata = {
   title: 'Agence Digitale Genève · Sites web, IA & Formation | DKDP',
   description:
-    'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise. 700+ clients accompagnés en Suisse romande. Devis gratuit.',
+    // 21/09/2026 (plan SEO, D16) : 915 px, sans « 700+ ».
+    'DKDP, agence digitale aux Eaux-Vives à Genève : sites web, SEO, automatisation IA et formation entreprise pour PME romandes. Devis sous 48 h.',
   alternates: {
     canonical: 'https://dkdp.ch',
     languages: {
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Agence Digitale Genève · Sites web, IA & Formation | DKDP',
     description:
-      'Sites web sur mesure, SEO, IA et formation pour PME à Genève. 700+ clients accompagnés en Suisse romande. Devis gratuit en 24h.',
+      'DKDP, agence digitale aux Eaux-Vives à Genève : sites web, SEO, automatisation IA et formation entreprise pour PME romandes. Devis sous 48 h.',
     url: 'https://dkdp.ch',
     locale: 'fr_CH',
     alternateLocale: ['en_US'],

@@ -109,8 +109,8 @@ const PROGRAMS = [
 ]
 
 const STATS = [
-  { value: '500+', label: 'People trained' },
-  { value: '4.9/5', label: 'Average satisfaction' },
+  { value: '1 to 10', label: 'People per session' },
+  { value: '5.0/5', label: 'Google rating, 22 reviews' },
   { value: '100%', label: 'Tailored' },
 ]
 
@@ -402,7 +402,7 @@ export default function EnCorporateTrainingPage() {
                 style={{ background: bg, borderColor: border }}
               >
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6" style={{ color }}>
-                  Progress observed across 500+ participants
+                  Typical progress observed in training
                 </p>
                 <ProgressionDiagram lang="en" />
               </div>
@@ -410,8 +410,8 @@ export default function EnCorporateTrainingPage() {
 
             <div className="grid grid-cols-2 gap-4 items-stretch">
               {[
-                { v: '500+',     l: 'Participants trained', sub: 'In French-speaking Switzerland since 2015' },
-                { v: '4.9/5',    l: 'Satisfaction',          sub: 'Average post-training score' },
+                { v: '1 to 10',  l: 'People per session',   sub: 'Groups on quote from 3' },
+                { v: '5.0/5',    l: 'Google rating',         sub: '22 reviews on the DKDP listing' },
                 { v: '91%',      l: 'Apply on day one',      sub: 'Skills used immediately' },
                 { v: '< 3 wks',  l: 'To measurable effect',  sub: 'Productivity gain visible' },
               ].map((kpi, i) => (

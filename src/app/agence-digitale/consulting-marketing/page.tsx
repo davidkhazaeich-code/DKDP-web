@@ -88,9 +88,9 @@ const BENEFITS = [
   },
   {
     Icon: Users,
-    value: '95%',
+    value: 'Mensuel',
     title: 'Clients fidélisés',
-    desc: '95% de nos clients renouvellent leur accompagnement après la première année. La preuve que la méthode fonctionne.',
+    desc: 'Un accompagnement mensuel sans engagement : la méthode se juge sur ses résultats, pas sur un contrat.',
   },
 ]
 
@@ -197,7 +197,7 @@ export default function ConsultingMarketingPage() {
             {[
               { v: '+65%', l: 'Leads générés', sub: 'Gain moyen à 6 mois' },
               { v: '10 ans', l: "D'expertise", sub: 'B2B et B2C Suisse' },
-              { v: '95%', l: 'Clients renouvellent', sub: 'Après première année' },
+              { v: '2019', l: 'Agence fondée', sub: 'À Genève, Eaux-Vives' },
               { v: '6 mois', l: 'ROI mesurable', sub: 'Délai moyen constaté' },
             ].map((s) => (
               <SectionReveal key={s.l}>

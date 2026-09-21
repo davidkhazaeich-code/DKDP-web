@@ -159,7 +159,7 @@ const CASE_STUDIES = [
     pain: 'Slow Prestashop store, 5-step checkout funnel.',
     result: 'Shopify Hydrogen migration, 2-step checkout, Twint.',
     kpis: [
-      { label: 'Conversion rate', v: '+180%', sub: '6 months' },
+      { label: 'Conversion rate', v: 'Measured', sub: 'Before and after, GA4' },
       { label: 'Mobile LCP', v: '1.8s', sub: 'green' },
       { label: 'Average cart', v: '+22%', sub: 'Twint included' },
     ],

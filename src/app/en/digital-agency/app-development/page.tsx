@@ -709,7 +709,7 @@ export default function AppDevelopmentPage() {
             {[
               { v: '30+', l: 'Apps delivered', sub: 'Mobile, web and PWA' },
               { v: '3 platforms', l: 'iOS · Android · Web', sub: 'A single point of contact' },
-              { v: '4.9/5', l: 'Client satisfaction', sub: 'Verified rating' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews' },
               { v: '8 years', l: 'Of dev expertise', sub: 'In Western Switzerland' },
             ].map((s) => (
               <SectionReveal key={s.l}>

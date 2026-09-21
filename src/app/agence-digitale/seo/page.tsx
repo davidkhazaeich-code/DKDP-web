@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { PRIX, chf, chfMois } from '@/data/pricing'
+import { REALISATIONS } from '@/lib/realisations'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, TrendingUp, Search, Star, Zap } from 'lucide-react'
@@ -51,7 +53,7 @@ const FAQ = [
   {
     question: 'Combien coûte le référencement SEO à Genève ?',
     answer:
-      'Un accompagnement SEO chez DKDP démarre à CHF 500/mois pour un site vitrine local. Un projet SEO ambitieux (e-commerce, marché suisse romand) se situe entre CHF 1\'000 et CHF 2\'500/mois. On commence toujours par un audit gratuit pour calibrer les efforts nécessaires.',
+      `Un accompagnement SEO chez DKDP coûte ${chfMois(PRIX.seoMonthly)} pour un site vitrine local, sans engagement, ou ${chf(PRIX.seoAuditOnce)} en prestation unique (audit et mise en place). Un projet SEO ambitieux (e-commerce, marché suisse romand) se situe entre CHF 1'000 et CHF 2'500/mois. On commence toujours par un audit gratuit pour calibrer les efforts nécessaires.`,
   },
   {
     question: 'En combien de temps voit-on des résultats en SEO à Genève ?',
@@ -93,7 +95,7 @@ const FAQ = [
 const BENEFITS = [
   {
     Icon: TrendingUp,
-    value: '+340%',
+    value: 'Durable',
     title: 'Trafic qui capitalise',
     desc: 'Contrairement aux Ads, le trafic SEO ne s\'arrête pas quand vous coupez le budget. Il croît et capitalise avec le temps.',
   },
@@ -105,11 +107,21 @@ const BENEFITS = [
   },
   {
     Icon: Globe2,
-    value: '95%',
-    title: 'Dans le top 5 Google',
-    desc: '95% de nos clients atteignent le top 5 Google sur leurs mots-clés stratégiques en 6 à 12 mois.',
+    value: '6 à 12 sem.',
+    title: 'Premières positions locales',
+    desc: 'Sur les requêtes locales genevoises, les premières progressions se voient entre 6 et 12 semaines ; un trafic significatif se construit sur 3 à 6 mois.',
   },
 ]
+
+/** Les deux réalisations publiées, dans l'ordre de /realisations. */
+const CAS_SEO = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => ({
+  client: r.client.name,
+  type: r.category === 'site-web' ? 'Site et SEO local' : r.category === 'projet-ia' ? 'Projet IA' : 'Site et IA',
+  image: r.hero.desktopFull,
+  results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric} : ${x.value}`),
+  tech: r.tags.slice(0, 4).join(' · '),
+  href: `/realisations/${r.slug}`,
+}))
 
 const PROCESS = [
   {
@@ -149,8 +161,8 @@ export default function SEOPage() {
           description:
             "Agence de référencement naturel (SEO) et Generative Engine Optimization (GEO) à Genève. Audit SEO technique, SEO local (Google Business Profile, citations locales, reviews), stratégie de contenu, E-E-A-T, Schema.org, netlinking. Optimisation pour Google, ChatGPT, Perplexity, Claude, Copilot et les AI Overviews. PME Suisse romande.",
           serviceType: 'Référencement naturel et GEO',
-          priceFrom: 500,
-          priceSpecDescription: 'À partir de CHF 500/mois pour un accompagnement SEO PME',
+          priceFrom: PRIX.seoMonthly,
+          priceSpecDescription: `${chfMois(PRIX.seoMonthly)} pour un accompagnement SEO PME, sans engagement`,
         })}
       />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
@@ -212,8 +224,8 @@ export default function SEOPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '+340%', l: 'Trafic organique', sub: 'Gain moyen à 12 mois' },
-              { v: 'Top 5', l: 'Mots-clés cibles', sub: '95% de nos clients' },
+              { v: '2', l: 'Études de cas publiées', sub: 'Golden Cash, SOS Relevage' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
               { v: 'CHF 0', l: 'Par clic', sub: 'Contrairement aux Ads' },
               { v: '6 mois', l: 'Pour des résultats', sub: 'Durée moyenne constatée' },
             ].map((s) => (
@@ -461,7 +473,7 @@ export default function SEOPage() {
                   (plan SEO du 21/09/2026, D02.1). Pas de compte de clients par canton :
                   les deux etudes de cas publiees sont genevoises. */}
               <p className="text-text-secondary leading-relaxed mb-4">
-                Le SEO local ne s&apos;arrête pas au canton de <Link href="/agence-digitale/geneve" className="underline hover:text-text transition-colors">Genève</Link>. Dans le canton de Vaud, la même méthode s&apos;applique aux PME de <Link href="/agence-digitale/lausanne" className="underline hover:text-text transition-colors">Lausanne</Link>, de <Link href="/agence-digitale/nyon" className="underline hover:text-text transition-colors">Nyon</Link>, de <Link href="/agence-digitale/morges" className="underline hover:text-text transition-colors">Morges</Link> et de <Link href="/agence-digitale/montreux" className="underline hover:text-text transition-colors">Montreux</Link>. Dans le canton de Fribourg, elle vise le pack local bilingue de <Link href="/agence-digitale/fribourg" className="underline hover:text-text transition-colors">Fribourg</Link>. En Valais, elle sert les entreprises de <Link href="/agence-digitale/sion" className="underline hover:text-text transition-colors">Sion</Link> et du tourisme alpin. Dans le canton de Neuchâtel, elle accompagne l&apos;industrie et les services de <Link href="/agence-digitale/neuchatel" className="underline hover:text-text transition-colors">Neuchâtel</Link>.
+                Le SEO local ne s&apos;arrête pas au canton de <Link href="/" className="underline hover:text-text transition-colors">Genève</Link>. Dans le canton de Vaud, la même méthode s&apos;applique aux PME de <Link href="/agence-digitale/lausanne" className="underline hover:text-text transition-colors">Lausanne</Link>, de <Link href="/agence-digitale/nyon" className="underline hover:text-text transition-colors">Nyon</Link>, de <Link href="/agence-digitale/morges" className="underline hover:text-text transition-colors">Morges</Link> et de <Link href="/agence-digitale/montreux" className="underline hover:text-text transition-colors">Montreux</Link>. Dans le canton de Fribourg, elle vise le pack local bilingue de <Link href="/agence-digitale/fribourg" className="underline hover:text-text transition-colors">Fribourg</Link>. En Valais, elle sert les entreprises de <Link href="/agence-digitale/sion" className="underline hover:text-text transition-colors">Sion</Link> et du tourisme alpin. Dans le canton de Neuchâtel, elle accompagne l&apos;industrie et les services de <Link href="/agence-digitale/neuchatel" className="underline hover:text-text transition-colors">Neuchâtel</Link>.
               </p>
               <p className="text-text-secondary leading-relaxed mb-6">
                 DKDP déploie une stratégie SEO local complète : optimisation de votre <strong className="text-text">Google Business Profile</strong> (ex-Google My Business), construction d&apos;un réseau de citations locales cohérentes (NAP : Name, Address, Phone), récolte structurée d&apos;avis clients, schema <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded">LocalBusiness</code> sur toutes vos pages et optimisation mobile Core Web Vitals (LCP, CLS, INP) pour le ranking mobile-first. Pour un guide complet, lisez <Link href="/blog/seo-local-geneve-2026" className="underline hover:text-text transition-colors">SEO local Genève 2026 : dominer Google Maps</Link>.
@@ -562,7 +574,7 @@ export default function SEOPage() {
             {[
               {
                 label: 'Audit SEO',
-                price: "CHF 1'500",
+                price: chf(PRIX.seoAuditOnce),
                 duration: 'Prestation unique',
                 highlight: false,
                 features: [
@@ -577,7 +589,7 @@ export default function SEOPage() {
               },
               {
                 label: 'SEO Mensuel',
-                price: 'CHF 650/mois',
+                price: chfMois(PRIX.seoMonthly),
                 duration: 'Le plus demandé',
                 highlight: true,
                 features: [
@@ -592,7 +604,7 @@ export default function SEOPage() {
               },
               {
                 label: 'SEO Autorité',
-                price: "CHF 1'200/mois",
+                price: chfMois(PRIX.seoAuthorityMonthly),
                 duration: 'Marchés compétitifs',
                 highlight: false,
                 features: [
@@ -745,33 +757,14 @@ export default function SEOPage() {
               </h2>
             </div>
           </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                client: 'Cabinet de conseil B2B',
-                type: 'Référencement local',
-                image: '/images/services/dkdp-agence-seo.webp',
-                results: ['+340% trafic organique en 12 mois', '15 mots-clés top 1 Google Genève', '0 budget Ads nécessaire'],
-                tech: 'SEO · Content · Google Business',
-              },
-              {
-                client: 'PME e-commerce',
-                type: 'SEO national',
-                image: '/images/services/dkdp-agence-creation-web.webp',
-                results: ['Page 1 sur 42 mots-clés cibles', 'Trafic x4.2 en 18 mois', 'CA online +280%'],
-                tech: 'SEO · Blog · Netlinking',
-              },
-              {
-                client: 'Clinique spécialisée',
-                type: 'SEO local + contenu',
-                image: '/images/services/dkdp-agence-consulting.webp',
-                results: ["Fiche GBP : 800 → 4'200 vues/mois", '"médecin Genève" : position 2', 'Prise de RDV +120%'],
-                tech: 'SEO Local · GBP · Contenu médical',
-              },
-            ].map((r, i) => (
+          {/* Deux réalisations publiées, lues dans src/lib/realisations (21/09/2026, plan SEO, D02.2 et M4) :
+              les trois cas fictifs (+340 %, x4.2, +280 %) ont été retirés. */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {CAS_SEO.map((r, i) => (
               <SectionReveal key={r.client} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border overflow-hidden"
+                <Link
+                  href={r.href}
+                  className="flex flex-col h-full rounded-[16px] border overflow-hidden transition-colors hover:border-violet-light"
                   style={{ borderColor: border }}
                 >
                   <div className="relative h-44 overflow-hidden flex-shrink-0">
@@ -780,7 +773,7 @@ export default function SEOPage() {
                       alt={r.client}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
                     <span
@@ -801,8 +794,11 @@ export default function SEOPage() {
                       ))}
                     </div>
                     <p className="text-text-muted text-[11px] mt-4 font-mono">{r.tech}</p>
+                    <span className="text-sm font-semibold mt-4 inline-flex items-center gap-1" style={{ color }}>
+                      Voir la réalisation <ChevronRight size={12} />
+                    </span>
                   </div>
-                </div>
+                </Link>
               </SectionReveal>
             ))}
           </div>

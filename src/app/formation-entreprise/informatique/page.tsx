@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { PRIX, chfHeure } from '@/data/pricing'
 import Image from 'next/image'
 import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Star, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, Zap } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
@@ -69,7 +70,7 @@ const FAQ = [
   {
     question: 'Combien coûte une formation informatique pour une équipe ?',
     answer:
-      'Nos formations sont facturées à l\'heure selon la taille du groupe : CHF 150/h pour 1 personne, CHF 200/h pour 2 personnes, CHF 250/h pour 3 à 6 personnes et CHF 300/h pour 6 à 10 personnes. La demi-journée (4h) ou la journée entière (8h) incluent la préparation sur mesure.',
+      `Nos formations sont facturées à l'heure selon la taille du groupe : ${chfHeure(PRIX.formationHourly1)} pour 1 personne, ${chfHeure(PRIX.formationHourly2)} pour 2 personnes, sur devis de 3 à 10 personnes. La demi-journée (3h de formation et 1h de préparation) ou la journée entière (6h et 2h) incluent la préparation sur mesure.`,
   },
 ]
 

@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { PRIX, chf } from '@/data/pricing'
+import { REALISATIONS } from '@/lib/realisations'
+import { localizeRealisation } from '@/lib/realisations/en'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, TrendingUp, Search, Star, Zap } from 'lucide-react'
@@ -49,7 +52,7 @@ const FAQ = [
   {
     question: 'How much does SEO cost in Geneva?',
     answer:
-      "An SEO engagement with DKDP starts at CHF 500/month for a local showcase site. An ambitious SEO project (e-commerce, French-speaking Swiss market) sits between CHF 1'000 and CHF 2'500/month. We always start with a free audit to calibrate the effort required.",
+      `An SEO engagement with DKDP costs ${chf(PRIX.seoMonthly)}/month for a local showcase site, no commitment, or ${chf(PRIX.seoAuditOnce)} as a one-off (audit and setup). An ambitious SEO project (e-commerce, French-speaking Swiss market) sits between CHF 1'000 and CHF 2'500/month. We always start with a free audit to calibrate the effort required.`,
   },
   {
     question: 'How long does it take to see SEO results in Geneva?',
@@ -91,7 +94,7 @@ const FAQ = [
 const BENEFITS = [
   {
     Icon: TrendingUp,
-    value: '+340%',
+    value: 'Durable',
     title: 'Traffic that compounds',
     desc: 'Unlike Ads, SEO traffic does not stop when you cut the budget. It grows and compounds over time.',
   },
@@ -103,11 +106,21 @@ const BENEFITS = [
   },
   {
     Icon: Globe2,
-    value: '95%',
-    title: 'In the Google top 5',
-    desc: '95% of our clients reach the Google top 5 on their strategic keywords within 6 to 12 months.',
+    value: '6 to 12 wks',
+    title: 'First local positions',
+    desc: 'On local Geneva queries, the first movements show within 6 to 12 weeks; meaningful traffic builds over 3 to 6 months.',
   },
 ]
+
+/** The two published case studies, in /en/portfolio order. */
+const CAS_SEO = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => localizeRealisation(r, 'en')).map((r) => ({
+  client: r.client.name,
+  type: r.category === 'site-web' ? 'Website and local SEO' : r.category === 'projet-ia' ? 'AI project' : 'Website and AI',
+  image: r.hero.desktopFull,
+  results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric}: ${x.value}`),
+  tech: r.tags.slice(0, 4).join(' · '),
+  href: `/en/portfolio/${r.slug}`,
+}))
 
 const PROCESS = [
   {
@@ -147,8 +160,8 @@ export default function SEOPage() {
           description:
             'Organic search (SEO) and Generative Engine Optimization (GEO) agency in Geneva. Technical SEO audit, local SEO (Google Business Profile, local citations, reviews), content strategy, E-E-A-T, Schema.org, link building. Optimisation for Google, ChatGPT, Perplexity, Claude AI, Copilot and AI Overviews. Swiss SMBs.',
           serviceType: 'Organic search and GEO',
-          priceFrom: 500,
-          priceSpecDescription: 'From CHF 500/month for an SMB SEO engagement',
+          priceFrom: PRIX.seoMonthly,
+          priceSpecDescription: `${chf(PRIX.seoMonthly)}/month for an SMB SEO engagement, no commitment`,
           lang: 'en',
         })}
       />
@@ -262,8 +275,8 @@ export default function SEOPage() {
                         </div>
                       </div>
                       <div className="text-right pb-1">
-                        <p className="text-xl font-bold text-green-400">+580%</p>
-                        <p className="text-[8px] text-zinc-500">vs. previous year</p>
+                        <p className="text-xl font-bold text-green-400">Page 1</p>
+                        <p className="text-[8px] text-zinc-500">illustrative mock-up</p>
                       </div>
                     </div>
 
@@ -339,7 +352,7 @@ export default function SEOPage() {
                 <div className="grid grid-cols-3 gap-3">
                   {[
                     { v: 'Top 3', l: 'Google positions', c: '#4ade80' },
-                    { v: '+580%', l: 'Organic traffic', c: color },
+                    { v: 'Page 1', l: 'Local goal', c: color },
                     { v: 'GEO Ready', l: 'AI + Google', c: '#FF8C00' },
                   ].map((s) => (
                     <div
@@ -364,8 +377,8 @@ export default function SEOPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '+340%', l: 'Organic traffic', sub: 'Average gain at 12 months' },
-              { v: 'Top 5', l: 'Target keywords', sub: '95% of our clients' },
+              { v: '2', l: 'Published case studies', sub: 'Golden Cash, SOS Relevage' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
               { v: 'CHF 0', l: 'Per click', sub: 'Unlike Ads' },
               { v: '6 months', l: 'For results', sub: 'Average duration observed' },
             ].map((s) => (
@@ -730,7 +743,7 @@ export default function SEOPage() {
             {[
               {
                 label: 'SEO Audit',
-                price: "CHF 1'500",
+                price: chf(PRIX.seoAuditOnce),
                 duration: 'One-time service',
                 highlight: false,
                 features: [
@@ -745,7 +758,7 @@ export default function SEOPage() {
               },
               {
                 label: 'SEO Monthly',
-                price: 'CHF 650/month',
+                price: `${chf(PRIX.seoMonthly)}/month`,
                 duration: 'Most requested',
                 highlight: true,
                 features: [
@@ -760,7 +773,7 @@ export default function SEOPage() {
               },
               {
                 label: 'SEO Authority',
-                price: "CHF 1'200/month",
+                price: `${chf(PRIX.seoAuthorityMonthly)}/month`,
                 duration: 'Competitive markets',
                 highlight: false,
                 features: [
@@ -913,33 +926,13 @@ export default function SEOPage() {
               </h2>
             </div>
           </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                client: 'B2B consulting firm',
-                type: 'Local search',
-                image: '/images/services/dkdp-agence-seo.webp',
-                results: ['+340% organic traffic in 12 months', '15 keywords top 1 Google Geneva', '0 Ads budget needed'],
-                tech: 'SEO · Content · Google Business',
-              },
-              {
-                client: 'E-commerce SMB',
-                type: 'National SEO',
-                image: '/images/services/dkdp-agence-creation-web.webp',
-                results: ['Page 1 on 42 target keywords', 'Traffic x4.2 in 18 months', 'Online revenue +280%'],
-                tech: 'SEO · Blog · Link building',
-              },
-              {
-                client: 'Specialist clinic',
-                type: 'Local SEO + content',
-                image: '/images/services/dkdp-agence-consulting.webp',
-                results: ["GBP listing: 800 → 4'200 views/month", '"doctor Geneva": position 2', 'Bookings +120%'],
-                tech: 'Local SEO · GBP · Medical content',
-              },
-            ].map((r, i) => (
+          {/* Two published case studies from src/lib/realisations (21/09/2026, SEO plan): the three fictional cases were removed. */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {CAS_SEO.map((r, i) => (
               <SectionReveal key={r.client} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border overflow-hidden"
+                <Link
+                  href={r.href}
+                  className="flex flex-col h-full rounded-[16px] border overflow-hidden transition-colors hover:border-violet-light"
                   style={{ borderColor: border }}
                 >
                   <div className="relative h-44 overflow-hidden flex-shrink-0">
@@ -948,7 +941,7 @@ export default function SEOPage() {
                       alt={r.client}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
                     <span
@@ -969,8 +962,11 @@ export default function SEOPage() {
                       ))}
                     </div>
                     <p className="text-text-muted text-[11px] mt-4 font-mono">{r.tech}</p>
+                    <span className="text-sm font-semibold mt-4 inline-flex items-center gap-1" style={{ color }}>
+                      See the case study <ChevronRight size={12} />
+                    </span>
                   </div>
-                </div>
+                </Link>
               </SectionReveal>
             ))}
           </div>

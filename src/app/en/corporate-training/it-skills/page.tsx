@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { PRIX, chfHeure } from '@/data/pricing'
 import Image from 'next/image'
 import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Star, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, Zap } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
@@ -72,7 +73,7 @@ const FAQ = [
   {
     question: 'How much does IT skills training cost for a team?',
     answer:
-      'Our training is billed by the hour according to the size of the group: CHF 150/h for 1 person, CHF 200/h for 2 people, CHF 250/h for 3 to 6 people and CHF 300/h for 6 to 10 people. The half-day (4h) or the full day (8h) include tailored preparation.',
+      `Our training is billed by the hour according to the size of the group: ${chfHeure(PRIX.formationHourly1)} for 1 person, ${chfHeure(PRIX.formationHourly2)} for 2 people, on quote for 3 to 10 people. The half-day (3h of training plus 1h of preparation) or the full day (6h plus 2h) include tailored preparation.`,
   },
 ]
 

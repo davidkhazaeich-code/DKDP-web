@@ -76,7 +76,6 @@ export const FR_TO_EN: Record<string, string> = {
   '/conditions-generales-de-vente': '/terms-of-service',
 
   // Villes (agence digitale) - SEO local
-  '/agence-digitale/geneve': '/digital-agency/geneva',
   '/agence-digitale/lausanne': '/digital-agency/lausanne',
   '/agence-digitale/nyon': '/digital-agency/nyon',
   '/agence-digitale/fribourg': '/digital-agency/fribourg',
@@ -86,7 +85,6 @@ export const FR_TO_EN: Record<string, string> = {
   '/agence-digitale/montreux': '/digital-agency/montreux',
 
   // IA Geneve (page pilier locale)
-  '/intelligence-artificielle/geneve': '/artificial-intelligence/geneva',
 
   // Hubs de contenu
   '/glossaire': '/glossary',

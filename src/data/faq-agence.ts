@@ -1,3 +1,5 @@
+import { PRIX, chf, chfMois } from '@/data/pricing'
+
 export const FAQ_AGENCE = [
   {
     question: "Combien coûte la création d'un site web à Genève ?",
@@ -17,7 +19,7 @@ export const FAQ_AGENCE = [
   {
     question: "Combien coûte le référencement SEO à Genève ?",
     answer:
-      "Un accompagnement SEO mensuel chez DKDP démarre à partir de CHF 500/mois pour un site vitrine local. Un projet SEO plus ambitieux (e-commerce, marché suisse romand) se situe entre CHF 1'000 et CHF 2'500/mois selon la concurrence et les objectifs. On commence toujours par un audit gratuit.",
+      `Un accompagnement SEO mensuel chez DKDP coûte ${chfMois(PRIX.seoMonthly)} pour un site vitrine local, sans engagement, ou ${chf(PRIX.seoAuditOnce)} en prestation unique (audit et mise en place). Un projet SEO plus ambitieux (e-commerce, marché suisse romand) se situe entre CHF 1'000 et CHF 2'500/mois selon la concurrence et les objectifs. On commence toujours par un audit gratuit.`,
   },
   {
     question: "En combien de temps voit-on des résultats en SEO ?",
@@ -27,7 +29,7 @@ export const FAQ_AGENCE = [
   {
     question: "Quel budget prévoir pour une campagne Google Ads ?",
     answer:
-      "Le budget minimum recommandé est CHF 500/mois en dépenses publicitaires, plus CHF 300 à CHF 600/mois de frais de gestion selon la complexité. DKDP ne prend pas de commission sur votre budget média : vous payez uniquement la gestion stratégique.",
+      `Le budget minimum recommandé est ${chfMois(PRIX.adsBudgetMin)} en dépenses publicitaires, plus des frais de gestion à partir de ${chfMois(PRIX.adsManagementFrom)} selon la complexité. DKDP ne prend pas de commission sur votre budget média : vous payez uniquement la gestion stratégique.`,
   },
   {
     question: "Puis-je gérer moi-même mon site après la livraison ?",

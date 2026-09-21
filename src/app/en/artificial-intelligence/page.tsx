@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { PRIX, chf } from '@/data/pricing'
 import Image from 'next/image'
 import { Bot, Workflow, BrainCircuit, Cpu, ChevronRight, Clock, TrendingUp, ShieldCheck, GraduationCap, CheckCircle2, Layers, GitMerge, Zap, MessageCircle, Users } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
@@ -21,8 +22,9 @@ import { chrome } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 
 export const metadata: Metadata = {
-  title: 'AI Agency Geneva and Switzerland · AI for SMBs · DKDP',
-  description: 'AI agency in Geneva for SMBs and corporates. Custom AI agents, business process automation, audit and consulting. 700+ companies supported in French-speaking Switzerland. Free audit.',
+  // 21/09/2026 (SEO plan, D03): /en/artificial-intelligence/geneva merged here (301).
+  title: 'AI Agency Geneva & Romandy | AI agents for SMBs | DKDP',
+  description: `AI agency in Geneva (Eaux-Vives): AI agents, chatbots and n8n automation for Swiss SMBs. AI audit from ${chf(PRIX.auditIaStandard)}, agent from ${chf(PRIX.agentFrom)}.`,
   alternates: {
     canonical: 'https://dkdp.ch/en/artificial-intelligence',
     languages: {
@@ -177,9 +179,12 @@ export default function EnArtificialIntelligencePage() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Artificial Intelligence for SMBs Geneva and Switzerland</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  Deploy AI <GradText as="span">where it matters</GradText>. Not everywhere for the show.
+                <span className="grad-tag inline-block text-xs md:text-sm mb-6">Artificial intelligence for SMBs</span>
+                <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.03em] leading-[1.1] text-text mb-5">
+                  <GradText as="span">AI agency in Geneva</GradText> and French-speaking Switzerland: AI agents and automation for SMBs
+                </h1>
+                <p className="text-xl md:text-2xl font-semibold text-text mb-4">
+                  Deploy AI where it matters. Not everywhere for the show.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   SMBs in French-speaking Switzerland: automate what slows you down. Deploy AI where it really matters. We handle everything, from audit to production rollout.

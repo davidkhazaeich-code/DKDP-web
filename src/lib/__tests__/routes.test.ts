@@ -43,7 +43,7 @@ describe('REDIRECTS', () => {
     const served = new Set(ROUTES.map((r) => r.url))
     const orphans = REDIRECTS.filter((r) => {
       // Les destinations EN et les routes dynamiques (:slug) ne sont pas dans ROUTES.
-      if (r.destination.startsWith('/en/')) return false
+      if (r.destination === '/en' || r.destination.startsWith('/en/')) return false
       if (r.destination.includes(':')) return false
       return !served.has(r.destination)
     })

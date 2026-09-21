@@ -198,7 +198,7 @@ Cinq questions suffisent pour faire apparaître la plupart des signaux ci-dessus
 
 Cette grille n'appartient à personne. Elle marche pour n'importe quel prestataire IA, en Suisse romande ou ailleurs, et elle marche aussi pour DKDP. Si vous nous rencontrez, posez-nous exactement ces cinq questions. On vous répondra avec la même franchise qu'on attend de n'importe qui d'autre : si votre projet correspond à ce qu'on sait bien faire, on vous le dira, et si ce n'est pas le cas, on vous le dira aussi, quitte à vous orienter ailleurs.
 
-Pour voir concrètement qui est derrière DKDP, ce qu'on fait et ce qu'on évite de promettre, notre page [À propos](/a-propos) présente l'équipe et la méthode. Et si après cette lecture vous voulez un avis extérieur sur votre projet IA, même si la réponse est qu'on n'est pas les bons pour vous, un [échange de 30 minutes](/contact) ne coûte rien et n'engage à rien.
+Pour voir concrètement qui est derrière DKDP, ce qu'on fait et ce qu'on évite de promettre, notre page [À propos](/a-propos) présente l'équipe et la méthode, et notre page [agence IA à Genève](/intelligence-artificielle) détaille les agents, l'automatisation et l'audit avec leurs prix. Et si après cette lecture vous voulez un avis extérieur sur votre projet IA, même si la réponse est qu'on n'est pas les bons pour vous, un [échange de 30 minutes](/contact) ne coûte rien et n'engage à rien.
 
 ## Questions fréquentes
 

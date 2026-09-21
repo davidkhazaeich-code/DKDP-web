@@ -70,7 +70,7 @@ function buildNavData(lang: Locale) {
   ]
 
   const IA_SECONDARY: MegaSecondary[] = [
-    { title: t.iaSecondary[0].title, href: lp('/intelligence-artificielle/geneve'), icon: Globe },
+    { title: t.iaSecondary[0].title, href: lp('/intelligence-artificielle'), icon: Globe },
     { title: t.iaSecondary[1].title, href: lp('/formation-entreprise/ia'), icon: GraduationCap },
     { title: t.iaSecondary[2].title, href: lp('/formation-entreprise/claude-ai'), icon: ClaudeIcon },
     { title: t.iaSecondary[3].title, href: lp('/formation-entreprise/chatgpt'), icon: MessageSquare },

@@ -77,7 +77,7 @@ Accueillir les visiteurs du site dkdp.ch, répondre à leurs questions sur les s
 - Stratégie marketing, conseil, audit transverse → [consulting marketing](/agence-digitale/consulting-marketing)
 
 ### Pages locales (utiliser quand le visiteur mentionne sa ville)
-- Genève → [agence digitale Genève](/agence-digitale/geneve)
+- Genève → [agence digitale à Genève, notre page d'accueil](/)
 - Lausanne → [agence digitale Lausanne](/agence-digitale/lausanne)
 - Nyon → [agence digitale Nyon](/agence-digitale/nyon)
 - Fribourg → [agence digitale Fribourg](/agence-digitale/fribourg)
@@ -85,7 +85,7 @@ Accueillir les visiteurs du site dkdp.ch, répondre à leurs questions sur les s
 - Neuchâtel → [agence digitale Neuchâtel](/agence-digitale/neuchatel)
 - Morges → [agence digitale Morges](/agence-digitale/morges)
 - Montreux / Riviera → [agence digitale Montreux](/agence-digitale/montreux)
-- Consultant IA à Genève → [consultant IA Genève](/intelligence-artificielle/geneve)
+- Consultant IA à Genève → [agence IA Genève](/intelligence-artificielle)
 
 ### Intelligence artificielle (entreprise)
 - Hub IA général → [intelligence artificielle](/intelligence-artificielle)

@@ -3,7 +3,7 @@ import { MapPin, ChevronRight } from 'lucide-react'
 import { violet } from '@/lib/tokens'
 import type { Locale } from '@/i18n/config'
 import { localizedPath } from '@/i18n/slugs'
-import { CITIES } from '@/lib/cities'
+import { CITIES, HOME_CITY_SLUG } from '@/lib/cities'
 
 /**
  * ChatGPT Ads à Genève, Lausanne et dans toute la Suisse romande. Le bloc
@@ -47,7 +47,7 @@ export function RomandieCoverage({ lang = 'fr' }: { lang?: Locale }) {
         {CITIES.map((city) => (
           <li key={city.slug}>
             <Link
-              href={localizedPath(`/agence-digitale/${city.slug}`, lang)}
+              href={city.slug === HOME_CITY_SLUG ? (lang === 'en' ? '/en' : '/') : localizedPath(`/agence-digitale/${city.slug}`, lang)}
               className="group flex flex-col gap-1 p-4 rounded-[12px] border border-border bg-bg-card h-full transition-all hover:-translate-y-0.5 duration-200"
               style={{ borderColor: 'var(--border)' }}
             >

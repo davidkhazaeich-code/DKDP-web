@@ -173,6 +173,19 @@ export const CITIES: City[] = [
   },
 ]
 
+/**
+ * Genève n'a plus de page ville (21/09/2026, plan SEO, D04) : la home EST la
+ * page Genève (adresse aux Eaux-Vives, LocalBusiness, hreflang). La page
+ * /agence-digitale/geneve doublonnait la home et se disputait « formation ia
+ * geneve » avec /formation-entreprise/ia. Elle redirige en 301 vers /.
+ * `CITIES` garde Genève pour le balisage (areaServed) et les textes.
+ */
+export const HOME_CITY_SLUG = 'geneve'
+
+/** Les villes qui ont une page /agence-digitale/[ville]. */
+export const CITY_PAGES: City[] = CITIES.filter(c => c.slug !== HOME_CITY_SLUG)
+
 export function getCity(slug: string): City | undefined {
+  if (slug === HOME_CITY_SLUG) return undefined
   return CITIES.find(c => c.slug === slug)
 }

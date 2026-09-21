@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { PRIX, chf } from '@/data/pricing'
 import Image from 'next/image'
 import {
   Monitor, Smartphone, FileSpreadsheet, Bot, Share2,
@@ -28,7 +29,7 @@ import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, DESIGN_WEB_LOGOS, SOCIAL_L
 export const metadata: Metadata = {
   title: 'Formation Informatique Particuliers Genève · DKDP',
   description:
-    "Cours d'informatique à domicile pour particuliers à Genève. 463+ clients satisfaits, 4.6/5 étoiles. Excel, IA, smartphone, cybersécurité. CHF 150/h, sans engagement.",
+    "Cours d'informatique à domicile pour particuliers à Genève, avec cours-informatique.ch : ordinateur, smartphone, Excel, IA, cybersécurité. Dès CHF 140/h, sans engagement.",
   alternates: {
     canonical: 'https://dkdp.ch/formation-particuliers',
     languages: {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Formation Informatique Particuliers Genève · DKDP',
-    description: "Cours d'informatique à domicile pour particuliers à Genève : Excel, IA, smartphone, cybersécurité. CHF 150/h, sans engagement.",
+    description: "Cours d'informatique à domicile pour particuliers à Genève : ordinateur, smartphone, Excel, IA, cybersécurité. Dès CHF 140/h, sans engagement.",
     url: 'https://dkdp.ch/formation-particuliers',
     images: [{ url: '/images/og/formation-particuliers.png', width: 1376, height: 768, alt: 'Formation informatique particuliers Genève : cours à domicile Excel, IA, smartphone, cybersécurité par DKDP' }],
   },
@@ -60,28 +61,28 @@ const TOPICS = [
     title: 'Informatique de base',
     desc: "Prise en main Mac ou PC, navigation internet, gestion des fichiers et emails. Idéal pour débutants et seniors.",
     tags: ['Mac & PC', 'Internet', 'Emails'],
-    href: 'https://cours-informatique.ch/cours-informatique/ordinateur/',
+    href: 'https://cours-informatique.ch/cours/ordinateur-mac-pc/',
   },
   {
     Icon: Smartphone,
     title: 'Smartphone',
     desc: "iPhone et Android : applications, photos, WhatsApp, paramètrès, synchronisation et sécurité mobile.",
     tags: ['iPhone', 'Android', 'Applications'],
-    href: 'https://cours-informatique.ch/cours-informatique/smartphone-iphone-android/',
+    href: 'https://cours-informatique.ch/cours/smartphone-iphone-android/',
   },
   {
     Icon: FileSpreadsheet,
     title: 'Bureautique',
     desc: "Word, Excel, PowerPoint, Outlook, Notion. Des formules simples aux tableaux croisés dynamiques.",
     tags: ['Excel', 'Word', 'PowerPoint', 'Outlook'],
-    href: 'https://cours-informatique.ch/cours-informatique/bureautique-word-excel/',
+    href: 'https://cours-informatique.ch/cours/bureautique-word-excel/',
   },
   {
     Icon: Bot,
     title: 'Intelligence Artificielle',
     desc: "ChatGPT Astra, Claude, Copilot, Midjourney. Prompting efficace, génération d'images et automatisation du quotidien.",
     tags: ['ChatGPT Astra', 'Claude', 'Prompting'],
-    href: 'https://cours-informatique.ch/formation-intelligence-artificielle-ai/',
+    href: 'https://cours-informatique.ch/cours/intelligence-artificielle/',
     highlight: true,
   },
   {
@@ -89,28 +90,28 @@ const TOPICS = [
     title: 'Réseaux sociaux',
     desc: "LinkedIn, Instagram, TikTok, Facebook. Créer du contenu, développer sa présence et planifier ses publications.",
     tags: ['LinkedIn', 'Instagram', 'TikTok'],
-    href: 'https://cours-informatique.ch/cours-informatique/formation-reseaux-sociaux-linkedin-instagram-tiktok/',
+    href: 'https://cours-informatique.ch/cours/reseaux-sociaux/',
   },
   {
     Icon: Palette,
     title: 'Canva & Montage vidéo',
     desc: "Créer visuels, CV, flyers et présentations avec Canva. Montage vidéo avec CapCut, iMovie et Premiere.",
     tags: ['Canva', 'CapCut', 'iMovie'],
-    href: 'https://cours-informatique.ch/canva/',
+    href: 'https://cours-informatique.ch/cours/canva/',
   },
   {
     Icon: Shield,
     title: 'Cybersécurité',
     desc: "Reconnaître les arnaques en ligne, gérer ses mots de passe et protéger ses données personnelles.",
     tags: ['Phishing', 'Mots de passe', 'Données'],
-    href: 'https://cours-informatique.ch/formation-cybersecurite/',
+    href: 'https://cours-informatique.ch/cours/cybersecurite/',
   },
   {
     Icon: Code,
     title: 'Web & Développement',
     desc: "WordPress, Figma, Elementor. Python, HTML/CSS, JavaScript pour aller plus loin dans le numérique.",
     tags: ['WordPress', 'Python', 'HTML/CSS'],
-    href: 'https://cours-informatique.ch/cours-informatique/formation-développement-web/',
+    href: 'https://cours-informatique.ch/cours/creation-site-web/',
   },
 ]
 
@@ -164,7 +165,7 @@ const FAQ_ITEMS = [
   {
     question: "Quel est le tarif exact ?",
     answer:
-      "CHF 150 par heure, sans frais cachés. Les frais de déplacement s'appliquent uniquement hors Eaux-Vives (20 à 100 CHF selon la distance). Paiement par virement bancaire, cash ou QR facture suisse.",
+      `${chf(PRIX.particuliersHourly)} de l'heure pour les cours ordinateur et smartphone, ${chf(PRIX.particuliersProHourly)} pour la bureautique et les cours à but professionnel, ${chf(PRIX.particuliersIaHourly)} pour l'intelligence artificielle. Sans frais cachés : le déplacement est offert aux Eaux-Vives et facturé de 20 à 100 CHF ailleurs dans le canton selon la distance. Paiement par virement bancaire, cash ou QR facture suisse.`,
   },
   {
     question: "Y a-t-il un engagement sur le nombre de cours ?",
@@ -193,7 +194,8 @@ export default function FormationParticuliersPage() {
           name: 'Formation Informatique pour Particuliers · cours-informatique.ch',
           url: '/formation-particuliers',
           description:
-            "Cours d'informatique à domicile pour particuliers à Genève. 463+ clients satisfaits. Excel, IA, smartphone, cybersécurité. CHF 150/h, sans engagement.",
+            `Cours d'informatique à domicile pour particuliers à Genève, avec cours-informatique.ch : ordinateur, smartphone, Excel, IA, cybersécurité. Dès ${chf(PRIX.particuliersHourly)}/h, sans engagement.`,
+          priceFrom: PRIX.particuliersHourly,
         })}
       />
       <SchemaOrg schema={buildBreadcrumbList([{ name: 'Accueil', url: '/' }, { name: 'Formation Particuliers', url: '/formation-particuliers' }])} />
@@ -231,13 +233,13 @@ export default function FormationParticuliersPage() {
 
                 {/* Social proof */}
                 <div className="flex items-center gap-3 mb-10">
-                  <div className="flex gap-0.5" aria-label="4.6 étoiles sur 5">
+                  <div className="flex gap-0.5" aria-label="4,9 étoiles sur 5">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} size={13} style={{ color: accent, fill: accent }} aria-hidden="true" />
                     ))}
                   </div>
-                  <span className="text-text font-semibold text-sm">4.6/5</span>
-                  <span className="text-text-muted text-sm">· 463+ Genevois satisfaits</span>
+                  <span className="text-text font-semibold text-sm">4,9/5</span>
+                  <span className="text-text-muted text-sm">· 86 avis Google sur cours-informatique.ch</span>
                 </div>
 
                 <HeroPills
@@ -302,9 +304,9 @@ export default function FormationParticuliersPage() {
 
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { val: '463+',    lbl: 'clients satisfaits' },
-                      { val: '4.6/5',   lbl: 'note moyenne' },
-                      { val: '150 CHF', lbl: 'par heure' },
+                      { val: '4,9/5',   lbl: '86 avis Google' },
+                      { val: '12',      lbl: 'cours au catalogue' },
+                      { val: `dès ${PRIX.particuliersHourly} CHF`, lbl: 'par heure' },
                       { val: 'Lun–Sam', lbl: '8h00 – 19h00' },
                     ].map(({ val, lbl }) => (
                       <div key={lbl}>
@@ -341,9 +343,9 @@ export default function FormationParticuliersPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
             {[
-              { value: '463+',    label: 'Clients satisfaits',   sub: 'à Genève et en Suisse romande' },
-              { value: '4.6/5',   label: 'Note moyenne',          sub: 'sur Trustindex' },
-              { value: '150 CHF', label: 'Par heure',             sub: 'sans frais cachés' },
+              { value: '4,9/5',   label: 'Note Google',           sub: '86 avis sur cours-informatique.ch' },
+              { value: '12',      label: 'Cours au catalogue',    sub: 'ordinateur, smartphone, Excel, IA' },
+              { value: `dès ${PRIX.particuliersHourly} CHF`, label: 'Par heure', sub: 'sans frais cachés' },
               { value: 'Lun–Sam', label: '8h – 19h',              sub: 'disponibles 6 jours sur 7' },
             ].map((s) => (
               <SectionReveal key={s.label}>
@@ -488,11 +490,12 @@ export default function FormationParticuliersPage() {
             <SectionReveal>
               <GradTag className="mb-4">Tarif</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                CHF 150 de l&apos;heure,<br />sans surprise.
+                Dès CHF {PRIX.particuliersHourly} de l&apos;heure,<br />sans surprise.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-8">
-                Un tarif unique et transparent. Le déplacement est gratuit aux Eaux-Vives,
-                de 20 à 100 CHF pour le reste du canton de Genève.
+                Trois tarifs, les mêmes que sur cours-informatique.ch : CHF {PRIX.particuliersHourly} pour l&apos;ordinateur et le smartphone,
+                CHF {PRIX.particuliersProHourly} pour la bureautique et les cours à but professionnel, CHF {PRIX.particuliersIaHourly} pour l&apos;intelligence artificielle.
+                Le déplacement est gratuit aux Eaux-Vives, de 20 à 100 CHF pour le reste du canton de Genève.
               </p>
               <div className="flex flex-col gap-3">
                 {[

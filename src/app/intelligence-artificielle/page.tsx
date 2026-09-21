@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { PRIX, chf } from '@/data/pricing'
 import Image from 'next/image'
-import { Bot, Workflow, BrainCircuit, Cpu, ChevronRight, Clock, TrendingUp, ShieldCheck, GraduationCap, CheckCircle2, Layers, GitMerge, Zap, MessageCircle, Users } from 'lucide-react'
+import { Bot, Workflow, BrainCircuit, Cpu, ChevronRight, Clock, TrendingUp, ShieldCheck, GraduationCap, CheckCircle2, Layers, GitMerge, Zap, MessageCircle, Users, MapPin, Phone } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -24,8 +25,10 @@ import { chrome } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 
 export const metadata: Metadata = {
-  title: 'Agence IA Genève & Suisse romande | IA pour PME | DKDP',
-  description: 'Agence IA à Genève pour PME et entreprises. Agents IA sur mesure, automatisation des processus, audit et conseil. 700+ entreprises accompagnées en Suisse romande. Audit gratuit.',
+  // 21/09/2026 (plan SEO, D03) : la page /intelligence-artificielle/geneve est
+  // fusionnée ici (301). Title 557 px, description 899 px, prix de src/data/pricing.
+  title: 'Agence IA Genève & Suisse romande | Agents IA PME | DKDP',
+  description: `Agence IA à Genève (Eaux-Vives) : agents IA, chatbots et automatisation n8n pour PME romandes. Audit IA dès ${chf(PRIX.auditIaStandard)}, agent dès ${chf(PRIX.agentFrom)}.`,
   alternates: {
     canonical: 'https://dkdp.ch/intelligence-artificielle',
     languages: {
@@ -126,9 +129,12 @@ export default function IntelligenceArtificiellePage() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Intelligence artificielle pour PME Genève & Suisse romande</h1>
-                <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  Déployez l&apos;IA <GradText as="span">là où ça compte</GradText>. Pas partout pour l&apos;effet.
+                <span className="grad-tag inline-block text-xs md:text-sm mb-6">Intelligence artificielle pour PME</span>
+                <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.03em] leading-[1.1] text-text mb-5">
+                  <GradText as="span">Agence IA à Genève</GradText> et en Suisse romande : agents IA et automatisation pour PME
+                </h1>
+                <p className="text-xl md:text-2xl font-semibold text-text mb-4">
+                  Déployez l&apos;IA là où ça compte. Pas partout pour l&apos;effet.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
                   PME en Suisse romande : automatisez ce qui vous ralentit. Déployez l&apos;IA là où ça compte vraiment. On s&apos;occupe de tout, de l&apos;audit à la mise en production.
@@ -148,6 +154,21 @@ export default function IntelligenceArtificiellePage() {
                   <Link href="#services" className="text-sm text-text-muted hover:text-text transition-colors">
                     Voir nos solutions ↓
                   </Link>
+                </div>
+                {/* Bloc local (ex-page /intelligence-artificielle/geneve, fusionnée le 21/09/2026) */}
+                <div className="flex flex-wrap items-center gap-5 mt-8">
+                  <div className="flex items-center gap-2">
+                    <MapPin size={14} className="text-text-muted" />
+                    <span className="text-text-muted text-xs">Rue du 31 Décembre 36, 1207 Genève (Eaux-Vives)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone size={14} className="text-text-muted" />
+                    <a href="tel:+41799407969" className="text-text-muted text-xs hover:text-text transition-colors">+41 79 940 79 69</a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MessageCircle size={14} className="text-text-muted" />
+                    <a href="https://wa.me/41799407969" target="_blank" rel="noopener noreferrer" className="text-text-muted text-xs hover:text-text transition-colors">WhatsApp</a>
+                  </div>
                 </div>
                 <p className="text-text-muted text-xs mt-6">Offre mise à jour : septembre 2026</p>
               </div>

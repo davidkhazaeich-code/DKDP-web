@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { PRIX, chf } from '@/data/pricing'
 import {
   Phone, Mail, Check, BrainCircuit, Cpu, Bot, Workflow,
   Globe, Search, Megaphone, BarChart2,
@@ -58,8 +59,8 @@ const greenColor  = green.color
 
 /* ── Formation pricing ── */
 const HOURLY_RATES: { label: string; rate: number | null }[] = [
-  { label: '1 personne', rate: 200 },
-  { label: '2 personnes', rate: 300 },
+  { label: '1 personne', rate: PRIX.formationHourly1 },
+  { label: '2 personnes', rate: PRIX.formationHourly2 },
   { label: '3-6 personnes', rate: null },
   { label: '6-10 personnes', rate: null },
 ]
@@ -75,8 +76,8 @@ const IA_SERVICES = [
     Icon: BrainCircuit,
     title: 'Audit et Conseil IA',
     href: '/intelligence-artificielle/audit-conseil',
-    from: 'CHF 490',
-    to: 'CHF 890',
+    from: chf(PRIX.auditIaStandard),
+    to: chf(PRIX.auditIaComplet),
     labelFrom: 'Standard',
     labelTo: 'Complet',
     desc: 'Analyse de votre potentiel d\'automatisation. On identifie les 3 actions à fort ROI dans votre entreprise.',
@@ -85,8 +86,8 @@ const IA_SERVICES = [
     Icon: Workflow,
     title: 'Automatisation métier',
     href: '/intelligence-artificielle/automatisation',
-    from: 'CHF 1\'500',
-    to: 'CHF 3\'500',
+    from: chf(PRIX.automatisationFrom),
+    to: chf(PRIX.automatisationTo),
     labelFrom: 'Starter',
     labelTo: 'Business',
     desc: 'Workflows sans code qui connectent vos outils et éliminent les tâches manuelles. Zéro friction.',
@@ -95,8 +96,8 @@ const IA_SERVICES = [
     Icon: Bot,
     title: 'Agents IA sur mesure',
     href: '/intelligence-artificielle/agents-ia',
-    from: 'CHF 2\'500',
-    to: 'CHF 4\'900',
+    from: chf(PRIX.agentFrom),
+    to: chf(PRIX.agentTo),
     labelFrom: 'Starter',
     labelTo: 'Pro',
     desc: 'Agents intelligents conçus pour votre métier. Disponibles 24h/24, sans erreur de fatigue.',
@@ -105,8 +106,8 @@ const IA_SERVICES = [
     Icon: Cpu,
     title: 'Intégration LLM',
     href: '/intelligence-artificielle/mise-en-place',
-    from: 'CHF 3\'500',
-    to: 'CHF 6\'500',
+    from: chf(PRIX.llmFrom),
+    to: chf(PRIX.llmTo),
     labelFrom: 'Standard',
     labelTo: 'Avancée',
     desc: 'Intégration de GPT-6 Astra, Claude Opus 5 et autres modèles dans votre stack existant, sans tout reconstruire.',
@@ -119,35 +120,35 @@ const AGENCE_ITEMS = [
     Icon: Globe,
     title: 'Création de site web',
     href: '/agence-digitale/creation-site-web',
-    price: 'À partir de CHF 3\'500',
+    price: `À partir de ${chf(PRIX.siteFrom)}`,
     note: 'selon la complexité et le nombre de pages',
   },
   {
     Icon: Search,
     title: 'Référencement SEO',
     href: '/agence-digitale/seo',
-    price: 'CHF 600 / mois · ou CHF 1\'500 (unique)',
+    price: `${chf(PRIX.seoMonthly)} / mois · ou ${chf(PRIX.seoAuditOnce)} (unique)`,
     note: 'retainer mensuel sans engagement · ou pack mise en place',
   },
   {
     Icon: Megaphone,
     title: 'Google Ads',
     href: '/agence-digitale/publicite-sea',
-    price: 'À partir de CHF 400 / mois',
+    price: `À partir de ${chf(PRIX.adsManagementFrom)} / mois`,
     note: 'frais de gestion · budget publicitaire en sus',
   },
   {
     Icon: Megaphone,
     title: 'ChatGPT Ads',
     href: '/agence-digitale/chatgpt-ads',
-    price: 'Pilote CHF 1\'200 · puis CHF 450 / mois',
+    price: `Pilote ${chf(PRIX.chatgptAdsPilot)} · puis ${chf(PRIX.chatgptAdsMonthly)} / mois`,
     note: 'frais de gestion · budget publicitaire en sus, sans commission',
   },
   {
     Icon: BarChart2,
     title: 'Consulting marketing',
     href: '/agence-digitale/consulting-marketing',
-    price: 'CHF 180 / heure ou forfait projet',
+    price: `${chf(PRIX.consultingHourly)} / heure ou forfait projet`,
     note: 'devis personnalisé selon la durée et la mission',
   },
 ]

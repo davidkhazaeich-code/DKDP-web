@@ -78,7 +78,6 @@ export const ROUTES: Route[] = [
   { url: '/agence-digitale/creation-site-web/estimation',   priority: 0.80, changeFrequency: 'monthly' },
 
   // ─── Pages Ville (SEO local) ───────────────────────────────────────────────
-  { url: '/agence-digitale/geneve',    priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
   { url: '/agence-digitale/lausanne',  priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/nyon',      priority: 0.80, changeFrequency: 'monthly' },
   { url: '/agence-digitale/fribourg',  priority: 0.80, changeFrequency: 'monthly' },
@@ -93,7 +92,6 @@ export const ROUTES: Route[] = [
   { url: '/intelligence-artificielle/audit-conseil', priority: 0.80, changeFrequency: 'monthly', lastModified: '2026-09-10' },
   { url: '/intelligence-artificielle/mise-en-place', priority: 0.80, changeFrequency: 'monthly', lastModified: '2026-09-10' },
   { url: '/intelligence-artificielle/chatbot-ia',   priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
-  { url: '/intelligence-artificielle/geneve',       priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
 
   // ─── Formation Entreprise ─────────────────────────────────────────────────
   // Passe du 2026-08-23 : section « Veille et actualité » (ArticleCarousel).
@@ -174,6 +172,19 @@ export const REDIRECTS: Redirect[] = [
   // trop étroit pour deux. Le contenu web design et UX/UI reste dans la page.
   { source: '/formation-entreprise/web-design',    destination: '/formation-entreprise/figma',    permanent: true },
   { source: '/en/corporate-training/web-design',   destination: '/en/corporate-training/figma',   permanent: true },
+
+  // ─── Page ville Genève fusionnée dans la home (2026-09-21, plan SEO, D04) ──
+  // La home porte déjà l'adresse, le LocalBusiness et « Genève » dans son
+  // title ; la page ville doublonnait et volait « formation ia geneve » à la
+  // page formation. CITIES garde Genève pour areaServed, cf. lib/cities.ts.
+  { source: '/agence-digitale/geneve',   destination: '/',   permanent: true },
+  { source: '/en/digital-agency/geneva', destination: '/en', permanent: true },
+
+  // ─── Page IA Genève fusionnée dans le hub IA (2026-09-21, plan SEO, D03) ───
+  // Même contenu que le hub à 86 %, seule l'adresse différait : elle vit
+  // désormais dans le hero du hub.
+  { source: '/intelligence-artificielle/geneve',    destination: '/intelligence-artificielle',    permanent: true },
+  { source: '/en/artificial-intelligence/geneva',   destination: '/en/artificial-intelligence',   permanent: true },
 
   // ─── Correction bug URL accentuée (2026-04-21) ─────────────────────────────
   // L'URL avec accent avait été indexée dans le site par erreur ; le routing

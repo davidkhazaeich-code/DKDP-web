@@ -63,7 +63,7 @@ function getPillars(lang: Locale, dict: FooterDict) {
       border: 'var(--chrome-border)',
       Icon: Sparkles,
       links: [
-        { label: t.iaLinks[0], href: lp('/intelligence-artificielle/geneve') },
+        { label: t.iaLinks[0], href: lp('/intelligence-artificielle') },
         { label: t.iaLinks[1], href: lp('/intelligence-artificielle/agents-ia') },
         { label: t.iaLinks[2], href: lp('/intelligence-artificielle/chatbot-ia') },
         { label: t.iaLinks[3], href: lp('/intelligence-artificielle/automatisation') },
@@ -101,9 +101,9 @@ function getLegalLinks(lang: Locale, dict: FooterDict) {
   ]
 }
 
-// Villes : FR et EN ont chacune leurs pages. Label localise (Genève/Geneva, Neuchâtel/Neuchatel).
+// Villes : FR et EN ont chacune leurs pages. Label localise (Neuchâtel/Neuchatel).
+// Genève n'y est plus (21/09/2026) : la home est la page Genève, cf. lib/cities.ts.
 const CITY_DATA = [
-  { fr: '/agence-digitale/geneve', labelFr: 'Genève', labelEn: 'Geneva' },
   { fr: '/agence-digitale/lausanne', labelFr: 'Lausanne', labelEn: 'Lausanne' },
   { fr: '/agence-digitale/nyon', labelFr: 'Nyon', labelEn: 'Nyon' },
   { fr: '/agence-digitale/fribourg', labelFr: 'Fribourg', labelEn: 'Fribourg' },

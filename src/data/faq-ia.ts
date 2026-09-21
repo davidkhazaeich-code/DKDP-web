@@ -1,3 +1,5 @@
+import { PRIX, chf } from '@/data/pricing'
+
 export const FAQ_IA = [
   {
     question: "Qu'est-ce qu'un agent IA et comment ça fonctionne concrètement ?",
@@ -7,7 +9,7 @@ export const FAQ_IA = [
   {
     question: "Combien coûte l'intégration de l'IA dans une entreprise ?",
     answer:
-      "Un audit et conseil IA démarre à partir de CHF 500 selon la complexité. La mise en place d'un premier agent ou workflow automatisé démarre entre CHF 1'500 et CHF 4'000. Les projets d'intégration IA complète (plusieurs agents, connexion multi-systèmes) se situent entre CHF 5'000 et CHF 15'000. Les économies réalisées permettent généralement un ROI positif en moins de 3 mois.",
+      `Un audit et conseil IA coûte ${chf(PRIX.auditIaStandard)} en version standard et ${chf(PRIX.auditIaComplet)} en version complète, après un appel découverte gratuit de ${PRIX.discoveryCallMinutes} minutes. La mise en place d'un premier agent ou workflow automatisé démarre entre CHF 1'500 et CHF 4'000. Les projets d'intégration IA complète (plusieurs agents, connexion multi-systèmes) se situent entre CHF 5'000 et CHF 15'000. Les économies réalisées permettent généralement un ROI positif en moins de 3 mois.`,
   },
   {
     question: "Est-ce que l'IA est sécurisée pour mes données confidentielles ?",

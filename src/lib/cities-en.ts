@@ -1,4 +1,4 @@
-import { CITIES, type City } from './cities'
+import { CITIES, HOME_CITY_SLUG, type City } from './cities'
 
 /** A city with its English content and English URL slug. */
 export type CityEN = City & { enSlug: string }
@@ -145,6 +145,9 @@ export const CITIES_EN: CityEN[] = CITIES.map((c) => ({
   enSlug: EN_SLUG[c.slug] ?? c.slug,
 }))
 
+/** Les villes qui ont une page /en/digital-agency/[city] (Genève = /en, cf. cities.ts). */
+export const CITY_PAGES_EN: CityEN[] = CITIES_EN.filter((c) => c.slug !== HOME_CITY_SLUG)
+
 export function getCityEN(enSlug: string): CityEN | undefined {
-  return CITIES_EN.find((c) => c.enSlug === enSlug)
+  return CITY_PAGES_EN.find((c) => c.enSlug === enSlug)
 }

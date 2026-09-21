@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import { notFound } from 'next/navigation'
 import { ChevronRight, Globe2, Users, Building2, Phone, CheckCircle2, Bot, Zap, BrainCircuit, GraduationCap, Sparkles, Workflow, MapPin, CalendarCheck } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
@@ -12,7 +13,7 @@ import { TrustLine } from '@/components/ui/TrustLine'
 import { HeroPills } from '@/components/ui/HeroPills'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildBreadcrumbList, buildFAQPage, buildWebPageWithSpeakable, buildService } from '@/lib/schema'
-import { CITIES, getCity } from '@/lib/cities'
+import { CITY_PAGES, getCity } from '@/lib/cities'
 import { violet, chrome, orange } from '@/lib/tokens'
 import dynamic from 'next/dynamic'
 
@@ -26,7 +27,7 @@ const CH = chrome.color, CHB = chrome.bg, CHD = chrome.border
 const OR = orange.color, ORB = orange.bg, ORD = orange.border
 
 export function generateStaticParams() {
-  return CITIES.map(city => ({ ville: city.slug }))
+  return CITY_PAGES.map(city => ({ ville: city.slug }))
 }
 
 type Props = { params: Promise<{ ville: string }> }
@@ -86,6 +87,14 @@ export default async function CityPage({ params }: Props) {
 
   const faq = [
     {
+      question: `Que fait une agence digitale pour une entreprise de ${city.name} ?`,
+      answer: `Un site web qui se charge vite et qui convertit, un référencement local qui vous place dans le pack Google Maps sur les requêtes de ${city.name}, des campagnes Google Ads au budget maîtrisé, et l'IA là où elle fait gagner du temps. DKDP est basée à Genève et travaille avec les PME de ${city.name} et de tout le canton.`,
+    },
+    {
+      question: `Comment être visible sur Google à ${city.name} ?`,
+      answer: `Une fiche Google Business Profile complète et alimentée, des citations locales cohérentes (local.ch, search.ch), une page par prestation avec le nom de la ville, des avis clients réguliers et un site rapide sur mobile. C'est le socle du SEO local que DKDP met en place à ${city.name}, puis on mesure chaque mois dans Search Console.`,
+    },
+    {
       question: `Comment l'intelligence artificielle peut aider mon entreprise a ${city.name} ?`,
       answer: `L'IA permet aux entreprises de ${city.name} d'automatiser les taches repetitives, d'améliorer le service client avec des chatbots intelligents, de générer du contenu marketing et d'analyser des données complexes. DKDP déploie des agents IA sur mesure adaptés au tissu économique de ${city.name} (${city.economicProfile}).`,
     },
@@ -95,11 +104,11 @@ export default async function CityPage({ params }: Props) {
     },
     {
       question: `Proposez-vous des formations IA a ${city.name} ?`,
-      answer: `Oui. DKDP propose des formations IA sur site a ${city.name} ou en visioconference. Tarifs : CHF 150/h (1 personne) a CHF 300/h (6-10 personnes). Formats demi-journee (4h) ou journee entiere (8h). ${city.formationContext}`,
+      answer: `Oui. DKDP propose des formations IA sur site a ${city.name} ou en visioconference. Tarifs : ${chfHeure(PRIX.formationHourly1)} pour 1 personne, ${chfHeure(PRIX.formationHourly2)} pour 2, sur devis de 3 a 10 personnes. Formats demi-journee ou journee entiere. ${city.formationContext}`,
     },
     {
       question: `Combien coute un projet d'automatisation IA a ${city.name} ?`,
-      answer: `Un audit IA demarre a CHF 500. Un agent IA simple (chatbot, tri d'emails) se situe entre CHF 2'000 et CHF 5'000. Une solution d'automatisation complete (CRM, workflows, reporting) entre CHF 5'000 et CHF 15'000. DKDP fournit un devis fixe avec ROI estime avant de demarrer.`,
+      answer: `Un audit IA coute ${chf(PRIX.auditIaStandard)} en version standard et ${chf(PRIX.auditIaComplet)} en version complete. Un agent IA sur mesure se situe entre ${chf(PRIX.agentFrom)} et ${chf(PRIX.agentTo)}, une automatisation metier entre ${chf(PRIX.automatisationFrom)} et ${chf(PRIX.automatisationTo)}. Une solution complete (CRM, workflows, reporting) va jusqu'a CHF 15'000. DKDP fournit un devis fixe avec ROI estime avant de demarrer.`,
     },
     {
       question: `DKDP se deplace-t-il a ${city.name} pour les formations et projets IA ?`,
@@ -428,7 +437,7 @@ export default async function CityPage({ params }: Props) {
       <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-12 md:py-16 border-t border-border">
         <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: V }}>IA et automatisation aussi a</p>
         <div className="flex flex-wrap gap-2">
-          {CITIES.filter(c => c.slug !== city.slug).map(c => (
+          {CITY_PAGES.filter(c => c.slug !== city.slug).map(c => (
             <Link
               key={c.slug}
               href={`/agence-digitale/${c.slug}`}

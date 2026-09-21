@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { PRIX, chf } from '@/data/pricing'
 import Image from 'next/image'
 import {
   Monitor, Smartphone, FileSpreadsheet, Bot, Share2,
@@ -29,7 +30,7 @@ import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, DESIGN_WEB_LOGOS, SOCIAL_L
 export const metadata: Metadata = {
   title: 'Computer Training for Individuals Geneva · DKDP',
   description:
-    'In-home computer lessons for individuals in Geneva. 463+ satisfied clients, 4.6/5 stars. Excel, AI, smartphone, cybersecurity. CHF 150/h, no commitment.',
+    'In-home computer lessons for individuals in Geneva, with cours-informatique.ch: computer, smartphone, Excel, AI, cybersecurity. From CHF 140/h, no commitment.',
   alternates: {
     canonical: 'https://dkdp.ch/en/individual-training',
     languages: {
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Computer Training for Individuals Geneva · DKDP',
-    description: 'In-home computer lessons for individuals in Geneva: Excel, AI, smartphone, cybersecurity. CHF 150/h, no commitment.',
+    description: 'In-home computer lessons for individuals in Geneva: computer, smartphone, Excel, AI, cybersecurity. From CHF 140/h, no commitment.',
     url: 'https://dkdp.ch/en/individual-training',
     locale: 'en_US',
     alternateLocale: ['fr_CH'],
@@ -63,28 +64,28 @@ const TOPICS = [
     title: 'Computer basics',
     desc: 'Getting started with Mac or PC, browsing the internet, managing files and emails. Ideal for beginners and seniors.',
     tags: ['Mac & PC', 'Internet', 'Emails'],
-    href: 'https://cours-informatique.ch/cours-informatique/ordinateur/',
+    href: 'https://cours-informatique.ch/cours/ordinateur-mac-pc/',
   },
   {
     Icon: Smartphone,
     title: 'Smartphone',
     desc: 'iPhone and Android: apps, photos, WhatsApp, settings, synchronisation and mobile security.',
     tags: ['iPhone', 'Android', 'Apps'],
-    href: 'https://cours-informatique.ch/cours-informatique/smartphone-iphone-android/',
+    href: 'https://cours-informatique.ch/cours/smartphone-iphone-android/',
   },
   {
     Icon: FileSpreadsheet,
     title: 'Office tools',
     desc: 'Word, Excel, PowerPoint, Outlook, Notion. From simple formulas to pivot tables.',
     tags: ['Excel', 'Word', 'PowerPoint', 'Outlook'],
-    href: 'https://cours-informatique.ch/cours-informatique/bureautique-word-excel/',
+    href: 'https://cours-informatique.ch/cours/bureautique-word-excel/',
   },
   {
     Icon: Bot,
     title: 'Artificial Intelligence',
     desc: 'ChatGPT Astra, Claude, Copilot, Midjourney. Effective prompting, image generation and everyday automation.',
     tags: ['ChatGPT Astra', 'Claude', 'Prompting'],
-    href: 'https://cours-informatique.ch/formation-intelligence-artificielle-ai/',
+    href: 'https://cours-informatique.ch/cours/intelligence-artificielle/',
     highlight: true,
   },
   {
@@ -92,28 +93,28 @@ const TOPICS = [
     title: 'Social media',
     desc: 'LinkedIn, Instagram, TikTok, Facebook. Create content, grow your presence and schedule your posts.',
     tags: ['LinkedIn', 'Instagram', 'TikTok'],
-    href: 'https://cours-informatique.ch/cours-informatique/formation-reseaux-sociaux-linkedin-instagram-tiktok/',
+    href: 'https://cours-informatique.ch/cours/reseaux-sociaux/',
   },
   {
     Icon: Palette,
     title: 'Canva & Video editing',
     desc: 'Create visuals, resumes, flyers and presentations with Canva. Video editing with CapCut, iMovie and Premiere.',
     tags: ['Canva', 'CapCut', 'iMovie'],
-    href: 'https://cours-informatique.ch/canva/',
+    href: 'https://cours-informatique.ch/cours/canva/',
   },
   {
     Icon: Shield,
     title: 'Cybersecurity',
     desc: 'Recognise online scams, manage your passwords and protect your personal data.',
     tags: ['Phishing', 'Passwords', 'Data'],
-    href: 'https://cours-informatique.ch/formation-cybersecurite/',
+    href: 'https://cours-informatique.ch/cours/cybersecurite/',
   },
   {
     Icon: Code,
     title: 'Web & Development',
     desc: 'WordPress, Figma, Elementor. Python, HTML/CSS, JavaScript to go further into the digital world.',
     tags: ['WordPress', 'Python', 'HTML/CSS'],
-    href: 'https://cours-informatique.ch/cours-informatique/formation-développement-web/',
+    href: 'https://cours-informatique.ch/cours/creation-site-web/',
   },
 ]
 
@@ -167,7 +168,7 @@ const FAQ_ITEMS = [
   {
     question: 'What is the exact price?',
     answer:
-      'CHF 150 per hour, with no hidden fees. Travel fees apply only outside Eaux-Vives (20 to 100 CHF depending on distance). Payment by bank transfer, cash or Swiss QR invoice.',
+      `${chf(PRIX.particuliersHourly)} per hour for computer and smartphone lessons, ${chf(PRIX.particuliersProHourly)} for office software and work-related lessons, ${chf(PRIX.particuliersIaHourly)} for artificial intelligence. No hidden fees: travel is free in Eaux-Vives and costs 20 to 100 CHF elsewhere in the canton depending on distance. Payment by bank transfer, cash or Swiss QR invoice.`,
   },
   {
     question: 'Is there any commitment on the number of lessons?',
@@ -196,7 +197,8 @@ export default function IndividualTrainingPage() {
           name: 'Computer Training for Individuals · cours-informatique.ch',
           url: '/en/individual-training',
           description:
-            'In-home computer lessons for individuals in Geneva. 463+ satisfied clients. Excel, AI, smartphone, cybersecurity. CHF 150/h, no commitment.',
+            `In-home computer lessons for individuals in Geneva, with cours-informatique.ch: computer, smartphone, Excel, AI, cybersecurity. From ${chf(PRIX.particuliersHourly)}/h, no commitment.`,
+          priceFrom: PRIX.particuliersHourly,
           lang: 'en',
         })}
       />
@@ -235,13 +237,13 @@ export default function IndividualTrainingPage() {
 
                 {/* Social proof */}
                 <div className="flex items-center gap-3 mb-10">
-                  <div className="flex gap-0.5" aria-label="4.6 stars out of 5">
+                  <div className="flex gap-0.5" aria-label="4.9 stars out of 5">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} size={13} style={{ color: accent, fill: accent }} aria-hidden="true" />
                     ))}
                   </div>
-                  <span className="text-text font-semibold text-sm">4.6/5</span>
-                  <span className="text-text-muted text-sm">· 463+ satisfied Geneva residents</span>
+                  <span className="text-text font-semibold text-sm">4.9/5</span>
+                  <span className="text-text-muted text-sm">· 86 Google reviews on cours-informatique.ch</span>
                 </div>
 
                 <HeroPills
@@ -306,9 +308,9 @@ export default function IndividualTrainingPage() {
 
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { val: '463+',    lbl: 'satisfied clients' },
-                      { val: '4.6/5',   lbl: 'average rating' },
-                      { val: '150 CHF', lbl: 'per hour' },
+                      { val: '4.9/5',   lbl: '86 Google reviews' },
+                      { val: '12',      lbl: 'courses in the catalogue' },
+                      { val: `from ${PRIX.particuliersHourly} CHF`, lbl: 'per hour' },
                       { val: 'Mon–Sat', lbl: '8:00 – 19:00' },
                     ].map(({ val, lbl }) => (
                       <div key={lbl}>
@@ -345,9 +347,9 @@ export default function IndividualTrainingPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
             {[
-              { value: '463+',    label: 'Satisfied clients',    sub: 'in Geneva and French-speaking Switzerland' },
-              { value: '4.6/5',   label: 'Average rating',        sub: 'on Trustindex' },
-              { value: '150 CHF', label: 'Per hour',              sub: 'no hidden fees' },
+              { value: '4.9/5',   label: 'Google rating',         sub: '86 reviews on cours-informatique.ch' },
+              { value: '12',      label: 'Courses in the catalogue', sub: 'computer, smartphone, Excel, AI' },
+              { value: `from ${PRIX.particuliersHourly} CHF`, label: 'Per hour', sub: 'no hidden fees' },
               { value: 'Mon–Sat', label: '8am – 7pm',             sub: 'available 6 days a week' },
             ].map((s) => (
               <SectionReveal key={s.label}>
@@ -492,11 +494,12 @@ export default function IndividualTrainingPage() {
             <SectionReveal>
               <GradTag className="mb-4">Price</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
-                CHF 150 per hour,<br />no surprises.
+                From CHF {PRIX.particuliersHourly} per hour,<br />no surprises.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-8">
-                A single, transparent rate. Travel is free in Eaux-Vives,
-                from 20 to 100 CHF for the rest of the canton of Geneva.
+                Three rates, the same as on cours-informatique.ch: CHF {PRIX.particuliersHourly} for computer and smartphone lessons,
+                CHF {PRIX.particuliersProHourly} for office software and work-related lessons, CHF {PRIX.particuliersIaHourly} for artificial intelligence.
+                Travel is free in Eaux-Vives, from 20 to 100 CHF for the rest of the canton of Geneva.
               </p>
               <div className="flex flex-col gap-3">
                 {[

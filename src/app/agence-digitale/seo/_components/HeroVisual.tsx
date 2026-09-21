@@ -70,8 +70,8 @@ export function HeroVisual() {
               </div>
             </div>
             <div className="text-right pb-1">
-              <p className="text-xl font-bold text-green-400">+580%</p>
-              <p className="text-[8px] text-zinc-500">vs. annee precedente</p>
+              <p className="text-xl font-bold text-green-400">Page 1</p>
+              <p className="text-[8px] text-zinc-500">maquette illustrative</p>
             </div>
           </div>
 
@@ -147,7 +147,7 @@ export function HeroVisual() {
       <div className="grid grid-cols-3 gap-3">
         {[
           { v: 'Top 3', l: 'Positions Google', c: '#4ade80' },
-          { v: '+580%', l: 'Trafic organique', c: V },
+          { v: 'Page 1', l: 'Objectif local', c: V },
           { v: 'GEO Ready', l: 'IA + Google', c: '#FF8C00' },
         ].map((s) => (
           <div

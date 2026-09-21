@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import { notFound } from 'next/navigation'
 import { ChevronRight, Globe2, Users, Building2, Phone, CheckCircle2, Bot, Zap, BrainCircuit, GraduationCap, Sparkles, Workflow, MapPin, CalendarCheck } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
@@ -11,7 +12,7 @@ import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { HeroPills } from '@/components/ui/HeroPills'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildBreadcrumbList, buildFAQPage, buildWebPageWithSpeakable, buildService } from '@/lib/schema'
-import { CITIES_EN, getCityEN } from '@/lib/cities-en'
+import { CITY_PAGES_EN, getCityEN } from '@/lib/cities-en'
 import { localizedPath } from '@/i18n/slugs'
 import { violet, chrome, orange } from '@/lib/tokens'
 import dynamic from 'next/dynamic'
@@ -26,7 +27,7 @@ const CH = chrome.color, CHB = chrome.bg, CHD = chrome.border
 const OR = orange.color, ORB = orange.bg, ORD = orange.border
 
 export function generateStaticParams() {
-  return CITIES_EN.map(city => ({ city: city.enSlug }))
+  return CITY_PAGES_EN.map(city => ({ city: city.enSlug }))
 }
 
 type Props = { params: Promise<{ city: string }> }
@@ -88,6 +89,14 @@ export default async function CityPageEN({ params }: Props) {
 
   const faq = [
     {
+      question: `What does a digital agency do for a company in ${city.name}?`,
+      answer: `A website that loads fast and converts, local SEO that puts you in the Google Maps pack on ${city.name} queries, Google Ads campaigns with a controlled budget, and AI where it saves time. DKDP is based in Geneva and works with SMBs in ${city.name} and across the canton.`,
+    },
+    {
+      question: `How do I get visible on Google in ${city.name}?`,
+      answer: `A complete, active Google Business Profile, consistent local citations (local.ch, search.ch), one page per service naming the town, regular customer reviews and a fast mobile site. That is the local SEO foundation DKDP sets up in ${city.name}, then measures every month in Search Console.`,
+    },
+    {
       question: `How can artificial intelligence help my company in ${city.name}?`,
       answer: `AI lets ${city.name} companies automate repetitive tasks, improve customer service with smart chatbots, generate marketing content and analyse complex data. DKDP deploys custom AI agents tailored to the ${city.name} business landscape (${city.economicProfile}).`,
     },
@@ -97,11 +106,11 @@ export default async function CityPageEN({ params }: Props) {
     },
     {
       question: `Do you offer AI training in ${city.name}?`,
-      answer: `Yes. DKDP offers AI training on site in ${city.name} or by video call. Rates: CHF 150/h (1 person) to CHF 300/h (6-10 people). Half-day (4h) or full-day (8h) formats. ${city.formationContext}`,
+      answer: `Yes. DKDP offers AI training on site in ${city.name} or by video call. Rates: ${chfHeure(PRIX.formationHourly1)} for 1 person, ${chfHeure(PRIX.formationHourly2)} for 2, on quote for 3 to 10 people. Half-day or full-day formats. ${city.formationContext}`,
     },
     {
       question: `How much does an AI automation project cost in ${city.name}?`,
-      answer: `An AI audit starts at CHF 500. A simple AI agent (chatbot, email sorting) ranges from CHF 2'000 to CHF 5'000. A complete automation solution (CRM, workflows, reporting) from CHF 5'000 to CHF 15'000. DKDP provides a fixed quote with estimated ROI before starting.`,
+      answer: `An AI audit costs ${chf(PRIX.auditIaStandard)} (standard) or ${chf(PRIX.auditIaComplet)} (complete). A custom AI agent ranges from ${chf(PRIX.agentFrom)} to ${chf(PRIX.agentTo)}, a business automation from ${chf(PRIX.automatisationFrom)} to ${chf(PRIX.automatisationTo)}. A complete solution (CRM, workflows, reporting) goes up to CHF 15'000. DKDP provides a fixed quote with estimated ROI before starting.`,
     },
     {
       question: `Does DKDP travel to ${city.name} for training and AI projects?`,
@@ -428,7 +437,7 @@ export default async function CityPageEN({ params }: Props) {
       <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-12 md:py-16 border-t border-border">
         <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: V }}>AI and automation also in</p>
         <div className="flex flex-wrap gap-2">
-          {CITIES_EN.filter(c => c.enSlug !== city.enSlug).map(c => (
+          {CITY_PAGES_EN.filter(c => c.enSlug !== city.enSlug).map(c => (
             <Link
               key={c.enSlug}
               href={`/en/digital-agency/${c.enSlug}`}

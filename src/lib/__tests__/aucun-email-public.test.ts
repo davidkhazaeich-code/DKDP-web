@@ -3,17 +3,17 @@ import { join, relative } from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 /**
- * Plus d'adresse email de David sur le site (décision du 24/09/2026 : trop de
- * spam, le contact écrit passe par le formulaire /contact). Les robots
- * récoltent les adresses dans le HTML, le JSON-LD et llms.txt ; ce test
- * refuse leur retour dans tout ce qui est publié.
+ * Plus aucune adresse @dkdp.ch sur le site, ni celle de David ni celles de
+ * l'équipe (décision du 24/09/2026 : trop de spam, le contact écrit passe par
+ * le formulaire /contact). Les robots récoltent les adresses dans le HTML, le
+ * JSON-LD et llms.txt ; ce test refuse leur retour dans tout ce qui est publié.
  *
  * Restent autorisés, parce que rien n'y est public : les routes d'API (elles
  * envoient les demandes à David), les notifications du chatbot, le PDF
  * d'estimation envoyé au seul demandeur, les tests, et la base du chatbot
  * (un crawl de la prod, régénéré chaque nuit par le cron).
  */
-const ADRESSE = /\b(?:dk|david|david\.khazaei)@dkdp\.ch\b/i
+const ADRESSE = /[A-Za-z0-9._%+-]+@dkdp\.ch\b/i
 const RACINE = join(__dirname, '..', '..', '..')
 const AUTORISES = [
   /^src\/app\/api\//,
@@ -32,7 +32,7 @@ function fichiers(dir: string): string[] {
 }
 
 describe('aucune adresse email publique', () => {
-  it("l'adresse de David n'apparaît dans aucun fichier publié", () => {
+  it("aucune adresse @dkdp.ch n'apparaît dans un fichier publié", () => {
     const trouves = ['src', 'public']
       .flatMap((dossier) => fichiers(join(RACINE, dossier)))
       .map((f) => relative(RACINE, f))

@@ -8,7 +8,6 @@ import {
   Globe,
   Brain,
   BookOpen,
-  Mail,
   CheckCircle2,
   MapPin,
   Award,
@@ -130,7 +129,6 @@ const équipe = [
     border: violetBd,
     cardBg: 'linear-gradient(160deg, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.05) 100%)',
     skills: ['IA & Automatisation', 'Stratégie digitale', 'Développement web', 'SEO', 'Google Ads'],
-    email: null,
     linkedin: 'https://www.linkedin.com/in/davidkhazaei/',
   },
   {
@@ -142,7 +140,6 @@ const équipe = [
     border: 'rgba(255,107,0,0.28)',
     cardBg: 'linear-gradient(160deg, rgba(255,107,0,0.18) 0%, rgba(255,107,0,0.04) 100%)',
     skills: ['Intelligence artificielle', 'SEO & GEO', 'UX Design', 'Formation'],
-    email: 'rd@dkdp.ch',
     linkedin: 'https://www.linkedin.com/in/romane-degeorges/',
   },
   {
@@ -154,7 +151,6 @@ const équipe = [
     border: 'rgba(96,165,250,0.25)',
     cardBg: 'linear-gradient(160deg, rgba(96,165,250,0.16) 0%, rgba(96,165,250,0.04) 100%)',
     skills: ['Développement web', 'Python', 'Informatique', 'Bureautique', 'Formation'],
-    email: null,
     linkedin: null,
   },
   {
@@ -166,7 +162,6 @@ const équipe = [
     border: chromeBd,
     cardBg: 'linear-gradient(160deg, rgba(212,212,216,0.12) 0%, rgba(212,212,216,0.03) 100%)',
     skills: ['Développement web', 'Python', 'Informatique', 'Cybersécurité'],
-    email: null,
     linkedin: null,
   },
 ]
@@ -524,20 +519,11 @@ export default function AProposPage() {
                       </div>
 
                       {/* Liens */}
-                      {(member.email || member.linkedin) && (
+                      {member.linkedin && (
                         <div
                           className="mt-auto pt-4 border-t flex flex-wrap gap-3"
                           style={{ borderColor: member.border }}
                         >
-                          {member.email && (
-                            <a
-                              href={`mailto:${member.email}`}
-                              className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-text transition-colors"
-                            >
-                              <Mail size={12} style={{ color: member.color }} />
-                              {member.email}
-                            </a>
-                          )}
                           {member.linkedin && (
                             <a
                               href={member.linkedin}

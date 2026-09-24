@@ -8,7 +8,6 @@ import {
   Globe,
   Brain,
   BookOpen,
-  Mail,
   CheckCircle2,
   MapPin,
   Award,
@@ -131,7 +130,6 @@ const team = [
     border: violetBd,
     cardBg: 'linear-gradient(160deg, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.05) 100%)',
     skills: ['AI & Automation', 'Digital strategy', 'Web development', 'SEO', 'Google Ads'],
-    email: null,
     linkedin: 'https://www.linkedin.com/in/davidkhazaei/',
   },
   {
@@ -143,7 +141,6 @@ const team = [
     border: 'rgba(255,107,0,0.28)',
     cardBg: 'linear-gradient(160deg, rgba(255,107,0,0.18) 0%, rgba(255,107,0,0.04) 100%)',
     skills: ['Artificial intelligence', 'SEO & GEO', 'UX Design', 'Training'],
-    email: 'rd@dkdp.ch',
     linkedin: 'https://www.linkedin.com/in/romane-degeorges/',
   },
   {
@@ -155,7 +152,6 @@ const team = [
     border: 'rgba(96,165,250,0.25)',
     cardBg: 'linear-gradient(160deg, rgba(96,165,250,0.16) 0%, rgba(96,165,250,0.04) 100%)',
     skills: ['Web development', 'Python', 'IT', 'Office tools', 'Training'],
-    email: null,
     linkedin: null,
   },
   {
@@ -167,7 +163,6 @@ const team = [
     border: chromeBd,
     cardBg: 'linear-gradient(160deg, rgba(212,212,216,0.12) 0%, rgba(212,212,216,0.03) 100%)',
     skills: ['Web development', 'Python', 'IT', 'Cybersecurity'],
-    email: null,
     linkedin: null,
   },
 ]
@@ -523,20 +518,11 @@ export default function AboutPageEN() {
                       </div>
 
                       {/* Links */}
-                      {(member.email || member.linkedin) && (
+                      {member.linkedin && (
                         <div
                           className="mt-auto pt-4 border-t flex flex-wrap gap-3"
                           style={{ borderColor: member.border }}
                         >
-                          {member.email && (
-                            <a
-                              href={`mailto:${member.email}`}
-                              className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-text transition-colors"
-                            >
-                              <Mail size={12} style={{ color: member.color }} />
-                              {member.email}
-                            </a>
-                          )}
                           {member.linkedin && (
                             <a
                               href={member.linkedin}

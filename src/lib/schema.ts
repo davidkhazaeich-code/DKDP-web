@@ -94,7 +94,6 @@ export function buildLocalBusiness(lang: SchemaLang = 'fr') {
     vatID: ENTITY.vatID,
     foundingDate: ENTITY.foundingDate,
     telephone: ENTITY.telephone,
-    email: ENTITY.email,
     address: {
       '@type': 'PostalAddress',
       streetAddress: ENTITY.address.streetAddress,
@@ -496,7 +495,7 @@ export function buildOrganization(lang: SchemaLang = 'fr') {
         '@type': 'ContactPoint',
         contactType: 'customer service',
         telephone: ENTITY.telephone,
-        email: ENTITY.email,
+        url: lang === 'en' ? `${BASE_URL}/en/contact` : `${BASE_URL}/contact`,
         availableLanguage: ['French', 'English'],
         areaServed: 'CH',
       },

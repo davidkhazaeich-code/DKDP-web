@@ -125,7 +125,7 @@ export default function RGPDCookiesPage() {
                 ))}
               </ul>
               <p className="text-text-muted text-xs mt-4">
-                Pour exercer vos droits : <a href="mailto:dk@dkdp.ch" className="underline hover:text-text transition-colors">dk@dkdp.ch</a>
+                Pour exercer vos droits : <a href="/contact" className="underline hover:text-text transition-colors">formulaire de contact</a>
               </p>
             </div>
           </SectionReveal>
@@ -145,7 +145,7 @@ export default function RGPDCookiesPage() {
 
           <SectionReveal delay={0.35}>
             <p className="text-text-muted text-xs text-center mt-12">
-              Dernière mise à jour : avril 2026
+              Dernière mise à jour : septembre 2026
             </p>
           </SectionReveal>
 

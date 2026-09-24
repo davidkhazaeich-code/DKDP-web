@@ -582,13 +582,13 @@ export default function TarifsPage() {
                   <Phone size={13} />
                   +41 79 940 79 69
                 </a>
-                <a
-                  href="mailto:dk@dkdp.ch"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 text-[13px] text-text-muted hover:text-text transition-colors"
                 >
                   <Mail size={13} />
-                  dk@dkdp.ch
-                </a>
+                  Écrivez-nous
+                </Link>
               </div>
             </div>
           </SectionReveal>

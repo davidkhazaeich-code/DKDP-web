@@ -680,7 +680,7 @@ export default function EnWebDesignPage() {
           Learn more about the agency and David Khazaei
         </Link>
       </div>
-      <CTAFinal />
+      <CTAFinal lang="en" />
     </main>
   )
 }

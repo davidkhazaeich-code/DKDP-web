@@ -742,7 +742,7 @@ export default function EnDigitalAgencyPage() {
         </div>
       </section>
 
-      <CTAFinal />
+      <CTAFinal lang="en" />
     </main>
   )
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 
@@ -9,14 +10,14 @@ export const metadata: Metadata = {
   robots: { index: false },
 }
 
-const SECTIONS = [
+const SECTIONS: { title: string; text?: string; items?: { label: string; value: string; href?: string }[] }[] = [
   {
     title: 'Éditeur du site',
     items: [
       { label: 'Raison sociale', value: 'DKDP' },
       { label: 'Responsable de publication', value: 'David Khazaei' },
       { label: 'Adresse', value: '36 Rue du 31 Décembre, Quartier des Eaux-Vives, 1207 Genève, Suisse' },
-      { label: 'Email', value: 'dk@dkdp.ch' },
+      { label: 'Contact', value: 'Formulaire de contact (dkdp.ch/contact)', href: '/contact' },
       { label: 'Téléphone', value: '+41 79 940 79 69' },
       { label: 'Site web', value: 'https://dkdp.ch' },
     ],
@@ -74,7 +75,13 @@ export default function MentionsLegalesPage() {
                       {section.items.map((item) => (
                         <div key={item.label} className="grid grid-cols-[140px_1fr] gap-4">
                           <span className="text-text-muted text-sm">{item.label}</span>
-                          <span className="text-text-secondary text-sm">{item.value}</span>
+                          {item.href ? (
+                            <Link href={item.href} className="text-text-secondary text-sm underline hover:text-text transition-colors">
+                              {item.value}
+                            </Link>
+                          ) : (
+                            <span className="text-text-secondary text-sm">{item.value}</span>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -89,7 +96,7 @@ export default function MentionsLegalesPage() {
 
           <SectionReveal delay={0.35}>
             <p className="text-text-muted text-xs text-center mt-12">
-              Dernière mise à jour : avril 2026
+              Dernière mise à jour : septembre 2026
             </p>
           </SectionReveal>
 

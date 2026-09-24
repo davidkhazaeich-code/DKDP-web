@@ -130,7 +130,7 @@ const équipe = [
     border: violetBd,
     cardBg: 'linear-gradient(160deg, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.05) 100%)',
     skills: ['IA & Automatisation', 'Stratégie digitale', 'Développement web', 'SEO', 'Google Ads'],
-    email: 'dk@dkdp.ch',
+    email: null,
     linkedin: 'https://www.linkedin.com/in/davidkhazaei/',
   },
   {

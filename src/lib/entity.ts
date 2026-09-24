@@ -20,7 +20,11 @@ export const ENTITY = {
   url: 'https://dkdp.ch',
   telephone: '+41799407969',
   telephoneDisplay: '+41 79 940 79 69',
-  email: 'dk@dkdp.ch',
+  /**
+   * Pas d'adresse email publique (décision de David, 24/09/2026 : trop de
+   * spam). Le contact écrit passe par le formulaire /contact. Garde-fou :
+   * `src/lib/__tests__/aucun-email-public.test.ts`.
+   */
   address: {
     streetAddress: 'Rue du 31 Décembre 36',
     postalCode: '1207',

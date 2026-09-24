@@ -648,7 +648,7 @@ export default function EnArtificialIntelligencePage() {
         </div>
       </section>
 
-      <CTAFinal accentRgb="212,212,216" />
+      <CTAFinal accentRgb="212,212,216" lang="en" />
     </main>
   )
 }

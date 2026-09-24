@@ -200,9 +200,9 @@ export function LeadFormInlineClaudeAI() {
 
             {status === 'error' && (
               <p className="text-xs" style={{ color: 'var(--red-text)' }}>
-                Une erreur est survenue. Contactez-nous directement à{' '}
-                <a href="mailto:dk@dkdp.ch" className="underline">
-                  dk@dkdp.ch
+                Une erreur est survenue. Appelez-nous directement au{' '}
+                <a href="tel:+41799407969" className="underline">
+                  +41 79 940 79 69
                 </a>
               </p>
             )}

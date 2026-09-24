@@ -15,14 +15,14 @@ export const metadata: Metadata = buildServiceMetadata({
   noIndex: true,
 })
 
-const SECTIONS: { title: string; text?: string; items?: { label: string; value: string }[] }[] = [
+const SECTIONS: { title: string; text?: string; items?: { label: string; value: string; href?: string }[] }[] = [
   {
     title: 'Publisher',
     items: [
       { label: 'Company name', value: 'DKDP' },
       { label: 'Director of publication', value: 'David Khazaei' },
       { label: 'Address', value: '36 Rue du 31 Décembre, Eaux-Vives district, 1207 Geneva, Switzerland' },
-      { label: 'Email', value: 'dk@dkdp.ch' },
+      { label: 'Contact', value: 'Contact form (dkdp.ch/en/contact)', href: '/en/contact' },
       { label: 'Phone', value: '+41 79 940 79 69' },
       { label: 'Website', value: 'https://dkdp.ch' },
     ],
@@ -100,7 +100,13 @@ export default function Page() {
                     {section.items.map((item) => (
                       <div key={item.label} className="grid grid-cols-[160px_1fr] gap-4">
                         <span className="text-text-muted text-sm">{item.label}</span>
-                        <span className="text-text-secondary text-sm">{item.value}</span>
+                        {item.href ? (
+                          <Link href={item.href} className="text-text-secondary text-sm underline hover:text-text transition-colors">
+                            {item.value}
+                          </Link>
+                        ) : (
+                          <span className="text-text-secondary text-sm">{item.value}</span>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -112,7 +118,7 @@ export default function Page() {
             ))}
           </div>
 
-          <p className="text-text-muted text-xs text-center mt-12">Last updated: April 2026</p>
+          <p className="text-text-muted text-xs text-center mt-12">Last updated: September 2026</p>
 
           <div className="mt-10 pt-8 border-t border-border flex flex-wrap gap-4 text-sm">
             <Link href="/en/privacy-policy" className="inline-flex items-center gap-1 text-text-secondary hover:text-text">

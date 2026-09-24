@@ -552,20 +552,20 @@ export default function EnPricingPage() {
                   <Phone size={13} />
                   +41 79 940 79 69
                 </a>
-                <a
-                  href="mailto:dk@dkdp.ch"
+                <Link
+                  href="/en/contact"
                   className="inline-flex items-center gap-2 text-[13px] text-text-muted hover:text-text transition-colors"
                 >
                   <Mail size={13} />
-                  dk@dkdp.ch
-                </a>
+                  Write to us
+                </Link>
               </div>
             </div>
           </SectionReveal>
         </div>
       </section>
 
-      <CTAFinal />
+      <CTAFinal lang="en" />
     </main>
   )
 }

@@ -90,7 +90,7 @@ export function AuditHeroFormEn({ buttonLabel = 'Get my free audit' }: { buttonL
 
       {status === 'error' && (
         <p className="text-red-500 text-sm mb-4 text-center">
-          Something went wrong. Try again or write to dk@dkdp.ch
+          Something went wrong. Try again or call +41 79 940 79 69
         </p>
       )}
 

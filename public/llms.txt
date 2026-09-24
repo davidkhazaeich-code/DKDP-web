@@ -109,9 +109,9 @@ Oui. Tous les sites réalisés par DKDP incluent une politique de confidentialit
 
 Adresse : Rue du 31 Décembre 36, 1207 Genève, Suisse
 Téléphone : +41 79 940 79 69
-Email : dk@dkdp.ch
 Site : https://dkdp.ch
-Prise de rendez-vous : https://dkdp.ch/contact
+Formulaire de contact et prise de rendez-vous : https://dkdp.ch/contact
+Pas d'adresse email publique : pour écrire à DKDP, passer par le formulaire de contact.
 
 ## Permissions pour les crawlers IA
 
@@ -175,7 +175,7 @@ Geographic coverage: Geneva, Lausanne, Fribourg, Sion, Neuchatel, French-speakin
 
 - [About DKDP](https://dkdp.ch/en/about): A small senior team that ships in plain sight. Web, AI, training under one roof.
 - [Pricing](https://dkdp.ch/en/pricing): Transparent fixed-quote pricing for digital, AI and training services.
-- [Contact](https://dkdp.ch/en/contact): Book a 30-minute call, email or phone. Free quote in 24 hours.
+- [Contact](https://dkdp.ch/en/contact): Contact form, 30-minute call booking or phone. Free quote in 24 hours.
 
 ## Why DKDP for English-speaking clients in Switzerland
 
@@ -209,6 +209,6 @@ Yes. We offer a free SEO audit and a free site audit, both delivered within 48 h
 
 Address: Rue du 31 Decembre 36, 1207 Geneva, Switzerland
 Phone: +41 79 940 79 69
-Email: dk@dkdp.ch
 Website: https://dkdp.ch
-Booking: https://dkdp.ch/en/contact
+Contact form and booking: https://dkdp.ch/en/contact
+No public email address: to write to DKDP, use the contact form.

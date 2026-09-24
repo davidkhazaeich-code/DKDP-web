@@ -46,12 +46,18 @@ export default function Page() {
                 {[
                   { label: 'Controller', value: 'David Khazaei (DKDP)' },
                   { label: 'Address', value: '36 Rue du 31 Décembre, 1207 Geneva, Switzerland' },
-                  { label: 'Email', value: 'dk@dkdp.ch' },
+                  { label: 'Contact', value: 'Contact form (dkdp.ch/en/contact)', href: '/en/contact' },
                   { label: 'Phone', value: '+41 79 940 79 69' },
                 ].map((item) => (
                   <div key={item.label} className="grid grid-cols-[140px_1fr] gap-4">
                     <span className="text-text-muted text-sm">{item.label}</span>
-                    <span className="text-text-secondary text-sm">{item.value}</span>
+                    {item.href ? (
+                      <Link href={item.href} className="text-text-secondary text-sm underline hover:text-text transition-colors">
+                        {item.value}
+                      </Link>
+                    ) : (
+                      <span className="text-text-secondary text-sm">{item.value}</span>
+                    )}
                   </div>
                 ))}
               </div>
@@ -197,8 +203,9 @@ export default function Page() {
                 ))}
               </div>
               <p className="text-text-secondary text-sm leading-relaxed">
-                To exercise your rights, contact us at{' '}
-                <a href="mailto:dk@dkdp.ch" className="underline hover:text-text transition-colors">dk@dkdp.ch</a>.
+                To exercise your rights, write to us through the{' '}
+                <Link href="/en/contact" className="underline hover:text-text transition-colors">contact form</Link>{' '}
+                or by post at the address given in section 1.
                 We will respond within 30 days. If you reside in Switzerland, you may also contact the Federal Data Protection and Information Commissioner (FDPIC). If you reside in the EU, you may contact your national data protection authority.
               </p>
             </div>
@@ -220,7 +227,7 @@ export default function Page() {
             </div>
           </div>
 
-          <p className="text-text-muted text-xs text-center mt-12">Last updated: April 2026</p>
+          <p className="text-text-muted text-xs text-center mt-12">Last updated: September 2026</p>
 
           <div className="mt-10 pt-8 border-t border-border flex flex-wrap gap-4 text-sm">
             <Link href="/en/legal-notice" className="inline-flex items-center gap-1 text-text-secondary hover:text-text">

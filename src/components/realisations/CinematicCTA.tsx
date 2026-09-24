@@ -1,10 +1,12 @@
 'use client'
 
 import { useRef } from 'react'
+import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { GradText } from '@/components/ui/GradText'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import type { Locale } from '@/i18n/config'
+import { localizedPath } from '@/i18n/slugs'
 
 const CONTENT = {
   fr: {
@@ -15,6 +17,7 @@ const CONTENT = {
     subtitle: "15 minutes, c'est gratuit, et on vous dit honnêtement si on peut vous aider, et comment.",
     cta: 'Reservez votre appel gratuit',
     disclaimer: 'Sans engagement · Reponse sous 24h · Eaux-Vives, Geneve ou en visio',
+    writeUs: 'Écrivez-nous',
   },
   en: {
     marquee: ['Custom websites', 'Artificial Intelligence', 'Corporate training', 'Local SEO Geneva', 'UX redesign', 'Business apps'],
@@ -24,6 +27,7 @@ const CONTENT = {
     subtitle: '15 minutes, free of charge, and we tell you honestly whether we can help, and how.',
     cta: 'Book your free call',
     disclaimer: 'No commitment · Reply within 24h · Eaux-Vives, Geneva or by video call',
+    writeUs: 'Write to us',
   },
 } as const
 
@@ -145,7 +149,7 @@ export function CinematicCTA({ lang = 'fr' }: { lang?: Locale } = {}) {
           </LiquidMetalButton>
         </div>
 
-        {/* Glass pills for phone and email */}
+        {/* Glass pills for phone and contact form */}
         <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row">
           <a
             href="tel:+41799407969"
@@ -169,8 +173,8 @@ export function CinematicCTA({ lang = 'fr' }: { lang?: Locale } = {}) {
             </svg>
             +41 79 940 79 69
           </a>
-          <a
-            href="mailto:dk@dkdp.ch"
+          <Link
+            href={localizedPath('/contact', lang)}
             className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-6 py-3 text-sm text-white/70 backdrop-blur-md transition hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-white"
           >
             <svg
@@ -196,8 +200,8 @@ export function CinematicCTA({ lang = 'fr' }: { lang?: Locale } = {}) {
                 strokeLinecap="round"
               />
             </svg>
-            dk@dkdp.ch
-          </a>
+            {t.writeUs}
+          </Link>
         </div>
 
         <p className="mt-8 text-sm text-white/45">

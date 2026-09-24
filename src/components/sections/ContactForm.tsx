@@ -26,7 +26,7 @@ const CONTENT = {
     howFound: 'Comment avez-vous trouvé nos services ?',
     back: 'Retour', sending: 'Envoi en cours…', send: 'Envoyer mon message',
     disclaimer: 'Sans engagement · Réponse sous 24h · Confidentialité garantie',
-    error: 'Une erreur est survenue. Écrivez-nous directement à dk@dkdp.ch',
+    error: 'Une erreur est survenue. Appelez-nous directement au +41 79 940 79 69',
     successTitle: 'Message envoyé !', successText: 'On vous recontacte sous 24h ouvrables.',
   },
   en: {
@@ -40,7 +40,7 @@ const CONTENT = {
     howFound: 'How did you find our services?',
     back: 'Back', sending: 'Sending…', send: 'Send my message',
     disclaimer: 'No commitment · Reply within 24h · Confidentiality guaranteed',
-    error: 'Something went wrong. Write to us directly at dk@dkdp.ch',
+    error: 'Something went wrong. Call us directly on +41 79 940 79 69',
     successTitle: 'Message sent!', successText: 'We will get back to you within 24 working hours.',
   },
 } as const

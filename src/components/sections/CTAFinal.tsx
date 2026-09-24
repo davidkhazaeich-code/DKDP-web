@@ -1,9 +1,11 @@
+import Link from 'next/link'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { Watermark } from '@/components/ui/Watermark'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
 import type { Locale } from '@/i18n/config'
+import { localizedPath } from '@/i18n/slugs'
 
 const CONTENT = {
   fr: {
@@ -12,6 +14,7 @@ const CONTENT = {
     subtitle: "15 minutes, c'est gratuit, et on vous dit honnêtement si on peut vous aider - et comment.",
     cta: 'Réservez votre appel gratuit',
     note: 'Sans engagement · Réponse sous 24h · Eaux-Vives, Genève ou en visio',
+    writeUs: 'Écrivez-nous',
   },
   en: {
     heading: "Let's talk about",
@@ -19,6 +22,7 @@ const CONTENT = {
     subtitle: '15 minutes, free of charge, and we tell you honestly whether we can help, and how.',
     cta: 'Book your free call',
     note: 'No commitment · Reply within 24h · Eaux-Vives, Geneva or by video call',
+    writeUs: 'Write to us',
   },
 } as const
 
@@ -58,16 +62,16 @@ export function CTAFinal({ accentRgb, lang = 'fr' }: { accentRgb?: string; lang?
                 </svg>
                 +41 79 940 79 69
               </a>
-              <a
-                href="mailto:dk@dkdp.ch"
+              <Link
+                href={localizedPath('/contact', lang)}
                 className="flex items-center justify-center gap-2 px-6 py-3 text-sm text-text-muted hover:text-text hover:bg-bg-card transition-all duration-150"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <rect x="1" y="2.5" width="12" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>
                   <path d="M1 4l6 4 6-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
                 </svg>
-                dk@dkdp.ch
-              </a>
+                {t.writeUs}
+              </Link>
             </div>
 
             <p className="text-text-muted text-sm">

@@ -43,7 +43,7 @@ export function SiteAuditBlock() {
       setSent(true)
       trackLead({ form_type: 'audit_seo', form_location: 'audit_block', locale: 'fr', event_id: eventId })
     } catch {
-      setError('Une erreur est survenue. Réessayez ou écrivez-nous à dk@dkdp.ch')
+      setError('Une erreur est survenue. Réessayez ou appelez-nous au +41 79 940 79 69')
     } finally {
       setLoading(false)
     }

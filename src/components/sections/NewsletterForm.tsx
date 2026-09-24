@@ -6,8 +6,8 @@ import type { Locale } from '@/i18n/config'
 import { trackNewsletterSignup, newEventId } from '@/lib/analytics'
 
 const COPY = {
-  fr: { successTitle: "C'est noté !", successText: 'On vous enverra le prochain article.', placeholder: 'votre@email.ch', emailAria: 'Adresse email', subscribe: "S'abonner", error: 'Erreur. Écrivez-nous à dk@dkdp.ch' },
-  en: { successTitle: 'Done!', successText: 'We will send you the next article.', placeholder: 'you@email.com', emailAria: 'Email address', subscribe: 'Subscribe', error: 'Error. Write to us at dk@dkdp.ch' },
+  fr: { successTitle: "C'est noté !", successText: 'On vous enverra le prochain article.', placeholder: 'votre@email.ch', emailAria: 'Adresse email', subscribe: "S'abonner", error: 'Erreur. Réessayez dans un instant.' },
+  en: { successTitle: 'Done!', successText: 'We will send you the next article.', placeholder: 'you@email.com', emailAria: 'Email address', subscribe: 'Subscribe', error: 'Error. Please try again in a moment.' },
 } as const
 
 export function NewsletterForm({ lang = 'fr' }: { lang?: Locale } = {}) {

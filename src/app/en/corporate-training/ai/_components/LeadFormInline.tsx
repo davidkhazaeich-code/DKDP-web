@@ -200,9 +200,9 @@ export function LeadFormInline() {
 
             {status === 'error' && (
               <p className="text-xs" style={{ color: 'var(--red-text)' }}>
-                Something went wrong. Contact us directly at{' '}
-                <a href="mailto:dk@dkdp.ch" className="underline">
-                  dk@dkdp.ch
+                Something went wrong. Call us directly on{' '}
+                <a href="tel:+41799407969" className="underline">
+                  +41 79 940 79 69
                 </a>
               </p>
             )}

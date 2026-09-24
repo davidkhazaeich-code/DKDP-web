@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { MapPin, Phone, Mail, Clock, CalendarCheck, MessageSquare } from 'lucide-react'
+import { MapPin, Phone, Clock, CalendarCheck, MessageSquare } from 'lucide-react'
 import { ContactForm } from '@/components/sections/ContactForm'
 import { CalBooking } from '@/components/sections/CalBooking'
 import type { Locale } from '@/i18n/config'
@@ -9,7 +9,6 @@ import { ENTITY } from '@/lib/entity'
 
 const INFO_META = [
   { Icon: Phone, href: 'tel:+41799407969' as string | undefined },
-  { Icon: Mail, href: 'mailto:dk@dkdp.ch' as string | undefined },
   { Icon: MapPin, href: ENTITY.mapsUrl as string | undefined },
   { Icon: Clock, href: undefined as string | undefined },
 ]
@@ -30,7 +29,6 @@ const CONTENT = {
     bookingSubtitle: 'Appel découverte de 15 min ou 30 min · Gratuit · Sans engagement',
     info: [
       { label: 'Téléphone', value: '+41 79 940 79 69' },
-      { label: 'Email', value: 'dk@dkdp.ch' },
       { label: 'Adresse', value: '36 Rue du 31 Décembre · Eaux-Vives · 1207 Genève' },
       { label: 'Horaires', value: 'Lun–Ven, 09:00–18:00' },
     ],
@@ -50,7 +48,6 @@ const CONTENT = {
     bookingSubtitle: '15 or 30-min discovery call · Free · No commitment',
     info: [
       { label: 'Phone', value: '+41 79 940 79 69' },
-      { label: 'Email', value: 'dk@dkdp.ch' },
       { label: 'Address', value: '36 Rue du 31 Décembre · Eaux-Vives · 1207 Geneva' },
       { label: 'Hours', value: 'Mon–Fri, 09:00–18:00' },
     ],

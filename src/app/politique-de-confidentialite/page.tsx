@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { GradTag } from '@/components/ui/GradTag'
 
@@ -42,12 +43,18 @@ export default function PolitiqueDeConfidentialitePage() {
                   {[
                     { label: 'Responsable', value: 'David Khazaei (DKDP)' },
                     { label: 'Adresse', value: '36 Rue du 31 Décembre, 1207 Genève, Suisse' },
-                    { label: 'Email', value: 'dk@dkdp.ch' },
+                    { label: 'Contact', value: 'Formulaire de contact (dkdp.ch/contact)', href: '/contact' },
                     { label: 'Téléphone', value: '+41 79 940 79 69' },
                   ].map((item) => (
                     <div key={item.label} className="grid grid-cols-[140px_1fr] gap-4">
                       <span className="text-text-muted text-sm">{item.label}</span>
-                      <span className="text-text-secondary text-sm">{item.value}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-text-secondary text-sm underline hover:text-text transition-colors">
+                          {item.value}
+                        </Link>
+                      ) : (
+                        <span className="text-text-secondary text-sm">{item.value}</span>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -200,8 +207,9 @@ export default function PolitiqueDeConfidentialitePage() {
                   ))}
                 </div>
                 <p className="text-text-secondary text-sm leading-relaxed">
-                  Pour exercer vos droits, contactez-nous à{' '}
-                  <a href="mailto:dk@dkdp.ch" className="underline hover:text-text transition-colors">dk@dkdp.ch</a>.
+                  Pour exercer vos droits, écrivez-nous par le{' '}
+                  <Link href="/contact" className="underline hover:text-text transition-colors">formulaire de contact</Link>{' '}
+                  ou par courrier à l&apos;adresse indiquée en section 1.
                   Nous répondrons dans un délai de 30 jours. En cas de litige, vous pouvez saisir le Préposé fédéral à la protection des données et à la transparence (PFPDT) en Suisse.
                 </p>
               </div>
@@ -231,7 +239,7 @@ export default function PolitiqueDeConfidentialitePage() {
 
           <SectionReveal delay={0.35}>
             <p className="text-text-muted text-xs text-center mt-12">
-              Dernière mise à jour : avril 2026
+              Dernière mise à jour : septembre 2026
             </p>
           </SectionReveal>
 

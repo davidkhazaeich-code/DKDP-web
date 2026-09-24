@@ -33,7 +33,7 @@ const COPY = {
     details: 'Précisions',
     optional: '(optionnel)',
     detailsPlaceholder: 'Taille de l\'équipe, abonnement ChatGPT actuel, niveau...',
-    error: 'Une erreur est survenue. Contactez-nous directement à',
+    error: 'Une erreur est survenue. Appelez-nous directement au',
     sending: 'Envoi en cours...',
     submit: 'Recevoir mon devis gratuit',
     footer: 'Réponse sous 48h · Sans engagement · Données confidentielles',
@@ -66,7 +66,7 @@ const COPY = {
     details: 'Details',
     optional: '(optional)',
     detailsPlaceholder: 'Team size, current ChatGPT plan, level...',
-    error: 'An error occurred. Contact us directly at',
+    error: 'An error occurred. Call us directly on',
     sending: 'Sending...',
     submit: 'Receive my free quote',
     footer: 'Reply within 48h · No commitment · Data kept confidential',
@@ -265,8 +265,8 @@ export function LeadFormInlineChatGpt({ lang = 'fr' }: { lang?: Locale }) {
             {status === 'error' && (
               <p className="text-xs" style={{ color: 'var(--red-text)' }}>
                 {t.error}{' '}
-                <a href="mailto:dk@dkdp.ch" className="underline">
-                  dk@dkdp.ch
+                <a href="tel:+41799407969" className="underline">
+                  +41 79 940 79 69
                 </a>
               </p>
             )}

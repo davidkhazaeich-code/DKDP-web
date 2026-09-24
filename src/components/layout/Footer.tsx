@@ -194,10 +194,10 @@ function FooterInner({
                 <Phone size={12} className="flex-shrink-0 text-violet-light" />
                 {t.phone}
               </a>
-              <a href="mailto:dk@dkdp.ch" className="flex items-center gap-2 text-text-muted hover:text-text text-xs transition-colors">
+              <Link href={localizedPath('/contact', lang)} className="flex items-center gap-2 text-text-muted hover:text-text text-xs transition-colors">
                 <Mail size={12} className="flex-shrink-0 text-violet-light" />
-                {t.email}
-              </a>
+                {t.contactForm}
+              </Link>
             </address>
             <Link
               href={localizedPath('/contact', lang)}
@@ -271,10 +271,10 @@ function FooterInner({
               <Phone size={12} className="flex-shrink-0 text-violet-light" />
               {t.phone}
             </a>
-            <a href="mailto:dk@dkdp.ch" className="flex items-center gap-2 sm:justify-end text-text-muted hover:text-text text-xs transition-colors">
+            <Link href={localizedPath('/contact', lang)} className="flex items-center gap-2 sm:justify-end text-text-muted hover:text-text text-xs transition-colors">
               <Mail size={12} className="flex-shrink-0 text-violet-light" />
-              {t.email}
-            </a>
+              {t.contactForm}
+            </Link>
           </address>
         </div>
 

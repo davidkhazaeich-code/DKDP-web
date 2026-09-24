@@ -741,7 +741,7 @@ export default function EnCorporateTrainingPage() {
         </div>
       </section>
 
-      <CTAFinal accentRgb="255,140,0" />
+      <CTAFinal accentRgb="255,140,0" lang="en" />
     </main>
   )
 }

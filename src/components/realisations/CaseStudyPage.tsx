@@ -1,4 +1,5 @@
-import { BrowserFrame } from './BrowserFrame'
+import { DeviceStage } from './DeviceStage'
+import { CoverStage } from './CoverStage'
 import { RealisationHeader } from './RealisationHeader'
 import { ProblemBlock } from './ProblemBlock'
 import { ApproachBlock } from './ApproachBlock'
@@ -36,8 +37,10 @@ import type { Locale } from '@/i18n/config'
  * lecons, les questions et les liens vers la prestation. Chaque bloc est
  * optionnel et ne s'affiche que si l'etude le renseigne.
  *
- * Visuel principal : la capture du site pour un projet web ; pour un projet
- * sans site (automatisation, CRM), le schema de flux prend cette place.
+ * Visuel principal : la scene d'appareils (page entiere qui defile, telephone
+ * devant) pour un projet web ; pour un projet sans site, la couverture quand
+ * c'est un livrable mis en scene (`cover.lead`), sinon le schema de flux, sinon
+ * la frise des seances d'une formation.
  */
 export function CaseStudyPage({
   r,
@@ -50,9 +53,13 @@ export function CaseStudyPage({
 }) {
   const en = lang === 'en'
   const url = realisationUrl(r.slug, lang)
-  const flowAsHero = !r.hero && Boolean(r.flow)
+  const leadCover = !r.hero && r.cover?.lead ? r.cover : null
+  const flowAsHero = !r.hero && !leadCover && Boolean(r.flow)
+  // Formation sans visuel de tete : la frise des seances monte sous l'en-tete.
+  const trainingAsHero = !r.hero && !leadCover && !r.flow && Boolean(r.training)
   const images = [
     `${ENTITY.url}/images/realisations/${r.slug}/og.png`,
+    ...(r.mockup ? [`${ENTITY.url}${r.mockup.src}`] : []),
     ...(r.cover ? [`${ENTITY.url}${r.cover.src}`] : []),
     ...(r.highlights ?? []).map((h) => `${ENTITY.url}${h.image.src}`),
   ]
@@ -72,26 +79,32 @@ export function CaseStudyPage({
       <RealisationHeader r={r} lang={lang} />
 
       {r.hero && (
-        <div className="mx-auto mt-12 max-w-[1200px] px-6">
-          <BrowserFrame
-            src={r.hero.desktopFull}
-            alt={`${r.client.name} : ${r.meta.title}`}
-            browserUrl={r.hero.browserUrl}
-            variant="hero"
-            trigger="visible"
-          />
-        </div>
+        <DeviceStage
+          desktop={r.hero.desktopFull}
+          browserUrl={r.hero.browserUrl}
+          alt={`${r.client.name} : ${r.meta.title}`}
+          phone={
+            r.hero.mobileView
+              ? {
+                  src: r.hero.mobileView,
+                  alt: en ? `${r.client.name} on a phone: first screen` : `${r.client.name} sur téléphone : premier écran`,
+                }
+              : undefined
+          }
+        />
       )}
+      {leadCover && <CoverStage cover={leadCover} />}
       {flowAsHero && r.flow && <FlowDiagram flow={r.flow} lang={lang} />}
+      {trainingAsHero && r.training && <TrainingBlock training={r.training} lang={lang} />}
 
       <CaseStudyNav r={r} lang={lang} />
 
       <ProblemBlock problem={r.problem} lang={lang} />
       <ApproachBlock approach={r.approach} lang={lang} />
       {!flowAsHero && r.flow && <FlowDiagram flow={r.flow} lang={lang} />}
-      {r.training && <TrainingBlock training={r.training} lang={lang} />}
+      {!trainingAsHero && r.training && <TrainingBlock training={r.training} lang={lang} />}
       {r.highlights && r.highlights.length > 0 && (
-        <HighlightsShowcase items={r.highlights} host={r.hero?.browserUrl ?? ''} lang={lang} />
+        <HighlightsShowcase items={r.highlights} host={r.hero?.browserUrl ?? ''} showcase={r.showcase} lang={lang} />
       )}
       <CaseStudyMedia videos={r.videos} beforeAfter={r.beforeAfter} host={r.hero?.browserUrl} lang={lang} />
       {r.conversation && <ChatReplay conversation={r.conversation} lang={lang} />}

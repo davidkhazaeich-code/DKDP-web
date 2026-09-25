@@ -26,6 +26,9 @@ export function CaseStudyNav({ r, lang = 'fr' }: { r: Realisation; lang?: Locale
       : r.results?.length
         ? [{ label: en ? 'Results' : 'Résultats', href: '#resultats' }]
         : []),
+    ...(r.gallery?.length
+      ? [{ label: r.gallery.every((g) => g.document) ? (en ? 'Deliverable' : 'Livrable') : en ? 'Gallery' : 'Galerie', href: '#galerie' }]
+      : []),
     ...(r.lessons?.length ? [{ label: en ? 'Lessons' : 'Leçons', href: '#lecons' }] : []),
     ...(r.faq?.length ? [{ label: en ? 'Questions' : 'Questions', href: '#questions' }] : []),
   ]

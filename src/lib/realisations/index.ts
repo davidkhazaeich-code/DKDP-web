@@ -2,14 +2,42 @@ import type { Realisation, RealisationDomain, RealisationSector } from './types'
 import goldencash from './goldencash-refonte'
 import sosRelevage from './sos-relevage'
 import automatisationBexio from './automatisation-depenses-bexio-n8n'
+import sosRelevageCrm from './sos-relevage-crm-interventions'
+import formationGestionFortune from './formation-ia-gestion-de-fortune'
+import formationPharmacovigilance from './formation-ia-pharmacovigilance'
+import formationRestaurationStation from './formation-ia-restauration-station'
 
-const ALL_REALISATIONS: Realisation[] = [goldencash, sosRelevage, automatisationBexio]
+const ALL_REALISATIONS: Realisation[] = [
+  goldencash,
+  sosRelevage,
+  automatisationBexio,
+  sosRelevageCrm,
+  formationGestionFortune,
+  formationPharmacovigilance,
+  formationRestaurationStation,
+]
 
 export const REALISATIONS: Realisation[] = ALL_REALISATIONS.sort(
   (a, b) => b.meta.dateISO.localeCompare(a.meta.dateISO)
 )
 
-export const FEATURED_SLUGS: string[] = []
+/** Etudes mises en tete du hub (visuel tournant et premieres cellules de la grille), dans cet ordre. */
+export const FEATURED_SLUGS: string[] = ['sos-relevage', 'goldencash-refonte', 'sos-relevage-crm-interventions']
+
+/**
+ * Ordre du hub : les etudes a la une d'abord, dans l'ordre de FEATURED_SLUGS,
+ * puis les autres de la plus recente a la plus ancienne (ordre de REALISATIONS).
+ */
+export function hubOrder<T extends Pick<Realisation, 'slug'>>(items: T[]): T[] {
+  const rank = (slug: string) => {
+    const i = FEATURED_SLUGS.indexOf(slug)
+    return i === -1 ? FEATURED_SLUGS.length : i
+  }
+  return items
+    .map((r, i) => ({ r, i }))
+    .sort((a, b) => rank(a.r.slug) - rank(b.r.slug) || a.i - b.i)
+    .map(({ r }) => r)
+}
 
 export function getRealisation(slug: string): Realisation | null {
   return REALISATIONS.find(r => r.slug === slug) ?? null

@@ -112,15 +112,31 @@ export interface RealisationMeta {
 }
 
 export interface RealisationHero {
+  /** Page entiere, defilee dans le cadre de navigateur au survol. */
   desktopFull: string
   mobileFull?: string
   browserUrl: string
+  /** Premier ecran a la taille de l'ecran (1440x900), pour les compositions. */
+  desktopView?: string
+  /** Premier ecran mobile (390x844 en 2x), pose dans le cadre de telephone. */
+  mobileView?: string
+}
+
+/** Composition ordinateur et telephone rendue a partir des vraies captures
+ *  (tools/realisations/render-mockup.mjs) : visuel du hub et des cartes. */
+export interface RealisationMockup {
+  src: string
+  alt: string
 }
 
 /** Visuel de carte et d'apercu social pour un projet sans site a capturer. */
 export interface RealisationCover {
   src: string
   alt: string
+  /** Vrai : la couverture est aussi le visuel principal de la page (mockup,
+   *  document), et le schema de flux passe apres l'approche. Faux ou absent :
+   *  la couverture ne sert qu'aux cartes et a l'apercu social. */
+  lead?: boolean
 }
 
 export interface RealisationProblem {
@@ -176,6 +192,8 @@ export interface RealisationGalleryItem {
   src: string
   alt: string
   caption?: string
+  /** Page de document (rapport, support) : affichee comme une feuille, ouvrable en grand. */
+  document?: boolean
 }
 
 /** Une section phare : capture d'ecran, vue mobile optionnelle, texte, et le
@@ -187,10 +205,19 @@ export interface RealisationHighlight {
   tag: string
   title: string
   body: string
-  image: { src: string; alt: string; path?: string }
+  /** `host` remplace le domaine de `hero.browserUrl` dans la barre d'adresse
+   *  (etude sans capture principale, ou section prise sur un autre site). */
+  image: { src: string; alt: string; path?: string; host?: string }
   phone?: { src: string; alt: string }
   steps?: string[]
   points?: string[]
+}
+
+/** Titre et intro du bloc des sections phares, quand le texte par defaut
+ *  (le parcours d'un visiteur sur un site) ne decrit pas l'etude. */
+export interface RealisationShowcase {
+  title: string
+  intro: string
 }
 
 /** Direction visuelle : logo, palette, typographie, principes. */
@@ -300,6 +327,7 @@ export interface Realisation {
   /** Fiche projet affichee sous la reponse directe. */
   facts?: { label: string; value: string }[]
   hero?: RealisationHero
+  mockup?: RealisationMockup
   cover?: RealisationCover
   problem: RealisationProblem
   approach: RealisationApproach
@@ -317,6 +345,7 @@ export interface Realisation {
   faq?: RealisationFaqItem[]
   gallery?: RealisationGalleryItem[]
   highlights?: RealisationHighlight[]
+  showcase?: RealisationShowcase
   direction?: RealisationDirection
   seo?: RealisationSeo
   /** Slugs d'articles du blog tires du projet ou utiles au meme lecteur. */

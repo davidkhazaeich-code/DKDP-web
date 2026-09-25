@@ -58,7 +58,28 @@ const realisation: Realisation = {
     desktopFull: '/images/realisations/goldencash-refonte/desktop.webp',
     mobileFull: '/images/realisations/goldencash-refonte/mobile.webp',
     browserUrl: 'goldencash.ch',
+    desktopView: '/images/realisations/goldencash-refonte/hero-desktop.webp',
+    mobileView: '/images/realisations/goldencash-refonte/hero-mobile.webp',
   },
+  mockup: {
+    src: '/images/realisations/goldencash-refonte/mockup-hero.webp',
+    alt: "Le site Golden Cash sur un ordinateur portable et sur un téléphone : page d'accueil « Vendez votre or au meilleur prix » et bandeau des cours",
+  },
+  videos: [
+    {
+      src: '/videos/realisations/goldencash-refonte/estimateur.mp4',
+      webm: '/videos/realisations/goldencash-refonte/estimateur.webm',
+      poster: '/images/realisations/goldencash-refonte/estimateur-poster.webp',
+      title: "L'estimateur de rachat, sur le site en ligne",
+      description: 'Choisir le carat et le poids, lire la valeur estimée en francs ou en euros, en 11 secondes, sans montage.',
+      durationSec: 11,
+      uploadDate: '2026-09-25',
+      width: 1280,
+      height: 800,
+      transcript:
+        "Sur la page Estimation, le visiteur choisit la qualité de son or, 18 puis 22 carats, et le poids, de 20 à 100 grammes. La valeur estimée se recalcule à chaque clic, en francs puis en euros. Le cours a bougé pendant l'enregistrement : pour 100 grammes d'or 22 carats, la valeur est passée de 9'536 à 9'537 francs.",
+    },
+  ],
   problem: {
     title: 'Des cours à confirmer par téléphone avant chaque vente',
     body: "L'ancien site de Golden Cash n'affichait pas les cours des métaux précieux en temps réel : un client qui voulait connaître le prix de son or devait appeler avant de se déplacer. L'interface d'administration n'était pas sécurisée correctement, et des bugs occasionnels touchaient l'affichage public.\n\nPour un métier où la confiance se joue sur l'exactitude du prix, le site devait montrer un cours juste à tout moment, et laisser l'équipe reprendre la main en quelques secondes si une source de cours tombait.",

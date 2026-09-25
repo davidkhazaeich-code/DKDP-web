@@ -2,7 +2,7 @@ import { clsx } from 'clsx'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { ScreenFrame } from './ScreenFrame'
 import { PhoneFrame } from './PhoneFrame'
-import type { RealisationHighlight } from '@/lib/realisations/types'
+import type { RealisationHighlight, RealisationShowcase } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
 
 /**
@@ -46,14 +46,18 @@ function Stepper({ steps }: { steps: string[] }) {
 export function HighlightsShowcase({
   items,
   host,
+  showcase,
   lang = 'fr',
 }: {
   items: RealisationHighlight[]
   host?: string
+  /** Titre et intro propres a l'etude ; a defaut, le parcours d'un visiteur sur un site. */
+  showcase?: RealisationShowcase
   lang?: Locale
 }) {
-  const t =
-    lang === 'en'
+  const t = showcase
+    ? { h2: showcase.title, intro: showcase.intro }
+    : lang === 'en'
       ? {
           h2: 'The sections that carry the site',
           intro: `${items.length} screens, in the order a visitor meets them. Each one answers a moment: arriving, recognising the problem, asking for help, coping with an emergency, knowing who to call.`,
@@ -83,16 +87,16 @@ export function HighlightsShowcase({
                         <ScreenFrame
                           src={h.image.src}
                           alt={h.image.alt}
-                          host={host}
+                          host={h.image.host ?? host}
                           path={h.image.path}
                           eager={i === 0}
                         />
                         {h.phone && (
-                          <PhoneFrame
-                            src={h.phone.src}
-                            alt={h.phone.alt}
-                            className="absolute -bottom-1 right-0 w-[36%] max-w-[190px] sm:w-[32%]"
-                          />
+                          <div className="absolute -bottom-1 right-0 w-[36%] max-w-[190px] sm:w-[32%]">
+                            <SectionReveal delay={0.18}>
+                              <PhoneFrame src={h.phone.src} alt={h.phone.alt} />
+                            </SectionReveal>
+                          </div>
                         )}
                       </div>
                     </div>

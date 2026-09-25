@@ -13,6 +13,8 @@ interface SectionRevealProps {
   className?: string
   delay?: number
   threshold?: number
+  /** `rise` (defaut) : fondu en montant. `wipe` : balayage de gauche a droite (courbes, traces). */
+  variant?: 'rise' | 'wipe'
 }
 
 export function SectionReveal({
@@ -20,6 +22,7 @@ export function SectionReveal({
   className,
   delay = 0,
   threshold = 0.15,
+  variant = 'rise',
 }: SectionRevealProps) {
   const disabled = useContext(RevealDisabledCtx)
   const ref = useRef<HTMLDivElement | null>(null)
@@ -52,6 +55,20 @@ export function SectionReveal({
 
   if (disabled) {
     return <div className={className}>{children}</div>
+  }
+
+  // Balayage : le clip-path vit sur un enfant. Un element entierement rogne par
+  // son propre clip-path n'est jamais « visible » pour IntersectionObserver.
+  if (variant === 'wipe') {
+    return (
+      <div
+        ref={ref}
+        className={`wipe-on-view${className ? ` ${className}` : ''}`}
+        style={delay ? ({ '--wipe-delay': `${delay * 1000}ms` } as React.CSSProperties) : undefined}
+      >
+        <div className="wipe-inner h-full w-full">{children}</div>
+      </div>
+    )
   }
 
   return (

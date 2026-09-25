@@ -53,6 +53,12 @@ const realisation: Realisation = {
     desktopFull: '/images/realisations/sos-relevage/desktop.webp',
     mobileFull: '/images/realisations/sos-relevage/mobile.webp',
     browserUrl: 'sos-relevage.ch',
+    desktopView: '/images/realisations/sos-relevage/hero-desktop.webp',
+    mobileView: '/images/realisations/sos-relevage/hero-mobile.webp',
+  },
+  mockup: {
+    src: '/images/realisations/sos-relevage/mockup-hero.webp',
+    alt: "Le site SOS Relevage sur un ordinateur portable et sur un téléphone : page d'accueil avec le curseur avant et après sur un local technique",
   },
   problem: {
     title: "Un métier qu'on ne cherche que le jour où la cave prend l'eau",

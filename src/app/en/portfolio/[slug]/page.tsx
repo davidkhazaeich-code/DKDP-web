@@ -54,11 +54,12 @@ export default async function PortfolioDetailPageEN({ params }: { params: Params
   if (base.meta.status === 'archived') redirect('/en/portfolio')
 
   const r = localizeRealisation(base, 'en')
+  // Always three links to other case studies: the closest first, then the most recent.
   const close = getRelated(slug, 3).filter(x => hasEnglish(x.slug))
-  const pool = close.length > 0
-    ? close
-    : REALISATIONS.filter(x => x.slug !== slug && x.meta.status === 'live' && hasEnglish(x.slug)).slice(0, 3)
-  const related = pool.map(x => localizeRealisation(x, 'en'))
+  const recent = REALISATIONS.filter(
+    x => x.slug !== slug && x.meta.status === 'live' && hasEnglish(x.slug) && !close.some(c => c.slug === x.slug),
+  )
+  const related = [...close, ...recent].slice(0, 3).map(x => localizeRealisation(x, 'en'))
 
   return <CaseStudyPage r={r} related={related} lang="en" />
 }

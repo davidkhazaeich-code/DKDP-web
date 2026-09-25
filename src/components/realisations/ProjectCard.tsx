@@ -1,76 +1,108 @@
 import Link from 'next/link'
+import { clsx } from 'clsx'
+import { ArrowUpRight } from 'lucide-react'
 import { BrowserFrame } from './BrowserFrame'
+import { CardMedia } from './CardMedia'
 import { domainLabel } from '@/lib/realisations/taxonomy'
+import { studyVisual } from '@/lib/realisations/visual'
 import type { Realisation } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
 
 export type ProjectCardProps = {
   realisation: Realisation
   lang?: Locale
+  /** `wide` : image et texte cote a cote en grand ecran (cellule large du hub). */
+  size?: 'default' | 'wide'
 }
 
 /**
- * Carte d'une realisation. Un projet web montre la capture de son site dans
- * un cadre de navigateur ; un projet sans site (automatisation, formation,
- * publicite) montre sa couverture, un visuel reel du projet.
+ * Carte d'une realisation (v3, 2026-09-25). Le visuel est la composition
+ * d'appareils, la couverture ou, a defaut, la capture du site dans un cadre
+ * de navigateur qui defile au survol. Une etude qui a une video la joue au
+ * survol a la souris (CardMedia). Un seul lien par carte : la carte entiere.
  */
-export function ProjectCard({ realisation: r, lang = 'fr' }: ProjectCardProps) {
+export function ProjectCard({ realisation: r, lang = 'fr', size = 'default' }: ProjectCardProps) {
   const featuredMetric = r.results?.[0]
   const initial = r.client.name.trim()[0]?.toUpperCase() ?? '?'
   const base = lang === 'en' ? '/en/portfolio' : '/realisations'
+  const visual = studyVisual(r)
+  const video = r.videos?.[0]
+  const wide = size === 'wide'
 
   return (
     <Link
       href={`${base}/${r.slug}`}
-      className="group block rounded-2xl bg-bg-card transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+      data-card
+      className={clsx(
+        'group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-bg-card transition duration-300 ease-out',
+        'hover:-translate-y-1 hover:border-[var(--violet-border)] hover:shadow-[0_28px_70px_-36px_rgba(124,58,237,0.55)]',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400',
+        wide && 'lg:flex-row',
+      )}
     >
-      {r.hero ? (
-        <BrowserFrame
-          src={r.hero.desktopFull}
-          alt={`${r.client.name} : ${r.meta.title}`}
-          browserUrl={r.hero.browserUrl}
-          variant="card"
-          trigger="hover"
-        />
-      ) : r.cover ? (
-        <div className="overflow-hidden rounded-t-2xl border-b border-border">
-          <img
-            src={r.cover.src}
-            alt={r.cover.alt}
-            loading="lazy"
-            className="block aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+      <div className={clsx('relative shrink-0', wide && 'lg:w-[56%]')}>
+        {visual ? (
+          <CardMedia
+            still={visual}
+            video={video ? { src: video.src, webm: video.webm, durationSec: video.durationSec } : undefined}
+            className={clsx('aspect-[16/10] w-full', wide && 'lg:aspect-auto lg:h-full lg:min-h-[340px]')}
+            containOnLarge={wide}
+            lang={lang}
           />
-        </div>
-      ) : null}
+        ) : r.hero ? (
+          <BrowserFrame
+            src={r.hero.desktopFull}
+            alt={`${r.client.name} : ${r.meta.title}`}
+            browserUrl={r.hero.browserUrl}
+            variant="card"
+            trigger="hover"
+            className="rounded-none border-0 border-b border-border"
+          />
+        ) : null}
+      </div>
 
-      <div className="space-y-3 p-4">
-        <div className="flex items-center gap-3">
+      <div className={clsx('flex min-w-0 flex-1 flex-col gap-3 p-5 md:p-6', wide && 'lg:justify-center lg:p-8')}>
+        <div className="flex min-w-0 items-center gap-3">
           {r.client.logo && !r.client.anonymized ? (
             <img src={r.client.logo} alt={r.client.name} className="h-6 w-auto opacity-80" />
           ) : (
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--violet-bg)] text-xs font-bold text-[var(--violet-text)]">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--violet-bg)] text-xs font-bold text-[var(--violet-text)]">
               {initial}
             </span>
           )}
-          <span className="text-xs text-text-muted">
+          <span className="min-w-0 truncate text-xs text-text-muted">
             {r.client.name} · {r.client.sector}
             {r.client.location ? ` · ${r.client.location}` : ''}
           </span>
         </div>
 
-        <h3 className="line-clamp-2 text-lg font-semibold tracking-tight text-text">{r.meta.title}</h3>
+        <h3
+          className={clsx(
+            'font-semibold tracking-tight text-text',
+            wide ? 'line-clamp-3 text-xl md:text-2xl lg:text-[22px] lg:leading-[1.25]' : 'line-clamp-2 text-lg',
+          )}
+        >
+          {r.meta.title}
+        </h3>
 
-        <p className="line-clamp-2 text-sm text-text-secondary">{r.meta.excerpt}</p>
+        <p className={clsx('text-sm leading-[1.6] text-text-secondary', wide ? 'line-clamp-3' : 'line-clamp-2')}>
+          {r.meta.excerpt}
+        </p>
 
-        <div className="flex items-center justify-between gap-3">
-          <span className="rounded-full border border-border px-2 py-0.5 text-[10px] uppercase tracking-wide text-text-muted">
+        <div className="mt-auto flex items-center justify-between gap-3 pt-2">
+          <span className="shrink-0 rounded-full border border-border px-2.5 py-0.5 text-[10px] uppercase tracking-wide text-text-muted">
             {domainLabel(r.domains[0], lang)}
           </span>
           {featuredMetric ? (
-            <span className="text-right text-xs font-semibold text-[var(--violet-text)]">
+            <span className="min-w-0 truncate text-right text-xs font-semibold text-[var(--violet-text)]">
               {featuredMetric.value} <span className="font-normal text-text-muted">{featuredMetric.metric}</span>
             </span>
-          ) : null}
+          ) : (
+            <ArrowUpRight
+              className="h-4 w-4 text-text-muted transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--violet-text)]"
+              aria-hidden="true"
+            />
+          )}
         </div>
       </div>
     </Link>

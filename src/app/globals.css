@@ -715,8 +715,8 @@ body.chat-open {
 @keyframes browserScroll {
   0%   { transform: translateY(0); }
   10%  { transform: translateY(0); }
-  50%  { transform: translateY(calc(-100% + 100vh)); }
-  60%  { transform: translateY(calc(-100% + 100vh)); }
+  50%  { transform: translateY(calc(-100% + var(--frame-h, 100vh))); }
+  60%  { transform: translateY(calc(-100% + var(--frame-h, 100vh))); }
   100% { transform: translateY(0); }
 }
 
@@ -729,6 +729,105 @@ body.chat-open {
   [data-browser-frame] [data-browser-scroll] {
     animation: none !important;
   }
+}
+
+/* ═══ Réalisations v3 : mouvement (2026-09-25) ═══ */
+/* Courbe qui se trace de gauche a droite en entrant a l'ecran (SectionReveal variant="wipe").
+   Le conteneur est observe, l'enfant est rogne : un element rogne a 100 % n'intersecte jamais. */
+.wipe-on-view > .wipe-inner {
+  clip-path: inset(0 100% 0 0);
+}
+.wipe-on-view.is-visible > .wipe-inner {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.6s cubic-bezier(0.22, 1, 0.36, 1) var(--wipe-delay, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .wipe-on-view > .wipe-inner,
+  .wipe-on-view.is-visible > .wipe-inner {
+    clip-path: none;
+    transition: none;
+  }
+}
+
+/* Liaison entre deux etapes d'un flux : trait, pointe et impulsion dans le sens du flux. */
+.flow-link {
+  position: relative;
+  align-self: center;
+  flex-shrink: 0;
+  width: 1px;
+  height: 28px;
+  margin: 6px 0;
+  background: var(--border-strong);
+}
+.flow-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid var(--border-strong);
+  border-bottom: 1.5px solid var(--border-strong);
+  transform: translate(-50%, 0) rotate(45deg);
+}
+.flow-pulse {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 9999px;
+  background: var(--violet-text);
+  box-shadow: 0 0 12px 3px rgba(124, 58, 237, 0.5);
+  opacity: 0;
+  animation: flowPulseY 2.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation-delay: var(--flow-delay, 0s);
+}
+@keyframes flowPulseY {
+  0% { transform: translateY(0); opacity: 0; }
+  15%, 80% { opacity: 1; }
+  100% { transform: translateY(28px); opacity: 0; }
+}
+@keyframes flowPulseX {
+  0% { transform: translateX(0); opacity: 0; }
+  15%, 80% { opacity: 1; }
+  100% { transform: translateX(40px); opacity: 0; }
+}
+@media (min-width: 768px) {
+  .flow-link {
+    width: 40px;
+    height: 1px;
+    margin: 0 6px;
+  }
+  .flow-link::after {
+    left: auto;
+    right: 0;
+    bottom: auto;
+    top: 50%;
+    transform: translate(0, -50%) rotate(-45deg);
+  }
+  .flow-pulse {
+    left: 0;
+    top: 50%;
+    animation-name: flowPulseX;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-pulse { display: none; }
+}
+
+/* Visuel tournant du hub : barre de progression de la diapositive en cours. */
+@keyframes hubProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.hub-progress {
+  transform-origin: left center;
+  animation: hubProgress linear forwards;
+}
+.hub-progress[data-paused='true'] {
+  animation-play-state: paused;
 }
 
 /* Client logo tiles (LogoBanner, ProofStack). Grayscale by default, theme-aware invert via --client-logo-filter. */

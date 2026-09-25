@@ -1,9 +1,11 @@
 'use client'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
+import { clsx } from 'clsx'
+import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from 'framer-motion'
 import { ProjectCard } from './ProjectCard'
 import { FilterBar, type FilterValue } from './FilterBar'
-import { SectionReveal } from '@/components/ui/SectionReveal'
+import { bentoLayout } from '@/lib/realisations/bento'
 import { DOMAINS, SECTORS } from '@/lib/realisations/taxonomy'
 import type { Realisation, RealisationDomain, RealisationSector } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
@@ -13,9 +15,20 @@ type Props = { items: Realisation[]; lang?: Locale }
 const DOMAIN_ORDER = Object.keys(DOMAINS) as RealisationDomain[]
 const SECTOR_ORDER = Object.keys(SECTORS) as RealisationSector[]
 
+/** Classes statiques (Tailwind ne lit pas les classes calculees). */
+const LG_SPAN = { wide: 'lg:col-span-4', narrow: 'lg:col-span-2', half: 'lg:col-span-3', full: 'lg:col-span-6' } as const
+
+/**
+ * Grille du hub (v3) : un bento de six colonnes dont chaque rangee est pleine,
+ * quel que soit le nombre d'etudes filtrees (`bentoLayout`). Les grandes
+ * cellules posent l'image a cote du texte. Au changement de filtre, les cartes
+ * qui restent glissent a leur nouvelle place et les autres s'effacent (Motion,
+ * `layout`) ; tout change d'un coup si le visiteur reduit les animations.
+ */
 export function RealisationsGrid({ items, lang = 'fr' }: Props) {
   const router = useRouter()
   const params = useSearchParams()
+  const reduce = useReducedMotion()
   const en = lang === 'en'
   const hub = en ? '/en/portfolio' : '/realisations'
 
@@ -28,6 +41,11 @@ export function RealisationsGrid({ items, lang = 'fr' }: Props) {
     () => SECTOR_ORDER.filter((s) => items.some((r) => r.sector === s)),
     [items],
   )
+  const counts = useMemo(() => {
+    const out: Partial<Record<RealisationDomain | 'all', number>> = { all: items.length }
+    for (const d of domains) out[d] = items.filter((r) => r.domains.includes(d)).length
+    return out
+  }, [items, domains])
 
   const rawDomain = params.get('domaine')
   const rawSector = params.get('secteur')
@@ -45,6 +63,7 @@ export function RealisationsGrid({ items, lang = 'fr' }: Props) {
       }),
     [items, value.domain, value.sector],
   )
+  const layout = useMemo(() => bentoLayout(filtered.length), [filtered.length])
 
   function setFilter(next: FilterValue) {
     const sp = new URLSearchParams()
@@ -54,11 +73,19 @@ export function RealisationsGrid({ items, lang = 'fr' }: Props) {
     router.replace(`${hub}${qs ? `?${qs}` : ''}`, { scroll: false })
   }
 
+  // Le conteneur borne la barre collante a la grille : elle ne suit pas le lecteur plus bas.
   return (
-    <>
-      <FilterBar domains={domains} sectors={sectors} value={value} onChange={setFilter} lang={lang} />
+    <div className="relative">
+      <FilterBar
+        domains={domains}
+        sectors={sectors}
+        value={value}
+        onChange={setFilter}
+        counts={counts}
+        lang={lang}
+      />
 
-      <div className="mx-auto max-w-[1200px] px-6 py-12">
+      <div className="mx-auto max-w-[1200px] px-6 py-12 md:py-16">
         {filtered.length === 0 ? (
           <div className="py-24 text-center">
             <p className="text-lg text-text-secondary">
@@ -73,15 +100,31 @@ export function RealisationsGrid({ items, lang = 'fr' }: Props) {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
-            {filtered.map((r, i) => (
-              <SectionReveal key={r.slug} delay={Math.min(i, 7) * 0.05}>
-                <ProjectCard realisation={r} lang={lang} />
-              </SectionReveal>
-            ))}
-          </div>
+          <LayoutGroup>
+            <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-6">
+              <AnimatePresence mode="popLayout" initial={false}>
+                {filtered.map((r, i) => {
+                  const cell = layout[i]
+                  const big = cell.lg === 'wide' || cell.lg === 'full'
+                  return (
+                    <motion.li
+                      key={r.slug}
+                      layout={reduce ? false : 'position'}
+                      initial={reduce ? false : { opacity: 0, y: 18 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={reduce ? { opacity: 0, transition: { duration: 0 } } : { opacity: 0, scale: 0.97 }}
+                      transition={{ duration: reduce ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
+                      className={clsx(LG_SPAN[cell.lg], cell.mdFull ? 'md:col-span-2' : 'md:col-span-1')}
+                    >
+                      <ProjectCard realisation={r} lang={lang} size={big ? 'wide' : 'default'} />
+                    </motion.li>
+                  )
+                })}
+              </AnimatePresence>
+            </ul>
+          </LayoutGroup>
         )}
       </div>
-    </>
+    </div>
   )
 }

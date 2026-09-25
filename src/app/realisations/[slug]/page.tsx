@@ -55,11 +55,12 @@ export default async function RealisationDetailPage({ params }: { params: Params
   if (!r) notFound()
   if (r.meta.status === 'archived') redirect('/realisations')
 
-  // Toujours des liens vers d'autres etudes : a defaut d'etude proche, les plus recentes.
+  // Toujours trois liens vers d'autres etudes : les plus proches, completees par les plus recentes.
   const close = getRelated(slug, 3)
-  const related = close.length > 0
-    ? close
-    : REALISATIONS.filter(x => x.slug !== slug && x.meta.status === 'live').slice(0, 3)
+  const recent = REALISATIONS.filter(
+    x => x.slug !== slug && x.meta.status === 'live' && !close.some(c => c.slug === x.slug),
+  )
+  const related = [...close, ...recent].slice(0, 3)
 
   return <CaseStudyPage r={r} related={related} lang="fr" />
 }

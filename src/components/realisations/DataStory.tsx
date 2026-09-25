@@ -1,3 +1,4 @@
+import { SectionReveal } from '@/components/ui/SectionReveal'
 import { formatDateShort, formatSwissInt } from '@/lib/format'
 import type { RealisationDataStory } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
@@ -6,11 +7,15 @@ import type { Locale } from '@/i18n/config'
  * Courbe datee d'une realisation : une serie reelle (Search Console, GA4,
  * Ads...), sa source, sa date de releve et son tableau de donnees.
  *
- * Rendu serveur, sans librairie ni JavaScript. Le trace est un SVG etire
+ * Rendu serveur, sans librairie. Le trace est un SVG etire
  * (`preserveAspectRatio="none"`, trait a epaisseur constante) et les libelles
  * sont en HTML positionne en pourcentage : ils gardent leur taille de texte
  * sur mobile au lieu de retrecir avec le dessin. Le tableau replie sous la
  * courbe rend chaque point lisible par un moteur et par un lecteur d'ecran.
+ *
+ * Mouvement (v3) : la grille est posee, puis la courbe se trace de gauche a
+ * droite en entrant a l'ecran (SectionReveal variant="wipe", un clip-path) et
+ * les reperes apparaissent ensuite. Sans mouvement si le visiteur le demande.
  */
 const W = 1000
 const H = 300
@@ -85,10 +90,8 @@ export function DataStory({ story, lang = 'fr' }: { story: RealisationDataStory;
             viewBox={`0 0 ${W} ${H}`}
             preserveAspectRatio="none"
             className="absolute inset-0 h-full w-full overflow-visible"
-            role="img"
-            aria-labelledby={`${titleId} ${descId}`}
+            aria-hidden="true"
           >
-            <desc id={descId}>{desc}</desc>
             {ticks.map((t) => (
               <line
                 key={t}
@@ -114,17 +117,28 @@ export function DataStory({ story, lang = 'fr' }: { story: RealisationDataStory;
                 vectorEffect="non-scaling-stroke"
               />
             ))}
-            <path d={area} style={{ fill: 'var(--violet-bg)' }} />
-            <path
-              d={line}
-              fill="none"
-              style={{ stroke: 'var(--violet)' }}
-              strokeWidth={2.5}
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              vectorEffect="non-scaling-stroke"
-            />
           </svg>
+          <SectionReveal variant="wipe" threshold={0.35} className="absolute inset-0">
+            <svg
+              viewBox={`0 0 ${W} ${H}`}
+              preserveAspectRatio="none"
+              className="h-full w-full overflow-visible"
+              role="img"
+              aria-labelledby={`${titleId} ${descId}`}
+            >
+              <desc id={descId}>{desc}</desc>
+              <path d={area} style={{ fill: 'var(--violet-bg)' }} />
+              <path
+                d={line}
+                fill="none"
+                style={{ stroke: 'var(--violet)' }}
+                strokeWidth={2.5}
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+          </SectionReveal>
 
           {(story.annotations ?? []).map((a, i) => {
             const left = xPct(a.date)
@@ -132,16 +146,20 @@ export function DataStory({ story, lang = 'fr' }: { story: RealisationDataStory;
             // Une ligne par annotation : deux reperes proches ne se recouvrent jamais.
             const top = i * 28
             return (
-              <span
+              <div
                 key={a.date}
-                className="absolute max-w-[45%] rounded-md border border-border bg-bg px-2 py-1 text-[11px] leading-tight text-text-secondary"
+                className="absolute max-w-[45%]"
                 style={{
                   top,
                   ...(alignRight ? { right: `${100 - left}%`, marginRight: 6 } : { left: `${left}%`, marginLeft: 6 }),
                 }}
               >
-                <b className="font-semibold text-text">{formatDateShort(a.date).slice(0, 5)}</b> {a.label}
-              </span>
+                <SectionReveal delay={0.9 + i * 0.25}>
+                  <span className="block rounded-md border border-border bg-bg px-2 py-1 text-[11px] leading-tight text-text-secondary">
+                    <b className="font-semibold text-text">{formatDateShort(a.date).slice(0, 5)}</b> {a.label}
+                  </span>
+                </SectionReveal>
+              </div>
             )
           })}
         </div>

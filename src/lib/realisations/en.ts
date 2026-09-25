@@ -34,6 +34,8 @@ type RealisationEN = Partial<Pick<Realisation, 'tags' | 'answer' | 'facts' | 'le
   videos?: Pick<RealisationVideo, 'title' | 'description' | 'transcript'>[]
   testimonial?: Pick<NonNullable<Realisation['testimonial']>, 'quote' | 'role' | 'source'>
   highlights?: Realisation['highlights']
+  showcase?: Realisation['showcase']
+  mockup?: Realisation['mockup']
   direction?: Realisation['direction']
   seo?: Realisation['seo']
 }
@@ -42,6 +44,10 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
   'sos-relevage': {
     tags: ['Showcase site', 'Next.js', 'Local SEO', 'Custom CRM', 'GEO'],
     client: { sector: 'Lift pumps', location: 'Geneva' },
+    mockup: {
+      src: '/images/realisations/sos-relevage/mockup-hero.webp',
+      alt: 'The SOS Relevage website on a laptop and a phone: home page with the before-and-after slider on a plant room',
+    },
     meta: {
       title: 'Local service website and job-management CRM for a Geneva building-services company',
       seoTitle: 'Website and CRM for a Geneva building-services firm | DKDP',
@@ -282,6 +288,18 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
       role: 'Co-manager, Golden Cash Geneva',
       source: 'Google review, translated from French',
     },
+    mockup: {
+      src: '/images/realisations/goldencash-refonte/mockup-hero.webp',
+      alt: 'The Golden Cash website on a laptop and a phone: home page “Vendez votre or au meilleur prix” and the price ticker',
+    },
+    videos: [
+      {
+        title: 'The buy-back estimator, on the live site',
+        description: 'Pick the carat and the weight, read the estimated value in francs or euros, in 11 seconds, unedited.',
+        transcript:
+          'On the Estimation page, the visitor picks the quality of their gold, 18 then 22 carats, and the weight, from 20 to 100 grams. The estimated value is recalculated on every click, in Swiss francs then in euros. The price moved during the recording: for 100 grams of 22-carat gold, the value went from CHF 9,536 to CHF 9,537.',
+      },
+    ],
     faq: [
       { question: 'Where do the prices on the site come from?', answer: 'From an API that queries GoldAPI by default and can switch to XMLCharts from the dashboard. The EUR/CHF rate is read live from Yahoo Finance, with two fallbacks, and a 10-second cache limits paid calls.' },
       { question: 'How long did the rebuild take?', answer: 'Twelve days separate the first commit, on 13 April 2026, from going live, on 25 April 2026. Content and tracking adjustments followed in the weeks after.' },
@@ -328,6 +346,8 @@ export function localizeRealisation(r: Realisation, lang: Locale): Realisation {
     faq: e.faq ?? r.faq,
     testimonial: r.testimonial && e.testimonial ? { ...r.testimonial, ...e.testimonial, translated: true } : r.testimonial,
     highlights: e.highlights ?? r.highlights,
+    showcase: e.showcase ?? r.showcase,
+    mockup: r.mockup && e.mockup ? { ...r.mockup, ...e.mockup } : r.mockup,
     direction: e.direction ?? r.direction,
     seo: e.seo ?? r.seo,
   }

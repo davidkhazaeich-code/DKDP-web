@@ -1,14 +1,18 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { clsx } from 'clsx'
+import { Lock } from 'lucide-react'
 
 export type BrowserFrameProps = {
   src: string
   alt: string
   browserUrl: string
-  variant?: 'card' | 'hero'
+  /** `card` 16:10, `hero` 4:5 puis 16:9, `stage` 16:10 a toutes les tailles (scene d'appareils). */
+  variant?: 'card' | 'hero' | 'stage'
   trigger?: 'hover' | 'visible'
   scrollDuration?: number
+  /** Image du premier ecran de la page : chargee tout de suite, en priorite. */
+  priority?: boolean
   className?: string
 }
 
@@ -21,6 +25,12 @@ function truncateUrl(url: string): string {
   return `${head}...${tail}`
 }
 
+const ASPECT: Record<NonNullable<BrowserFrameProps['variant']>, string> = {
+  card: 'aspect-[16/10]',
+  hero: 'aspect-[4/5] md:aspect-[16/9]',
+  stage: 'aspect-[16/10]',
+}
+
 export function BrowserFrame({
   src,
   alt,
@@ -28,10 +38,13 @@ export function BrowserFrame({
   variant = 'card',
   trigger = 'hover',
   scrollDuration,
+  priority = false,
   className,
 }: BrowserFrameProps) {
   const ref = useRef<HTMLDivElement>(null)
+  const viewportRef = useRef<HTMLDivElement>(null)
   const [shouldAutoscroll, setShouldAutoscroll] = useState(false)
+  const [frameHeight, setFrameHeight] = useState<number | null>(null)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -57,10 +70,17 @@ export function BrowserFrame({
     return () => io.disconnect()
   }, [trigger])
 
-  const aspectClass =
-    variant === 'hero'
-      ? 'aspect-[4/5] md:aspect-[16/9]'
-      : 'aspect-[16/10]'
+  // Hauteur reelle de la zone d'affichage : le defilement s'arrete pile sur le
+  // bas de la page, au lieu de viser la hauteur de la fenetre (100vh).
+  useEffect(() => {
+    const node = viewportRef.current
+    if (!node || typeof ResizeObserver === 'undefined') return
+    const ro = new ResizeObserver(([entry]) => {
+      if (entry) setFrameHeight(Math.round(entry.contentRect.height))
+    })
+    ro.observe(node)
+    return () => ro.disconnect()
+  }, [])
 
   return (
     <div
@@ -69,7 +89,7 @@ export function BrowserFrame({
       data-autoscroll={shouldAutoscroll ? 'true' : undefined}
       className={clsx(
         'group relative w-full overflow-hidden rounded-xl border border-white/10 bg-[#0E0E10]',
-        aspectClass,
+        ASPECT[variant],
         className,
       )}
     >
@@ -82,34 +102,36 @@ export function BrowserFrame({
         </div>
         <div
           data-testid="browser-url"
-          className="ml-2 flex-1 truncate rounded-md bg-[#0E0E10]/60 px-3 py-1 text-[11px] font-mono text-white/60"
+          className="ml-2 flex min-w-0 flex-1 items-center gap-1.5 truncate rounded-md bg-[#0E0E10]/60 px-3 py-1 font-mono text-[11px] text-white/60"
         >
-          {/* Lock icon as text to avoid SVG complexity in this component */}
-          {'🔒'} {truncateUrl(browserUrl)}
+          <Lock className="h-3 w-3 shrink-0 text-white/45" aria-hidden="true" />
+          <span className="truncate">{truncateUrl(browserUrl)}</span>
         </div>
       </div>
 
       {/* Viewport
-          The translating container receives [data-browser-scroll].
-          Animation is driven by CSS in globals.css via:
-            [data-browser-frame]:hover [data-browser-scroll]     → desktop hover
-            [data-browser-frame][data-autoscroll="true"] [...]   → mobile IO (coarse pointer + trigger="visible")
-          Known: translateY endpoint uses 100vh as proxy for frame height.
-          Overshoot guard: images shorter than 100vh will not over-scroll
-          because the image never fills more than the frame; images taller
-          than the frame will scroll correctly on desktop and approximately
-          on mobile (acceptable imprecision, refineable via ResizeObserver). */}
-      <div className="relative h-[calc(100%-2.25rem)] overflow-hidden">
+          Le conteneur qui se translate porte [data-browser-scroll]. L'animation
+          vit dans globals.css :
+            [data-browser-frame]:hover [data-browser-scroll]     → survol desktop
+            [data-browser-frame][data-autoscroll="true"] [...]   → mobile (IO, trigger="visible")
+          --frame-h (mesuree ci-dessus) arrete le defilement sur le bas de la page. */}
+      <div ref={viewportRef} className="relative h-[calc(100%-2.25rem)] overflow-hidden">
         {src ? (
           <div
             data-browser-scroll
             className="absolute inset-x-0 top-0"
-            style={{ '--scroll-duration': `${scrollDuration ?? 12}s` } as React.CSSProperties}
+            style={
+              {
+                '--scroll-duration': `${scrollDuration ?? 12}s`,
+                ...(frameHeight ? { '--frame-h': `${frameHeight}px` } : {}),
+              } as React.CSSProperties
+            }
           >
             <img
               src={src}
               alt={alt}
-              loading="lazy"
+              loading={priority ? 'eager' : 'lazy'}
+              fetchPriority={priority ? 'high' : undefined}
               decoding="async"
               className="block w-full select-none"
             />

@@ -5,7 +5,7 @@ import { REALISATIONS } from '@/lib/realisations'
 export const metadata: Metadata = {
   title: 'Études de cas : sites web, IA et automatisation | DKDP',
   description:
-    "Réalisations de DKDP à Genève : sites web, CRM sur mesure, automatisation IA et SEO local. Chaque chiffre cite sa source et sa date de relevé.",
+    "Réalisations de DKDP à Genève : sites web, CRM sur mesure, automatisation, formations IA et SEO local. Chaque chiffre cite sa source et sa date.",
   alternates: {
     canonical: 'https://dkdp.ch/realisations',
     languages: {

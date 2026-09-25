@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { ROUTES } from '@/lib/routes'
 import { ARTICLES } from '@/lib/blog'
 import { REALISATIONS } from '@/lib/realisations'
+import { hasEnglish } from '@/lib/realisations/en'
 import { FR_TO_EN } from '@/i18n/slugs'
 
 const BASE_URL = 'https://dkdp.ch'
@@ -37,8 +38,12 @@ const LATEST_ARTICLE_DATE = ARTICLES.reduce<string>(
 const LIVE_REALISATIONS = REALISATIONS.filter((r) => r.meta.status === 'live')
 
 /** Réalisation la plus récente : elle date la page de listing /realisations. */
+/** Derniere revision de fond d'une etude, a defaut sa publication (lastmod honnete). */
+const realisationLastmod = (r: (typeof REALISATIONS)[number]) =>
+  r.meta.dateModifiedISO ?? r.meta.publishedISO ?? r.meta.dateISO
+
 const LATEST_REALISATION_DATE = LIVE_REALISATIONS.reduce<string>(
-  (latest, r) => (r.meta.dateISO > latest ? r.meta.dateISO : latest),
+  (latest, r) => (realisationLastmod(r) > latest ? realisationLastmod(r) : latest),
   CONTENT_LAST_MODIFIED,
 )
 
@@ -100,21 +105,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const realisationRoutes: MetadataRoute.Sitemap = LIVE_REALISATIONS.map((r) => ({
     url: `${BASE_URL}/realisations/${r.slug}`,
-    lastModified: r.meta.dateISO,
+    lastModified: realisationLastmod(r),
     changeFrequency: 'monthly' as const,
     priority: 0.70,
-    alternates: {
-      languages: {
-        'fr-CH': `${BASE_URL}/realisations/${r.slug}`,
-        en: `${BASE_URL}/en/portfolio/${r.slug}`,
-      },
-    },
+    ...(hasEnglish(r.slug)
+      ? {
+          alternates: {
+            languages: {
+              'fr-CH': `${BASE_URL}/realisations/${r.slug}`,
+              en: `${BASE_URL}/en/portfolio/${r.slug}`,
+            },
+          },
+        }
+      : {}),
   }))
 
-  // EN realisation detail pages (content shared, EN chrome + localized text).
-  const enRealisationRoutes: MetadataRoute.Sitemap = LIVE_REALISATIONS.map((r) => ({
+  // EN realisation detail pages : seulement les etudes traduites (en.ts).
+  const enRealisationRoutes: MetadataRoute.Sitemap = LIVE_REALISATIONS.filter((r) => hasEnglish(r.slug)).map((r) => ({
     url: `${BASE_URL}/en/portfolio/${r.slug}`,
-    lastModified: r.meta.dateISO,
+    lastModified: realisationLastmod(r),
     changeFrequency: 'monthly' as const,
     priority: 0.66,
     alternates: {

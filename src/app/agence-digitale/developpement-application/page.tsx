@@ -19,6 +19,7 @@ import { HeroVisual } from './_components/HeroVisual'
 import { AppTypesSection } from './_components/AppTypesSection'
 import { TechStack } from './_components/TechStack'
 import { AppGallery } from './_components/AppGallery'
+import { RealisationsForDomain } from '@/components/realisations/RealisationsForDomain'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
@@ -56,12 +57,12 @@ const FAQ = [
   {
     question: 'Quelle technologie choisir entre native (Swift/Kotlin) et React Native ?',
     answer:
-      'React Native couvre 90% des besoins avec un seul code pour iOS et Android — c\'est le choix le plus efficace pour la plupart des projets PME. Le natif est pertinent si votre app requiert des performances graphiques élevées, un accès profond au hardware, ou des fonctionnalités très spécifiques à une plateforme. On vous conseille objectivement selon votre cas.',
+      'React Native couvre 90% des besoins avec un seul code pour iOS et Android : c\'est le choix le plus efficace pour la plupart des projets PME. Le natif est pertinent si votre app requiert des performances graphiques élevées, un accès profond au hardware, ou des fonctionnalités très spécifiques à une plateforme. On vous conseille objectivement selon votre cas.',
   },
   {
     question: 'Est-ce que je garde la propriété du code livré ?',
     answer:
-      'Oui, intégralement. Le code source vous appartient à la livraison finale. Pas de dépendance à DKDP pour faire évoluer votre app par la suite — vous êtes libres de le confier à qui vous voulez.',
+      'Oui, intégralement. Le code source vous appartient à la livraison finale. Pas de dépendance à DKDP pour faire évoluer votre app par la suite : vous êtes libres de le confier à qui vous voulez.',
   },
   {
     question: 'Est-ce que DKDP s\'occupe de la publication sur l\'App Store et Google Play ?',
@@ -401,6 +402,13 @@ export default function DeveloppementApplicationPage() {
       </section>
 
       {/* ── Pourquoi DKDP ── */}
+      <RealisationsForDomain
+        id="etudes-de-cas"
+        domain="application"
+        title="Une application métier reliée à son site"
+        intro="Un tunnel de demande qui alimente un CRM d'interventions sur mesure : l'étude de cas complète, chiffres sourcés compris."
+      />
+
       <section id="pourquoi" className="py-24 scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>

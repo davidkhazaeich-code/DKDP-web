@@ -35,3 +35,21 @@ describe('formatSwissChf', () => {
     expect(formatSwissChf(5000)).toBe("CHF 5'000")
   })
 })
+
+describe('dates sans Intl', () => {
+  it('formatMonthYear', async () => {
+    const { formatMonthYear } = await import('../format')
+    expect(formatMonthYear('2026-08-24')).toBe('août 2026')
+    expect(formatMonthYear('2026-04-15', 'en')).toBe('April 2026')
+  })
+  it('formatDateLong', async () => {
+    const { formatDateLong } = await import('../format')
+    expect(formatDateLong('2026-09-01')).toBe('1er septembre 2026')
+    expect(formatDateLong('2026-09-20')).toBe('20 septembre 2026')
+    expect(formatDateLong('2026-09-20', 'en')).toBe('20 September 2026')
+  })
+  it('formatDateShort', async () => {
+    const { formatDateShort } = await import('../format')
+    expect(formatDateShort('2026-09-05')).toBe('05.09.2026')
+  })
+})

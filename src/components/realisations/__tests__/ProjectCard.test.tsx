@@ -12,7 +12,9 @@ const baseRealisation: Realisation = {
     dateISO: '2026-01-01',
     status: 'live',
   },
-  category: 'site-web',
+  domains: ['site-web'],
+  sector: 'commerce',
+  consent: { level: 'interne' },
   tags: ['Refonte'],
   hero: { desktopFull: '/test.webp', browserUrl: 'test.ch' },
   problem: { title: 'P', body: 'B' },
@@ -33,11 +35,23 @@ describe('ProjectCard', () => {
     expect(screen.getByText(/Test sector/)).toBeInTheDocument()
   })
 
-  it('shows "Captures uniquement" when liveUrl is undefined', () => {
+  it('shows the primary domain', () => {
+    render(<ProjectCard realisation={baseRealisation} />)
+    expect(screen.getByText('Site web')).toBeInTheDocument()
+  })
+
+  it('renders the cover when the project has no site to capture', () => {
     render(
-      <ProjectCard realisation={{ ...baseRealisation, liveUrl: undefined }} />
+      <ProjectCard
+        realisation={{
+          ...baseRealisation,
+          hero: undefined,
+          cover: { src: '/cover.webp', alt: 'Schéma du flux' },
+          liveUrl: undefined,
+        }}
+      />
     )
-    expect(screen.getByText(/Captures uniquement/i)).toBeInTheDocument()
+    expect(screen.getByAltText('Schéma du flux')).toBeInTheDocument()
   })
 
   it('renders initials chip when client has no logo', () => {

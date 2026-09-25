@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { REALISATIONS } from '@/lib/realisations'
-import { localizeRealisation } from '@/lib/realisations/en'
+import { liveForDomain } from '@/lib/realisations'
+import { hasEnglish, localizeRealisation } from '@/lib/realisations/en'
+import { AGENCY_DOMAINS } from '@/lib/realisations/taxonomy'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import {
@@ -44,8 +45,8 @@ export const metadata: Metadata = {
   },
 }
 
-/** The two published case studies, in /en/portfolio order. */
-const CAS_AGENCE = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => localizeRealisation(r, 'en')).map((r) => ({
+/** Translated case studies for the digital-agency services, in /en/portfolio order. */
+const CAS_AGENCE = liveForDomain(AGENCY_DOMAINS, { limit: 2, slugs: hasEnglish }).map((r) => localizeRealisation(r, 'en')).map((r) => ({
   client: r.client.name,
   sector: r.client.sector,
   results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric}: ${x.value}`),

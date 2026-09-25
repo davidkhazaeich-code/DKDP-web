@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { REALISATIONS } from '@/lib/realisations'
-import { localizeRealisation } from '@/lib/realisations/en'
+import { liveForDomain } from '@/lib/realisations'
+import { hasEnglish, localizeRealisation } from '@/lib/realisations/en'
+import { domainLabel } from '@/lib/realisations/taxonomy'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { CheckCircle2, Zap, Search, Settings, ChevronRight, TrendingUp, BarChart2, ShieldCheck, Star, Globe2, Clock, FileText } from 'lucide-react'
@@ -96,11 +97,11 @@ const FAQ_EN = [
   },
 ]
 
-/** The two published case studies, in /en/portfolio order. */
-const CAS_SITES = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => localizeRealisation(r, 'en')).map((r) => ({
+/** Translated website case studies with a site screenshot, in /en/portfolio order. */
+const CAS_SITES = liveForDomain('site-web', { limit: 2, withImage: true, slugs: hasEnglish }).map((r) => localizeRealisation(r, 'en')).map((r) => ({
   client: r.client.name,
-  type: r.category === 'site-web' ? 'Website' : r.category === 'projet-ia' ? 'AI project' : 'Website and AI',
-  image: r.hero.desktopFull,
+  type: domainLabel(r.domains[0], 'en'),
+  image: r.hero?.desktopFull ?? '',
   results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric}: ${x.value}`),
   tech: r.tags.slice(0, 4).join(' · '),
   href: `/en/portfolio/${r.slug}`,

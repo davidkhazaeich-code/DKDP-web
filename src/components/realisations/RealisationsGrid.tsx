@@ -4,65 +4,72 @@ import { useMemo } from 'react'
 import { ProjectCard } from './ProjectCard'
 import { FilterBar, type FilterValue } from './FilterBar'
 import { SectionReveal } from '@/components/ui/SectionReveal'
-import type { Realisation } from '@/lib/realisations/types'
+import { DOMAINS, SECTORS } from '@/lib/realisations/taxonomy'
+import type { Realisation, RealisationDomain, RealisationSector } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
 
 type Props = { items: Realisation[]; lang?: Locale }
 
+const DOMAIN_ORDER = Object.keys(DOMAINS) as RealisationDomain[]
+const SECTOR_ORDER = Object.keys(SECTORS) as RealisationSector[]
+
 export function RealisationsGrid({ items, lang = 'fr' }: Props) {
   const router = useRouter()
   const params = useSearchParams()
-  const hub = lang === 'en' ? '/en/portfolio' : '/realisations'
-  const emptyText = lang === 'en' ? 'No project for this filter.' : 'Aucune realisation pour ce filtre.'
-  const resetText = lang === 'en' ? 'Reset filters' : 'Reinitialiser les filtres'
+  const en = lang === 'en'
+  const hub = en ? '/en/portfolio' : '/realisations'
 
-  const category = (params.get('cat') ?? 'all') as FilterValue['category']
-  const tag = params.get('tag')
+  // Seuls les domaines et secteurs qui ont une etude figurent dans les filtres.
+  const domains = useMemo(
+    () => DOMAIN_ORDER.filter((d) => items.some((r) => r.domains.includes(d))),
+    [items],
+  )
+  const sectors = useMemo(
+    () => SECTOR_ORDER.filter((s) => items.some((r) => r.sector === s)),
+    [items],
+  )
 
-  const availableTags = useMemo(() => {
-    const counts = new Map<string, number>()
-    for (const r of items) for (const t of r.tags) counts.set(t, (counts.get(t) ?? 0) + 1)
-    return [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6).map(([t]) => t)
-  }, [items])
+  const rawDomain = params.get('domaine')
+  const rawSector = params.get('secteur')
+  const value: FilterValue = {
+    domain: domains.includes(rawDomain as RealisationDomain) ? (rawDomain as RealisationDomain) : 'all',
+    sector: sectors.includes(rawSector as RealisationSector) ? (rawSector as RealisationSector) : null,
+  }
 
-  const filtered = useMemo(() => {
-    return items.filter(r => {
-      if (category !== 'all' && r.category !== category) return false
-      if (tag && !r.tags.includes(tag)) return false
-      return true
-    })
-  }, [items, category, tag])
+  const filtered = useMemo(
+    () =>
+      items.filter((r) => {
+        if (value.domain !== 'all' && !r.domains.includes(value.domain)) return false
+        if (value.sector && r.sector !== value.sector) return false
+        return true
+      }),
+    [items, value.domain, value.sector],
+  )
 
   function setFilter(next: FilterValue) {
     const sp = new URLSearchParams()
-    if (next.category !== 'all') sp.set('cat', next.category)
-    if (next.tag) sp.set('tag', next.tag)
+    if (next.domain !== 'all') sp.set('domaine', next.domain)
+    if (next.sector) sp.set('secteur', next.sector)
     const qs = sp.toString()
     router.replace(`${hub}${qs ? `?${qs}` : ''}`, { scroll: false })
   }
 
   return (
     <>
-      <FilterBar
-        category={category}
-        activeTag={tag}
-        availableTags={availableTags}
-        onChange={setFilter}
-        lang={lang}
-      />
+      <FilterBar domains={domains} sectors={sectors} value={value} onChange={setFilter} lang={lang} />
 
       <div className="mx-auto max-w-[1200px] px-6 py-12">
         {filtered.length === 0 ? (
           <div className="py-24 text-center">
             <p className="text-lg text-text-secondary">
-              {emptyText}
+              {en ? 'No project for this filter.' : 'Aucune réalisation pour ce filtre.'}
             </p>
             <button
               type="button"
               className="mt-4 rounded-full border border-border px-4 py-2 text-sm text-text hover:bg-[var(--surface-default)]"
-              onClick={() => setFilter({ category: 'all', tag: null })}
+              onClick={() => setFilter({ domain: 'all', sector: null })}
             >
-              {resetText}
+              {en ? 'Reset filters' : 'Réinitialiser les filtres'}
             </button>
           </div>
         ) : (

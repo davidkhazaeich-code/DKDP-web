@@ -64,9 +64,17 @@ Avis : note de 5,0 sur 5 sur la fiche Google de DKDP (22 avis au 25 septembre 20
 - [Blog DKDP](https://dkdp.ch/blog): Articles sur l'IA, la formation, le SEO et les sites web pour les PME suisses.
 - [Glossaire digital](https://dkdp.ch/glossaire): Définitions des termes clés de l'IA, du SEO et du marketing digital.
 - [À propos de DKDP](https://dkdp.ch/a-propos): L'équipe, la mission et les valeurs de l'agence.
-- [Réalisations](https://dkdp.ch/realisations): Études de cas publiées (Golden Cash, SOS Relevage).
+- [Réalisations](https://dkdp.ch/realisations): Études de cas par domaine (sites, applications, automatisation, IA, formation), avec leurs sources et leurs dates.
 - [Tarifs](https://dkdp.ch/tarifs): Tarifs publics de la formation, de l'IA et des services digitaux.
 - [Contact](https://dkdp.ch/contact): Formulaire de contact et appel découverte gratuit.
+
+## Réalisations (études de cas)
+
+Chaque étude de cas cite ses sources et ses dates. Les chiffres privés d'un client (Search Console, GA4, publicité) ne sont publiés qu'avec son accord écrit.
+
+- [Site et CRM pour une PME du bâtiment à Genève (SOS Relevage)](https://dkdp.ch/realisations/sos-relevage): Site Next.js 15 et CRM d'interventions sur mesure, lancés avec l'activité le 24 août 2026. 1er du pack local Google sur « pompe de relevage genève » au relevé manuel du 20 septembre 2026.
+- [Refonte d'un site de rachat d'or à Genève (Golden Cash)](https://dkdp.ch/realisations/goldencash-refonte): Site Astro 5, estimateur et cours des métaux mis à jour toutes les 10 secondes, API avec une source de secours, mise en production 12 jours après le premier commit (avril 2026).
+- [Automatiser la saisie des dépenses dans Bexio avec n8n et l'IA (projet interne de DKDP)](https://dkdp.ch/realisations/automatisation-depenses-bexio-n8n): Flux n8n de 26 étapes en production depuis avril 2026 : justificatif lu par Claude, 31 catégories comptables, dépense créée et validée dans Bexio, fichier archivé.
 
 ## Blog - Intelligence artificielle et formation
 
@@ -188,6 +196,11 @@ Geographic coverage: Geneva, Lausanne, Fribourg, Sion, Neuchatel and all of Fren
 - [Free SEO audit](https://dkdp.ch/en/digital-agency/seo/seo-audit): SEO audit delivered within 48 hours, no commitment.
 - [Free website audit](https://dkdp.ch/en/digital-agency/web-design/site-audit): Performance, UX, accessibility and SEO, delivered within 48 hours.
 - [Free website quote](https://dkdp.ch/en/digital-agency/web-design/quote): Scope, price and timeline for your website.
+
+## Case studies
+
+- [Website and CRM for a Geneva building-services company (SOS Relevage)](https://dkdp.ch/en/portfolio/sos-relevage): Next.js 15 website and custom intervention CRM, launched with the business on 24 August 2026. First in the Google local pack for “pompe de relevage genève” in a manual check on 20 September 2026.
+- [Rebuilding a Geneva gold-buying website (Golden Cash)](https://dkdp.ch/en/portfolio/goldencash-refonte): Astro 5 site, estimator and precious-metal prices refreshed every 10 seconds, API with a backup source, live 12 days after the first commit (April 2026).
 
 ## About
 

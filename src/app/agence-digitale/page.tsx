@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { REALISATIONS } from '@/lib/realisations'
+import { liveForDomain } from '@/lib/realisations'
+import { AGENCY_DOMAINS } from '@/lib/realisations/taxonomy'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import {
@@ -46,8 +47,8 @@ export const metadata: Metadata = {
   },
 }
 
-/** Les deux réalisations publiées, dans l'ordre de /realisations. */
-const CAS_AGENCE = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => ({
+/** Les études de cas des prestations de l'agence digitale, dans l'ordre de /realisations. */
+const CAS_AGENCE = liveForDomain(AGENCY_DOMAINS, { limit: 2 }).map((r) => ({
   client: r.client.name,
   sector: r.client.sector,
   results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric} : ${x.value}`),

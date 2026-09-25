@@ -1,22 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
-import { BrowserFrame } from '@/components/realisations/BrowserFrame'
-import { RealisationHeader } from '@/components/realisations/RealisationHeader'
-import { ProblemBlock } from '@/components/realisations/ProblemBlock'
-import { ApproachBlock } from '@/components/realisations/ApproachBlock'
-import { StackChips } from '@/components/realisations/StackChips'
-import { ResultsGrid } from '@/components/realisations/ResultsGrid'
-import { GalleryGrid } from '@/components/realisations/GalleryGrid'
-import { TestimonialQuote } from '@/components/realisations/TestimonialQuote'
-import { RelatedRealisations } from '@/components/realisations/RelatedRealisations'
-import { CinematicCTA } from '@/components/realisations/CinematicCTA'
-import { CaseStudyNav } from '@/components/realisations/CaseStudyNav'
-import { HighlightsShowcase } from '@/components/realisations/HighlightsShowcase'
-import { VisualDirection } from '@/components/realisations/VisualDirection'
-import { SeoDirection } from '@/components/realisations/SeoDirection'
-import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildBreadcrumbList, buildRealisationPage } from '@/lib/schema'
+import { CaseStudyPage } from '@/components/realisations/CaseStudyPage'
 import { REALISATIONS, getRealisation, getRelated } from '@/lib/realisations'
+import { hasEnglish } from '@/lib/realisations/en'
 
 type Params = Promise<{ slug: string }>
 
@@ -29,22 +15,26 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params
   const r = getRealisation(slug)
-  if (!r) return { title: 'Realisation introuvable' }
+  if (!r) return { title: 'Réalisation introuvable' }
+  const url = `https://dkdp.ch/realisations/${r.slug}`
   return {
-    title: `${r.client.name} : ${r.meta.title} | Realisations DKDP`,
-    description: r.meta.excerpt,
+    title: r.meta.seoTitle ?? `${r.meta.title} | Réalisation DKDP`,
+    description: r.meta.seoDescription ?? r.meta.excerpt,
     alternates: {
-      canonical: `https://dkdp.ch/realisations/${r.slug}`,
+      canonical: url,
       languages: {
-        'fr-CH': `https://dkdp.ch/realisations/${r.slug}`,
-        en: `https://dkdp.ch/en/portfolio/${r.slug}`,
-        'x-default': `https://dkdp.ch/realisations/${r.slug}`,
+        'fr-CH': url,
+        ...(hasEnglish(r.slug) ? { en: `https://dkdp.ch/en/portfolio/${r.slug}` } : {}),
+        'x-default': url,
       },
     },
     openGraph: {
-      title: `${r.client.name} : ${r.meta.title}`,
-      description: r.meta.excerpt,
-      url: `https://dkdp.ch/realisations/${r.slug}`,
+      type: 'article',
+      title: r.meta.title,
+      description: r.meta.seoDescription ?? r.meta.excerpt,
+      url,
+      publishedTime: r.meta.publishedISO ?? r.meta.dateISO,
+      modifiedTime: r.meta.dateModifiedISO ?? r.meta.publishedISO ?? r.meta.dateISO,
       images: [
         {
           url: `/images/realisations/${r.slug}/og.png`,
@@ -65,54 +55,11 @@ export default async function RealisationDetailPage({ params }: { params: Params
   if (!r) notFound()
   if (r.meta.status === 'archived') redirect('/realisations')
 
-  const related = getRelated(slug, 3)
+  // Toujours des liens vers d'autres etudes : a defaut d'etude proche, les plus recentes.
+  const close = getRelated(slug, 3)
+  const related = close.length > 0
+    ? close
+    : REALISATIONS.filter(x => x.slug !== slug && x.meta.status === 'live').slice(0, 3)
 
-  return (
-    <>
-      <SchemaOrg
-        schema={buildBreadcrumbList([
-          { name: 'Accueil', url: 'https://dkdp.ch/' },
-          { name: 'Realisations', url: 'https://dkdp.ch/realisations' },
-          { name: r.client.name, url: `https://dkdp.ch/realisations/${r.slug}` },
-        ])}
-      />
-      <SchemaOrg
-        schema={buildRealisationPage({
-          realisation: r,
-          images: [
-            `https://dkdp.ch/images/realisations/${r.slug}/og.png`,
-            ...(r.highlights ?? []).map((h) => `https://dkdp.ch${h.image.src}`),
-          ],
-        })}
-      />
-
-      <RealisationHeader r={r} />
-
-      <div className="mx-auto mt-12 max-w-[1200px] px-6">
-        <BrowserFrame
-          src={r.hero.desktopFull}
-          alt={`${r.client.name} : ${r.meta.title}`}
-          browserUrl={r.hero.browserUrl}
-          variant="hero"
-          trigger="visible"
-        />
-      </div>
-
-      <CaseStudyNav r={r} />
-
-      <ProblemBlock problem={r.problem} />
-      <ApproachBlock approach={r.approach} />
-      {r.highlights && r.highlights.length > 0 && (
-        <HighlightsShowcase items={r.highlights} host={r.hero.browserUrl} />
-      )}
-      {r.direction && <VisualDirection d={r.direction} clientName={r.client.name} />}
-      {r.seo && <SeoDirection seo={r.seo} />}
-      {r.stack && <StackChips chips={r.stack} />}
-      {r.results && <ResultsGrid results={r.results} />}
-      {r.gallery && <GalleryGrid items={r.gallery} />}
-      {r.testimonial && <TestimonialQuote t={r.testimonial} />}
-      <RelatedRealisations items={related} />
-      <CinematicCTA />
-    </>
-  )
+  return <CaseStudyPage r={r} related={related} lang="fr" />
 }

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PRIX, chf } from '@/data/pricing'
-import { REALISATIONS } from '@/lib/realisations'
-import { localizeRealisation } from '@/lib/realisations/en'
+import { liveForDomain } from '@/lib/realisations'
+import { hasEnglish, localizeRealisation } from '@/lib/realisations/en'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, TrendingUp, Search, Star, Zap } from 'lucide-react'
@@ -112,11 +112,11 @@ const BENEFITS = [
   },
 ]
 
-/** The two published case studies, in /en/portfolio order. */
-const CAS_SEO = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => localizeRealisation(r, 'en')).map((r) => ({
+/** Translated case studies covering SEO, with a site screenshot, in /en/portfolio order. */
+const CAS_SEO = liveForDomain('seo-geo', { limit: 2, withImage: true, slugs: hasEnglish }).map((r) => localizeRealisation(r, 'en')).map((r) => ({
   client: r.client.name,
-  type: r.category === 'site-web' ? 'Website and local SEO' : r.category === 'projet-ia' ? 'AI project' : 'Website and AI',
-  image: r.hero.desktopFull,
+  type: r.domains.includes('site-web') ? 'Website and local SEO' : 'SEO and GEO',
+  image: r.hero?.desktopFull ?? '',
   results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric}: ${x.value}`),
   tech: r.tags.slice(0, 4).join(' · '),
   href: `/en/portfolio/${r.slug}`,

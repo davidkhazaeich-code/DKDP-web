@@ -1,18 +1,11 @@
-import { Suspense } from 'react'
 import type { Metadata } from 'next'
-import { RealisationsGrid } from '@/components/realisations/RealisationsGrid'
-import { GradTag } from '@/components/ui/GradTag'
-import { GradText } from '@/components/ui/GradText'
-import { CTAFinal } from '@/components/sections/CTAFinal'
-import { LogoBanner } from '@/components/sections/LogoBanner'
-import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildBreadcrumbList, buildRealisationsCollection } from '@/lib/schema'
+import { RealisationsHub } from '@/components/realisations/RealisationsHub'
 import { REALISATIONS } from '@/lib/realisations'
 
 export const metadata: Metadata = {
-  title: 'Realisations DKDP : nos sites web et projets IA livres | Geneve',
+  title: 'Études de cas : sites web, IA et automatisation | DKDP',
   description:
-    "Etudes de cas client DKDP : sites web, refontes, chatbots IA, automatisations. PME suisses, resultats mesures, captures et retours d'experience.",
+    "Réalisations de DKDP à Genève : sites web, CRM sur mesure, automatisation IA et SEO local. Chaque chiffre cite sa source et sa date de relevé.",
   alternates: {
     canonical: 'https://dkdp.ch/realisations',
     languages: {
@@ -22,50 +15,14 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Realisations DKDP',
-    description: 'Sites web et projets IA livres pour PME suisses.',
+    title: 'Réalisations DKDP',
+    description: 'Sites web, applications et automatisations IA livrés en Suisse romande, preuves à l’appui.',
     url: 'https://dkdp.ch/realisations',
-    images: [{ url: '/og-realisations.png', width: 1200, height: 630, alt: 'Realisations DKDP' }],
+    images: [{ url: '/og-realisations.png', width: 1200, height: 630, alt: 'Réalisations DKDP' }],
   },
 }
 
 export default function RealisationsHubPage() {
-  const liveItems = REALISATIONS.filter(r => r.meta.status === 'live')
-  const sectorsCount = new Set(liveItems.map(r => r.client.sector)).size
-
-  return (
-    <>
-      <SchemaOrg schema={buildBreadcrumbList([
-        { name: 'Accueil', url: 'https://dkdp.ch/' },
-        { name: 'Realisations', url: 'https://dkdp.ch/realisations' },
-      ])} />
-      <SchemaOrg schema={buildRealisationsCollection({ items: liveItems })} />
-
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:py-28">
-          <GradTag>Realisations</GradTag>
-          <h1 className="mt-6 text-4xl tracking-[-0.02em] text-text md:text-5xl lg:text-6xl">
-            <GradText as="span">Etudes de cas client</GradText>
-          </h1>
-          <p className="mt-6 max-w-[68ch] text-lg leading-[1.7] text-text-secondary">
-            Sites livres et systemes IA deployes pour des PME suisses. Chaque
-            realisation documente le contexte initial, l&apos;approche retenue et les
-            resultats mesures.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-6 text-sm text-text-muted">
-            <span><b style={{ color: 'var(--violet)' }}>{liveItems.length}</b> projets</span>
-            <span><b style={{ color: 'var(--violet)' }}>{sectorsCount}</b> secteurs</span>
-            <span><b style={{ color: 'var(--violet)' }}>5</b> annees</span>
-          </div>
-        </div>
-      </section>
-
-      <Suspense fallback={<div className="py-12 text-center text-text-muted">Chargement...</div>}>
-        <RealisationsGrid items={liveItems} />
-      </Suspense>
-
-      <LogoBanner />
-      <CTAFinal />
-    </>
-  )
+  const items = REALISATIONS.filter(r => r.meta.status === 'live')
+  return <RealisationsHub items={items} lang="fr" />
 }

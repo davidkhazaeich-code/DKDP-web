@@ -40,3 +40,46 @@ export function formatSwissInt(n: number): string {
 export function formatSwissChf(n: number): string {
   return `CHF ${formatSwissInt(n)}`
 }
+
+const MONTHS: Record<'fr' | 'en', string[]> = {
+  fr: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+  en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+}
+
+/** Parse `YYYY-MM-DD` sans passer par Date ni par le fuseau du serveur. */
+function parseIsoDate(iso: string): { y: number; m: number; d: number } {
+  const [y, m, d] = iso.slice(0, 10).split('-').map(Number)
+  return { y, m, d }
+}
+
+/**
+ * Mois et annee d'une date ISO, sans Intl :
+ *
+ *   formatMonthYear('2026-08-24')        -> "août 2026"
+ *   formatMonthYear('2026-08-24', 'en')  -> "August 2026"
+ */
+export function formatMonthYear(iso: string, lang: 'fr' | 'en' = 'fr'): string {
+  const { y, m } = parseIsoDate(iso)
+  return `${MONTHS[lang][m - 1]} ${y}`
+}
+
+/**
+ * Date longue d'une date ISO, sans Intl :
+ *
+ *   formatDateLong('2026-09-01')        -> "1er septembre 2026"
+ *   formatDateLong('2026-09-20')        -> "20 septembre 2026"
+ *   formatDateLong('2026-09-20', 'en')  -> "20 September 2026"
+ */
+export function formatDateLong(iso: string, lang: 'fr' | 'en' = 'fr'): string {
+  const { y, m, d } = parseIsoDate(iso)
+  const day = lang === 'fr' && d === 1 ? '1er' : String(d)
+  return `${day} ${MONTHS[lang][m - 1]} ${y}`
+}
+
+/**
+ * Date courte a la suisse, sans Intl : `formatDateShort('2026-09-20')` -> "20.09.2026".
+ */
+export function formatDateShort(iso: string): string {
+  const { y, m, d } = parseIsoDate(iso)
+  return `${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.${y}`
+}

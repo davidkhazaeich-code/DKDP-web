@@ -34,6 +34,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
+import { RealisationsForDomain } from '@/components/realisations/RealisationsForDomain'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
@@ -326,6 +327,7 @@ export default function AutomationPage() {
           { label: 'n8n Suisse', href: '#n8n-suisse' },
           { label: 'Outils & intégrations', href: '#outils' },
           { label: 'Processus', href: '#comment-ca-marche' },
+          { label: 'Réalisations', href: '#realisations' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'FAQ', href: '#faq' },
         ]}
@@ -536,6 +538,12 @@ export default function AutomationPage() {
       </section>
 
       {/* ── Pricing ── */}
+      <RealisationsForDomain
+        domain="automatisation"
+        title="Une automatisation en production, racontée de bout en bout"
+        intro="Le flux, les chiffres relevés et ce que nous referions autrement : l'étude de cas d'une automatisation que nous faisons tourner au quotidien."
+      />
+
       <section id="tarifs" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>

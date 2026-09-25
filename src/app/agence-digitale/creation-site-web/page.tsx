@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { REALISATIONS } from '@/lib/realisations'
+import { liveForDomain } from '@/lib/realisations'
+import { domainLabel } from '@/lib/realisations/taxonomy'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { CheckCircle2, Zap, Search, Settings, ChevronRight, TrendingUp, BarChart2, ShieldCheck, Star, Globe2, Clock, FileText } from 'lucide-react'
@@ -44,11 +45,11 @@ export const metadata: Metadata = {
 }
 
 
-/** Les deux réalisations publiées, dans l'ordre de /realisations. */
-const CAS_SITES = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => ({
+/** Les études de cas « site web » avec une capture de site, dans l'ordre de /realisations. */
+const CAS_SITES = liveForDomain('site-web', { limit: 2, withImage: true }).map((r) => ({
   client: r.client.name,
-  type: r.category === 'site-web' ? 'Site web' : r.category === 'projet-ia' ? 'Projet IA' : 'Site et IA',
-  image: r.hero.desktopFull,
+  type: domainLabel(r.domains[0]),
+  image: r.hero?.desktopFull ?? '',
   results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric} : ${x.value}`),
   tech: r.tags.slice(0, 4).join(' · '),
   href: `/realisations/${r.slug}`,

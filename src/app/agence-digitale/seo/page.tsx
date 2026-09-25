@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PRIX, chf, chfMois } from '@/data/pricing'
-import { REALISATIONS } from '@/lib/realisations'
+import { liveForDomain } from '@/lib/realisations'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, TrendingUp, Search, Star, Zap } from 'lucide-react'
@@ -113,11 +113,11 @@ const BENEFITS = [
   },
 ]
 
-/** Les deux réalisations publiées, dans l'ordre de /realisations. */
-const CAS_SEO = REALISATIONS.filter((r) => r.meta.status === 'live').slice(0, 2).map((r) => ({
+/** Les études de cas qui couvrent le SEO, avec une capture de site, dans l'ordre de /realisations. */
+const CAS_SEO = liveForDomain('seo-geo', { limit: 2, withImage: true }).map((r) => ({
   client: r.client.name,
-  type: r.category === 'site-web' ? 'Site et SEO local' : r.category === 'projet-ia' ? 'Projet IA' : 'Site et IA',
-  image: r.hero.desktopFull,
+  type: r.domains.includes('site-web') ? 'Site et SEO local' : 'SEO et GEO',
+  image: r.hero?.desktopFull ?? '',
   results: (r.results ?? []).slice(0, 3).map((x) => `${x.metric} : ${x.value}`),
   tech: r.tags.slice(0, 4).join(' · '),
   href: `/realisations/${r.slug}`,

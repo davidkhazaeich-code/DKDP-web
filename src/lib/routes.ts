@@ -168,9 +168,9 @@ export const REDIRECTS: Redirect[] = [
   { source: '/formation-ia-pour-entreprise-suisse-romande', destination: '/formation-entreprise/ia',  permanent: true },
   { source: '/formation-informatique-entreprise-geneve',    destination: '/formation-entreprise',     permanent: true },
 
-  // ─── Réalisations — ancien site ───────────────────────────────────────────
-  { source: '/nos-realisations',         destination: '/', permanent: true },
-  { source: '/nos-realisations/:slug',   destination: '/', permanent: true },
+  // ─── Réalisations, ancien site : vers le hub des études de cas (25.09.2026) ─
+  { source: '/nos-realisations',         destination: '/realisations', permanent: true },
+  { source: '/nos-realisations/:slug',   destination: '/realisations', permanent: true },
 
   // ─── Formation web design → Formation Figma (2026-08-31) ──────────────────
   // La page parlait de Figma du titre à la FAQ, mais son URL disait « web design ».

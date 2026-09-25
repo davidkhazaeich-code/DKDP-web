@@ -1,60 +1,55 @@
 'use client'
 import { clsx } from 'clsx'
+import { domainLabel, sectorLabel } from '@/lib/realisations/taxonomy'
+import type { RealisationDomain, RealisationSector } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
 
 export type FilterValue = {
-  category: 'all' | 'site-web' | 'projet-ia' | 'site-web-ia'
-  tag: string | null
+  domain: RealisationDomain | 'all'
+  sector: RealisationSector | null
 }
 
 export type FilterBarProps = {
-  category: FilterValue['category']
-  activeTag: string | null
-  availableTags: string[]
-  onChange: (next: FilterValue) => void
+  /** Domaines presents dans les etudes en ligne, dans l'ordre de la taxonomie. */
+  domains: RealisationDomain[]
+  /** Secteurs presents dans les etudes en ligne. */
+  sectors: RealisationSector[]
+  value: FilterValue
+  onChange: (v: FilterValue) => void
   lang?: Locale
 }
 
-const CATEGORY_TABS: Record<Locale, { key: FilterValue['category']; label: string }[]> = {
-  fr: [
-    { key: 'all', label: 'Tous' },
-    { key: 'site-web', label: 'Sites web' },
-    { key: 'projet-ia', label: 'Projets IA' },
-    { key: 'site-web-ia', label: 'Sites + IA' },
-  ],
-  en: [
-    { key: 'all', label: 'All' },
-    { key: 'site-web', label: 'Websites' },
-    { key: 'projet-ia', label: 'AI projects' },
-    { key: 'site-web-ia', label: 'Web + AI' },
-  ],
-}
-
-export function FilterBar({
-  category,
-  activeTag,
-  availableTags,
-  onChange,
-  lang = 'fr',
-}: FilterBarProps) {
-  const hasFilters = category !== 'all' || activeTag !== null
-  const tabs = CATEGORY_TABS[lang]
-  const resetLabel = lang === 'en' ? 'Reset' : 'Reinitialiser'
+/**
+ * Filtres du hub des realisations : un onglet par domaine de service
+ * (seulement ceux qui ont une etude en ligne, jamais un filtre vide) et une
+ * pastille par secteur, pour qu'un prospect retrouve vite un projet de son
+ * metier ou de sa prestation.
+ */
+export function FilterBar({ domains, sectors, value, onChange, lang = 'fr' }: FilterBarProps) {
+  const hasFilters = value.domain !== 'all' || value.sector !== null
+  const en = lang === 'en'
+  const tabs: { key: FilterValue['domain']; label: string }[] = [
+    { key: 'all', label: en ? 'All' : 'Tous' },
+    ...domains.map((d) => ({ key: d, label: domainLabel(d, lang) })),
+  ]
 
   return (
-    <div className="sticky top-[66px] z-30 -mx-6 border-b border-border px-6 py-3 backdrop-blur-2xl" style={{ background: 'color-mix(in srgb, var(--bg) 85%, transparent)' }}>
+    <div
+      className="sticky top-[66px] z-30 -mx-6 border-b border-border px-6 py-3 backdrop-blur-2xl"
+      style={{ background: 'color-mix(in srgb, var(--bg) 85%, transparent)' }}
+    >
       <div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-2">
-        <div className="flex gap-1.5" role="tablist">
-          {tabs.map(t => (
+        <div className="flex flex-wrap gap-1.5" role="tablist" aria-label={en ? 'Service' : 'Prestation'}>
+          {tabs.map((t) => (
             <button
               key={t.key}
               type="button"
               role="tab"
-              aria-selected={category === t.key}
-              onClick={() => onChange({ category: t.key, tag: activeTag })}
+              aria-selected={value.domain === t.key}
+              onClick={() => onChange({ domain: t.key, sector: value.sector })}
               className={clsx(
                 'rounded-full px-3 py-1.5 text-sm font-medium transition',
-                category === t.key
+                value.domain === t.key
                   ? 'bg-[var(--violet-bg)] text-[var(--violet-text)]'
                   : 'text-text-secondary hover:bg-[var(--surface-default)] hover:text-text',
               )}
@@ -65,30 +60,29 @@ export function FilterBar({
         </div>
 
         <div className="ml-auto flex flex-wrap items-center gap-1.5">
-          {availableTags.map(tag => (
+          {sectors.map((s) => (
             <button
-              key={tag}
+              key={s}
               type="button"
-              onClick={() =>
-                onChange({ category, tag: activeTag === tag ? null : tag })
-              }
+              aria-pressed={value.sector === s}
+              onClick={() => onChange({ domain: value.domain, sector: value.sector === s ? null : s })}
               className={clsx(
-                'rounded-full border px-2.5 py-1 text-xs uppercase tracking-wide transition',
-                activeTag === tag
+                'rounded-full border px-2.5 py-1 text-xs transition',
+                value.sector === s
                   ? 'border-[var(--violet-border)] bg-[var(--violet-bg)] text-[var(--violet-text)]'
                   : 'border-border text-text-muted hover:border-border-strong hover:text-text-secondary',
               )}
             >
-              {tag}
+              {sectorLabel(s, lang)}
             </button>
           ))}
           {hasFilters && (
             <button
               type="button"
-              onClick={() => onChange({ category: 'all', tag: null })}
+              onClick={() => onChange({ domain: 'all', sector: null })}
               className="rounded-full px-2.5 py-1 text-xs text-text-muted underline-offset-2 hover:text-text hover:underline"
             >
-              {resetLabel}
+              {en ? 'Reset' : 'Réinitialiser'}
             </button>
           )}
         </div>

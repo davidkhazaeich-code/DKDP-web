@@ -1,54 +1,46 @@
 import type { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
-import { BrowserFrame } from '@/components/realisations/BrowserFrame'
-import { RealisationHeader } from '@/components/realisations/RealisationHeader'
-import { ProblemBlock } from '@/components/realisations/ProblemBlock'
-import { ApproachBlock } from '@/components/realisations/ApproachBlock'
-import { StackChips } from '@/components/realisations/StackChips'
-import { ResultsGrid } from '@/components/realisations/ResultsGrid'
-import { GalleryGrid } from '@/components/realisations/GalleryGrid'
-import { TestimonialQuote } from '@/components/realisations/TestimonialQuote'
-import { RelatedRealisations } from '@/components/realisations/RelatedRealisations'
-import { CinematicCTA } from '@/components/realisations/CinematicCTA'
-import { CaseStudyNav } from '@/components/realisations/CaseStudyNav'
-import { HighlightsShowcase } from '@/components/realisations/HighlightsShowcase'
-import { VisualDirection } from '@/components/realisations/VisualDirection'
-import { SeoDirection } from '@/components/realisations/SeoDirection'
-import { SchemaOrg } from '@/components/seo/SchemaOrg'
-import { buildBreadcrumbList, buildRealisationPage } from '@/lib/schema'
+import { CaseStudyPage } from '@/components/realisations/CaseStudyPage'
 import { REALISATIONS, getRealisation, getRelated } from '@/lib/realisations'
-import { localizeRealisation } from '@/lib/realisations/en'
+import { hasEnglish, localizeRealisation } from '@/lib/realisations/en'
 
 type Params = Promise<{ slug: string }>
 
+/** Only translated case studies get an English page (en.ts). */
 export async function generateStaticParams() {
   return REALISATIONS
-    .filter(r => r.meta.status !== 'private')
+    .filter(r => r.meta.status !== 'private' && hasEnglish(r.slug))
     .map(r => ({ slug: r.slug }))
 }
+
+export const dynamicParams = false
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params
   const base = getRealisation(slug)
-  if (!base) return { title: 'Case study not found' }
+  if (!base || !hasEnglish(slug)) return { title: 'Case study not found' }
   const r = localizeRealisation(base, 'en')
+  const url = `https://dkdp.ch/en/portfolio/${r.slug}`
   return {
-    title: `${r.client.name}: ${r.meta.title} | DKDP Portfolio`,
-    description: r.meta.excerpt,
+    title: r.meta.seoTitle ?? `${r.meta.title} | DKDP Portfolio`,
+    description: r.meta.seoDescription ?? r.meta.excerpt,
     alternates: {
-      canonical: `https://dkdp.ch/en/portfolio/${r.slug}`,
+      canonical: url,
       languages: {
         'fr-CH': `https://dkdp.ch/realisations/${r.slug}`,
-        en: `https://dkdp.ch/en/portfolio/${r.slug}`,
+        en: url,
         'x-default': `https://dkdp.ch/realisations/${r.slug}`,
       },
     },
     openGraph: {
-      title: `${r.client.name}: ${r.meta.title}`,
-      description: r.meta.excerpt,
-      url: `https://dkdp.ch/en/portfolio/${r.slug}`,
+      type: 'article',
+      title: r.meta.title,
+      description: r.meta.seoDescription ?? r.meta.excerpt,
+      url,
       locale: 'en_US',
       alternateLocale: ['fr_CH'],
+      publishedTime: r.meta.publishedISO ?? r.meta.dateISO,
+      modifiedTime: r.meta.dateModifiedISO ?? r.meta.publishedISO ?? r.meta.dateISO,
       images: [{ url: `/images/realisations/${r.slug}/og.png`, width: 1200, height: 630, alt: r.meta.title }],
     },
     robots: r.meta.status === 'private' ? { index: false, follow: true } : undefined,
@@ -58,58 +50,15 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 export default async function PortfolioDetailPageEN({ params }: { params: Params }) {
   const { slug } = await params
   const base = getRealisation(slug)
-  if (!base) notFound()
+  if (!base || !hasEnglish(slug)) notFound()
   if (base.meta.status === 'archived') redirect('/en/portfolio')
 
   const r = localizeRealisation(base, 'en')
-  const related = getRelated(slug, 3).map(x => localizeRealisation(x, 'en'))
+  const close = getRelated(slug, 3).filter(x => hasEnglish(x.slug))
+  const pool = close.length > 0
+    ? close
+    : REALISATIONS.filter(x => x.slug !== slug && x.meta.status === 'live' && hasEnglish(x.slug)).slice(0, 3)
+  const related = pool.map(x => localizeRealisation(x, 'en'))
 
-  return (
-    <>
-      <SchemaOrg
-        schema={buildBreadcrumbList([
-          { name: 'Home', url: 'https://dkdp.ch/en' },
-          { name: 'Portfolio', url: 'https://dkdp.ch/en/portfolio' },
-          { name: r.client.name, url: `https://dkdp.ch/en/portfolio/${r.slug}` },
-        ])}
-      />
-      <SchemaOrg
-        schema={buildRealisationPage({
-          realisation: r,
-          images: [
-            `https://dkdp.ch/images/realisations/${r.slug}/og.png`,
-            ...(r.highlights ?? []).map((h) => `https://dkdp.ch${h.image.src}`),
-          ],
-        })}
-      />
-
-      <RealisationHeader r={r} lang="en" />
-
-      <div className="mx-auto mt-12 max-w-[1200px] px-6">
-        <BrowserFrame
-          src={r.hero.desktopFull}
-          alt={`${r.client.name}: ${r.meta.title}`}
-          browserUrl={r.hero.browserUrl}
-          variant="hero"
-          trigger="visible"
-        />
-      </div>
-
-      <CaseStudyNav r={r} lang="en" />
-
-      <ProblemBlock problem={r.problem} lang="en" />
-      <ApproachBlock approach={r.approach} lang="en" />
-      {r.highlights && r.highlights.length > 0 && (
-        <HighlightsShowcase items={r.highlights} host={r.hero.browserUrl} lang="en" />
-      )}
-      {r.direction && <VisualDirection d={r.direction} clientName={r.client.name} lang="en" />}
-      {r.seo && <SeoDirection seo={r.seo} lang="en" />}
-      {r.stack && <StackChips chips={r.stack} />}
-      {r.results && <ResultsGrid results={r.results} lang="en" />}
-      {r.gallery && <GalleryGrid items={r.gallery} lang="en" />}
-      {r.testimonial && <TestimonialQuote t={r.testimonial} />}
-      <RelatedRealisations items={related} lang="en" />
-      <CinematicCTA lang="en" />
-    </>
-  )
+  return <CaseStudyPage r={r} related={related} lang="en" />
 }

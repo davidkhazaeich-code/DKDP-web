@@ -3,57 +3,59 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { FilterBar } from '../FilterBar'
 
 describe('FilterBar', () => {
-  it('renders the four category tabs', () => {
+  it('renders « Tous » and one tab per available domain', () => {
     render(
       <FilterBar
-        category="all"
-        availableTags={['Refonte', 'Chatbot']}
-        activeTag={null}
+        domains={['site-web', 'automatisation']}
+        sectors={['batiment']}
+        value={{ domain: 'all', sector: null }}
         onChange={() => {}}
       />
     )
     expect(screen.getByRole('tab', { name: 'Tous' })).toBeInTheDocument()
-    expect(screen.getByRole('tab', { name: 'Sites web' })).toBeInTheDocument()
-    expect(screen.getByRole('tab', { name: 'Projets IA' })).toBeInTheDocument()
-    expect(screen.getByRole('tab', { name: 'Sites + IA' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Site web' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Automatisation IA' })).toBeInTheDocument()
+    expect(screen.queryByRole('tab', { name: 'Formation IA' })).not.toBeInTheDocument()
   })
 
-  it('calls onChange with new category when a tab is clicked', () => {
+  it('calls onChange with the new domain and keeps the sector', () => {
     const onChange = vi.fn()
     render(
       <FilterBar
-        category="all"
-        availableTags={[]}
-        activeTag={null}
+        domains={['site-web', 'automatisation']}
+        sectors={['batiment']}
+        value={{ domain: 'all', sector: 'batiment' }}
         onChange={onChange}
       />
     )
-    fireEvent.click(screen.getByRole('tab', { name: 'Sites web' }))
-    expect(onChange).toHaveBeenCalledWith({ category: 'site-web', tag: null })
+    fireEvent.click(screen.getByRole('tab', { name: 'Site web' }))
+    expect(onChange).toHaveBeenCalledWith({ domain: 'site-web', sector: 'batiment' })
   })
 
-  it('renders available tag chips as buttons', () => {
+  it('renders sector chips that toggle', () => {
+    const onChange = vi.fn()
     render(
       <FilterBar
-        category="all"
-        availableTags={['Refonte', 'SEO local']}
-        activeTag={null}
+        domains={['site-web']}
+        sectors={['batiment', 'metaux-precieux']}
+        value={{ domain: 'all', sector: 'batiment' }}
+        onChange={onChange}
+      />
+    )
+    expect(screen.getByRole('button', { name: 'Métaux précieux' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Bâtiment' }))
+    expect(onChange).toHaveBeenCalledWith({ domain: 'all', sector: null })
+  })
+
+  it('shows a reset button when a filter is active', () => {
+    render(
+      <FilterBar
+        domains={['site-web']}
+        sectors={['batiment']}
+        value={{ domain: 'site-web', sector: null }}
         onChange={() => {}}
       />
     )
-    expect(screen.getByRole('button', { name: 'Refonte' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'SEO local' })).toBeInTheDocument()
-  })
-
-  it('shows reset button when filters are active', () => {
-    render(
-      <FilterBar
-        category="site-web"
-        availableTags={[]}
-        activeTag="Refonte"
-        onChange={() => {}}
-      />
-    )
-    expect(screen.getByRole('button', { name: /Reinitialiser/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Réinitialiser/i })).toBeInTheDocument()
   })
 })

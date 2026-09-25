@@ -3,6 +3,7 @@ import { chromium } from '@playwright/test'
 import sharp from 'sharp'
 import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
+import { blockTracking, slowScrollToBottom } from './block-tracking.mjs'
 
 const args = Object.fromEntries(
   process.argv.slice(2).reduce((acc, cur, i, arr) => {
@@ -70,14 +71,12 @@ const browser = await chromium.launch()
     viewport: { width: 1440, height: 900 },
     deviceScaleFactor: 1,
   })
+  await blockTracking(context)
   const page = await context.newPage()
   await page.goto(url, { waitUntil: 'networkidle', timeout: 30_000 })
 
-  // Trigger lazy-loads by progressive scroll
-  for (let y = 0; y < 8000; y += 1000) {
-    await page.evaluate(yy => window.scrollTo({ top: yy, behavior: 'instant' }), y)
-    await page.waitForTimeout(150)
-  }
+  // Lazy-loads et sections revelees a l'intersection : defilement lent sur toute la page
+  await slowScrollToBottom(page)
 
   // Fullpage desktop
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
@@ -108,13 +107,11 @@ const browser = await chromium.launch()
     deviceScaleFactor: 2,
     userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)',
   })
+  await blockTracking(context)
   const page = await context.newPage()
   await page.goto(url, { waitUntil: 'networkidle', timeout: 30_000 })
 
-  for (let y = 0; y < 8000; y += 1000) {
-    await page.evaluate(yy => window.scrollTo({ top: yy, behavior: 'instant' }), y)
-    await page.waitForTimeout(150)
-  }
+  await slowScrollToBottom(page)
 
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
   const mobileFull = await page.screenshot({ fullPage: true, type: 'png' })

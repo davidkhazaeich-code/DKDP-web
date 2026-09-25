@@ -1,0 +1,28 @@
+{
+  "slug": "sos-relevage",
+  "name": "tunnel-demande",
+  "base": "https://sos-relevage.ch",
+  "viewport": { "width": 1280, "height": 800 },
+  "trimStart": 1.4,
+  "posterAt": 4.5,
+  "block": ["**/api/demande**"],
+  "actions": [
+    { "do": "goto", "url": "/" },
+    { "do": "wait", "ms": 2300 },
+    { "do": "click", "role": "button", "name": "Faire une demande" },
+    { "do": "wait", "ms": 1400 },
+    { "do": "click", "role": "button", "name": "Contrôle et entretien" },
+    { "do": "wait", "ms": 1200 },
+    { "do": "click", "role": "button", "name": "Régie, syndic, gérance" },
+    { "do": "wait", "ms": 1100 },
+    { "do": "click", "selector": "[role=dialog] input[name=address]" },
+    { "do": "type", "selector": "[role=dialog] input[name=address]", "text": "Rue du 31-Décembre 36", "delay": 70 },
+    { "do": "wait", "ms": 1600 },
+    { "do": "click", "role": "button", "name": "Rue du 31-Décembre 36" },
+    { "do": "wait", "ms": 1000 },
+    { "do": "click", "role": "button", "name": "Eaux usées Douche" },
+    { "do": "wait", "ms": 1000 },
+    { "do": "click", "role": "button", "name": "Continuer" },
+    { "do": "wait", "ms": 2600 }
+  ]
+}

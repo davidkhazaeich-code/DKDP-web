@@ -1,0 +1,12 @@
+{
+  "slug": "automatisation-depenses-bexio-n8n",
+  "eyebrow": "Réalisation · Automatisation IA",
+  "title": "Un justificatif déposé, une dépense Bexio classée et archivée",
+  "steps": [
+    { "label": "Justificatif déposé", "detail": "dossier Google Drive « _Inbox »", "kind": "source" },
+    { "label": "Lecture par Claude", "detail": "fournisseur, date, montants, catégorie", "kind": "ia" },
+    { "label": "Compte comptable", "detail": "31 catégories vers le plan Bexio", "kind": "controle" },
+    { "label": "Dépense Bexio", "detail": "créée avec son justificatif, validée", "kind": "outil" },
+    { "label": "Archive", "detail": "rangée par année et par mois", "kind": "sortie" }
+  ]
+}

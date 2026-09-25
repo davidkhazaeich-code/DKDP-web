@@ -65,3 +65,36 @@ avec ce protocole.
 
 Les trois blocs sont facultatifs : une realisation sans `highlights` garde le gabarit
 d'origine. L'overlay EN (`en.ts`) les traduit bloc par bloc.
+
+## Réalisations v2 (2026-09-25) : tous les domaines, preuves obligatoires
+
+Le modèle (`src/lib/realisations/types.ts`) couvre désormais n'importe quel domaine
+(`domains`, alignés sur les pages service dans `taxonomy.ts`), un secteur normalisé,
+un niveau d'accord client (`consent`) et des résultats qui portent tous `source`,
+`sourceKind` et `capturedAt`. Les règles sont vérifiées par
+`src/lib/realisations/__tests__/proof.test.ts` : une étude en ligne qui les enfreint fait
+échouer la suite (client nommé sans preuve d'accord, chiffre privé d'un client sans accord
+écrit, relevé non daté, image manquante, tiret cadratin, étude absente du `llms.txt`,
+accord « à confirmer » dont la date limite est passée).
+
+Nouveaux blocs optionnels : `answer` et `facts` (en-tête), `flow` (`FlowDiagram`),
+`videos` et `beforeAfter` (`CaseStudyMedia`), `dataStories` (`DataStory`, SVG statique +
+tableau), `conversation` (`ChatReplay`), `training` (`TrainingBlock`), `lessons`, `faq`,
+`relatedArticles`. Une étude sans site à capturer utilise `cover` et son `flow` prend la
+place de la capture. La page anglaise n'existe que si l'étude a une entrée dans `en.ts`.
+
+## Outils ajoutés le 2026-09-25
+
+| Outil | Rôle |
+|---|---|
+| `block-tracking.mjs` | Coupe GA4, Ads, pixels et Vercel Insights pendant une capture ou une vidéo (une capture ne compte jamais comme une visite chez le client), et défile lentement pour révéler les sections |
+| `render-flow-cover.mjs --spec specs/<slug>-cover.json` | Couverture 16:10 (`cover.webp`) et image de partage (`og.png`) d'une étude sans site, rendues depuis son flux dans la charte sombre |
+| `record-video.mjs --spec specs/<slug>-<nom>.json` | Vidéo d'interaction scénarisée (Playwright), sortie MP4 H.264 + WebM VP9 + affiche WebP. Le champ `block` coupe les envois de formulaire : **jamais d'envoi réel** |
+
+`capture.mjs` et `capture-sections.mjs` bloquent désormais les traceurs, et `capture.mjs`
+défile lentement toute la page avant la capture pleine page (les sections révélées à
+l'intersection restaient grises après un saut).
+
+⚠️ Wayback Machine : l'archive du 15.03.2026 de goldencash.ch s'affiche sans feuille de
+style. Ne jamais publier ce rendu comme « l'ancien site » ; capturer l'avant d'une refonte
+AVANT la bascule du domaine (Integrali : site Tilda à capturer avant le 17.11.2026).

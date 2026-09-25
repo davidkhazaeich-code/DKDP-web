@@ -26,6 +26,7 @@ import { chromium } from 'playwright'
 import sharp from 'sharp'
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { blockTracking } from './block-tracking.mjs'
 
 const args = Object.fromEntries(
   process.argv.slice(2).reduce((acc, a, i, arr) => {
@@ -63,6 +64,7 @@ for (const s of shots) {
     isMobile: mobile,
     hasTouch: mobile,
   })
+  await blockTracking(page)
   try {
     await page.goto(base.replace(/\/$/, '') + s.url, { waitUntil: 'domcontentloaded', timeout: 60000 })
     await page.waitForTimeout(1500)

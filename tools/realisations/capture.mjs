@@ -18,10 +18,16 @@ const sectionsArg = args.sections ?? '0.33,0.66,0.90'
 const mobileSectionsArg = args['mobile-sections'] ?? '0.50'
 
 if (!url || !slug) {
-  console.error('Usage : node tools/realisations/capture.mjs --url <URL> --slug <SLUG> [--sections 0.33,0.66,0.90] [--mobile-sections 0.50]')
+  console.error('Usage : node tools/realisations/capture.mjs --url <URL> --slug <SLUG> [--sections 0.33,0.66,0.90] [--mobile-sections 0.50] [--css "<regles>"] [--only desktop,mobile]')
   process.exit(2)
 }
 
+// --css : masque un widget tiers (bulle d'avis, chat) sur toutes les captures.
+// --only : n'ecrit que ces sorties (desktop, og, sections, mobile, mobile-sections),
+//          pour refaire une capture sans ecraser les autres fichiers du dossier.
+const css = args.css
+const only = args.only ? new Set(args.only.split(',')) : null
+const want = (name) => !only || only.has(name)
 const sections = sectionsArg.split(',').map(Number)
 const mobileSections = mobileSectionsArg.split(',').map(Number)
 
@@ -74,25 +80,30 @@ const browser = await chromium.launch()
   await blockTracking(context)
   const page = await context.newPage()
   await page.goto(url, { waitUntil: 'networkidle', timeout: 30_000 })
+  if (css) await page.addStyleTag({ content: css })
 
   // Lazy-loads et sections revelees a l'intersection : defilement lent sur toute la page
   await slowScrollToBottom(page)
 
   // Fullpage desktop
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
-  const desktopFull = await page.screenshot({ fullPage: true, type: 'png' })
-  await toWebp(desktopFull, path.join(outDir, 'desktop.webp'))
+  if (want('desktop')) {
+    const desktopFull = await page.screenshot({ fullPage: true, type: 'png' })
+    await toWebp(desktopFull, path.join(outDir, 'desktop.webp'))
+  }
 
   // OG (top viewport, cropped to 1200x630)
-  await page.setViewportSize({ width: 1200, height: 800 })
-  const ogPng = await page.screenshot({ fullPage: false, type: 'png' })
-  const ogCropped = await sharp(ogPng).resize(1200, 630, { fit: 'cover', position: 'top' }).png().toBuffer()
-  await writeFile(path.join(outDir, 'og.png'), ogCropped)
-  console.log(` og.png : ${(ogCropped.length / 1024).toFixed(0)} KB`)
+  if (want('og')) {
+    await page.setViewportSize({ width: 1200, height: 800 })
+    const ogPng = await page.screenshot({ fullPage: false, type: 'png' })
+    const ogCropped = await sharp(ogPng).resize(1200, 630, { fit: 'cover', position: 'top' }).png().toBuffer()
+    await writeFile(path.join(outDir, 'og.png'), ogCropped)
+    console.log(` og.png : ${(ogCropped.length / 1024).toFixed(0)} KB`)
+  }
 
   // Section captures at scroll positions
   await page.setViewportSize({ width: 1440, height: 900 })
-  for (let i = 0; i < sections.length; i++) {
+  for (let i = 0; want('sections') && i < sections.length; i++) {
     const buf = await captureViewport(page, sections[i])
     await toWebp(buf, path.join(outDir, `section-${i + 1}.webp`))
   }
@@ -101,7 +112,7 @@ const browser = await chromium.launch()
 }
 
 // Mobile captures
-{
+if (want('mobile') || want('mobile-sections')) {
   const context = await browser.newContext({
     viewport: { width: 390, height: 844 },
     deviceScaleFactor: 2,
@@ -110,14 +121,17 @@ const browser = await chromium.launch()
   await blockTracking(context)
   const page = await context.newPage()
   await page.goto(url, { waitUntil: 'networkidle', timeout: 30_000 })
+  if (css) await page.addStyleTag({ content: css })
 
   await slowScrollToBottom(page)
 
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
-  const mobileFull = await page.screenshot({ fullPage: true, type: 'png' })
-  await toWebp(mobileFull, path.join(outDir, 'mobile.webp'))
+  if (want('mobile')) {
+    const mobileFull = await page.screenshot({ fullPage: true, type: 'png' })
+    await toWebp(mobileFull, path.join(outDir, 'mobile.webp'))
+  }
 
-  for (let i = 0; i < mobileSections.length; i++) {
+  for (let i = 0; want('mobile-sections') && i < mobileSections.length; i++) {
     const buf = await captureViewport(page, mobileSections[i])
     await toWebp(buf, path.join(outDir, `mobile-section-${i + 1}.webp`))
   }

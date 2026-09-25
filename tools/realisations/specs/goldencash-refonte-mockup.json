@@ -1,0 +1,5 @@
+{ "slug": "goldencash-refonte", "outputs": [
+  { "name": "mockup-hero", "layout": "laptop-phone", "width": 1600, "height": 1000, "og": true,
+    "desktop": "public/images/realisations/goldencash-refonte/hero-desktop.webp",
+    "mobile": "public/images/realisations/goldencash-refonte/hero-mobile.webp", "url": "goldencash.ch" }
+] }

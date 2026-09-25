@@ -1,0 +1,5 @@
+{ "slug": "sos-relevage", "outputs": [
+  { "name": "mockup-hero", "layout": "laptop-phone", "width": 1600, "height": 1000, "og": true,
+    "desktop": "public/images/realisations/sos-relevage/hero-desktop.webp",
+    "mobile": "public/images/realisations/sos-relevage/hero-mobile.webp", "url": "sos-relevage.ch" }
+] }

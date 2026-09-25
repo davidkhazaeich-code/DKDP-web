@@ -1,0 +1,5 @@
+{ "slug": "formation-ia-restauration-station", "outputs": [
+  { "name": "supports-mockup", "layout": "slides", "width": 1600, "height": 1000,
+    "slides": ["public/images/realisations/formation-ia-restauration-station/support-2.webp",
+               "public/images/realisations/formation-ia-restauration-station/support-1.webp"] }
+] }

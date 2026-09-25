@@ -1,0 +1,5 @@
+{ "slug": "sos-relevage-crm-interventions", "outputs": [
+  { "name": "rapport-mockup", "layout": "documents", "width": 1600, "height": 1000, "og": true,
+    "pages": ["tools/realisations/assets/sos-relevage-crm-interventions/rapport-fictif-page-1.png",
+              "tools/realisations/assets/sos-relevage-crm-interventions/rapport-fictif-page-2.png"] }
+] }

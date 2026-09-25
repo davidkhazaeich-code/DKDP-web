@@ -1,0 +1,99 @@
+{
+  "slug": "goldencash-refonte",
+  "name": "estimateur",
+  "base": "https://goldencash.ch",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "trimStart": 2.4,
+  "posterAt": 5,
+  "block": [],
+  "actions": [
+    {
+      "do": "goto",
+      "url": "/estimation/"
+    },
+    {
+      "do": "css",
+      "content": ".ti-widget { display: none !important; }"
+    },
+    {
+      "do": "wait",
+      "ms": 1600
+    },
+    {
+      "do": "clickIfVisible",
+      "selector": "#price-popup-close"
+    },
+    {
+      "do": "wait",
+      "ms": 400
+    },
+    {
+      "do": "scrollTo",
+      "selector": "[data-karat='18k']",
+      "offset": -160,
+      "ms": 1300
+    },
+    {
+      "do": "click",
+      "selector": "[data-karat='18k']"
+    },
+    {
+      "do": "wait",
+      "ms": 1100
+    },
+    {
+      "do": "click",
+      "role": "button",
+      "name": "^20g$"
+    },
+    {
+      "do": "wait",
+      "ms": 1200
+    },
+    {
+      "do": "click",
+      "role": "button",
+      "name": "^50g$"
+    },
+    {
+      "do": "wait",
+      "ms": 1200
+    },
+    {
+      "do": "click",
+      "selector": "[data-karat='22k']"
+    },
+    {
+      "do": "wait",
+      "ms": 1300
+    },
+    {
+      "do": "click",
+      "role": "button",
+      "name": "^100g$"
+    },
+    {
+      "do": "wait",
+      "ms": 1400
+    },
+    {
+      "do": "click",
+      "selector": "#currency-eur"
+    },
+    {
+      "do": "wait",
+      "ms": 1400
+    },
+    {
+      "do": "click",
+      "selector": "#currency-chf"
+    },
+    {
+      "do": "wait",
+      "ms": 1300
+    }
+  ]
+}

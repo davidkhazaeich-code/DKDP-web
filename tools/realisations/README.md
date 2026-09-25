@@ -98,3 +98,38 @@ l'intersection restaient grises après un saut).
 ⚠️ Wayback Machine : l'archive du 15.03.2026 de goldencash.ch s'affiche sans feuille de
 style. Ne jamais publier ce rendu comme « l'ancien site » ; capturer l'avant d'une refonte
 AVANT la bascule du domaine (Integrali : site Tilda à capturer avant le 17.11.2026).
+
+## Réalisations v3 (2026-09-25, soir) : mises en scène, vidéos, mouvement
+
+| Outil | Rôle |
+|---|---|
+| `render-mockup.mjs --spec specs/<slug>-mockup.json` | Met de **vraies captures** en scène, jamais un écran inventé. Mises en page `laptop-phone` (ordinateur + téléphone), `laptop`, `documents` (pages A4 en éventail) et `slides` (slides 16:9 en pile, la première devant). Sortie `<name>.webp` 1600x1000 et, avec `"og": true`, `<name>-og.png` 1200x630 (renommé en `og.png` pour l'aperçu social) |
+| `capture.mjs --css "<règles>" --only desktop,mobile` | Masque un widget tiers (bulle d'avis Trustindex : `.ti-widget{display:none!important}`) et ne réécrit que les sorties demandées (`desktop`, `og`, `sections`, `mobile`, `mobile-sections`) |
+| `capture-sections.mjs` : champ `css` | Même masquage, capture par capture |
+| `record-video.mjs` : actions `clickIfVisible`, `retype`, `scrollTo`, `css` | Fermer une fenêtre qui n'apparaît pas à chaque visite, retaper un champ, défiler en douceur jusqu'à un élément, injecter du CSS |
+
+⚠️ `render-mockup.mjs` passe les images en data URI : une page créée par `setContent` n'a
+pas le droit de lire des fichiers `file://`, et le mockup sortait vide.
+
+Nouveaux champs du modèle : `hero.desktopView` et `hero.mobileView` (premiers écrans à la
+taille de l'écran, pour la scène d'appareils), `mockup` (composition pour le hub et les
+cartes), `cover.lead` (la couverture devient le visuel de tête), `showcase` (titre et intro
+des sections phares), `highlights[].image.host`, `gallery[].document` (pages de livrable
+posées comme des feuilles). `studyVisual()` (`src/lib/realisations/visual.ts`) choisit le
+visuel d'une étude hors de sa page : mockup, sinon couverture, sinon premier écran.
+
+Composants : `DeviceStage` (page entière qui défile dans le navigateur, téléphone devant,
+parallaxe Motion), `CoverStage`, `HubHeroVisual` (mises en scène en fondu, pause au survol),
+`CardMedia` (vidéo au survol à la souris), `CountUp` (chiffres qui défilent, valeur finale
+au rendu serveur), grille bento `bentoLayout()` (rangées toujours pleines, testée),
+`SectionReveal variant="wipe"` (courbe et frise qui se tracent). Tout s'arrête avec
+`prefers-reduced-motion`.
+
+⚠️ `SectionReveal variant="wipe"` : le clip-path vit sur un enfant (`.wipe-inner`). Un
+élément rogné à 100 % par son propre clip-path n'intersecte jamais : IntersectionObserver ne
+le voit pas entrer et la courbe restait invisible.
+
+⚠️ Serveur de dev dans un worktree : après une modification de `globals.css`, le CSS servi
+peut rester l'ancien, même après un redémarrage. Vérifier le CSS servi
+(`curl -s localhost:<port>/_next/static/chunks/...css | grep <classe>`) et supprimer `.next`
+du worktree s'il est périmé.

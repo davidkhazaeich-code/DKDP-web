@@ -76,8 +76,34 @@ try {
     if (a.do === 'goto') await page.goto(new URL(a.url, spec.base).href, { waitUntil: 'domcontentloaded', timeout: 60_000 })
     else if (a.do === 'wait') await page.waitForTimeout(a.ms)
     else if (a.do === 'click') await target(page, a).click()
+    // Fenetre ou bandeau qui n'apparait pas a chaque visite : on le ferme s'il est la.
+    else if (a.do === 'clickIfVisible') {
+      const el = target(page, a)
+      if (await el.isVisible().catch(() => false)) await el.click().catch(() => {})
+    }
     else if (a.do === 'type') await target(page, a).pressSequentially(a.text, { delay: a.delay ?? 60 })
+    // Remplace le contenu d'un champ, lettre par lettre, pour que la saisie se voie.
+    else if (a.do === 'retype') {
+      const el = target(page, a)
+      await el.click({ clickCount: 3 })
+      await page.keyboard.press('Backspace')
+      await el.pressSequentially(a.text, { delay: a.delay ?? 90 })
+    }
     else if (a.do === 'scroll') await page.mouse.wheel(0, a.y)
+    // Defilement doux jusqu'a un element, avec un decalage pour laisser respirer le haut.
+    else if (a.do === 'scrollTo') {
+      await page.evaluate(
+        ({ selector, offset }) => {
+          const el = document.querySelector(selector)
+          if (!el) return
+          const y = el.getBoundingClientRect().top + window.scrollY + (offset ?? -120)
+          window.scrollTo({ top: y, behavior: 'smooth' })
+        },
+        { selector: a.selector, offset: a.offset },
+      )
+      await page.waitForTimeout(a.ms ?? 900)
+    }
+    else if (a.do === 'css') await page.addStyleTag({ content: a.content })
     else throw new Error(`Action inconnue : ${a.do}`)
   }
   rawPath = await page.video().path()

@@ -1,0 +1,5 @@
+{ "slug": "formation-ia-pharmacovigilance", "outputs": [
+  { "name": "supports-mockup", "layout": "slides", "width": 1600, "height": 1000,
+    "slides": ["public/images/realisations/formation-ia-pharmacovigilance/support-1.webp",
+               "public/images/realisations/formation-ia-pharmacovigilance/support-2.webp"] }
+] }

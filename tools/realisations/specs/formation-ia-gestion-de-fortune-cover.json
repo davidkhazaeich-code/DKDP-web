@@ -1,0 +1,11 @@
+{
+  "slug": "formation-ia-gestion-de-fortune",
+  "eyebrow": "Réalisation · Formation IA",
+  "title": "Deux référents formés à Claude, la gouvernance d'abord",
+  "steps": [
+    { "label": "Cadre de confiance", "detail": "données à confier, paramétrage", "kind": "controle" },
+    { "label": "Prompting", "detail": "instructions, contexte, gabarits", "kind": "ia" },
+    { "label": "Cas métier", "detail": "gestion, recherche, conformité", "kind": "outil" },
+    { "label": "Relais interne", "detail": "automatisation, feuille de route", "kind": "sortie" }
+  ]
+}

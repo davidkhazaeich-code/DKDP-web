@@ -1,0 +1,11 @@
+{
+  "slug": "formation-ia-pharmacovigilance",
+  "eyebrow": "Réalisation · Formation IA",
+  "title": "Une équipe pharma formée à l'IA, la confidentialité d'abord",
+  "steps": [
+    { "label": "Comprendre l'IA", "detail": "modèle de langage, limites, outils", "kind": "source" },
+    { "label": "Confidentialité", "detail": "trois règles avant toute saisie", "kind": "controle" },
+    { "label": "Prompting", "detail": "action, rôle, contexte, ton et format", "kind": "ia" },
+    { "label": "Pratique", "detail": "trois dossiers fictifs du métier", "kind": "sortie" }
+  ]
+}

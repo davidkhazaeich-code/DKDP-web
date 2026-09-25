@@ -17,6 +17,7 @@
  *   { "name": "gestes", "url": "/urgence", "scroll": 950 }              // defile lentement jusqu'a 950 px
  *   { "name": "tunnel", "url": "/", "click": "button:has-text(\"Faire une demande\")", "waitFor": ".lead-modal__box" }
  *   { "name": "refs", "url": "/qui-appeler", "scrollTo": "#references-officielles", "offset": -120 }
+ *   { "name": "hero-desktop", "url": "/", "css": ".ti-widget{display:none!important}" }   // masque un widget tiers
  *
  * Le defilement est toujours lent (250 px toutes les 90 ms) : les sections
  * qui se revelent a l'intersection restent grises sur une capture prise
@@ -67,6 +68,8 @@ for (const s of shots) {
   await blockTracking(page)
   try {
     await page.goto(base.replace(/\/$/, '') + s.url, { waitUntil: 'domcontentloaded', timeout: 60000 })
+    // Widget tiers qui masque le visuel (bulle d'avis, chat) : `"css": ".ti-widget{display:none!important}"`
+    if (s.css) await page.addStyleTag({ content: s.css })
     await page.waitForTimeout(1500)
     if (s.scroll) await slowScroll(page, s.scroll)
     if (s.scrollTo) {

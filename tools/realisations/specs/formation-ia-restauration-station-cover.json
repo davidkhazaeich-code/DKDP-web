@@ -1,0 +1,11 @@
+{
+  "slug": "formation-ia-restauration-station",
+  "eyebrow": "Réalisation · Formation IA",
+  "title": "Une journée d'IA pour un restaurant et un club de station",
+  "steps": [
+    { "label": "Comprendre l'IA", "detail": "vrai ou faux, panorama des outils", "kind": "source" },
+    { "label": "Méthode ARCT", "detail": "action, rôle, contexte, ton", "kind": "ia" },
+    { "label": "Claude au quotidien", "detail": "instructions, Projects, photo", "kind": "outil" },
+    { "label": "Ateliers métier", "detail": "quatre groupes, cas réels", "kind": "sortie" }
+  ]
+}

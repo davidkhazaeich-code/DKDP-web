@@ -1,0 +1,4 @@
+[
+  { "name": "points-controle-desktop", "url": "/maintenance-pompes-relevage", "scrollTo": "h3:has-text(\"Niveau\")", "offset": 300 },
+  { "name": "points-controle-mobile", "url": "/maintenance-pompes-relevage", "mobile": true, "scrollTo": "h3:has-text(\"Niveau\")", "offset": 290 }
+]

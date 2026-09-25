@@ -1,0 +1,74 @@
+# EXEMPLE FICTIF (données inventées le 14.09.2026 pour tester le gabarit) : montre un dépannage
+# à 2 pompes, avec actions, un point non conforme, 3 photos avant/après en 3 colonnes et du
+# matériel provisoire. Ne jamais le prendre pour un vrai dossier.
+reference: "2026-015"
+type: depannage
+titre: "Rapport d'intervention"
+eyebrow: "Dépannage · pompe de relevage"
+sous_titre: "Station de relevage des eaux usées, Rue de Test 8, 1205 Genève"
+client:
+  ligne1: "Régie Exemple SA"
+  ligne2: "Rue de Test 8"
+  ligne3: "1205 Genève"
+installation:
+  ligne1: "Relevage des eaux usées (WC)"
+  ligne2: "Local technique du sous-sol"
+  ligne3: "2 pompes, montage sur guides"
+visite:
+  ligne1: "Mercredi 16 septembre 2026"
+  ligne2: "Intervention sur place"
+  ligne3: "Technicien SOS Relevage"
+demande: >-
+  Votre concierge nous a appelés en fin de matinée : l'alarme de niveau haut sonnait dans le
+  local technique et l'eau montait dans la cuve sans que les pompes ne démarrent.
+conclusion:
+  titre: "L'évacuation est rétablie, la pompe 1 a été débloquée."
+  texte: >-
+    Un chiffon avait bloqué la roue de la pompe 1. La pompe a été sortie, démontée, nettoyée
+    et remise en service. La pompe 2 n'a pas démarré pendant la panne parce que son
+    régulateur de niveau est défectueux : un régulateur provisoire est en place.
+actions:
+  - "Fosse vidée"
+  - "Pompe 1 sortie de la cuve, démontée, nettoyée et remise en service"
+  - "Régulateur provisoire posé sur la pompe 2"
+  - "Test de fonctionnement des deux pompes, alarme acquittée"
+points:
+  - point: "Pompe 1"
+    detail: "Roue libérée, rotation normale, intensité 4,2 A"
+    etat: fait
+  - point: "Pompe 2"
+    detail: "Régulateur de niveau défectueux, remplacé par un provisoire"
+    etat: non_conforme
+  - point: "Clapet anti-retour"
+    detail: "Étanche, aucun retour d'eau"
+    etat: ok
+attention:
+  - niveau: non_conforme
+    eyebrow: "À corriger · devis à suivre"
+    titre: "Le régulateur de niveau de la pompe 2 est à remplacer"
+    paragraphes:
+      - >-
+        Le régulateur provisoire assure le fonctionnement de la pompe 2 en attendant. Il est
+        loué au jour et reste offert si le devis de remplacement est signé dans les 14 jours.
+photos: []
+materiel:
+  - "1 régulateur de niveau provisoire sur la pompe 2, posé le 16.09.2026"
+recommandations:
+  - priorite: "Priorité 1 · à corriger"
+    titre: "Remplacer le régulateur de la pompe 2"
+    texte: "Devis envoyé séparément sous 48 heures. Le provisoire tient jusque-là."
+  - priorite: "Priorité 2 · entretien"
+    titre: "Contrôle des deux pompes dans 12 mois"
+    texte: "Mesure d'isolement des deux moteurs et vérification des flotteurs."
+ensuite: >-
+  Vous recevez deux documents séparés : ce rapport, puis la facture du dépannage. Le devis
+  pour le régulateur de la pompe 2 suit sous 48 heures. Pour toute question, un message à
+  contact@sos-relevage.ch suffit.
+signature:
+  constat: "Le technicien SOS Relevage"
+  lieu_date: "Le 16 septembre 2026, à Genève"
+  mise_en_forme: "SOS Relevage"
+sauts_de_page: []
+mise_en_page:
+  photos_colonnes: 3
+  photos_hauteur: 150

@@ -54,7 +54,7 @@ export const CHATGPT_TOPIC = [
 ] as const
 
 /** True si l'article touche au moins un des mots du sujet. */
-function matchesTopic(article: Article, keywords: readonly string[]): boolean {
+export function matchesTopic(article: Article, keywords: readonly string[]): boolean {
   const slug = article.slug.toLowerCase()
   const title = article.title.toLowerCase()
   const tags = article.tags.map((t) => t.toLowerCase())

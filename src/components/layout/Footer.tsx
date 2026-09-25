@@ -14,28 +14,8 @@ type FooterDict = ReturnType<typeof getDictionary>
 function getPillars(lang: Locale, dict: FooterDict) {
   const t = dict.footer
   const lp = (fr: string) => localizedPath(fr, lang)
+  // 25/09/2026 : formation puis IA en tête des colonnes (demande David).
   return [
-    {
-      label: t.pillars.agence,
-      color: '#A78BFA',
-      bg: 'rgba(124,58,237,0.10)',
-      border: 'rgba(124,58,237,0.20)',
-      Icon: Monitor,
-      links: [
-        { label: t.agenceLinks[0], href: lp('/agence-digitale/creation-site-web/audit-site') },
-        { label: t.agenceLinks[1], href: lp('/agence-digitale/seo/audit-seo') },
-        { label: t.agenceLinks[2], href: lp('/agence-digitale/creation-site-web') },
-        { label: t.agenceLinks[3], href: lp('/agence-digitale/refonte-site-web') },
-        { label: t.agenceLinks[4], href: lp('/agence-digitale/seo') },
-        { label: t.agenceLinks[5], href: lp('/agence-digitale/publicite-sea') },
-        { label: t.agenceLinks[6], href: lp('/agence-digitale/chatgpt-ads') },
-        { label: t.agenceLinks[7], href: lp('/agence-digitale/reseaux-sociaux') },
-        { label: t.agenceLinks[8], href: lp('/agence-digitale/creation-video') },
-        { label: t.agenceLinks[9], href: lp('/agence-digitale/consulting-marketing') },
-        { label: t.agenceLinks[10], href: lp('/agence-digitale/creation-site-web/estimation') },
-      ],
-      hub: { label: dict.common.viewAllServices, href: lp('/agence-digitale') },
-    },
     {
       label: t.pillars.formation,
       color: '#FF8C00',
@@ -73,6 +53,27 @@ function getPillars(lang: Locale, dict: FooterDict) {
         { label: t.iaLinks[6], href: lp('/agence-digitale/chatgpt-ads') },
       ],
       hub: { label: dict.common.viewAllAi, href: lp('/intelligence-artificielle') },
+    },
+    {
+      label: t.pillars.agence,
+      color: '#A78BFA',
+      bg: 'rgba(124,58,237,0.10)',
+      border: 'rgba(124,58,237,0.20)',
+      Icon: Monitor,
+      links: [
+        { label: t.agenceLinks[0], href: lp('/agence-digitale/creation-site-web/audit-site') },
+        { label: t.agenceLinks[1], href: lp('/agence-digitale/seo/audit-seo') },
+        { label: t.agenceLinks[2], href: lp('/agence-digitale/creation-site-web') },
+        { label: t.agenceLinks[3], href: lp('/agence-digitale/refonte-site-web') },
+        { label: t.agenceLinks[4], href: lp('/agence-digitale/seo') },
+        { label: t.agenceLinks[5], href: lp('/agence-digitale/publicite-sea') },
+        { label: t.agenceLinks[6], href: lp('/agence-digitale/chatgpt-ads') },
+        { label: t.agenceLinks[7], href: lp('/agence-digitale/reseaux-sociaux') },
+        { label: t.agenceLinks[8], href: lp('/agence-digitale/creation-video') },
+        { label: t.agenceLinks[9], href: lp('/agence-digitale/consulting-marketing') },
+        { label: t.agenceLinks[10], href: lp('/agence-digitale/creation-site-web/estimation') },
+      ],
+      hub: { label: dict.common.viewAllServices, href: lp('/agence-digitale') },
     },
     {
       label: t.pillars.apropos,

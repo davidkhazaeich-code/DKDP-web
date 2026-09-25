@@ -114,8 +114,8 @@ export function LeadFormInline() {
             className="ml-auto text-center px-3 py-2 rounded-[8px]"
             style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${OD}` }}
           >
-            <p className="text-lg font-bold" style={{ color: O }}>100%</p>
-            <p className="text-[9px] text-text-muted uppercase tracking-wide">operational day one</p>
+            <p className="text-lg font-bold" style={{ color: O }}>48 h</p>
+            <p className="text-[9px] text-text-muted uppercase tracking-wide">detailed quote</p>
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ import { buildLocalBusiness, buildFAQPage, buildWebSite, buildOrganization, buil
 const LogoBanner     = dynamic(() => import('@/components/sections/LogoBanner').then(m => ({ default: m.LogoBanner })))
 const AllServices    = dynamic(() => import('@/components/sections/AllServices').then(m => ({ default: m.AllServices })))
 const ProblemBlock   = dynamic(() => import('@/components/sections/ProblemBlock').then(m => ({ default: m.ProblemBlock })))
+const FormationSpotlight = dynamic(() => import('@/components/sections/FormationSpotlight').then(m => ({ default: m.FormationSpotlight })))
 const ProcessSteps   = dynamic(() => import('@/components/sections/ProcessSteps').then(m => ({ default: m.ProcessSteps })))
 const TechWatch      = dynamic(() => import('@/components/sections/TechWatch').then(m => ({ default: m.TechWatch })))
 const ProofStack     = dynamic(() => import('@/components/sections/ProofStack').then(m => ({ default: m.ProofStack })))
@@ -20,10 +21,12 @@ const EstimationBanner = dynamic(() => import('@/components/sections/EstimationB
 const CTAFinal       = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 
 export const metadata: Metadata = {
-  title: 'Agence Digitale Genève · Sites web, IA & Formation | DKDP',
+  // 25/09/2026 : la formation IA et l'IA passent devant (demande David). Mesuré
+  // en pixels (Arial 20 et 14, recette de tools/check-serp-width.mjs) : title
+  // 394 px sur 600, description 803 px sur 920.
+  title: 'Formation IA et agence IA à Genève | DKDP',
   description:
-    // 21/09/2026 (plan SEO, D16) : 915 px, sans « 700+ ».
-    'DKDP, agence digitale aux Eaux-Vives à Genève : sites web, SEO, automatisation IA et formation entreprise pour PME romandes. Devis sous 48 h.',
+    "DKDP forme vos équipes à Claude, ChatGPT et Copilot, puis construit avec elles vos agents IA, à Genève et en Suisse romande.",
   alternates: {
     canonical: 'https://dkdp.ch',
     languages: {
@@ -33,13 +36,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Agence Digitale Genève · Sites web, IA & Formation | DKDP',
+    title: 'Formation IA et agence IA à Genève | DKDP',
     description:
-      'DKDP, agence digitale aux Eaux-Vives à Genève : sites web, SEO, automatisation IA et formation entreprise pour PME romandes. Devis sous 48 h.',
+      "DKDP forme vos équipes à Claude, ChatGPT et Copilot, puis construit avec elles vos agents IA, à Genève et en Suisse romande.",
     url: 'https://dkdp.ch',
     locale: 'fr_CH',
     alternateLocale: ['en_US'],
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'DKDP Agence Digitale Genève' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'DKDP, formation IA et agence IA à Genève' }],
   },
   twitter: {
     images: ['/og-image.png'],
@@ -53,10 +56,11 @@ export default function HomePage() {
       <SchemaOrg schema={buildOrganization()} />
       <SchemaOrg schema={buildFAQPage(FAQ_ITEMS.map(({ question, answer }) => ({ question, answer })))} />
       <SchemaOrg schema={buildWebSite()} />
-      <SchemaOrg schema={buildWebPageWithSpeakable({ name: 'Agence Digitale Geneve', url: '/', description: 'Agence digitale à Genève spécialisée en creation de sites web, SEO, intelligence artificielle et formation entreprise.' })} />
+      <SchemaOrg schema={buildWebPageWithSpeakable({ name: 'Formation IA et agence IA à Genève', url: '/', description: 'DKDP forme les équipes des PME de Suisse romande à Claude, ChatGPT et Copilot, construit leurs agents IA et leurs automatisations, et crée aussi des sites web.' })} />
       <RevealDisabledProvider>
         <HomeHero />
         <ProblemBlock />
+        <FormationSpotlight />
         <LogoBanner />
         <AllServices />
         <ProcessSteps />

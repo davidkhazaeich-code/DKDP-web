@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -148,7 +149,7 @@ export default function FormationIAPage() {
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Corporate AI training Geneva & French-speaking Switzerland</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>1 day</GradText>{' '}with us. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>8 hours</GradText>{' '}saved every week.
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>1 day</GradText>{' '}with us. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Hours</GradText>{' '}saved every week.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP trains your staff on ChatGPT Astra, Claude and Microsoft Copilot on-site in Geneva and across French-speaking Switzerland. A 100% tailored programme for SMEs and large companies, focused on practice. <strong className="text-text">Your staff are operational the next day</strong>, with their own prompts and an AI routine in place.
@@ -209,8 +210,9 @@ export default function FormationIAPage() {
             {[
               { v: '1 to 10', l: 'People per session', sub: 'Groups on quote from 3' },
               { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
-              { v: '100%', l: 'Operational from day one', sub: 'Post-training score' },
-              { v: '1h30', l: 'Saved / day / person', sub: 'Observed average' },
+              // 25/09/2026 : unsourced "100% from day one" and "1h30 saved per day" removed.
+              { v: '3 h or 6 h', l: 'Half day or full day', sub: 'Plus 1 h or 2 h of preparation' },
+              { v: chf(PRIX.formationHourly1), l: 'Per hour, for one person', sub: `${chfHeure(PRIX.formationHourly2)} for two, groups on quote` },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">

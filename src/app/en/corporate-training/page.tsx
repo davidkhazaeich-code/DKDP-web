@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -412,8 +413,9 @@ export default function EnCorporateTrainingPage() {
               {[
                 { v: '1 to 10',  l: 'People per session',   sub: 'Groups on quote from 3' },
                 { v: '5.0/5',    l: 'Google rating',         sub: '22 reviews on the DKDP listing' },
-                { v: '91%',      l: 'Apply on day one',      sub: 'Skills used immediately' },
-                { v: '< 3 wks',  l: 'To measurable effect',  sub: 'Productivity gain visible' },
+                // 25/09/2026 : unsourced "91% on day one" and "< 3 weeks" removed.
+                { v: '3 h or 6 h', l: 'Half day or full day', sub: 'Programme built on your cases' },
+                { v: chf(PRIX.formationHourly1), l: 'Per hour, for one person', sub: `${chfHeure(PRIX.formationHourly2)} for two, groups on quote` },
               ].map((kpi, i) => (
                 <SectionReveal key={kpi.l} delay={i * 0.08} className="h-full">
                   <div
@@ -434,7 +436,7 @@ export default function EnCorporateTrainingPage() {
               {
                 title: 'AI training',
                 before: 'The team avoids ChatGPT, afraid of making mistakes or leaking data',
-                after: 'Every team member has their own prompts, saves 1.5 hours a day and understands the limits',
+                after: 'Every team member has their own prompts, saves time every day and understands the limits',
                 tag: 'ChatGPT, Claude, Copilot',
               },
               {

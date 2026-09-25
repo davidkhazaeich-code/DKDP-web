@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -149,7 +150,7 @@ export default function FormationIAPage() {
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation IA entreprise Genève & Suisse romande</h1>
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>1 jour</GradText>{' '}chez nous. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>8 heures</GradText>{' '}gagnées chaque semaine.
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>1 jour</GradText>{' '}avec nous. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Des heures</GradText>{' '}gagnées chaque semaine.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme vos collaborateurs à ChatGPT Astra, Claude et Microsoft Copilot en présentiel à Genève et en Suisse romande. Programme 100% sur mesure pour PME et grandes entreprises, orienté pratique. <strong className="text-text">Vos collaborateurs sont opérationnels dès le lendemain</strong>, avec leurs propres prompts et une routine IA en place.
@@ -210,8 +211,10 @@ export default function FormationIAPage() {
             {[
               { v: '1 à 10', l: 'Personnes par session', sub: 'Groupe sur devis dès 3' },
               { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
-              { v: '100%', l: 'Opérationnels dès J+1', sub: 'Score post-formation' },
-              { v: '1h30', l: 'Gagnée / jour / pers.', sub: 'Moyenne observée' },
+              // 25/09/2026 : « 100 % dès J+1 » et « 1h30 gagnée par jour » retirés, aucune source
+              // (déjà retirés des annonces Google Ads le 10/09). Faits de la grille à la place.
+              { v: '3 h ou 6 h', l: 'Demi-journée ou journée', sub: 'Plus 1 h ou 2 h de préparation' },
+              { v: chf(PRIX.formationHourly1), l: 'De l\'heure, pour une personne', sub: `${chfHeure(PRIX.formationHourly2)} pour deux, groupes sur devis` },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">

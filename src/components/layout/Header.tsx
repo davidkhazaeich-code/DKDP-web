@@ -270,7 +270,7 @@ const slideVariants = {
 }
 
 function MobileNav({ open, onClose, lang }: { open: boolean; onClose: () => void; lang: Locale }) {
-  const [activeTab, setActiveTab] = React.useState<TabKey>('agence')
+  const [activeTab, setActiveTab] = React.useState<TabKey>('formation')
   const [direction, setDirection] = React.useState(0)
   const [mounted, setMounted] = React.useState(false)
   const router = useRouter()
@@ -280,18 +280,19 @@ function MobileNav({ open, onClose, lang }: { open: boolean; onClose: () => void
   const lp = (fr: string) => localizedPath(fr, lang)
 
   const MOBILE_TABS = React.useMemo(() => [
-    { key: 'agence' as TabKey,    label: dict.nav.groups.agence,    tabIcon: Globe,        ...PILLAR_ACCENT.agence,    items: navData.AGENCE_MAIN,    secondary: navData.AGENCE_SECONDARY,    tags: [{ text: lang === 'en' ? 'Websites' : 'Sites', href: lp('/agence-digitale/creation-site-web') }, { text: 'SEO', href: lp('/agence-digitale/seo') }, { text: 'Ads', href: lp('/agence-digitale/publicite-sea') }, { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/agence-digitale/creation-video') }], hubHref: lp('/agence-digitale'),         hubLabel: dict.common.viewAllServices },
-    { key: 'formation' as TabKey, label: dict.nav.groups.formation, tabIcon: GraduationCap, ...PILLAR_ACCENT.formation, items: navData.FORMATION_MAIN, secondary: navData.FORMATION_SECONDARY, tags: [{ text: 'IA', href: lp('/formation-entreprise/ia') }, { text: lang === 'en' ? 'Office' : 'Bureautique', href: lp('/formation-entreprise/bureautique') }, { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/formation-entreprise/montage-video') }, { text: 'Cyber', href: lp('/formation-entreprise/cybersecurite') }], hubHref: lp('/formation-entreprise'),    hubLabel: dict.common.viewAllTrainings },
+    { key: 'formation' as TabKey, label: dict.nav.groups.formation, tabIcon: GraduationCap, ...PILLAR_ACCENT.formation, items: navData.FORMATION_MAIN, secondary: navData.FORMATION_SECONDARY, tags: [{ text: lang === 'en' ? 'AI' : 'IA', href: lp('/formation-entreprise/ia') }, { text: 'Claude', href: lp('/formation-entreprise/claude-ai') }, { text: 'ChatGPT', href: lp('/formation-entreprise/chatgpt') }, { text: lang === 'en' ? 'Office' : 'Bureautique', href: lp('/formation-entreprise/bureautique') }], hubHref: lp('/formation-entreprise'),    hubLabel: dict.common.viewAllTrainings },
     { key: 'ia' as TabKey,        label: dict.nav.groups.ia,        tabIcon: Bot,          ...PILLAR_ACCENT.ia,        items: navData.IA_MAIN,        secondary: navData.IA_SECONDARY,        tags: [{ text: lang === 'en' ? 'Agents' : 'Agents', href: lp('/intelligence-artificielle/agents-ia') }, { text: lang === 'en' ? 'Automation' : 'Automatisation', href: lp('/intelligence-artificielle/automatisation') }, { text: lang === 'en' ? 'Consulting' : 'Conseil', href: lp('/intelligence-artificielle/audit-conseil') }, { text: 'ChatGPT Ads', href: lp('/agence-digitale/chatgpt-ads') }], hubHref: lp('/intelligence-artificielle'), hubLabel: dict.common.viewAllAi },
+    { key: 'agence' as TabKey,    label: dict.nav.groups.agence,    tabIcon: Globe,        ...PILLAR_ACCENT.agence,    items: navData.AGENCE_MAIN,    secondary: navData.AGENCE_SECONDARY,    tags: [{ text: lang === 'en' ? 'Websites' : 'Sites', href: lp('/agence-digitale/creation-site-web') }, { text: 'SEO', href: lp('/agence-digitale/seo') }, { text: 'Ads', href: lp('/agence-digitale/publicite-sea') }, { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/agence-digitale/creation-video') }], hubHref: lp('/agence-digitale'),         hubLabel: dict.common.viewAllServices },
     { key: 'apropos' as TabKey,   label: dict.nav.groups.apropos,   tabIcon: LayoutGrid,   ...PILLAR_ACCENT.apropos,   items: navData.APROPOS_MAIN,   secondary: navData.APROPOS_SECONDARY,   tags: [{ text: lang === 'en' ? 'Work' : 'Réalisations', href: lp('/realisations') }, { text: dict.common.ourPricing, href: lp('/tarifs') }, { text: 'Blog', href: '/blog' }, { text: lang === 'en' ? 'Glossary' : 'Ressources', href: '/glossaire' }], hubHref: lp('/a-propos'),                hubLabel: lang === 'en' ? 'About DKDP' : 'À propos de DKDP' },
   ], [lang, dict, navData])
 
-  const TAB_ORDER: TabKey[] = ['agence', 'formation', 'ia', 'apropos']
+  // 25/09/2026 : formation puis IA en premier (demande David), sur mobile aussi.
+  const TAB_ORDER: TabKey[] = ['formation', 'ia', 'agence', 'apropos']
 
   React.useEffect(() => setMounted(true), [])
   React.useEffect(() => {
     if (!open) {
-      const t = setTimeout(() => setActiveTab('agence'), 280)
+      const t = setTimeout(() => setActiveTab('formation'), 280)
       return () => clearTimeout(t)
     }
   }, [open])
@@ -678,21 +679,6 @@ export function Header() {
           <div className="hidden xl:flex items-center">
             <NavigationMenu>
               <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push(lp('/agence-digitale'))} style={TRIGGER_STYLE.agence}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />{dict.nav.groups.agence}</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    {renderMega('agence', navData.AGENCE_MAIN, navData.AGENCE_SECONDARY,
-                      lp('/agence-digitale'), dict.common.viewAllServices,
-                      lang === 'en' ? 'Agency' : 'Agence',
-                      [
-                        { text: lang === 'en' ? 'Websites' : 'Sites', href: lp('/agence-digitale/creation-site-web') },
-                        { text: 'SEO', href: lp('/agence-digitale/seo') },
-                        { text: 'Ads', href: lp('/agence-digitale/publicite-sea') },
-                        { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/agence-digitale/creation-video') },
-                      ]
-                    )}
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger onClick={() => router.push(lp('/formation-entreprise'))} style={TRIGGER_STYLE.formation}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />{dict.nav.groups.formation}</NavigationMenuTrigger>
@@ -701,10 +687,10 @@ export function Header() {
                       lp('/formation-entreprise'), dict.common.viewAllTrainings,
                       lang === 'en' ? 'Training' : 'Formation',
                       [
-                        { text: 'IA', href: lp('/formation-entreprise/ia') },
+                        { text: lang === 'en' ? 'AI' : 'IA', href: lp('/formation-entreprise/ia') },
+                        { text: 'Claude', href: lp('/formation-entreprise/claude-ai') },
+                        { text: 'ChatGPT', href: lp('/formation-entreprise/chatgpt') },
                         { text: lang === 'en' ? 'Office' : 'Bureautique', href: lp('/formation-entreprise/bureautique') },
-                        { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/formation-entreprise/montage-video') },
-                        { text: 'Cyber', href: lp('/formation-entreprise/cybersecurite') },
                       ]
                     )}
                   </NavigationMenuContent>
@@ -721,6 +707,21 @@ export function Header() {
                         { text: lang === 'en' ? 'Automation' : 'Automatisation', href: lp('/intelligence-artificielle/automatisation') },
                         { text: lang === 'en' ? 'Consulting' : 'Conseil', href: lp('/intelligence-artificielle/audit-conseil') },
                         { text: 'ChatGPT Ads', href: lp('/agence-digitale/chatgpt-ads') },
+                      ]
+                    )}
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger onClick={() => router.push(lp('/agence-digitale'))} style={TRIGGER_STYLE.agence}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />{dict.nav.groups.agence}</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    {renderMega('agence', navData.AGENCE_MAIN, navData.AGENCE_SECONDARY,
+                      lp('/agence-digitale'), dict.common.viewAllServices,
+                      lang === 'en' ? 'Agency' : 'Agence',
+                      [
+                        { text: lang === 'en' ? 'Websites' : 'Sites', href: lp('/agence-digitale/creation-site-web') },
+                        { text: 'SEO', href: lp('/agence-digitale/seo') },
+                        { text: 'Ads', href: lp('/agence-digitale/publicite-sea') },
+                        { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/agence-digitale/creation-video') },
                       ]
                     )}
                   </NavigationMenuContent>
@@ -769,31 +770,16 @@ export function Header() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => router.push(lp('/agence-digitale'))} style={TRIGGER_STYLE.agence}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />{dict.nav.groups.agence}</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    {renderMega('agence', navData.AGENCE_MAIN, navData.AGENCE_SECONDARY,
-                      lp('/agence-digitale'), dict.common.viewAllServices,
-                      lang === 'en' ? 'Agency' : 'Agence',
-                      [
-                        { text: lang === 'en' ? 'Websites' : 'Sites', href: lp('/agence-digitale/creation-site-web') },
-                        { text: 'SEO', href: lp('/agence-digitale/seo') },
-                        { text: 'Ads', href: lp('/agence-digitale/publicite-sea') },
-                        { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/agence-digitale/creation-video') },
-                      ]
-                    )}
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
                   <NavigationMenuTrigger onClick={() => router.push(lp('/formation-entreprise'))} style={TRIGGER_STYLE.formation}><GraduationCap size={13} style={{ color: '#FF8C00' }} className="mr-1" />{dict.nav.groups.formation}</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     {renderMega('formation', navData.FORMATION_MAIN, navData.FORMATION_SECONDARY,
                       lp('/formation-entreprise'), dict.common.viewAllTrainings,
                       lang === 'en' ? 'Training' : 'Formation',
                       [
-                        { text: 'IA', href: lp('/formation-entreprise/ia') },
+                        { text: lang === 'en' ? 'AI' : 'IA', href: lp('/formation-entreprise/ia') },
+                        { text: 'Claude', href: lp('/formation-entreprise/claude-ai') },
+                        { text: 'ChatGPT', href: lp('/formation-entreprise/chatgpt') },
                         { text: lang === 'en' ? 'Office' : 'Bureautique', href: lp('/formation-entreprise/bureautique') },
-                        { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/formation-entreprise/montage-video') },
-                        { text: 'Cyber', href: lp('/formation-entreprise/cybersecurite') },
                       ]
                     )}
                   </NavigationMenuContent>
@@ -809,6 +795,21 @@ export function Header() {
                         { text: lang === 'en' ? 'Automation' : 'Automatisation', href: lp('/intelligence-artificielle/automatisation') },
                         { text: lang === 'en' ? 'Consulting' : 'Conseil', href: lp('/intelligence-artificielle/audit-conseil') },
                         { text: 'ChatGPT Ads', href: lp('/agence-digitale/chatgpt-ads') },
+                      ]
+                    )}
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger onClick={() => router.push(lp('/agence-digitale'))} style={TRIGGER_STYLE.agence}><Monitor size={13} style={{ color: '#A78BFA' }} className="mr-1" />{dict.nav.groups.agence}</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    {renderMega('agence', navData.AGENCE_MAIN, navData.AGENCE_SECONDARY,
+                      lp('/agence-digitale'), dict.common.viewAllServices,
+                      lang === 'en' ? 'Agency' : 'Agence',
+                      [
+                        { text: lang === 'en' ? 'Websites' : 'Sites', href: lp('/agence-digitale/creation-site-web') },
+                        { text: 'SEO', href: lp('/agence-digitale/seo') },
+                        { text: 'Ads', href: lp('/agence-digitale/publicite-sea') },
+                        { text: lang === 'en' ? 'Video' : 'Vidéo', href: lp('/agence-digitale/creation-video') },
                       ]
                     )}
                   </NavigationMenuContent>

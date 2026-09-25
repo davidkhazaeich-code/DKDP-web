@@ -57,7 +57,7 @@ const FORMATION_SERVICES: ServiceItem[] = [
 const IA_SERVICES: ServiceItem[] = [
   { icon: Bot, title: 'Agents IA sur mesure', href: '/intelligence-artificielle/agents-ia', description: 'Agents intelligents qui automatisent vos tâches et répondent à vos clients.', badge: 'Populaire', image: '/images/services/dkdp-ia-agents-ia.webp', pillar: 'ia' },
   { icon: Workflow, title: 'Automatisation métier', href: '/intelligence-artificielle/automatisation', description: 'Workflows sans code qui connectent vos outils et éliminent le manuel.', badge: null, image: '/images/services/dkdp-ia-automatisation.webp', pillar: 'ia' },
-  { icon: BrainCircuit, title: 'Audit & Conseil IA', href: '/intelligence-artificielle/audit-conseil', description: 'Identifiez les 3 actions à fort ROI dans votre entreprise.', badge: 'Best seller', image: '/images/services/dkdp-ia-audit-conseil.webp', pillar: 'ia' },
+  { icon: BrainCircuit, title: 'Audit et conseil IA', href: '/intelligence-artificielle/audit-conseil', description: 'Identifiez les 3 actions à fort ROI dans votre entreprise.', badge: 'Best seller', image: '/images/services/dkdp-ia-audit-conseil.webp', pillar: 'ia' },
   { icon: Cpu, title: 'Mise en place IA', href: '/intelligence-artificielle/mise-en-place', description: 'Intégration de ChatGPT, Claude et LLMs dans votre stack existant.', badge: null, image: '/images/services/dkdp-ia-mise-en-place.webp', pillar: 'ia' },
   { icon: MessageCircle, title: 'Chatbot IA sur mesure', href: '/intelligence-artificielle/chatbot-ia', description: 'Un assistant 24/7 pour votre site : FAQ, prise de RDV, qualification de leads.', badge: 'Nouveau', image: '/images/services/dkdp-ia-agents-ia.webp', pillar: 'ia' },
 ]
@@ -66,18 +66,12 @@ type PillarKey = 'agence' | 'formation' | 'ia'
 
 type PillarData = { key: PillarKey; label: string; shortLabel: string; subtitle: string; preview: string[]; heroImage: string; Icon: React.ElementType; color: string; bg: string; border: string; items: ServiceItem[]; accentRgb: string; blob1: string; blob2: string; hubHref: string }
 
+// 25/09/2026 : formation puis IA en tête (demande David), le marketing digital
+// passe en troisième. L'ordre commande aussi celui de ServiceIndex.
 const PILLARS: PillarData[] = [
   {
-    key: 'agence', label: 'Marketing digital', shortLabel: 'Marketing', subtitle: '8 services',
-    preview: ['Sites web', 'App mobile', 'SEO', 'Google Ads'],
-    heroImage: '/images/services/dkdp-agence-creation-web.webp',
-    Icon: Globe, color: violet.color, bg: violet.bg, border: violet.border, items: AGENCE_SERVICES,
-    accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.14)', blob2: 'rgba(124,58,237,0.06)',
-    hubHref: '/agence-digitale',
-  },
-  {
     key: 'formation', label: 'Formation entreprise', shortLabel: 'Formation', subtitle: '10 programmes',
-    preview: ['IA entreprise', 'Claude IA', 'Excel', 'Cybersécurité'],
+    preview: ['IA entreprise', 'Claude IA', 'ChatGPT', 'Canva'],
     heroImage: '/images/services/dkdp-formation-ia.webp',
     Icon: GraduationCap, color: orange.color, bg: orange.bg, border: orange.border, items: FORMATION_SERVICES,
     accentRgb: '255,140,0', blob1: 'rgba(255,140,0,0.12)', blob2: 'rgba(255,107,0,0.06)',
@@ -90,6 +84,14 @@ const PILLARS: PillarData[] = [
     Icon: Sparkles, color: chrome.color, bg: chrome.bg, border: chrome.border, items: IA_SERVICES,
     accentRgb: '212,212,216', blob1: 'rgba(212,212,216,0.10)', blob2: 'rgba(212,212,216,0.05)',
     hubHref: '/intelligence-artificielle',
+  },
+  {
+    key: 'agence', label: 'Marketing digital', shortLabel: 'Marketing', subtitle: '8 services',
+    preview: ['Sites web', 'App mobile', 'SEO', 'Google Ads'],
+    heroImage: '/images/services/dkdp-agence-creation-web.webp',
+    Icon: Globe, color: violet.color, bg: violet.bg, border: violet.border, items: AGENCE_SERVICES,
+    accentRgb: '167,139,250', blob1: 'rgba(124,58,237,0.14)', blob2: 'rgba(124,58,237,0.06)',
+    hubHref: '/agence-digitale',
   },
 ]
 
@@ -136,7 +138,7 @@ const SERVICE_EN: Record<string, { title: string; description: string }> = {
 
 const PILLAR_EN: Record<PillarKey, { label: string; shortLabel: string; subtitle: string; preview: string[] }> = {
   agence: { label: 'Digital marketing', shortLabel: 'Marketing', subtitle: '8 services', preview: ['Websites', 'Mobile app', 'SEO', 'Google Ads'] },
-  formation: { label: 'Corporate training', shortLabel: 'Training', subtitle: '10 programmes', preview: ['AI for business', 'Claude AI', 'Excel', 'Cybersecurity'] },
+  formation: { label: 'Corporate training', shortLabel: 'Training', subtitle: '10 programmes', preview: ['AI for business', 'Claude AI', 'ChatGPT', 'Canva'] },
   ia: { label: 'AI & automation', shortLabel: 'AI', subtitle: '5 solutions', preview: ['AI agents', 'AI chatbot', 'Automation', 'AI audit'] },
 }
 
@@ -148,7 +150,7 @@ const BADGE_LABELS: Record<Locale, Record<string, string>> = {
 const CONTENT = {
   fr: {
     tag: 'Nos expertises',
-    headingA: 'Sites web, SEO, IA et formation.',
+    headingA: 'Formation IA, intelligence artificielle et web.',
     headingB: 'Un seul interlocuteur.',
     subtitle: 'Sélectionnez un pilier pour explorer nos offres.',
     chooseAria: 'Choisir un pilier',
@@ -162,7 +164,7 @@ const CONTENT = {
   },
   en: {
     tag: 'Our expertise',
-    headingA: 'Websites, SEO, AI and training.',
+    headingA: 'AI training, artificial intelligence and web.',
     headingB: 'One single partner.',
     subtitle: 'Select a pillar to explore our offers.',
     chooseAria: 'Choose a pillar',

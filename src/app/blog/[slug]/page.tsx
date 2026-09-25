@@ -14,7 +14,9 @@ import {
   getRelatedArticles,
   BLOG_CATEGORIES,
   type CategoryKey,
+  type Article,
 } from '@/lib/blog'
+import { CHATGPT_TOPIC, matchesTopic } from '@/lib/blog/topics'
 import { violet, orange, chrome } from '@/lib/tokens'
 import { intrinsicSize } from '@/lib/image-size'
 import { InlineCTA } from './_components/InlineCTA'
@@ -120,13 +122,22 @@ const ALL_SERVICES: ServiceLink[] = [
     desc: 'Claude.ai, Projects et Claude Code pour vos équipes, du débutant à l\'avancé.',
     color: orangeColor, bg: orangeBg, border: orangeBd,
   },
+  {
+    label: 'Formation ChatGPT',
+    href: '/formation-entreprise/chatgpt',
+    desc: 'ChatGPT Astra, ChatGPT Work et les GPTs pour vos équipes, sur leurs propres dossiers.',
+    color: orangeColor, bg: orangeBg, border: orangeBd,
+  },
 ]
 
+// 25/09/2026 : la formation passe en tête des articles IA (demande David). Les
+// articles Claude et ChatGPT font l'essentiel du trafic organique du blog et
+// n'avaient converti personne avec l'audit IA en premier appel à l'action.
 const CATEGORY_SERVICES: Record<CategoryKey, string[]> = {
   ia: [
+    '/formation-entreprise/ia',
     '/intelligence-artificielle/audit-conseil',
     '/intelligence-artificielle/automatisation',
-    '/formation-entreprise/ia',
     '/formation-entreprise/claude-ai',
   ],
   seo: [
@@ -146,8 +157,24 @@ const CATEGORY_SERVICES: Record<CategoryKey, string[]> = {
   ],
 }
 
-function getServicesForCategory(category: CategoryKey): ServiceLink[] {
-  const hrefs = CATEGORY_SERVICES[category]
+/** Mots propres à Claude : CLAUDE_TOPIC contient aussi « agent ia » et « mcp », trop larges pour choisir une formation. */
+const CLAUDE_WORDS = ['claude', 'anthropic'] as const
+
+/**
+ * Services proposés sous un article. Un article IA ou formation qui parle de
+ * Claude seul met la formation Claude en premier, de ChatGPT seul la formation
+ * ChatGPT ; un comparatif des deux garde la formation IA générale.
+ */
+function getServicesForArticle(article: Article): ServiceLink[] {
+  let hrefs = CATEGORY_SERVICES[article.category]
+  if (article.category === 'ia' || article.category === 'formation') {
+    const claude = matchesTopic(article, CLAUDE_WORDS)
+    const chatgpt = matchesTopic(article, CHATGPT_TOPIC)
+    const lead = claude && !chatgpt ? '/formation-entreprise/claude-ai'
+      : chatgpt && !claude ? '/formation-entreprise/chatgpt'
+      : null
+    if (lead) hrefs = [lead, ...hrefs.filter((h) => h !== lead)]
+  }
   return hrefs.map(href => ALL_SERVICES.find(s => s.href === href)!).filter(Boolean)
 }
 
@@ -365,7 +392,7 @@ export default async function ArticlePage(
 
   const related  = getRelatedArticles(slug, 3)
   const cat      = BLOG_CATEGORIES[article.category]
-  const services = getServicesForCategory(article.category)
+  const services = getServicesForArticle(article)
 
   /* JSON-LD schemas */
   const schemas = [

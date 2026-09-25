@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -32,7 +33,7 @@ import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from 
 
 export const metadata: Metadata = {
   title: 'Formation entreprise Genève & Suisse romande · DKDP',
-  description: 'Formation informatique pour entreprises et PME à Genève. Formez vos collaborateurs en IA, Excel, cybersécurité. Sessions sur mesure, en présentiel ou en ligne. Devis gratuit.',
+  description: "Formez vos équipes à l'IA et à l'informatique (Claude, ChatGPT, Copilot, Excel, cybersécurité) avec un programme sur mesure en Suisse romande.",
   alternates: {
     canonical: 'https://dkdp.ch/formation-entreprise',
     languages: {
@@ -377,8 +378,9 @@ export default function FormationEntreprisePage() {
               {[
                 { v: '1 à 10',   l: 'Personnes par session',   sub: 'Groupe sur devis dès 3' },
                 { v: '5,0/5',    l: 'Note Google',             sub: '22 avis sur la fiche DKDP' },
-                { v: '91%',      l: 'Appliquent dès J+1',      sub: 'Compétences utilisées immédiatement' },
-                { v: '< 3 sem.', l: 'Pour constater l\'effet', sub: 'Gain de productivité mesurable' },
+                // 25/09/2026 : « 91 % dès J+1 » et « < 3 sem. » retirés, aucune source.
+                { v: '3 h ou 6 h', l: 'Demi-journée ou journée', sub: 'Programme construit sur vos cas' },
+                { v: chf(PRIX.formationHourly1), l: 'De l\'heure, pour une personne', sub: `${chfHeure(PRIX.formationHourly2)} pour deux, groupes sur devis` },
               ].map((kpi, i) => (
                 <SectionReveal key={kpi.l} delay={i * 0.08} className="h-full">
                   <div
@@ -399,7 +401,7 @@ export default function FormationEntreprisePage() {
               {
                 title: 'Formation IA',
                 before: 'L\'équipe évite ChatGPT par crainte de faire des erreurs ou de divulguer des données',
-                after: 'Chaque collaborateur a ses propres prompts, gagne 1h30 par jour et comprend les limites',
+                after: 'Chaque collaborateur a ses propres prompts, gagne du temps chaque jour et comprend les limites',
                 tag: 'ChatGPT, Claude, Copilot',
               },
               {

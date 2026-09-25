@@ -63,7 +63,10 @@ function IconHourglass() {
   )
 }
 
-const PROBLEM_ICONS = [IconDeclining, IconAI, IconHourglass]
+// 25/09/2026 : trois problèmes IA et formation (l'accueil met la formation IA
+// en avant). « Depuis 10 ans » retiré : DKDP est fondée en 2019 et le plan SEO
+// du 21/09 n'admet aucun chiffre non sourcé.
+const PROBLEM_ICONS = [IconAI, IconDeclining, IconHourglass]
 
 const CONTENT = {
   fr: {
@@ -71,24 +74,24 @@ const CONTENT = {
     heading: 'Ça vous ressemble ?',
     subtitle: 'Si vous vous reconnaissez dans au moins un de ces trois scénarios, vous êtes au bon endroit.',
     problems: [
-      { title: 'Votre site existe mais ne génère aucun client', description: "Il est là, il tourne, mais il ne convertit pas. Pas de leads entrants, pas d'appels spontanés, un formulaire de contact qui dort." },
-      { title: "Vos concurrents utilisent l'IA et vous pas encore", description: "Pendant que vos équipes font les choses manuellement, d'autres automatisent, accélèrent et réduisent leurs coûts. L'écart se creuse." },
-      { title: 'Vos équipes perdent du temps sur des tâches répétitives', description: "Emails, rapports, saisies, tableaux. Des heures par semaine qui partent en fumée sur des tâches que la technologie fait en 5 minutes." },
+      { title: "Vos équipes ont accès à l'IA, mais personne ne leur a appris à s'en servir", description: "Chacun teste ChatGPT dans son coin, les résultats déçoivent et l'outil finit par dormir. Sans méthode commune ni règles claires sur les données, l'IA reste un gadget." },
+      { title: 'Vos concurrents automatisent, vous pas encore', description: "Pendant que vos équipes font tout à la main, d'autres confient déjà leurs relances, leurs rapports et leurs premières réponses clients à des agents IA. L'écart se creuse." },
+      { title: 'Des heures partent chaque semaine dans des tâches répétitives', description: "Les emails, les rapports, les saisies et les tableaux occupent vos meilleurs éléments, alors qu'un assistant bien configuré en prend une grande partie en charge." },
     ],
-    closing: 'On résout ces trois problèmes.',
-    closingAccent: "C'est notre travail depuis 10 ans.",
+    closing: "Nous commençons par former vos équipes,",
+    closingAccent: 'puis nous outillons leur travail.',
   },
   en: {
     tag: 'The problem',
     heading: 'Sound familiar?',
     subtitle: 'If you recognise yourself in at least one of these three scenarios, you are in the right place.',
     problems: [
-      { title: 'Your website exists but brings in no clients', description: "It is there, it runs, but it does not convert. No inbound leads, no spontaneous calls, a contact form gathering dust." },
-      { title: 'Your competitors use AI and you do not yet', description: "While your teams do things manually, others automate, accelerate and cut their costs. The gap keeps widening." },
-      { title: 'Your teams waste time on repetitive tasks', description: "Emails, reports, data entry, spreadsheets. Hours every week going up in smoke on tasks technology handles in 5 minutes." },
+      { title: 'Your teams have AI tools, but nobody showed them how to use them', description: 'Everyone tries ChatGPT on their own, the results disappoint and the tool ends up unused. Without a shared method and clear rules on data, AI stays a gadget.' },
+      { title: 'Your competitors automate, you do not yet', description: 'While your teams do everything by hand, others already hand their follow-ups, reports and first customer replies to AI agents. The gap keeps widening.' },
+      { title: 'Hours go into repetitive tasks every week', description: 'Emails, reports, data entry and spreadsheets tie up your best people, while a well-configured assistant can take over a large part of that work.' },
     ],
-    closing: 'We solve these three problems.',
-    closingAccent: "It has been our job for 10 years.",
+    closing: 'We start by training your teams,',
+    closingAccent: 'then we equip their work.',
   },
 } as const
 

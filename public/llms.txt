@@ -1,109 +1,126 @@
-# DKDP - Agence Digitale Genève
+# DKDP - Formation IA et agence IA à Genève
 
-> DKDP est une agence digitale à Genève (Suisse) spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour les PME de Suisse romande. Fondée en 2015, 700+ clients accompagnés, 10+ ans d'expérience.
+> DKDP est une agence genevoise, fondée en 2019, qui forme les équipes des PME de Suisse romande à l'intelligence artificielle (Claude, ChatGPT, Copilot) et qui construit ensuite leurs outils IA : agents, automatisations et chatbots. L'agence crée aussi des sites web et s'occupe de leur référencement (SEO et GEO).
 
-DKDP accompagne les PME suisses dans leur transformation digitale : création de sites web sur mesure, référencement SEO local, mise en place d'outils IA, automatisation des processus métier et formation des équipes. L'agence est basée aux Eaux-Vives, à Genève, et intervient dans toute la Suisse romande.
+La formation est le cœur de l'offre. Chaque programme part des documents, des outils et des cas réels de l'entreprise, en demi-journée (3 heures) ou en journée (6 heures), dans les locaux du client en Suisse romande ou en visioconférence. Après la formation, DKDP peut auditer les usages de l'IA, puis construire les agents et les automatisations qui prolongent ce que l'équipe a appris.
 
-Fondateur : David Khazaei, directeur d'agence et formateur IA certifié, basé à Genève depuis 2015. Expertise en développement web (Next.js, Astro, WordPress), stratégie SEO, agents IA et formation professionnelle.
+Équipe : David Khazaei, fondateur, cadre les projets et les programmes de formation. Les formations IA sont animées par Romane, formatrice spécialisée en intelligence artificielle ; Ali Khazaei assure les modules d'informatique et de développement, et un formateur spécialisé intervient sur les sujets pointus.
 
 Langues de travail : français (principal), anglais, farsi.
-Zone géographique : Genève, Lausanne, Fribourg, Sion, Neuchâtel, toute la Suisse romande.
+Zone géographique : Genève, Lausanne, Nyon, Fribourg, Sion, Neuchâtel, Morges, Montreux, toute la Suisse romande.
+Avis : note de 5,0 sur 5 sur la fiche Google de DKDP (22 avis au 25 septembre 2026).
 
-## Services Agence Digitale
+## Formation entreprise
 
-- [Création de site web](https://dkdp.ch/agence-digitale/creation-site-web): Sites web sur mesure pour PME suisses. Next.js, Astro, WordPress. À partir de CHF 2'500. Design moderne, SEO-first, responsive, conforme LPD/RGPD.
-- [Référencement SEO](https://dkdp.ch/agence-digitale/seo): SEO local et national pour PME. Audit, optimisation on-page, link building, GEO (ChatGPT, Perplexity, Google AI Overviews). CHF 600/mois sans engagement, ou CHF 1'500 en prestation unique.
-- [Publicité Google Ads](https://dkdp.ch/agence-digitale/publicite-sea): Campagnes Google Ads Search, Display, Performance Max. Gestion dès CHF 400/mois, budget média dès CHF 500/mois en sus.
-- [Réseaux sociaux](https://dkdp.ch/agence-digitale/reseaux-sociaux): Gestion et stratégie réseaux sociaux pour entreprises suisses. LinkedIn, Instagram, Facebook.
-- [Création vidéo](https://dkdp.ch/agence-digitale/creation-video): Production vidéo professionnelle. Vidéos institutionnelles, formations, réseaux sociaux.
-- [Consulting marketing](https://dkdp.ch/agence-digitale/consulting-marketing): Conseil en stratégie digitale et marketing pour dirigeants de PME.
-- [RGPD et Cookies](https://dkdp.ch/agence-digitale/rgpd-cookies): Mise en conformité RGPD et LPD pour sites web suisses.
+- [Formation IA entreprise](https://dkdp.ch/formation-entreprise/ia): Formation pratique à ChatGPT Astra, Claude, Microsoft Copilot et Gemini, sur les outils et les cas réels de l'entreprise. CHF 200/h pour 1 personne, CHF 300/h pour 2, groupes de 3 à 10 sur devis, demi-journée ou journée entière. Attestation individuelle pour chaque participant.
+- [Formation Claude IA](https://dkdp.ch/formation-entreprise/claude-ai): Claude.ai, Projects partagés et analyse de documents longs, avec Claude Code en module optionnel pour les profils techniques. Suivi par email pendant 30 jours.
+- [Formation ChatGPT](https://dkdp.ch/formation-entreprise/chatgpt): ChatGPT Astra (GPT-6), ChatGPT Work, GPTs et Codex pour les équipes. Suivi par email pendant 30 jours.
+- [Formation Canva](https://dkdp.ch/formation-entreprise/canva): Brand Kit, modèles, visuels pour les réseaux sociaux et outils IA de Magic Studio.
+- [Formation Figma](https://dkdp.ch/formation-entreprise/figma): Maquettes, wireframes, prototypes cliquables et design system.
+- [Formation Bureautique](https://dkdp.ch/formation-entreprise/bureautique): Excel, Word, PowerPoint, Outlook et Microsoft 365 pour les équipes.
+- [Formation Cybersécurité](https://dkdp.ch/formation-entreprise/cybersecurite): Sensibilisation aux risques : hameçonnage, mots de passe, données personnelles.
+- [Formation Réseaux sociaux](https://dkdp.ch/formation-entreprise/reseaux-sociaux): LinkedIn, Instagram et TikTok pour les équipes marketing et commerciales.
+- [Formation Montage vidéo](https://dkdp.ch/formation-entreprise/montage-video): CapCut, Premiere et formats courts pour les réseaux sociaux.
+- [Formation Informatique](https://dkdp.ch/formation-entreprise/informatique): Prise en main du poste de travail, outils collaboratifs, Microsoft 365 et Google Workspace.
+- [Journée d'équipe IA](https://dkdp.ch/blog/team-building-ia-journee-cohesion-equipe): Journée de cohésion où les participants construisent leurs propres outils IA, sur devis.
+- [Formation pour particuliers](https://dkdp.ch/formation-particuliers): Cours d'informatique à domicile à Genève, via cours-informatique.ch. CHF 140/h (ordinateur, smartphone), CHF 150/h (bureautique, but professionnel), CHF 200/h (IA).
 
-## Intelligence Artificielle
+## Intelligence artificielle
 
-- [Agents IA sur mesure](https://dkdp.ch/intelligence-artificielle/agents-ia): Développement d'agents IA autonomes pour automatiser les processus métier des PME.
-- [Automatisation IA](https://dkdp.ch/intelligence-artificielle/automatisation): Workflows automatisés avec Make, n8n, Zapier, Claude API. 8 à 15h gagnées par collaborateur/semaine.
-- [Audit et Conseil IA](https://dkdp.ch/intelligence-artificielle/audit-conseil): Diagnostic de vos opportunités IA en 1 session. Plan d'action priorisé et chiffré.
-- [Mise en place IA](https://dkdp.ch/intelligence-artificielle/mise-en-place): Déploiement LLM et RAG sur données propriétaires. Stack technique, intégrations, accompagnement équipes.
-- [Chatbot IA](https://dkdp.ch/intelligence-artificielle/chatbot-ia): Chatbots IA sur mesure pour sites web et service client.
+- [Audit et conseil IA](https://dkdp.ch/intelligence-artificielle/audit-conseil): Diagnostic des usages de l'IA dans l'entreprise et plan d'action priorisé et chiffré. CHF 490 (standard) ou CHF 890 (complet), après un appel découverte gratuit de 30 minutes.
+- [Agents IA sur mesure](https://dkdp.ch/intelligence-artificielle/agents-ia): Agents IA qui s'appuient sur les documents, le ton et les processus de l'entreprise. De CHF 2'500 à CHF 4'900.
+- [Automatisation IA](https://dkdp.ch/intelligence-artificielle/automatisation): Workflows automatisés avec n8n, Make, Zapier et l'API Claude. De CHF 1'500 à CHF 3'500.
+- [Mise en place IA](https://dkdp.ch/intelligence-artificielle/mise-en-place): Déploiement de modèles de langage et de RAG sur les données de l'entreprise, intégrations et accompagnement des équipes. De CHF 3'500 à CHF 6'500.
+- [Chatbot IA](https://dkdp.ch/intelligence-artificielle/chatbot-ia): Assistant pour site web et service client, fondé sur les documents de l'entreprise : questions fréquentes, prise de rendez-vous, qualification des demandes.
+- [Publicité dans ChatGPT (ChatGPT Ads)](https://dkdp.ch/agence-digitale/chatgpt-ads): Pilote de 30 jours à CHF 1'200, puis gestion à CHF 450/mois.
 
-## Formation Entreprise
+## Agence digitale (sites web, SEO, publicité)
 
-- [Formation IA entreprise](https://dkdp.ch/formation-entreprise/ia): Formation pratique aux outils IA pour collaborateurs. ChatGPT, Claude, Copilot. CHF 200/h pour 1 personne, CHF 300/h pour 2, groupes de 3 à 10 sur devis, demi-journée ou journée entière.
-- [Formation Claude IA](https://dkdp.ch/formation-entreprise/claude-ai): Formation spécialisée Claude AI, Projects, Claude Code pour équipes. Débutant à avancé.
-- [Formation Bureautique](https://dkdp.ch/formation-entreprise/bureautique): Excel avancé, Word, PowerPoint, Outlook, Google Workspace pour équipes.
-- [Formation Cybersécurité](https://dkdp.ch/formation-entreprise/cybersecurite): Sensibilisation aux risques cyber. Phishing, mots de passe, données personnelles.
-- [Formation Réseaux sociaux](https://dkdp.ch/formation-entreprise/reseaux-sociaux): LinkedIn, Instagram, TikTok pour équipes marketing et commerciaux.
-- [Formation Web design](https://dkdp.ch/formation-entreprise/figma): Canva, Figma, notions de design pour non-designers.
-- [Formation Montage vidéo](https://dkdp.ch/formation-entreprise/montage-video): CapCut, Premiere, iMovie pour créer des vidéos professionnelles.
-- [Formation Informatique](https://dkdp.ch/formation-entreprise/informatique): Prise en main PC/Mac, outils collaboratifs, Microsoft 365, Google Workspace.
-- [Formation pour particuliers](https://dkdp.ch/formation-particuliers): Cours d'informatique à domicile pour particuliers à Genève, via cours-informatique.ch. CHF 140/h (ordinateur, smartphone), CHF 150/h (bureautique, but professionnel), CHF 200/h (IA).
+- [Création de site web](https://dkdp.ch/agence-digitale/creation-site-web): Sites web sur mesure pour PME suisses en Next.js, Astro ou WordPress. À partir de CHF 2'500.
+- [Référencement SEO](https://dkdp.ch/agence-digitale/seo): SEO local et national, et GEO pour ChatGPT, Perplexity et les AI Overviews de Google. CHF 600/mois sans engagement, ou CHF 1'500 en prestation unique.
+- [Publicité Google Ads](https://dkdp.ch/agence-digitale/publicite-sea): Campagnes Search et Performance Max. Gestion dès CHF 400/mois, budget média dès CHF 500/mois en sus.
+- [Réseaux sociaux](https://dkdp.ch/agence-digitale/reseaux-sociaux): Stratégie et gestion LinkedIn, Instagram et Facebook. À partir de CHF 450/mois.
+- [Création vidéo](https://dkdp.ch/agence-digitale/creation-video): Vidéos institutionnelles, vidéos de formation et formats pour les réseaux sociaux.
+- [Consulting marketing](https://dkdp.ch/agence-digitale/consulting-marketing): Conseil en stratégie digitale pour dirigeants de PME. CHF 180/h.
+- [RGPD et Cookies](https://dkdp.ch/agence-digitale/rgpd-cookies): Mise en conformité RGPD et nLPD des sites web suisses.
 
 ## Outils gratuits
 
-- [Audit SEO gratuit](https://dkdp.ch/agence-digitale/seo/audit-seo): Analyse complète de votre SEO en 48h. Mots-clés, backlinks, technique, contenu, GEO. Gratuit pour PME suisses.
-- [Audit de site gratuit](https://dkdp.ch/agence-digitale/creation-site-web/audit-site): Audit complet performance, SEO, UX, sécurité, accessibilité, mobile. Rapport sous 48h. Gratuit.
-- [Estimateur de prix site web](https://dkdp.ch/agence-digitale/creation-site-web/estimation): Simulateur interactif pour estimer le coût de votre site web avec devis sous 48h.
+- [Audit SEO gratuit](https://dkdp.ch/agence-digitale/seo/audit-seo): Analyse du SEO d'un site : mots-clés, liens, technique, contenu et GEO, livrée sous 48 heures.
+- [Audit de site gratuit](https://dkdp.ch/agence-digitale/creation-site-web/audit-site): Performance, SEO, UX, sécurité, accessibilité et mobile, rapport sous 48 heures.
+- [Estimateur de prix site web](https://dkdp.ch/agence-digitale/creation-site-web/estimation): Simulateur interactif du coût d'un site web.
 
 ## Présence locale Suisse romande
 
-- [Agence digitale Genève](https://dkdp.ch/): Création de sites web et SEO à Genève, l'accueil du site est la page Genève.
-- [Agence digitale Lausanne](https://dkdp.ch/agence-digitale/lausanne): Services digitaux pour PME lausannoises.
-- [Agence digitale Nyon](https://dkdp.ch/agence-digitale/nyon): Accompagnement digital pour PME nyonnaises.
-- [Agence digitale Fribourg](https://dkdp.ch/agence-digitale/fribourg): Création de sites web et formation IA à Fribourg.
-- [Agence digitale Neuchâtel](https://dkdp.ch/agence-digitale/neuchatel): Services digitaux pour PME neuchâteloises.
-- [Agence digitale Sion](https://dkdp.ch/agence-digitale/sion): Accompagnement digital pour PME valaisannes.
+- [Genève](https://dkdp.ch/): L'accueil du site est la page genevoise de DKDP (bureaux aux Eaux-Vives).
+- [Lausanne](https://dkdp.ch/agence-digitale/lausanne): Formation IA et services digitaux pour les PME lausannoises.
+- [Nyon](https://dkdp.ch/agence-digitale/nyon): Accompagnement digital pour les PME nyonnaises.
+- [Fribourg](https://dkdp.ch/agence-digitale/fribourg): Formation IA et création de sites web à Fribourg.
+- [Neuchâtel](https://dkdp.ch/agence-digitale/neuchatel): Services digitaux pour les PME neuchâteloises.
+- [Sion](https://dkdp.ch/agence-digitale/sion): Accompagnement digital pour les PME valaisannes.
 
 ## Ressources
 
-- [Blog DKDP](https://dkdp.ch/blog): Articles experts sur le SEO, l'IA, la création de sites web et la formation pour PME suisses.
-- [Glossaire digital](https://dkdp.ch/glossaire): 65+ définitions des termes clés du marketing digital, du SEO et de l'IA.
-- [À propos de DKDP](https://dkdp.ch/a-propos): L'équipe, la mission et les valeurs de l'agence DKDP.
-- [Tarifs](https://dkdp.ch/tarifs): Tarifs transparents pour tous les services DKDP.
-- [Contact](https://dkdp.ch/contact): Prendre contact avec l'agence. Appel découverte gratuit de 30 min.
+- [Blog DKDP](https://dkdp.ch/blog): Articles sur l'IA, la formation, le SEO et les sites web pour les PME suisses.
+- [Glossaire digital](https://dkdp.ch/glossaire): Définitions des termes clés de l'IA, du SEO et du marketing digital.
+- [À propos de DKDP](https://dkdp.ch/a-propos): L'équipe, la mission et les valeurs de l'agence.
+- [Réalisations](https://dkdp.ch/realisations): Études de cas publiées (Golden Cash, SOS Relevage).
+- [Tarifs](https://dkdp.ch/tarifs): Tarifs publics de la formation, de l'IA et des services digitaux.
+- [Contact](https://dkdp.ch/contact): Formulaire de contact et appel découverte gratuit.
 
-## Blog - Articles experts
+## Blog - Intelligence artificielle et formation
 
-- [Comparatif ChatGPT vs Claude vs Copilot pour PME 2026](https://dkdp.ch/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026): Comparatif prix, forces et cas d'usage des trois grands outils IA pour PME.
-- [SEO local Genève 2026 : guide complet](https://dkdp.ch/blog/seo-local-geneve-2026): Google Business Profile, NAP, avis clients, contenu local pour PME genevoises.
-- [Automatiser les tâches répétitives en PME](https://dkdp.ch/blog/automatiser-taches-repetitives-pme): 7 workflows à automatiser avec Make, Zapier, n8n pour gagner 5 à 15h/semaine.
-- [Core Web Vitals 2026 : guide complet](https://dkdp.ch/blog/core-web-vitals-2026-guide-complet): LCP, CLS, INP : comprendre, mesurer et optimiser pour Google.
-- [ROI d'une formation IA entreprise](https://dkdp.ch/blog/formation-ia-collaborateurs-roi): Méthode de calcul et cas concret PME suisse. ROI moyen > 500%.
-- [7 raisons pour lesquelles votre site ne convertit pas](https://dkdp.ch/blog/site-web-vitrine-convertit): Diagnostic et plan d'action pour un site vitrine qui génère des leads.
-- [No-code et low-code pour PME suisses](https://dkdp.ch/blog/no-code-low-code-pme-suisse): Webflow, Bubble, Make, Airtable : quand et comment les utiliser.
-- [8 erreurs de cybersécurité en PME](https://dkdp.ch/blog/cybersecurite-pme-erreurs-courantes): Erreurs courantes et plan d'action 30 jours pour sécuriser votre PME.
-- [Audit digital 360 avant de se lancer](https://dkdp.ch/blog/audit-digital-360-avant-de-se-lancer): SEO, UX, contenu, tracking, conversion : le diagnostic complet.
-- [Combien coûte un site web à Genève en 2026](https://dkdp.ch/blog/cout-site-web-geneve-2026): Fourchettes de prix et comparatif pour toutes les tailles de projets.
-- [Comment choisir son agence digitale à Genève](https://dkdp.ch/blog/choisir-agence-digitale-geneve): 8 critères clés pour ne pas se tromper dans son choix d'agence.
-- [SEO ou Google Ads à Genève : comparatif](https://dkdp.ch/blog/seo-vs-google-ads-geneve): Coût, délai, ROI : quel canal choisir selon votre situation.
-- [7 signaux pour refaire votre site web](https://dkdp.ch/blog/refonte-site-web-quand-pourquoi): Indicateurs clés qu'il est temps de refondre votre site.
-- [Formation IA en entreprise à Genève 2026](https://dkdp.ch/blog/formation-ia-entreprise-geneve-2026): Programmes, résultats et retours d'expérience pour PME romandes.
-- [Automatiser les tâches répétitives avec l'IA](https://dkdp.ch/blog/automatiser-taches-repetitives-ia-pme): 10 cas d'usage PME avec gains de productivité mesurés.
-- [Créer un site web pour une PME en Suisse romande](https://dkdp.ch/blog/creer-site-web-pme-suisse-romande): Étapes, budget et bonnes pratiques pour réussir son projet web.
-- [IA ou consultant humain pour votre PME](https://dkdp.ch/blog/ia-ou-consultant-humain-pme): Quand choisir l'IA, quand faire appel à un expert humain.
-- [Claude Code : utiliser l'IA comme infrastructure](https://dkdp.ch/blog/claude-code-leak-utiliser-ia-comme-infrastructure): Analyse du Claude Code leak et implications pour les agences digitales.
-- [Claude : gestion des tokens et optimisation IA](https://dkdp.ch/blog/claude-gestion-tokens-optimiser-ia-agence-geneve): Comment optimiser l'utilisation de Claude pour une agence digitale à Genève.
-- [Claude, mythes et cybersécurité IA 2026](https://dkdp.ch/blog/claude-mythos-cybersecurite-ia-2026): Démystifier les idées reçues sur la cybersécurité et l'IA en 2026.
+- [ChatGPT Astra (GPT-6) : ce qui change pour les PME romandes](https://dkdp.ch/blog/chatgpt-astra-gpt-6-pme-romandes-2026): Ce que la version de septembre 2026 change concrètement pour une PME.
+- [ChatGPT, Claude ou Copilot : lequel choisir pour une PME](https://dkdp.ch/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026): Comparatif des prix, des forces et des cas d'usage des trois grands outils.
+- [Utiliser Claude : du chat basique aux agents](https://dkdp.ch/blog/utiliser-claude-ia-du-chat-aux-agents-guide-2026): Guide progressif pour tirer parti de Claude au travail.
+- [Limite de session Claude](https://dkdp.ch/blog/limite-session-claude-gerer-fenetre-contexte): Comment gérer la fenêtre de contexte et éviter d'atteindre la limite.
+- [Configurer Claude Code](https://dkdp.ch/blog/configurer-claude-code-claude-md-memoire): Donner un mode d'emploi et une mémoire à Claude Code avec CLAUDE.md.
+- [Maîtriser Claude Code : 10 astuces](https://dkdp.ch/blog/maitriser-claude-code-10-astuces): Les pratiques qui séparent le débutant du profil avancé.
+- [Claude pour les TPE et PME romandes](https://dkdp.ch/blog/claude-tpe-pme-romandes): Ce que Claude change dans le quotidien d'une petite entreprise.
+- [Protection des données et IA en Suisse](https://dkdp.ch/blog/protection-donnees-ia-nlpd-pme-suisse): Ce qu'une PME doit savoir sur la nLPD avant de déployer ChatGPT ou Claude.
+- [Formation IA en entreprise à Genève](https://dkdp.ch/blog/formation-ia-entreprise-geneve-2026): Programmes et formats de formation IA pour les PME romandes.
+- [ROI d'une formation IA entreprise](https://dkdp.ch/blog/formation-ia-collaborateurs-roi): Méthode pour estimer le retour d'une formation IA.
+- [Agent IA sur mesure : la différence avec un chatbot](https://dkdp.ch/blog/agents-ia-sur-mesure-cas-usage-2026): Trois cas d'usage concrets d'agents IA en PME.
+- [Chatbot IA pour PME](https://dkdp.ch/blog/chatbot-ia-pme-guide-2026): Fonctionnement d'un chatbot IA et entreprises pour qui il a du sens.
+- [Automatiser les tâches répétitives avec l'IA](https://dkdp.ch/blog/automatiser-taches-repetitives-ia-pme): Cas d'usage d'automatisation pour les PME.
+- [Choisir un consultant ou une agence IA à Genève](https://dkdp.ch/blog/choisir-consultant-agence-ia-geneve): Critères pour choisir un partenaire IA.
+- [Journée de cohésion : construire ses propres outils IA](https://dkdp.ch/blog/team-building-ia-journee-cohesion-equipe): Une journée d'équipe où chacun repart avec un outil IA qu'il a construit.
+- [ChatGPT Ads en Suisse romande](https://dkdp.ch/blog/chatgpt-ads-suisse-romande-guide-2026): Prix, formats et éligibilité de la publicité dans ChatGPT.
+
+## Blog - Sites web et SEO
+
+- [SEO local Genève 2026](https://dkdp.ch/blog/seo-local-geneve-2026): Fiche Google, cohérence des coordonnées, avis et contenu local.
+- [Core Web Vitals 2026](https://dkdp.ch/blog/core-web-vitals-2026-guide-complet): LCP, CLS et INP : comprendre, mesurer et optimiser.
+- [Combien coûte un site web à Genève en 2026](https://dkdp.ch/blog/cout-site-web-geneve-2026): Fourchettes de prix selon la taille du projet.
+- [7 raisons pour lesquelles votre site ne convertit pas](https://dkdp.ch/blog/site-web-vitrine-convertit): Diagnostic et plan d'action pour un site vitrine.
+- [Comment choisir son agence digitale à Genève](https://dkdp.ch/blog/choisir-agence-digitale-geneve): Critères pour choisir une agence.
+- [SEO ou Google Ads à Genève](https://dkdp.ch/blog/seo-vs-google-ads-geneve): Coût, délai et retour de chaque canal.
+- [7 signaux pour refaire votre site web](https://dkdp.ch/blog/refonte-site-web-quand-pourquoi): Les indicateurs d'une refonte nécessaire.
+- [Créer un site web pour une PME en Suisse romande](https://dkdp.ch/blog/creer-site-web-pme-suisse-romande): Étapes, budget et bonnes pratiques.
+- [8 erreurs de cybersécurité en PME](https://dkdp.ch/blog/cybersecurite-pme-erreurs-courantes): Erreurs courantes et plan d'action pour sécuriser une PME.
 
 ## FAQ
 
+**Combien coûte une formation IA en entreprise à Genève ?**
+La formation IA se facture à l'heure : CHF 200/h pour 1 personne, CHF 300/h pour 2 personnes, et sur devis de 3 à 10 personnes. Une demi-journée compte 3 heures de formation et 1 heure de préparation, une journée entière 6 heures de formation et 2 heures de préparation. Le programme part des outils et des cas d'usage réels de l'entreprise.
+
+**Sur quels outils DKDP forme-t-elle ?**
+ChatGPT Astra, Claude, Microsoft Copilot et Gemini, choisis selon les licences et les usages de l'entreprise. DKDP propose aussi une formation dédiée à Claude et une autre dédiée à ChatGPT.
+
+**Qui anime les formations DKDP ?**
+Les formations IA sont animées par Romane, formatrice spécialisée en intelligence artificielle. David Khazaei, fondateur, cadre chaque programme avec l'entreprise avant la session.
+
+**Que propose DKDP après une formation ?**
+Un audit IA qui chiffre les priorités, puis la construction des agents, des automatisations ou du chatbot qui prolongent ce que l'équipe a appris.
+
 **Combien coûte un site web à Genève ?**
-Un site vitrine PME démarre à CHF 2'500 et se situe le plus souvent entre CHF 2'500 et CHF 5'000 selon la complexité. Un site e-commerce ou sur mesure se situe entre CHF 5'000 et CHF 15'000. Ces fourchettes incluent le design, le développement, le SEO on-page et la formation à l'outil.
+Un site vitrine PME démarre à CHF 2'500 et se situe le plus souvent entre CHF 2'500 et CHF 5'000 selon la complexité. Un site e-commerce ou sur mesure se situe entre CHF 5'000 et CHF 15'000.
 
 **Quelle est la différence entre SEO et GEO ?**
-Le SEO (Search Engine Optimization) optimise un site pour apparaître dans les résultats Google classiques. Le GEO (Generative Engine Optimization) optimise le contenu pour être cité par les moteurs IA comme ChatGPT, Perplexity ou Google AI Overviews. DKDP intègre les deux dans ses stratégies de visibilité.
+Le SEO optimise un site pour les résultats classiques de Google. Le GEO optimise le contenu pour qu'il soit cité par les moteurs IA comme ChatGPT, Perplexity ou les AI Overviews de Google. DKDP intègre les deux dans ses stratégies de visibilité.
 
-**Combien coûte une formation IA en entreprise à Genève ?**
-La formation IA est facturée à l'heure : CHF 200/h pour 1 personne, CHF 300/h pour 2 personnes, sur devis de 3 à 10 personnes (demi-journée ou journée entière). Programme personnalisé sur les outils et cas d'usage réels de l'entreprise.
-
-**DKDP travaille-t-elle avec des entreprises hors Genève ?**
-Oui. DKDP accompagne des entreprises dans tout le canton de Genève mais aussi à Lausanne, Fribourg, Sion, Neuchâtel et dans toute la Suisse romande.
-
-**Quel est le délai pour créer un site web avec DKDP ?**
-Un site vitrine standard est livré en 4 à 6 semaines. Un site avec CMS personnalisé prend 6 à 10 semaines.
-
-**DKDP est-elle conforme RGPD et LPD suisse ?**
-Oui. Tous les sites réalisés par DKDP incluent une politique de confidentialité conforme à la LPD et au RGPD : bannière de consentement cookies, registre des traitements, mentions légales.
+**DKDP travaille-t-elle avec des entreprises hors de Genève ?**
+Oui. DKDP accompagne des entreprises dans toute la Suisse romande : Lausanne, Nyon, Fribourg, Sion, Neuchâtel, Morges et Montreux.
 
 ## Informations de contact
 
@@ -122,88 +139,78 @@ Citation avec attribution à DKDP encouragée pour usage non-commercial.
 
 ---
 
-# DKDP - Digital Agency Geneva (English)
+# DKDP - Corporate AI Training and AI Agency, Geneva (English)
 
-> DKDP is a digital agency in Geneva, Switzerland, specialised in custom web design, SEO, artificial intelligence and corporate AI training for Swiss SMBs. 700+ Swiss clients trust DKDP. Founded by David Khazaei in 2015, the team works hands-on in plain sight, no agency middlemen.
+> DKDP is a Geneva agency, founded in 2019, that trains teams at SMBs across French-speaking Switzerland in artificial intelligence (Claude, ChatGPT, Copilot) and then builds their AI tools: agents, automations and chatbots. The agency also builds websites and handles their search visibility (SEO and GEO).
 
-DKDP helps Swiss SMBs with their digital transformation: custom websites built on Next.js or Astro, local and AI search SEO, custom AI agents and automation, and hands-on corporate AI training. Based in the Eaux-Vives district in Geneva, serving Geneva, Lausanne, Zurich, Basel and all of Switzerland.
+Training is the core of the offer. Every programme starts from the company's own documents, tools and real cases, as a half day (3 hours) or a full day (6 hours), at the client's premises in French-speaking Switzerland or by video call. After the training, DKDP can audit how the company uses AI, then build the agents and automations that extend what the team has learned.
 
-Founder: David Khazaei, agency director and certified AI trainer, based in Geneva since 2015. Expertise in web development (Next.js, Astro, WordPress), SEO strategy, AI agents and corporate training.
+Team: David Khazaei, founder, frames the projects and the training programmes. AI training is delivered by Romane, a trainer specialised in artificial intelligence; Ali Khazaei handles the IT and development modules, and a specialist trainer steps in on niche topics.
 Working languages: French (primary), English, Farsi.
-Geographic coverage: Geneva, Lausanne, Fribourg, Sion, Neuchatel, French-speaking Switzerland, plus English-speaking clients across Switzerland and Europe.
-
-## Digital Agency Services
-
-- [Web design](https://dkdp.ch/en/digital-agency/web-design): Custom websites on Next.js, Astro, headless CMS. From CHF 2,500. Modern 2026 design, fast Core Web Vitals, SEO-ready, multilingual.
-- [Website redesign](https://dkdp.ch/en/digital-agency/website-redesign): Migration without SEO loss. URL mapping, 301 redirects, performance overhaul. 0% measurable SEO drop on 50+ projects.
-- [App development](https://dkdp.ch/en/digital-agency/app-development): iOS, Android, web apps and PWAs. React Native, Expo, Next.js. From CHF 15,000.
-- [SEO](https://dkdp.ch/en/digital-agency/seo): Technical SEO, content strategy, AI search optimisation (ChatGPT, Perplexity, Google AI Overviews). CHF 600/month with no commitment, or CHF 1,500 one-off.
-- [Google Ads](https://dkdp.ch/en/digital-agency/google-ads): Search, Performance Max, YouTube. Fixed management fee from CHF 400/month, no margin on ad spend (media budget from CHF 500/month).
-- [Social media](https://dkdp.ch/en/digital-agency/social-media): LinkedIn, Instagram, TikTok strategy and management. From CHF 450/month.
-- [Video production](https://dkdp.ch/en/digital-agency/video-production): Brand films, product videos, training content. From CHF 800 (short testimonial) to CHF 2,000 (corporate film).
-- [Marketing consulting](https://dkdp.ch/en/digital-agency/marketing-consulting): Strategy plus hands-on execution. Fractional CMO option. CHF 180/hour or project fee.
-- [GDPR & cookies](https://dkdp.ch/en/digital-agency/gdpr-cookies): GDPR and Swiss nLPD compliance. Cookie banner with Consent Mode v2. Compliance audit CHF 800, full pack CHF 2,500.
-
-## Artificial Intelligence
-
-- [Custom AI agents](https://dkdp.ch/en/artificial-intelligence/ai-agents): Agents trained on your docs, your tone, your processes. Built on Claude, ChatGPT or Gemini. From CHF 2,500 to CHF 4,900.
-- [Business automation](https://dkdp.ch/en/artificial-intelligence/automation): No-code workflows on n8n, Make, Zapier. Lead routing, invoice automation, CRM sync. From CHF 1,500 to CHF 3,500.
-- [AI audit & consulting](https://dkdp.ch/en/artificial-intelligence/audit-consulting): Find where AI moves the needle in your business. Audit CHF 490 (standard) or CHF 890 (complete), after a free 30-minute discovery call.
-- [AI implementation](https://dkdp.ch/en/artificial-intelligence/implementation): Deploy AI inside your existing stack and train your team. SSO, audit logs, IT-friendly. From CHF 3,500 to CHF 6,500.
-- [AI chatbot](https://dkdp.ch/en/artificial-intelligence/ai-chatbot): 24/7 assistant grounded in your docs. Lead capture, calendar booking, voice input. From CHF 2,900.
+Geographic coverage: Geneva, Lausanne, Fribourg, Sion, Neuchatel and all of French-speaking Switzerland, plus English-speaking clients across Switzerland.
 
 ## Corporate Training
 
-- [Corporate AI training](https://dkdp.ch/en/corporate-training/ai): Hands-on team training on Claude, ChatGPT, Copilot, Gemini. CHF 200/h for 1 person, CHF 300/h for 2, groups of 3 to 10 on quote.
-- [Claude training](https://dkdp.ch/en/corporate-training/claude-ai): Specialised Claude.ai, Projects, Cowork and Claude Code training. From beginner to advanced agents.
-- [Office tools](https://dkdp.ch/en/corporate-training/office-tools): Excel, Word, PowerPoint, Microsoft 365 Copilot, Google Workspace.
-- [Social media training](https://dkdp.ch/en/corporate-training/social-media): LinkedIn, Instagram, TikTok mastery for marketing and sales teams.
-- [Cybersecurity](https://dkdp.ch/en/corporate-training/cybersecurity): Phishing, password hygiene, MFA, social engineering, AI-specific risks.
-- [Canva](https://dkdp.ch/en/corporate-training/canva): Brand Kit, templates, Magic Studio AI. Build a design system in one day.
-- [Web design with Figma](https://dkdp.ch/en/corporate-training/figma): UI/UX, wireframes, design systems, interactive prototypes.
-- [IT skills](https://dkdp.ch/en/corporate-training/it-skills): Cloud collaboration, productivity, automation, AI literacy for non-tech teams.
-- [Video editing](https://dkdp.ch/en/corporate-training/video-editing): Premiere Pro, DaVinci Resolve, CapCut. Phone-first option available.
-- [Individual training](https://dkdp.ch/en/individual-training): Private 1-to-1 lessons via cours-informatique.ch. CHF 140/h (computer, smartphone), CHF 150/h (office software), CHF 200/h (AI).
+- [Corporate AI training](https://dkdp.ch/en/corporate-training/ai): Hands-on team training on ChatGPT Astra, Claude, Copilot and Gemini, on the company's real tools and use cases. CHF 200/h for 1 person, CHF 300/h for 2, groups of 3 to 10 on quote, half day or full day.
+- [Claude training](https://dkdp.ch/en/corporate-training/claude-ai): Claude.ai, shared Projects and long-document analysis, with Claude Code as an optional module for technical profiles.
+- [ChatGPT training](https://dkdp.ch/en/corporate-training/chatgpt): ChatGPT Astra (GPT-6), ChatGPT Work, GPTs and Codex for teams.
+- [Canva](https://dkdp.ch/en/corporate-training/canva): Brand Kit, templates and Magic Studio AI tools.
+- [Figma](https://dkdp.ch/en/corporate-training/figma): UI and UX, wireframes, design systems, interactive prototypes.
+- [Office tools](https://dkdp.ch/en/corporate-training/office-tools): Excel, Word, PowerPoint, Microsoft 365 and Google Workspace.
+- [Cybersecurity](https://dkdp.ch/en/corporate-training/cybersecurity): Phishing, password hygiene, MFA, social engineering and AI-specific risks.
+- [Social media training](https://dkdp.ch/en/corporate-training/social-media): LinkedIn, Instagram and TikTok for marketing and sales teams.
+- [Video editing](https://dkdp.ch/en/corporate-training/video-editing): Premiere Pro, DaVinci Resolve and CapCut.
+- [IT skills](https://dkdp.ch/en/corporate-training/it-skills): Cloud collaboration, productivity and AI literacy for non-technical teams.
+- [Individual training](https://dkdp.ch/en/individual-training): Private lessons via cours-informatique.ch. CHF 140/h (computer, smartphone), CHF 150/h (office software), CHF 200/h (AI).
+
+## Artificial Intelligence
+
+- [AI audit and consulting](https://dkdp.ch/en/artificial-intelligence/audit-consulting): Where AI helps your business, with a prioritised and costed action plan. CHF 490 (standard) or CHF 890 (complete), after a free 30-minute discovery call.
+- [Custom AI agents](https://dkdp.ch/en/artificial-intelligence/ai-agents): Agents built on your documents, your tone and your processes, on Claude, ChatGPT or Gemini. From CHF 2,500 to CHF 4,900.
+- [Business automation](https://dkdp.ch/en/artificial-intelligence/automation): Workflows on n8n, Make and Zapier. From CHF 1,500 to CHF 3,500.
+- [AI implementation](https://dkdp.ch/en/artificial-intelligence/implementation): AI deployed inside your existing stack, with team training. From CHF 3,500 to CHF 6,500.
+- [AI chatbot](https://dkdp.ch/en/artificial-intelligence/ai-chatbot): Assistant grounded in your documents, for lead capture and appointment booking.
+
+## Digital Agency Services
+
+- [Web design](https://dkdp.ch/en/digital-agency/web-design): Custom websites on Next.js or Astro. From CHF 2,500.
+- [Website redesign](https://dkdp.ch/en/digital-agency/website-redesign): Redesign and migration with URL mapping and 301 redirects.
+- [App development](https://dkdp.ch/en/digital-agency/app-development): iOS, Android, web apps and PWAs.
+- [SEO](https://dkdp.ch/en/digital-agency/seo): Technical SEO, content strategy and AI search optimisation. CHF 600/month with no commitment, or CHF 1,500 one-off.
+- [Google Ads](https://dkdp.ch/en/digital-agency/google-ads): Search and Performance Max. Management from CHF 400/month, media budget from CHF 500/month.
+- [Social media](https://dkdp.ch/en/digital-agency/social-media): LinkedIn, Instagram and TikTok strategy and management. From CHF 450/month.
+- [Video production](https://dkdp.ch/en/digital-agency/video-production): Brand films, product videos and training content.
+- [Marketing consulting](https://dkdp.ch/en/digital-agency/marketing-consulting): Strategy plus hands-on execution. CHF 180/hour.
+- [GDPR and cookies](https://dkdp.ch/en/digital-agency/gdpr-cookies): GDPR and Swiss nLPD compliance, cookie banner with Consent Mode v2.
 
 ## Free tools
 
-- [Free SEO audit](https://dkdp.ch/en/digital-agency/seo/seo-audit): Real SEO audit by a senior team, delivered in 48 hours. Yours to keep, no commitment.
-- [Free website audit](https://dkdp.ch/en/digital-agency/web-design/site-audit): Performance, UX, accessibility, SEO. Delivered in 48 hours by a senior team.
-- [Free website quote](https://dkdp.ch/en/digital-agency/web-design/quote): Scope, price and timeline within 24 hours of your message. Fixed, no surprises.
+- [Free SEO audit](https://dkdp.ch/en/digital-agency/seo/seo-audit): SEO audit delivered within 48 hours, no commitment.
+- [Free website audit](https://dkdp.ch/en/digital-agency/web-design/site-audit): Performance, UX, accessibility and SEO, delivered within 48 hours.
+- [Free website quote](https://dkdp.ch/en/digital-agency/web-design/quote): Scope, price and timeline for your website.
 
 ## About
 
-- [About DKDP](https://dkdp.ch/en/about): A small senior team that ships in plain sight. Web, AI, training under one roof.
-- [Pricing](https://dkdp.ch/en/pricing): Transparent fixed-quote pricing for digital, AI and training services.
-- [Contact](https://dkdp.ch/en/contact): Contact form, 30-minute call booking or phone. Free quote in 24 hours.
-
-## Why DKDP for English-speaking clients in Switzerland
-
-- Fully bilingual team, working daily with expat-led companies and international organisations in Geneva, Lausanne, Zurich and Basel.
-- Senior craft only: you talk directly to the people who design, code, train and ship. No relay race, no offshore subcontracting.
-- Web and AI under one roof: the website, the AI agent and the team that uses both are built and trained by the same crew.
-- Fixed scope, fixed price, on time. The quote you sign at kickoff is the invoice you pay at launch.
-- Swiss hosting and GDPR + nLPD compliance built in. Sensitive sectors (health, finance) covered.
+- [About DKDP](https://dkdp.ch/en/about): A small team for training, AI and web under one roof.
+- [Pricing](https://dkdp.ch/en/pricing): Public pricing for training, AI and digital services.
+- [Contact](https://dkdp.ch/en/contact): Contact form, discovery call booking or phone. Quote within 48 hours.
 
 ## Frequently Asked Questions (English)
 
-**What services does DKDP offer in Geneva?**
-DKDP is a Geneva-based digital agency covering three pillars: digital services (web design, redesign, SEO, Google Ads, social media, video, GDPR), artificial intelligence (custom AI agents, business automation, AI audits, chatbots, AI implementation) and corporate training (Claude, ChatGPT, Copilot, Canva, Figma, cybersecurity, video editing, office tools).
-
-**How long does it take to deliver a website?**
-A typical showcase website is delivered in 4 to 6 weeks. Complex projects with custom development, e-commerce or AI features take 8 to 12 weeks. We always give a fixed quote upfront and stick to the agreed timeline.
-
-**Do you work in English with international clients in Geneva?**
-Yes. Our team is fully bilingual French and English. We work daily with expat-led companies, international organisations and Swiss SMBs serving global markets. Meetings, deliverables, documentation and training can all be delivered in English.
+**What does DKDP offer in Geneva?**
+DKDP trains teams in artificial intelligence (Claude, ChatGPT, Copilot, Gemini), builds AI tools (agents, automations, chatbots, AI audits) and also delivers websites, SEO and Google Ads for SMBs across French-speaking Switzerland.
 
 **How much does corporate AI training cost?**
-AI training for teams is billed by the hour: CHF 200/h for 1 person, CHF 300/h for 2, on quote for groups of 3 to 10 (half-day or full day), with a programme built on the company's real tools and use cases.
+AI training is billed by the hour: CHF 200/h for 1 person, CHF 300/h for 2, and on quote for groups of 3 to 10 (half day or full day), with a programme built on the company's real tools and use cases.
 
-**What makes DKDP different from other Geneva agencies?**
-A small senior team that ships code itself. No account managers, no offshoring, no PowerPoint theatre. You talk directly to the people who design, build, train and ship.
+**Who delivers the training?**
+AI training is delivered by Romane, a trainer specialised in artificial intelligence. David Khazaei, founder, frames each programme with the company before the session.
+
+**Do you work in English with international clients in Geneva?**
+Yes. Meetings, deliverables and training can be delivered in English.
 
 **Do you offer free audits before engagement?**
-Yes. We offer a free SEO audit and a free site audit, both delivered within 48 hours. The reports are concrete and yours to keep with no engagement on your side.
+Yes. We offer a free SEO audit and a free site audit, both delivered within 48 hours.
 
 ## Contact information
 

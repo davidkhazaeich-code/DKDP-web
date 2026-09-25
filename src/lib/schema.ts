@@ -1,4 +1,5 @@
 import { ENTITY } from '@/lib/entity'
+import { PRIX } from '@/data/pricing'
 
 const BASE_URL = ENTITY.url
 
@@ -27,20 +28,24 @@ const COUNTRY: Record<SchemaLang, string> = {
   en: 'Switzerland',
 }
 
-/** Localized descriptions for the agency. */
+/**
+ * Localized descriptions for the agency.
+ * 25/09/2026 : la formation IA et l'IA passent en tête (demande David), le web
+ * et le SEO restent cités. Ces phrases nourrissent Google et les assistants IA.
+ */
 const ORG_DESCRIPTION: Record<SchemaLang, string> = {
-  fr: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME suisses.',
-  en: 'Digital agency in Geneva, Switzerland, specialised in web design, SEO, artificial intelligence and corporate training for Swiss SMBs.',
+  fr: "Agence genevoise de formation IA et d'intelligence artificielle : formations Claude, ChatGPT et Copilot pour les équipes, agents IA et automatisation, ainsi que sites web et SEO pour les PME suisses.",
+  en: 'Geneva agency for corporate AI training and artificial intelligence: Claude, ChatGPT and Copilot training for teams, AI agents and automation, plus websites and SEO for Swiss SMBs.',
 }
 
 const LOCAL_BUSINESS_DESCRIPTION: Record<SchemaLang, string> = {
-  fr: "Agence digitale à Genève (quartier des Eaux-Vives) spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise pour PME de Suisse romande, fondée en 2019.",
-  en: 'Digital agency based in Geneva (Eaux-Vives district), specialised in web design, SEO, artificial intelligence and corporate training for SMBs across French-speaking Switzerland, founded in 2019.',
+  fr: "Agence de formation IA et d'intelligence artificielle à Genève (quartier des Eaux-Vives), fondée en 2019 : formations Claude, ChatGPT et Copilot en entreprise, agents IA, automatisation, sites web et SEO pour les PME de Suisse romande.",
+  en: 'Corporate AI training and artificial intelligence agency based in Geneva (Eaux-Vives district), founded in 2019: Claude, ChatGPT and Copilot training for companies, AI agents, automation, websites and SEO for SMBs across French-speaking Switzerland.',
 }
 
 const WEBSITE_DESCRIPTION: Record<SchemaLang, string> = {
-  fr: 'Agence digitale à Genève spécialisée en création de sites web, SEO, intelligence artificielle et formation entreprise.',
-  en: 'Digital agency in Geneva specialised in web design, SEO, artificial intelligence and corporate training.',
+  fr: "Formation IA en entreprise et agence d'intelligence artificielle à Genève : formations Claude, ChatGPT et Copilot, agents IA, automatisation, sites web et SEO.",
+  en: 'Corporate AI training and artificial intelligence agency in Geneva: Claude, ChatGPT and Copilot training, AI agents, automation, websites and SEO.',
 }
 
 const PERSON_JOB_TITLE: Record<SchemaLang, string> = {
@@ -501,10 +506,74 @@ export function buildOrganization(lang: SchemaLang = 'fr') {
       },
     ],
     sameAs: [...ENTITY.sameAs],
+    // 25/09/2026 : formation IA et audit IA en tête, prix tirés de PRIX. L'offre
+    // formation annonçait « dès CHF 1500 par session », contraire à la grille
+    // horaire de /tarifs.
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: lang === 'fr' ? 'Services DKDP' : 'DKDP Services',
       itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: lang === 'fr' ? 'Formation IA entreprise' : 'Corporate AI training',
+            description:
+              lang === 'fr'
+                ? 'Formations Claude, ChatGPT et Copilot pour les équipes, sur leurs propres dossiers'
+                : 'Claude, ChatGPT and Copilot training for teams, on their own work',
+          },
+          priceCurrency: 'CHF',
+          price: String(PRIX.formationHourly1),
+          priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            priceCurrency: 'CHF',
+            price: String(PRIX.formationHourly1),
+            unitCode: 'HUR',
+            description:
+              lang === 'fr'
+                ? `CHF ${PRIX.formationHourly1} de l'heure pour une personne, CHF ${PRIX.formationHourly2} pour deux, groupes sur devis`
+                : `CHF ${PRIX.formationHourly1} per hour for one person, CHF ${PRIX.formationHourly2} for two, groups on quote`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: lang === 'fr' ? 'Audit et conseil IA' : 'AI audit and consulting',
+            description:
+              lang === 'fr'
+                ? 'Diagnostic des usages IA et plan d\'action chiffré'
+                : 'Assessment of AI use cases with a costed action plan',
+          },
+          priceCurrency: 'CHF',
+          price: String(PRIX.auditIaStandard),
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'CHF',
+            price: String(PRIX.auditIaStandard),
+            description: lang === 'fr' ? `À partir de CHF ${PRIX.auditIaStandard}` : `From CHF ${PRIX.auditIaStandard}`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: lang === 'fr' ? 'Agents IA et automatisation' : 'AI agents and automation',
+            description:
+              lang === 'fr'
+                ? 'Agents IA sur mesure et automatisation des processus métier'
+                : 'Custom AI agents and business process automation',
+          },
+          priceCurrency: 'CHF',
+          price: String(PRIX.automatisationFrom),
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'CHF',
+            price: String(PRIX.automatisationFrom),
+            description: lang === 'fr' ? `À partir de CHF ${PRIX.automatisationFrom}` : `From CHF ${PRIX.automatisationFrom}`,
+          },
+        },
         {
           '@type': 'Offer',
           itemOffered: {
@@ -516,32 +585,12 @@ export function buildOrganization(lang: SchemaLang = 'fr') {
                 : 'Custom websites for Swiss SMBs',
           },
           priceCurrency: 'CHF',
-          price: '2500',
+          price: String(PRIX.siteFrom),
           priceSpecification: {
             '@type': 'PriceSpecification',
             priceCurrency: 'CHF',
-            price: '2500',
-            description: lang === 'fr' ? 'À partir de CHF 2500' : 'From CHF 2,500',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: lang === 'fr' ? 'Formation IA entreprise' : 'Corporate AI training',
-            description:
-              lang === 'fr'
-                ? 'Formations IA appliquées pour équipes'
-                : 'Applied AI training for teams',
-          },
-          priceCurrency: 'CHF',
-          price: '1500',
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            priceCurrency: 'CHF',
-            price: '1500',
-            description:
-              lang === 'fr' ? 'À partir de CHF 1500 par session' : 'From CHF 1,500 per session',
+            price: String(PRIX.siteFrom),
+            description: lang === 'fr' ? `À partir de CHF ${PRIX.siteFrom}` : `From CHF ${PRIX.siteFrom}`,
           },
         },
         {
@@ -555,12 +604,12 @@ export function buildOrganization(lang: SchemaLang = 'fr') {
                 : 'Google organic search optimisation for SMBs',
           },
           priceCurrency: 'CHF',
-          price: '600',
+          price: String(PRIX.seoMonthly),
           priceSpecification: {
             '@type': 'PriceSpecification',
             priceCurrency: 'CHF',
-            price: '600',
-            description: lang === 'fr' ? 'À partir de CHF 600/mois' : 'From CHF 600/month',
+            price: String(PRIX.seoMonthly),
+            description: lang === 'fr' ? `À partir de CHF ${PRIX.seoMonthly}/mois` : `From CHF ${PRIX.seoMonthly}/month`,
           },
         },
       ],

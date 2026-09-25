@@ -37,21 +37,23 @@ const MESSAGE_LIMIT = 10
 const MAX_CHAR_LENGTH = 500
 const DKDP_BOUNCE = [0.34, 1.56, 0.64, 1] as const
 
+// 25/09/2026 : accueil, suggestions et textes tournants mènent par la formation
+// et l'IA (demande David) ; accents rétablis (« a se demarquer », « Creer »).
 const WELCOME_MESSAGE =
-  'Bienvenue chez DKDP. Nous accompagnons les entreprises a se demarquer en ligne avec des sites modernes et bien références. Comment puis-je vous aider aujourd\u2019hui ?'
+  'Bienvenue chez DKDP. Nous formons les équipes à l\u2019IA, puis nous construisons avec elles leurs agents, leurs automatisations et leurs sites. Comment puis-je vous aider aujourd\u2019hui ?'
 
 const QUICK_SUGGESTIONS = [
-  { icon: <Globe size={14} />, label: 'Creer un site web' },
-  { icon: <MessageCircle size={14} />, label: 'Je veux un chatbot IA comme celui-ci' },
   { icon: <Sparkles size={14} />, label: 'Explorer vos formations IA' },
+  { icon: <MessageCircle size={14} />, label: 'Je veux un chatbot IA comme celui-ci' },
+  { icon: <Globe size={14} />, label: 'Créer un site web' },
   { icon: <CalendarCheck size={14} />, label: 'Obtenir un devis gratuit' },
 ]
 
 const PLACEHOLDERS = [
   'Besoin d\u2019une information ?',
-  'Un projet de site web en tete ?',
-  'Combien coute un site web ?',
   'Parlez-moi de vos formations IA',
+  'Une tâche à confier à l\u2019IA ?',
+  'Un projet de site web en tête ?',
 ]
 
 // ── Version anglaise des textes du widget ───────────────────────────────────
@@ -62,20 +64,20 @@ const PLACEHOLDERS = [
 type ChatLocale = 'fr' | 'en'
 
 const EN_WELCOME_MESSAGE =
-  'Welcome to DKDP. We help companies stand out online with modern websites that rank well. How can I help you today?'
+  'Welcome to DKDP. We train teams on AI, then build with them their agents, their automations and their websites. How can I help you today?'
 
 const EN_QUICK_SUGGESTIONS = [
-  { icon: <Globe size={14} />, label: 'Build a website' },
-  { icon: <MessageCircle size={14} />, label: 'I want an AI chatbot like this one' },
   { icon: <Sparkles size={14} />, label: 'Explore your AI training' },
+  { icon: <MessageCircle size={14} />, label: 'I want an AI chatbot like this one' },
+  { icon: <Globe size={14} />, label: 'Build a website' },
   { icon: <CalendarCheck size={14} />, label: 'Get a free quote' },
 ]
 
 const EN_PLACEHOLDERS = [
   'Looking for something?',
-  'Got a website project in mind?',
-  'How much does a website cost?',
   'Tell me about your AI training',
+  'A task to hand over to AI?',
+  'Got a website project in mind?',
 ]
 
 /** La locale vient du chemin : /en et /en/... sont anglais, le reste francais. */

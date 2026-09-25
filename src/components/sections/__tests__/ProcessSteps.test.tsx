@@ -14,7 +14,8 @@ describe('ProcessSteps', () => {
     expect(screen.getByText('Diagnostic')).toBeInTheDocument()
     expect(screen.getByText('Proposition')).toBeInTheDocument()
     expect(screen.getByText('Réalisation')).toBeInTheDocument()
-    expect(screen.getByText('Résultats & Suivi')).toBeInTheDocument()
+    // 25/09/2026 : « et » plutôt que « & » dans le texte visible (règle de rédaction).
+    expect(screen.getByText('Résultats et suivi')).toBeInTheDocument()
   })
 
   it('renders all 5 step numbers', () => {

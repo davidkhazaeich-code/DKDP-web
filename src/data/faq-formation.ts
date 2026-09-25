@@ -52,6 +52,6 @@ export const FAQ_FORMATION = [
   {
     question: "Comment convaincre ma direction de former les collaborateurs en informatique ?",
     answer:
-      "Former vos collaborateurs en informatique est un investissement mesurable. En moyenne, une équipe formée gagne 1h30 par jour et par personne sur les tâches numériques. Sur une équipe de 10 personnes, cela représente plus de 300 heures récupérées par mois. Nous fournissons un rapport d'impact post-formation que vous pouvez présenter à votre direction.",
+      "Présentez la formation comme un investissement à mesurer. Nous vous conseillons de relever, avant la session, les tâches numériques qui prennent le plus de temps à l'équipe : vous obtenez ainsi un point de départ chiffré par votre propre organisation. Après la formation, vous comparez ces mêmes tâches et vous présentez à votre direction un résultat observé chez vous plutôt qu'une moyenne générale.",
   },
 ]

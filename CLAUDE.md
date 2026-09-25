@@ -6,6 +6,8 @@ Site vitrine de l'agence DKDP. Stack : **Next.js App Router · TypeScript · Tai
 
 ---
 
+> **Fichier court par construction** (cible < 200 lignes, doc Claude Code) : les références détaillées sont dans `docs/claude/` (table en fin de fichier), à lire quand le sujet est touché. Ne pas réécrire ici une section déplacée : compléter son fichier dans `docs/claude/`. Scindé le 2026-09-19, original dans `_archive/nettoyage-contexte-2026-09-19/` du DEV SPACE.
+
 ## Quick-start (nouvelle conversation)
 
 ```bash
@@ -35,79 +37,6 @@ git push origin main # Deploy (Vercel auto-deploy)
 
 ---
 
-## Blog : workflow de publication
-
-Quand David fournit du contenu (lien YouTube, transcript, topic, texte brut) pour un article :
-
-1. **Redaction** : Reecrire/creer un article complet au ton DKDP, SEO-optimise, avec maillage interne vers les pages services et formation
-2. **Image hero** : Generer avec Nanobanana (MCP tool `mcp__nanobanana__generate_image`), style dark/tech/pro, ratio 16:9
-3. **Diagrammes et visuels inline** :
-   - **Diagrammes HTML codes** : Inserer des blocs `<div>` directement dans le `content` markdown. Le renderer les passe tel quel (pass-through). Utiliser les design tokens du site (violet `#A78BFA`, orange `#FF8C00`, chrome `#D4D4D8`, vert `#4ade80`, rouge `#fca5a5`). Types utiles : grilles de cards, barres de progression, comparaisons avant/apres, timelines, heatmaps d'attention, etapes numerotees.
-   - **Schemas Nanobanana** : Generer 1-3 images explicatives par article (courbes, infographies, diagrammes visuels). Les ajouter dans `images[]` avec alt + caption, et les placer dans le contenu via le marqueur `___IMG:filename.png___`.
-   - **Regle** : chaque article doit avoir au minimum 1 diagramme HTML code ET 1 image Nanobanana, en plus de l'image hero.
-   - **SEO images** :
-     - **Noms de fichiers** : toujours descriptifs avec mots-cles, format `mot-cle-principal-description.png` (ex: `seo-local-geneve-funnel.png`, `formation-ia-roi-curve.png`). Jamais de noms generiques (`image1.png`, `hero.png`).
-     - **Alt texts** : commencer par le mot-cle cible de l'article, inclure contexte geo (Geneve, Suisse, PME) et annee si pertinent. Format : `"Mot-cle principal : description concise et riche semantiquement"`. Ex: `"Formation IA entreprise Geneve 2026 : seance pratique avec collaborateurs sur outils IA"`.
-4. **Publication** : Creer un nouveau fichier `src/lib/blog/<slug>.ts` (default export), ajouter l'import dans `src/lib/blog/index.ts`, placer les images dans `public/images/blog/`, mettre a jour `FEATURED_SLUG` dans index.ts si pertinent
-5. **Deploy** : Commit + push sur `main` → auto-deploy Vercel
-6. **Confirmation** : Donner l'URL live `https://dkdp.ch/blog/<slug>`
-
-> **Effet de bord voulu** : la section « Veille et actualité » des pages `/formation-entreprise/claude-ai` et `/en/corporate-training/claude-ai` est alimentee par `getArticlesByTopic(CLAUDE_TOPIC, 12)`, recalcule a chaque rendu. Tout article touchant **un seul** des mots de `CLAUDE_TOPIC` (`claude`, `anthropic`, `opus`, `sonnet`, `haiku`, `mcp`, `agent ia`, `agentic`) dans son **slug, son titre ou ses tags** remonte automatiquement en tete du carrousel. Le compteur d'articles et la date de derniere publication se mettent a jour seuls. Rien a editer sur la page.
->
-> **Les `tags` sont le levier de controle.** Un article Claude dont ni le slug ni le titre ne portent un mot du sujet doit avoir le tag qui va bien, sinon il reste invisible dans la section. Quand Anthropic sort un nom de produit ou de modele inedit, **elargir `CLAUDE_TOPIC` dans `src/lib/blog/topics.ts`**, pas les pages.
->
-> **La page d'accueil aussi** : la section « Veille technologique » de `/` et `/en` (composant `TechWatch`, entre la methode et le bandeau de confiance) liste les **8 derniers articles tous sujets confondus** via `getLatestArticles()`. Toute publication y remonte en tete sans condition de mot-cle.
->
-> Garde-fou : `src/lib/blog/__tests__/topic.test.ts` echoue si un article dont le slug ou le titre parle de Claude n'atterrit pas dans la section. Si ce test casse apres une publication, ajouter le mot manquant a `CLAUDE_TOPIC` plutot que d'ajuster le test.
-
-**Fichiers blog cles :**
-
-| Fichier | Role |
-|---|---|
-| `src/lib/blog/` | **1 fichier par article** (default export). Types dans `types.ts`, assemblage dans `index.ts` |
-| `src/lib/blog/index.ts` | Re-exporte ARTICLES[], BLOG_CATEGORIES, FEATURED_SLUG, getArticle(), getRelatedArticles(). **Fichier d'assemblage : il bouge a chaque publication, ne pas y poser de logique de page** |
-| `src/lib/blog/topics.ts` | Selections d'articles pour les sections de page : CLAUDE_TOPIC, getArticlesByTopic(), countArticlesByTopic(), getLatestArticles(). Volontairement separe de `index.ts` pour que redaction et developpement ne se marchent pas dessus |
-| `src/app/blog/[slug]/page.tsx` | Page article individuelle, markdown custom avec marqueurs `___IMG:filename___` + blocs HTML pass-through (`<div>`) |
-| `public/images/blog/` | Images hero, schemas et inline des articles |
-
-**Structure d'un fichier article (`src/lib/blog/<slug>.ts`) :**
-```ts
-import type { Article } from './types'
-
-const article: Article = {
-  slug: 'mon-article',
-  title: 'Titre SEO',
-  excerpt: 'Description courte pour les cards et meta',
-  date: '5 avril 2026',
-  dateISO: '2026-04-05',
-  readTime: '8 min',
-  category: 'ia' | 'seo' | 'formation' | 'outils',
-  heroImage: { src: '/images/blog/mon-article-hero.png', alt: '...' },
-  images: [
-    { src: '/images/blog/mon-article-schema.png', alt: '...', caption: '...' },
-  ],
-  // Optionnel mais recommande : reprise MOT POUR MOT des Q/R de la section
-  // « Questions frequentes » du contenu. Declenche un schema FAQPage en plus
-  // du BlogPosting (rich results Google + citabilite moteurs IA).
-  faq: [{ question: '...', answer: '...' }],
-  content: `...markdown + HTML diagrams + ___IMG:filename___ markers...`,
-}
-
-export default article
-```
-```
-
-> **Champ `faq`** : Google exige que la reponse balisee soit **visible sur la page**. Ne jamais baliser une Q/R absente du corps de l'article, et repercuter toute reformulation du texte dans le champ. Sans `faq`, la page n'emet que BlogPosting et BreadcrumbList, comme avant.
-
-**Conventions pour les diagrammes HTML :**
-- Wrapper principal : `<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(...);background:rgba(...)">` 
-- Titre du diagramme : `<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:...;margin-bottom:1rem">TITRE</div>`
-- Utiliser `display:grid` ou `display:flex` pour les layouts
-- Texte principal en `#e4e4e7`, secondaire en `#9CA3AF`, muted en `#71717a`
-- Toujours dark theme, coherent avec le fond `#09090B` du site
-
----
-
 ## Nommage : Formation Claude
 
 | Contexte | Nom exact |
@@ -116,129 +45,6 @@ export default article
 | Page listing `/formation-entreprise` (card titre) | **Formation Claude IA** |
 | Mega menu Header (FORMATION_MAIN + IA_SECONDARY) | **Formation Claude** |
 | Descriptions mega menu | Mentionner Claude.ai, Projects Cowork et Claude Code |
-
----
-
-## Nommage : Formation Figma
-
-`/formation-entreprise/web-design` a ete renommee `/formation-entreprise/figma`
-le 2026-08-31 (miroir EN `/en/corporate-training/figma`), avec 301 dans
-`REDIRECTS`. La page portait deja Figma du title jusqu'a la FAQ et ressortait sur
-les requetes Figma, mais son URL disait « web design ». Une seconde page aurait
-cannibalise la premiere sur un marche romand trop etroit pour deux : on a
-renomme, pas duplique.
-
-| Contexte | Nom exact |
-|---|---|
-| Page, H1, metadata, breadcrumb | **Formation Figma** |
-| Mega menu, footer, hub, plan du site | **Formation Figma** (EN : **Figma training**) |
-| Nom du formateur | **Aucun.** Le bloc `FigmaTrainer` decrit le profil requis et annonce que le profil detaille est transmis au calage des dates |
-
-Le web design, l'UX/UI et la conception de maquettes n'ont pas disparu : ils sont
-devenus des sections de cette page (vocabulaire wireframe / maquette / prototype /
-design system, comparatif d'outils, cas d'usage). Ne pas recreer de page web design.
-
-**Composants partages** dans `src/components/formation/figma/`, tous bilingues via
-une prop `lang` (pattern `FormationTrainer`, pas de duplication FR/EN comme sur les
-pages `ia` et `canva`) : `FigmaPillars`, `DesignVocabulary`, `FigmaToolComparison`,
-`FigmaLevels`, `FigmaUseCases`, `IntraVsCatalogue`, `FigmaTrainer`.
-
-> **Le bloc `FormationTrainer` partage n'est volontairement PAS monte sur cette
-> page.** Il presente David, Romane et Ali, dont les competences affichees sont
-> l'IA, le SEO, le developpement et la bureautique. Aucun n'est praticien de Figma,
-> et les afficher sous la promesse « formes par des praticiens » serait un faux
-> signal, precisement ce qu'un prospect exigeant verifie.
-
-**Faits produit verifies le 2026-08-31**, a re-verifier avant de les reecrire :
-plan gratuit Figma = fichiers illimites en brouillon personnel mais **3 fichiers
-partages de 3 pages**, historique 30 jours ; **interface en francais depuis le
-15 octobre 2025** ; Adobe XD en maintenance, plus vendu separement. Les anciens
-chiffres non sources de la page (« 70% de temps gagne », « handoff divise par 3 »)
-ont ete retires : depuis la mise a jour E-E-A-T de decembre 2025, un chiffre rond
-sans source est un signal negatif et n'est pas repris par les moteurs IA.
-
----
-
-## Nommage : Formation ChatGPT (ajoutee le 2026-09-10)
-
-Page `/formation-entreprise/chatgpt` (miroir `/en/corporate-training/chatgpt`),
-creee le 10.09.2026 a la sortie de GPT-6 Astra (3 septembre 2026). Clone de la
-page Claude, accent orange formation, 1230 lignes + `_components/`.
-
-| Contexte | Nom exact FR | Nom exact EN |
-|---|---|---|
-| Page, H1 (grad-tag), breadcrumb | **Formation ChatGPT Genève & Suisse romande** | **ChatGPT training Geneva & French-speaking Switzerland** |
-| `metadata.title` | Formation ChatGPT Astra Genève & Suisse romande \| DKDP | ChatGPT Astra training Geneva & Switzerland \| DKDP |
-| Mega menu (`FORMATION_MAIN[2]`, `IA_SECONDARY[3]`), footer (`formationLinks[2]`), hub, plan du site | **Formation ChatGPT** | **ChatGPT training** |
-
-- Les composants vivent dans `src/app/formation-entreprise/chatgpt/_components/`
-  et sont **bilingues via une prop `lang`** (pattern Figma) : la page EN les
-  importe, il n'y a pas de `_components` cote EN.
-- `src/i18n/slugs.ts` porte la paire FR/EN. Sans elle, `localizedPath()` rend
-  `/en/formation-entreprise/chatgpt` et le sitemap EN ignore la page. Toute
-  nouvelle page a un miroir EN passe par cette table, pas seulement par `ROUTES`.
-- Section « Veille » alimentee par `CHATGPT_TOPIC` (`src/lib/blog/topics.ts` :
-  chatgpt, openai, gpt, astra, codex), meme mecanique que `CLAUDE_TOPIC`. Un
-  article sur OpenAI doit porter un de ces mots dans son slug, son titre ou ses
-  tags pour y remonter.
-- Positionnement (arbitrage David, 10.09.2026) : formation multi-outils, **Claude
-  reste la recommandation DKDP** (analyse, profondeur, confidentialite), ChatGPT
-  Astra pour automatiser un poste de travail et les images, Copilot si Microsoft
-  365. La note de bas de comparatif le dit sur les pages Claude et ChatGPT : ne
-  pas la retirer.
-- La grille « Ou Astra est disponible, forfait par forfait »
-  (`AstraAvailability.tsx`) est le contenu le plus perissable de la page : au
-  10.09.2026, Plus n'a Astra que dans ChatGPT Work et Codex, pas dans le chat.
-  Si OpenAI change la repartition, relire aussi la FAQ de la page, celle de la
-  formation IA, et l'article `chatgpt-astra-gpt-6-pme-romandes-2026`.
-- Statistiques affichees = celles du hub formation (500+, 4.9/5, 100 % sur
-  mesure). Aucune reference client ChatGPT ni chiffre de gain invente.
-
----
-
-## Nommage : ChatGPT Ads (page service ajoutee le 2026-09-10)
-
-Page `/agence-digitale/chatgpt-ads` (miroir `/en/digital-agency/chatgpt-ads`),
-pilier agence (violet), creee le 10.09.2026, dix jours apres l'ouverture de
-l'Ads Manager d'OpenAI aux entreprises suisses (31.08.2026). Article compagnon
-`/blog/chatgpt-ads-suisse-romande-guide-2026` (category `seo`, tags `ChatGPT
-Ads`, `OpenAI`, donc remonte dans la veille `CHATGPT_TOPIC`).
-
-| Contexte | Nom exact FR | Nom exact EN |
-|---|---|---|
-| H1 (grad-tag), breadcrumb | **ChatGPT Ads Genève & Suisse romande** | **ChatGPT Ads Geneva & French-speaking Switzerland** |
-| `metadata.title` | Agence ChatGPT Ads Genève & Suisse romande \| DKDP | ChatGPT Ads agency Geneva & Switzerland \| DKDP |
-| Mega menu (`AGENCE_MAIN[5]`), footer (`agenceLinks[6]`), tarifs, glossaire, sitemap EN | **ChatGPT Ads** | **ChatGPT Ads** |
-| Hub agence, plan du site FR, pages villes FR | **Publicité ChatGPT Ads** | **ChatGPT Ads** |
-
-- **Fiche de faits unique** : `docs/chatgpt-ads-facts-2026-09-10.md` (pages
-  OpenAI relues dans Chrome ; openai.com et help.openai.com bloquent WebFetch
-  et curl, passer par un vrai navigateur). Rien d'autre n'est affirme sur la
-  page, l'article, la FAQ, le glossaire ou le prompt du chatbot.
-- Composants bilingues (`lang`) dans `src/app/agence-digitale/chatgpt-ads/_components/`,
-  importes par la page EN. Calcul du simulateur dans `src/lib/chatgpt-ads/estimate.ts`
-  (fonction pure, testee). FAQ FR/EN dans `_components/copy.ts`, balisee FAQPage :
-  texte affiche = texte balise.
-- **Contenu perissable, a relire quand OpenAI bouge** : la frise du deploiement
-  (`RolloutTimeline`), la grille des forfaits (`PlanVisibilityGrid`), les secteurs
-  acceptes (politiques v1.5 du 31.08.2026, `SectorsGrid`), le budget quotidien
-  minimum de CHF 20, la recommandation « CPC de depart 3 a 5 USD », et l'absence
-  de personnalisation en Suisse. Meme fiche, meme jour : relire aussi l'article.
-- **Ce qu'on ne dit jamais** : un CPM ou CTR « observe », un resultat de campagne
-  DKDP, « cibler uniquement Geneve » (ciblage par pays, zones fines documentees
-  pour les Etats-Unis seulement), « l'agence ouvre le compte pour vous » (OpenAI
-  l'interdit : le client cree le compte, DKDP est invite).
-- Seule preuve citable : DKDP a ouvert son propre compte Ads Manager et pose le
-  pixel OpenAI + Conversions API sur dkdp.ch le 10.09.2026 (section OpenAI Ads
-  ci-dessous). Pas de campagne DKDP a citer tant qu'aucune ne tourne.
-- Prix (decision David du 10.09.2026) : Pilote 30 jours CHF 1'200 · Gestion
-  CHF 450 / mois · Google Ads + ChatGPT Ads CHF 950 / mois, zero commission,
-  budget media conseille CHF 600 a 1'500 pour le pilote. Aussi sur `/tarifs`.
-- QA visuelle : `node tools/qa-page-screenshots.mjs --base http://localhost:3105
-  --out /tmp/qa --sections fonctionnement,audience,faq /agence-digitale/chatgpt-ads`
-  (pleine page sombre et clair, desktop et mobile, sections, erreurs console,
-  debordement horizontal). Le Browser pane masque ne rend pas les captures apres
-  defilement : Playwright est la voie fiable.
 
 ---
 
@@ -309,93 +115,6 @@ Ne jamais copier-coller des `rgba()` bruts dans une nouvelle page. Importer depu
 
 ---
 
-## Couleur des liens : gris au repos, plein au survol
-
-**Regle unique pour tout lien textuel du site** (listes de navigation, mega menu, footer, plan
-du site, liens en ligne dans un paragraphe, navigation alphabetique du glossaire) :
-
-```jsx
-className="text-text-secondary hover:text-text transition-colors"   // liens de navigation
-className="text-text-muted hover:text-text transition-colors"       // liens secondaires (footer, villes, legal)
-className="underline hover:text-text transition-colors"             // lien en ligne dans un paragraphe
-```
-
-`--text` vaut `#FFFFFF` en sombre et `#1A1A18` en clair : la meme paire de classes donne
-gris → blanc en mode sombre et gris → noir en mode clair. Rien a dupliquer par theme.
-
-**Ne jamais** poser `text-text` ou `text-white` comme etat de repos d'un lien : c'est ce qui
-faisait cohabiter des liens blancs et des liens gris sur la meme page (corrige le 2026-08-24).
-`hover:text-white` est un bug de mode clair (blanc sur creme), toujours `hover:text-text`.
-
-**Exceptions assumees** (ce ne sont pas des liens textuels, on n'y touche pas) :
-
-| Cas | Pourquoi |
-|---|---|
-| Titre `h3` / `p` d'une carte cliquable (services, villes, tarifs, blog) | C'est un titre, pas un libelle de lien. Il reste en `text-text` |
-| Bouton CTA a fond plein (`EstimationBanner`, boutons violets/oranges) | Texte blanc sur fond colore, cf. regle boutons colores |
-| Valeurs de la carte contact (`GoogleMapSection`) | `tel:` et `mailto:` sont des valeurs de donnees alignees sur les lignes non cliquables |
-| Icone LinkedIn des formateurs | `hover:text-[#0A66C2]` = couleur de marque, volontaire |
-
-**Verification** : `node tools/audit-white-links.mjs` liste les liens qui violent la regle
-(couleur pleine au repos, survol mort, survol vers autre chose que `--text`). Les cartes et
-boutons sont masques par defaut, `--all` les affiche. `node tools/audit-link-colors.mjs [url]`
-fait la meme chose en live sur les deux themes via Playwright.
-
-> `text-text-primary` **n'existe pas** dans le systeme de tokens (`@theme` n'expose que
-> `--color-text`, `--color-text-secondary`, `--color-text-muted`). Toute classe
-> `text-text-primary` / `hover:text-text-primary` est silencieusement ignoree par Tailwind :
-> c'est un survol mort. Utiliser `text-text`.
-
-### Zones volontairement sombres dans les deux themes
-
-Une section qui pose son propre fond sombre en dur ne doit **pas** utiliser les tokens de
-texte : `--text` devient `#1A1A18` en mode clair, donc du texte quasi noir sur un fond noir.
-Dans ces zones, utiliser l'echelle blanche (`text-white`, `text-white/70`, `text-white/45`)
-et faire le survol vers `hover:text-white`.
-
-| Zone | Fond en dur |
-|---|---|
-| `CinematicCTA` (bas des pages Realisations) | `bg-[#09090B]` |
-| `BrowserFrame` (mockup de navigateur) | `bg-[#0E0E10]` et `bg-[#1B1B1F]` |
-| Hero des pages villes | photo + voile sombre (`ImageHeroBg` / `VideoHeroBg`) |
-
-Partout ailleurs dans `components/realisations/`, les tokens s'appliquent normalement : le
-module a ete migre en mode clair le 2026-08-24 (titres, bordures de section, cartes).
-
----
-
-## Nombres : jamais `toLocaleString` dans un composant rendu cote serveur
-
-**Source unique : `src/lib/format.ts`** (`formatSwissInt`, `formatSwissChf`).
-
-Le separateur de milliers de `fr-CH` depend de la version d'ICU embarquee dans le moteur :
-
-```
-Node 24 local (ICU 78) et Chrome  ->  "1 050"  (U+202F, espace fine insecable)
-runtime Node de Vercel            ->  "1'050"  (U+0027, apostrophe)
-```
-
-Le serveur et le client rendent donc deux textes differents pour le meme nombre. React leve
-**l'erreur #418** a l'hydratation, abandonne, et re-rend la racine depuis le HTML serveur.
-Effet de bord : **`data-theme` pose par le script anti-FOUC disparait de `<html>`** et la page
-repasse en sombre alors que l'utilisateur a choisi le mode clair.
-
-C'est ce qui bloquait le mode clair sur les 6 pages portant un calculateur ROI
-(`/intelligence-artificielle`, `/formation-entreprise/ia`, `/formation-entreprise/claude-ai`
-et leurs miroirs EN). **Non reproductible en local** : Node 24 et Chrome sont d'accord, il
-faut le runtime de Vercel pour voir l'ecart. Diagnostic : ecouter `pageerror` sur la prod et
-comparer `data-theme` juste apres `domcontentloaded` puis 4 s plus tard.
-
-```ts
-import { formatSwissInt } from '@/lib/format'
-formatSwissInt(1050)   // "1'050", sans Intl, identique serveur et client
-```
-
-Regle : tout nombre affiche au rendu serveur passe par `src/lib/format.ts`. Test de
-non-regression dans `src/lib/__tests__/format.test.ts`.
-
----
-
 ## Structure type d'une page service
 
 ```
@@ -415,27 +134,6 @@ FAQSection ou <details> accordeon
 
 CTAFinal (composant partage, toujours en dernier)
 ```
-
----
-
-## Composants cles
-
-| Composant | Fichier | Usage |
-|---|---|---|
-| `LiquidMetalButton` | `components/canvas/LiquidMetalButton.tsx` | CTA principal, liquid metal effect |
-| `InfiniteGrid` | `components/canvas/InfiniteGrid.tsx` | Fond hero anime, props : `accentRgb`, `blob1`, `blob2` |
-| `HeroBg` | `components/ui/HeroBg.tsx` | CSS-only grid (mobile), meme props que InfiniteGrid |
-| `DottedSurface` | `components/canvas/DottedSurface.tsx` | Three.js points animes (homepage hero, desktop only) |
-| `GradTag` | `components/ui/GradTag.tsx` | Badge de section violet gradient |
-| `GradText` | `components/ui/GradText.tsx` | Texte gradient violet, prop `as` |
-| `SectionReveal` | `components/ui/SectionReveal.tsx` | Animation apparition scroll. **Desactivee sur la homepage** via `RevealDisabledProvider`. ⚠️ `delay` en **secondes** (`delay={0.08}`), le composant multiplie par 1000 : un `delay={80}` cache l'element pendant 80 s sans aucune erreur |
-| `CTAFinal` | `components/sections/CTAFinal.tsx` | Section CTA de fin de page, reutilisable |
-| `FAQSection` | `components/sections/FAQSection.tsx` | Accordeon FAQ, prop `items` |
-| `SchemaOrg` | `components/seo/SchemaOrg.tsx` | Injection JSON-LD. Builders dans `lib/schema.ts` |
-| `SmoothScrollProvider` | `components/providers/SmoothScrollProvider.tsx` | Lenis + reset scroll au changement de page + interception anchors `#` |
-| `LogoBanner` / `ProofStack` | `components/sections/LogoBanner.tsx`, `ProofStack.tsx` | Bandeau « Ils nous font confiance ». Logos = silhouette blanche transparente (`.client-logo-tile`, marche mode clair + sombre). Ajouter un logo : `tools/add-client-logo.sh` + `workflows/logos-clients-bandeau-confiance.md` (DEV SPACE). `LogoBanner` = roster complet défilant, `ProofStack` = grille homepage curée |
-| `ArticleCarousel` | `components/sections/ArticleCarousel.tsx` | Carrousel horizontal d'articles de blog pour une section « veille » de page service. Props : `articles`, `accentColor`, `accentBorder`, `lang`, `label`. Scroll natif + scroll-snap (swipe mobile), flèches desktop, barre de progression, masque de fondu aux bords. Lang-aware (`fr` par défaut). Alimenter avec `getArticlesByTopic()` ou `getLatestArticles()` |
-| `TechWatch` | `components/sections/TechWatch.tsx` | Section « Veille technologique » de la page d'accueil, entre `ProcessSteps` et `ProofStack`. Fond de grille animé (`HeroBg`) + `ArticleCarousel` sur les 8 derniers articles. Lang-aware, montée à l'identique sur `/` et `/en` |
 
 ---
 
@@ -462,22 +160,6 @@ Claude lit **~750 lignes** en une seule passe (limite 10 000 tokens).
 
 **Pages actuellement refactorisees :**
 - `formation-entreprise/claude-ai/` : composants dans `_components/` (ClaudeProductCard, AgendaRow, CapabilityCard, UseCaseCard)
-
----
-
-## Fichiers importants
-
-| Fichier | Role |
-|---|---|
-| `src/lib/tokens.ts` | Palette couleurs et tokens |
-| `src/lib/routes.ts` | Source de verite URLs, sitemap, redirections |
-| `src/lib/schema.ts` | Builders JSON-LD (buildService, buildCourse, buildFAQPage, buildBreadcrumbList) |
-| `src/lib/blog/` | Articles blog (1 fichier par article, index.ts pour l'assemblage) |
-| `src/lib/realisations/` | Études de cas (1 fichier par réalisation, `index.ts` pour l'assemblage, `en.ts` overlay EN par slug). Captures par `node tools/realisations/capture.mjs --url <site> --slug <slug>`. Deux en ligne au 2026-09-08 : `goldencash-refonte`, `sos-relevage` (⚠️ présentation neutre, sans le mot client ni nom de personne). L'onglet « Réalisations » du mega menu et le plan du site pointent vers `/realisations` depuis le 08.09 (avant : `/a-propos`, page orpheline). **Trois blocs optionnels depuis le 08.09** : `highlights[]` (sections phare, `HighlightsShowcase` + `ScreenFrame` + `PhoneFrame`, numérotées dans l'ordre du parcours visiteur), `direction` (`VisualDirection`, logo, palette, spécimen dans la vraie police via `next/font/local`, polices dans `components/realisations/fonts/`), `seo` (`SeoDirection`, aperçu Google, schémas, une tuile-lien par intention, GEO) + `CaseStudyNav` (ScrollSpyNav). Captures de sections : `tools/realisations/capture-sections.mjs`. ⚠️ `SectionReveal.delay` est en **secondes** (`0.08`), pas en millisecondes : `delay={80}` rend la carte invisible sans erreur. **Contexte et approche sur la même grille** (08.09, retour David « mal mis en page ») : titre et sous-titre en colonne gauche collante (`md:col-span-4`), récit à droite en paragraphes (`body` accepte `\n\n`, le premier paragraphe est l'accroche), `problem.facts[]` = fiche métier/public/territoire/départ, `approach.bullets` rendus en grille « Ce qui a été livré » avec une coche. Plus de colonne `max-w-[68ch]` centrée |
-| `src/components/layout/Header.tsx` | Mega menu complet, donnees nav dans les consts en haut du fichier |
-| `src/components/providers/SmoothScrollProvider.tsx` | Lenis config |
-| `src/components/ui/SectionReveal.tsx` | Animation + `RevealDisabledProvider` |
-| `src/app/page.tsx` | Homepage (57 lignes, wrappee dans `RevealDisabledProvider`) |
 
 ---
 
@@ -518,59 +200,23 @@ Le sitemap (`app/sitemap.ts`) et les redirections (`next.config.mjs`) se mettent
 
 ---
 
-## Analytics et conversions (GA4 + Google Ads + ChatGPT Ads)
-
-**Source de verite : `src/lib/analytics.ts`.** Doc complete : `docs/analytics-conversions.md`.
-
-- Tout evenement de conversion passe par `trackEvent()` (ou un helper `trackLead`,
-  `trackPhoneClick`, `trackBookingComplete`...). Il envoie a la fois a GA4 (`gtag`)
-  et au dataLayer GTM. **Ne jamais rappeler `window.gtag` / `dataLayer.push` en dur**
-  dans un composant : importer le helper.
-- Nouveau formulaire ? Appeler `trackLead({ form_type: '...', form_location: '...' })`
-  au moment du succes (apres `res.ok`).
-- Liens `tel:` / `mailto:` / WhatsApp et CTA Cal `[data-cal-link]` sont captes
-  automatiquement par `components/providers/ConversionTracker.tsx` (monte dans le
-  layout). Rien a faire pour un nouveau lien.
-- Reservation Cal confirmee = `book_appointment`, branchee dans `CalProvider.tsx`
-  via `bookingSuccessfulV2` (namespace `planifier-un-appel`).
-- **CSP** : les domaines Google sont autorises dans `next.config.ts`
-  (`script-src` + `connect-src` + `frame-src`). Toute nouvelle source Google
-  (script ou collecte) doit y etre ajoutee, sinon le navigateur la bloque et
-  l'evenement n'atteint jamais GA4.
-- Tags en place : GA4 `G-SCXF5R826D` (gtag direct) + `G-65NPKH6CXN` (via GTM) +
-  Google Ads `AW-395809057` (via GTM). Cote GA4/Ads, marquer les Key events et
-  importer les conversions : voir `docs/analytics-conversions.md`.
-
-### OpenAI Ads (ChatGPT Ads), depuis le 2026-09-10
-
-Pixel `MhbGMaod48Cuvp7YJVsNgA`, branche **derriere le meme `trackEvent()`** :
-tout evenement mappe dans `GA4_TO_OPENAI` (`src/lib/openai-ads.ts`) part aussi
-au pixel. Un nouveau formulaire qui appelle `trackLead()` est donc traque des
-deux cotes sans code supplementaire.
-
-- **Un formulaire genere `newEventId()`** et l'envoie **aux deux** : dans le
-  corps de la requete (`eventId`) et dans `trackLead({ event_id })`. C'est ce
-  qui permet a OpenAI de dedupliquer le pixel et l'envoi serveur. Copier ce
-  triplet (import, `const eventId`, les deux passages) sur tout nouveau
-  formulaire, sinon le lead est compte deux fois ou pas du tout.
-- **`lead_created` = vraie demande entrante uniquement.** Clic telephone,
-  WhatsApp, email, ouverture du calendrier ou du chatbot partent en evenements
-  personnalises : ce sont des intentions, pas des leads.
-- **Le couple (evenement, `data.type`) est impose** par OpenAI et **`data`
-  n'accepte aucun parametre libre** : pas de `form_type` cote pixel. Table de
-  reference `OPENAI_EVENT_DATA_TYPE`, tests dans `src/lib/__tests__/openai-ads*`.
-- **CSP** : `bzrcdn.openai.com` en `script-src`, `bzr.openai.com` en
-  `connect-src`. Sans ca le pixel est mort sans le moindre message d'erreur.
-- **Cle serveur** : `OPENAI_ADS_API_KEY` (jamais `NEXT_PUBLIC_`). Absente, le
-  pixel navigateur travaille seul et les logs le disent.
-
-Detail complet, mapping et procedure de test : `docs/analytics-conversions.md`.
-
----
-
 ## Git et deploiement
 
 - **Remote** : `git@github.com:davidkhazaeich-code/DKDP-web.git` (SSH)
 - **Branche** : `main` → deploiement Vercel automatique
 - Ne jamais force-push sur `main` sans confirmation explicite
 - Apres push, le site est live sur `https://dkdp.ch` en ~60s
+
+## Documentation de référence (`docs/claude/`, lue à la demande)
+
+| Sujet | Fichier | Lire quand |
+|---|---|---|
+| Blog : workflow de publication | `docs/claude/03-blog-workflow-de-publication.md` | Quand David fournit du contenu (lien YouTube, transcript, topic, texte brut) pour un article : |
+| Nommage : Formation Figma | `docs/claude/05-nommage-formation-figma.md` | /formation-entreprise/web-design a ete renommee /formation-entreprise/figma |
+| Nommage : Formation ChatGPT (ajoutee le 2026-09-10) | `docs/claude/06-nommage-formation-chatgpt.md` | Page /formation-entreprise/chatgpt (miroir /en/corporate-training/chatgpt), |
+| Nommage : ChatGPT Ads (page service ajoutee le 2026-09-10) | `docs/claude/07-nommage-chatgpt-ads.md` | Page /agence-digitale/chatgpt-ads (miroir /en/digital-agency/chatgpt-ads), |
+| Couleur des liens : gris au repos, plein au survol | `docs/claude/11-couleur-des-liens-gris-au-repos-plein-au-survol.md` | Regle unique pour tout lien textuel du site (listes de navigation, mega menu, footer, plan |
+| Nombres : jamais `toLocaleString` dans un composant rendu cote serveur | `docs/claude/12-nombres-jamais-tolocalestring-dans-un-composant-rendu-cote-s.md` | Source unique : src/lib/format.ts (formatSwissInt, formatSwissChf). |
+| Composants cles | `docs/claude/14-composants-cles.md` |  |
+| Fichiers importants | `docs/claude/17-fichiers-importants.md` |  |
+| Analytics et conversions (GA4 + Google Ads + ChatGPT Ads) | `docs/claude/21-analytics-et-conversions.md` | Source de verite : src/lib/analytics.ts. Doc complete : docs/analytics-conversions.md. |

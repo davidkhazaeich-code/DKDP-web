@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { PRIX, chfHeure } from '@/data/pricing'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Star, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, Zap } from 'lucide-react'
+import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, Zap } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -47,8 +47,9 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     question: 'What is general IT skills training for in a company?',
+    // 25/09/2026 : unsourced "30 minutes per day and per person" removed.
     answer:
-      'Many employees have been using their computer for years without mastering the basics that really save time: keyboard shortcuts, file organisation, collaboration tools, automatic backups. A half-day of training can save 30 minutes per day and per person.',
+      'Many employees have been using their computer for years without mastering the basics that really save time: keyboard shortcuts, file organisation, collaboration tools, automatic backups. The training puts these habits in place in as little as a half-day, directly on the participants\' own machines.',
   },
   {
     question: 'Does the training cover Windows and Mac?',
@@ -178,10 +179,12 @@ export default function FormationInformatiquePage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '-40%', l: 'IT tickets reduced', sub: 'After training the teams' },
-              { v: '2h/week', l: 'Saved', sub: 'Per trained employee' },
-              { v: '1 day', l: 'Format', sub: 'Half-day or full day' },
-              { v: '15 years', l: 'Of IT experience', sub: 'Geneva and French-speaking Switzerland' },
+              // 25/09/2026 : unsourced "-40% IT tickets", "2h/week saved" and "15 years of IT
+              // experience" removed (DKDP founded in 2019). Grid facts instead, mirror of the FR page.
+              { v: '1 to 10', l: 'People per session', sub: 'Groups on quote from 3' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
+              { v: '3 h or 6 h', l: 'Half day or full day', sub: 'Plus 1 h or 2 h of preparation' },
+              { v: chf(PRIX.formationHourly1), l: 'Per hour, for one person', sub: `${chfHeure(PRIX.formationHourly2)} for two, groups on quote` },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -234,10 +237,11 @@ export default function FormationInformatiquePage() {
               <p className="text-text-secondary leading-relaxed mb-8">
                 DKDP trains your teams on their real machines, with their real problems. The result: immediate autonomy, fewer IT tickets, and employees who gain confidence and efficiency the very day after the training.
               </p>
+              {/* 25/09/2026 : unsourced "40% fewer IT tickets" and "2 hours per week" rewritten without figures. */}
               <div className="space-y-3">
                 {[
-                  'Trained teams reduce their IT tickets by 40% on average',
-                  'Each trained employee saves 2 hours per week on common tasks',
+                  'A trained team sorts out small everyday glitches on its own and calls on IT support less often',
+                  'Each employee learns the shortcuts and settings that speed up their everyday tasks',
                   'Every participant leaves with a procedure sheet specific to their role',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -268,8 +272,9 @@ export default function FormationInformatiquePage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Corporate IT skills training programme
               </h2>
+              {/* 25/09/2026 : "a file in 5 seconds" and "100 emails in 10 minutes" removed, no measurement behind them. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                Most IT training spends too much time on theory. DKDP focuses on the daily actions that make the difference: how to find a file in 5 seconds, share a document without creating 4 versions, or sort 100 emails in 10 minutes.
+                Most IT training spends too much time on theory. DKDP focuses on the daily actions that make the difference: how to find a file without hunting for it, share a document without multiplying versions, or sort out an overflowing inbox.
               </p>
               <p className="text-text-secondary leading-relaxed">
                 The training is adapted to your environment (Windows, Mac, Google Workspace, Microsoft 365) and to the real level of your teams. We start where you are.
@@ -356,59 +361,7 @@ export default function FormationInformatiquePage() {
 
       <FormationTrainer accentColor='#FF8C00' lang="en" />
 
-      {/* ── Testimonials ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">What they say</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Feedback after the IT skills training
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                quote: 'Our employees used to call IT support 15 times a week for basic problems. After the training, it is 4 times. And these are real problems.',
-                name: 'Jean-Pierre L., IT Manager',
-                company: 'SME of 60 people, Geneva',
-                stars: 5,
-              },
-              {
-                quote: 'We trained our 8 administrative assistants. They now manage their backups, their network and their emails in complete autonomy.',
-                name: 'Isabelle C., HR Director',
-                company: 'Medical practice, Lausanne',
-                stars: 5,
-              },
-              {
-                quote: 'At 58, I was embarrassed to ask my colleagues basic questions. DKDP\'s training made me autonomous without judging me.',
-                name: 'Patrick S., Employee',
-                company: 'Public sector, Geneva',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : anonymous testimonials removed (Jean-Pierre L., Isabelle C., Patrick S.), no source. The real Google reviews live in FormationTrainer. */}
 
       {/* ── Pricing ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">

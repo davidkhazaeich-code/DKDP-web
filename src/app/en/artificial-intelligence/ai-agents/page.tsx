@@ -10,7 +10,6 @@ import {
   Wrench,
   Rocket,
   TrendingUp,
-  Star,
   MessageSquare,
   Database,
   Zap,
@@ -28,6 +27,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 import { localizedPath } from '@/i18n/slugs'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
@@ -98,10 +98,12 @@ const FAQ_ITEMS = [
     answer:
       'Yes, if your regulatory constraints (FADP 2023, banking secrecy, medical confidentiality) require it. We then deploy the agent on an Infomaniak VPS in Switzerland or on your on-premise infrastructure, with LangChain/LangGraph for orchestration and self-hosted Qdrant or Weaviate as the vector store. Data never leaves Swiss territory. A confidentiality agreement and a DPA (Data Processing Agreement) are signed before kickoff.',
   },
+  // 25/09/2026: "15 hours per week", "100+ leads per day", "20 to 35%" and ROI within
+  // 2 to 4 months removed, no source. The answer (visible and FAQPage JSON-LD) carries no figure.
   {
     question: 'What ROI can I expect from a sales AI agent?',
     answer:
-      'On DKDP deployments in 2026, a sales-qualification agent frees up on average 15 hours per week for the sales team, handles 100+ leads per day and improves the conversion rate by 20 to 35% (better scoring, sharper follow-ups, automatic CRM enrichment). ROI is generally reached within 2 to 4 months for an SMB of 5 to 30 people. We deliver a quantified ROI projection during the free initial audit.',
+      'The return depends on your lead volume, on the time your team spends sorting leads today and on the length of your sales cycle. A sales-qualification agent replies to every inbound request, asks the qualification questions, enriches your CRM and prepares the follow-ups, so your team spends its time on meetings and negotiations. Rather than a ready-made average, we build an estimate with you from your own figures (lead volume, time spent, current conversion rate) before any commitment.',
   },
   {
     question: 'How long to deploy a custom AI agent?',
@@ -121,8 +123,9 @@ export default function AiAgentsPage() {
           description:
             'Custom autonomous AI agent development for Swiss SMBs: virtual assistants, sales agents, support agents and RAG. Technologies Claude (Anthropic), GPT-6 Astra (OpenAI), LangChain, LangGraph, n8n. Swiss hosting available, compliant with FADP 2023 and the GDPR.',
           serviceType: 'Custom AI agent development',
-          priceFrom: 2500,
-          priceSpecDescription: "From CHF 2'500 for a Starter agent (1 channel, 2 weeks, turnkey)",
+          // 25/09/2026: price read from src/data/pricing (PRIX.agentFrom), no longer hard-coded.
+          priceFrom: PRIX.agentFrom,
+          priceSpecDescription: `From ${chf(PRIX.agentFrom)} for a Starter agent (1 channel, 2 weeks, turnkey)`,
           lang: 'en',
         })}
       />
@@ -223,7 +226,8 @@ export default function AiAgentsPage() {
           <div className="grid grid-cols-3 gap-6 md:gap-12">
             {[
               { value: '24/7', label: 'Agent availability, no leave and no fatigue errors' },
-              { value: '90%', label: 'Of requests handled without human intervention' },
+              // 25/09/2026: "90% of requests handled without human intervention" removed, no source.
+              { value: '5.0/5', label: 'Google rating, 22 reviews' },
               { value: '2 wks', label: 'For a first operational agent' },
             ].map((s) => (
               <SectionReveal key={s.label}>
@@ -479,6 +483,9 @@ export default function AiAgentsPage() {
             </div>
           </SectionReveal>
 
+          {/* 25/09/2026: "100+ leads per day", "-70% tickets", "under 3 seconds" and ROI lines
+              ("15 hours freed", "CSAT +25 points", "3 hours of reporting") removed, no source.
+              The `roi` field becomes `benefit`, a qualitative benefit. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
@@ -490,11 +497,11 @@ export default function AiAgentsPage() {
                 accentBorder: 'rgba(167,139,250,0.20)',
                 pourQui: 'Sales teams and SMBs with inbound leads',
                 capabilities: [
-                  'Handles 100+ leads per day with no human effort',
+                  'Receives and sorts every inbound lead',
                   'Asks the qualification questions from your script',
                   'Enriches HubSpot, Pipedrive or Salesforce automatically',
                 ],
-                roi: '15 hours freed per week on average',
+                benefit: 'Your team focuses on qualified leads',
               },
               {
                 Icon: MessageSquare,
@@ -505,11 +512,11 @@ export default function AiAgentsPage() {
                 accentBorder: 'rgba(74,222,128,0.18)',
                 pourQui: 'E-commerce, SaaS and high-volume services',
                 capabilities: [
-                  'Cuts ticket volume by 70% on average',
-                  'Available 24/7, replies in under 3 seconds',
+                  'Answers frequent questions from your documentation',
+                  'Available 24/7',
                   'Escalates complex cases to Zendesk or Intercom',
                 ],
-                roi: 'CSAT +25 points in 3 months',
+                benefit: 'Your team keeps its time for complex cases',
               },
               {
                 Icon: BarChart3,
@@ -524,7 +531,7 @@ export default function AiAgentsPage() {
                   'Produces readable reports posted in Slack',
                   'Alerts on anomalies and critical trends',
                 ],
-                roi: '3 hours of weekly reporting eliminated',
+                benefit: 'You steer with up-to-date data',
               },
             ].map((agent, i) => (
               <SectionReveal key={agent.title} delay={i * 0.1}>
@@ -561,9 +568,9 @@ export default function AiAgentsPage() {
                     style={{ borderColor: agent.accentBorder }}
                   >
                     <p className="text-[11px] font-bold uppercase tracking-wider mb-1" style={{ color: agent.accent }}>
-                      Estimated ROI
+                      Benefit
                     </p>
-                    <p className="text-text text-sm font-semibold">{agent.roi}</p>
+                    <p className="text-text text-sm font-semibold">{agent.benefit}</p>
                   </div>
                 </div>
               </SectionReveal>
@@ -659,6 +666,7 @@ export default function AiAgentsPage() {
             </div>
           </SectionReveal>
 
+          {/* 25/09/2026: prices read from src/data/pricing (PRIX.agentFrom, PRIX.agentTo), no longer hard-coded. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* Starter */}
             <SectionReveal delay={0.05}>
@@ -671,7 +679,7 @@ export default function AiAgentsPage() {
                     Starter agent
                   </p>
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-4xl font-bold text-text">CHF 2&apos;500</span>
+                    <span className="text-4xl font-bold text-text">{chf(PRIX.agentFrom)}</span>
                   </div>
                   <p className="text-text-muted text-xs">Fixed price, turnkey project</p>
                 </div>
@@ -715,7 +723,7 @@ export default function AiAgentsPage() {
                     Pro agent
                   </p>
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-4xl font-bold text-text">CHF 4&apos;900</span>
+                    <span className="text-4xl font-bold text-text">{chf(PRIX.agentTo)}</span>
                   </div>
                   <p className="text-text-muted text-xs">Fixed price, turnkey project</p>
                 </div>
@@ -742,68 +750,7 @@ export default function AiAgentsPage() {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
-      <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)" accentRgb="212,212,216">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Testimonials</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Client testimonials: AI agents deployed in Geneva.
-              </h2>
-            </div>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <SectionReveal delay={0.05}>
-              <div
-                className="flex flex-col h-full rounded-[16px] border p-8"
-                style={{ background: bg, borderColor: border }}
-              >
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={14} fill={color} style={{ color }} />
-                  ))}
-                </div>
-                <p className="text-text-secondary leading-relaxed mb-6 flex-1">
-                  &ldquo;We were receiving 80 to 120 quote requests a week. My team spent two full days
-                  sorting and qualifying them. Today the agent filters, replies and files in the CRM in
-                  under a minute. We freed up 18 hours a week on a task that had zero added value.&rdquo;
-                </p>
-                <div>
-                  <p className="text-text font-semibold text-sm">Marc-Antoine V.</p>
-                  <p className="text-text-muted text-xs">Sales Director, real estate agency, Geneva</p>
-                </div>
-              </div>
-            </SectionReveal>
-
-            <SectionReveal delay={0.1}>
-              <div
-                className="flex flex-col h-full rounded-[16px] border p-8"
-                style={{ background: bg, borderColor: border }}
-              >
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={14} fill={color} style={{ color }} />
-                  ))}
-                </div>
-                <p className="text-text-secondary leading-relaxed mb-6 flex-1">
-                  &ldquo;Our customer support was under pressure: 200 emails a day, three people
-                  overwhelmed. DKDP deployed an agent in two weeks. Today 70% of requests are resolved
-                  automatically. Our teams only handle the genuinely complex cases. The satisfaction
-                  score rose by 22 points.&rdquo;
-                </p>
-                <div>
-                  <p className="text-text font-semibold text-sm">Sophie B.</p>
-                  <p className="text-text-muted text-xs">Head of Customer Success, B2B SaaS, Lausanne</p>
-                </div>
-              </div>
-            </SectionReveal>
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026: anonymous testimonials removed (Marc-Antoine V., Sophie B.), no source. */}
 
       {/* ── FAQ ── */}
       <div id="faq" className="scroll-mt-[124px]">

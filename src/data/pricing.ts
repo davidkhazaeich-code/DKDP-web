@@ -48,6 +48,22 @@ export const PRIX = {
   agentTo: 4900,
   llmFrom: 3500,
   llmTo: 6500,
+  /**
+   * Chatbot IA (25/09/2026, grille confirmee par David) : formules Essentiel et
+   * Pro, sur mesure « a partir de », puis maintenance mensuelle une fois le
+   * suivi inclus termine. FR et EN affichaient deja ces montants, mais en dur.
+   */
+  chatbotEssentiel: 2900,
+  chatbotPro: 5500,
+  chatbotSurMesureFrom: 8000,
+  /** Haut de la fourchette des formules connectees (CRM, agenda, ERP), citee en FAQ. */
+  chatbotConnecteTo: 12000,
+  chatbotMaintenanceMonthly: 250,
+  /**
+   * Option « Chatbot IA » du simulateur de /creation-site-web : un module
+   * ajoute a un site que DKDP construit, d'ou un prix plus bas que l'Essentiel.
+   */
+  chatbotOptionSite: 1500,
   /** Duree de l'appel decouverte gratuit, en minutes. */
   discoveryCallMinutes: 30,
   /**

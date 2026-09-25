@@ -1,50 +1,49 @@
 import { violet } from '@/lib/tokens'
+import { PRIX, chf, chfMois } from '@/data/pricing'
 
 const V = violet.color
 const VD = violet.border
 
+// 25/09/2026 : « 100+ sites », « Top 3 Google », « ROAS 8.2x », la « performance
+// client type » (trafic 1.2K → 8.4K, leads 12 → 89, conversion 1.2 % → 4.8 %)
+// et la note « 4.9 » n'avaient aucune source. La maquette montre désormais les
+// prix d'entrée (PRIX), les indicateurs suivis chaque mois et la fiche Google.
 export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
   const t = lang === 'en'
     ? {
         header: 'DKDP · Digital Agency Geneva',
         services: [
-          { icon: '&#9678;', name: 'Web design', kpi: '100+ sites', color: V },
-          { icon: '&#9650;', name: 'SEO / GEO', kpi: 'Top 3 Google', color: '#4ade80' },
-          { icon: '&#9670;', name: 'Google Ads', kpi: 'ROAS 8.2x', color: '#FF8C00' },
-          { icon: '&#9733;', name: 'Social media', kpi: 'Page 1 goal', color: '#60a5fa' },
+          { icon: '&#9678;', name: 'Web design', kpi: `from ${chf(PRIX.siteFrom)}`, color: V },
+          { icon: '&#9650;', name: 'SEO / GEO', kpi: `${chf(PRIX.seoMonthly)}/mo`, color: '#4ade80' },
+          { icon: '&#9670;', name: 'Google Ads', kpi: `from ${chf(PRIX.adsManagementFrom)}/mo`, color: '#FF8C00' },
+          { icon: '&#9733;', name: 'Social media', kpi: `from ${chf(PRIX.socialFrom)}/mo`, color: '#60a5fa' },
         ],
-        perfLabel: 'Typical client performance',
-        metrics: [
-          { label: 'Organic traffic', before: '1.2K', after: '8.4K', pct: 85 },
-          { label: 'Leads / month', before: '12', after: '89', pct: 72 },
-          { label: 'Conversion rate', before: '1.2%', after: '4.8%', pct: 65 },
-        ],
-        satisfaction: 'Satisfaction', satisfactionSub: 'Verified client score',
+        perfLabel: 'What we track every month',
+        metrics: ['Organic traffic', 'Inbound leads', 'Conversion rate'],
+        tracked: 'Tracked',
+        rating: '5.0', ratingLabel: 'Google rating', ratingSub: '22 reviews',
         stats: [
-          { v: '100+', l: 'Sites delivered', c: V },
+          { v: '48h', l: 'Fixed quote', c: V },
           { v: '10+ yrs', l: 'Of experience', c: '#4ade80' },
           { v: 'Geneva', l: 'Local base', c: '#FF8C00' },
         ],
       }
     : {
-        header: 'DKDP · Agence Digitale Geneve',
+        header: 'DKDP · Agence Digitale Genève',
         services: [
-          { icon: '&#9678;', name: 'Création web', kpi: '100+ sites', color: V },
-          { icon: '&#9650;', name: 'SEO / GEO', kpi: 'Top 3 Google', color: '#4ade80' },
-          { icon: '&#9670;', name: 'Google Ads', kpi: 'ROAS 8.2x', color: '#FF8C00' },
-          { icon: '&#9733;', name: 'Reseaux sociaux', kpi: 'Objectif page 1', color: '#60a5fa' },
+          { icon: '&#9678;', name: 'Création web', kpi: `dès ${chf(PRIX.siteFrom)}`, color: V },
+          { icon: '&#9650;', name: 'SEO / GEO', kpi: chfMois(PRIX.seoMonthly), color: '#4ade80' },
+          { icon: '&#9670;', name: 'Google Ads', kpi: `dès ${chfMois(PRIX.adsManagementFrom)}`, color: '#FF8C00' },
+          { icon: '&#9733;', name: 'Réseaux sociaux', kpi: `dès ${chfMois(PRIX.socialFrom)}`, color: '#60a5fa' },
         ],
-        perfLabel: 'Performance client type',
-        metrics: [
-          { label: 'Trafic organique', before: '1.2K', after: '8.4K', pct: 85 },
-          { label: 'Leads / mois', before: '12', after: '89', pct: 72 },
-          { label: 'Taux de conversion', before: '1.2%', after: '4.8%', pct: 65 },
-        ],
-        satisfaction: 'Satisfaction', satisfactionSub: 'Note client verifiee',
+        perfLabel: 'Ce que nous suivons chaque mois',
+        metrics: ['Trafic organique', 'Leads entrants', 'Taux de conversion'],
+        tracked: 'Suivi',
+        rating: '5,0', ratingLabel: 'Note Google', ratingSub: '22 avis',
         stats: [
-          { v: '100+', l: 'Sites livres', c: V },
+          { v: '48h', l: 'Devis fixe', c: V },
           { v: '2019', l: 'Fondée à Genève', c: '#4ade80' },
-          { v: 'Geneve', l: 'Base locale', c: '#FF8C00' },
+          { v: 'Genève', l: 'Base locale', c: '#FF8C00' },
         ],
       }
   return (
@@ -79,28 +78,17 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
             ))}
           </div>
 
-          {/* Progress overview */}
+          {/* Indicateurs suivis (25/09/2026 : plus de chiffres avant/après ni de barres de progression) */}
           <div>
             <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{t.perfLabel}</span>
-            <div className="mt-2 space-y-2">
+            <div className="mt-2">
               {t.metrics.map((m) => (
-                <div key={m.label}>
-                  <div className="flex items-center justify-between text-[10px] mb-1">
-                    <span className="text-zinc-400">{m.label}</span>
-                    <div className="flex items-center gap-2">
-                      <span className="text-zinc-600 line-through">{m.before}</span>
-                      <span className="font-bold text-green-400">{m.after}</span>
-                    </div>
-                  </div>
-                  <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
-                    <div
-                      className="h-full rounded-full"
-                      style={{
-                        width: `${m.pct}%`,
-                        background: `linear-gradient(90deg, rgba(124,58,237,0.6), rgba(167,139,250,0.3))`,
-                      }}
-                    />
-                  </div>
+                <div key={m} className="flex items-center justify-between text-[10px] py-1.5 border-b border-white/5 last:border-b-0">
+                  <span className="text-zinc-400">{m}</span>
+                  <span className="flex items-center gap-1.5 font-bold text-green-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400" aria-hidden="true" />
+                    {t.tracked}
+                  </span>
                 </div>
               ))}
             </div>
@@ -115,11 +103,11 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
           style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
         >
           <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
-            <span className="text-[10px] font-bold text-green-400">4.9</span>
+            <span className="text-[10px] font-bold text-green-400">{t.rating}</span>
           </div>
           <div>
-            <p className="text-[10px] font-semibold text-white">{t.satisfaction}</p>
-            <p className="text-[8px] text-zinc-500">{t.satisfactionSub}</p>
+            <p className="text-[10px] font-semibold text-white">{t.ratingLabel}</p>
+            <p className="text-[8px] text-zinc-500">{t.ratingSub}</p>
           </div>
         </div>
       </div>

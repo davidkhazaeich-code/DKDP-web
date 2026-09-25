@@ -1,10 +1,12 @@
 export function CanvaFeatureCards() {
+  // 25/09/2026 : « 100 % de vos visuels » et « 5x plus rapide » retirés, aucune
+  // source. « 250 000+ designs » : chiffre public de Canva, gardé.
   const features = [
     {
       name: 'Brand Kit',
       tag: 'Identité unifiée',
       bestFor: 'Logo, palette, polices, couleurs primaires et secondaires importés une fois pour toute',
-      detail: 'Cohérence garantie sur 100% de vos visuels',
+      detail: 'Cohérence garantie sur tous vos visuels',
       c: '#00C4CC',
       cbg: 'rgba(0,196,204,0.08)',
       cborder: 'rgba(0,196,204,0.22)',
@@ -22,7 +24,7 @@ export function CanvaFeatureCards() {
       name: 'Magic Studio',
       tag: 'IA Canva',
       bestFor: 'Magic Resize, Magic Edit, Magic Write, suppression de fond',
-      detail: 'Production 5x plus rapide grâce à l\'IA intégrée',
+      detail: 'Production accélérée grâce à l\'IA intégrée',
       c: '#A78BFA',
       cbg: 'rgba(167,139,250,0.10)',
       cborder: 'rgba(167,139,250,0.22)',

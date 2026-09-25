@@ -10,9 +10,11 @@ export function MarketingAuditScore() {
   ]
   return (
     <div className="space-y-4">
+      {/* 25/09/2026 : « Score moyen PME sans accompagnement » et « Objectif 6 mois DKDP » retirés,
+          aucune source. Les valeurs ci-dessous illustrent un tableau de bord, elles ne mesurent rien. */}
       <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest mb-2">
-        <span style={{ color: 'rgba(239,68,68,0.85)' }}>Score moyen PME sans accompagnement</span>
-        <span style={{ color: violet.color }}>Objectif 6 mois DKDP</span>
+        <span style={{ color: 'rgba(239,68,68,0.85)' }}>Score de départ</span>
+        <span style={{ color: violet.color }}>Objectif fixé ensemble</span>
       </div>
       {pillars.map((p) => (
         <div key={p.label} className="space-y-1.5">

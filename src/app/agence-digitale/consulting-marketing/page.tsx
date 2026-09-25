@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, TrendingUp, Users, Star, Zap } from 'lucide-react'
+import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, TrendingUp, Users, Zap } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -17,10 +17,12 @@ import { HeroVisual } from './_components/HeroVisual'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS, DESIGN_WEB_LOGOS, SOCIAL_LOGOS } from '@/components/ui/AppLogos'
+import { PRIX, chfHeure } from '@/data/pricing'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
   title: 'Consulting Marketing Genève & Suisse romande · DKDP',
@@ -73,18 +75,19 @@ const FAQ = [
   },
 ]
 
+// 25/09/2026 : « +65 % de leads en 6 mois » et « ROI prouvé en 6 mois » retirés, aucune source.
 const BENEFITS = [
   {
     Icon: TrendingUp,
-    value: '+65%',
-    title: 'Plus de leads',
-    desc: 'Nos clients génèrent en moyenne 65% de leads supplémentaires dans les 6 premiers mois d\'accompagnement grâce à une stratégie d\'acquisition structurée.',
+    value: 'Ciblé',
+    title: 'Des leads qualifiés',
+    desc: 'Une stratégie d\'acquisition structurée concentre votre budget sur les canaux qui amènent des prospects. Vous attirez ainsi des contacts qui correspondent à votre cible.',
   },
   {
     Icon: BarChart2,
-    value: '6 mois',
-    title: 'ROI prouvé',
-    desc: 'En 6 mois, vous disposez d\'un tableau de bord complet, de KPIs mesurables et d\'une vision claire sur le retour de votre investissement marketing.',
+    value: 'Mesuré',
+    title: 'Un ROI lisible',
+    desc: 'Vous disposez d\'un tableau de bord complet et de KPIs définis avec vous. Vous suivez donc le retour de votre investissement marketing au lieu de le deviner.',
   },
   {
     Icon: Users,
@@ -154,8 +157,9 @@ export default function ConsultingMarketingPage() {
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Des actions, des KPIs, <GradText as="span">des résultats</GradText>. Pas un rapport de 50 pages.
                 </p>
+                {/* 25/09/2026 : « des résultats prouvés en 6 mois » retiré, aucune source. */}
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  Consultant marketing digital pour PME en Suisse romande, DKDP audite votre présence digitale, définit votre stratégie de croissance et pilote l&apos;exécution mois après mois. Pas de rapport de 50 pages : des KPIs, des actions et des résultats prouvés en 6 mois.
+                  Consultant marketing digital pour PME en Suisse romande, DKDP audite votre présence digitale, définit votre stratégie de croissance et pilote l&apos;exécution mois après mois. Vous ne recevez pas un rapport de 50 pages, mais des KPIs, des actions et des résultats que nous mesurons avec vous.
                 </p>
                 <HeroPills
                   items={[
@@ -191,14 +195,15 @@ export default function ConsultingMarketingPage() {
       
 
       {/* ── Stats ── */}
+      {/* 25/09/2026 : « +65 % », « 10 ans » et « 6 mois » retirés, aucune source. Restent des faits vérifiables. */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '+65%', l: 'Leads générés', sub: 'Gain moyen à 6 mois' },
-              { v: '10 ans', l: "D'expertise", sub: 'B2B et B2C Suisse' },
               { v: '2019', l: 'Agence fondée', sub: 'À Genève, Eaux-Vives' },
-              { v: '6 mois', l: 'ROI mesurable', sub: 'Délai moyen constaté' },
+              { v: chfHeure(PRIX.consultingHourly), l: 'Consulting à l\'heure', sub: 'Ou forfait projet' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
+              { v: 'Gratuit', l: 'Appel découverte', sub: 'Sans engagement' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -239,8 +244,9 @@ export default function ConsultingMarketingPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Conseil marketing pour PME : un regard extérieur qui fait la différence.
               </h2>
+              {/* 25/09/2026 : « plus de 150 projets » retiré, aucune source. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                Quand on gère son propre marketing au quotidien, on a du mal à voir ce qui bloque. DKDP apporte un regard neuf, des données concrètes et une expérience sur plus de 150 projets pour pointer exactement où se perdent vos opportunités.
+                Quand on gère son propre marketing au quotidien, on a du mal à voir ce qui bloque. DKDP apporte un regard neuf et des données concrètes pour repérer où se perdent vos opportunités.
               </p>
               <p className="text-text-secondary leading-relaxed">
                 Le consulting DKDP est pragmatique : on finit toujours par un plan d&apos;actions classé par priorité, avec des estimations de ressources et de délais. Vous savez exactement quoi faire, dans quel ordre, et pourquoi.
@@ -309,12 +315,14 @@ export default function ConsultingMarketingPage() {
                 className="rounded-[20px] p-5 md:p-7 border"
                 style={{ background: bg, borderColor: border, boxShadow: '0 0 50px rgba(124,58,237,0.08)' }}
               >
+                {/* 25/09/2026 : « Scores moyens mesurés sur nos clients avant et après 6 mois » retiré,
+                    aucune mesure derrière. Le graphique devient un exemple libellé comme tel. */}
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6 text-center" style={{ color }}>
-                  Scores par pilier marketing
+                  Exemple de tableau de bord
                 </p>
                 <MarketingAuditScore />
                 <p className="text-text-muted text-[11px] text-center mt-6">
-                  Scores moyens mesurés sur nos clients avant et après 6 mois d&apos;accompagnement DKDP.
+                  Ces valeurs sont illustratives : l&apos;audit établit vos propres scores, puis nous fixons les objectifs avec vous.
                 </p>
               </div>
             </SectionReveal>
@@ -490,57 +498,11 @@ export default function ConsultingMarketingPage() {
       </section>
 
       {/* ── Témoignages ── */}
-      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
-        <section id="temoignages" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Témoignages</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Des résultats, pas des promesses.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'DKDP a cartographié tout notre funnel en 2 semaines. On a découvert qu\'on perdait 60% de nos leads entre le premier contact et le devis. C\'est maintenant corrigé.',
-                author: 'Directeur général, cabinet de conseil B2B',
-                location: 'Genève',
-              },
-              {
-                quote: 'Avant l\'accompagnement, on faisait du marketing en aveugle. Maintenant on a des dashboards, des KPIs et une vraie stratégie. Notre CA a augmenté de 40% en 8 mois.',
-                author: 'Fondatrice, agence communication',
-                location: 'Lausanne',
-              },
-              {
-                quote: 'DKDP nous a évité 3 erreurs stratégiques coûteuses en nous apportant un regard externe. L\'investissement dans le consulting a été rentabilisé en 2 mois.',
-                author: 'DG, PME industrielle',
-                location: 'Vaud',
-              },
-            ].map((t, i) => (
-              <SectionReveal key={t.author} delay={i * 0.1}>
-                <div
-                  className="flex flex-col gap-5 p-7 rounded-[16px] border h-full"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: 5 }).map((_, j) => (
-                      <Star key={j} size={13} fill={color} style={{ color }} />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
-                  <div>
-                    <p className="text-text text-sm font-semibold">{t.author}</p>
-                    <p className="text-text-muted text-xs mt-0.5">{t.location}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026 : trois témoignages anonymes retirés (« 60 % des leads », « CA +40 % en 8 mois »,
+          « rentabilisé en 2 mois »), inventés. Place aux avis nommés du composant partagé. */}
+      <div id="temoignages" className="scroll-mt-[124px]">
+        <Testimonials accentRgb="167,139,250" />
+      </div>
 
       {/* ── Engagements ── */}
       <section className="py-24 border-t border-border">
@@ -557,7 +519,8 @@ export default function ConsultingMarketingPage() {
                   {[
                     { Icon: ShieldCheck, title: 'Stratégie documentée', desc: 'Vous recevez un document de stratégie complet après chaque phase. Tout est écrit, pas verbal : vous gardez la connaissance.' },
                     { Icon: BarChart2, title: 'KPIs définis ensemble', desc: 'Les indicateurs de succès sont définis avec vous avant de démarrer. Vous savez exactement comment mesurer la réussite.' },
-                    { Icon: Clock, title: 'Résultats en 30 jours', desc: 'Les premières actions sont en place dans les 30 premiers jours. Pas de mois 1 de "réflexion" : on démarre le travail immédiatement.' },
+                    // 25/09/2026 : « Résultats en 30 jours » promettait un résultat ; le titre reprend le délai de l'offre.
+                    { Icon: Clock, title: 'Premières actions sous 30 jours', desc: 'Les premières actions sont en place dans les 30 premiers jours. Pas de mois 1 de "réflexion" : on démarre le travail immédiatement.' },
                     { Icon: Globe2, title: 'Flexibilité totale', desc: 'Accompagnement mensuel sans engagement annuel. Si les résultats ne sont pas au rendez-vous, vous pouvez partir. On préfère l\'excellence à la rétention contractuelle.' },
                   ].map((g) => (
                     <div key={g.title} className="text-center">

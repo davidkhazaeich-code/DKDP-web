@@ -65,9 +65,10 @@ export function FormateursSection() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
               Trained by practitioners, not theorists.
             </h2>
+            {/* 25/09/2026 : unsourced "More than 500 professionals trained since 2015" removed (DKDP founded in 2019), mirror of the FR text. */}
             <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm leading-relaxed">
               Our trainers use the tools they teach every single day.
-              More than 500 professionals trained in French-speaking Switzerland since 2015.
+              They train professionals across French-speaking Switzerland, in companies and in one-to-one lessons.
             </p>
           </div>
         </SectionReveal>

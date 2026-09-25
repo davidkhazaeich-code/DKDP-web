@@ -188,8 +188,8 @@ export function ROICalculatorFormation({ lang = 'fr' }: { lang?: 'fr' | 'en' } =
 
             <div className="pt-4 border-t" style={{ borderColor: 'rgba(212,212,216,0.10)' }}>
               <p className="text-text-muted text-[10px] leading-relaxed">
-                Basé sur {RECOVERY * 100}% de temps récupérable après formation · {JOURS_OUVRES} jours ouvrés / an
-                <br />Données post-formation observées sur nos participants
+                {/* 25/09/2026 : « Données post-formation observées sur nos participants » retiré, aucune mesure derrière. */}
+                Hypothèse de calcul : {RECOVERY * 100}% de temps récupérable après formation · {JOURS_OUVRES} jours ouvrés / an
               </p>
             </div>
           </div>

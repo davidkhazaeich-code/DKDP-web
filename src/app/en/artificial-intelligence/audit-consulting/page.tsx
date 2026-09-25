@@ -14,9 +14,9 @@ import {
   Clock,
   Bot,
   Workflow,
-  Star,
   MapPin,
 } from 'lucide-react'
+import { PRIX, chf } from '@/data/pricing'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -75,6 +75,8 @@ function AuditScoreCard() {
       style={{ background: 'rgba(212,212,216,0.04)', borderColor: scoreBorder, boxShadow: '0 0 50px rgba(212,212,216,0.06)' }}
     >
       {/* Header */}
+      {/* 25/09/2026 : "Example" label added at the top, the gains and ROI shown are illustrative. */}
+      <p className="text-text-muted text-[9px] font-bold uppercase tracking-widest mb-1.5">Example</p>
       <div className="flex items-center justify-between mb-5">
         <p className="text-text font-bold text-[15px]">Your AI audit result</p>
         <span
@@ -140,10 +142,11 @@ function AuditScoreCard() {
 // ── FAQ data ─────────────────────────────────────────────────────────────────
 
 const FAQ_ITEMS = [
+  // 25/09/2026 : unsourced "Many do" removed. Amounts read from PRIX.
   {
     question: 'Is the audit really no-commitment?',
     answer:
-      'Yes. The audit costs CHF 490 or CHF 890 depending on the format, but there is no obligation to continue. You leave with a full report that you can implement on your own, with another provider, or with us. Our belief: if the work is good, you will come back. Many do.',
+      `Yes. The audit costs ${chf(PRIX.auditIaStandard)} or ${chf(PRIX.auditIaComplet)} depending on the format, but there is no obligation to continue. You leave with a full report that you can implement on your own, with another provider, or with us. Our belief: if the work is good, you will come back.`,
   },
   {
     question: 'How long does the audit session last?',
@@ -560,6 +563,7 @@ export default function AuditConsultingPage() {
             </div>
           </SectionReveal>
 
+          {/* 25/09/2026 : amounts read from PRIX, same rendered text. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* Standard */}
             <SectionReveal>
@@ -569,7 +573,7 @@ export default function AuditConsultingPage() {
               >
                 <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color }}>Standard Audit</p>
                 <div className="flex items-end gap-2 mb-1">
-                  <span className="text-4xl font-bold text-text">CHF 490</span>
+                  <span className="text-4xl font-bold text-text">{chf(PRIX.auditIaStandard)}</span>
                 </div>
                 <p className="text-text-muted text-sm mb-8">Ideal for SMBs wanting to test AI on a specific department</p>
 
@@ -613,7 +617,7 @@ export default function AuditConsultingPage() {
 
                 <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: violet }}>Complete Audit</p>
                 <div className="flex items-end gap-2 mb-1">
-                  <span className="text-4xl font-bold text-text">CHF 890</span>
+                  <span className="text-4xl font-bold text-text">{chf(PRIX.auditIaComplet)}</span>
                 </div>
                 <p className="text-text-muted text-sm mb-8">For companies ready to deploy AI across the entire organisation</p>
 
@@ -641,58 +645,7 @@ export default function AuditConsultingPage() {
         </div>
       </section>
 
-      {/* ── Testimonials ──────────────────────────────────────────────────── */}
-      <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)" accentRgb="212,212,216">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Testimonials</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                What our SMB clients discovered through the audit.
-              </h2>
-            </div>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                name: 'Sandra M.',
-                role: 'Director, accounting firm',
-                quote: "I thought our invoice processing workflow was unavoidable. The audit revealed we could automate 70% of the flow in a few weeks. I would never have spotted that on my own. The report gave me a concrete action plan, not generalities.",
-                stars: 5,
-              },
-              {
-                name: 'Thomas V.',
-                role: 'Founder, B2B e-commerce',
-                quote: "What surprised me was the depth of the analysis. In 48 hours, David had mapped our processes better than we ever had. Each of the 3 opportunities identified represented a real, measurable time saving. We started with the simplest one: positive ROI in 3 weeks.",
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={t.name} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-8"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-5">
-                    {Array.from({ length: t.stars }).map((_, si) => (
-                      <Star key={si} size={14} fill={color} style={{ color }} />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-[15px] flex-1 mb-6 italic">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div>
-                    <p className="text-text font-semibold text-[14px]">{t.name}</p>
-                    <p className="text-text-muted text-xs mt-0.5">{t.role}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026 : anonymous testimonials (Sandra M., Thomas V.) removed, no source. */}
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <div id="faq" className="scroll-mt-[124px]">

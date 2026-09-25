@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 const PROGRAMS = [
   {
     Icon: BrainCircuit, title: 'Formation IA en entreprise', href: '/formation-entreprise/ia',
-    description: 'ChatGPT, Claude, Copilot : apprenez à intégrer les outils IA dans votre quotidien professionnel et gagnez 2h par jour.',
+    description: 'ChatGPT, Claude, Copilot : apprenez à intégrer les outils IA dans votre quotidien professionnel et gagnez du temps chaque jour.',
     badge: 'Tendance',
     image: '/images/services/dkdp-formation-ia.webp',
   },
@@ -86,7 +86,7 @@ const PROGRAMS = [
   },
   {
     Icon: Wand2, title: 'Formation Canva', href: '/formation-entreprise/canva',
-    description: 'Créez vos visuels professionnels en 5 minutes. Brand Kit, templates, posts sociaux, présentations et IA Magic Studio.',
+    description: 'Créez vos visuels professionnels en quelques minutes. Brand Kit, templates, posts sociaux, présentations et IA Magic Studio.',
     badge: 'Populaire',
     image: '/images/services/dkdp-formation-canva.webp',
   },
@@ -186,7 +186,7 @@ export default function FormationEntreprisePage() {
                     size="md"
                   />
                 </div>
-                <HeroVisual />
+                <HeroVisual programCount={PROGRAMS.length} />
               </div>
             </div>
           </div>
@@ -228,23 +228,22 @@ export default function FormationEntreprisePage() {
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
+              // 25/09/2026 : « 2h perdues chaque jour », « 63 % des PME » et
+              // « 3x plus productifs » retirés, aucune source.
               {
                 Icon: Clock,
-                stat: '2h',
-                title: 'Perdues chaque jour',
-                desc: 'C\'est le temps moyen qu\'un collaborateur perd sur des tâches digitales maîtrisées à 60%. Raccourcis, cloud, email : une demi-journée suffit à tout changer.',
+                title: 'Du temps perdu chaque jour',
+                desc: 'Un collaborateur qui maîtrise mal ses outils cherche ses fichiers, refait ses tableaux et recopie ses emails. Quelques raccourcis bien appris changent déjà sa journée.',
               },
               {
                 Icon: BarChart2,
-                stat: '63%',
-                title: 'Des PME sous-équipées',
-                desc: 'Des PME déclarent que leurs collaborateurs ne maîtrisent pas les outils numériques à leur disposition. Une formation informatique ciblée comble ce fossé rapidement.',
+                title: 'Des outils sous-utilisés',
+                desc: 'Beaucoup de PME paient Microsoft 365 ou un outil IA que l\'équipe n\'utilise qu\'en surface. Une formation ciblée comble justement cet écart, sur les outils déjà en place.',
               },
               {
                 Icon: Lightbulb,
-                stat: '3x',
-                title: 'Plus productifs après',
-                desc: 'C\'est le gain de productivité moyen observé après une formation digitale ciblée. Non pas parce que les gens travaillent plus, mais mieux.',
+                title: 'Mieux, pas plus',
+                desc: 'Une équipe formée ne travaille pas davantage, elle travaille mieux : elle automatise ce qui se répète et garde son énergie pour ce qui compte.',
               },
             ].map((item, i) => (
               <SectionReveal key={item.title} delay={i * 0.1}>
@@ -258,7 +257,6 @@ export default function FormationEntreprisePage() {
                   >
                     <item.Icon size={22} style={{ color }} />
                   </div>
-                  <p className="text-[2.2rem] font-bold leading-none" style={{ color }}>{item.stat}</p>
                   <h3 className="text-text font-bold text-lg">{item.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1">{item.desc}</p>
                 </div>
@@ -367,7 +365,7 @@ export default function FormationEntreprisePage() {
                 style={{ background: bg, borderColor: border }}
               >
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6" style={{ color }}>
-                  Progression type observée en formation
+                  Avant, pendant et après la formation
                 </p>
                 <ProgressionDiagram />
               </div>
@@ -404,16 +402,18 @@ export default function FormationEntreprisePage() {
                 after: 'Chaque collaborateur a ses propres prompts, gagne du temps chaque jour et comprend les limites',
                 tag: 'ChatGPT, Claude, Copilot',
               },
+              // 25/09/2026 : « 4h chaque lundi », « 15 min », « zéro erreur »,
+              // « 3 sur 5 » et « 0 clic » retirés, aucune source.
               {
                 title: 'Bureautique Excel',
-                before: 'Les rapports prennent 4h chaque lundi matin, manuellement, avec des erreurs récurrentes',
-                after: 'Tableaux croisés dynamiques automatisés en 15 min. Zéro erreur de saisie',
+                before: 'Chaque semaine, le rapport se monte à la main et les mêmes erreurs de saisie reviennent',
+                after: 'Les tableaux croisés dynamiques préparent le rapport, et l\'équipe vérifie les chiffres au lieu de les recopier',
                 tag: 'Excel, Microsoft 365',
               },
               {
                 title: 'Cybersécurité',
-                before: '3 collaborateurs sur 5 cliquent sur un lien de phishing simulé lors du test initial',
-                after: 'Après la formation : 0 clic sur les tests suivants. Réflexes acquis définitivement',
+                before: 'Un faux email bien imité passe inaperçu, et le même mot de passe sert sur plusieurs comptes',
+                after: 'Chacun repère un phishing avant de cliquer et sécurise ses comptes par la double authentification',
                 tag: 'Phishing, RGPD, Mots de passe',
               },
             ].map((c, i) => (

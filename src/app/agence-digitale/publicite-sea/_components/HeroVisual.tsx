@@ -1,12 +1,18 @@
 import { violet } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 
 const V = violet.color
 const VD = violet.border
 
+// 25/09/2026 : tableau de bord fictif retiré (budget « CHF 2,400 », revenu
+// « CHF 19,680 », « ROAS 8.2x », clics, CPC et coût par conversion du jour,
+// entonnoir chiffré, scores Lighthouse 99/98/100, « -22 % » de CPC), aucune
+// source. La maquette montre les faits de l'offre (PRIX) et les contrôles
+// hebdomadaires décrits sur la page.
 export function HeroVisual() {
   return (
     <div className="relative flex flex-col gap-4">
-      {/* Google Ads Live Campaign */}
+      {/* Compte Google Ads du client */}
       <div
         className="rounded-[14px] overflow-hidden"
         style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${VD}`, boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}
@@ -14,99 +20,78 @@ export function HeroVisual() {
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/5">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-[10px] text-zinc-400 font-mono">Campagne active</span>
+            <span className="text-[10px] text-zinc-400 font-mono">Votre compte Google Ads</span>
           </div>
-          <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-green-400/10 text-green-400">LIVE</span>
+          <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-green-400/10 text-green-400">ACCÈS COMPLET</span>
         </div>
 
         <div className="p-5 space-y-5">
-          {/* Budget dial */}
+          {/* Budget et frais */}
           <div className="flex items-start gap-5">
             <div className="flex-1">
-              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Budget mensuel</p>
+              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Budget média</p>
               <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold text-white">CHF 2,400</span>
+                <span className="text-2xl font-bold text-white">dès {chf(PRIX.adsBudgetMin)}</span>
                 <span className="text-[10px] text-zinc-500">/ mois</span>
               </div>
               <div className="mt-2 h-2 rounded-full bg-white/5 overflow-hidden">
-                <div className="h-full rounded-full w-[68%]" style={{ background: 'linear-gradient(90deg, #7C3AED, #A78BFA)' }} />
+                <div className="h-full rounded-full w-full" style={{ background: 'linear-gradient(90deg, #7C3AED, #A78BFA)' }} />
               </div>
-              <p className="text-[9px] text-zinc-500 mt-1">68% consomme · 12 jours restants</p>
+              <p className="text-[9px] text-zinc-500 mt-1">Versé à Google, sans commission</p>
             </div>
             <div className="text-right">
-              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Revenue généré</p>
-              <p className="text-2xl font-bold text-green-400">CHF 19,680</p>
-              <p className="text-[9px] text-green-400 font-bold">ROAS 8.2x</p>
+              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Gestion DKDP</p>
+              <p className="text-2xl font-bold text-green-400">dès {chf(PRIX.adsManagementFrom)}</p>
+              <p className="text-[9px] text-green-400 font-bold">par mois</p>
             </div>
           </div>
 
           <div className="h-px bg-white/5" />
 
-          {/* Live metrics ticker */}
+          {/* Contrôles hebdomadaires */}
           <div className="grid grid-cols-4 gap-3">
             {[
-              { label: 'Clics auj.', value: '47', trend: '+12' },
-              { label: 'CPC moyen', value: '1.18', trend: '-0.22' },
-              { label: 'Conv. auj.', value: '6', trend: '+3' },
-              { label: 'Coût/conv.', value: '18.40', trend: '-4.60' },
+              { label: 'Termes', value: 'Relus', note: 'chaque semaine' },
+              { label: 'Enchères', value: 'Ajustées', note: 'chaque semaine' },
+              { label: 'Annonces', value: 'Testées', note: 'en A/B' },
+              { label: 'Conversions', value: 'Suivies', note: 'dès le départ' },
             ].map((m) => (
               <div key={m.label}>
                 <p className="text-[8px] text-zinc-600 uppercase">{m.label}</p>
-                <p className="text-sm font-bold text-white">{m.label.includes('CPC') || m.label.includes('Cout') ? `CHF ${m.value}` : m.value}</p>
-                <p className="text-[9px] font-bold" style={{ color: m.trend.startsWith('-') ? '#4ade80' : '#4ade80' }}>{m.trend}</p>
+                <p className="text-sm font-bold text-white">{m.value}</p>
+                <p className="text-[9px] font-bold text-green-400">{m.note}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Floating conversion funnel */}
+      {/* Floating conversion funnel (étapes suivies, sans chiffres) */}
       <div className="absolute -right-2 top-8 rotate-1 hidden lg:block">
         <div
           className="rounded-lg p-3"
           style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-2">Funnel du jour</p>
+          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-2">Entonnoir suivi</p>
           {[
-            { step: 'Impressions', val: '1,842', w: '100%' },
-            { step: 'Clics', val: '47', w: '60%' },
-            { step: 'Conversions', val: '6', w: '25%' },
+            { step: 'Visibilité', w: '100%' },
+            { step: 'Clics qualifiés', w: '60%' },
+            { step: 'Leads', w: '25%' },
           ].map((f) => (
             <div key={f.step} className="flex items-center gap-2 mb-1">
               <div className="h-3 rounded-sm" style={{ width: f.w, minWidth: '20px', background: 'linear-gradient(90deg, rgba(124,58,237,0.4), rgba(124,58,237,0.15))' }} />
-              <span className="text-[8px] text-zinc-400 whitespace-nowrap">{f.val}</span>
+              <span className="text-[8px] text-zinc-400 whitespace-nowrap">{f.step}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Floating Lighthouse */}
-      <div className="absolute -left-3 bottom-16 -rotate-2 hidden lg:block">
-        <div
-          className="rounded-lg p-2.5 grid grid-cols-3 gap-2"
-          style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
-        >
-          {[
-            { label: 'Perf', score: 99 },
-            { label: 'SEO', score: 98 },
-            { label: 'A11y', score: 100 },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="w-8 h-8 mx-auto rounded-full border-2 border-green-400/60 flex items-center justify-center">
-                <span className="text-[9px] font-bold text-green-400">{s.score}</span>
-              </div>
-              <span className="text-[7px] text-zinc-500 mt-0.5 block">{s.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Mini stats */}
+      {/* Mini stats : engagements de l'offre */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { v: '8.2x', l: 'ROAS moyen', c: '#4ade80' },
-          { v: '-22%', l: 'Coût par clic', c: V },
-          { v: 'CHF 0', l: 'Frais caches', c: '#FF8C00' },
+          { v: '48h', l: 'Campagnes actives', c: '#4ade80' },
+          { v: 'CHF 0', l: 'Frais cachés', c: V },
+          { v: 'Hebdo', l: 'Optimisation', c: '#FF8C00' },
         ].map((s) => (
           <div
             key={s.l}

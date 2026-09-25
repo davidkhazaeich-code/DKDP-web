@@ -32,6 +32,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildService, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 import { localizedPath } from '@/i18n/slugs'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
@@ -279,7 +280,9 @@ export default function ImplementationPage() {
           <div className="grid grid-cols-3 gap-6 md:gap-12">
             {[
               { value: '3', label: 'LLMs supported in production', sub: 'ChatGPT, Claude, Mistral' },
-              { value: '4 wks', label: 'Average integration time', sub: 'From kickoff to production' },
+              // 25/09/2026: "4 wks average integration time" removed, average with no source;
+              // replaced by the Standard integration delivery time stated in the pricing.
+              { value: '3 wks', label: 'Delivery time, Standard integration', sub: 'From kickoff to production' },
               { value: '0', label: 'Stack rebuilds', sub: 'Your existing code is preserved' },
             ].map((s) => (
               <SectionReveal key={s.label}>
@@ -378,10 +381,11 @@ export default function ImplementationPage() {
                 tag: 'high demand',
                 tagColor: violet,
               },
+              // 25/09/2026: "production time divided by 5" and "consistency guaranteed" removed, no source.
               {
                 Icon: MailOpen,
                 title: 'Content generation',
-                desc: 'Emails, reports, product sheets generated from your templates and data. Consistent tone guaranteed, production time divided by 5.',
+                desc: 'Emails, reports and product sheets are generated from your templates and your data. The tone stays consistent, and your teams review instead of writing from scratch.',
                 tag: null,
                 tagColor: '',
               },
@@ -399,10 +403,11 @@ export default function ImplementationPage() {
                 tag: null,
                 tagColor: '',
               },
+              // 25/09/2026: "technical productivity multiplied" removed, multiplier with no source.
               {
                 Icon: Code2,
                 title: 'Code and automation',
-                desc: 'Script generator, developer assistance, automated code review. Technical productivity multiplied without hiring.',
+                desc: 'AI generates scripts, assists your developers and runs a first-pass code review. Your technical team hands it the repetitive tasks, without hiring.',
                 tag: null,
                 tagColor: '',
               },
@@ -665,6 +670,7 @@ export default function ImplementationPage() {
             </div>
           </SectionReveal>
 
+          {/* 25/09/2026: prices read from src/data/pricing (PRIX.llmFrom, PRIX.llmTo), no longer hard-coded. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* Standard */}
             <SectionReveal delay={0}>
@@ -676,7 +682,7 @@ export default function ImplementationPage() {
                   Standard Integration
                 </p>
                 <p className="text-4xl font-bold text-text mb-1">
-                  CHF 3&apos;500
+                  {chf(PRIX.llmFrom)}
                 </p>
                 <p className="text-text-muted text-sm mb-6">one-time payment</p>
                 <div className="space-y-3 flex-1 mb-8">
@@ -720,7 +726,7 @@ export default function ImplementationPage() {
                   Advanced Integration
                 </p>
                 <p className="text-4xl font-bold text-text mb-1">
-                  CHF 6&apos;500
+                  {chf(PRIX.llmTo)}
                 </p>
                 <p className="text-text-muted text-sm mb-6">one-time payment</p>
                 <div className="space-y-3 flex-1 mb-8">
@@ -748,70 +754,7 @@ export default function ImplementationPage() {
         </div>
       </section>
 
-      {/* ── Testimonials ──────────────────────────────────────── */}
-      <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)" accentRgb="212,212,216">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">They trust us</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                What they say about their AI integration.
-              </h2>
-            </div>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {[
-              {
-                quote:
-                  'We were afraid of having to rebuild everything to integrate AI. DKDP connected Claude to our document base in 3 weeks. Our teams save 2 hours a day on information retrieval.',
-                author: 'Operations Manager',
-                company: 'Consulting firm, Geneva',
-                initial: 'OM',
-              },
-              {
-                quote:
-                  'Prompt engineering makes all the difference. Before, our internal tests gave generic answers. With the DKDP orchestration layer, the model knows our business and our clients. The results are incomparable.',
-                author: 'CTO',
-                company: 'B2B SaaS scale-up, Lausanne',
-                initial: 'CT',
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-5" aria-label="5 stars">
-                    {Array.from({ length: 5 }).map((_, si) => (
-                      <svg key={si} width="14" height="14" viewBox="0 0 14 14" fill="#A78BFA" aria-hidden="true">
-                        <path d="M7 1l1.55 3.14L12 4.6l-2.5 2.44.59 3.44L7 8.77l-3.09 1.71.59-3.44L2 4.6l3.45-.46L7 1z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-text-secondary text-sm leading-relaxed flex-1 mb-6 italic">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="flex h-9 w-9 items-center justify-center rounded-full text-[12px] font-bold flex-shrink-0"
-                      style={{ background: 'rgba(167,139,250,0.15)', color: violet, border: `1px solid rgba(167,139,250,0.25)` }}
-                    >
-                      {t.initial}
-                    </div>
-                    <div>
-                      <p className="text-text text-sm font-semibold">{t.author}</p>
-                      <p className="text-text-muted text-xs">{t.company}</p>
-                    </div>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026: anonymous testimonials removed (operations manager, CTO), no source. */}
 
       {/* ── FAQ ───────────────────────────────────────────────── */}
       <FAQSection items={FAQ_ITEMS} title="Your questions about LLM integration." lang="en" />

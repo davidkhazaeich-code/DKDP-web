@@ -81,10 +81,13 @@ const SERVICES = [
   },
 ]
 
+// 25/09/2026 : « 10h économisées / semaine en moyenne » et « 3 mois pour un
+// ROI positif » retirés, aucune source. Remplacés par le prix de l'audit
+// (PRIX) et la note de la fiche Google.
 const STATS = [
   { value: '2019', label: 'Agence fondée à Genève' },
-  { value: '10h', label: 'Économisées / semaine en moyenne' },
-  { value: '3 mois', label: 'Pour un ROI positif' },
+  { value: chf(PRIX.auditIaStandard), label: 'Audit IA standard' },
+  { value: '5,0/5', label: 'Note Google, 22 avis' },
 ]
 
 const BENEFITS = [
@@ -236,8 +239,10 @@ export default function IntelligenceArtificiellePage() {
               </p>
               <div className="space-y-3">
                 {[
-                  'Réduction du temps de traitement : 85% en moyenne',
-                  'Coût opérationnel divisé par 3 sur les processus automatisés',
+                  // 25/09/2026 : « 85 % en moyenne » et « coût opérationnel divisé
+                  // par 3 » retirés, aucune source.
+                  'Moins de ressaisie manuelle sur les processus automatisés',
+                  'Un prototype testé en conditions réelles avant de valider',
                   'Délai de mise en place : 2 à 6 semaines selon la complexité',
                   'Aucun recrutement supplémentaire nécessaire',
                 ].map((fact, i) => (
@@ -492,24 +497,29 @@ export default function IntelligenceArtificiellePage() {
         </div>
       </section>
 
-      {/* ── ROI ── */}
+      {/* ── Mesure du ROI ── */}
+      {/* 25/09/2026 : KPI « 85 % », « 10h », « 3 sem. », « x3.1 » et trois cas
+          fictifs (agence immobilière, cabinet RH, e-commerce B2B) retirés,
+          aucune source. La section décrit la méthode de mesure (baseline à
+          l'audit, puis suivi mensuel, cf. src/data/faq-ia.ts) et les tuiles
+          reprennent des faits de l'offre écrits sur cette page. */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
-              <GradTag className="mb-4">ROI mesurable</GradTag>
+              <GradTag className="mb-4">Mesure du ROI</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Résultats clients : ROI mesurable de nos projets IA.
+                Comment on mesure le ROI de vos projets IA.
               </h2>
             </div>
           </SectionReveal>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14 items-stretch">
             {[
-              { v: '85%', l: 'Réduction temps de traitement', sub: 'Sur les processus automatisés' },
-              { v: '10h', l: 'Gagnées par semaine', sub: 'Par collaborateur en moyenne' },
-              { v: '3 sem.', l: 'Premier prototype livré', sub: 'En conditions réelles' },
-              { v: 'x3.1', l: 'ROI moyen à 6 mois', sub: 'Calculé sur les projets livrés' },
+              { v: chf(PRIX.auditIaStandard), l: 'Audit IA standard', sub: 'Mesure de départ sur vos processus' },
+              { v: '< 2 sem.', l: 'Premier prototype', sub: 'Testé en conditions réelles' },
+              { v: '3 mois', l: 'Suivi mensuel', sub: 'Après la mise en production' },
+              { v: chf(PRIX.agentFrom), l: 'Agent IA sur mesure', sub: 'Prix de départ' },
             ].map((kpi, i) => (
               <SectionReveal key={kpi.l} delay={i * 0.08} className="h-full">
                 <div className="flex flex-col justify-center text-center h-full p-6 rounded-[14px] border" style={{ background: bg, borderColor: border }}>
@@ -524,37 +534,41 @@ export default function IntelligenceArtificiellePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                sector: 'Agence immobilière',
-                challenge: 'Qualification manuelle de 120 leads entrants par semaine',
-                solution: 'Agent IA de pré-qualification connecté au CRM',
-                result: '90% de leads qualifiés sans intervention humaine. 18h libérées par semaine.',
+                moment: 'Pendant l\'audit',
+                title: 'Mesurer avant',
+                measure: 'On relève le temps que prend chaque tâche, le volume traité et les erreurs, sur vos processus actuels.',
+                action: 'L\'audit cartographie vos flux avec votre équipe, puis chiffre le potentiel de chaque automatisation en heures et en CHF.',
+                result: 'Vous disposez ainsi d\'une base de mesure avant tout déploiement.',
               },
               {
-                sector: 'Cabinet RH',
-                challenge: 'Traitement des CV et tri des candidatures en 3 jours ouvrés',
-                solution: 'Pipeline IA : extraction, scoring, résumé et transmission automatiques',
-                result: 'Délai réduit à 4 heures. Qualité de sélection améliorée de 40%.',
+                moment: 'Après le prototype',
+                title: 'Comparer sur vos chiffres',
+                measure: 'Le prototype tourne en conditions réelles, sur vos données, et on relève les mêmes indicateurs.',
+                action: 'On compare ensuite ces chiffres avec la base de l\'audit, tâche par tâche.',
+                result: 'Vous décidez donc de la suite sur vos propres chiffres, pas sur une promesse.',
               },
               {
-                sector: 'E-commerce B2B',
-                challenge: 'Service client traité manuellement, 200 emails par jour',
-                solution: 'Chatbot IA et routage intelligent des demandes complexes',
-                result: '75% des demandes résolues sans agent humain. CSAT +22 points.',
+                moment: 'Pendant le suivi',
+                title: 'Garder ce qui rapporte',
+                measure: 'Pendant les 3 mois de suivi, on relève chaque mois les mêmes indicateurs.',
+                action: 'On ajuste ensuite ce qui rapporte, et on revoit ou on arrête ce qui ne rapporte pas.',
+                result: 'Vous gardez les automatisations qui rapportent, chiffres à l\'appui.',
               },
             ].map((c, i) => (
-              <SectionReveal key={c.sector} delay={i * 0.1}>
+              <SectionReveal key={c.moment} delay={i * 0.1}>
                 <div className="flex flex-col h-full rounded-[16px] border border-border p-6 bg-bg-card">
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color }}>
-                    {c.sector}
+                    {c.moment}
                   </p>
+                  <h3 className="text-text font-bold text-lg mb-3">{c.title}</h3>
                   <div className="space-y-3 flex-1">
                     <div>
-                      <p className="text-text-muted text-xs font-semibold mb-1">Problème</p>
-                      <p className="text-text-secondary text-sm">{c.challenge}</p>
+                      <p className="text-text-muted text-xs font-semibold mb-1">Ce qu&apos;on mesure</p>
+                      <p className="text-text-secondary text-sm">{c.measure}</p>
                     </div>
                     <div>
-                      <p className="text-text-muted text-xs font-semibold mb-1">Solution déployée</p>
-                      <p className="text-text-secondary text-sm">{c.solution}</p>
+                      <p className="text-text-muted text-xs font-semibold mb-1">Ce qu&apos;on en fait</p>
+                      <p className="text-text-secondary text-sm">{c.action}</p>
                     </div>
                     <div className="pt-3 border-t border-border">
                       <p className="text-text text-sm font-semibold">{c.result}</p>

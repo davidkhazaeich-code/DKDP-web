@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Layers, Wand2, Palette, Share2, Sparkles, Globe2, Zap, FileText } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Clock, Users, Award, Layers, Wand2, Palette, Share2, Sparkles, Globe2, Zap, FileText } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -43,15 +43,18 @@ export const metadata: Metadata = {
 }
 
 const FAQ = [
+  // 25/09/2026 : "Most participants" removed, nothing counted behind it.
   {
     question: 'Do you need to be a graphic designer to take the Canva training?',
     answer:
-      "No. The DKDP Canva training is designed for non-designers. We start from the basics of design (typography, colours, visual hierarchy) and build your first visuals together. Most participants have never opened Canva before the training and leave fully autonomous by the end of the day.",
+      "No. The DKDP Canva training is designed for non-designers. We start from the basics of design (typography, colours, visual hierarchy) and build your first visuals together. No prior experience of Canva is needed to leave fully autonomous by the end of the day.",
   },
+  // 25/09/2026 : unsourced "80% of an SME's needs" removed. Canva Pro prices and
+  // "100 million": publisher facts, kept.
   {
     question: 'What is the difference between free Canva and Canva Pro?',
     answer:
-      "The free version already covers 80% of an SME's needs. Canva Pro (CHF 15/month per user or CHF 30/month for a team) unlocks the full Brand Kit (logo, palette, company fonts), background removal, automatic resizing (Magic Resize), and more than 100 million premium templates and photos. DKDP helps you choose the plan that is genuinely useful for your needs.",
+      "The free version already covers a large share of an SME's needs. Canva Pro (CHF 15/month per user or CHF 30/month for a team) unlocks the full Brand Kit (logo, palette, company fonts), background removal, automatic resizing (Magic Resize), and more than 100 million premium templates and photos. DKDP helps you choose the plan that is genuinely useful for your needs.",
   },
   {
     question: 'What is the Canva Brand Kit and why set it up?',
@@ -63,20 +66,23 @@ const FAQ = [
     answer:
       "Social media posts (Instagram, LinkedIn, Facebook, TikTok, X), animated Stories and Reels, professional presentations, printable flyers and posters, brochures, newsletters, web banners, business cards, email signatures, short videos, internal documents, org charts. More than 100 preformatted formats are available from the start.",
   },
+  // 25/09/2026 : unsourced "by 3 to 5 times" removed.
   {
     question: 'How does Magic Studio (Canva AI) work?',
     answer:
-      "Magic Studio brings together the AI features built into Canva: Magic Write generates text, Magic Edit modifies an image with a written instruction, Magic Resize adapts a visual to several formats in one click, Magic Eraser removes an object from a photo, Background Remover cuts out a subject. These tools speed up production by 3 to 5 times depending on the use case. The training covers the 5 main tools.",
+      "Magic Studio brings together the AI features built into Canva: Magic Write generates text, Magic Edit modifies an image with a written instruction, Magic Resize adapts a visual to several formats in one click, Magic Eraser removes an object from a photo, Background Remover cuts out a subject. Depending on the use case, these tools speed up production considerably. The training covers the 5 main tools.",
   },
   {
     question: 'Can the team work on the same design together?',
     answer:
       "Yes. Canva includes real-time collaboration similar to Google Docs: comments, suggestions, internal template sharing, shared brand spaces. The training includes a module on organising a team workflow to avoid duplication and guarantee visual consistency.",
   },
+  // 25/09/2026 : "4h" and "8h" aligned with the offer (3 h + 1 h, 6 h + 2 h). Unsourced
+  // "Most SMEs opt for the full day, which pays off the fastest" removed.
   {
     question: 'How long does the Canva training last?',
     answer:
-      "A half-day (4h) for the basics: interface, first visuals, Brand Kit. A full day (8h) to go further: Magic Studio, team workflow, advanced presentations, videos. Most SMEs opt for the full day, which pays off the fastest.",
+      "A half-day (3 h of training plus 1 h of preparation) covers the basics: interface, first visuals, Brand Kit. A full day (6 h of training plus 2 h of preparation) lets you go further: Magic Studio, team workflow, advanced presentations, videos.",
   },
   {
     question: 'Can the training take place at our premises?',
@@ -118,20 +124,23 @@ const steps = [
     title: 'Templates in practice',
     desc: 'Creation of your 5 priority templates: posts, stories, presentations, flyers. Smooth production for your daily work.',
   },
+  // 25/09/2026 : unsourced "5x faster" removed.
   {
     Icon: Wand2,
     title: 'Magic Studio and AI',
-    desc: "Mastery of Canva's AI tools to produce 5x faster. Team workflow configured and ready to scale.",
+    desc: "Mastery of Canva's AI tools to produce faster. Team workflow configured and ready to scale.",
   },
 ]
 
 function CanvaFeatureCards() {
+  // 25/09/2026 : unsourced "100% of your visuals" and "5x faster" removed.
+  // "250,000+ designs": Canva's public figure, kept.
   const features = [
     {
       name: 'Brand Kit',
       tag: 'Unified identity',
       bestFor: 'Logo, palette, fonts, primary and secondary colours imported once and for all',
-      detail: 'Guaranteed consistency across 100% of your visuals',
+      detail: 'Guaranteed consistency across all your visuals',
       c: '#00C4CC',
       cbg: 'rgba(0,196,204,0.08)',
       cborder: 'rgba(0,196,204,0.22)',
@@ -149,7 +158,7 @@ function CanvaFeatureCards() {
       name: 'Magic Studio',
       tag: 'Canva AI',
       bestFor: 'Magic Resize, Magic Edit, Magic Write, background removal',
-      detail: 'Production 5x faster thanks to built-in AI',
+      detail: 'Faster production thanks to built-in AI',
       c: '#A78BFA',
       cbg: 'rgba(167,139,250,0.10)',
       cborder: 'rgba(167,139,250,0.22)',
@@ -213,8 +222,9 @@ export default function FormationCanvaPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Canva Training Geneva & French-speaking Switzerland</h1>
+                {/* 25/09/2026 : "in 5 minutes" replaced by "in a few minutes", nothing measured. */}
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  Create your visuals in 5 minutes. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>In your brand colours</GradText>.
+                  Create your visuals in a few minutes. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>In your brand colours</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP trains your SME and corporate teams on Canva in Geneva and across French-speaking Switzerland. Posts, presentations, flyers, brochures: your staff create professional visuals without an agency, the day after the training.
@@ -270,8 +280,10 @@ export default function FormationCanvaPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: '250M+', l: 'Users', sub: 'Canva worldwide' },
-              { v: '5 min', l: 'Per visual', sub: 'With Brand Kit configured' },
-              { v: '80%', l: 'Time saved', sub: 'On graphic production' },
+              // 25/09/2026 : unsourced "5 min per visual" and "80% time saved" removed.
+              // Offer and Google listing facts instead.
+              { v: '1 to 10', l: 'People per session', sub: 'Groups on quote from 3' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
               { v: '1 day', l: 'To become autonomous', sub: 'With no prerequisites' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -325,10 +337,12 @@ export default function FormationCanvaPage() {
               </p>
               <div className="space-y-3">
                 {[
-                  "Swiss SMEs spend an average of CHF 4,000/year on outsourced graphic design",
+                  // 25/09/2026 : unsourced "CHF 4,000/year", "70%" and "3 to 5 times" removed.
+                  // Canva, 250 million and Fortune 500: publisher figures, kept.
+                  "Outsourced graphic design is a recurring expense for Swiss SMEs",
                   "Canva is used by more than 250 million people worldwide, including 95% of the Fortune 500",
-                  "A well-configured Brand Kit cuts visual production time by 70%",
-                  "Magic Studio (Canva AI) speeds up production further by 3 to 5 times depending on the use case",
+                  "A well-configured Brand Kit cuts visual production time",
+                  "Magic Studio (Canva AI) speeds up production further, depending on the use case",
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
@@ -462,59 +476,8 @@ export default function FormationCanvaPage() {
 
       <FormationTrainer accentColor='#FF8C00' lang="en" />
 
-      {/* ── Témoignages ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">What they say</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Feedback after the Canva training
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: "Before the training, I paid a freelance designer for every Instagram post. Now I create my visuals in 5 minutes with my Canva templates. Paid off in two weeks.",
-                name: 'Nathalie F., Founder',
-                company: 'Artisan boutique, Geneva',
-                stars: 5,
-              },
-              {
-                quote: "We trained our entire communication team on Canva, with a unified Brand Kit. The visual consistency of our brand improved overnight. No more mismatched visuals between colleagues.",
-                name: 'Thomas L., Marketing manager',
-                company: 'SME of 40 people, Vaud',
-                stars: 5,
-              },
-              {
-                quote: "Magic Studio was a real revelation. I resize a visual for 5 social networks in one click, I remove a background in 2 seconds. What used to take me 30 minutes now takes 2 minutes.",
-                name: 'Sarah M., Community manager',
-                company: 'Events agency, Geneva',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : anonymous testimonials (Nathalie F., Thomas L., Sarah M.) removed,
+          they were invented. The Google reviews in FormationTrainer, just above, carry the proof. */}
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
@@ -526,8 +489,9 @@ export default function FormationCanvaPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
                 Canva training pricing
               </h2>
+              {/* 25/09/2026 : "4h" and "8h" aligned with the offer and the grid below. */}
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                The price depends on the number of participants. Half-day (4h) or full day (8h), on site or by video call.
+                The price depends on the number of participants and the format: half-day (3 h of training plus 1 h of preparation) or full day (6 h plus 2 h), on site or by video call.
               </p>
             </div>
           </SectionReveal>

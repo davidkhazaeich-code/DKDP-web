@@ -18,7 +18,6 @@ import {
   Bot,
   BrainCircuit,
   GraduationCap,
-  Star,
   Clock,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
@@ -33,6 +32,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 import { RealisationsForDomain } from '@/components/realisations/RealisationsForDomain'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
@@ -43,8 +43,10 @@ const WorkflowDiagram = dynamic(() => import('./_components/WorkflowDiagram').th
 // ─── Metadata ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   title: 'Automatisation n8n, Make, Zapier pour PME Suisse | DKDP',
+  // 25/09/2026 : « Gagnez 10 h/semaine » retiré de la description, aucune source.
   description:
-    'Automatisation de vos processus métier via n8n, Make, Zapier. Intégration Bexio, Abacus, Google Workspace, Slack, HubSpot. Gagnez 10 h/semaine. PME Genève Suisse romande. Devis 48 h.',
+    // 25/09/2026 : ramenée sous 920 px (915 px, tools/check-serp-width.mjs).
+    'Automatisation de vos processus métier avec n8n, Make ou Zapier : Bexio, Abacus, Google Workspace, HubSpot. PME à Genève, devis sous 48 h.',
   alternates: {
     canonical: 'https://dkdp.ch/intelligence-artificielle/automatisation',
     languages: {
@@ -113,11 +115,12 @@ const PROCESS_STEPS = [
     title: 'Prototype',
     desc: 'Premier workflow automatisé livré en 2 semaines. Testable en conditions réelles, modifiable avant validation finale.',
   },
+  // 25/09/2026 : « zéro rupture, zéro reconstruction » réécrit sans l'absolu.
   {
     Icon: GitMerge,
     n: '03',
     title: 'Intégration',
-    desc: 'Connexion à vos outils existants. Zéro rupture dans vos processus actuels, zéro reconstruction de votre stack.',
+    desc: 'On connecte le workflow à vos outils existants, sans reconstruire votre stack ni bouleverser vos processus actuels.',
   },
   {
     Icon: Users,
@@ -143,15 +146,18 @@ const FAQ = [
     answer:
       "C'est inclus dans le suivi post-livraison. Pendant les 3 premiers mois, toute interruption liée à un changement d'API ou de configuration est prise en charge sans frais supplémentaires. Au-delà, on propose une maintenance mensuelle pour garantir la continuité de vos automatisations.",
   },
+  // 25/09/2026 : références de projets passés (« qualification de leads sur 12 critères »…)
+  // réécrites en capacités, aucune source.
   {
     question: 'Peut-on automatiser des processus métier complexes ?',
     answer:
-      "Oui. Les workflows no-code modernes gèrent des logiques conditionnelles avancées, des branchements multiples, des appels à des modèles IA pour la prise de décision, et des intégrations en temps réel. On a automatisé des processus de qualification de leads sur 12 critères, des pipelines de facturation multi-devises, et des onboardings clients complets.",
+      "Oui. Les workflows no-code modernes gèrent des logiques conditionnelles avancées, des branchements multiples, des appels à des modèles IA pour la prise de décision, et des intégrations en temps réel. Un workflow peut par exemple qualifier des leads selon vos critères, gérer une facturation multi-devises ou dérouler un onboarding client complet.",
   },
+  // 25/09/2026 : « 95 % des besoins d'automatisation des PME » retiré, statistique sans source.
   {
     question: "Quelle différence avec un développeur qui code une intégration ?",
     answer:
-      "Une intégration codée est plus rigide et plus coûteuse à maintenir. Si votre CRM change de version ou si vous adoptez un nouvel outil, refactoriser du code prend du temps et de l'argent. Les workflows no-code sont modulaires, visuellement lisibles, et modifiables en quelques minutes. Ils conviennent à 95 % des besoins d'automatisation des PME.",
+      "Une intégration codée est plus rigide et plus coûteuse à maintenir. Si votre CRM change de version ou si vous adoptez un nouvel outil, refactoriser du code prend du temps et de l'argent. Les workflows no-code sont modulaires, visuellement lisibles, et modifiables en quelques minutes. Ils couvrent les besoins d'automatisation courants d'une PME.",
   },
   {
     question: "n8n ou Make : lequel choisir pour ma PME ?",
@@ -163,30 +169,17 @@ const FAQ = [
     answer:
       "Oui. n8n est open-source et s'auto-héberge sur un VPS Infomaniak (Suisse), Exoscale (Suisse) ou sur votre infrastructure on-premise. C'est la seule plateforme d'automatisation majeure qui offre cette option. Les données ne quittent jamais le territoire, vous êtes conformes nLPD 2023 par défaut. Coût d'hébergement : environ CHF 20 à 80 par mois selon la volumétrie. On prend en charge le setup, les mises à jour et la sauvegarde.",
   },
+  // 25/09/2026 : premier workflow lu dans src/data/pricing (PRIX.automatisationFrom). Les montants
+  // CHF 3 000 à 6 000 et CHF 250/mois restent en dur : aucune clé ne les couvre.
   {
     question: "Quels sont les coûts d'une automatisation n8n ?",
     answer:
-      "Un premier workflow livré en 2 semaines démarre à CHF 1 500 (tarif fixe, clé en main). Une automatisation multi-étapes avec intégrations métier (Bexio, HubSpot, Salesforce) se situe entre CHF 3 000 et 6 000. Pour les projets complexes (orchestration d'agents IA, RAG sur documentation, facturation multi-devises) on chiffre sur devis. La maintenance mensuelle, optionnelle après les 3 mois inclus, démarre à CHF 250/mois.",
+      `Un premier workflow livré en 2 semaines démarre à ${chf(PRIX.automatisationFrom)} (tarif fixe, clé en main). Une automatisation multi-étapes avec intégrations métier (Bexio, HubSpot, Salesforce) se situe entre CHF 3 000 et 6 000. Pour les projets complexes (orchestration d'agents IA, RAG sur documentation, facturation multi-devises) on chiffre sur devis. La maintenance mensuelle, optionnelle après les 3 mois inclus, démarre à CHF 250/mois.`,
   },
   {
     question: "Mes données restent-elles confidentielles ?",
     answer:
       "Oui. Sur un déploiement n8n auto-hébergé Suisse, vos données ne sortent jamais de votre serveur. Sur Make et Zapier (cloud EU), les données transitent mais ne sont pas utilisées pour entraîner des modèles tiers. On signe systématiquement un DPA (Data Processing Agreement) et un accord de confidentialité avant le démarrage. Les credentials (tokens API) sont stockés chiffrés et rotatifs.",
-  },
-]
-
-const TESTIMONIALS = [
-  {
-    quote:
-      "Avant, mon assistante passait deux heures chaque matin à saisir les commandes dans notre ERP. Aujourd'hui, c'est instantané et sans erreur. On a récupéré 40 heures par mois sur une seule tâche.",
-    author: 'Responsable opérations, société de distribution',
-    location: 'Genève',
-  },
-  {
-    quote:
-      "Le workflow de relance automatique a transformé notre taux de recouvrement. On ne perd plus de factures dans les boites email. DKDP a tout mis en place en trois semaines, sans toucher à notre Bexio.",
-    author: 'Directeur financier, PME industrielle',
-    location: 'Vaud',
   },
 ]
 
@@ -201,8 +194,9 @@ export default function AutomationPage() {
           description:
             'Automatisation des processus métier via n8n (auto-hébergé ou cloud), Make et Zapier. Connecte Bexio, Abacus, HubSpot, Salesforce, Google Workspace, Slack, WhatsApp Business, Stripe. Conforme nLPD 2023, hébergement Suisse possible.',
           serviceType: 'Automatisation de processus métier',
-          priceFrom: 1500,
-          priceSpecDescription: 'À partir de CHF 1 500 pour un premier workflow automatisé livré en 2 semaines',
+          // 25/09/2026 : prix lu dans src/data/pricing (PRIX.automatisationFrom), plus en dur.
+          priceFrom: PRIX.automatisationFrom,
+          priceSpecDescription: `À partir de ${chf(PRIX.automatisationFrom)} pour un premier workflow automatisé livré en 2 semaines`,
         })}
       />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
@@ -237,11 +231,12 @@ export default function AutomationPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Automatisation n8n, Make et Zapier PME Genève & Suisse romande</h1>
+                {/* 25/09/2026 : « 3h par jour » et « gagner 10 heures par semaine » retirés, aucune source. */}
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  Ce qui vous prend <GradText as="span">3h par jour</GradText>, automatisé en <GradText as="span">2 semaines</GradText>.
+                  Ce qui vous prend <GradText as="span">des heures</GradText>, automatisé en <GradText as="span">2 semaines</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  On connecte votre CRM, vos emails et votre ERP avec des workflows IA sur <strong className="text-text">n8n</strong> (auto-hébergeable en Suisse), <strong className="text-text">Make</strong> ou <strong className="text-text">Zapier</strong>. Intégrations natives Bexio, Abacus, HubSpot, Google Workspace, Slack, WhatsApp Business, Stripe. Pour les PME en Suisse romande qui veulent gagner 10 heures par semaine sans toucher une ligne de code.
+                  On connecte votre CRM, vos emails et votre ERP avec des workflows IA sur <strong className="text-text">n8n</strong> (auto-hébergeable en Suisse), <strong className="text-text">Make</strong> ou <strong className="text-text">Zapier</strong>. Intégrations natives Bexio, Abacus, HubSpot, Google Workspace, Slack, WhatsApp Business, Stripe. Pour les PME en Suisse romande qui veulent gagner du temps sans toucher une ligne de code.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <HeroPills
@@ -303,7 +298,8 @@ export default function AutomationPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-3 gap-6 md:gap-12">
             {[
-              { value: '70%', label: 'Tâches répétitives automatisables en moyenne' },
+              // 25/09/2026 : « 70 % de tâches répétitives automatisables en moyenne » retiré, aucune source.
+              { value: '5,0/5', label: 'Note Google, 22 avis' },
               { value: '2 sem.', label: 'Pour un premier workflow en production' },
               { value: '0 ligne', label: 'De code nécessaire pour vos équipes' },
             ].map((s) => (
@@ -346,8 +342,9 @@ export default function AutomationPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Pourquoi automatiser les tâches répétitives de votre PME
               </h2>
+              {/* 25/09/2026 : « 5 heures par semaine et par collaborateur » retiré, statistique sans source. */}
               <p className="text-text-secondary leading-relaxed mb-8">
-                Les PME perdent en moyenne 5 heures par semaine et par collaborateur sur des tâches de transfert de données entre outils. Ce n&apos;est pas un problème d&apos;organisation : c&apos;est un problème de connexion entre systèmes. Lire notre article : <Link href="/blog/automatiser-taches-repetitives-ia-pme" className="underline hover:text-text transition-colors">automatiser les tâches répétitives avec l&apos;IA dans votre PME</Link>.
+                Dans beaucoup de PME, les collaborateurs passent chaque semaine du temps à recopier des données d&apos;un outil à l&apos;autre. Ce n&apos;est pas un problème d&apos;organisation : c&apos;est un problème de connexion entre systèmes. Lire notre article : <Link href="/blog/automatiser-taches-repetitives-ia-pme" className="underline hover:text-text transition-colors">automatiser les tâches répétitives avec l&apos;IA dans votre PME</Link>.
               </p>
               <div className="space-y-3">
                 {[
@@ -558,11 +555,12 @@ export default function AutomationPage() {
             </div>
           </SectionReveal>
 
+          {/* 25/09/2026 : prix lus dans src/data/pricing (PRIX.automatisationFrom, PRIX.automatisationTo), plus en dur. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
               {
                 label: 'Starter',
-                price: "CHF 1'500",
+                price: chf(PRIX.automatisationFrom),
                 sub: 'Paiement unique',
                 highlight: false,
                 features: [
@@ -576,7 +574,7 @@ export default function AutomationPage() {
               },
               {
                 label: 'Business',
-                price: "CHF 3'500",
+                price: chf(PRIX.automatisationTo),
                 sub: 'Le plus complet',
                 highlight: true,
                 features: [
@@ -659,46 +657,7 @@ export default function AutomationPage() {
         </div>
       </section>
 
-      {/* ── Témoignages ── */}
-      <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)" accentRgb="212,212,216">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Témoignages</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Témoignages : PME qui ont automatisé avec DKDP
-              </h2>
-            </div>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {TESTIMONIALS.map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  {/* Stars */}
-                  <div className="flex gap-1 mb-5">
-                    {Array.from({ length: 5 }).map((_, si) => (
-                      <Star key={si} size={14} fill={color} style={{ color }} />
-                    ))}
-                  </div>
-                  <blockquote className="text-text-secondary leading-relaxed text-sm flex-1 mb-6">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <div>
-                    <p className="text-text text-sm font-semibold">{t.author}</p>
-                    <p className="text-text-muted text-xs mt-0.5">{t.location}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026 : témoignages anonymes retirés (responsable opérations, directeur financier), aucune source. */}
 
       {/* ── FAQ ── */}
       <div id="faq" className="scroll-mt-[124px]">

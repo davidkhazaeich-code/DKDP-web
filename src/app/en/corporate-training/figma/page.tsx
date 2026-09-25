@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, Users, Star, Layers, PenTool, Layout, Globe2, Zap, Code2, MapPin } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Users, Layers, PenTool, Layout, Globe2, Zap, Code2, MapPin } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -22,6 +22,7 @@ import { FigmaTrainer } from '@/components/formation/figma/FigmaTrainer'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
 import { localizedPath } from '@/i18n/slugs'
+import { PRIX, chf } from '@/data/pricing'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
@@ -109,10 +110,11 @@ const FAQ = [
     answer:
       'Yes, and it is the format we recommend. DKDP travels across Geneva and French-speaking Switzerland. Working on your own machines, with your files and your real constraints, produces better results than a neutral classroom. Remote sessions remain possible for teams spread across several sites.',
   },
+  // 25/09/2026 : price taken from PRIX (was a hard-coded "CHF 200").
   {
     question: 'How much does corporate Figma training cost in Switzerland?',
     answer:
-      'The price depends on the number of participants and the duration chosen, from half a day to two days. Our corporate training rates start at CHF 200 per hour for one person. The quote is free and the programme is scoped against your projects before it is priced, rather than sold off a catalogue.',
+      `The price depends on the number of participants and the duration chosen, from half a day to two days. Our corporate training rates start at ${chf(PRIX.formationHourly1)} per hour for one person. The quote is free and the programme is scoped against your projects before it is priced, rather than sold off a catalogue.`,
   },
   {
     question: 'Do participants receive a certificate?',
@@ -424,9 +426,10 @@ export default function FigmaTrainingPage() {
                   By the end of the day your screens are not images in a slide deck. They are linked together,
                   they open on a phone, and they can be walked through like a real application.
                 </p>
+                {/* 25/09/2026 : "five minutes" replaced by "a few minutes", nothing measured. */}
                 <p className="text-text-secondary leading-relaxed">
                   That is when the flaws show up: one step too many, a button nobody finds, a form that is too long.
-                  Fixing them takes five minutes in Figma. After development, it takes a quote.
+                  Fixing them takes a few minutes in Figma. After development, it takes a quote.
                 </p>
               </div>
             </div>
@@ -532,59 +535,8 @@ export default function FigmaTrainingPage() {
 
       <FigmaTrainer lang="en" accent={color} />
 
-      {/* ── Testimonials ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">What they say</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Feedback after the Figma training
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'Auto Layout was a revelation. I can now lay out a mobile, tablet and desktop page in parallel without duplicating the work. My iterations are three times faster.',
-                name: 'Julien K., Founder',
-                company: 'Tech startup, Geneva',
-                stars: 5,
-              },
-              {
-                quote: 'We trained our whole product team on Figma and on the design system. Our visual brief became far more precise, and the back-and-forth with our development agency dropped noticeably.',
-                name: 'Sophie B., Product Manager',
-                company: 'SaaS scale-up, Lausanne',
-                stars: 5,
-              },
-              {
-                quote: 'Dev Mode saved me an enormous amount of time. I pull the colours, the spacing and the CSS directly without asking the designer a single question. Handover became smooth.',
-                name: 'Marc D., Lead Developer',
-                company: 'Industrial SME, Vaud',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : anonymous testimonials (Julien K., Sophie B., Marc D.) removed,
+          they were invented. FigmaTrainer, just above, carries the real proof. */}
 
       {/* ── Pricing ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">

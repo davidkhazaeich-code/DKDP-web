@@ -2,10 +2,15 @@ import { violet } from '@/lib/tokens'
 
 const VD = violet.border
 
+/**
+ * 25/09/2026 : la carte flottante « Avant 23 % → Après 97 % » et la mini-stat « 97 %, score
+ * conformité » retirées, aucune mesure derrière ; « 48h, mise en place » corrigé (48h = l'audit,
+ * la mise en place prend 5 jours selon la page). La maquette reste, libellée comme un exemple.
+ */
 export function HeroVisual() {
   return (
     <div className="relative flex flex-col gap-4">
-      {/* Compliance Scanner */}
+      {/* Compliance Scanner (exemple) */}
       <div
         className="rounded-[14px] overflow-hidden"
         style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${VD}`, boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}
@@ -16,7 +21,7 @@ export function HeroVisual() {
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="1.5" />
               <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="text-[10px] text-zinc-400 font-mono">Audit de conformite</span>
+            <span className="text-[10px] text-zinc-400 font-mono">Audit de conformité · Exemple</span>
           </div>
           <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-green-400/10 text-green-400">Conforme</span>
         </div>
@@ -94,32 +99,12 @@ export function HeroVisual() {
         </div>
       </div>
 
-      {/* Floating before/after */}
-      <div className="absolute -left-3 bottom-16 -rotate-2 hidden lg:block">
-        <div
-          className="rounded-lg p-2.5"
-          style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(252,165,165,0.15)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
-        >
-          <div className="flex gap-3">
-            <div className="text-center">
-              <p className="text-[7px] text-zinc-600 uppercase">Avant</p>
-              <p className="text-sm font-bold text-red-400">23%</p>
-            </div>
-            <div className="text-zinc-600 self-center">&#8594;</div>
-            <div className="text-center">
-              <p className="text-[7px] text-zinc-600 uppercase">Apres</p>
-              <p className="text-sm font-bold text-green-400">97%</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Mini stats */}
+      {/* Mini stats : délais et livrable de l'offre, tels qu'écrits sur la page */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { v: '97%', l: 'Score conformite', c: '#4ade80' },
-          { v: '48h', l: 'Mise en place', c: violet.color },
-          { v: 'Inclus', l: 'Certificat delivre', c: '#FF8C00' },
+          { v: '48h', l: 'Audit livré', c: '#4ade80' },
+          { v: '5 jours', l: 'Mise en place', c: violet.color },
+          { v: 'Inclus', l: 'Certificat délivré', c: '#FF8C00' },
         ].map((s) => (
           <div
             key={s.l}

@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import Image from 'next/image'
-import { CheckCircle2, XCircle, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, Zap, AlertTriangle, Lock, Star } from 'lucide-react'
+import { CheckCircle2, XCircle, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, Zap, AlertTriangle, Lock } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -18,6 +17,7 @@ import { localizedPath } from '@/i18n/slugs'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
   title: 'GDPR and FADP Geneva & Switzerland | Cookie banner | DKDP',
@@ -77,12 +77,14 @@ const FAQ = [
   },
 ]
 
+// 25/09/2026 : "0 CHF, zero fines" and "100%, guaranteed compliance" removed, two absolute
+// promises with nothing behind them. The fine ceilings quoted remain those of the law.
 const BENEFITS = [
   {
     Icon: ShieldCheck,
-    value: '0 CHF',
-    title: 'Zero fines',
-    desc: 'Once compliant, you eliminate the risk of a fine of up to CHF 50\'000 (Swiss FADP) or 4% of worldwide turnover (European GDPR) in case of an inspection.',
+    value: 'FADP + GDPR',
+    title: 'Lower fine risk',
+    desc: 'Once compliant, you reduce the risk of a fine in case of an inspection, a fine that can reach CHF 50\'000 under the Swiss FADP or 4% of worldwide turnover under the European GDPR.',
   },
   {
     Icon: Zap,
@@ -92,9 +94,9 @@ const BENEFITS = [
   },
   {
     Icon: Lock,
-    value: '100%',
-    title: 'Guaranteed compliance',
-    desc: 'After implementation, you receive a DKDP compliance certificate. You can respond to any client or authority request.',
+    value: 'Certificate',
+    title: 'Documented compliance',
+    desc: 'After implementation, you receive a DKDP compliance certificate and every document produced. You can therefore answer a client or authority request, with evidence to hand.',
   },
 ]
 
@@ -176,8 +178,11 @@ export default function GDPRCookiesPage() {
                 </div>
               </div>
               {/* HeroVisual (inlined, translated) */}
+              {/* 25/09/2026 : floating "Before 23% → After 97%" card and "97%, compliance score" mini
+                  stat removed, nothing measured them; "48h, setup" corrected (48h is the audit, setup
+                  takes 5 days per this page). The mock-up stays, labelled as an example. Mirror of FR. */}
               <div className="relative flex flex-col gap-4">
-                {/* Compliance Scanner */}
+                {/* Compliance Scanner (example) */}
                 <div
                   className="rounded-[14px] overflow-hidden"
                   style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${border}`, boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}
@@ -188,7 +193,7 @@ export default function GDPRCookiesPage() {
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="1.5" />
                         <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-[10px] text-zinc-400 font-mono">Compliance audit</span>
+                      <span className="text-[10px] text-zinc-400 font-mono">Compliance audit · Example</span>
                     </div>
                     <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-green-400/10 text-green-400">Compliant</span>
                   </div>
@@ -266,31 +271,11 @@ export default function GDPRCookiesPage() {
                   </div>
                 </div>
 
-                {/* Floating before/after */}
-                <div className="absolute -left-3 bottom-16 -rotate-2 hidden lg:block">
-                  <div
-                    className="rounded-lg p-2.5"
-                    style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(252,165,165,0.15)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
-                  >
-                    <div className="flex gap-3">
-                      <div className="text-center">
-                        <p className="text-[7px] text-zinc-600 uppercase">Before</p>
-                        <p className="text-sm font-bold text-red-400">23%</p>
-                      </div>
-                      <div className="text-zinc-600 self-center">&#8594;</div>
-                      <div className="text-center">
-                        <p className="text-[7px] text-zinc-600 uppercase">After</p>
-                        <p className="text-sm font-bold text-green-400">97%</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Mini stats */}
+                {/* Mini stats: lead times and deliverable of the offer, as stated on this page */}
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    { v: '97%', l: 'Compliance score', c: '#4ade80' },
-                    { v: '48h', l: 'Setup', c: violet.color },
+                    { v: '48h', l: 'Audit delivered', c: '#4ade80' },
+                    { v: '5 days', l: 'Setup', c: violet.color },
                     { v: 'Included', l: 'Certificate issued', c: '#FF8C00' },
                   ].map((s) => (
                     <div
@@ -311,13 +296,14 @@ export default function GDPRCookiesPage() {
 
 
       {/* ── Stats ── */}
+      {/* 25/09/2026 : "100%, guaranteed compliance after our intervention" removed, absolute promise. */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: 'CHF 50k', l: 'Max FADP fine', sub: 'Swiss revFADP law 2023' },
               { v: '72h', l: 'Notification deadline', sub: 'In case of a data breach' },
-              { v: '100%', l: 'Guaranteed compliance', sub: 'After our intervention' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
               { v: '5 days', l: 'Turnaround time', sub: 'From report to implementation' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -645,134 +631,16 @@ export default function GDPRCookiesPage() {
       </section>
 
       {/* ── Testimonials ── */}
-      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Testimonials</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                They are compliant. They sleep better.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'We had ignored the GDPR for 3 years. A competitor filed a complaint. DKDP made us compliant in one week. Flawless and responsive work.',
-                author: 'Director',
-                company: 'E-commerce SMB, Geneva',
-                stars: 5,
-              },
-              {
-                quote: 'Our site was collecting data without the right forms. DKDP sorted everything out in 48h. Our lawyer validated the work without a single correction.',
-                author: 'Founder',
-                company: 'HR firm, Lausanne',
-                stars: 5,
-              },
-              {
-                quote: 'As a healthcare practitioner, compliance is non-negotiable. DKDP knows the specifics of sensitive data. An impeccable result.',
-                author: 'Independent physician',
-                company: 'Medical practice, Geneva',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={t.author} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full p-7 rounded-[16px] border"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-0.5 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 mb-6">&ldquo;{t.quote}&rdquo;</p>
-                  <div>
-                    <p className="text-text font-semibold text-sm">{t.author}</p>
-                    <p className="text-text-muted text-xs mt-0.5">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026 : three anonymous testimonials removed (including "Our lawyer validated the work
+          without a single correction"), invented. The shared, named reviews replace them. */}
+      <Testimonials accentRgb="167,139,250" lang="en" />
 
-      {/* ── Case studies + Guarantees ── */}
+      {/* ── Commitments ── */}
+      {/* 25/09/2026 : the three anonymous case studies ("12 processor DPA contracts", "5-person team
+          training", "audit + implementation in 5 days") removed: no nameable client, unsourced figures.
+          The published case studies (src/lib/realisations) are not compliance projects. */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Case studies</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Concrete compliance work.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                client: 'B2C e-commerce SMB',
-                type: 'Complete compliance',
-                image: '/images/services/dkdp-agence-rgpd.webp',
-                results: ['Audit + implementation in 5 days', 'GDPR-compliant Axeptio banner', 'Privacy policy + DPA delivered'],
-                tech: 'Axeptio · GDPR · DPA · FADP',
-              },
-              {
-                client: 'Medical practice',
-                type: 'Health data (sensitive)',
-                image: '/images/services/dkdp-agence-consulting.webp',
-                results: ['Complete processing register', 'Compliant patient forms', '5-person team training'],
-                tech: 'FADP · Health · Register · DPA',
-              },
-              {
-                client: 'B2B SaaS startup',
-                type: 'GDPR + Processors',
-                image: '/images/services/dkdp-agence-creation-web.webp',
-                results: ['12 processor DPA contracts', 'Privacy policy EN + FR', 'CNIL-compliant cookie notice'],
-                tech: 'GDPR · DPA · Cookiebot · Multilingual',
-              },
-            ].map((r, i) => (
-              <SectionReveal key={r.client} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border overflow-hidden"
-                  style={{ borderColor: border }}
-                >
-                  <div className="relative h-44 overflow-hidden flex-shrink-0">
-                    <Image
-                      src={r.image}
-                      alt={r.client}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
-                    <span
-                      className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full"
-                      style={{ background: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(6px)', color, border: `1px solid ${border}` }}
-                    >
-                      {r.type}
-                    </span>
-                  </div>
-                  <div className="p-6 flex flex-col flex-1" style={{ background: bg }}>
-                    <p className="text-text font-bold mb-4">{r.client}</p>
-                    <div className="space-y-2 flex-1">
-                      {r.results.map((res) => (
-                        <div key={res} className="flex items-center gap-2">
-                          <Star size={11} style={{ color }} className="flex-shrink-0" />
-                          <span className="text-text text-sm font-semibold">{res}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-text-muted text-[11px] mt-4 font-mono">{r.tech}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-
           {/* Guarantees */}
           <SectionReveal>
             <div className="rounded-[20px] border p-8 md:p-10" style={{ background: bg, borderColor: border }}>

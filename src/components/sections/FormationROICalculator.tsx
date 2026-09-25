@@ -132,7 +132,7 @@ export function FormationROICalculator() {
               Ce que ça vaut de former votre équipe.
             </h2>
             <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm leading-relaxed">
-              Une équipe formée travaille 2 à 3 fois plus vite sur ses tâches digitales. Estimez ce que ça représente concrètement pour votre entreprise.
+              Estimez ce que la formation peut représenter pour votre entreprise, à partir de vos propres chiffres.
             </p>
           </div>
         </SectionReveal>
@@ -328,7 +328,8 @@ export function FormationROICalculator() {
                 </div>
 
                 <p className="text-text-muted text-[10px] text-center leading-relaxed">
-                  Estimation basée sur 2,5x de gain d&apos;efficacité moyen observé après nos formations, 48 semaines/an.
+                  {/* 25/09/2026 : « 2 à 3 fois plus vite » et « gain moyen observé après nos formations » retirés, aucune mesure derrière. */}
+                  Estimation fondée sur une hypothèse de calcul (2,5x plus efficace sur les tâches digitales), 48 semaines par an.
                   Chaque situation est différente : discutons de la vôtre.
                 </p>
               </div>

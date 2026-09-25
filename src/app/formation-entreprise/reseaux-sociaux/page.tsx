@@ -73,10 +73,12 @@ const FAQ = [
   },
 ]
 
+// 25/09/2026 : « en 2 heures » retiré, aucune mesure. Les 30 jours décrivent le
+// calendrier construit en séance, pas un résultat.
 const MODULES = [
   'Stratégie social media : objectifs, audience cible, positionnement',
   'Création de visuels avec Canva (templates et identité de marque)',
-  'Calendrier éditorial : planifier 30 jours en 2 heures',
+  'Calendrier éditorial : planifier 30 jours de publications',
   'Copywriting pour les réseaux (accroches, légendes, CTA)',
   'Instagram : Reels, Stories, carrousels et hashtags',
   'LinkedIn : personal branding et contenu B2B',
@@ -96,34 +98,12 @@ const ROLES: { label: string; Icon: typeof Briefcase }[] = [
   { label: 'Tout professionnel voulant s\'afficher en ligne', Icon: User },
 ]
 
-const TESTIMONIALS = [
-  {
-    quote: 'J\'avais un compte Instagram inactif depuis des mois. Après la formation, je poste 3 fois par semaine avec un vrai calendrier. Mes abonnés ont doublé en 6 semaines.',
-    name: 'Caroline P., Thérapeute indépendante',
-    company: 'Genève',
-    initials: 'CP',
-    stars: 5,
-  },
-  {
-    quote: 'DKDP nous a appris à utiliser Canva et Meta Business Suite. Notre équipe gère maintenant nos 3 comptes en 2 heures par semaine.',
-    name: 'Laurent G., Responsable communication',
-    company: 'Association culturelle, Lausanne',
-    initials: 'LG',
-    stars: 5,
-  },
-  {
-    quote: 'La partie LinkedIn m\'a particulièrement aidé. J\'ai maintenant une vraie stratégie B2B et je génère des leads directement depuis mes posts.',
-    name: 'Philippe V., Consultant indépendant',
-    company: 'Genève',
-    initials: 'PV',
-    stars: 5,
-  },
-]
-
+// 25/09/2026 : TESTIMONIALS (Caroline P., Laurent G., Philippe V.) retiré, témoignages
+// anonymes inventés. « Workflow hebdomadaire en 2 heures » retiré, aucune mesure.
 const steps = [
   { Icon: Target, title: 'Stratégie & audience', desc: 'Définition de votre positionnement, de votre audience cible et des objectifs mesurables par plateforme.' },
   { Icon: Layers, title: 'Création de contenu', desc: 'Production de visuels avec Canva, rédaction de légendes engageantes. Première série de posts créés en séance.' },
-  { Icon: Smartphone, title: 'Publication & outils', desc: 'Mise en place du calendrier éditorial et des outils de planification. Workflow hebdomadaire en 2 heures.' },
+  { Icon: Smartphone, title: 'Publication et outils', desc: 'Mise en place du calendrier éditorial, des outils de planification et d\'un workflow hebdomadaire.' },
   { Icon: BarChart2, title: 'Analyse & optimisation', desc: 'Lecture des statistiques natives et ajustements. Chaque participant repart avec ses KPIs définis.' },
 ]
 
@@ -210,9 +190,11 @@ export default function FormationReseauxSociauxPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: 'Régulier', l: 'Calendrier tenu', sub: 'Après formation équipes' },
+              // 25/09/2026 : « Régulier, calendrier tenu après formation » et « 2h/sem pour
+              // tout gérer » retirés, aucune mesure. Faits de l'offre et de la fiche Google.
+              { v: '3 h ou 6 h', l: 'Demi-journée ou journée', sub: 'Plus 1 h ou 2 h de préparation' },
               { v: '5', l: 'Plateformes couvertes', sub: 'Meta, LinkedIn, TikTok, YT' },
-              { v: '2h/sem', l: 'Pour tout gérer', sub: 'Avec les bons outils' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
               { v: '1 à 10', l: 'Personnes par session', sub: 'Groupe sur devis dès 3' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -268,9 +250,11 @@ export default function FormationReseauxSociauxPage() {
               </p>
               <div className="space-y-3">
                 {[
-                  'Les marques qui publient avec un calendrier ont 3× plus d\'engagement que celles qui postent de façon spontanée',
-                  'Canva réduit le temps de création visuelle de 70% par rapport aux outils professionnels',
-                  '2 heures par semaine suffisent pour gérer 3 plateformes avec les bons outils',
+                  // 25/09/2026 : « 3× plus d'engagement », « 70 % » et « 2 heures pour 3 plateformes »
+                  // retirés, aucune source.
+                  'Les marques qui publient avec un calendrier suscitent plus d\'engagement que celles qui postent de façon spontanée',
+                  'Canva réduit le temps de création visuelle par rapport aux logiciels de graphisme professionnels',
+                  'Avec les bons outils, quelques heures par semaine suffisent pour tenir plusieurs plateformes',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
@@ -297,8 +281,9 @@ export default function FormationReseauxSociauxPage() {
                   />
                 </div>
                 <SocialBeforeAfter />
+                {/* 25/09/2026 : « Résultats observés sur nos groupes de participants » retiré, aucune mesure derrière. */}
                 <p className="text-text-muted text-[11px] text-center mt-4">
-                  Résultats observés sur nos groupes de participants en Suisse romande.
+                  Ce que la formation met en place, sur vos propres comptes.
                 </p>
               </div>
             </SectionReveal>
@@ -457,52 +442,8 @@ export default function FormationReseauxSociauxPage() {
 
       <FormationTrainer accentColor='#FF8C00' />
 
-      {/* ── Témoignages ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Retours après la formation réseaux sociaux
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4 flex items-center gap-3" style={{ borderTop: `1px solid ${border}` }}>
-                    <div
-                      className="flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center text-text font-bold text-[12px] tracking-wide"
-                      style={{
-                        background: 'linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%)',
-                        boxShadow: '0 4px 14px rgba(255,107,0,0.25)',
-                      }}
-                      aria-hidden="true"
-                    >
-                      {t.initials}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-text font-semibold text-sm truncate">{t.name}</p>
-                      <p className="text-text-muted text-xs truncate">{t.company}</p>
-                    </div>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : témoignages anonymes (Caroline P., Laurent G., Philippe V.) retirés,
+          inventés. Les avis Google de FormationTrainer, juste au-dessus, font la preuve. */}
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
@@ -514,8 +455,9 @@ export default function FormationReseauxSociauxPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
                 Tarifs de la formation réseaux sociaux
               </h2>
+              {/* 25/09/2026 : « 4h » et « 8h » alignés sur l'offre et sur la grille ci-dessous. */}
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).
+                Le prix dépend du nombre de participants et du format : demi-journée (3 h de formation et 1 h de préparation) ou journée entière (6 h et 2 h).
               </p>
             </div>
           </SectionReveal>
@@ -551,8 +493,9 @@ export default function FormationReseauxSociauxPage() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Aller plus loin</p>
                   <p className="text-text font-bold text-lg leading-tight">Créer votre propre contenu vidéo</p>
+                  {/* 25/09/2026 : « décupler l'engagement » (multiplier par dix) remplacé par « renforcer », aucune mesure. */}
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
-                    Vous maîtrisez les réseaux sociaux. Pour créer votre propre contenu vidéo professionnel et décupler l&apos;engagement, découvrez notre formation montage vidéo.
+                    Vous maîtrisez les réseaux sociaux. Pour créer votre propre contenu vidéo professionnel et renforcer l&apos;engagement, découvrez notre formation montage vidéo.
                   </p>
                 </div>
               </div>

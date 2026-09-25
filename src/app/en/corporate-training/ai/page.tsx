@@ -19,6 +19,7 @@ const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const ROICalculatorFormation = dynamic(() => import('@/components/sections/ROICalculatorFormation').then(m => m.ROICalculatorFormation))
 const FormationPricing = dynamic(() => import('@/components/sections/FormationPricing').then(m => ({ default: m.FormationPricing })))
+const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
@@ -92,8 +93,9 @@ const FAQ = [
   },
   {
     question: 'How much does a day of AI training for my team cost?',
+    // 25/09/2026 : grid prices through PRIX, no hard-coded amount (same text).
     answer:
-      'The AI training is billed by the hour depending on the group size: CHF 200/h for 1 person, CHF 300/h for 2 people. For groups of 3 to 10 people as well as half-day and full-day formats, the rate is set per quote. Contact us for a personalised estimate.',
+      `The AI training is billed by the hour depending on the group size: ${chfHeure(PRIX.formationHourly1)} for 1 person, ${chfHeure(PRIX.formationHourly2)} for 2 people. For groups of 3 to 10 people as well as half-day and full-day formats, the rate is set per quote. Contact us for a personalised estimate.`,
   },
   {
     question: 'Do participants leave with tools they can use the same evening?',
@@ -148,8 +150,9 @@ export default function FormationIAPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Corporate AI training Geneva & French-speaking Switzerland</h1>
+                {/* 25/09/2026 : unsourced "Hours saved every week" removed. */}
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>1 day</GradText>{' '}with us. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Hours</GradText>{' '}saved every week.
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>1 day</GradText>{' '}with us. AI in your routine <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>by the next morning</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP trains your staff on ChatGPT Astra, Claude and Microsoft Copilot on-site in Geneva and across French-speaking Switzerland. A 100% tailored programme for SMEs and large companies, focused on practice. <strong className="text-text">Your staff are operational the next day</strong>, with their own prompts and an AI routine in place.
@@ -264,8 +267,9 @@ export default function FormationIAPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Your teams already use AI. But not the right way.
               </h2>
+              {/* 25/09/2026 : unsourced "cuts processing time by 60 to 80%" removed. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                Most staff have tried ChatGPT once, got a disappointing result, and moved on to something else. Yet training your teams on AI with the right prompting techniques cuts the processing time of repetitive tasks by 60 to 80%.
+                Most staff have tried ChatGPT once, got a disappointing result, and moved on to something else. Yet, with the right prompting techniques, the same tools become genuinely useful day to day, especially on repetitive tasks.
               </p>
               <p className="text-text-secondary leading-relaxed mb-6">
                 DKDP does not give generic demonstrations. We work on your real documents, your real emails and your real use cases. By the next morning, you have personal prompts and an operational AI routine. To compare the tools, see our guide <Link href="/blog/chatgpt-claude-copilot-lequel-choisir-pme-2026" className="underline hover:text-text transition-colors">ChatGPT vs Claude vs Copilot for SMEs</Link>.
@@ -273,10 +277,11 @@ export default function FormationIAPage() {
               <p className="text-text-secondary leading-relaxed mb-8">
                 September 2026 changed the picture: ChatGPT Astra (GPT-6), released on 3 September, is no longer an assistant that chats but a model that acts. It drives a computer and a browser, chains steps on its own and delivers finished documents. The catch is access: a Plus subscription gets it in ChatGPT Work and Codex, not in the classic chat, which stays on GPT-5.6 Sol. We cover it during the day, and in depth in <Link href="/en/corporate-training/chatgpt" className="underline hover:text-text transition-colors">our dedicated ChatGPT training</Link>.
               </p>
+              {/* 25/09/2026 : unsourced "77% of professionals" and "40% more productive" rewritten without figures. */}
               <div className="space-y-3">
                 {[
-                  '77% of professionals believe AI will transform their job within the next 3 years',
-                  'Teams trained on AI are 40% more productive than those who learn on their own',
+                  'AI is already changing the way office jobs are done',
+                  'A team trained together shares the same methods, instead of everyone muddling through alone',
                   'The main barrier: not knowing where to start. The training solves exactly that',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -391,9 +396,10 @@ export default function FormationIAPage() {
               <p className="text-text-secondary leading-relaxed mb-6">
                 The day alternates short theory and intensive practice. 90% of the time is spent on exercises based on your real cases. Theory only serves to understand why something works, not to fill slides.
               </p>
+              {/* 25/09/2026 : "less than 45 min of theory" removed, the agenda has two 30-min theory blocks. */}
               <div className="space-y-3">
                 {[
-                  '6 hours of on-site training, less than 45 min of pure theory',
+                  '6 hours of on-site training, including a short theory segment',
                   'Exercises on your real documents and your real tasks',
                   'Each participant leaves with their personal prompt templates',
                   'Individual completion certificate handed out at the end of the day',
@@ -479,61 +485,9 @@ export default function FormationIAPage() {
       {/* ── Trainers ── */}
       <FormateursSection />
 
-      {/* ── Testimonials ── */}
-      <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">What they say</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Feedback after the AI training.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                quote: 'After one day of training, my team uses ChatGPT daily. We cut the time spent writing our reports by 70%. The ROI was immediate.',
-                name: 'Managing Director',
-                company: 'Financial SME, Geneva',
-                stars: 5,
-              },
-              {
-                quote: 'The training was concrete, adapted to our real use cases. No fluff. The next day, everyone had their prompts and was using them in meetings.',
-                name: 'HR Manager',
-                company: 'Industrial company, Vaud',
-                stars: 5,
-              },
-              {
-                quote: 'We were sceptical. Now we can no longer imagine working without AI. The training demystified the tools and gave the whole team confidence.',
-                name: 'Communications Officer',
-                company: 'Healthcare sector, Geneva',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: 'var(--surface-default)', borderColor: 'var(--surface-border)' }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <span key={j} style={{ color }}>★</span>
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: '1px solid var(--surface-border)' }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026 : anonymous testimonials removed (Managing Director, HR Manager, Communications Officer), no source.
+          The real Google reviews of the DKDP listing take their place. */}
+      <FormationTrainer accentColor="#FF8C00" lang="en" reviewsOnly />
 
       {/* ── Pricing ── */}
       <section id="tarifs" className="scroll-mt-[124px] py-24 bg-bg-card border-y border-border">

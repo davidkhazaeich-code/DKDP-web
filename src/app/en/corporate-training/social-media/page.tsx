@@ -76,10 +76,12 @@ const FAQ = [
   },
 ]
 
+// 25/09/2026 : unmeasured "in 2 hours" removed. The 30 days describe the calendar
+// built in session, not a result.
 const MODULES = [
   'Social media strategy: goals, target audience, positioning',
   'Creating visuals with Canva (templates and brand identity)',
-  'Content calendar: plan 30 days in 2 hours',
+  'Content calendar: plan 30 days of posts',
   'Copywriting for social media (hooks, captions, CTA)',
   'Instagram: Reels, Stories, carousels and hashtags',
   'LinkedIn: personal branding and B2B content',
@@ -99,34 +101,12 @@ const ROLES: { label: string; Icon: typeof Briefcase }[] = [
   { label: 'Any professional wanting an online presence', Icon: User },
 ]
 
-const TESTIMONIALS = [
-  {
-    quote: 'I had an Instagram account that had been inactive for months. After the training, I post 3 times a week with a real calendar. My followers doubled in 6 weeks.',
-    name: 'Caroline P., Independent therapist',
-    company: 'Geneva',
-    initials: 'CP',
-    stars: 5,
-  },
-  {
-    quote: 'DKDP taught us how to use Canva and Meta Business Suite. Our team now manages our 3 accounts in 2 hours a week.',
-    name: 'Laurent G., Communication manager',
-    company: 'Cultural association, Lausanne',
-    initials: 'LG',
-    stars: 5,
-  },
-  {
-    quote: 'The LinkedIn part helped me in particular. I now have a real B2B strategy and I generate leads directly from my posts.',
-    name: 'Philippe V., Independent consultant',
-    company: 'Geneva',
-    initials: 'PV',
-    stars: 5,
-  },
-]
-
+// 25/09/2026 : TESTIMONIALS (Caroline P., Laurent G., Philippe V.) removed, anonymous
+// testimonials that were invented. Unmeasured "Weekly workflow in 2 hours" removed.
 const steps = [
   { Icon: Target, title: 'Strategy & audience', desc: 'Defining your positioning, your target audience and measurable goals per platform.' },
   { Icon: Layers, title: 'Content creation', desc: 'Producing visuals with Canva, writing engaging captions. First set of posts created in session.' },
-  { Icon: Smartphone, title: 'Publishing & tools', desc: 'Setting up the content calendar and planning tools. Weekly workflow in 2 hours.' },
+  { Icon: Smartphone, title: 'Publishing and tools', desc: 'Setting up the content calendar, the planning tools and a weekly workflow.' },
   { Icon: BarChart2, title: 'Analysis & optimisation', desc: 'Reading native statistics and making adjustments. Each participant leaves with their KPIs defined.' },
 ]
 
@@ -213,9 +193,11 @@ export default function FormationReseauxSociauxPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: 'Steady', l: 'Calendar kept', sub: 'After team training' },
+              // 25/09/2026 : unmeasured "Steady, calendar kept after training" and "2h/week to
+              // manage everything" removed. Offer and Google listing facts instead.
+              { v: '3 h or 6 h', l: 'Half day or full day', sub: 'Plus 1 h or 2 h of preparation' },
               { v: '5', l: 'Platforms covered', sub: 'Meta, LinkedIn, TikTok, YT' },
-              { v: '2h/week', l: 'To manage everything', sub: 'With the right tools' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
               { v: '1 to 10', l: 'People per session', sub: 'Groups on quote from 3' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -271,9 +253,10 @@ export default function FormationReseauxSociauxPage() {
               </p>
               <div className="space-y-3">
                 {[
-                  'Brands that publish with a calendar get 3 times more engagement than those that post spontaneously',
-                  'Canva cuts visual creation time by 70% compared to professional tools',
-                  '2 hours a week are enough to manage 3 platforms with the right tools',
+                  // 25/09/2026 : unsourced "3 times more engagement", "70%" and "2 hours for 3 platforms" removed.
+                  'Brands that publish with a calendar get more engagement than those that post spontaneously',
+                  'Canva cuts visual creation time compared to professional design software',
+                  'With the right tools, a few hours a week are enough to run several platforms',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
@@ -300,8 +283,9 @@ export default function FormationReseauxSociauxPage() {
                   />
                 </div>
                 <SocialBeforeAfter />
+                {/* 25/09/2026 : "Results observed across our participant groups" removed, nothing measured behind it. */}
                 <p className="text-text-muted text-[11px] text-center mt-4">
-                  Results observed across our participant groups in French-speaking Switzerland.
+                  What the training sets up, on your own accounts.
                 </p>
               </div>
             </SectionReveal>
@@ -460,52 +444,8 @@ export default function FormationReseauxSociauxPage() {
 
       <FormationTrainer accentColor='#FF8C00' lang="en" />
 
-      {/* ── Témoignages ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">What they say</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Feedback after the social media training
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4 flex items-center gap-3" style={{ borderTop: `1px solid ${border}` }}>
-                    <div
-                      className="flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center text-text font-bold text-[12px] tracking-wide"
-                      style={{
-                        background: 'linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%)',
-                        boxShadow: '0 4px 14px rgba(255,107,0,0.25)',
-                      }}
-                      aria-hidden="true"
-                    >
-                      {t.initials}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-text font-semibold text-sm truncate">{t.name}</p>
-                      <p className="text-text-muted text-xs truncate">{t.company}</p>
-                    </div>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : anonymous testimonials (Caroline P., Laurent G., Philippe V.) removed,
+          they were invented. The Google reviews in FormationTrainer, just above, carry the proof. */}
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
@@ -517,8 +457,9 @@ export default function FormationReseauxSociauxPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
                 Social media training pricing
               </h2>
+              {/* 25/09/2026 : "4h" and "8h" aligned with the offer and the grid below. */}
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                The price depends on the number of participants. Half-day (4h) or full day (8h).
+                The price depends on the number of participants and the format: half-day (3 h of training plus 1 h of preparation) or full day (6 h plus 2 h).
               </p>
             </div>
           </SectionReveal>
@@ -554,8 +495,9 @@ export default function FormationReseauxSociauxPage() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Go further</p>
                   <p className="text-text font-bold text-lg leading-tight">Create your own video content</p>
+                  {/* 25/09/2026 : "multiply engagement" replaced by "strengthen engagement", nothing measured. */}
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
-                    You have mastered social media. To create your own professional video content and multiply engagement, discover our video editing training.
+                    You have mastered social media. To create your own professional video content and strengthen engagement, discover our video editing training.
                   </p>
                 </div>
               </div>

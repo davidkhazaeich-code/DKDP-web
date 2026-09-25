@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, BarChart2, Clock, TrendingUp, Zap, Users, Award, Star, BookOpen, Settings, Monitor, Cpu, FileText } from 'lucide-react'
+import { CheckCircle2, ChevronRight, BarChart2, Clock, TrendingUp, Zap, Users, Award, BookOpen, Settings, Monitor, Cpu, FileText } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -81,7 +82,8 @@ const MODULES = [
   'PowerPoint : design de présentations convaincantes',
   'Outlook : gestion avancée des emails et règles automatiques',
   'Microsoft 365 : Teams, SharePoint, OneDrive et collaboration temps réel',
-  'Raccourcis et automatisations pour gagner 3h/semaine',
+  // 25/09/2026 : « pour gagner 3h/semaine » retiré, aucune source.
+  'Raccourcis clavier et automatisation des tâches répétitives',
 ]
 
 const STEPS = [
@@ -134,8 +136,9 @@ export default function FormationBureautiquePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation bureautique et Excel Genève & Suisse romande</h1>
+                {/* 25/09/2026 : « 3 heures sur Excel, 30 minutes après la formation » retiré, aucune mesure derrière. */}
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>3 heures</GradText>{' '}sur Excel. On leur apprend à le faire en <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>30 minutes</GradText>.
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Moins de temps</GradText>{' '}sur Excel, <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>plus de temps</GradText>{' '}pour l&apos;essentiel.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme vos équipes à Excel, Word, PowerPoint et Microsoft 365 en présentiel à Genève et en Suisse romande. Programme adapté à votre PME ou grande entreprise, à votre niveau et vos usages réels. Vos collaborateurs repartent avec des compétences applicables dès le lendemain.
@@ -190,10 +193,13 @@ export default function FormationBureautiquePage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '3h', l: 'Gagnées / semaine', sub: 'Par collaborateur formé' },
-              { v: '10%', l: 'Fonctions utilisées', sub: "D'Excel en moyenne" },
-              { v: '85%', l: 'Satisfaction', sub: 'Note post-formation' },
-              { v: '1 journée', l: 'Pour tout maîtriser', sub: 'Format intensif pratique' },
+              // 25/09/2026 : « 3h gagnées / semaine », « 10 % des fonctions d'Excel », « 85 % de
+              // satisfaction » et « 1 journée pour tout maîtriser » retirés, aucune source.
+              // Faits de la grille à la place, comme sur la page formation IA.
+              { v: '1 à 10', l: 'Personnes par session', sub: 'Groupe sur devis dès 3' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
+              { v: '3 h ou 6 h', l: 'Demi-journée ou journée', sub: 'Plus 1 h ou 2 h de préparation' },
+              { v: chf(PRIX.formationHourly1), l: 'De l\'heure, pour une personne', sub: `${chfHeure(PRIX.formationHourly2)} pour deux, groupes sur devis` },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -243,16 +249,18 @@ export default function FormationBureautiquePage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Pourquoi former vos équipes à Excel et la bureautique
               </h2>
+              {/* 25/09/2026 : « 10 % des fonctionnalités », « des heures perdues chaque semaine » et « 20 % des fonctions pour 80 % des besoins » retirés, aucune source. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                La plupart des collaborateurs n&apos;utilisent que 10% des fonctionnalités d&apos;Excel ou de Word. Des heures perdues chaque semaine sur des tâches qui pourraient être automatisées en quelques clics. La formation DKDP cible les 20% de fonctions qui couvrent 80% des besoins quotidiens.
+                Beaucoup de collaborateurs se servent d&apos;Excel et de Word depuis des années sans en connaître les fonctions les plus utiles. Ils perdent ainsi du temps sur des tâches répétitives qu&apos;une formule ou une automatisation règle en quelques clics. C&apos;est pourquoi la formation DKDP se concentre sur les fonctions qui servent vraiment au quotidien.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
                 On ne travaille pas sur des exercices fictifs. On prend vos vrais tableaux, vos vrais fichiers, et on les améliore ensemble. Dès le lendemain matin, vos équipes appliquent ce qu&apos;elles ont appris.
               </p>
+              {/* 25/09/2026 : « 3h par semaine en moyenne » et « moins de 10 % maîtrisent les TCD » réécrits sans chiffre, aucune source. La ligne Microsoft cite sa source, gardée. */}
               <div className="space-y-3">
                 {[
-                  'Les collaborateurs formés à Excel avancé gagnent en moyenne 3h par semaine',
-                  "Moins de 10% des utilisateurs d'Excel maîtrisent les tableaux croisés dynamiques",
+                  'Un collaborateur formé à Excel avancé automatise ses tâches répétitives au lieu de les refaire à la main',
+                  'Un tableau croisé dynamique résume un grand tableau en quelques clics, sans aucune formule',
                   'Microsoft 365 est sous-utilisé dans 9 entreprises sur 10 selon Microsoft',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -387,59 +395,7 @@ export default function FormationBureautiquePage() {
 
       <FormationTrainer accentColor='#FF8C00' />
 
-      {/* ── Témoignages ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Retours après la formation bureautique
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'Après la formation Excel de DKDP, j\'ai automatisé 4 tâches hebdomadaires. Ce que je faisais en 3 heures se fait maintenant en 20 minutes. Magique.',
-                name: 'Sophie B., Comptable',
-                company: 'PME financière, Genève',
-                stars: 5,
-              },
-              {
-                quote: 'Toute notre équipe administrative a suivi la formation. On utilise maintenant Teams et SharePoint efficacement. La collaboration s\'est transformée.',
-                name: 'Marie D., DRH',
-                company: 'Entreprise 120 personnes, Lausanne',
-                stars: 5,
-              },
-              {
-                quote: 'J\'utilisais Excel depuis 15 ans mais je ne savais pas ce que c\'était vraiment. La formation m\'a ouvert les yeux sur ce que je ratais.',
-                name: 'Isabelle T., Chargée de projet',
-                company: 'Secteur public, Genève',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <span key={j} style={{ color }}>★</span>
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : témoignages anonymes retirés (Sophie B., Marie D., Isabelle T.), aucune source. Les vrais avis Google sont dans FormationTrainer. */}
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">

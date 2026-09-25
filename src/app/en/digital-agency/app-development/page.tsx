@@ -51,10 +51,11 @@ const FAQ = [
     answer:
       'A simple PWA or web app can be delivered in 8 to 12 weeks. A complete mobile app with a backend usually takes 4 to 6 months. Timelines depend on the functional scope, validated and quoted upfront in the spec sheet.',
   },
+  // 25/09/2026 : « React Native covers 90% of needs » retiré, statistique sans source.
   {
     question: 'Which technology should I choose between native (Swift/Kotlin) and React Native?',
     answer:
-      'React Native covers 90% of needs with a single codebase for iOS and Android, the most efficient choice for most SMB projects. Native makes sense if your app requires high graphics performance, deep hardware access, or features that are very specific to one platform. We advise you objectively based on your case.',
+      'React Native meets most needs with a single codebase for iOS and Android, which makes it the most efficient choice for many SMB projects. Native makes sense if your app requires high graphics performance, deep hardware access, or features that are very specific to one platform. We advise you objectively based on your case.',
   },
   {
     question: 'Do I keep ownership of the delivered code?',
@@ -705,12 +706,13 @@ export default function AppDevelopmentPage() {
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
+          {/* 25/09/2026 : « 30+ apps delivered » et « 8 years of dev expertise » retirés, aucune source. Remplacés par le devis sous 48h et la fondation en 2019. */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '30+', l: 'Apps delivered', sub: 'Mobile, web and PWA' },
+              { v: '48h', l: 'Fixed quote', sub: 'Free and detailed' },
               { v: '3 platforms', l: 'iOS · Android · Web', sub: 'A single point of contact' },
               { v: '5.0/5', l: 'Google rating', sub: '22 reviews' },
-              { v: '8 years', l: 'Of dev expertise', sub: 'In Western Switzerland' },
+              { v: '2019', l: 'Founded in Geneva', sub: 'In Eaux-Vives' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">

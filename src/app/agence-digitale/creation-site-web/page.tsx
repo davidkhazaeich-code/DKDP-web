@@ -20,6 +20,7 @@ import { TechStack } from './_components/TechStack'
 import { HeroVisual } from './_components/HeroVisual'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, DESIGN_WEB_LOGOS, IA_LOGOS } from '@/components/ui/AppLogos'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })))
@@ -58,8 +59,9 @@ const CAS_SITES = liveForDomain('site-web', { limit: 2, withImage: true }).map((
 const FAQ = [
   {
     question: 'Combien coûte la création d\'un site web professionnel à Genève ?',
+    // 25/09/2026 : prix de départ lu dans src/data/pricing (PRIX.siteFrom), plus en dur.
     answer:
-      'Un site vitrine professionnel démarre à CHF 2\'500. Un site avec espace membre, blog ou boutique en ligne se situe entre CHF 5\'000 et CHF 12\'000. DKDP fournit un devis fixe avant démarrage, sans surprises.',
+      `Un site vitrine professionnel démarre à ${chf(PRIX.siteFrom)}. Un site avec espace membre, blog ou boutique en ligne se situe entre CHF 5'000 et CHF 12'000. DKDP fournit un devis fixe avant démarrage, sans surprises.`,
   },
   {
     question: 'En combien de temps mon site web sera-t-il livré ?',
@@ -83,8 +85,9 @@ const FAQ = [
   },
   {
     question: 'Mon site sera-t-il adapté aux mobiles ?',
+    // 25/09/2026 : « Plus de 65% du trafic web vient des mobiles » retiré, statistique sans source.
     answer:
-      'Obligatoirement. DKDP conçoit en "mobile first" : le design est d\'abord optimisé pour smartphone, puis adapté tablette et desktop. Plus de 65% du trafic web vient des mobiles. C\'est non négociable.',
+      'Obligatoirement. DKDP conçoit en "mobile first" : le design est d\'abord optimisé pour smartphone, puis adapté tablette et desktop, car une grande partie de vos visiteurs arrive depuis un smartphone. C\'est non négociable.',
   },
   {
     question: 'Que se passe-t-il si je ne suis pas satisfait du design ?',
@@ -108,18 +111,19 @@ const FAQ = [
   },
 ]
 
+// 25/09/2026 : « < 1.5s » de chargement et « Top 3 » Google retirés, promesses sans source.
 const BENEFITS = [
   {
     Icon: Zap,
     title: 'Rapide et performant',
-    value: '< 1.5s',
+    value: 'Core Web Vitals',
     desc: 'Temps de chargement optimisé pour un score Core Web Vitals au vert et une expérience utilisateur fluide sur tous les appareils.',
   },
   {
     Icon: Search,
     title: 'SEO-ready dès le départ',
-    value: 'Top 3',
-    desc: 'structuré sémantique, balises, Schema.org, performance : les bases SEO sont intégrées au développement, pas ajoutées après.',
+    value: 'Intégré',
+    desc: 'Structure sémantique, balises, Schema.org, performance : les bases SEO sont intégrées au développement, pas ajoutées après.',
   },
   {
     Icon: Settings,
@@ -203,8 +207,9 @@ export default function CreationSiteWebPage() {
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Un site qui <GradText as="span">ramène des clients</GradText>, pas des compliments.
                 </p>
+                {/* 25/09/2026 : prix lu dans src/data/pricing (PRIX.siteFrom), plus en dur. */}
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP crée des sites web professionnels pour les PME à Genève et en Suisse romande : vitrine, e-commerce ou sur mesure. Chaque projet est pensé pour être rapide, visible sur Google et facile à gérer en autonomie. Les tarifs démarrent à CHF 2&apos;500, avec un devis fixe et sans surprise.
+                  DKDP crée des sites web professionnels pour les PME à Genève et en Suisse romande : vitrine, e-commerce ou sur mesure. Chaque projet est pensé pour être rapide, visible sur Google et facile à gérer en autonomie. Les tarifs démarrent à {chf(PRIX.siteFrom)}, avec un devis fixe et sans surprise.
                 </p>
                 <HeroPills
                   items={[
@@ -242,12 +247,13 @@ export default function CreationSiteWebPage() {
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
+          {/* 25/09/2026 : « 100+ sites livrés » et « < 1.5s de vitesse moyenne » retirés, aucune source. Remplacés par le prix (PRIX) et le devis sous 48h. */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '100+', l: 'Sites livrés', sub: 'En Suisse romande' },
+              { v: chf(PRIX.siteFrom), l: 'Site vitrine', sub: 'Prix de départ, devis fixe' },
               { v: '2019', l: 'Fondée à Genève', sub: 'Aux Eaux-Vives' },
               { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
-              { v: '< 1.5s', l: 'Vitesse moyenne', sub: 'Score PageSpeed 90+' },
+              { v: '48h', l: 'Devis gratuit', sub: 'Détaillé et sans engagement' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -288,8 +294,9 @@ export default function CreationSiteWebPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Un site internet qui travaille pour votre PME.
               </h2>
+              {/* 25/09/2026 : « rentable dès le premier mois » retiré, promesse sans source. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                Un site web beau mais lent, mal référencé ou difficile à mettre à jour ne rapporte rien. DKDP conçoit des sites qui combinent design soigné, performance technique et fondamentaux SEO, pour que votre investissement soit rentable dès le premier mois.
+                Un site web beau mais lent, mal référencé ou difficile à mettre à jour ne rapporte rien. DKDP conçoit des sites qui combinent design soigné, performance technique et fondamentaux SEO, pour que votre investissement travaille pour vous dès la mise en ligne.
               </p>
               <p className="text-text-secondary leading-relaxed">
                 Chaque projet démarre par un brief approfondi. On comprend votre marché, vos clients et vos objectifs avant d&apos;ouvrir Figma. Le résultat est un site pensé pour votre audience, pas pour impressionner des designers. Combien coûte un site web ? Notre article détaillé : <Link href="/blog/cout-site-web-geneve-2026" className="underline hover:text-text transition-colors">le coût d&apos;un site web à Genève en 2026</Link>.
@@ -361,8 +368,9 @@ export default function CreationSiteWebPage() {
                   Comparaison de performances
                 </p>
                 <PerformanceComparison />
+                {/* 25/09/2026 : « Métriques Core Web Vitals réelles » retiré, le comparatif n'affiche plus de chiffres. */}
                 <p className="text-text-muted text-[11px] text-center mt-4">
-                  Métriques Core Web Vitals réelles. Le score PageSpeed impacte directement le classement Google.
+                  Les Core Web Vitals comptent parmi les signaux que Google utilise pour classer les pages.
                 </p>
               </div>
             </SectionReveal>
@@ -418,7 +426,8 @@ export default function CreationSiteWebPage() {
             {[
               {
                 label: 'Site vitrine',
-                price: 'dès CHF 2\'500',
+                // 25/09/2026 : prix lu dans src/data/pricing (PRIX.siteFrom), plus en dur.
+                price: `dès ${chf(PRIX.siteFrom)}`,
                 duration: '3 à 5 semaines',
                 features: [
                   'Design sur mesure (Figma)',

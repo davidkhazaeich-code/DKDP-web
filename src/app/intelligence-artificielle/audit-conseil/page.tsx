@@ -15,9 +15,9 @@ import {
   Clock,
   Bot,
   Workflow,
-  Star,
   MapPin,
 } from 'lucide-react'
+import { PRIX, chf } from '@/data/pricing'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -61,10 +61,11 @@ const violet = violetToken.color
 // ── FAQ data ─────────────────────────────────────────────────────────────────
 
 const FAQ_ITEMS = [
+  // 25/09/2026 : « Beaucoup le font » retiré, aucune source. Montants tirés de PRIX.
   {
     question: "L'audit est-il vraiment sans engagement ?",
     answer:
-      "Oui. L'audit coûte CHF 490 ou CHF 890 selon la formule, mais il n'y a aucune obligation de suite. Vous repartez avec un rapport complet que vous pouvez mettre en oeuvre seul, avec un autre prestataire, ou avec nous. Notre conviction : si le travail est de qualité, vous reviendrez. Beaucoup le font.",
+      `Oui. L'audit coûte ${chf(PRIX.auditIaStandard)} ou ${chf(PRIX.auditIaComplet)} selon la formule, mais il n'y a aucune obligation de suite. Vous repartez avec un rapport complet que vous pouvez mettre en oeuvre seul, avec un autre prestataire, ou avec nous. Notre conviction : si le travail est de qualité, vous reviendrez.`,
   },
   {
     question: "Combien de temps dure la session d'audit ?",
@@ -251,7 +252,7 @@ export default function AuditConseilPage() {
                   {
                     Icon: Database,
                     title: 'Évaluation des données disponibles',
-                    desc: 'Qualité, accessibilité, structuré. Les données sont le carburant de l&apos;IA : on vérifie que le réservoir est là.',
+                    desc: 'Qualité, accessibilité, structure. Les données sont le carburant de l\'IA : on vérifie que le réservoir est là.',
                   },
                   {
                     Icon: BarChart3,
@@ -480,6 +481,7 @@ export default function AuditConseilPage() {
             </div>
           </SectionReveal>
 
+          {/* 25/09/2026 : montants tirés de PRIX, texte inchangé. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* Standard */}
             <SectionReveal>
@@ -489,7 +491,7 @@ export default function AuditConseilPage() {
               >
                 <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color }}>Audit Standard</p>
                 <div className="flex items-end gap-2 mb-1">
-                  <span className="text-4xl font-bold text-text">CHF 490</span>
+                  <span className="text-4xl font-bold text-text">{chf(PRIX.auditIaStandard)}</span>
                 </div>
                 <p className="text-text-muted text-sm mb-8">Idéal pour les PME souhaitant tester l&apos;IA sur un département précis</p>
 
@@ -533,7 +535,7 @@ export default function AuditConseilPage() {
 
                 <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: violet }}>Audit Complet</p>
                 <div className="flex items-end gap-2 mb-1">
-                  <span className="text-4xl font-bold text-text">CHF 890</span>
+                  <span className="text-4xl font-bold text-text">{chf(PRIX.auditIaComplet)}</span>
                 </div>
                 <p className="text-text-muted text-sm mb-8">Pour les entreprises prêtes à déployer l&apos;IA à l&apos;échelle de toute la structuré</p>
 
@@ -561,58 +563,7 @@ export default function AuditConseilPage() {
         </div>
       </section>
 
-      {/* ── Testimonials ──────────────────────────────────────────────────── */}
-      <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)" accentRgb="212,212,216">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Témoignages</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ce que nos clients PME ont découvert grâce à l&apos;audit.
-              </h2>
-            </div>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                name: 'Sandra M.',
-                role: 'Directrice, cabinet comptable',
-                quote: "Je pensais que notre processus de traitement des factures était incontournable. L'audit a révélé qu'on pouvait automatiser 70% du flux en quelques semaines. Je n'aurais jamais identifié ça seule. Le rapport m'a donné un plan d'action concret, pas des généralités.",
-                stars: 5,
-              },
-              {
-                name: 'Thomas V.',
-                role: 'Fondateur, e-commerce B2B',
-                quote: "Ce qui m'a surpris, c'est la profondeur de l'analyse. En 48h, David avait cartographié nos processus mieux que nous ne l'avions jamais fait. Les 3 opportunités identifiées représentaient chacune un gain de temps réel et mesurable. On a commencé par la plus simple : ROI positif en 3 semaines.",
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={t.name} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-8"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-5">
-                    {Array.from({ length: t.stars }).map((_, si) => (
-                      <Star key={si} size={14} fill={color} style={{ color }} />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-[15px] flex-1 mb-6 italic">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div>
-                    <p className="text-text font-semibold text-[14px]">{t.name}</p>
-                    <p className="text-text-muted text-xs mt-0.5">{t.role}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026 : témoignages anonymes (Sandra M., Thomas V.) retirés, aucune source. */}
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <div id="faq" className="scroll-mt-[124px]">

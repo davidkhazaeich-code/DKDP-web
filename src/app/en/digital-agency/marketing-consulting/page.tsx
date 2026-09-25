@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, TrendingUp, Users, Star, Zap } from 'lucide-react'
+import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, TrendingUp, Users, Zap } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -14,10 +14,12 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS, DESIGN_WEB_LOGOS, SOCIAL_LOGOS } from '@/components/ui/AppLogos'
 import { localizedPath } from '@/i18n/slugs'
+import { PRIX, chfHeure } from '@/data/pricing'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
   title: 'Marketing Consulting Geneva & Switzerland · DKDP',
@@ -73,24 +75,26 @@ const FAQ = [
   },
 ]
 
+// 25/09/2026 : unsourced "+65% more leads in 6 months", "proven ROI in 6 months" and
+// "95% client retention" removed, mirror of the FR page.
 const BENEFITS = [
   {
     Icon: TrendingUp,
-    value: '+65%',
-    title: 'More leads',
-    desc: 'On average, our clients generate 65% more leads within the first 6 months of support thanks to a structured acquisition strategy.',
+    value: 'Targeted',
+    title: 'Qualified leads',
+    desc: 'A structured acquisition strategy focuses your budget on the channels that bring in prospects. You therefore attract contacts who match your target.',
   },
   {
     Icon: BarChart2,
-    value: '6 months',
-    title: 'Proven ROI',
-    desc: 'In 6 months, you have a complete dashboard, measurable KPIs and a clear view of the return on your marketing investment.',
+    value: 'Measured',
+    title: 'A visible ROI',
+    desc: 'You get a complete dashboard and KPIs defined with you. You therefore track the return on your marketing investment instead of guessing it.',
   },
   {
     Icon: Users,
-    value: '95%',
-    title: 'Client retention',
-    desc: '95% of our clients renew their engagement after the first year. Proof that the method works.',
+    value: 'Monthly',
+    title: 'Loyal clients',
+    desc: 'Monthly support with no commitment: the method is judged on its results, not on a contract.',
   },
 ]
 
@@ -154,8 +158,9 @@ export default function ConsultingMarketingPage() {
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Actions, KPIs, <GradText as="span">results</GradText>. Not a 50-page report.
                 </p>
+                {/* 25/09/2026 : unsourced "proven results in 6 months" removed. */}
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  As a digital marketing consultant for SMBs in French-speaking Switzerland, DKDP audits your digital presence, defines your growth strategy and steers execution month after month. No 50-page report: KPIs, actions and proven results in 6 months.
+                  As a digital marketing consultant for SMBs in French-speaking Switzerland, DKDP audits your digital presence, defines your growth strategy and steers execution month after month. You do not get a 50-page report, but KPIs, actions and results that we measure with you.
                 </p>
                 <HeroPills
                   items={[
@@ -172,19 +177,22 @@ export default function ConsultingMarketingPage() {
                 </div>
               </div>
               {/* ── Hero visual ── */}
+              {/* 25/09/2026 : "Before DKDP / After 6 months", "+232%", "3 months, first results" and
+                  "ROI at 6 months" removed, nothing measured them. The mock-up becomes an example
+                  audit report: today against target, illustrative values. Mirror of the FR component. */}
               <div className="relative flex flex-col gap-4">
-                {/* Audit Radar + Before/After */}
+                {/* Audit Radar: example, today against target */}
                 <div
                   className="rounded-[14px] overflow-hidden"
                   style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${border}`, boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}
                 >
                   <div className="flex items-center justify-between px-4 py-3 border-b border-white/5">
-                    <span className="text-[10px] text-zinc-400 font-mono">Marketing Audit 360 · Result</span>
+                    <span className="text-[10px] text-zinc-400 font-mono">Marketing Audit 360 · Example</span>
                     <div className="flex items-center gap-1.5">
                       <div className="w-2 h-2 rounded-full bg-amber-400" />
-                      <span className="text-[9px] text-amber-400 font-bold">Before DKDP</span>
+                      <span className="text-[9px] text-amber-400 font-bold">Today</span>
                       <div className="w-2 h-2 rounded-full bg-green-400 ml-2" />
-                      <span className="text-[9px] text-green-400 font-bold">After 6 months</span>
+                      <span className="text-[9px] text-green-400 font-bold">Target</span>
                     </div>
                   </div>
 
@@ -233,22 +241,10 @@ export default function ConsultingMarketingPage() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="text-[9px] text-zinc-500 uppercase">Improvement</p>
-                        <p className="text-xl font-bold" style={{ color }}>+232%</p>
+                        <p className="text-[9px] text-zinc-500 uppercase">Action plan</p>
+                        <p className="text-xl font-bold" style={{ color }}>Prioritised</p>
                       </div>
                     </div>
-                  </div>
-                </div>
-
-                {/* Floating ROI card */}
-                <div className="absolute -right-2 top-8 rotate-1 hidden lg:block">
-                  <div
-                    className="rounded-lg p-3"
-                    style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
-                  >
-                    <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1">ROI at 6 months</p>
-                    <p className="text-xl font-bold text-green-400">Objectif</p>
-                    <p className="text-[8px] text-zinc-500">on the marketing budget</p>
                   </div>
                 </div>
 
@@ -268,12 +264,12 @@ export default function ConsultingMarketingPage() {
                   </div>
                 </div>
 
-                {/* Mini stats */}
+                {/* Mini stats: facts of the offer (free call, 360° audit, the audit's roadmap) */}
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    { v: '+232%', l: 'Marketing score', c: '#4ade80' },
+                    { v: 'Free', l: 'Discovery call', c: '#4ade80' },
                     { v: '360°', l: 'Complete audit', c: color },
-                    { v: '3 months', l: 'First results', c: '#FF8C00' },
+                    { v: '12 months', l: 'Roadmap', c: '#FF8C00' },
                   ].map((s) => (
                     <div
                       key={s.l}
@@ -305,14 +301,15 @@ export default function ConsultingMarketingPage() {
 
 
       {/* ── Stats ── */}
+      {/* 25/09/2026 : unsourced "+65%", "10 years" and "6 months" removed. Verifiable facts only. */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '+65%', l: 'Leads generated', sub: 'Average gain at 6 months' },
-              { v: '10 years', l: 'Of expertise', sub: 'B2B and B2C Switzerland' },
               { v: '2019', l: 'Agency founded', sub: 'In Geneva, Eaux-Vives' },
-              { v: '6 months', l: 'Measurable ROI', sub: 'Average timeframe observed' },
+              { v: chfHeure(PRIX.consultingHourly), l: 'Hourly consulting', sub: 'Or a project fee' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
+              { v: 'Free', l: 'Discovery call', sub: 'No commitment' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -353,8 +350,9 @@ export default function ConsultingMarketingPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Marketing advice for SMBs: an outside perspective that makes the difference.
               </h2>
+              {/* 25/09/2026 : unsourced "more than 150 projects" removed. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                When you manage your own marketing day to day, it is hard to see what is blocking you. DKDP brings a fresh perspective, concrete data and experience across more than 150 projects to pinpoint exactly where your opportunities are lost.
+                When you manage your own marketing day to day, it is hard to see what is blocking you. DKDP brings a fresh perspective and concrete data to pinpoint where your opportunities are lost.
               </p>
               <p className="text-text-secondary leading-relaxed">
                 DKDP consulting is pragmatic: we always end with an action plan ranked by priority, with resource and timeline estimates. You know exactly what to do, in what order, and why.
@@ -423,14 +421,17 @@ export default function ConsultingMarketingPage() {
                 className="rounded-[20px] p-5 md:p-7 border"
                 style={{ background: bg, borderColor: border, boxShadow: '0 0 50px rgba(124,58,237,0.08)' }}
               >
+                {/* 25/09/2026 : "Average scores measured across our clients before and after 6 months",
+                    "Average SMB score without support" and "DKDP 6-month target" removed, nothing
+                    measured them. The chart becomes an example labelled as such. */}
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6 text-center" style={{ color }}>
-                  Scores by marketing pillar
+                  Example dashboard
                 </p>
                 {/* ── Marketing audit score ── */}
                 <div className="space-y-4">
                   <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest mb-2">
-                    <span style={{ color: 'rgba(239,68,68,0.85)' }}>Average SMB score without support</span>
-                    <span style={{ color }}>DKDP 6-month target</span>
+                    <span style={{ color: 'rgba(239,68,68,0.85)' }}>Starting score</span>
+                    <span style={{ color }}>Target set together</span>
                   </div>
                   {[
                     { label: 'Acquisition', before: 25, after: 78 },
@@ -464,7 +465,7 @@ export default function ConsultingMarketingPage() {
                   ))}
                 </div>
                 <p className="text-text-muted text-[11px] text-center mt-6">
-                  Average scores measured across our clients before and after 6 months of DKDP support.
+                  These values are illustrative: the audit establishes your own scores, then we set the targets with you.
                 </p>
               </div>
             </SectionReveal>
@@ -640,57 +641,11 @@ export default function ConsultingMarketingPage() {
       </section>
 
       {/* ── Testimonials ── */}
-      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
-        <section id="temoignages" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Testimonials</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Results, not promises.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'DKDP mapped our entire funnel in 2 weeks. We discovered we were losing 60% of our leads between the first contact and the quote. It is now fixed.',
-                author: 'Managing Director, B2B consulting firm',
-                location: 'Geneva',
-              },
-              {
-                quote: 'Before the support, we were doing marketing blind. Now we have dashboards, KPIs and a real strategy. Our revenue grew by 40% in 8 months.',
-                author: 'Founder, communications agency',
-                location: 'Lausanne',
-              },
-              {
-                quote: 'DKDP saved us 3 costly strategic mistakes by bringing an outside perspective. The investment in consulting paid for itself in 2 months.',
-                author: 'MD, industrial SMB',
-                location: 'Vaud',
-              },
-            ].map((t, i) => (
-              <SectionReveal key={t.author} delay={i * 0.1}>
-                <div
-                  className="flex flex-col gap-5 p-7 rounded-[16px] border h-full"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: 5 }).map((_, j) => (
-                      <Star key={j} size={13} fill={color} style={{ color }} />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
-                  <div>
-                    <p className="text-text text-sm font-semibold">{t.author}</p>
-                    <p className="text-text-muted text-xs mt-0.5">{t.location}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026 : three anonymous testimonials removed ("60% of our leads", "revenue +40% in
+          8 months", "paid for itself in 2 months"), invented. The shared, named reviews replace them. */}
+      <div id="temoignages" className="scroll-mt-[124px]">
+        <Testimonials accentRgb="167,139,250" lang="en" />
+      </div>
 
       {/* ── Commitments ── */}
       <section className="py-24 border-t border-border">
@@ -707,7 +662,8 @@ export default function ConsultingMarketingPage() {
                   {[
                     { Icon: ShieldCheck, title: 'Documented strategy', desc: 'You receive a complete strategy document after each phase. Everything is written, not verbal: you keep the knowledge.' },
                     { Icon: BarChart2, title: 'KPIs defined together', desc: 'The success metrics are defined with you before we start. You know exactly how to measure success.' },
-                    { Icon: Clock, title: 'Results in 30 days', desc: 'The first actions are in place within the first 30 days. No month 1 of "thinking": we start the work immediately.' },
+                    // 25/09/2026 : "Results in 30 days" promised an outcome; the title now states the offer's lead time.
+                    { Icon: Clock, title: 'First actions within 30 days', desc: 'The first actions are in place within the first 30 days. No month 1 of "thinking": we start the work immediately.' },
                     { Icon: Globe2, title: 'Total flexibility', desc: 'Monthly support with no annual commitment. If the results are not there, you can leave. We prefer excellence over contractual lock-in.' },
                   ].map((g) => (
                     <div key={g.title} className="text-center">

@@ -3,37 +3,40 @@ import { orange } from '@/lib/tokens'
 const O = orange.color
 const OD = orange.border
 
-export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
+// 25/09/2026 : la « demande » par programme (95, 88, 76 et 72 %) n'avait aucune
+// source, « 7 programmes » ne suivait plus le catalogue (compté désormais par la
+// page) et « Personnes formées : 1 à 10 » décrivait en fait la taille d'une session.
+export function HeroVisual({ lang = 'fr', programCount }: { lang?: 'fr' | 'en'; programCount: number }) {
   const t = lang === 'en'
     ? {
-        header: 'DKDP Training · Catalogue', programsBadge: '7 programmes',
+        header: 'DKDP Training · Catalogue', programsBadge: `${programCount} programmes`,
         programs: [
-          { name: 'Artificial Intelligence', icon: '🧠', badge: 'Trending', badgeColor: '#FCD34D', demand: 95 },
-          { name: 'Claude AI', icon: '✦', badge: 'New', badgeColor: '#D4A574', demand: 88 },
-          { name: 'Office tools and Excel', icon: '📊', badge: null, badgeColor: '', demand: 76 },
-          { name: 'Cybersecurity', icon: '🛡️', badge: null, badgeColor: '', demand: 72 },
+          { name: 'Artificial Intelligence', icon: '🧠', badge: 'Trending', badgeColor: '#FCD34D' },
+          { name: 'Claude AI', icon: '✦', badge: 'New', badgeColor: '#D4A574' },
+          { name: 'Office tools and Excel', icon: '📊', badge: null, badgeColor: '' },
+          { name: 'Cybersecurity', icon: '🛡️', badge: null, badgeColor: '' },
         ],
-        demand: 'Demand', journeyLabel: 'Typical journey',
+        journeyLabel: 'Typical journey',
         journey: [{ step: 'Needs audit', done: true }, { step: 'Tailored programme', done: true }, { step: 'Training', done: true }, { step: 'Day 30 follow-up', done: false }],
-        trained: 'People trained', trainedSub: 'in French-speaking Switzerland',
+        trained: 'People per session', trainedSub: 'groups on quote from 3',
         formatsLabel: 'Available formats',
         formats: [{ format: 'On-site', icon: '🏢' }, { format: 'Online', icon: '💻' }, { format: 'Hybrid', icon: '🔄' }],
-        stats: [{ v: '5,0/5', l: 'Note Google', c: '#4ade80' }, { v: '100%', l: 'Tailored', c: O }, { v: '7', l: 'Programmes', c: '#FF8C00' }],
+        stats: [{ v: '5.0/5', l: 'Google rating', c: '#4ade80' }, { v: '100%', l: 'Tailored', c: O }, { v: String(programCount), l: 'Programmes', c: '#FF8C00' }],
       }
     : {
-        header: 'DKDP Formation · Catalogue', programsBadge: '7 programmes',
+        header: 'DKDP Formation · Catalogue', programsBadge: `${programCount} programmes`,
         programs: [
-          { name: 'Intelligence Artificielle', icon: '🧠', badge: 'Tendance', badgeColor: '#FCD34D', demand: 95 },
-          { name: 'Claude IA', icon: '✦', badge: 'Nouveau', badgeColor: '#D4A574', demand: 88 },
-          { name: 'Bureautique & Excel', icon: '📊', badge: null, badgeColor: '', demand: 76 },
-          { name: 'Cybersecurite', icon: '🛡️', badge: null, badgeColor: '', demand: 72 },
+          { name: 'Intelligence artificielle', icon: '🧠', badge: 'Tendance', badgeColor: '#FCD34D' },
+          { name: 'Claude IA', icon: '✦', badge: 'Nouveau', badgeColor: '#D4A574' },
+          { name: 'Bureautique et Excel', icon: '📊', badge: null, badgeColor: '' },
+          { name: 'Cybersécurité', icon: '🛡️', badge: null, badgeColor: '' },
         ],
-        demand: 'Demande', journeyLabel: 'Parcours type',
+        journeyLabel: 'Parcours type',
         journey: [{ step: 'Audit besoins', done: true }, { step: 'Programme sur mesure', done: true }, { step: 'Formation', done: true }, { step: 'Suivi J+30', done: false }],
-        trained: 'Personnes formees', trainedSub: 'en Suisse romande',
+        trained: 'Personnes par session', trainedSub: 'groupe sur devis dès 3',
         formatsLabel: 'Formats disponibles',
-        formats: [{ format: 'Presentiel', icon: '🏢' }, { format: 'En ligne', icon: '💻' }, { format: 'Hybride', icon: '🔄' }],
-        stats: [{ v: '5,0/5', l: 'Note Google', c: '#4ade80' }, { v: '100%', l: 'Sur mesure', c: O }, { v: '7', l: 'Programmes', c: '#FF8C00' }],
+        formats: [{ format: 'Présentiel', icon: '🏢' }, { format: 'En ligne', icon: '💻' }, { format: 'Hybride', icon: '🔄' }],
+        stats: [{ v: '5,0/5', l: 'Note Google', c: '#4ade80' }, { v: '100%', l: 'Sur mesure', c: O }, { v: String(programCount), l: 'Programmes', c: '#FF8C00' }],
       }
   return (
     <div className="relative flex flex-col gap-4">
@@ -71,10 +74,6 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
                     {prog.badge}
                   </span>
                 )}
-                <div className="h-1 rounded-full bg-white/5 overflow-hidden mt-1">
-                  <div className="h-full rounded-full" style={{ width: `${prog.demand}%`, background: `linear-gradient(90deg, ${O}, #FFB347)` }} />
-                </div>
-                <p className="text-[7px] text-zinc-500 mt-0.5">{t.demand} {prog.demand}%</p>
               </div>
             ))}
           </div>

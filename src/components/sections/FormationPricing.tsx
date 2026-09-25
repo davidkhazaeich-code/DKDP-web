@@ -3,12 +3,14 @@ import { orange } from '@/lib/tokens'
 import { Users, Clock, CalendarDays } from 'lucide-react'
 import type { Locale } from '@/i18n/config'
 import { localizedPath } from '@/i18n/slugs'
+import { PRIX, chf } from '@/data/pricing'
 
 const OR = orange.color
 const ORB = orange.bg
 const ORD = orange.border
 
-const RATE_VALUES: (number | null)[] = [200, 300, null, null]
+// 25/09/2026 : tarifs lus dans src/data/pricing (source unique), plus en dur.
+const RATE_VALUES: (number | null)[] = [PRIX.formationHourly1, PRIX.formationHourly2, null, null]
 
 const CONTENT = {
   fr: {
@@ -20,9 +22,9 @@ const CONTENT = {
       { label: 'Journée entière', work: '6h de formation', prep: '2h de préparation' },
     ],
     rate: 'Tarif',
-    customNote: 'Programme personnalise selon vos besoins.',
+    customNote: 'Programme personnalisé selon vos besoins.',
     requestQuote: 'Demander un devis',
-    bottomNote: 'Le programme est personnalise pour chaque entreprise.',
+    bottomNote: 'Le programme est personnalisé pour chaque entreprise.',
     freeQuote: 'Devis gratuit sous 48h',
   },
   en: {
@@ -63,7 +65,7 @@ export function FormationPricing({ lang = 'fr' }: { lang?: Locale } = {}) {
             <p className="text-text-muted text-xs font-medium mb-1">{t.rateLabels[i]}</p>
             {rate ? (
               <>
-                <p className="text-xl font-bold" style={{ color: OR }}>CHF {rate}</p>
+                <p className="text-xl font-bold" style={{ color: OR }}>{chf(rate)}</p>
                 <p className="text-text-muted text-[10px] mt-0.5">{t.perHour}</p>
               </>
             ) : (

@@ -1,21 +1,27 @@
 import { violet } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 
 const V = violet.color
 const VD = violet.border
 
+// 25/09/2026 : chargement « < 1.5s », code « speed: 0.8s, seo: 100/100 » et
+// scores PageSpeed 99, SEO 98, lisibilité 100 et « A+ » retirés, aucune source.
+// Les badges gardent leur libellé avec une coche, la mini-stat donne le prix (PRIX).
 export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
   const t = lang === 'en'
     ? {
-        cwv: 'Core Web Vitals green', lighthouse: 'Lighthouse score',
-        readability: 'Readability', accessibility: 'Accessibility A+',
+        cwv: 'Core Web Vitals green', seoSub: 'Fundamentals built in',
+        readability: 'Readability', accessibility: 'Accessibility built in',
+        codeDesign: 'custom', codeSeo: 'built-in',
         cards: [{ accent: '#A78BFA', label: 'Performance' }, { accent: '#FF8C00', label: 'SEO' }, { accent: '#4ade80', label: 'Responsive' }],
-        stats: [{ v: 'Next.js', l: 'Framework', c: V }, { v: '< 1.5s', l: 'Load time', c: '#4ade80' }, { v: '100%', l: 'Responsive', c: '#FF8C00' }],
+        stats: [{ v: 'Next.js', l: 'Framework', c: V }, { v: chf(PRIX.siteFrom), l: 'Starting price', c: '#4ade80' }, { v: '100%', l: 'Responsive', c: '#FF8C00' }],
       }
     : {
-        cwv: 'Core Web Vitals vert', lighthouse: 'Score Lighthouse',
-        readability: 'Lisibilité', accessibility: 'Accessibilité A+',
+        cwv: 'Core Web Vitals vert', seoSub: 'Fondamentaux intégrés',
+        readability: 'Lisibilité', accessibility: 'Accessibilité soignée',
+        codeDesign: 'sur mesure', codeSeo: 'intégré',
         cards: [{ accent: '#A78BFA', label: 'Performance' }, { accent: '#FF8C00', label: 'SEO' }, { accent: '#4ade80', label: 'Responsive' }],
-        stats: [{ v: 'Next.js', l: 'Framework', c: V }, { v: '< 1.5s', l: 'Chargement', c: '#4ade80' }, { v: '100%', l: 'Responsive', c: '#FF8C00' }],
+        stats: [{ v: 'Next.js', l: 'Framework', c: V }, { v: chf(PRIX.siteFrom), l: 'Prix de départ', c: '#4ade80' }, { v: '100%', l: 'Responsive', c: '#FF8C00' }],
       }
   return (
     <div className="relative flex flex-col gap-4">
@@ -101,8 +107,8 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
           style={{ background: 'rgba(0,0,0,0.85)', border: `1px solid ${VD}`, boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
         >
           <p><span className="text-violet-400">const</span> <span className="text-zinc-300">site</span> <span className="text-violet-400">=</span> {'{'}</p>
-          <p className="pl-3"><span className="text-zinc-500">speed:</span> <span className="text-green-400">&apos;0.8s&apos;</span>,</p>
-          <p className="pl-3"><span className="text-zinc-500">seo:</span> <span className="text-green-400">&apos;100/100&apos;</span>,</p>
+          <p className="pl-3"><span className="text-zinc-500">design:</span> <span className="text-green-400">&apos;{t.codeDesign}&apos;</span>,</p>
+          <p className="pl-3"><span className="text-zinc-500">seo:</span> <span className="text-green-400">&apos;{t.codeSeo}&apos;</span>,</p>
           <p className="pl-3"><span className="text-zinc-500">stack:</span> <span className="text-orange-400">&apos;Next.js&apos;</span></p>
           <p>{'}'}</p>
         </div>
@@ -117,7 +123,7 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
             style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
           >
             <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
-              <span className="text-[10px] font-bold text-green-400">99</span>
+              <span className="text-[10px] font-bold text-green-400" aria-hidden="true">✓</span>
             </div>
             <div>
               <p className="text-[10px] font-semibold text-white">PageSpeed</p>
@@ -132,11 +138,11 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
             style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
           >
             <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
-              <span className="text-[10px] font-bold text-green-400">98</span>
+              <span className="text-[10px] font-bold text-green-400" aria-hidden="true">✓</span>
             </div>
             <div>
               <p className="text-[10px] font-semibold text-white">SEO</p>
-              <p className="text-[8px] text-zinc-500">{t.lighthouse}</p>
+              <p className="text-[8px] text-zinc-500">{t.seoSub}</p>
             </div>
           </div>
         </div>
@@ -147,7 +153,7 @@ export function HeroVisual({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
             style={{ background: 'rgba(0,0,0,0.85)', border: '1px solid rgba(74,222,128,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
           >
             <div className="w-8 h-8 rounded-full border-2 border-green-400/60 flex items-center justify-center">
-              <span className="text-[10px] font-bold text-green-400">100</span>
+              <span className="text-[10px] font-bold text-green-400" aria-hidden="true">✓</span>
             </div>
             <div>
               <p className="text-[10px] font-semibold text-white">{t.readability}</p>

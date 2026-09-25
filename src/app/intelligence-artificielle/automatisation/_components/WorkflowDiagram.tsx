@@ -13,6 +13,10 @@ export function WorkflowDiagram() {
     'Relance planifiée',
     'Rapport généré',
   ]
+  // 25/09/2026 : « 3h / tâche » contre « 4 min / tâche » retirés, aucune source (même correction
+  // que src/app/intelligence-artificielle/_components/AutomationDiagram.tsx).
+  const beforeNote = 'Ressaisie à chaque étape'
+  const afterNote = 'Sans ressaisie'
   return (
     <div className="grid grid-cols-2 gap-4 w-full">
       <div>
@@ -35,7 +39,7 @@ export function WorkflowDiagram() {
               <span className="text-text-muted text-[11px]">{s}</span>
             </div>
           ))}
-          <p className="text-[10px] text-center mt-2 font-semibold" style={{ color: 'var(--red-text)' }}>3h / tâche</p>
+          <p className="text-[10px] text-center mt-2 font-semibold" style={{ color: 'var(--red-text)' }}>{beforeNote}</p>
         </div>
       </div>
       <div>
@@ -65,7 +69,7 @@ export function WorkflowDiagram() {
             className="text-[10px] text-center mt-2 font-semibold"
             style={{ color: 'var(--green-text)' }}
           >
-            4 min / tâche
+            {afterNote}
           </p>
         </div>
       </div>

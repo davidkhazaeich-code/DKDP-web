@@ -10,6 +10,7 @@ import { MultiSelectCard } from '../ui/MultiSelectCard'
 import { SectionLabel } from '../ui/SectionLabel'
 import { SECTOR_SUGGESTIONS } from '@/lib/estimation/sectors'
 import type { FeatureId } from '@/lib/estimation/types'
+import { PRIX, chf } from '@/data/pricing'
 
 interface FeatureItem {
   id: FeatureId
@@ -26,7 +27,9 @@ const FEATURES_FR: FeatureItem[] = [
   { id: 'form', title: 'Formulaire sur-mesure', description: 'Contact, devis, inscription', price: 'CHF 400', icon: <ClipboardList size={18} /> },
   { id: 'booking', title: 'Système de réservation', description: 'Prise de rendez-vous en ligne', price: "CHF 1'200", icon: <CalendarCheck size={18} /> },
   { id: 'members', title: 'Espace membres', description: 'Comptes utilisateurs et accès restreint', price: "CHF 2'000", icon: <Users size={18} /> },
-  { id: 'chatbot', title: 'Chatbot IA', description: 'Assistant conversationnel intelligent', price: "CHF 1'500", icon: <MessageSquare size={18} /> },
+  // 25/09/2026 : prix depuis PRIX.chatbotOptionSite ; « module intégré » explique
+  // l'écart avec la formule Essentiel de la page chatbot.
+  { id: 'chatbot', title: 'Chatbot IA', description: 'Module intégré à votre nouveau site', price: chf(PRIX.chatbotOptionSite), icon: <MessageSquare size={18} /> },
   { id: 'payment', title: 'Paiement en ligne', description: 'Stripe, Twint ou autre passerelle', price: "CHF 1'800", icon: <CreditCard size={18} /> },
   { id: 'newsletter', title: 'Newsletter', description: 'Intégration Mailchimp ou similaire', price: 'CHF 300', icon: <Mail size={18} /> },
   { id: 'gallery', title: 'Galerie photo/vidéo', description: 'Portfolio ou showcase visuel', price: 'CHF 500', icon: <ImageIcon size={18} /> },
@@ -39,7 +42,9 @@ const FEATURES_EN: FeatureItem[] = [
   { id: 'form', title: 'Custom form', description: 'Contact, quote, registration', price: 'CHF 400', icon: <ClipboardList size={18} /> },
   { id: 'booking', title: 'Booking system', description: 'Online appointment scheduling', price: "CHF 1'200", icon: <CalendarCheck size={18} /> },
   { id: 'members', title: 'Member area', description: 'User accounts and restricted access', price: "CHF 2'000", icon: <Users size={18} /> },
-  { id: 'chatbot', title: 'AI chatbot', description: 'Smart conversational assistant', price: "CHF 1'500", icon: <MessageSquare size={18} /> },
+  // 25/09/2026 : price from PRIX.chatbotOptionSite; "module built into" explains
+  // the gap with the Essential package of the chatbot page.
+  { id: 'chatbot', title: 'AI chatbot', description: 'Module built into your new site', price: chf(PRIX.chatbotOptionSite), icon: <MessageSquare size={18} /> },
   { id: 'payment', title: 'Online payment', description: 'Stripe, Twint or another gateway', price: "CHF 1'800", icon: <CreditCard size={18} /> },
   { id: 'newsletter', title: 'Newsletter', description: 'Mailchimp or similar integration', price: 'CHF 300', icon: <Mail size={18} /> },
   { id: 'gallery', title: 'Photo/video gallery', description: 'Portfolio or visual showcase', price: 'CHF 500', icon: <ImageIcon size={18} /> },

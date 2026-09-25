@@ -3,6 +3,9 @@ import { violet } from '@/lib/tokens'
 const V = violet.color
 const VD = violet.border
 
+// 25/09/2026 : maquette libellée « Exemple » dès l'en-tête (positions, scores GEO et
+// sources de trafic sont illustratifs) ; « Top 3, positions Google » remplacé par le
+// rapport mensuel de l'offre.
 export function HeroVisual() {
   return (
     <div className="relative flex flex-col gap-4">
@@ -17,7 +20,7 @@ export function HeroVisual() {
               <path d="M3 3v18h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               <path d="M7 14l4-4 4 4 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="text-[10px] text-zinc-400 font-mono">Rapport SEO &amp; GEO · Votre site</span>
+            <span className="text-[10px] text-zinc-400 font-mono">Rapport SEO et GEO · Exemple</span>
           </div>
           <div className="flex items-center gap-1.5">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -28,12 +31,12 @@ export function HeroVisual() {
         <div className="p-5 space-y-4">
           {/* Keyword rankings */}
           <div>
-            <p className="text-[9px] text-zinc-500 uppercase tracking-widest mb-2">Mots-cles en progression</p>
+            <p className="text-[9px] text-zinc-500 uppercase tracking-widest mb-2">Mots-clés en progression</p>
             <div className="space-y-2">
               {[
-                { kw: 'votre service + Geneve', before: 34, after: 3, change: '+31' },
+                { kw: 'votre service + Genève', before: 34, after: 3, change: '+31' },
                 { kw: 'votre secteur + Suisse romande', before: 52, after: 7, change: '+45' },
-                { kw: 'votre expertise + Geneve', before: 28, after: 1, change: '+27' },
+                { kw: 'votre expertise + Genève', before: 28, after: 1, change: '+27' },
               ].map((k) => (
                 <div key={k.kw} className="flex items-center gap-3 text-[10px]">
                   <span className="text-zinc-400 flex-1 truncate">{k.kw}</span>
@@ -80,7 +83,7 @@ export function HeroVisual() {
           {/* GEO visibility */}
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <p className="text-[9px] text-zinc-500 uppercase tracking-widest">Visibilite GEO (IA)</p>
+              <p className="text-[9px] text-zinc-500 uppercase tracking-widest">Visibilité GEO (IA)</p>
               <span className="text-[7px] font-bold px-1.5 py-0.5 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20">Nouveau</span>
             </div>
             <div className="grid grid-cols-3 gap-2">
@@ -93,7 +96,7 @@ export function HeroVisual() {
                   <p className="text-[8px] text-zinc-500 mb-1">{e.engine}</p>
                   <div className="flex items-baseline gap-1">
                     <span className="text-sm font-bold" style={{ color: e.color }}>{e.score}%</span>
-                    <span className="text-[7px] text-zinc-600">cite</span>
+                    <span className="text-[7px] text-zinc-600">cité</span>
                   </div>
                 </div>
               ))}
@@ -146,7 +149,7 @@ export function HeroVisual() {
       {/* Mini stats */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { v: 'Top 3', l: 'Positions Google', c: '#4ade80' },
+          { v: 'Mensuel', l: 'Rapport de positions', c: '#4ade80' },
           { v: 'Page 1', l: 'Objectif local', c: V },
           { v: 'GEO Ready', l: 'IA + Google', c: '#FF8C00' },
         ].map((s) => (

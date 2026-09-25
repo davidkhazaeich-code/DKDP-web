@@ -53,8 +53,9 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     question: 'Combien coûte la gestion des réseaux sociaux par une agence à Genève ?',
+    // 25/09/2026 : prix de départ lu dans src/data/pricing (PRIX.socialFrom), plus en dur.
     answer:
-      'Un forfait de gestion de réseaux sociaux chez DKDP démarre à CHF 450/mois pour une plateforme. Une présence sur 3 réseaux avec contenu vidéo et Meta Ads se situe autour de CHF 900/mois. Le forfait Full Social à CHF 1\'600/mois couvre 5 plateformes avec community management 7j/7.',
+      `Un forfait de gestion de réseaux sociaux chez DKDP démarre à ${chfMois(PRIX.socialFrom)} pour une plateforme. Une présence sur 3 réseaux avec contenu vidéo et Meta Ads se situe autour de CHF 900/mois. Le forfait Full Social à CHF 1'600/mois couvre 5 plateformes avec community management 7j/7.`,
   },
   {
     question: 'Sur quels réseaux sociaux DKDP travaille-t-il ?',
@@ -95,17 +96,20 @@ const BENEFITS = [
     title: 'Une présence qui tient dans la durée',
     desc: 'Un calendrier éditorial tenu chaque semaine, adapté à chaque plateforme, plutôt que des publications au coup par coup quand il reste du temps.',
   },
+  // 25/09/2026 : « 12h/sem » libérées et portée « x3.2 » (« multipliée par 3 à 4 »)
+  // retirés, aucune source. Le temps de gestion reste cité, avec sa source
+  // (HubSpot), dans la section « Le vrai problème ».
   {
     Icon: Clock,
-    value: '12h/sem',
+    value: 'Clé en main',
     title: 'Votre temps libéré',
-    desc: 'Créer du contenu de qualité prend 12 à 15 heures par semaine. DKDP prend tout en charge pour que vous vous concentriez sur votre cœur de métier.',
+    desc: 'Créer du contenu de qualité demande du temps chaque semaine. DKDP prend tout en charge pour que vous vous concentriez sur votre cœur de métier.',
   },
   {
     Icon: Users,
-    value: 'x3.2',
+    value: 'Multicanal',
     title: 'Portée amplifiée',
-    desc: 'Avec une stratégie multi-plateforme cohérente, la portée de vos messages est multipliée par 3 à 4 par rapport à une gestion ad hoc.',
+    desc: "Avec une stratégie multi-plateforme cohérente, chaque message touche davantage de monde qu'avec une gestion au coup par coup.",
   },
 ]
 
@@ -401,7 +405,8 @@ export default function ReseauxSociauxPage() {
             {[
               {
                 label: 'Starter',
-                price: 'CHF 450/mois',
+                // 25/09/2026 : « CHF 450/mois » en dur remplacé par PRIX.socialFrom.
+                price: chfMois(PRIX.socialFrom),
                 duration: '1 plateforme',
                 features: [
                   '12 posts/mois',
@@ -579,8 +584,9 @@ export default function ReseauxSociauxPage() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Service complémentaire</p>
                   <p className="text-text font-bold text-lg leading-tight">Création vidéo professionnelle</p>
+                  {/* 25/09/2026 : « performent 2.7x mieux avec de la vidéo » retiré, aucune source. */}
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
-                    Les réseaux sociaux performent 2.7x mieux avec de la vidéo. Découvrez notre service de création vidéo professionnelle pour amplifier votre présence.
+                    Les formats vidéo, Reels et Stories, occupent une place centrale sur les réseaux sociaux. Découvrez notre service de création vidéo professionnelle pour amplifier votre présence.
                   </p>
                 </div>
               </div>

@@ -18,7 +18,6 @@ import {
   Bot,
   BrainCircuit,
   GraduationCap,
-  Star,
   Clock,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
@@ -32,6 +31,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 import { localizedPath } from '@/i18n/slugs'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
@@ -41,8 +41,10 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 // ─── Metadata ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   title: 'Business Automation n8n, Make, Zapier for Swiss SMBs | DKDP',
+  // 25/09/2026: "Save 10 hrs/week" removed from the description, no source.
   description:
-    'Automate your business processes with n8n, Make, Zapier. Native Bexio, Abacus, Google Workspace, Slack, HubSpot integrations. Save 10 hrs/week. SMBs in Geneva and French-speaking Switzerland. Quote in 48 h.',
+    // 25/09/2026 : brought under 920 px (857 px, tools/check-serp-width.mjs).
+    'Business process automation with n8n, Make or Zapier: Bexio, Abacus, Google Workspace, HubSpot. SMBs in Geneva, quote within 48 h.',
   alternates: {
     canonical: 'https://dkdp.ch/en/artificial-intelligence/automation',
     languages: {
@@ -82,6 +84,10 @@ function WorkflowDiagram() {
     'Follow-up scheduled',
     'Report generated',
   ]
+  // 25/09/2026: "3h / task" versus "4 min / task" removed, no source (same fix as
+  // src/app/intelligence-artificielle/_components/AutomationDiagram.tsx).
+  const beforeNote = 'Re-keyed at every step'
+  const afterNote = 'No re-keying'
   return (
     <div className="grid grid-cols-2 gap-4 w-full">
       <div>
@@ -104,7 +110,7 @@ function WorkflowDiagram() {
               <span className="text-text-muted text-[11px]">{s}</span>
             </div>
           ))}
-          <p className="text-[10px] text-center mt-2 font-semibold" style={{ color: 'var(--red-text)' }}>3h / task</p>
+          <p className="text-[10px] text-center mt-2 font-semibold" style={{ color: 'var(--red-text)' }}>{beforeNote}</p>
         </div>
       </div>
       <div>
@@ -134,7 +140,7 @@ function WorkflowDiagram() {
             className="text-[10px] text-center mt-2 font-semibold"
             style={{ color: 'var(--green-text)' }}
           >
-            4 min / task
+            {afterNote}
           </p>
         </div>
       </div>
@@ -189,11 +195,12 @@ const PROCESS_STEPS = [
     title: 'Prototype',
     desc: 'First automated workflow delivered in 2 weeks. Testable in real conditions, editable before final sign-off.',
   },
+  // 25/09/2026: "zero disruption, zero rebuild" rewritten without the absolute.
   {
     Icon: GitMerge,
     n: '03',
     title: 'Integration',
-    desc: 'Connection to your existing tools. Zero disruption to your current processes, zero rebuild of your stack.',
+    desc: 'We connect the workflow to your existing tools, without rebuilding your stack or upending your current processes.',
   },
   {
     Icon: Users,
@@ -219,15 +226,18 @@ const FAQ = [
     answer:
       'It is covered by the post-delivery follow-up. During the first 3 months, any interruption linked to an API or configuration change is handled at no extra cost. Beyond that, we offer monthly maintenance to guarantee the continuity of your automations.',
   },
+  // 25/09/2026: past-project references ("lead qualification across 12 criteria"...)
+  // rewritten as capabilities, no source.
   {
     question: 'Can you automate complex business processes?',
     answer:
-      'Yes. Modern no-code workflows handle advanced conditional logic, multiple branches, calls to AI models for decision-making, and real-time integrations. We have automated lead qualification processes across 12 criteria, multi-currency invoicing pipelines, and complete client onboardings.',
+      'Yes. Modern no-code workflows handle advanced conditional logic, multiple branches, calls to AI models for decision-making, and real-time integrations. A workflow can, for example, qualify leads against your criteria, run multi-currency invoicing or carry out a complete client onboarding.',
   },
+  // 25/09/2026: "95% of SMB automation needs" removed, statistic with no source.
   {
     question: 'How is this different from a developer coding an integration?',
     answer:
-      'A coded integration is more rigid and more expensive to maintain. If your CRM changes version or you adopt a new tool, refactoring code takes time and money. No-code workflows are modular, visually readable, and editable in minutes. They cover 95% of SMB automation needs.',
+      'A coded integration is more rigid and more expensive to maintain. If your CRM changes version or you adopt a new tool, refactoring code takes time and money. No-code workflows are modular, visually readable, and editable in minutes. They cover the everyday automation needs of an SMB.',
   },
   {
     question: 'n8n or Make: which one should I choose for my SMB?',
@@ -239,30 +249,17 @@ const FAQ = [
     answer:
       'Yes. n8n is open-source and self-hosts on an Infomaniak VPS (Switzerland), Exoscale (Switzerland) or on your own on-premise infrastructure. It is the only major automation platform that offers this option. Your data never leaves the country, and you are FADP 2023 compliant by default. Hosting cost: roughly CHF 20 to 80 per month depending on volume. We handle the setup, updates and backups.',
   },
+  // 25/09/2026: first workflow read from src/data/pricing (PRIX.automatisationFrom). CHF 3'000 to
+  // 6'000 and CHF 250/month stay hard-coded: no key covers them.
   {
     question: 'What does an n8n automation cost?',
     answer:
-      "A first workflow delivered in 2 weeks starts at CHF 1'500 (fixed, turnkey price). A multi-step automation with business integrations (Bexio, HubSpot, Salesforce) lands between CHF 3'000 and 6'000. For complex projects (AI agent orchestration, RAG on documentation, multi-currency invoicing) we quote per project. Monthly maintenance, optional after the 3 included months, starts at CHF 250/month.",
+      `A first workflow delivered in 2 weeks starts at ${chf(PRIX.automatisationFrom)} (fixed, turnkey price). A multi-step automation with business integrations (Bexio, HubSpot, Salesforce) lands between CHF 3'000 and 6'000. For complex projects (AI agent orchestration, RAG on documentation, multi-currency invoicing) we quote per project. Monthly maintenance, optional after the 3 included months, starts at CHF 250/month.`,
   },
   {
     question: 'Does my data stay confidential?',
     answer:
       'Yes. On a self-hosted Swiss n8n deployment, your data never leaves your server. On Make and Zapier (EU cloud), data transits but is not used to train third-party models. We systematically sign a DPA (Data Processing Agreement) and a confidentiality agreement before kick-off. Credentials (API tokens) are stored encrypted and rotated.',
-  },
-]
-
-const TESTIMONIALS = [
-  {
-    quote:
-      'Before, my assistant spent two hours every morning entering orders into our ERP. Today it is instant and error-free. We recovered 40 hours a month on a single task.',
-    author: 'Operations Manager, distribution company',
-    location: 'Geneva',
-  },
-  {
-    quote:
-      'The automatic follow-up workflow transformed our collection rate. We no longer lose invoices in inboxes. DKDP set everything up in three weeks, without touching our Bexio.',
-    author: 'Finance Director, industrial SMB',
-    location: 'Vaud',
   },
 ]
 
@@ -277,8 +274,9 @@ export default function AutomationPage() {
           description:
             'Business process automation via n8n (self-hosted or cloud), Make and Zapier. Connects Bexio, Abacus, HubSpot, Salesforce, Google Workspace, Slack, WhatsApp Business, Stripe. FADP 2023 compliant, Swiss hosting available.',
           serviceType: 'Business process automation',
-          priceFrom: 1500,
-          priceSpecDescription: "From CHF 1'500 for a first automated workflow delivered in 2 weeks",
+          // 25/09/2026: price read from src/data/pricing (PRIX.automatisationFrom), no longer hard-coded.
+          priceFrom: PRIX.automatisationFrom,
+          priceSpecDescription: `From ${chf(PRIX.automatisationFrom)} for a first automated workflow delivered in 2 weeks`,
           lang: 'en',
         })}
       />
@@ -314,11 +312,12 @@ export default function AutomationPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">n8n, Make and Zapier automation for SMBs in Geneva and French-speaking Switzerland</h1>
+                {/* 25/09/2026: "3 hours a day" and "save 10 hours a week" removed, no source. */}
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  What takes you <GradText as="span">3 hours a day</GradText>, automated in <GradText as="span">2 weeks</GradText>.
+                  What takes you <GradText as="span">hours</GradText>, automated in <GradText as="span">2 weeks</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  We connect your CRM, your emails and your ERP with AI workflows on <strong className="text-text">n8n</strong> (self-hostable in Switzerland), <strong className="text-text">Make</strong> or <strong className="text-text">Zapier</strong>. Native integrations with Bexio, Abacus, HubSpot, Google Workspace, Slack, WhatsApp Business, Stripe. For SMBs in French-speaking Switzerland that want to save 10 hours a week without touching a line of code.
+                  We connect your CRM, your emails and your ERP with AI workflows on <strong className="text-text">n8n</strong> (self-hostable in Switzerland), <strong className="text-text">Make</strong> or <strong className="text-text">Zapier</strong>. Native integrations with Bexio, Abacus, HubSpot, Google Workspace, Slack, WhatsApp Business, Stripe. For SMBs in French-speaking Switzerland that want to save time without touching a line of code.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <HeroPills
@@ -380,7 +379,8 @@ export default function AutomationPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-3 gap-6 md:gap-12">
             {[
-              { value: '70%', label: 'Repetitive tasks automatable on average' },
+              // 25/09/2026: "70% of repetitive tasks automatable on average" removed, no source.
+              { value: '5.0/5', label: 'Google rating, 22 reviews' },
               { value: '2 wks', label: 'For a first workflow in production' },
               { value: '0 lines', label: 'Of code required from your teams' },
             ].map((s) => (
@@ -422,8 +422,9 @@ export default function AutomationPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Why automate the repetitive tasks in your SMB
               </h2>
+              {/* 25/09/2026: "5 hours per week per employee" removed, statistic with no source. */}
               <p className="text-text-secondary leading-relaxed mb-8">
-                SMBs lose on average 5 hours per week per employee on tasks that shuffle data between tools. This is not an organisation problem: it is a connection problem between systems. Read our article: <Link href={localizedPath('/blog/automatiser-taches-repetitives-ia-pme', 'en')} className="underline hover:text-text transition-colors">automating repetitive tasks with AI in your SMB</Link>.
+                In many SMBs, employees spend time every week copying data from one tool to another. This is not an organisation problem: it is a connection problem between systems. Read our article: <Link href={localizedPath('/blog/automatiser-taches-repetitives-ia-pme', 'en')} className="underline hover:text-text transition-colors">automating repetitive tasks with AI in your SMB</Link>.
               </p>
               <div className="space-y-3">
                 {[
@@ -628,11 +629,12 @@ export default function AutomationPage() {
             </div>
           </SectionReveal>
 
+          {/* 25/09/2026: prices read from src/data/pricing (PRIX.automatisationFrom, PRIX.automatisationTo), no longer hard-coded. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
               {
                 label: 'Starter',
-                price: "CHF 1'500",
+                price: chf(PRIX.automatisationFrom),
                 sub: 'One-time payment',
                 highlight: false,
                 features: [
@@ -646,7 +648,7 @@ export default function AutomationPage() {
               },
               {
                 label: 'Business',
-                price: "CHF 3'500",
+                price: chf(PRIX.automatisationTo),
                 sub: 'The most complete',
                 highlight: true,
                 features: [
@@ -729,46 +731,7 @@ export default function AutomationPage() {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
-      <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)" accentRgb="212,212,216">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Testimonials</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Testimonials: SMBs that automated with DKDP
-              </h2>
-            </div>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {TESTIMONIALS.map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  {/* Stars */}
-                  <div className="flex gap-1 mb-5">
-                    {Array.from({ length: 5 }).map((_, si) => (
-                      <Star key={si} size={14} fill={color} style={{ color }} />
-                    ))}
-                  </div>
-                  <blockquote className="text-text-secondary leading-relaxed text-sm flex-1 mb-6">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <div>
-                    <p className="text-text text-sm font-semibold">{t.author}</p>
-                    <p className="text-text-muted text-xs mt-0.5">{t.location}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026: anonymous testimonials removed (operations manager, finance director), no source. */}
 
       {/* ── FAQ ── */}
       <div id="faq" className="scroll-mt-[124px]">

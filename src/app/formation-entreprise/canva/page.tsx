@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Layers, Wand2, Palette, Share2, Sparkles, Globe2, Zap, FileText } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Clock, Users, Award, Layers, Wand2, Palette, Share2, Sparkles, Globe2, Zap, FileText } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -41,15 +41,18 @@ export const metadata: Metadata = {
 }
 
 const FAQ = [
+  // 25/09/2026 : « La majorité des participants » retiré, aucun comptage derrière.
   {
     question: 'Faut-il être graphiste pour suivre la formation Canva ?',
     answer:
-      "Non. La formation Canva DKDP est conçue pour des non-graphistes. On part des bases du design (typographie, couleurs, hiérarchie visuelle) et on construit ensemble vos premiers visuels. La majorité des participants n'ont jamais ouvert Canva avant la formation et repartent autonomes le soir même.",
+      "Non. La formation Canva DKDP est conçue pour des non-graphistes. On part des bases du design (typographie, couleurs, hiérarchie visuelle) et on construit ensemble vos premiers visuels. Il n'est pas nécessaire d'avoir déjà ouvert Canva pour repartir autonome le soir même.",
   },
+  // 25/09/2026 : « 80 % des besoins d'une PME » retiré, aucune source. Prix
+  // Canva Pro et « 100 millions » : faits de l'éditeur, gardés.
   {
     question: 'Quelle différence entre Canva gratuit et Canva Pro ?',
     answer:
-      "La version gratuite couvre déjà 80% des besoins d'une PME. Canva Pro (CHF 15/mois par utilisateur ou CHF 30/mois en équipe) débloque le Brand Kit complet (logo, palette, polices d'entreprise), la suppression d'arrière-plan, le redimensionnement automatique (Magic Resize), et plus de 100 millions de templates et photos premium. DKDP vous aide à choisir la formule réellement utile selon vos besoins.",
+      "La version gratuite couvre déjà une grande partie des besoins d'une PME. Canva Pro (CHF 15/mois par utilisateur ou CHF 30/mois en équipe) débloque le Brand Kit complet (logo, palette, polices d'entreprise), la suppression d'arrière-plan, le redimensionnement automatique (Magic Resize), et plus de 100 millions de templates et photos premium. DKDP vous aide à choisir la formule réellement utile selon vos besoins.",
   },
   {
     question: "Qu'est-ce que le Brand Kit Canva et pourquoi le configurer ?",
@@ -61,20 +64,23 @@ const FAQ = [
     answer:
       "Posts réseaux sociaux (Instagram, LinkedIn, Facebook, TikTok, X), Stories et Reels animés, présentations professionnelles, flyers et affiches imprimables, brochures, newsletters, bannières web, cartes de visite, signatures email, vidéos courtes, documents internes, organigrammes. Plus de 100 formats préformatés sont accessibles dès le démarrage.",
   },
+  // 25/09/2026 : « de 3 à 5 fois » retiré, aucune source.
   {
     question: 'Comment fonctionne Magic Studio (IA de Canva) ?',
     answer:
-      "Magic Studio regroupe les fonctionnalités d'IA intégrées à Canva : Magic Write génère du texte, Magic Edit modifie une image avec une instruction écrite, Magic Resize adapte un visuel à plusieurs formats en un clic, Magic Eraser supprime un objet d'une photo, Background Remover détoure un sujet. Ces outils accélèrent la production de 3 à 5 fois selon les usages. La formation couvre les 5 outils principaux.",
+      "Magic Studio regroupe les fonctionnalités d'IA intégrées à Canva : Magic Write génère du texte, Magic Edit modifie une image avec une instruction écrite, Magic Resize adapte un visuel à plusieurs formats en un clic, Magic Eraser supprime un objet d'une photo, Background Remover détoure un sujet. Selon les usages, ces outils accélèrent nettement la production. La formation couvre les 5 outils principaux.",
   },
   {
     question: "L'équipe peut-elle travailler à plusieurs sur un même design ?",
     answer:
       "Oui. Canva intègre une collaboration en temps réel similaire à Google Docs : commentaires, suggestions, partage de templates internes, espaces de marque communs. La formation inclut un module sur l'organisation d'un workflow d'équipe pour éviter la duplication et garantir la cohérence visuelle.",
   },
+  // 25/09/2026 : « 4h » et « 8h » alignés sur l'offre (3 h + 1 h, 6 h + 2 h). « La
+  // majorité des PME optent pour la journée, qui rentabilise le plus vite » retiré, aucune source.
   {
     question: 'Combien de temps dure la formation Canva ?',
     answer:
-      "Une demi-journée (4h) pour les bases : interface, premiers visuels, Brand Kit. Une journée complète (8h) pour aller plus loin : Magic Studio, workflow d'équipe, présentations avancées, vidéos. La majorité des PME optent pour la journée complète, qui rentabilise le plus rapidement.",
+      "Une demi-journée (3 h de formation et 1 h de préparation) couvre les bases : interface, premiers visuels, Brand Kit. Une journée complète (6 h de formation et 2 h de préparation) permet d'aller plus loin : Magic Studio, workflow d'équipe, présentations avancées, vidéos.",
   },
   {
     question: 'La formation peut-elle se dérouler dans nos locaux ?',
@@ -116,10 +122,11 @@ const steps = [
     title: 'Templates en pratique',
     desc: 'Création de vos 5 templates prioritaires : posts, stories, présentations, flyers. Production fluide pour votre quotidien.',
   },
+  // 25/09/2026 : « 5x plus vite » retiré, aucune source.
   {
     Icon: Wand2,
     title: 'Magic Studio et IA',
-    desc: "Maîtrise des outils IA de Canva pour produire 5x plus vite. Workflow d'équipe configuré et prêt à scaler.",
+    desc: "Maîtrise des outils IA de Canva pour produire plus vite. Workflow d'équipe configuré et prêt à scaler.",
   },
 ]
 
@@ -148,8 +155,9 @@ export default function FormationCanvaPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation Canva Genève & Suisse romande</h1>
+                {/* 25/09/2026 : « en 5 minutes » remplacé par « en quelques minutes », aucune mesure. */}
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  Créez vos visuels en 5 minutes. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Aux couleurs de votre marque</GradText>.
+                  Créez vos visuels en quelques minutes. <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Aux couleurs de votre marque</GradText>.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme vos équipes de PME et entreprises à Canva à Genève et en Suisse romande. Posts, présentations, flyers, brochures : vos collaborateurs créent des visuels professionnels sans agence, dès le lendemain de la formation.
@@ -205,8 +213,10 @@ export default function FormationCanvaPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: '250M+', l: 'Utilisateurs', sub: 'Canva dans le monde' },
-              { v: '5 min', l: 'Par visuel', sub: 'Avec Brand Kit configuré' },
-              { v: '80%', l: 'Temps gagné', sub: 'Sur la production graphique' },
+              // 25/09/2026 : « 5 min par visuel » et « 80 % de temps gagné » retirés,
+              // aucune source. Faits de l'offre et de la fiche Google à la place.
+              { v: '1 à 10', l: 'Personnes par session', sub: 'Groupe sur devis dès 3' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
               { v: '1 journée', l: 'Pour devenir autonome', sub: 'Sans aucun prérequis' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -260,10 +270,12 @@ export default function FormationCanvaPage() {
               </p>
               <div className="space-y-3">
                 {[
-                  "Les PME suisses dépensent en moyenne CHF 4 000/an en création graphique externalisée",
+                  // 25/09/2026 : « CHF 4 000/an », « 70 % » et « de 3 à 5 fois » retirés,
+                  // aucune source. Canva, 250 millions et Fortune 500 : chiffres de l'éditeur.
+                  "La création graphique externalisée représente une dépense récurrente pour les PME suisses",
                   "Canva est utilisé par plus de 250 millions de personnes dans le monde, dont 95% des Fortune 500",
-                  "Un Brand Kit bien configuré réduit le temps de production visuelle de 70%",
-                  "Magic Studio (IA Canva) accélère encore la production de 3 à 5 fois selon les usages",
+                  "Un Brand Kit bien configuré réduit le temps de production visuelle",
+                  "Magic Studio (IA Canva) accélère encore la production, selon les usages",
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
@@ -397,59 +409,8 @@ export default function FormationCanvaPage() {
 
       <FormationTrainer accentColor='#FF8C00' />
 
-      {/* ── Témoignages ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Retours après la formation Canva
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: "Avant la formation, je payais une graphiste freelance pour chaque post Instagram. Maintenant je crée mes visuels en 5 minutes avec mes templates Canva. Rentabilisé en deux semaines.",
-                name: 'Nathalie F., Fondatrice',
-                company: 'Boutique artisanale, Genève',
-                stars: 5,
-              },
-              {
-                quote: "On a formé toute notre équipe communication à Canva, avec un Brand Kit unifié. La cohérence visuelle de notre marque s'est améliorée du jour au lendemain. Fini les visuels disparates entre collègues.",
-                name: 'Thomas L., Responsable marketing',
-                company: 'PME 40 personnes, Vaud',
-                stars: 5,
-              },
-              {
-                quote: "Magic Studio a été une vraie révélation. Je redimensionne un visuel pour 5 réseaux sociaux en un clic, je supprime un fond en 2 secondes. Ce qui me prenait 30 minutes prend désormais 2 minutes.",
-                name: 'Sarah M., Community manager',
-                company: 'Agence événementielle, Genève',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : témoignages anonymes (Nathalie F., Thomas L., Sarah M.) retirés,
+          inventés. Les avis Google de FormationTrainer, juste au-dessus, font la preuve. */}
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
@@ -461,8 +422,9 @@ export default function FormationCanvaPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
                 Tarifs de la formation Canva
               </h2>
+              {/* 25/09/2026 : « 4h » et « 8h » alignés sur l'offre et sur la grille ci-dessous. */}
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h), sur site ou en visio.
+                Le prix dépend du nombre de participants et du format : demi-journée (3 h de formation et 1 h de préparation) ou journée entière (6 h et 2 h), sur site ou en visio.
               </p>
             </div>
           </SectionReveal>

@@ -44,7 +44,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'About · David Khazaei · DKDP Geneva',
-    description: 'Geneva digital agency founded by David Khazaei: AI, corporate training and web for Swiss SMEs since 2015.',
+    // 25/09/2026 : the agency was founded in 2019 (David has been active since 2015), same as the FR page.
+    description: 'Geneva digital agency founded by David Khazaei: AI, corporate training and web for Swiss SMEs since 2019.',
     url: 'https://dkdp.ch/en/about',
     locale: 'en_US',
     alternateLocale: ['fr_CH'],
@@ -83,10 +84,12 @@ const VALUES = [
   },
 ]
 
+// 25/09/2026 : « 98% Satisfied clients » retiré, aucune source. Remplacé par
+// la note de la fiche Google.
 const STATS = [
   { value: '2019', label: 'Founded in Geneva' },
   { value: '3',   label: 'Pillars of expertise' },
-  { value: '98%', label: 'Satisfied clients' },
+  { value: '5.0/5', label: 'Google rating, 22 reviews' },
   { value: '2015', label: 'Active since' },
 ]
 
@@ -112,7 +115,8 @@ const PILLARS = [
   {
     Icon: Brain,
     title: 'Artificial Intelligence',
-    desc: 'AI agents, process automation, LLM integration. 10 hours saved per week on average.',
+    // 25/09/2026 : « 10 hours saved per week on average » retiré, aucune source.
+    desc: 'AI agents, process automation, LLM integration: we automate repetitive tasks to give your teams their time back.',
     href: localizedPath('/intelligence-artificielle', 'en'),
     color: chromeColor,
     bg: chromeBg,
@@ -214,11 +218,12 @@ export default function AboutPageEN() {
                   AI and digital are not reserved for large companies. DKDP helps SMEs across
                   French-speaking Switzerland take action with concrete, measurable results.
                 </p>
+                {/* 25/09/2026 : « 5 years of local expertise » contredisait la fondation en 2019, remplacé par la date. */}
                 <HeroPills
                   accentRgb="156, 163, 175"
                   items={[
                     { label: 'Eaux-Vives, Geneva', Icon: MapPin },
-                    { label: '5 years of local expertise', Icon: Award },
+                    { label: 'Local expertise since 2019', Icon: Award },
                     { label: 'Swiss SMEs supported', Icon: Users },
                   ]}
                 />

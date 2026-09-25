@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Smartphone, BarChart2, Layers, Zap, Video } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Clock, Users, Award, Smartphone, BarChart2, Layers, Zap, Video } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -21,6 +21,7 @@ const FormationPricing = dynamic(() => import('@/components/sections/FormationPr
 const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import { VideoToolCards } from './_components/VideoToolCards'
 
 export const metadata: Metadata = {
@@ -68,10 +69,11 @@ const FAQ = [
     answer:
       'The training covers royalty-free music sources: CapCut Sound Library, Epidemic Sound, YouTube Audio Library and Pixabay. You learn how to avoid copyright blocks when publishing.',
   },
+  // 25/09/2026 : unsourced "More than 80% of videos" removed.
   {
     question: 'Does the training include automatic captions?',
     answer:
-      'Yes. Automatic captions are a module in their own right. More than 80% of videos on social media are watched without sound. CapCut and other tools generate captions automatically that you fix in a few minutes.',
+      'Yes. Automatic captions are a module in their own right, because a large share of videos on social media are watched without sound. CapCut and other tools generate captions automatically that you fix in a few minutes.',
   },
 ]
 
@@ -175,9 +177,11 @@ export default function FormationMontageVideoPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '10+', l: 'Tools mastered', sub: 'CapCut, DaVinci, Premiere...' },
-              { v: '2.7×', l: 'Video engagement', sub: 'vs static content' },
-              { v: '4h/week', l: 'Saved', sub: 'In post-production' },
+              // 25/09/2026 : unsourced "10+ tools", "2.7× engagement" and "4h/week saved"
+              // removed. Offer, rate grid and Google listing facts instead.
+              { v: '1 to 10', l: 'People per session', sub: 'Groups on quote from 3' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
+              { v: chf(PRIX.formationHourly1), l: 'Per hour, for one person', sub: `${chfHeure(PRIX.formationHourly2)} for two, groups on quote` },
               { v: '1 day', l: 'To produce solo', sub: 'Your first pro video' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -225,17 +229,19 @@ export default function FormationMontageVideoPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Why your company needs video editing training
               </h2>
+              {/* 25/09/2026 : unsourced "CHF 300 to 800 per piece", "5 to 10 days" and "45 minutes" removed. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                Companies that outsource their video production spend on average CHF 300 to 800 per piece of content, with turnaround times of 5 to 10 days. With the right tools and one day of training, your teams produce the same result in 45 minutes, in house.
+                Outsourcing video production means paying for every piece of content, and each delivery then depends on the supplier&apos;s schedule. With the right tools and one day of training, your teams produce this content themselves, in house.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
                 DKDP does not teach theory. We open CapCut, DaVinci or Premiere and produce real videos during the session. You leave with your templates, your workflow and your first published video.
               </p>
               <div className="space-y-3">
                 {[
-                  'Reels generate 2.7× more engagement than images on Instagram',
-                  'Short video is the number one brand discovery format in 2026',
-                  'Producing in house cuts production costs by 70 to 85%',
+                  // 25/09/2026 : unsourced "2.7×", "number one format" and "70 to 85%" removed.
+                  'On Instagram, Reels generally draw more engagement than still images',
+                  'Short video now plays a central role in how people discover brands',
+                  'Producing in house means you no longer pay a supplier for every video',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
@@ -352,59 +358,8 @@ export default function FormationMontageVideoPage() {
 
       <FormationTrainer accentColor='#FF8C00' lang="en" />
 
-      {/* ── Testimonials ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">What they say</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Feedback after the video editing training
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'Before the training, we outsourced our Instagram videos at CHF 300 a piece. Now we make them in house in 45 minutes. Immediate ROI.',
-                name: 'Camille R., Marketing Manager',
-                company: 'Lifestyle brand, Geneva',
-                stars: 5,
-              },
-              {
-                quote: 'In one day, I learned to edit, colour grade and export my YouTube videos. DKDP gave me the basics and the method to be self-sufficient.',
-                name: 'Alexandre M., Founder',
-                company: 'Sports coach, Lausanne',
-                stars: 5,
-              },
-              {
-                quote: 'Our HR team now creates its own videos for job openings. Engagement on our posts is 4× higher since we started using video.',
-                name: 'Sandrine W., HR Director',
-                company: 'Tech SME, Geneva',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : anonymous testimonials (Camille R., Alexandre M., Sandrine W.) removed,
+          they were invented. The Google reviews in FormationTrainer, just above, carry the proof. */}
 
       {/* ── Pricing ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
@@ -416,8 +371,9 @@ export default function FormationMontageVideoPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
                 Video editing training pricing
               </h2>
+              {/* 25/09/2026 : "4h" and "8h" aligned with the offer and the grid below. */}
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                The price depends on the number of participants. Half-day (4h) or full day (8h).
+                The price depends on the number of participants and the format: half-day (3 h of training plus 1 h of preparation) or full day (6 h plus 2 h).
               </p>
             </div>
           </SectionReveal>

@@ -227,7 +227,8 @@ export default function SEOPage() {
               { v: '2', l: 'Études de cas publiées', sub: 'Golden Cash, SOS Relevage' },
               { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
               { v: 'CHF 0', l: 'Par clic', sub: 'Contrairement aux Ads' },
-              { v: '6 mois', l: 'Pour des résultats', sub: 'Durée moyenne constatée' },
+              // 25/09/2026 : « 6 mois, durée moyenne constatée » retiré, aucune mesure derrière.
+              { v: chf(PRIX.seoMonthly), l: 'Par mois', sub: 'Accompagnement sans engagement' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -345,10 +346,10 @@ export default function SEOPage() {
                 </p>
                 <div className="grid grid-cols-2 gap-3 mb-5">
                   {[
-                    { name: 'ChatGPT', maker: 'OpenAI', c: '#10b981', cbg: 'rgba(16,185,129,0.08)', cbd: 'rgba(16,185,129,0.22)', note: '~60% des requêtes IA' },
-                    { name: 'Perplexity', maker: 'AI Search', c: '#22d3ee', cbg: 'rgba(34,211,238,0.08)', cbd: 'rgba(34,211,238,0.22)', note: '+300%/an de croissance' },
+                    { name: 'ChatGPT', maker: 'OpenAI', c: '#10b981', cbg: 'rgba(16,185,129,0.08)', cbd: 'rgba(16,185,129,0.22)', note: 'Assistant IA le plus utilisé' },
+                    { name: 'Perplexity', maker: 'AI Search', c: '#22d3ee', cbg: 'rgba(34,211,238,0.08)', cbd: 'rgba(34,211,238,0.22)', note: 'Réponses avec sources citées' },
                     { name: 'AI Overviews', maker: 'Google', c: '#A78BFA', cbg: 'rgba(124,58,237,0.08)', cbd: 'rgba(124,58,237,0.22)', note: 'Résultats Google n°1' },
-                    { name: 'Copilot', maker: 'Microsoft', c: '#60a5fa', cbg: 'rgba(96,165,250,0.08)', cbd: 'rgba(96,165,250,0.22)', note: 'Intégré Bing & Edge' },
+                    { name: 'Copilot', maker: 'Microsoft', c: '#60a5fa', cbg: 'rgba(96,165,250,0.08)', cbd: 'rgba(96,165,250,0.22)', note: 'Intégré à Bing et Edge' },
                   ].map((p) => (
                     <div key={p.name} className="p-3.5 rounded-[10px] border" style={{ background: p.cbg, borderColor: p.cbd }}>
                       <p className="text-text font-bold text-sm">{p.name}</p>
@@ -389,13 +390,14 @@ export default function SEOPage() {
                 Être en page 2 Google, c&apos;est être invisible.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
-                La position que vous occupez sur Google détermine directement combien de visiteurs vous recevez. La différence entre la position 1 et la page 2 n&apos;est pas de 50% : c&apos;est de 97%. Les clics ne se distribuent pas, ils se concentrent.
+                La position que vous occupez sur Google détermine directement combien de visiteurs vous recevez. Les premiers résultats captent l&apos;essentiel des clics, et la page 2 n&apos;en reçoit presque plus : les clics ne se distribuent pas, ils se concentrent.
               </p>
               <div className="space-y-4">
                 {[
                   { Icon: TrendingUp, title: '28% des clics vont au premier résultat Google. Le deuxième en reçoit 15%.', sub: 'Source : Advanced Web Ranking 2024' },
                   { Icon: Search, title: '75% des utilisateurs ne regardent jamais la deuxième page de résultats.', sub: 'Source : HubSpot Research' },
-                  { Icon: Clock, title: 'Le SEO prend 6 mois à construire. Chaque mois sans stratégie est un mois perdu.', sub: 'Constat DKDP sur +50 projets' },
+                  // 25/09/2026 : « Constat DKDP sur +50 projets » retiré, aucune source ; délais de la FAQ ci-dessus.
+                  { Icon: Clock, title: 'Le SEO prend 6 mois à construire. Chaque mois sans stratégie est un mois perdu.', sub: 'Premières positions en 6 à 12 semaines, trafic installé en 3 à 6 mois' },
                 ].map((item, i) => (
                   <SectionReveal key={item.title} delay={i * 0.08}>
                     <div className="flex gap-3 items-start">
@@ -467,7 +469,7 @@ export default function SEOPage() {
                 SEO local à Genève : Google Business Profile, citations locales et pack local.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-4">
-                À Genève, 46 % des recherches commerciales sont locales (source : Think with Google 2026). Sur mobile, 78 % des requêtes &laquo; près de moi &raquo; finissent par un appel ou un trajet dans les 24 h. Si vous n&apos;apparaissez pas dans le <strong className="text-text">pack local</strong> (les 3 fiches Google Maps au-dessus des résultats bleus), vous êtes invisibles pour la moitié de vos prospects genevois.
+                À Genève comme ailleurs, une grande partie des recherches commerciales portent sur un besoin local, et sur mobile une recherche &laquo; près de moi &raquo; se termine souvent par un appel ou un trajet. Si vous n&apos;apparaissez pas dans le <strong className="text-text">pack local</strong> (les 3 fiches Google Maps au-dessus des résultats bleus), une bonne partie de vos prospects genevois ne vous voit donc pas.
               </p>
               {/* Suisse romande : une phrase par canton, chacune liant sa page ville
                   (plan SEO du 21/09/2026, D02.1). Pas de compte de clients par canton :
@@ -522,34 +524,28 @@ export default function SEOPage() {
                   ))}
                 </div>
 
+                {/* 25/09/2026 : « KPIs SEO local moyens (6 mois DKDP) » (x4,8, x5,9, x6,3, x12)
+                    et « moyenne constatée sur les 14 PME » retirés, aucune source. Le bloc
+                    liste désormais les indicateurs suivis, sans résultat promis. */}
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: violet.color }}>
-                  KPIs SEO local moyens (6 mois DKDP)
+                  Ce qu&apos;on suit chaque mois
                 </p>
                 <div className="space-y-3">
                   {[
-                    { label: 'Apparitions dans le pack local', before: '12 %', after: '58 %', delta: 'x4,8' },
-                    { label: 'Clics vers itinéraire', before: '8/sem', after: '47/sem', delta: 'x5,9' },
-                    { label: 'Appels depuis la fiche GBP', before: '3/sem', after: '19/sem', delta: 'x6,3' },
-                    { label: 'Avis Google nouveaux', before: '1/mois', after: '12/mois', delta: 'x12' },
-                  ].map((row) => (
-                    <div key={row.label} className="flex items-center justify-between gap-3">
-                      <p className="text-text-secondary text-xs flex-1 leading-tight">{row.label}</p>
-                      <div className="flex items-center gap-2 text-xs">
-                        <span className="text-text-muted line-through">{row.before}</span>
-                        <span className="text-text font-semibold">{row.after}</span>
-                        <span
-                          className="px-1.5 py-0.5 rounded-full font-bold text-[10px]"
-                          style={{ background: 'rgba(74,222,128,0.12)', color: '#4ade80', border: '1px solid rgba(74,222,128,0.25)' }}
-                        >
-                          {row.delta}
-                        </span>
-                      </div>
+                    'Apparitions dans le pack local',
+                    'Clics vers l\'itinéraire',
+                    'Appels depuis la fiche Google',
+                    'Nouveaux avis Google',
+                  ].map((label) => (
+                    <div key={label} className="flex items-center gap-2.5">
+                      <CheckCircle2 size={14} className="flex-shrink-0" style={{ color: violet.color }} />
+                      <p className="text-text-secondary text-xs leading-tight">{label}</p>
                     </div>
                   ))}
                 </div>
 
                 <p className="text-text-muted text-[11px] mt-6 leading-relaxed">
-                  Moyenne constatée sur les 14 PME accompagnées en SEO local par DKDP entre 2024 et 2026. Les résultats individuels varient selon le secteur, la concurrence locale et la situation de départ.
+                  Ces indicateurs viennent de votre fiche Google. On les relève avant de commencer, puis dans le rapport mensuel, et leur évolution dépend du secteur, de la concurrence locale et de la situation de départ.
                 </p>
               </div>
             </SectionReveal>

@@ -1,8 +1,13 @@
 import { violet } from '@/lib/tokens'
+import { PRIX, chfMois } from '@/data/pricing'
 
 const V = violet.color
 const VD = violet.border
 
+// 25/09/2026 : maquette importée nulle part à cette date. Taux d'engagement
+// (8.7 %, 12.4 %), likes, commentaires, partages, courbe « Followers 6 mois »
+// et légende « on a triplé le trafic de ce client en 3 mois » retirés, aucune
+// source. La maquette montre un calendrier éditorial et les faits de l'offre.
 export function HeroVisual() {
   return (
     <div className="relative flex flex-col gap-4">
@@ -32,29 +37,25 @@ export function HeroVisual() {
               </div>
             ))}
           </div>
-          <span className="text-[9px] text-zinc-500 ml-auto">Calendrier editorial</span>
+          <span className="text-[9px] text-zinc-500 ml-auto">Calendrier éditorial</span>
         </div>
 
         <div className="p-4 space-y-3">
-          {/* Post preview cards */}
+          {/* Post preview cards : statut de publication, sans métriques */}
           {[
             {
               type: 'Carousel',
-              caption: '5 erreurs SEO que font 90% des PME...',
-              likes: '847',
-              comments: '63',
-              shares: '124',
-              time: 'Publie il y a 2h',
-              engagement: '8.7%',
+              caption: '5 erreurs SEO fréquentes chez les PME',
+              platform: 'Instagram',
+              status: 'Publié',
+              time: 'Hier',
             },
             {
               type: 'Reel',
-              caption: 'Comment on a triple le trafic de ce client en 3 mois',
-              likes: '2.1K',
-              comments: '89',
-              shares: '340',
-              time: 'Publie hier',
-              engagement: '12.4%',
+              caption: 'Coulisses : une journée de tournage à Genève',
+              platform: 'Instagram',
+              status: 'Validé',
+              time: 'Jeudi',
             },
           ].map((post) => (
             <div
@@ -67,14 +68,10 @@ export function HeroVisual() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-[11px] text-zinc-300 leading-tight line-clamp-2">{post.caption}</p>
-                <div className="flex items-center gap-3 mt-1.5">
-                  <span className="text-[9px] text-zinc-500">{post.likes} likes</span>
-                  <span className="text-[9px] text-zinc-500">{post.comments} com.</span>
-                  <span className="text-[9px] text-zinc-500">{post.shares} partages</span>
-                </div>
+                <p className="text-[9px] text-zinc-500 mt-1.5">{post.platform}</p>
               </div>
               <div className="text-right flex-shrink-0">
-                <span className="text-[10px] font-bold text-green-400">{post.engagement}</span>
+                <span className="text-[10px] font-bold text-green-400">{post.status}</span>
                 <p className="text-[8px] text-zinc-600">{post.time}</p>
               </div>
             </div>
@@ -82,7 +79,7 @@ export function HeroVisual() {
 
           {/* Upcoming scheduled */}
           <div className="pt-1">
-            <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-500 mb-2">A venir cette semaine</p>
+            <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-500 mb-2">À venir cette semaine</p>
             <div className="flex gap-2">
               {[
                 { day: 'Mar', type: 'Story', color: '#E4405F' },
@@ -99,27 +96,22 @@ export function HeroVisual() {
         </div>
       </div>
 
-      {/* Floating growth chart */}
+      {/* Floating badge : calendrier tenu (plus de courbe de followers) */}
       <div className="absolute -right-2 top-6 rotate-1 hidden lg:block">
         <div
           className="rounded-lg p-2.5"
           style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <p className="text-[8px] font-bold text-zinc-500 mb-1">Followers 6 mois</p>
-          <div className="flex items-end gap-[2px] h-8">
-            {[25, 30, 35, 42, 55, 72].map((h, i) => (
-              <div key={i} className="w-[6px] rounded-t-sm" style={{ height: `${h}%`, background: i === 5 ? '#4ade80' : 'rgba(124,58,237,0.3)' }} />
-            ))}
-          </div>
-          <p className="text-[8px] font-bold text-green-400 mt-1">Régulier</p>
+          <p className="text-[8px] font-bold text-zinc-500 mb-1">Calendrier du mois</p>
+          <p className="text-[8px] font-bold text-green-400">Validé par vous</p>
         </div>
       </div>
 
-      {/* Mini stats */}
+      {/* Mini stats : faits de l'offre (prix de base, plateformes, posts du forfait Starter) */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { v: '12.4%', l: 'Engagement moyen', c: '#4ade80' },
-          { v: '4', l: 'Plateformes gerees', c: V },
+          { v: chfMois(PRIX.socialFrom), l: 'Forfait de base', c: '#4ade80' },
+          { v: '5', l: 'Plateformes gérées', c: V },
           { v: '12/mois', l: 'Publications', c: '#FF8C00' },
         ].map((s) => (
           <div

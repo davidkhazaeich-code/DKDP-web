@@ -32,6 +32,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList, buildWebPageWithSpeakable } from '@/lib/schema'
 import { chrome, violet } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 import { localizedPath } from '@/i18n/slugs'
 const CTAFinal = dynamic(() =>
@@ -73,8 +74,9 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Custom AI chatbot Geneva | Claude, GPT-6 Astra | DKDP',
+    // 25/09/2026 : price from PRIX, rendered text unchanged.
     description:
-      "AI chatbot designed for your business: 24/7 support, qualified leads, automatic appointments. From CHF 2'900. DKDP agency, Geneva.",
+      `AI chatbot designed for your business: 24/7 support, qualified leads, automatic appointments. From ${chf(PRIX.chatbotEssentiel)}. DKDP agency, Geneva.`,
   },
   keywords: [
     'AI chatbot Geneva',
@@ -114,8 +116,9 @@ const FAQ = [
   },
   {
     question: 'How much does a custom AI chatbot cost?',
+    // 25/09/2026 : amounts from PRIX (Swiss separator: "2,900" becomes "2'900").
     answer:
-      "An Essential chatbot starts at CHF 2,900 (answers to frequent questions, website, 2-week deployment). Packages with connection to your business tools (CRM, calendar, ERP) range between CHF 5,500 and CHF 12,000. For multi-channel chatbots with RAG over a large knowledge base, pricing is on quote. Fixed price provided before kickoff, no surprises. Optional monthly maintenance from CHF 250/month.",
+      `An Essential chatbot starts at ${chf(PRIX.chatbotEssentiel)} (answers to frequent questions, website, 2-week deployment). Packages with connection to your business tools (CRM, calendar, ERP) range between ${chf(PRIX.chatbotPro)} and ${chf(PRIX.chatbotConnecteTo)}. For multi-channel chatbots with RAG over a large knowledge base, pricing is on quote. Fixed price provided before kickoff, no surprises. Optional monthly maintenance from ${chf(PRIX.chatbotMaintenanceMonthly)}/month.`,
   },
   {
     question: 'How long does it take to deploy a chatbot?',
@@ -129,13 +132,15 @@ const FAQ = [
   },
   {
     question: 'Can the chatbot make mistakes or invent answers?',
+    // 25/09/2026 : unsourced "hallucinations reduced to less than 2%" removed.
     answer:
-      "Every AI system has limits. That is why DKDP configures each chatbot with guardrails: it answers only from your validated content (RAG with a confidence threshold), and transfers to a human when the question exceeds its scope. We test rigorously before going live with a corpus of 50 to 100 business questions. Hallucinations are reduced to less than 2% on DKDP 2026 use cases.",
+      "Every AI system has limits. That is why DKDP configures each chatbot with guardrails: it answers only from your validated content (RAG with a confidence threshold), and transfers to a human when the question exceeds its scope. We test rigorously before going live with a corpus of 50 to 100 business questions. These guardrails greatly reduce the risk of an invented answer, even if they cannot remove it entirely.",
   },
   {
     question: 'Who maintains the chatbot after launch?',
+    // 25/09/2026 : price from PRIX.
     answer:
-      "DKDP offers monthly follow-up included in the Pro and Custom packages (3 months included). We analyse the conversations, adjust the answers, add new content based on your feedback. You have nothing technical to manage. Beyond that, ongoing monthly maintenance from CHF 250/month (logs, monitoring, prompt adjustments, adding new FAQs).",
+      `DKDP offers monthly follow-up included in the Pro and Custom packages (3 months included). We analyse the conversations, adjust the answers, add new content based on your feedback. You have nothing technical to manage. Beyond that, ongoing monthly maintenance from ${chf(PRIX.chatbotMaintenanceMonthly)}/month (logs, monitoring, prompt adjustments, adding new FAQs).`,
   },
   {
     question: 'Can the chatbot be connected to my existing tools?',
@@ -159,39 +164,38 @@ const FAQ = [
   },
   {
     question: 'Does the chatbot replace my team?',
+    // 25/09/2026 : unsourced "40 to 60% of their time on level 1 tickets" removed.
     answer:
-      "No, and that is not the goal. The chatbot handles repetitive requests and the hours when no one is available. Your team focuses on the high-value exchanges. It is a tool, not a replacement. On DKDP 2026 deployments, support teams free up on average 40 to 60% of their time on level 1 tickets.",
+      "No, and that is not the goal. The chatbot handles repetitive requests and the hours when no one is available. Your team focuses on the high-value exchanges. It is a tool, not a replacement.",
   },
 ]
 
+// 25/09/2026 : unsourced "80%", "-60%" and "3x" metrics removed. Each card
+// keeps a benefit without a figure; "24/7" stays, it is a feature of the offer.
 const PROBLEMS = [
   {
     Icon: MessageCircle,
     problem: 'The same questions come back every day',
     solution: 'Your chatbot answers common requests instantly: opening hours, pricing, availability, procedures. Your team no longer repeats the same answers.',
-    metric: '80%',
-    metricLabel: 'of common questions handled automatically',
+    benefit: 'Common questions handled automatically',
   },
   {
     Icon: Clock,
     problem: 'You lose clients outside business hours',
     solution: 'A prospect who asks a question at 10 pm gets an immediate answer. They do not go elsewhere. The chatbot qualifies the lead and passes it to you the next morning, ready to be contacted.',
-    metric: '24/7',
-    metricLabel: 'availability at no extra cost',
+    benefit: '24/7 availability at no extra cost',
   },
   {
     Icon: Users,
     problem: 'Onboarding new clients takes too much time',
     solution: 'The chatbot guides each new client through your steps: documents to provide, forms to fill in, appointments to book. Your onboarding becomes smooth and self-service.',
-    metric: '-60%',
-    metricLabel: 'of time spent on onboarding',
+    benefit: 'Less time spent on onboarding',
   },
   {
     Icon: CalendarCheck,
     problem: 'Booking appointments creates back-and-forth',
     solution: 'The chatbot directly offers your available slots and confirms the booking. No more coordination emails, no more "When are you available?".',
-    metric: '3x',
-    metricLabel: 'more appointments booked after hours',
+    benefit: 'Appointments booked even after hours',
   },
 ]
 
@@ -255,10 +259,11 @@ const INDUSTRIES = [
   },
 ]
 
+// 25/09/2026 : prices from PRIX; chf() already includes "CHF".
 const OFFERS = [
   {
     name: 'Essential',
-    price: '2\'900',
+    price: chf(PRIX.chatbotEssentiel),
     desc: 'For businesses that want to answer frequent questions without tying up their team.',
     features: [
       'Chatbot on your website',
@@ -272,7 +277,7 @@ const OFFERS = [
   },
   {
     name: 'Pro',
-    price: '5\'500',
+    price: chf(PRIX.chatbotPro),
     desc: 'For businesses that want to automate appointment booking and qualify their leads.',
     features: [
       'Everything included in Essential',
@@ -312,6 +317,7 @@ export default function ChatbotIAPage() {
   return (
     <main>
       {/* ── Schema.org ── */}
+      {/* 25/09/2026 : JSON-LD prices from PRIX. */}
       <SchemaOrg
         schema={buildServiceWithLocalBusiness({
           name: 'Custom AI chatbot Geneva & French-speaking Switzerland',
@@ -319,8 +325,8 @@ export default function ChatbotIAPage() {
           description:
             'Design and deployment of custom AI chatbots for SMBs in Geneva and French-speaking Switzerland. Powered by Claude Opus 5 (Anthropic), GPT-6 Astra (OpenAI) or Gemini 3.8 (Google). WhatsApp Business, website and Messenger integration. RAG over a private knowledge base. FADP 2023 compliant, Swiss hosting available.',
           serviceType: 'Custom AI chatbot development',
-          priceFrom: 2900,
-          priceSpecDescription: "From CHF 2'900 for an Essential chatbot deployed in 2 weeks",
+          priceFrom: PRIX.chatbotEssentiel,
+          priceSpecDescription: `From ${chf(PRIX.chatbotEssentiel)} for an Essential chatbot deployed in 2 weeks`,
           lang: 'en',
         })}
       />
@@ -336,7 +342,7 @@ export default function ChatbotIAPage() {
         schema={buildWebPageWithSpeakable({
           name: 'Custom AI chatbot for businesses in French-speaking Switzerland',
           url: '/en/artificial-intelligence/ai-chatbot',
-          description: 'DKDP designs and deploys custom AI chatbots for SMBs in Geneva. 24/7 customer support, lead qualification, automatic appointment booking. From CHF 2900, deployed in 2 to 5 weeks.',
+          description: `DKDP designs and deploys custom AI chatbots for SMBs in Geneva. 24/7 customer support, lead qualification, automatic appointment booking. From ${chf(PRIX.chatbotEssentiel)}, deployed in 2 to 5 weeks.`,
           lang: 'en',
         })}
       />
@@ -355,7 +361,7 @@ export default function ChatbotIAPage() {
             {
               '@type': 'Offer',
               name: 'Essential chatbot',
-              price: '2900',
+              price: String(PRIX.chatbotEssentiel),
               priceCurrency: 'CHF',
               availability: 'https://schema.org/InStock',
               itemCondition: 'https://schema.org/NewCondition',
@@ -367,7 +373,7 @@ export default function ChatbotIAPage() {
             {
               '@type': 'Offer',
               name: 'Pro chatbot',
-              price: '5500',
+              price: String(PRIX.chatbotPro),
               priceCurrency: 'CHF',
               availability: 'https://schema.org/InStock',
               itemCondition: 'https://schema.org/NewCondition',
@@ -379,15 +385,15 @@ export default function ChatbotIAPage() {
             {
               '@type': 'Offer',
               name: 'Custom chatbot',
-              price: '8000',
+              price: String(PRIX.chatbotSurMesureFrom),
               priceCurrency: 'CHF',
               availability: 'https://schema.org/InStock',
               itemCondition: 'https://schema.org/NewCondition',
               priceSpecification: {
                 '@type': 'PriceSpecification',
-                minPrice: '8000',
+                minPrice: String(PRIX.chatbotSurMesureFrom),
                 priceCurrency: 'CHF',
-                description: 'From CHF 8,000, on quote',
+                description: `From ${chf(PRIX.chatbotSurMesureFrom)}, on quote`,
               },
               description: 'Multi-channel, multilingual chatbot, connected to CRM/ERP, ongoing follow-up. On quote.',
               url: 'https://dkdp.ch/en/artificial-intelligence/ai-chatbot#offres',
@@ -420,10 +426,11 @@ export default function ChatbotIAPage() {
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Not a generic chatbot. An assistant that <GradText as="span">knows your business</GradText>.
                 </p>
+                {/* 25/09/2026 : price from PRIX. */}
                 <p data-speakable className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP designs custom AI chatbots for SMBs in Geneva and French-speaking Switzerland.
                   Not a generic widget: an intelligent virtual assistant designed for your business, your questions
-                  and your clients. Deployed on your site in 2 to 5 weeks, from CHF 2&apos;900.
+                  and your clients. Deployed on your site in 2 to 5 weeks, from {chf(PRIX.chatbotEssentiel)}.
                 </p>
                 <HeroPills
                   accentRgb="212, 212, 216"
@@ -448,6 +455,7 @@ export default function ChatbotIAPage() {
               </div>
 
               {/* Chat mockup */}
+              {/* 25/09/2026 : "Example" label added, the conversation is a mockup. */}
               <div className="relative">
                 <div className="mb-6 lg:mb-8" aria-label="AI models we integrate into your chatbots">
                   <AppLogoMarquee
@@ -476,7 +484,13 @@ export default function ChatbotIAPage() {
                       <p className="text-text text-sm font-semibold">Your Company Assistant</p>
                       <p className="text-text-muted text-xs">Online</p>
                     </div>
-                    <div className="ml-auto w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                    <span
+                      className="ml-auto px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider text-text-muted"
+                      style={{ border: `1px solid ${bd}` }}
+                    >
+                      Example
+                    </span>
+                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                   </div>
 
                   {/* Messages */}
@@ -558,14 +572,17 @@ export default function ChatbotIAPage() {
 
 
       {/* ── Stats ── */}
+      {/* 25/09/2026 : unsourced "80% questions automated from the first month" removed,
+          replaced by the included follow-up (1 month Essential, 3 months Pro and Custom).
+          Price from PRIX. */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: '24/7', l: 'Availability', sub: 'At no extra cost' },
               { v: '2-5 wks', l: 'Deployment time', sub: 'Turnkey' },
-              { v: '80%', l: 'Questions automated', sub: 'From the first month' },
-              { v: 'CHF 2\'900', l: 'Starting from', sub: 'Fixed quote, no surprises' },
+              { v: '1-3 months', l: 'Follow-up included', sub: 'Depending on the package' },
+              { v: chf(PRIX.chatbotEssentiel), l: 'Starting from', sub: 'Fixed quote, no surprises' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -619,17 +636,17 @@ export default function ChatbotIAPage() {
                   className="rounded-xl p-6 h-full"
                   style={{ background: 'rgba(212,212,216,0.04)', border: `1px solid ${bd}` }}
                 >
+                  {/* 25/09/2026 : figure removed, the icon carries a benefit without a figure. */}
                   <div className="flex items-center gap-3 mb-4">
                     <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center"
+                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
                       style={{ background: bg }}
                     >
                       <item.Icon size={18} style={{ color }} />
                     </div>
-                    <p className="text-2xl font-bold" style={{ color }}>
-                      {item.metric}
+                    <p className="text-sm font-semibold leading-snug flex-1" style={{ color }}>
+                      {item.benefit}
                     </p>
-                    <p className="text-text-muted text-xs flex-1">{item.metricLabel}</p>
                   </div>
                   <p className="text-text font-semibold mb-2">{item.problem}</p>
                   <p className="text-text-secondary text-sm leading-relaxed">{item.solution}</p>
@@ -729,26 +746,26 @@ export default function ChatbotIAPage() {
         </div>
       </section>
 
-      {/* ── ROI Visual ── */}
+      {/* ── Before / After ── */}
+      {/* 25/09/2026 : "ROI … results from the first month" section rewritten as a
+          qualitative before/after. Unsourced "80% of the repetitive requests", "60%
+          reduction in onboarding time" and the 100→20%, 4h→< 30 min, 35→5% bars removed. */}
       <section className="py-24 bg-bg-card border-y border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-12">
-              <GradTag className="mb-4">Measurable impact</GradTag>
+              <GradTag className="mb-4">Concrete impact</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-4">
-                ROI of a smart chatbot: results from the first month
+                What an AI chatbot changes for your team
               </h2>
               <p data-speakable className="text-text-secondary text-lg max-w-2xl mx-auto">
-                A well-designed AI chatbot does not replace your team. It absorbs 80% of
-                the repetitive requests so that your staff can focus on the
-                high-value interactions. Geneva SMBs that deploy a
-                DKDP chatbot see on average 60% reduction in onboarding time
-                and 24/7 client availability at no extra cost.
+                A well-designed AI chatbot does not replace your team: it takes on the
+                repetitive requests, so your staff can focus on the high-value interactions.
+                What is more, your clients get an answer 24/7, at no extra cost.
               </p>
             </div>
           </SectionReveal>
 
-          {/* Inline HTML bar chart: before/after */}
           <SectionReveal delay={0.1}>
             <div
               className="rounded-xl p-6 md:p-8 max-w-3xl mx-auto"
@@ -760,52 +777,39 @@ export default function ChatbotIAPage() {
               >
                 Before / After chatbot
               </p>
-              <div className="space-y-6">
-                {[
-                  { label: 'Repetitive questions handled manually', before: 100, after: 20, unit: '%' },
-                  { label: 'Average response time', before: 100, after: 12, unit: '', beforeLabel: '4h', afterLabel: '< 30 min' },
-                  { label: 'Leads lost outside business hours', before: 35, after: 5, unit: '%' },
-                ].map((row) => (
-                  <div key={row.label}>
-                    <p className="text-text-secondary text-sm mb-2">{row.label}</p>
-                    <div className="space-y-1.5">
-                      {/* Before bar */}
-                      <div className="flex items-center gap-3">
-                        <span className="text-text-muted text-xs w-12 flex-shrink-0">Before</span>
-                        <div className="flex-1 h-4 rounded-full bg-white/[0.04] overflow-hidden">
-                          <div
-                            className="h-full rounded-full"
-                            style={{
-                              width: `${row.before}%`,
-                              background: 'rgba(239,68,68,0.4)',
-                              minWidth: '8%',
-                            }}
-                          />
-                        </div>
-                        <span className="text-text-muted text-xs w-16 text-right flex-shrink-0">
-                          {row.beforeLabel ?? `${row.before}${row.unit}`}
-                        </span>
-                      </div>
-                      {/* After bar */}
-                      <div className="flex items-center gap-3">
-                        <span className="text-text-muted text-xs w-12 flex-shrink-0">After</span>
-                        <div className="flex-1 h-4 rounded-full bg-white/[0.04] overflow-hidden">
-                          <div
-                            className="h-full rounded-full"
-                            style={{
-                              width: `${row.after}%`,
-                              background: 'rgba(124,58,237,0.6)',
-                              minWidth: '4%',
-                            }}
-                          />
-                        </div>
-                        <span className="text-xs w-16 text-right flex-shrink-0" style={{ color: violet.color }}>
-                          {row.afterLabel ?? `${row.after}${row.unit}`}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <div>
+                  <p className="text-text-muted text-xs font-semibold mb-3">Before</p>
+                  <ul className="space-y-3">
+                    {[
+                      'Your team answers the same questions by hand, day after day.',
+                      'A request sent in the evening waits until the office opens.',
+                      'A prospect left without an answer may go elsewhere.',
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <span className="mt-[7px] w-1.5 h-1.5 rounded-full flex-shrink-0 bg-text-muted" />
+                        <span className="text-text-secondary text-sm leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold mb-3" style={{ color: violet.color }}>
+                    After
+                  </p>
+                  <ul className="space-y-3">
+                    {[
+                      'The chatbot answers common questions from your validated content.',
+                      'The visitor gets an immediate answer, at any hour.',
+                      'The chatbot qualifies the prospect and passes their details on to you.',
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <CheckCircle2 size={15} className="mt-0.5 flex-shrink-0" style={{ color: violet.color }} />
+                        <span className="text-text text-sm leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </SectionReveal>
@@ -973,6 +977,7 @@ export default function ChatbotIAPage() {
               }}
             >
               {/* Dashboard header */}
+              {/* 25/09/2026 : "Example" label added, the mockup figures and leads are fictitious. */}
               <div className="flex items-center justify-between mb-6 pb-4" style={{ borderBottom: `1px solid ${bd}` }}>
                 <div className="flex items-center gap-3">
                   <div
@@ -982,7 +987,15 @@ export default function ChatbotIAPage() {
                     <Activity size={16} style={{ color }} />
                   </div>
                   <div>
-                    <p className="text-text font-semibold text-sm">Chatbot dashboard</p>
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <p className="text-text font-semibold text-sm">Chatbot dashboard</p>
+                      <span
+                        className="px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider text-text-muted"
+                        style={{ border: `1px solid ${bd}` }}
+                      >
+                        Example
+                      </span>
+                    </div>
                     <p className="text-text-muted text-xs">Last 7 days · private access</p>
                   </div>
                 </div>
@@ -1187,9 +1200,9 @@ export default function ChatbotIAPage() {
                     </div>
                   )}
                   <h3 className="text-text text-xl font-bold mb-1">{offer.name}</h3>
+                  {/* 25/09/2026 : the price already carries "CHF" (chf), no more prefix. */}
                   <p className="mb-4">
                     <span className="text-3xl font-bold" style={{ color }}>
-                      {offer.price.startsWith('On') ? '' : 'CHF '}
                       {offer.price}
                     </span>
                     {!offer.price.startsWith('On') && (

@@ -90,9 +90,10 @@ const schemas = [
       question: 'Does my site need to be based in Switzerland to qualify for the audit?',
       answer: "No. We audit Swiss, French and Belgian sites. Our specialty remains the local SEO context of French-speaking Switzerland: competition on Geneva queries, multilingual strategy (FR/DE/IT), local search behaviours and Google Maps visibility for shops and service providers.",
     },
+    // 25/09/2026 : « +240% organic traffic at 6 months on average » retiré, aucune source.
     {
       question: 'What happens after the SEO audit?',
-      answer: "Nothing, if you do not want to continue. You receive your report, it is entirely yours. If you want us to work on your SEO, we send you a costed and prioritised action plan. Our SEO clients observe an average of +240% organic traffic at 6 months. But the decision and the timing remain entirely yours.",
+      answer: "Nothing, if you do not want to continue. You receive your report, it is entirely yours. If you want us to work on your SEO, we send you a costed and prioritised action plan. The decision and the timing nonetheless remain entirely yours.",
     },
   ]),
 ]
@@ -199,9 +200,12 @@ const STEPS = [
   },
 ]
 
+// 25/09/2026 : « 300+ sites audited » et « 87% of sites have a blocking
+// technical issue » retirés, aucune source. Remplacés par le contenu du
+// rapport et la note de la fiche Google.
 const STATS = [
-  { value: '300+', label: 'sites audited in French-speaking Switzerland' },
-  { value: '87%', label: 'of sites have a blocking technical issue' },
+  { value: '6', label: 'dimensions analysed in the report' },
+  { value: '5.0/5', label: 'Google rating, 22 reviews' },
   { value: '48h', label: 'maximum delivery time guaranteed' },
 ]
 
@@ -234,9 +238,10 @@ const FAQ_ITEMS = [
     q: 'Does my site need to be based in Switzerland to qualify for the audit?',
     a: "No. We audit Swiss, French and Belgian sites. Our specialty remains the local SEO context of French-speaking Switzerland: competition on Geneva queries, multilingual strategy (FR/DE/IT), local search behaviours and Google Maps visibility for shops and service providers.",
   },
+  // 25/09/2026 : « +240% organic traffic at 6 months on average » retiré, aucune source.
   {
     q: 'What happens after the SEO audit?',
-    a: "Nothing, if you do not want to continue. You receive your report, it is entirely yours. If you want us to work on your SEO, we send you a costed and prioritised action plan. Our SEO clients observe an average of +240% organic traffic at 6 months. But the decision and the timing remain entirely yours.",
+    a: "Nothing, if you do not want to continue. You receive your report, it is entirely yours. If you want us to work on your SEO, we send you a costed and prioritised action plan. The decision and the timing nonetheless remain entirely yours.",
   },
 ]
 
@@ -441,12 +446,12 @@ export default function AuditSEOPage() {
         </div>
       </section>
 
-      {/* Section 5 : Stats + Testimonial */}
-      <section aria-label="Figures and testimonial" className="py-20 px-6">
+      {/* Section 5 : Stats (25/09/2026 : témoignage anonyme « 8 keywords, first page for 6 within 4 months » supprimé, aucune source) */}
+      <section aria-label="The audit in figures" className="py-20 px-6">
         <div className="max-w-[1100px] mx-auto">
           {/* Stats */}
           <SectionReveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {STATS.map((stat) => (
                 <div
                   key={stat.value}
@@ -465,32 +470,6 @@ export default function AuditSEOPage() {
                 </div>
               ))}
             </div>
-          </SectionReveal>
-
-          {/* Testimonial */}
-          <SectionReveal delay={0.1}>
-            <figure
-              className="rounded-[20px] border p-8 md:p-10 max-w-2xl mx-auto text-center"
-              style={{
-                background: chromeBg,
-                borderColor: chromeBd,
-              }}
-            >
-              {/* Quote mark */}
-              <span
-                className="block text-5xl font-serif leading-none mb-4 select-none"
-                style={{ color: violet, opacity: 0.5 }}
-                aria-hidden="true"
-              >
-                &ldquo;
-              </span>
-              <blockquote className="text-text text-base md:text-lg leading-relaxed font-medium mb-6">
-                The DKDP SEO audit revealed we were absent on all 8 of our main keywords. 4 months later, we are on the first page for 6 of them.
-              </blockquote>
-              <figcaption className="text-text-muted text-sm">
-                Sales director, Geneva SMB
-              </figcaption>
-            </figure>
           </SectionReveal>
         </div>
       </section>

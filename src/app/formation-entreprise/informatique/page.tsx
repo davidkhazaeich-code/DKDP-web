@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { PRIX, chfHeure } from '@/data/pricing'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Star, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, Zap } from 'lucide-react'
+import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, Zap } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -44,8 +44,9 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     question: 'À quoi sert une formation informatique générale en entreprise ?',
+    // 25/09/2026 : « 30 minutes par jour et par personne » retiré, aucune source.
     answer:
-      'Beaucoup d\'employés utilisent leur ordinateur depuis des années sans maîtriser les bases qui font vraiment gagner du temps : raccourcis clavier, organisation des fichiers, outils de collaboration, sauvegardes automatiques. Une demi-journée de formation peut faire économiser 30 minutes par jour et par personne.',
+      'Beaucoup d\'employés utilisent leur ordinateur depuis des années sans maîtriser les bases qui font vraiment gagner du temps : raccourcis clavier, organisation des fichiers, outils de collaboration, sauvegardes automatiques. La formation installe ces réflexes dès une demi-journée, directement sur les machines des participants.',
   },
   {
     question: 'La formation couvre-t-elle Windows et Mac ?',
@@ -175,10 +176,13 @@ export default function FormationInformatiquePage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '-40%', l: 'Tickets IT réduits', sub: 'Après formation des équipes' },
-              { v: '2h/sem', l: 'Gagnées', sub: 'Par collaborateur formé' },
-              { v: '95%', l: 'Autonomie', sub: 'Sur tâches informatiques courantes' },
-              { v: '15 ans', l: "D'expérience IT", sub: 'Genève et Suisse romande' },
+              // 25/09/2026 : « -40 % de tickets IT », « 2h/sem gagnées », « 95 % d'autonomie » et
+              // « 15 ans d'expérience IT » retirés, aucune source (DKDP fondée en 2019).
+              // Faits de la grille à la place, comme sur la page formation IA.
+              { v: '1 à 10', l: 'Personnes par session', sub: 'Groupe sur devis dès 3' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
+              { v: '3 h ou 6 h', l: 'Demi-journée ou journée', sub: 'Plus 1 h ou 2 h de préparation' },
+              { v: chf(PRIX.formationHourly1), l: 'De l\'heure, pour une personne', sub: `${chfHeure(PRIX.formationHourly2)} pour deux, groupes sur devis` },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -231,10 +235,11 @@ export default function FormationInformatiquePage() {
               <p className="text-text-secondary leading-relaxed mb-8">
                 DKDP forme vos équipes sur leurs machines réelles, avec leurs vrais problèmes. Résultat : une autonomie immédiate, moins de tickets IT, et des collaborateurs qui gagnent en confiance et en efficacité dès le lendemain de la formation.
               </p>
+              {/* 25/09/2026 : « -40 % de tickets IT » et « 2 heures par semaine » réécrits sans chiffre, aucune source. */}
               <div className="space-y-3">
                 {[
-                  'Les équipes formées réduisent leurs tickets IT de 40% en moyenne',
-                  'Chaque collaborateur formé gagne 2 heures par semaine sur des tâches courantes',
+                  'Une équipe formée règle seule les petits blocages du quotidien et sollicite moins le support IT',
+                  'Chaque collaborateur apprend les raccourcis et les réglages qui accélèrent ses tâches courantes',
                   'Chaque participant repart avec une fiche de procédures propre à son poste',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -265,8 +270,9 @@ export default function FormationInformatiquePage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Programme de la formation informatique en entreprise
               </h2>
+              {/* 25/09/2026 : « un fichier en 5 secondes » et « 100 emails en 10 minutes » retirés, aucune mesure derrière. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                La plupart des formations informatiques passent trop de temps sur la théorie. DKDP se concentre sur les gestes quotidiens qui font la différence : comment trouver un fichier en 5 secondes, partager un document sans créer 4 versions, ou trier 100 emails en 10 minutes.
+                La plupart des formations informatiques passent trop de temps sur la théorie. DKDP se concentre sur les gestes quotidiens qui font la différence : comment retrouver un fichier sans le chercher partout, partager un document sans en multiplier les versions, ou trier une boîte mail saturée.
               </p>
               <p className="text-text-secondary leading-relaxed">
                 La formation est adaptée à votre environnement (Windows, Mac, Google Workspace, Microsoft 365) et au niveau réel de vos équipes. On commence là où vous en êtes.
@@ -353,59 +359,7 @@ export default function FormationInformatiquePage() {
 
       <FormationTrainer accentColor='#FF8C00' />
 
-      {/* ── Témoignages ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Retours après la formation informatique
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                quote: 'Nos employés appelaient le support IT 15 fois par semaine pour des problèmes basiques. Après la formation, c\'est 4 fois. Et ce sont de vrais problèmes.',
-                name: 'Jean-Pierre L., Responsable IT',
-                company: 'PME 60 personnes, Genève',
-                stars: 5,
-              },
-              {
-                quote: 'On a formé nos 8 assistantes administratives. Elles gèrent maintenant leurs sauvegardes, leur réseau et leurs emails en autonomie complète.',
-                name: 'Isabelle C., DRH',
-                company: 'Cabinet médical, Lausanne',
-                stars: 5,
-              },
-              {
-                quote: 'À 58 ans, j\'avais honte de poser des questions basiques à mes collègues. La formation de DKDP m\'a rendu autonome sans me juger.',
-                name: 'Patrick S., Collaborateur',
-                company: 'Secteur public, Genève',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : témoignages anonymes retirés (Jean-Pierre L., Isabelle C., Patrick S.), aucune source. Les vrais avis Google sont dans FormationTrainer. */}
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">

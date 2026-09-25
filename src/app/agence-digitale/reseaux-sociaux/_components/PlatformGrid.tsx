@@ -1,3 +1,7 @@
+// 25/09/2026 : « 4.7% engagement moyen », « +320% portée organique », « Ads CPM
+// -40% vs Google », « 8.5% taux de complétion », « 2e moteur de recherche
+// mondial » et les tranches d'âge (35-55, 18-35 ans) retirés, aucune source.
+// Chaque carte donne désormais les formats travaillés sur la plateforme.
 export function PlatformGrid() {
   const platforms = [
     {
@@ -6,7 +10,7 @@ export function PlatformGrid() {
       bg: 'rgba(225,48,108,0.10)',
       border: 'rgba(225,48,108,0.25)',
       useCase: 'Lifestyle, e-commerce, B2C',
-      metric: '4.7% engagement moyen',
+      formats: 'Reels, carrousels et Stories',
     },
     {
       name: 'LinkedIn',
@@ -14,23 +18,23 @@ export function PlatformGrid() {
       bg: 'rgba(10,102,194,0.10)',
       border: 'rgba(10,102,194,0.25)',
       useCase: 'B2B, recrutement, thought leadership',
-      metric: '+320% portée organique',
+      formats: 'Posts experts et carrousels',
     },
     {
       name: 'Facebook',
       color: '#1877F2',
       bg: 'rgba(24,119,242,0.10)',
       border: 'rgba(24,119,242,0.25)',
-      useCase: 'Communauté locale, 35-55 ans',
-      metric: 'Ads CPM -40% vs Google',
+      useCase: 'Communauté locale, événements',
+      formats: 'Groupes, événements et Meta Ads',
     },
     {
       name: 'TikTok',
       color: '#FF0050',
       bg: 'rgba(255,0,80,0.08)',
       border: 'rgba(255,0,80,0.22)',
-      useCase: 'Viralité, 18-35 ans, discovery',
-      metric: '8.5% taux de complétion',
+      useCase: 'Viralité, public jeune, discovery',
+      formats: 'Vidéos courtes et tendances',
     },
     {
       name: 'YouTube',
@@ -38,7 +42,7 @@ export function PlatformGrid() {
       bg: 'rgba(255,0,0,0.08)',
       border: 'rgba(255,0,0,0.22)',
       useCase: 'SEO vidéo, tutoriels, brand film',
-      metric: '2e moteur de recherche mondial',
+      formats: 'Vidéos longues et Shorts',
     },
   ]
   return (
@@ -53,7 +57,7 @@ export function PlatformGrid() {
             {p.name}
           </p>
           <p className="text-text text-[12px] font-semibold leading-snug mb-1">{p.useCase}</p>
-          <p className="text-text-muted text-[11px]">{p.metric}</p>
+          <p className="text-text-muted text-[11px]">{p.formats}</p>
         </div>
       ))}
     </div>

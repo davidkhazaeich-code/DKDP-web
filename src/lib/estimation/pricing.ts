@@ -16,6 +16,7 @@ import type {
   EstimationState,
   PriceEstimate,
 } from './types'
+import { PRIX } from '@/data/pricing'
 
 // ── Base prices ──
 
@@ -105,7 +106,8 @@ export const FEATURE_PRICES: Record<FeatureId, { min: number; max: number; month
   form: { min: 400, max: 400, monthly: 0 },
   booking: { min: 1200, max: 1200, monthly: 0 },
   members: { min: 2000, max: 2000, monthly: 0 },
-  chatbot: { min: 1500, max: 1500, monthly: 0 },
+  // 25/09/2026 : option chatbot depuis PRIX.chatbotOptionSite (module ajouté à un site DKDP).
+  chatbot: { min: PRIX.chatbotOptionSite, max: PRIX.chatbotOptionSite, monthly: 0 },
   payment: { min: 1800, max: 1800, monthly: 0 },
   newsletter: { min: 300, max: 300, monthly: 0 },
   gallery: { min: 500, max: 500, monthly: 0 },

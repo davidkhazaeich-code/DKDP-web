@@ -17,9 +17,10 @@ const SKILLS = [
           <span style={{ color: 'var(--orange-text)' }}>{'>'}</span>
           <span className="text-text-secondary">Act as a senior HR expert. Analyse this resume...</span>
         </div>
+        {/* 25/09/2026 : "in 30s instead of 15min" removed, no measurement behind it. */}
         <div className="flex items-center gap-2">
           <span style={{ color: 'var(--green-text)' }}>{'✓'}</span>
-          <span className="text-text">Structured summary in 30s instead of 15min</span>
+          <span className="text-text">Structured summary instead of a line-by-line read</span>
         </div>
       </div>
     ),
@@ -74,14 +75,16 @@ const SKILLS = [
   {
     Icon: Zap,
     title: 'Daily automations',
-    desc: 'Emails, meeting notes, summaries, translations, client replies. Repetitive tasks go from 15 minutes to 30 seconds.',
+    // 25/09/2026 : "from 15 minutes to 30 seconds" and the before/after timings removed,
+    // no measurement behind them. Qualitative before/after instead.
+    desc: 'Emails, meeting notes, summaries, translations, client replies. AI prepares a first draft, then you review and adjust it.',
     span: '',
     visual: (
       <div className="mt-4 flex flex-col gap-1.5">
         {[
-          { task: 'Complex client email', before: '15 min', after: '45s' },
-          { task: 'Meeting notes', before: '25 min', after: '2 min' },
-          { task: 'Report summary', before: '45 min', after: '1 min' },
+          { task: 'Complex client email', before: 'From scratch', after: 'First draft' },
+          { task: 'Meeting minutes', before: 'Raw notes', after: 'Structured text' },
+          { task: 'Report summary', before: 'Read it all', after: 'Key points' },
         ].map((r) => (
           <div key={r.task} className="flex items-center justify-between text-[10px]">
             <span className="text-text-secondary">{r.task}</span>

@@ -33,6 +33,9 @@ const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 
 // Inline English mirror of ./_components/PlatformGrid (FR component renders French).
+// 25/09/2026 : « 4.7% average engagement », « +320% organic reach », « Ads CPM
+// -40% vs Google », « 8.5% completion rate », « 2nd largest search engine » et les
+// tranches d'âge (35-55, 18-35) retirés, aucune source. Formats travaillés à la place.
 function PlatformGrid() {
   const platforms = [
     {
@@ -41,7 +44,7 @@ function PlatformGrid() {
       bg: 'rgba(225,48,108,0.10)',
       border: 'rgba(225,48,108,0.25)',
       useCase: 'Lifestyle, e-commerce, B2C',
-      metric: '4.7% average engagement',
+      formats: 'Reels, carousels and Stories',
     },
     {
       name: 'LinkedIn',
@@ -49,23 +52,23 @@ function PlatformGrid() {
       bg: 'rgba(10,102,194,0.10)',
       border: 'rgba(10,102,194,0.25)',
       useCase: 'B2B, recruitment, thought leadership',
-      metric: '+320% organic reach',
+      formats: 'Expert posts and carousels',
     },
     {
       name: 'Facebook',
       color: '#1877F2',
       bg: 'rgba(24,119,242,0.10)',
       border: 'rgba(24,119,242,0.25)',
-      useCase: 'Local community, ages 35-55',
-      metric: 'Ads CPM -40% vs Google',
+      useCase: 'Local community, events',
+      formats: 'Groups, events and Meta Ads',
     },
     {
       name: 'TikTok',
       color: '#FF0050',
       bg: 'rgba(255,0,80,0.08)',
       border: 'rgba(255,0,80,0.22)',
-      useCase: 'Virality, ages 18-35, discovery',
-      metric: '8.5% completion rate',
+      useCase: 'Virality, younger audience, discovery',
+      formats: 'Short videos and trends',
     },
     {
       name: 'YouTube',
@@ -73,7 +76,7 @@ function PlatformGrid() {
       bg: 'rgba(255,0,0,0.08)',
       border: 'rgba(255,0,0,0.22)',
       useCase: 'Video SEO, tutorials, brand film',
-      metric: '2nd largest search engine worldwide',
+      formats: 'Long-form videos and Shorts',
     },
   ]
   return (
@@ -88,7 +91,7 @@ function PlatformGrid() {
             {p.name}
           </p>
           <p className="text-text text-[12px] font-semibold leading-snug mb-1">{p.useCase}</p>
-          <p className="text-text-muted text-[11px]">{p.metric}</p>
+          <p className="text-text-muted text-[11px]">{p.formats}</p>
         </div>
       ))}
     </div>
@@ -118,8 +121,9 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     question: 'How much does social media management by an agency in Geneva cost?',
+    // 25/09/2026 : prix de départ lu dans src/data/pricing (PRIX.socialFrom), plus en dur.
     answer:
-      'A social media management package at DKDP starts at CHF 450/month for a single platform. A presence across 3 networks with video content and Meta Ads is around CHF 900/month. The Full Social package at CHF 1\'600/month covers 5 platforms with 7-day community management.',
+      `A social media management package at DKDP starts at ${chf(PRIX.socialFrom)}/month for a single platform. A presence across 3 networks with video content and Meta Ads is around CHF 900/month. The Full Social package at CHF 1'600/month covers 5 platforms with 7-day community management.`,
   },
   {
     question: 'Which social networks does DKDP work on?',
@@ -160,17 +164,20 @@ const BENEFITS = [
     title: 'A presence that lasts',
     desc: 'An editorial calendar kept every week and tailored to each platform, rather than one-off posts whenever time allows.'
   },
+  // 25/09/2026 : « 12h/wk » de temps libéré et portée « x3.2 » (« multiplied by 3
+  // to 4 ») retirés, aucune source. Le temps de gestion reste cité, avec sa
+  // source (HubSpot), dans la section « The real problem ».
   {
     Icon: Clock,
-    value: '12h/wk',
+    value: 'Turnkey',
     title: 'Your time freed up',
-    desc: 'Creating quality content takes 12 to 15 hours per week. DKDP handles everything so you can focus on your core business.',
+    desc: 'Creating quality content takes time every week. DKDP handles everything so you can focus on your core business.',
   },
   {
     Icon: Users,
-    value: 'x3.2',
+    value: 'Multichannel',
     title: 'Amplified reach',
-    desc: 'With a consistent multi-platform strategy, the reach of your messages is multiplied by 3 to 4 compared to ad hoc management.',
+    desc: 'With a consistent multi-platform strategy, each message reaches more people than with ad hoc management.',
   },
 ]
 
@@ -466,7 +473,8 @@ export default function ReseauxSociauxPage() {
             {[
               {
                 label: 'Starter',
-                price: 'CHF 450/month',
+                // 25/09/2026 : « CHF 450/month » en dur remplacé par PRIX.socialFrom.
+                price: `${chf(PRIX.socialFrom)}/month`,
                 duration: '1 platform',
                 features: [
                   '12 posts/month',
@@ -644,8 +652,9 @@ export default function ReseauxSociauxPage() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color }}>Complementary service</p>
                   <p className="text-text font-bold text-lg leading-tight">Professional video production</p>
+                  {/* 25/09/2026 : « perform 2.7x better with video » retiré, aucune source. */}
                   <p className="text-text-muted text-[12.5px] mt-1 max-w-md">
-                    Social networks perform 2.7x better with video. Discover our professional video production service to amplify your presence.
+                    Video formats, Reels and Stories, sit at the heart of social networks. Discover our professional video production service to amplify your presence.
                   </p>
                 </div>
               </div>

@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 const PROGRAMS = [
   {
     Icon: BrainCircuit, title: 'Corporate AI training', href: '/en/corporate-training/ai',
-    description: 'ChatGPT, Claude, Copilot: learn to integrate AI tools into your daily work and win back 2 hours every day.',
+    description: 'ChatGPT, Claude, Copilot: learn to integrate AI tools into your daily work and save time every day.',
     badge: 'Trending',
     image: '/images/services/dkdp-formation-ia.webp',
   },
@@ -85,7 +85,7 @@ const PROGRAMS = [
   },
   {
     Icon: Wand2, title: 'Canva training', href: '/en/corporate-training/canva',
-    description: 'Build professional visuals in 5 minutes. Brand Kit, templates, social posts, presentations and Magic Studio AI.',
+    description: 'Build professional visuals in a few minutes. Brand Kit, templates, social posts, presentations and Magic Studio AI.',
     badge: 'Popular',
     image: '/images/services/dkdp-formation-canva.webp',
   },
@@ -233,7 +233,7 @@ export default function EnCorporateTrainingPage() {
                     size="md"
                   />
                 </div>
-                <HeroVisual lang="en" />
+                <HeroVisual lang="en" programCount={PROGRAMS.length} />
               </div>
             </div>
           </div>
@@ -269,23 +269,22 @@ export default function EnCorporateTrainingPage() {
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
+              // 25/09/2026 : unsourced "2h lost every day", "63% of SMBs" and
+              // "3x more productive" removed.
               {
                 Icon: Clock,
-                stat: '2h',
-                title: 'Lost every day',
-                desc: 'That is the average time a team member loses on digital tasks they have only mastered at 60%. Shortcuts, cloud, email: a half-day is enough to change everything.',
+                title: 'Time lost every day',
+                desc: 'A team member who struggles with their tools hunts for files, rebuilds spreadsheets and retypes emails. A few well-learnt shortcuts already change their day.',
               },
               {
                 Icon: BarChart2,
-                stat: '63%',
-                title: 'Of SMBs are under-equipped',
-                desc: '63% of SMBs report that their team does not master the digital tools at their disposal. Targeted IT training closes that gap fast.',
+                title: 'Under-used tools',
+                desc: 'Many SMBs pay for Microsoft 365 or an AI tool that the team only uses at the surface. Targeted training closes precisely that gap, on the tools already in place.',
               },
               {
                 Icon: Lightbulb,
-                stat: '3x',
-                title: 'More productive after',
-                desc: 'That is the average productivity gain observed after targeted digital training. Not because people work more, but because they work better.',
+                title: 'Better, not more',
+                desc: 'A trained team does not work more, it works better: it automates what repeats and keeps its energy for what matters.',
               },
             ].map((item, i) => (
               <SectionReveal key={item.title} delay={i * 0.1}>
@@ -299,7 +298,6 @@ export default function EnCorporateTrainingPage() {
                   >
                     <item.Icon size={22} style={{ color }} />
                   </div>
-                  <p className="text-[2.2rem] font-bold leading-none" style={{ color }}>{item.stat}</p>
                   <h3 className="text-text font-bold text-lg">{item.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1">{item.desc}</p>
                 </div>
@@ -403,7 +401,7 @@ export default function EnCorporateTrainingPage() {
                 style={{ background: bg, borderColor: border }}
               >
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-6" style={{ color }}>
-                  Typical progress observed in training
+                  Before, during and after the training
                 </p>
                 <ProgressionDiagram lang="en" />
               </div>
@@ -439,16 +437,18 @@ export default function EnCorporateTrainingPage() {
                 after: 'Every team member has their own prompts, saves time every day and understands the limits',
                 tag: 'ChatGPT, Claude, Copilot',
               },
+              // 25/09/2026 : unsourced "4 hours every Monday", "15 minutes",
+              // "zero errors", "3 out of 5" and "zero clicks" removed.
               {
                 title: 'Office tools and Excel',
-                before: 'Reports take 4 hours every Monday morning, manually, with recurring errors',
-                after: 'Automated pivot tables in 15 minutes. Zero data-entry errors',
+                before: 'Every week, the report is put together by hand and the same data-entry errors come back',
+                after: 'Pivot tables prepare the report, and the team checks the figures instead of copying them',
                 tag: 'Excel, Microsoft 365',
               },
               {
                 title: 'Cybersecurity',
-                before: '3 out of 5 team members click on a simulated phishing link in the initial test',
-                after: 'After training: zero clicks in follow-up tests. Reflexes acquired for good',
+                before: 'A well-crafted fake email goes unnoticed, and the same password is used on several accounts',
+                after: 'Everyone spots phishing before clicking and secures their accounts with two-factor authentication',
                 tag: 'Phishing, GDPR, Passwords',
               },
             ].map((c, i) => (

@@ -10,7 +10,6 @@ import {
   Wrench,
   Rocket,
   TrendingUp,
-  Star,
   MessageSquare,
   Zap,
   ShieldCheck,
@@ -28,6 +27,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
@@ -96,10 +96,12 @@ const FAQ_ITEMS = [
     answer:
       "Oui, si vos contraintes réglementaires (nLPD 2023, secret bancaire, secret médical) l'exigent. On déploie alors l'agent sur un VPS Infomaniak en Suisse ou sur votre infrastructure on-premise, avec LangChain/LangGraph pour l'orchestration et Qdrant ou Weaviate self-hosted comme base vectorielle. Les données ne quittent jamais le territoire suisse. Un accord de confidentialité et un DPA (Data Processing Agreement) sont signés avant tout démarrage.",
   },
+  // 25/09/2026 : « 15 heures par semaine », « 100 leads par jour », « 20 à 35 % » et ROI en
+  // 2 à 4 mois retirés, aucune source. La réponse (visible et JSON-LD FAQPage) reste sans chiffre.
   {
     question: "Quel ROI attendre d'un agent IA commercial ?",
     answer:
-      "Sur les déploiements DKDP 2026, un agent de qualification commerciale libère en moyenne 15 heures par semaine sur l'équipe sales, traite plus de 100 leads par jour et améliore le taux de conversion de 20 à 35 % (meilleur scoring, relances plus précises, enrichissement CRM automatique). Le retour sur investissement est généralement atteint entre 2 et 4 mois pour une PME de 5 à 30 collaborateurs. On vous livre une projection ROI chiffrée lors de l'audit initial gratuit.",
+      "Le retour dépend de votre volume de leads, du temps que votre équipe passe aujourd'hui à les trier et de la durée de votre cycle de vente. Un agent de qualification commerciale répond à chaque demande entrante, pose les questions de qualification, enrichit votre CRM et prépare les relances, si bien que votre équipe consacre son temps aux rendez-vous et aux négociations. Plutôt qu'une moyenne toute faite, on établit avec vous une estimation sur vos propres chiffres (volume de leads, temps passé, taux de conversion actuel) avant tout engagement.",
   },
   {
     question: "Combien de temps pour déployer un agent IA sur mesure ?",
@@ -119,8 +121,9 @@ export default function AgentsIAPage() {
           description:
             "Développement d'agents IA autonomes pour PME romandes : assistants virtuels, agents commerciaux, agents de support et RAG. Technologies Claude (Anthropic), GPT-6 Astra (OpenAI), LangChain, LangGraph, n8n. Hébergement Suisse possible, conforme nLPD 2023 et RGPD.",
           serviceType: 'Développement d\'agents IA sur mesure',
-          priceFrom: 2500,
-          priceSpecDescription: 'À partir de CHF 2 500 pour un agent Starter (1 canal, 2 semaines, clé en main)',
+          // 25/09/2026 : prix lu dans src/data/pricing (PRIX.agentFrom), plus en dur.
+          priceFrom: PRIX.agentFrom,
+          priceSpecDescription: `À partir de ${chf(PRIX.agentFrom)} pour un agent Starter (1 canal, 2 semaines, clé en main)`,
         })}
       />
       <SchemaOrg schema={buildFAQPage(FAQ_ITEMS)} />
@@ -220,7 +223,8 @@ export default function AgentsIAPage() {
           <div className="grid grid-cols-3 gap-6 md:gap-12">
             {[
               { value: '24/7', label: 'Disponibilité de l\'agent, sans congés ni erreurs de fatigue' },
-              { value: '90%', label: 'Des requêtes traitées sans intervention humaine' },
+              // 25/09/2026 : « 90 % des requêtes traitées sans intervention humaine » retiré, aucune source.
+              { value: '5,0/5', label: 'Note Google, 22 avis' },
               { value: '2 sem.', label: 'Pour un premier agent opérationnel' },
             ].map((s) => (
               <SectionReveal key={s.label}>
@@ -403,6 +407,9 @@ export default function AgentsIAPage() {
             </div>
           </SectionReveal>
 
+          {/* 25/09/2026 : « 100 leads par jour », « -70 % de tickets », « moins de 3 secondes » et lignes ROI
+              (« 15 h libérées », « CSAT +25 points », « 3 h de reporting ») retirés, aucune source.
+              Le champ `roi` devient `benefit`, un bénéfice qualitatif. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
@@ -414,11 +421,11 @@ export default function AgentsIAPage() {
                 accentBorder: 'rgba(167,139,250,0.20)',
                 pourQui: 'Équipes sales et PME avec des leads entrants',
                 capabilities: [
-                  'Traite plus de 100 leads par jour sans effort humain',
+                  'Reçoit et trie chaque lead entrant',
                   'Pose les questions de qualification selon votre script',
                   'Enrichit HubSpot, Pipedrive ou Salesforce automatiquement',
                 ],
-                roi: '15 h libérées par semaine en moyenne',
+                benefit: 'Votre équipe se concentre sur les leads qualifiés',
               },
               {
                 Icon: MessageSquare,
@@ -429,11 +436,11 @@ export default function AgentsIAPage() {
                 accentBorder: 'rgba(74,222,128,0.18)',
                 pourQui: 'E-commerces, SaaS et services à forte volumétrie',
                 capabilities: [
-                  'Réduit le volume de tickets de 70 % en moyenne',
-                  'Disponible 24 h/24, répond en moins de 3 secondes',
+                  'Répond aux questions fréquentes à partir de votre documentation',
+                  'Disponible 24 h/24, 7 j/7',
                   'Escalade les cas complexes vers Zendesk ou Intercom',
                 ],
-                roi: 'CSAT +25 points en 3 mois',
+                benefit: 'Votre équipe garde son temps pour les cas complexes',
               },
               {
                 Icon: BarChart3,
@@ -448,7 +455,7 @@ export default function AgentsIAPage() {
                   'Produit des rapports lisibles postés dans Slack',
                   'Alerte sur anomalies et tendances critiques',
                 ],
-                roi: '3 h de reporting hebdomadaire éliminées',
+                benefit: 'Vous pilotez avec des données à jour',
               },
             ].map((agent, i) => (
               <SectionReveal key={agent.title} delay={i * 0.1}>
@@ -485,9 +492,9 @@ export default function AgentsIAPage() {
                     style={{ borderColor: agent.accentBorder }}
                   >
                     <p className="text-[11px] font-bold uppercase tracking-wider mb-1" style={{ color: agent.accent }}>
-                      ROI estimé
+                      Bénéfice
                     </p>
-                    <p className="text-text text-sm font-semibold">{agent.roi}</p>
+                    <p className="text-text text-sm font-semibold">{agent.benefit}</p>
                   </div>
                 </div>
               </SectionReveal>
@@ -583,6 +590,7 @@ export default function AgentsIAPage() {
             </div>
           </SectionReveal>
 
+          {/* 25/09/2026 : prix lus dans src/data/pricing (PRIX.agentFrom, PRIX.agentTo), plus en dur. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* Starter */}
             <SectionReveal delay={0.05}>
@@ -595,7 +603,7 @@ export default function AgentsIAPage() {
                     Agent Starter
                   </p>
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-4xl font-bold text-text">CHF 2&apos;500</span>
+                    <span className="text-4xl font-bold text-text">{chf(PRIX.agentFrom)}</span>
                   </div>
                   <p className="text-text-muted text-xs">Tarif fixe, projet clé en main</p>
                 </div>
@@ -639,7 +647,7 @@ export default function AgentsIAPage() {
                     Agent Pro
                   </p>
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-4xl font-bold text-text">CHF 4&apos;900</span>
+                    <span className="text-4xl font-bold text-text">{chf(PRIX.agentTo)}</span>
                   </div>
                   <p className="text-text-muted text-xs">Tarif fixe, projet clé en main</p>
                 </div>
@@ -666,69 +674,7 @@ export default function AgentsIAPage() {
         </div>
       </section>
 
-      {/* ── Temoignages ── */}
-      <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.08)" accentRgb="212,212,216">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Témoignages</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Témoignages clients : agents IA déployés à Genève.
-              </h2>
-            </div>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <SectionReveal delay={0.05}>
-              <div
-                className="flex flex-col h-full rounded-[16px] border p-8"
-                style={{ background: bg, borderColor: border }}
-              >
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={14} fill={color} style={{ color }} />
-                  ))}
-                </div>
-                <p className="text-text-secondary leading-relaxed mb-6 flex-1">
-                  &ldquo;On recevait entre 80 et 120 demandes de devis par semaine. Mon équipe passait
-                  deux jours complets à les trier et qualifier. Aujourd&apos;hui l&apos;agent filtre,
-                  répond et classe dans le CRM en moins d&apos;une minute. On a libéré 18 heures
-                  par semaine sur une tâche qui n&apos;avait aucune valeur ajoutée.&rdquo;
-                </p>
-                <div>
-                  <p className="text-text font-semibold text-sm">Marc-Antoine V.</p>
-                  <p className="text-text-muted text-xs">Directeur commercial, agence immobilière, Genève</p>
-                </div>
-              </div>
-            </SectionReveal>
-
-            <SectionReveal delay={0.1}>
-              <div
-                className="flex flex-col h-full rounded-[16px] border p-8"
-                style={{ background: bg, borderColor: border }}
-              >
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={14} fill={color} style={{ color }} />
-                  ))}
-                </div>
-                <p className="text-text-secondary leading-relaxed mb-6 flex-1">
-                  &ldquo;Notre support client était sous pression : 200 emails par jour, trois personnes
-                  débordées. DKDP a déployé un agent en deux semaines. Aujourd&apos;hui 70% des
-                  demandes sont résolues automatiquement. Nos équipes traitent uniquement les cas
-                  vraiment complexes. Le score de satisfaction a augmenté de 22 points.&rdquo;
-                </p>
-                <div>
-                  <p className="text-text font-semibold text-sm">Sophie B.</p>
-                  <p className="text-text-muted text-xs">Head of Customer Success, SaaS B2B, Lausanne</p>
-                </div>
-              </div>
-            </SectionReveal>
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026 : témoignages anonymes retirés (Marc-Antoine V., Sophie B.), aucune source. */}
 
       {/* ── FAQ ── */}
       <div id="faq" className="scroll-mt-[124px]">

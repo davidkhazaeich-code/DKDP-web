@@ -79,10 +79,13 @@ const SERVICES = [
   },
 ]
 
+// 25/09/2026 : unsourced "10h saved per week on average" and "3 months to a
+// positive ROI" removed. Replaced by the audit price (PRIX) and the Google
+// rating of the DKDP listing.
 const STATS = [
   { value: '2019', label: 'Founded in Geneva' },
-  { value: '10h', label: 'Saved per week on average' },
-  { value: '3 months', label: 'To a positive ROI' },
+  { value: chf(PRIX.auditIaStandard), label: 'Standard AI audit' },
+  { value: '5.0/5', label: 'Google rating, 22 reviews' },
 ]
 
 const BENEFITS = [
@@ -101,9 +104,11 @@ const BENEFITS = [
 ]
 
 const FAQ_IA_EN = [
+  // 25/09/2026 : unsourced "positive ROI within 3 months" and "profitable
+  // within 6 to 12 weeks" removed.
   {
     question: 'How long until we see ROI on an AI project?',
-    answer: 'Most DKDP AI projects reach a positive ROI within 3 months. A typical automation project is profitable within 6 to 12 weeks of going live, depending on the complexity of the processes and the volume handled.',
+    answer: 'It depends on the process and on the volume it handles, so we give no timeline before the audit. The audit estimates the potential of each automation in hours and in CHF, and the monthly follow-up then compares the actual result with the baseline measured before deployment.',
   },
   {
     question: 'Are our data secure with AI?',
@@ -125,9 +130,10 @@ const FAQ_IA_EN = [
     question: 'Can we use a sovereign Swiss AI?',
     answer: 'Yes. For regulated sectors we deploy Infomaniak Euria (Swiss AI hosted in Geneva and Winterthur) or Swisscom Swiss AI Assistant. We can also self-host Mistral Large 2 or Llama 4 on a Swiss VPS. Data never leaves Swiss territory.',
   },
+  // 25/09/2026 : amounts now read from PRIX, same rendered text.
   {
     question: 'How much does an AI project cost?',
-    answer: "An AI audit starts at CHF 490. A business automation between CHF 1'500 and CHF 3'500. A custom AI agent between CHF 2'500 and CHF 4'900. An LLM integration between CHF 3'500 and CHF 6'500. Fixed-quote pricing, no hidden costs.",
+    answer: `An AI audit starts at ${chf(PRIX.auditIaStandard)}. A business automation between ${chf(PRIX.automatisationFrom)} and ${chf(PRIX.automatisationTo)}. A custom AI agent between ${chf(PRIX.agentFrom)} and ${chf(PRIX.agentTo)}. An LLM integration between ${chf(PRIX.llmFrom)} and ${chf(PRIX.llmTo)}. Fixed-quote pricing, no hidden costs.`,
   },
   {
     question: 'How long does an AI project take?',
@@ -265,8 +271,10 @@ export default function EnArtificialIntelligencePage() {
               </p>
               <div className="space-y-3">
                 {[
-                  'Processing time reduction: 85% on average',
-                  'Operating cost divided by 3 on automated processes',
+                  // 25/09/2026 : unsourced "85% on average" and "operating cost
+                  // divided by 3" removed.
+                  'Less manual re-keying on automated processes',
+                  'A prototype tested in real conditions before you validate',
                   'Time to deployment: 2 to 6 weeks depending on complexity',
                   'No extra hiring required',
                 ].map((fact, i) => (
@@ -512,23 +520,28 @@ export default function EnArtificialIntelligencePage() {
         </div>
       </section>
 
+      {/* 25/09/2026 : unsourced KPIs "85%", "10h", "3 wks", "x3.1" and three
+          fictitious cases (real estate agency, HR consultancy, B2B e-commerce)
+          removed. The section now describes how ROI is measured (baseline at
+          the audit, then monthly follow-up) and the tiles reuse offer facts
+          written on this page. */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-14">
-              <GradTag className="mb-4">Measurable ROI</GradTag>
+              <GradTag className="mb-4">Measuring ROI</GradTag>
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Client results: measurable ROI on our AI projects.
+                How we measure the ROI of your AI projects.
               </h2>
             </div>
           </SectionReveal>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14 items-stretch">
             {[
-              { v: '85%', l: 'Processing time reduction', sub: 'On automated processes' },
-              { v: '10h', l: 'Saved per week', sub: 'Per team member on average' },
-              { v: '3 wks', l: 'First prototype delivered', sub: 'In real conditions' },
-              { v: 'x3.1', l: 'Avg. ROI at 6 months', sub: 'Across shipped projects' },
+              { v: chf(PRIX.auditIaStandard), l: 'Standard AI audit', sub: 'Baseline on your processes' },
+              { v: '< 2 wks', l: 'First prototype', sub: 'Tested in real conditions' },
+              { v: '3 months', l: 'Monthly follow-up', sub: 'After go-live' },
+              { v: chf(PRIX.agentFrom), l: 'Custom AI agent', sub: 'Starting price' },
             ].map((kpi, i) => (
               <SectionReveal key={kpi.l} delay={i * 0.08} className="h-full">
                 <div className="flex flex-col justify-center text-center h-full p-6 rounded-[14px] border" style={{ background: bg, borderColor: border }}>
@@ -543,37 +556,41 @@ export default function EnArtificialIntelligencePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                sector: 'Real estate agency',
-                challenge: 'Manual qualification of 120 incoming leads per week',
-                solution: 'Pre-qualification AI agent connected to the CRM',
-                result: '90% of leads qualified without human intervention. 18 hours freed per week.',
+                moment: 'During the audit',
+                title: 'Measure first',
+                measure: 'We record how long each task takes, the volume handled and the errors, on your current processes.',
+                action: 'The audit maps your workflows with your team, then estimates the potential of each automation in hours and in CHF.',
+                result: 'You therefore have a baseline before anything is deployed.',
               },
               {
-                sector: 'HR consultancy',
-                challenge: 'CV processing and application screening in 3 business days',
-                solution: 'AI pipeline: automatic extraction, scoring, summary and routing',
-                result: 'Lead time cut to 4 hours. Selection quality improved by 40%.',
+                moment: 'After the prototype',
+                title: 'Compare on your figures',
+                measure: 'The prototype runs in real conditions, on your data, and we record the same indicators.',
+                action: 'We then compare these figures with the audit baseline, task by task.',
+                result: 'You decide on the next step with your own figures, not a promise.',
               },
               {
-                sector: 'B2B e-commerce',
-                challenge: 'Customer service handled manually, 200 emails per day',
-                solution: 'AI chatbot and smart routing of complex requests',
-                result: '75% of requests resolved without a human agent. CSAT +22 points.',
+                moment: 'During the follow-up',
+                title: 'Keep what pays off',
+                measure: 'Over the 3 months of follow-up, we record the same indicators every month.',
+                action: 'We then fine-tune what pays off, and we rework or stop what does not.',
+                result: 'You keep the automations that pay off, with the figures to prove it.',
               },
             ].map((c, i) => (
-              <SectionReveal key={c.sector} delay={i * 0.1}>
+              <SectionReveal key={c.moment} delay={i * 0.1}>
                 <div className="flex flex-col h-full rounded-[16px] border border-border p-6 bg-bg-card">
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color }}>
-                    {c.sector}
+                    {c.moment}
                   </p>
+                  <h3 className="text-text font-bold text-lg mb-3">{c.title}</h3>
                   <div className="space-y-3 flex-1">
                     <div>
-                      <p className="text-text-muted text-xs font-semibold mb-1">Problem</p>
-                      <p className="text-text-secondary text-sm">{c.challenge}</p>
+                      <p className="text-text-muted text-xs font-semibold mb-1">What we measure</p>
+                      <p className="text-text-secondary text-sm">{c.measure}</p>
                     </div>
                     <div>
-                      <p className="text-text-muted text-xs font-semibold mb-1">Deployed solution</p>
-                      <p className="text-text-secondary text-sm">{c.solution}</p>
+                      <p className="text-text-muted text-xs font-semibold mb-1">What we do with it</p>
+                      <p className="text-text-secondary text-sm">{c.action}</p>
                     </div>
                     <div className="pt-3 border-t border-border">
                       <p className="text-text text-sm font-semibold">{c.result}</p>

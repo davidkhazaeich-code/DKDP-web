@@ -17,6 +17,8 @@ export function AuditScoreCard() {
       style={{ background: 'rgba(212,212,216,0.04)', borderColor: border, boxShadow: '0 0 50px rgba(212,212,216,0.06)' }}
     >
       {/* Header */}
+      {/* 25/09/2026 : libellé « Exemple » ajouté en tête, les gains et ROI affichés sont illustratifs. */}
+      <p className="text-text-muted text-[9px] font-bold uppercase tracking-widest mb-1.5">Exemple</p>
       <div className="flex items-center justify-between mb-5">
         <p className="text-text font-bold text-[15px]">Résultat de votre audit IA</p>
         <span

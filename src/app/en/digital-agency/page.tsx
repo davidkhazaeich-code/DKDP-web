@@ -21,6 +21,7 @@ import { buildServiceWithLocalBusiness, buildBreadcrumbList, buildFAQPage, build
 import { FunnelDiagram } from '@/app/agence-digitale/_components/FunnelDiagram'
 import { HeroVisual } from '@/app/agence-digitale/_components/HeroVisual'
 import { violet } from '@/lib/tokens'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import { AppLogoMarquee, IA_LOGOS, DESIGN_WEB_LOGOS, PRODUCTIVITE_LOGOS, SOCIAL_LOGOS } from '@/components/ui/AppLogos'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
@@ -29,7 +30,9 @@ const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBloc
 
 export const metadata: Metadata = {
   title: 'Digital Agency Geneva and Switzerland · Web, SEO, Ads · DKDP',
-  description: 'Digital agency in Geneva. Web design, SEO, Google Ads and social media for SMBs in French-speaking Switzerland. 100+ websites delivered, free quote in 48 hours.',
+  // 25/09/2026 : « 100+ websites delivered » retiré, aucune source. Remplacé par la fondation en 2019.
+  // 25/09/2026 : description brought under 920 px (910 px, tools/check-serp-width.mjs).
+  description: 'Geneva digital agency: web design, SEO, Google Ads and social media for SMBs in French-speaking Switzerland. Founded in 2019, quote in 48 h.',
   alternates: {
     canonical: 'https://dkdp.ch/en/digital-agency',
     languages: {
@@ -112,8 +115,10 @@ const SERVICES = [
   },
 ]
 
+// 25/09/2026 : « 100+ websites delivered » retiré, aucune source. Remplacé par
+// le prix d'entrée du site (PRIX).
 const STATS = [
-  { value: '100+', label: 'Websites delivered' },
+  { value: `from ${chf(PRIX.siteFrom)}`, label: 'Web design' },
   { value: '10+ yrs', label: 'Of experience' },
   { value: '5.0/5', label: 'Google rating, 22 reviews' },
 ]
@@ -133,10 +138,14 @@ const WHY = [
   },
 ]
 
+// 25/09/2026 : prix lus dans src/data/pricing (PRIX). Le site « from CHF 3'500 »
+// contredisait PRIX.siteFrom, et la formation « 6-7 hours, up to 12 people,
+// CHF 1'500 » contredisait la grille horaire (src/data/faq.ts). Les fourchettes
+// sans clé PRIX (CMS, e-commerce) sont retirées.
 const FAQ_AGENCE_EN = [
   {
     question: 'How much does a website cost in Geneva?',
-    answer: "A showcase website for an SMB sits between CHF 3'500 and CHF 8'000 depending on complexity. A CMS-based site is between CHF 4'500 and CHF 12'000. E-commerce starts at CHF 6'000. These ranges cover design, development, on-page SEO and tool training.",
+    answer: `A professional showcase website starts at ${chf(PRIX.siteFrom)}. The final price depends on the number of pages, the features and the integrations, and it covers design, development, on-page SEO and tool training. DKDP provides a fixed quote before kickoff, with no surprises.`,
   },
   {
     question: 'What is the difference between SEO and GEO?',
@@ -144,7 +153,7 @@ const FAQ_AGENCE_EN = [
   },
   {
     question: 'How much does corporate AI training cost in Geneva?',
-    answer: "An AI training session (6-7 hours, up to 12 people) starts at CHF 1'500. 100% personalised programme based on the real tools and use cases of your company.",
+    answer: `Training is billed by the hour: ${chfHeure(PRIX.formationHourly1)} for one person and ${chfHeure(PRIX.formationHourly2)} for two, while groups of 3 to 10 people are priced on quote. A full day includes 6 hours of training and 2 hours of preparation, a half day 3 hours of training and 1 hour of preparation. The programme is 100% personalised, built on your company's real tools and use cases.`,
   },
   {
     question: 'Does DKDP work with companies outside Geneva?',
@@ -160,7 +169,7 @@ const FAQ_AGENCE_EN = [
   },
   {
     question: 'Do you handle Google Ads management on top of website work?',
-    answer: 'Yes. We run Google Ads campaigns (Search, Display, Performance Max, YouTube) with full tracking. Fixed management fee from CHF 400/month, ad spend on top, no margin on media. We can also work alongside your existing media agency.',
+    answer: `Yes. We run Google Ads campaigns (Search, Display, Performance Max, YouTube) with full tracking. The fixed management fee starts at ${chf(PRIX.adsManagementFrom)}/month, ad spend comes on top, and we take no margin on media. We can also work alongside your existing media agency.`,
   },
   {
     question: 'Can you maintain a website built by another agency?',
@@ -187,7 +196,8 @@ export default function EnDigitalAgencyPage() {
           url: '/en/digital-agency',
           description: 'Web design, SEO, Google Ads and social media services for SMBs in Geneva and across French-speaking Switzerland.',
           serviceType: 'Digital marketing agency',
-          priceFrom: 3500,
+          // 25/09/2026 : 3500 en dur (ancien prix du site) remplacé par PRIX.siteFrom.
+          priceFrom: PRIX.siteFrom,
           lang: 'en',
           extraAreas: ['Zurich', 'Basel', 'Bern'],
         })}
@@ -269,25 +279,23 @@ export default function EnDigitalAgencyPage() {
               </h2>
             </div>
           </SectionReveal>
+          {/* 25/09/2026 : « 72% », « 3 sec » et « 40% » retirés, statistiques de marché sans source. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 Icon: EyeOff,
-                stat: '72%',
                 title: 'Invisible on Google',
-                desc: '72% of local searches end on the first page. If you are not there, your potential clients go straight to a competitor.',
+                desc: 'Your clients look for a provider on Google and choose among the top results. If you are not there, they go straight to a competitor.',
               },
               {
                 Icon: AlertTriangle,
-                stat: '3 sec',
                 title: 'A site that does not convert',
-                desc: 'That is how long a visitor takes to leave a slow or badly designed site. A poor experience costs leads every day.',
+                desc: 'A visitor quickly leaves a slow or badly designed site, often before reading your offer. A poor experience therefore costs leads every day.',
               },
               {
                 Icon: TrendingDown,
-                stat: '40%',
                 title: 'Wasted ad budget',
-                desc: '40% of ad spend goes out without precise targeting or conversion tracking. Data changes everything when you know how to use it.',
+                desc: 'Without precise targeting or conversion tracking, part of the ad budget goes out without bringing anything back. Data changes everything when you know how to use it.',
               },
             ].map((item, i) => (
               <SectionReveal key={item.title} delay={i * 0.1}>
@@ -301,7 +309,6 @@ export default function EnDigitalAgencyPage() {
                   >
                     <item.Icon size={22} style={{ color }} />
                   </div>
-                  <p className="text-[2.2rem] font-bold leading-none" style={{ color }}>{item.stat}</p>
                   <h3 className="text-text font-bold text-lg">{item.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1">{item.desc}</p>
                 </div>
@@ -581,12 +588,13 @@ export default function EnDigitalAgencyPage() {
                   Conversion funnel
                 </p>
                 <FunnelDiagram lang="en" />
+                {/* 25/09/2026 : « +240% », « x3.5 » et « < 4 months » retirés, aucune source. Remplacés par les engagements de la méthode ci-contre. */}
                 <div className="mt-8 pt-6 border-t" style={{ borderColor: border }}>
                   <div className="grid grid-cols-3 gap-4 text-center">
                     {[
-                      { v: '+240%', l: 'Avg. traffic uplift' },
-                      { v: 'x3.5', l: 'Inbound leads' },
-                      { v: '< 4 months', l: 'First measurable results' },
+                      { v: '48h', l: 'Fixed quote' },
+                      { v: 'Day 1', l: 'Leads tracked' },
+                      { v: 'Monthly', l: 'Clear report' },
                     ].map((kpi) => (
                       <div key={kpi.l}>
                         <p className="text-xl font-bold" style={{ color }}>{kpi.v}</p>
@@ -720,7 +728,8 @@ export default function EnDigitalAgencyPage() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1 text-[#D4D4D8]">Artificial Intelligence</p>
                   <p className="text-text font-semibold">Automate your processes with AI</p>
-                  <p className="text-text-muted text-xs mt-1">AI agents, automation and consulting. 10 hours saved per week on average.</p>
+                  {/* 25/09/2026 : « 10 hours saved per week on average » retiré, aucune source. */}
+                  <p className="text-text-muted text-xs mt-1">AI agents, automation and consulting: we free your teams from repetitive tasks.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 text-[#D4D4D8] transition-transform group-hover:translate-x-1" />
               </Link>
@@ -734,7 +743,8 @@ export default function EnDigitalAgencyPage() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#FF8C00' }}>Corporate training</p>
                   <p className="text-text font-semibold">Train your team in digital and AI</p>
-                  <p className="text-text-muted text-xs mt-1">Tailored sessions, on-site or remote. 200+ people trained.</p>
+                  {/* 25/09/2026 : « 200+ people trained » retiré, aucune source. */}
+                  <p className="text-text-muted text-xs mt-1">Tailored sessions, on-site or remote: we train 1 to 10 people per session.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 transition-transform group-hover:translate-x-1" style={{ color: '#FF8C00' }} />
               </Link>

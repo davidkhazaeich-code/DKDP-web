@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, Users, Star, Layers, PenTool, Layout, Globe2, Zap, Code2, MapPin } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Users, Layers, PenTool, Layout, Globe2, Zap, Code2, MapPin } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -21,6 +21,7 @@ import { IntraVsCatalogue } from '@/components/formation/figma/IntraVsCatalogue'
 import { FigmaTrainer } from '@/components/formation/figma/FigmaTrainer'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
@@ -107,10 +108,11 @@ const FAQ = [
     answer:
       "Oui, et c'est le format que nous recommandons. DKDP se déplace à Genève et dans toute la Suisse romande. Travailler sur vos postes, avec vos fichiers et vos contraintes réelles, donne de meilleurs résultats qu'une salle neutre. La visio reste possible pour les équipes réparties sur plusieurs sites.",
   },
+  // 25/09/2026 : prix tiré de PRIX (était « 200 CHF » en dur), « calé » remplacé par « fixé ».
   {
     question: 'Combien coûte une formation Figma en entreprise en Suisse ?',
     answer:
-      "Le prix dépend du nombre de participants et de la durée retenue, d'une demi-journée à deux journées. Nos tarifs de formation en entreprise démarrent à 200 CHF de l'heure pour une personne. Le devis est gratuit et le programme est calé sur vos projets avant d'être chiffré, plutôt que vendu sur catalogue.",
+      `Le prix dépend du nombre de participants et de la durée retenue, d'une demi-journée à deux journées. Nos tarifs de formation en entreprise démarrent à ${chf(PRIX.formationHourly1)} de l'heure pour une personne. Le devis est gratuit et le programme est fixé d'après vos projets avant d'être chiffré, plutôt que vendu sur catalogue.`,
   },
   {
     question: 'Recevons-nous une attestation à la fin de la formation ?',
@@ -420,9 +422,10 @@ export default function FormationFigmaPage() {
                   À la fin de la journée, vos écrans ne sont pas des images dans une présentation. Ils sont reliés
                   entre eux, ouvrables sur un téléphone, et se parcourent comme une vraie application.
                 </p>
+                {/* 25/09/2026 : « cinq minutes » remplacé par « quelques minutes », aucune mesure. */}
                 <p className="text-text-secondary leading-relaxed">
                   C&apos;est le moment où les défauts apparaissent : une étape en trop, un bouton qu&apos;on ne trouve
-                  pas, un formulaire trop long. Les corriger prend cinq minutes dans Figma. Après le développement,
+                  pas, un formulaire trop long. Les corriger prend quelques minutes dans Figma. Après le développement,
                   cela prend un devis.
                 </p>
               </div>
@@ -529,59 +532,8 @@ export default function FormationFigmaPage() {
 
       <FigmaTrainer lang="fr" accent={color} />
 
-      {/* ── Témoignages ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Retours après la formation Figma
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: "La partie Auto Layout a été une révélation. Je peux maintenant maquetter une page mobile, tablette et ordinateur en parallèle, sans dupliquer le travail. Mes itérations vont trois fois plus vite.",
-                name: 'Julien K., Fondateur',
-                company: 'Startup tech, Genève',
-                stars: 5,
-              },
-              {
-                quote: "On a formé toute notre équipe produit à Figma et au design system. Notre cahier des charges visuel est devenu beaucoup plus précis, et les allers-retours avec notre agence de développement ont nettement diminué.",
-                name: 'Sophie B., Product Manager',
-                company: 'Scale-up SaaS, Lausanne',
-                stars: 5,
-              },
-              {
-                quote: "Le Dev Mode m'a fait gagner un temps fou. Je récupère directement les couleurs, les espacements et le code CSS sans poser une seule question au designer. La transmission est devenue fluide.",
-                name: 'Marc D., Lead Developer',
-                company: 'PME industrielle, Vaud',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : témoignages anonymes (Julien K., Sophie B., Marc D.) retirés,
+          inventés. FigmaTrainer, juste au-dessus, porte les éléments de preuve réels. */}
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">

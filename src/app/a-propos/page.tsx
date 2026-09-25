@@ -82,10 +82,12 @@ const VALUES = [
   },
 ]
 
+// 25/09/2026 : « 98 % clients satisfaits » retiré, aucune source. Remplacé par
+// la note de la fiche Google.
 const STATS = [
   { value: '2019', label: 'Agence fondée à Genève' },
   { value: '3',   label: "Piliers d'expertise" },
-  { value: '98%', label: 'Clients satisfaits' },
+  { value: '5,0/5', label: 'Note Google, 22 avis' },
   { value: '2015', label: 'Actif depuis' },
 ]
 
@@ -111,7 +113,8 @@ const PILLARS = [
   {
     Icon: Brain,
     title: 'Intelligence Artificielle',
-    desc: 'Agents IA, automatisation de processus, intégration LLM. 10 heures économisées par semaine en moyenne.',
+    // 25/09/2026 : « 10 heures économisées par semaine en moyenne » retiré, aucune source.
+    desc: 'Agents IA, automatisation de processus, intégration LLM : on automatise les tâches répétitives pour rendre du temps à vos équipes.',
     href: '/intelligence-artificielle',
     color: chromeColor,
     bg: chromeBg,
@@ -214,11 +217,12 @@ export default function AProposPage() {
                   DKDP aide les PME de Suisse romande à passer à l'action avec des
                   résultats concrets et mesurables.
                 </p>
+                {/* 25/09/2026 : « 5 ans d'expertise locale » contredisait la fondation en 2019, remplacé par la date. */}
                 <HeroPills
                   accentRgb="156, 163, 175"
                   items={[
                     { label: 'Eaux-Vives, Genève', Icon: MapPin },
-                    { label: '5 ans d\'expertise locale', Icon: Award },
+                    { label: 'Expertise locale depuis 2019', Icon: Award },
                     { label: 'PME romandes accompagnées', Icon: Users },
                   ]}
                 />

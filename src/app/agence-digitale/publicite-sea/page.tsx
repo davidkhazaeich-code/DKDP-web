@@ -55,16 +55,19 @@ export const metadata: Metadata = {
 }
 
 
+// 25/09/2026 : budget minimum et frais de gestion lus dans src/data/pricing
+// (PRIX.adsBudgetMin, PRIX.adsManagementFrom). La gestion « dès CHF 350/mois »
+// contredisait PRIX.adsManagementFrom et la barre de stats de la page.
 const FAQ = [
   {
     question: 'Quel budget Google Ads prévoir pour une PME à Genève ?',
     answer:
-      'Le budget minimum recommandé est CHF 500/mois en dépenses publicitaires. Pour un marché concurrentiel (avocat, immobilier, dentiste), CHF 1\'000 à CHF 3\'000/mois est plus réaliste. DKDP ne prend pas de commission sur votre budget : vous payez uniquement la gestion stratégique.',
+      `Le budget minimum recommandé est ${chfMois(PRIX.adsBudgetMin)} en dépenses publicitaires. Pour un marché concurrentiel (avocat, immobilier, dentiste), CHF 1'000 à CHF 3'000/mois est plus réaliste. DKDP ne prend pas de commission sur votre budget : vous payez uniquement la gestion stratégique.`,
   },
   {
     question: 'Combien coûte la gestion de campagnes Google Ads chez DKDP ?',
     answer:
-      'Les frais de gestion démarrent à CHF 350/mois pour une campagne simple. Un compte multi-campagnes (Search + Display + Remarketing) est facturé entre CHF 600 et CHF 1\'200/mois selon la complexité. Premier mois avec audit et mise en place inclus.',
+      `Les frais de gestion démarrent à ${chfMois(PRIX.adsManagementFrom)} pour une campagne simple. Un compte multi-campagnes (Search + Display + Remarketing) est facturé entre CHF 600 et CHF 1'200/mois selon la complexité. Premier mois avec audit et mise en place inclus.`,
   },
   {
     question: 'Quand verrai-je des résultats avec Google Ads ?',
@@ -322,8 +325,9 @@ export default function PubliciteSEAPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Publicité Google mal gérée : votre budget part à la poubelle
               </h2>
+              {/* 25/09/2026 : « entre 40% et 60% de son budget » retiré, statistique sans source. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                Un compte Google Ads mal configuré perd entre 40% et 60% de son budget sur des clics non qualifiés, des mots-clés trop larges et des pages de destination qui ne convertissent pas. Ce n&apos;est pas visible dans votre tableau de bord par défaut.
+                Un compte Google Ads mal configuré perd une part importante de son budget sur des clics non qualifiés, des mots-clés trop larges et des pages de destination qui ne convertissent pas. Ce n&apos;est pas visible dans votre tableau de bord par défaut.
               </p>
               <div className="space-y-4">
                 {[
@@ -357,8 +361,9 @@ export default function PubliciteSEAPage() {
                   Avant / Après optimisation DKDP
                 </p>
                 <AdComparison />
+                {/* 25/09/2026 : « Métriques réelles sur compte client, résultats obtenus en 90 jours » retiré, aucune source. */}
                 <p className="text-text-muted text-[11px] text-center mt-4">
-                  Métriques réelles sur compte client géré par DKDP. Résultats obtenus en 90 jours.
+                  Les trois leviers que DKDP corrige en priorité sur un compte existant.
                 </p>
               </div>
             </SectionReveal>
@@ -414,7 +419,8 @@ export default function PubliciteSEAPage() {
             {[
               {
                 label: 'Campagne Starter',
-                price: 'CHF 350/mois',
+                // 25/09/2026 : « CHF 350/mois » contredisait PRIX.adsManagementFrom.
+                price: chfMois(PRIX.adsManagementFrom),
                 duration: 'Gestion mensuelle',
                 highlight: false,
                 features: [

@@ -10,6 +10,7 @@ import {
 import { useEstimator } from '../EstimatorContext'
 import { AnimatedCounter } from '../ui/AnimatedCounter'
 import { calculateEstimate } from '@/lib/estimation/pricing'
+import { PRIX, chf } from '@/data/pricing'
 import { trackLead, newEventId } from '@/lib/analytics'
 import { SECTORS } from '@/lib/estimation/sectors'
 import type { EstimationRequest, Sector } from '@/lib/estimation/types'
@@ -509,7 +510,8 @@ export function Step8Summary() {
     form: 'CHF 400',
     booking: 'CHF 1\'200',
     members: 'CHF 2\'000',
-    chatbot: 'CHF 1\'500',
+    // 25/09/2026 : option chatbot depuis PRIX.chatbotOptionSite.
+    chatbot: chf(PRIX.chatbotOptionSite),
     payment: 'CHF 1\'800',
     newsletter: 'CHF 300',
     gallery: 'CHF 500',

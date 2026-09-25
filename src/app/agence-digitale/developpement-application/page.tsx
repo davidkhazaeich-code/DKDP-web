@@ -54,10 +54,12 @@ const FAQ = [
     answer:
       'Une PWA ou web app simple peut être livrée en 8 à 12 semaines. Une app mobile complète avec backend prend généralement 4 à 6 mois. Les délais dépendent du périmètre fonctionnel, validé et chiffré au départ dans le cahier des charges.',
   },
+  // 25/09/2026 : « React Native couvre 90% des besoins » retiré, statistique sans
+  // source ; tirets cadratins remplacés dans cette réponse et la suivante.
   {
     question: 'Quelle technologie choisir entre native (Swift/Kotlin) et React Native ?',
     answer:
-      'React Native couvre 90% des besoins avec un seul code pour iOS et Android : c\'est le choix le plus efficace pour la plupart des projets PME. Le natif est pertinent si votre app requiert des performances graphiques élevées, un accès profond au hardware, ou des fonctionnalités très spécifiques à une plateforme. On vous conseille objectivement selon votre cas.',
+      'React Native répond à la plupart des besoins avec un seul code pour iOS et Android, ce qui en fait le choix le plus efficace pour de nombreux projets de PME. Le natif est pertinent si votre app requiert des performances graphiques élevées, un accès profond au hardware, ou des fonctionnalités très spécifiques à une plateforme. On vous conseille objectivement selon votre cas.',
   },
   {
     question: 'Est-ce que je garde la propriété du code livré ?',
@@ -221,12 +223,13 @@ export default function DeveloppementApplicationPage() {
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
+          {/* 25/09/2026 : « 30+ applications livrées » et « 8 ans d'expertise dev » retirés, aucune source. Remplacés par le devis sous 48h et la fondation en 2019. */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '30+', l: 'Applications livrées', sub: 'Mobile, web et PWA' },
+              { v: '48h', l: 'Devis fixe', sub: 'Gratuit et détaillé' },
               { v: '3 plateformes', l: 'iOS · Android · Web', sub: 'Un seul interlocuteur' },
               { v: '5,0/5', l: 'Note Google', sub: '22 avis' },
-              { v: '8 ans', l: "D'expertise dev", sub: 'En Suisse romande' },
+              { v: '2019', l: 'Fondée à Genève', sub: 'Aux Eaux-Vives' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">

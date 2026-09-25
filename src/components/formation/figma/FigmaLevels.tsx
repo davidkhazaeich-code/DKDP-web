@@ -24,12 +24,15 @@ type Level = {
 const CONTENT: Record<Locale, { levels: Level[]; audienceLabel: string; badge: string }> = {
   fr: {
     audienceLabel: 'Pour qui',
-    badge: 'Le plus demandé',
+    // 25/09/2026 : « Le plus demandé » supposait un comptage qui n'existe pas ;
+    // les durées parlent désormais en heures de formation, comme FormationPricing
+    // (demi-journée 3 h + 1 h de préparation, journée 6 h + 2 h).
+    badge: 'Recommandé',
     levels: [
       {
         key: 'decouverte',
         name: 'Découverte',
-        duration: 'Demi-journée, 4 heures',
+        duration: 'Demi-journée, 3 h de formation',
         audience: "Une équipe qui n'a jamais ouvert Figma et doit pouvoir lire et commenter un fichier.",
         modules: [
           'Principes UI/UX : grille, hiérarchie, contraste, lisibilité',
@@ -42,7 +45,7 @@ const CONTENT: Record<Locale, { levels: Level[]; audienceLabel: string; badge: s
       {
         key: 'maitrise',
         name: 'Maîtrise',
-        duration: 'Journée entière, 8 heures',
+        duration: 'Journée entière, 6 h de formation',
         recommended: true,
         audience: 'Une équipe qui doit produire ses propres écrans et les transmettre proprement.',
         modules: [
@@ -57,7 +60,7 @@ const CONTENT: Record<Locale, { levels: Level[]; audienceLabel: string; badge: s
       {
         key: 'avance',
         name: 'Avancé',
-        duration: 'Deux journées, 16 heures',
+        duration: 'Deux journées, 12 h de formation',
         audience: "Une équipe produit qui fait vivre une interface dans la durée, pas un projet ponctuel.",
         modules: [
           'Tout le niveau Maîtrise, appliqué à votre produit existant',
@@ -72,12 +75,12 @@ const CONTENT: Record<Locale, { levels: Level[]; audienceLabel: string; badge: s
   },
   en: {
     audienceLabel: 'Who it is for',
-    badge: 'Most requested',
+    badge: 'Recommended',
     levels: [
       {
         key: 'decouverte',
         name: 'Discovery',
-        duration: 'Half day, 4 hours',
+        duration: 'Half day, 3 hours of training',
         audience: 'A team that has never opened Figma and needs to read and comment on a file.',
         modules: [
           'UI/UX principles: grid, hierarchy, contrast, legibility',
@@ -90,7 +93,7 @@ const CONTENT: Record<Locale, { levels: Level[]; audienceLabel: string; badge: s
       {
         key: 'maitrise',
         name: 'Working level',
-        duration: 'Full day, 8 hours',
+        duration: 'Full day, 6 hours of training',
         recommended: true,
         audience: 'A team that has to produce its own screens and hand them over cleanly.',
         modules: [
@@ -105,7 +108,7 @@ const CONTENT: Record<Locale, { levels: Level[]; audienceLabel: string; badge: s
       {
         key: 'avance',
         name: 'Advanced',
-        duration: 'Two days, 16 hours',
+        duration: 'Two days, 12 hours of training',
         audience: 'A product team maintaining an interface over time, not running a one-off project.',
         modules: [
           'Everything in Working level, applied to your existing product',

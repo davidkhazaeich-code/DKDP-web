@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Star, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, XCircle, Zap } from 'lucide-react'
+import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, XCircle, Zap } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -45,8 +45,9 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     question: 'Why train your employees in cybersecurity?',
+    // 25/09/2026 : unsourced "95% of incidents" and "the most cost-effective measure" removed.
     answer:
-      '95% of cybersecurity incidents involve human error. A click on a phishing link, a shared password, a file downloaded from an unknown source: these are the real entry points for attacks. Training your teams is the most cost-effective measure against cyberattacks.',
+      'Human error is often the starting point of a cybersecurity incident. A click on a phishing link, a shared password, a file downloaded from an unknown source: these are the real entry points for attacks. Training your teams therefore tackles attacks where they begin.',
   },
   {
     question: 'What does DKDP\'s cybersecurity training cover?',
@@ -55,8 +56,9 @@ const FAQ = [
   },
   {
     question: 'How long does the cybersecurity training last?',
+    // 25/09/2026 : "3.5 hours" and "7 hours" aligned with the grid (3 h + 1 h, 6 h + 2 h).
     answer:
-      'An awareness workshop lasts 3.5 hours (half a day). A full training course covers an entire day (7 hours). For teams that want a complete audit of their practices and systems, a 2-day format is available.',
+      'An awareness workshop lasts half a day: 3 hours of training, preceded by 1 hour preparing your programme. A full training course covers an entire day: 6 hours of training, preceded by 2 hours of preparation. For teams that want a complete audit of their practices and systems, a 2-day format is available.',
   },
   {
     question: 'Does the training include attack simulations (simulated phishing)?',
@@ -70,8 +72,10 @@ const FAQ = [
   },
   {
     question: 'Does cybersecurity concern SMEs or only large companies?',
+    // 25/09/2026 : unsourced "more than 60% of cyberattacks" and "losses of tens of thousands
+    // of francs" removed.
     answer:
-      'SMEs are in fact more targeted than large companies, because they have fewer protections. In Switzerland, more than 60% of cyberattacks target companies with fewer than 250 employees. A few hours of training can prevent losses of tens of thousands of francs.',
+      'SMEs are directly concerned, because they often have fewer protections than a large company. A training session of a few hours therefore teaches every employee to recognise the most common attacks.',
   },
 ]
 
@@ -98,7 +102,8 @@ const steps = [
 export default function FormationCybersecuritePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Corporate Cybersecurity Training French-speaking Switzerland', url: '/en/corporate-training/cybersecurity', description: 'Cybersecurity training for SMEs in Geneva. Phishing, ransomware, social engineering and best practices for non-technical teams.', duration: 'PT3H30M', teaches: ['Phishing', 'Ransomware', 'Passwords', 'GDPR', 'Cyber incident response plan'], prerequisites: 'No technical prerequisites', priceFrom: 200, lang: 'en' })} />
+      {/* 25/09/2026 : duration PT3H30M brought back to PT3H, the grid half day (3 h of training). */}
+      <SchemaOrg schema={buildCourse({ name: 'Corporate Cybersecurity Training French-speaking Switzerland', url: '/en/corporate-training/cybersecurity', description: 'Cybersecurity training for SMEs in Geneva. Phishing, ransomware, social engineering and best practices for non-technical teams.', duration: 'PT3H', teaches: ['Phishing', 'Ransomware', 'Passwords', 'GDPR', 'Cyber incident response plan'], prerequisites: 'No technical prerequisites', priceFrom: 200, lang: 'en' })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Home', url: 'https://dkdp.ch/en' },
@@ -120,8 +125,9 @@ export default function FormationCybersecuritePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Corporate cybersecurity training Geneva & French-speaking Switzerland</h1>
+                {/* 25/09/2026 : "costs" becomes "can cost", the comparison rests on no figure. */}
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  One misplaced click costs <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>more</GradText>{' '}than a day of training.
+                  One misplaced click can cost <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>more</GradText>{' '}than a day of training.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP trains your teams to recognise and avoid cyberthreats: phishing, ransomware, social engineering. Hands-on training with real simulations, for SMEs and companies in Geneva and French-speaking Switzerland.
@@ -166,10 +172,12 @@ export default function FormationCybersecuritePage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '90%', l: 'Human breaches', sub: 'Phishing and social engineering' },
+              // 25/09/2026 : unsourced "90% human breaches", "CHF 200k average cost" and "0% phishing
+              // clicks after training" removed. Grid facts instead; the NCSC cell names its source, kept.
+              { v: '1 to 10', l: 'People per session', sub: 'Groups on quote from 3' },
               { v: '1/2', l: 'SMEs attacked/year', sub: 'In Switzerland (NCSC Report 2024)' },
-              { v: 'CHF 200k', l: 'Average incident cost', sub: 'For a Swiss SME' },
-              { v: '0%', l: 'Phishing clicks', sub: 'Our participants after training' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
+              { v: '3 h or 6 h', l: 'Half day or full day', sub: 'Plus 1 h or 2 h of preparation' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -216,11 +224,12 @@ export default function FormationCybersecuritePage() {
               <p className="text-text-secondary leading-relaxed mb-8">
                 DKDP does not deal in abstract theory. We present real cases that happened in Switzerland, we simulate the attacks, and we give every participant the concrete reflexes to deal with them. In half a day, your teams become your first line of defence. Discover the <Link href={localizedPath('/blog', 'en') + '/cybersecurite-pme-erreurs-courantes'} className="underline hover:text-text transition-colors">8 most common cybersecurity mistakes in SMEs</Link>.
               </p>
+              {/* 25/09/2026 : unsourced "90% of cyberattacks" and "CHF 200'000 average cost" rewritten without figures. The NCSC line names its source, kept. */}
               <div className="space-y-3">
                 {[
-                  '90% of cyberattacks start with human error, not a technical flaw',
+                  'A cyberattack often starts with human error, not with a technical flaw',
                   'One in two Swiss SMEs is the victim of a cyberattack every year (NCSC 2024)',
-                  'The average cost of a security incident for an SME is CHF 200\'000',
+                  'A security incident is costly for an SME: downtime, lost data, damage to its reputation',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
@@ -340,59 +349,7 @@ export default function FormationCybersecuritePage() {
 
       <FormationTrainer accentColor='#FF8C00' lang="en" />
 
-      {/* ── Testimonials ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">What they say</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Feedback after the cybersecurity training
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                quote: 'We were hit by ransomware. Since the DKDP training, our team recognises the warning signs. We have foiled 2 phishing attempts since then.',
-                name: 'Marc D., Director',
-                company: 'Logistics SME, Geneva',
-                stars: 5,
-              },
-              {
-                quote: 'The phishing simulation was eye-opening: 6 people out of 10 had clicked on the link. After the training: 0 out of 10. The difference is clear.',
-                name: 'Nicolas R., IT Manager',
-                company: '80-person company, Vaud',
-                stars: 5,
-              },
-              {
-                quote: 'We thought it only happened to large companies. The training showed us that SMEs are hackers\' favourite targets.',
-                name: 'Sandra M., Founder',
-                company: 'Consulting firm, Geneva',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : anonymous testimonials removed (Marc D., Nicolas R., Sandra M.), no source. The real Google reviews live in FormationTrainer. */}
 
       {/* ── Pricing ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">

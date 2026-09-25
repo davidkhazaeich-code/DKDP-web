@@ -222,7 +222,8 @@ export default function SEOPage() {
                         <path d="M3 3v18h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                         <path d="M7 14l4-4 4 4 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-[10px] text-zinc-400 font-mono">SEO &amp; GEO report · Your site</span>
+                      {/* 25/09/2026 : mock-up labelled "Example" in its header, the rankings and scores are illustrative. */}
+                      <span className="text-[10px] text-zinc-400 font-mono">SEO and GEO report · Example</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -351,7 +352,7 @@ export default function SEOPage() {
                 {/* Mini stats */}
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    { v: 'Top 3', l: 'Google positions', c: '#4ade80' },
+                    { v: 'Monthly', l: 'Ranking report', c: '#4ade80' },
                     { v: 'Page 1', l: 'Local goal', c: color },
                     { v: 'GEO Ready', l: 'AI + Google', c: '#FF8C00' },
                   ].map((s) => (
@@ -380,7 +381,8 @@ export default function SEOPage() {
               { v: '2', l: 'Published case studies', sub: 'Golden Cash, SOS Relevage' },
               { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
               { v: 'CHF 0', l: 'Per click', sub: 'Unlike Ads' },
-              { v: '6 months', l: 'For results', sub: 'Average duration observed' },
+              // 25/09/2026 : unsourced "6 months, average duration observed" removed.
+              { v: chf(PRIX.seoMonthly), l: 'Per month', sub: 'No-commitment engagement' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -498,10 +500,10 @@ export default function SEOPage() {
                 </p>
                 <div className="grid grid-cols-2 gap-3 mb-5">
                   {[
-                    { name: 'ChatGPT', maker: 'OpenAI', c: '#10b981', cbg: 'rgba(16,185,129,0.08)', cbd: 'rgba(16,185,129,0.22)', note: '~60% of AI queries' },
-                    { name: 'Perplexity', maker: 'AI Search', c: '#22d3ee', cbg: 'rgba(34,211,238,0.08)', cbd: 'rgba(34,211,238,0.22)', note: '+300%/year growth' },
+                    { name: 'ChatGPT', maker: 'OpenAI', c: '#10b981', cbg: 'rgba(16,185,129,0.08)', cbd: 'rgba(16,185,129,0.22)', note: 'Most used AI assistant' },
+                    { name: 'Perplexity', maker: 'AI Search', c: '#22d3ee', cbg: 'rgba(34,211,238,0.08)', cbd: 'rgba(34,211,238,0.22)', note: 'Answers with cited sources' },
                     { name: 'AI Overviews', maker: 'Google', c: '#A78BFA', cbg: 'rgba(124,58,237,0.08)', cbd: 'rgba(124,58,237,0.22)', note: 'Google result no. 1' },
-                    { name: 'Copilot', maker: 'Microsoft', c: '#60a5fa', cbg: 'rgba(96,165,250,0.08)', cbd: 'rgba(96,165,250,0.22)', note: 'Built into Bing & Edge' },
+                    { name: 'Copilot', maker: 'Microsoft', c: '#60a5fa', cbg: 'rgba(96,165,250,0.08)', cbd: 'rgba(96,165,250,0.22)', note: 'Built into Bing and Edge' },
                   ].map((p) => (
                     <div key={p.name} className="p-3.5 rounded-[10px] border" style={{ background: p.cbg, borderColor: p.cbd }}>
                       <p className="text-text font-bold text-sm">{p.name}</p>
@@ -542,13 +544,14 @@ export default function SEOPage() {
                 Being on Google page 2 means being invisible.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-6">
-                The position you hold on Google directly determines how many visitors you receive. The difference between position 1 and page 2 is not 50%: it is 97%. Clicks do not spread out, they concentrate.
+                The position you hold on Google directly determines how many visitors you receive. The top results capture most of the clicks and page 2 gets almost none: clicks do not spread out, they concentrate.
               </p>
               <div className="space-y-4">
                 {[
                   { Icon: TrendingUp, title: '28% of clicks go to the first Google result. The second gets 15%.', sub: 'Source: Advanced Web Ranking 2024' },
                   { Icon: Search, title: '75% of users never look at the second page of results.', sub: 'Source: HubSpot Research' },
-                  { Icon: Clock, title: 'SEO takes 6 months to build. Every month without a strategy is a month lost.', sub: 'DKDP finding across 50+ projects' },
+                  // 25/09/2026 : unsourced "DKDP finding across 50+ projects" removed; timings from the FAQ above.
+                  { Icon: Clock, title: 'SEO takes 6 months to build. Every month without a strategy is a month lost.', sub: 'First rankings in 6 to 12 weeks, steady traffic in 3 to 6 months' },
                 ].map((item, i) => (
                   <SectionReveal key={item.title} delay={i * 0.08}>
                     <div className="flex gap-3 items-start">
@@ -642,7 +645,7 @@ export default function SEOPage() {
                 Local SEO in Geneva: Google Business Profile, local citations and local pack.
               </h2>
               <p className="text-text-secondary leading-relaxed mb-4">
-                In Geneva, 46% of commercial searches are local (source: Think with Google 2026). On mobile, 78% of &laquo; near me &raquo; queries end in a call or a trip within 24 hours. If you do not appear in the <strong className="text-text">local pack</strong> (the 3 Google Maps listings above the blue results), you are invisible to half of your Geneva prospects.
+                In Geneva as elsewhere, a large share of commercial searches are about a local need, and on mobile a &laquo; near me &raquo; search often ends in a call or a trip. If you do not appear in the <strong className="text-text">local pack</strong> (the 3 Google Maps listings above the blue results), a good share of your Geneva prospects therefore never see you.
               </p>
               <p className="text-text-secondary leading-relaxed mb-6">
                 DKDP deploys a complete local SEO strategy: optimisation of your <strong className="text-text">Google Business Profile</strong> (formerly Google My Business), building a network of consistent local citations (NAP: Name, Address, Phone), structured collection of customer reviews, <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded">LocalBusiness</code> schema on all your pages and mobile Core Web Vitals optimisation (LCP, CLS, INP) for mobile-first ranking. For a complete guide, read <Link href={localizedPath('/blog/seo-local-geneve-2026', 'en')} className="underline hover:text-text transition-colors">Local SEO Geneva 2026: dominate Google Maps</Link>.
@@ -691,34 +694,28 @@ export default function SEOPage() {
                   ))}
                 </div>
 
+                {/* 25/09/2026 : unsourced "Average local SEO KPIs (6 months DKDP)" (x4.8, x5.9, x6.3,
+                    x12) and "average observed across the 14 SMBs" removed. The block now lists the
+                    indicators we track, with no promised result. */}
                 <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: violet.color }}>
-                  Average local SEO KPIs (6 months DKDP)
+                  What we track every month
                 </p>
                 <div className="space-y-3">
                   {[
-                    { label: 'Appearances in the local pack', before: '12%', after: '58%', delta: 'x4.8' },
-                    { label: 'Clicks for directions', before: '8/wk', after: '47/wk', delta: 'x5.9' },
-                    { label: 'Calls from the GBP listing', before: '3/wk', after: '19/wk', delta: 'x6.3' },
-                    { label: 'New Google reviews', before: '1/month', after: '12/month', delta: 'x12' },
-                  ].map((row) => (
-                    <div key={row.label} className="flex items-center justify-between gap-3">
-                      <p className="text-text-secondary text-xs flex-1 leading-tight">{row.label}</p>
-                      <div className="flex items-center gap-2 text-xs">
-                        <span className="text-text-muted line-through">{row.before}</span>
-                        <span className="text-text font-semibold">{row.after}</span>
-                        <span
-                          className="px-1.5 py-0.5 rounded-full font-bold text-[10px]"
-                          style={{ background: 'rgba(74,222,128,0.12)', color: '#4ade80', border: '1px solid rgba(74,222,128,0.25)' }}
-                        >
-                          {row.delta}
-                        </span>
-                      </div>
+                    'Appearances in the local pack',
+                    'Clicks for directions',
+                    'Calls from the Google listing',
+                    'New Google reviews',
+                  ].map((label) => (
+                    <div key={label} className="flex items-center gap-2.5">
+                      <CheckCircle2 size={14} className="flex-shrink-0" style={{ color: violet.color }} />
+                      <p className="text-text-secondary text-xs leading-tight">{label}</p>
                     </div>
                   ))}
                 </div>
 
                 <p className="text-text-muted text-[11px] mt-6 leading-relaxed">
-                  Average observed across the 14 SMBs supported in local SEO by DKDP between 2024 and 2026. Individual results vary depending on the sector, local competition and starting situation.
+                  These indicators come from your Google listing. We record them before we start, then in the monthly report, and how they evolve depends on the sector, local competition and starting situation.
                 </p>
               </div>
             </SectionReveal>
@@ -863,57 +860,9 @@ export default function SEOPage() {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
-      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Testimonials</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                What our clients say.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'We were on page 3 for all our keywords. Six months later, we are top 3 on 8 strategic queries. Our phone never stops ringing.',
-                author: 'Director, law firm',
-                location: 'Geneva',
-              },
-              {
-                quote: 'DKDP first fixed the technical errors on our site, then built a content strategy. Traffic tripled in 10 months.',
-                author: 'Marketing manager, industrial SMB',
-                location: 'Vaud',
-              },
-              {
-                quote: 'Local SEO changed everything. Before, no one could find us. Now 60% of our new patients come from Google.',
-                author: 'Founder, aesthetic clinic',
-                location: 'Geneva',
-              },
-            ].map((t, i) => (
-              <SectionReveal key={t.author} delay={i * 0.1}>
-                <div className="flex flex-col gap-4 p-7 bg-bg-card border border-border rounded-[16px] h-full">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} size={14} fill={color} style={{ color }} />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary text-sm leading-relaxed flex-1">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div>
-                    <p className="text-text text-sm font-semibold">{t.author}</p>
-                    <p className="text-text-muted text-xs">{t.location}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026 : three anonymous testimonials removed ("top 3 on 8 queries", "traffic tripled in
+          10 months", "60% of new patients"), invented. The named reviews of the shared Testimonials
+          component stay further down. */}
 
       {/* ── Case studies + Guarantees ── */}
       <section id="realisations" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">

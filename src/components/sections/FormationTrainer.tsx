@@ -31,16 +31,21 @@ const CONTENT = {
     ratingPre: 'Note Google,',
     ratingCount: '22 avis',
     ratingPost: 'sur la fiche DKDP',
+    reviewsTag: 'Avis Google',
     trainers: [
       { role: 'Fondateur DKDP, cadrage des formations', bio: 'Accompagne les entreprises suisses dans leur transformation digitale depuis 2015 et cadre chaque formation avec l\'équipe concernée, de la PME aux grandes structures.', skills: ['IA et automatisation', 'Stratégie digitale', 'Développement web'], highlight: 'Depuis 2019' },
       { role: 'Experte IA, SEO et UX, formatrice', bio: 'Spécialiste en intelligence artificielle et UX design. Combine expertise technique et pédagogie pour rendre chaque concept accessible.', skills: ['Intelligence artificielle', 'SEO et GEO', 'UX Design'], highlight: 'IA et SEO' },
       { role: 'Formateur développement et informatique', bio: 'Développeur et formateur passionné. Approche structurée et concrète pour que chaque participant reparte avec des bases solides.', skills: ['Développement web', 'Python', 'Bureautique'], highlight: 'Dev et IT' },
     ],
+    // 25/09/2026 : les quatre avis signés « M. D. », « J.-P. L. », « S. B. » et
+    // « F. R. » n'existaient pas sur la fiche Google. Ce sont désormais de vrais
+    // avis de la fiche DKDP, cités mot pour mot (`python3 tools/gbp_avis.py dkdp
+    // --tous` dans le DEV SPACE), avec le nom affiché sur Google.
     reviews: [
-      { quote: "Très bon formateur, patient et très pédagogue. J'ai enfin compris comment exploiter les outils numériques au quotidien.", name: 'M. D.', context: 'Formation informatique' },
-      { quote: 'Formation Excel très complète. La formatrice a su adapter le cours à mes besoins professionnels. Je recommande vivement.', name: 'J.-P. L.', context: 'Formation bureautique' },
-      { quote: "Formateur à l'écoute, contenu adapté à notre équipe. On a gagné un temps fou dès la semaine suivante.", name: 'S. B.', context: 'Formation IA en entreprise' },
-      { quote: "Excellente pédagogie, exercices concrets sur nos propres outils. Toute l'équipe a progressé en une journée.", name: 'F. R.', context: 'Formation cybersécurité' },
+      { quote: 'J’ai eu l’occasion de suivre plusieurs formations, aussi bien collectives qu’individuelles et chaque expérience a été particulièrement enrichissante.', name: 'Claire Chevalier', context: 'Avis Google, juin 2026' },
+      { quote: 'Services pro, et super formations IA, merci Romane et David !', name: 'Henriette Meyer Fernex', context: 'Avis Google, mai 2026' },
+      { quote: "J'ai récemment suivi un cours pour débutants sur l'intelligence artificielle, proposé par David et Romane. Ce cours m'a laissé une excellente impression.", name: 'Alfred Pankert', context: 'Avis Google, avril 2026' },
+      { quote: 'Merci David pour votre compétence, votre gentillesse et compréhension', name: 'Jacqueline mimi', context: 'Avis Google, février 2023' },
     ],
   },
   en: {
@@ -53,28 +58,35 @@ const CONTENT = {
     ratingPre: 'Google rating,',
     ratingCount: '22 reviews',
     ratingPost: 'on the DKDP listing',
+    reviewsTag: 'Google reviews',
     trainers: [
-      { role: 'DKDP founder, training design', bio: 'Supports Swiss companies in their digital transformation since 2015 and frames every training with the team concerned, from SMEs to large organisations.', skills: ['AI and automation', 'Digital strategy', 'Web development'], highlight: 'Depuis 2019' },
+      { role: 'DKDP founder, training design', bio: 'Supports Swiss companies in their digital transformation since 2015 and frames every training with the team concerned, from SMEs to large organisations.', skills: ['AI and automation', 'Digital strategy', 'Web development'], highlight: 'Since 2019' },
       { role: 'AI, SEO and UX expert, trainer', bio: 'Specialist in artificial intelligence and UX design. Combines technical expertise and teaching to make every concept accessible.', skills: ['Artificial intelligence', 'SEO and GEO', 'UX Design'], highlight: 'AI and SEO' },
       { role: 'Development and IT trainer', bio: 'A passionate developer and trainer. A structured, concrete approach so every participant leaves with solid foundations.', skills: ['Web development', 'Python', 'Office tools'], highlight: 'Dev and IT' },
     ],
+    // Same real Google reviews as FR, translated and labelled as such; the last
+    // one was written in English.
     reviews: [
-      { quote: 'A great trainer, patient and a real teacher. I finally understood how to use digital tools day to day.', name: 'M. D.', context: 'IT training' },
-      { quote: 'A very complete Excel course. The trainer adapted it to my professional needs. I highly recommend it.', name: 'J.-P. L.', context: 'Office training' },
-      { quote: 'An attentive trainer, content tailored to our team. We saved a huge amount of time the very next week.', name: 'S. B.', context: 'Corporate AI training' },
-      { quote: 'Excellent teaching, concrete exercises on our own tools. The whole team progressed in one day.', name: 'F. R.', context: 'Cybersecurity training' },
+      { quote: 'I have had the chance to attend several training courses, both group and one-to-one, and each experience was particularly enriching.', name: 'Claire Chevalier', context: 'Google review, June 2026, translated from French' },
+      { quote: 'Professional services and great AI training, thank you Romane and David!', name: 'Henriette Meyer Fernex', context: 'Google review, May 2026, translated from French' },
+      { quote: 'I recently attended a beginners’ course on artificial intelligence, run by David and Romane. The course left me with an excellent impression.', name: 'Alfred Pankert', context: 'Google review, April 2026, translated from French' },
+      { quote: 'Congratulations David, you are the perfect partner for education', name: 'Louis de Vilmorin', context: 'Google review, October 2022' },
     ],
   },
 } as const
 
-export function FormationTrainer({ accentColor = '#FF8C00', lang = 'fr' }: { accentColor?: string; lang?: Locale }) {
+/**
+ * `reviewsOnly` (25/09/2026) : n'affiche que le bloc des avis Google, pour une page
+ * qui présente déjà ses formateurs (formation IA, `FormateursSection`).
+ */
+export function FormationTrainer({ accentColor = '#FF8C00', lang = 'fr', reviewsOnly = false }: { accentColor?: string; lang?: Locale; reviewsOnly?: boolean }) {
   const rgb = hexToRgb(accentColor)
   const t = CONTENT[lang]
   const TRAINERS = TRAINER_META.map((m, i) => ({ ...m, ...t.trainers[i] }))
   const REVIEWS = t.reviews
 
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
+    <section className={`${reviewsOnly ? 'py-16 md:py-20' : 'py-20 md:py-28'} relative overflow-hidden`}>
       {/* Subtle background glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full pointer-events-none opacity-30 blur-[120px]"
@@ -82,6 +94,13 @@ export function FormationTrainer({ accentColor = '#FF8C00', lang = 'fr' }: { acc
       />
 
       <div className="relative max-w-[1200px] mx-auto px-5 sm:px-6">
+        {reviewsOnly ? (
+          <SectionReveal>
+            <div className="text-center mb-8">
+              <GradTag>{t.reviewsTag}</GradTag>
+            </div>
+          </SectionReveal>
+        ) : (<>
         <SectionReveal>
           <div className="text-center mb-12 md:mb-16">
             <GradTag className="mb-4">{t.tag}</GradTag>
@@ -183,6 +202,7 @@ export function FormationTrainer({ accentColor = '#FF8C00', lang = 'fr' }: { acc
             </SectionReveal>
           ))}
         </div>
+        </>)}
 
         {/* ── Avis Google ── */}
         <SectionReveal delay={0.15}>

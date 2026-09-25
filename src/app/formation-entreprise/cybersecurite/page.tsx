@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Star, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, XCircle, Zap } from 'lucide-react'
+import { CheckCircle2, ChevronRight, ShieldCheck, AlertTriangle, Clock, Users, Award, Lock, Eye, Wifi, Monitor, Settings, Cpu, BookOpen, XCircle, Zap } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -42,8 +42,9 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     question: 'Pourquoi former ses employés à la cybersécurité ?',
+    // 25/09/2026 : « 95 % des incidents » et « la mesure la plus rentable » retirés, aucune source.
     answer:
-      '95% des incidents de cybersécurité impliquent une erreur humaine. Un clic sur un lien de phishing, un mot de passe partagé, un fichier téléchargé depuis une source inconnue : ce sont les vraies portes d\'entrée des attaques. Former vos équipes est la mesure la plus rentable contre les cyberattaques.',
+      'Une erreur humaine est souvent le point de départ d\'un incident de cybersécurité. Un clic sur un lien de phishing, un mot de passe partagé, un fichier téléchargé depuis une source inconnue : ce sont les vraies portes d\'entrée des attaques. Former vos équipes permet donc d\'agir là où les attaques commencent.',
   },
   {
     question: 'Que couvre la formation cybersécurité de DKDP ?',
@@ -52,8 +53,9 @@ const FAQ = [
   },
   {
     question: 'Combien de temps dure la formation cybersécurité ?',
+    // 25/09/2026 : « 3h30 » et « 7 heures » alignés sur la grille (3 h + 1 h, 6 h + 2 h).
     answer:
-      'Un atelier de sensibilisation dure 3h30 (demi-journée). Une formation complète couvre une journée entière (7 heures). Pour les équipes qui souhaitent un audit complet de leurs pratiques et systèmes, un format sur 2 jours est disponible.',
+      'Un atelier de sensibilisation dure une demi-journée : 3 h de formation, précédées d\'une heure de préparation de votre programme. Une formation complète couvre une journée entière : 6 h de formation, précédées de 2 h de préparation. Pour les équipes qui souhaitent un audit complet de leurs pratiques et systèmes, un format sur 2 jours est disponible.',
   },
   {
     question: 'La formation inclut-elle des simulations d\'attaque (phishing simulé) ?',
@@ -67,8 +69,10 @@ const FAQ = [
   },
   {
     question: 'La cybersécurité concerne-t-elle les PME ou seulement les grandes entreprises ?',
+    // 25/09/2026 : « plus de 60 % des cyberattaques » et « des pertes de dizaines de milliers
+    // de francs » retirés, aucune source.
     answer:
-      'Les PME sont en réalité plus ciblées que les grandes entreprises, car elles ont moins de protections. En Suisse, plus de 60% des cyberattaques visent des entreprises de moins de 250 employés. Une formation de quelques heures peut éviter des pertes de dizaines de milliers de francs.',
+      'Les PME sont directement concernées, car elles disposent souvent de moins de protections qu\'une grande entreprise. Une formation de quelques heures apprend donc à chaque collaborateur à reconnaître les attaques les plus courantes.',
   },
 ]
 
@@ -95,7 +99,8 @@ const steps = [
 export default function FormationCybersecuritePage() {
   return (
     <main>
-      <SchemaOrg schema={buildCourse({ name: 'Formation Cybersécurité Entreprise Suisse romande', url: '/formation-entreprise/cybersecurite', description: 'Formation cybersécurité pour PME à Genève. Phishing, ransomware, social engineering et bonnes pratiques pour équipes non-techniques.', duration: 'PT3H30M', teaches: ['Phishing', 'Ransomware', 'Mots de passe', 'RGPD', 'Plan urgence cyber'], prerequisites: 'Aucun prérequis technique', priceFrom: 200 })} />
+      {/* 25/09/2026 : durée PT3H30M ramenée à PT3H, la demi-journée de la grille (3 h de formation). */}
+      <SchemaOrg schema={buildCourse({ name: 'Formation Cybersécurité Entreprise Suisse romande', url: '/formation-entreprise/cybersecurite', description: 'Formation cybersécurité pour PME à Genève. Phishing, ransomware, social engineering et bonnes pratiques pour équipes non-techniques.', duration: 'PT3H', teaches: ['Phishing', 'Ransomware', 'Mots de passe', 'RGPD', 'Plan urgence cyber'], prerequisites: 'Aucun prérequis technique', priceFrom: 200 })} />
       <SchemaOrg schema={buildFAQPage(FAQ)} />
       <SchemaOrg schema={buildBreadcrumbList([
         { name: 'Accueil', url: 'https://dkdp.ch' },
@@ -117,8 +122,9 @@ export default function FormationCybersecuritePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Formation cybersécurité entreprise Genève & Suisse romande</h1>
+                {/* 25/09/2026 : « coûte » devient « peut coûter », la comparaison ne repose sur aucun chiffre. */}
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  Un clic mal placé coûte <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>plus cher</GradText>{' '}qu&apos;une journée de formation.
+                  Un clic mal placé peut coûter <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>plus cher</GradText>{' '}qu&apos;une journée de formation.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP forme vos équipes à reconnaître et éviter les cybermenaces : phishing, ransomware, social engineering. Formation pratique avec simulations réelles, pour PME et entreprises à Genève et en Suisse romande.
@@ -163,10 +169,13 @@ export default function FormationCybersecuritePage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '90%', l: 'Failles humaines', sub: 'Phishing et social engineering' },
+              // 25/09/2026 : « 90 % de failles humaines », « CHF 200k de coût moyen » et « 0 % de
+              // clics phishing après formation » retirés, aucune source. Faits de la grille à la
+              // place ; la case NCSC cite sa source, gardée.
+              { v: '1 à 10', l: 'Personnes par session', sub: 'Groupe sur devis dès 3' },
               { v: '1/2', l: 'PME attaquées/an', sub: 'En Suisse (Rapport NCSC 2024)' },
-              { v: 'CHF 200k', l: 'Coût moyen incident', sub: 'Pour une PME suisse' },
-              { v: '0%', l: 'Clics phishing', sub: 'Nos participants après formation' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
+              { v: '3 h ou 6 h', l: 'Demi-journée ou journée', sub: 'Plus 1 h ou 2 h de préparation' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -213,11 +222,12 @@ export default function FormationCybersecuritePage() {
               <p className="text-text-secondary leading-relaxed mb-8">
                 DKDP ne fait pas de théorie abstraite. On présente des cas réels survenus en Suisse, on simule les attaques, et on donne à chaque participant les réflexes concrets pour y faire face. En une demi-journée, vos équipes deviennent votre première ligne de défense. Découvrez les <Link href="/blog/cybersecurite-pme-erreurs-courantes" className="underline hover:text-text transition-colors">8 erreurs de cybersécurité les plus courantes en PME</Link>.
               </p>
+              {/* 25/09/2026 : « 90 % des cyberattaques » et « CHF 200'000 de coût moyen » réécrits sans chiffre, aucune source. La ligne NCSC cite sa source, gardée. */}
               <div className="space-y-3">
                 {[
-                  '90% des cyberattaques commencent par une erreur humaine, pas une faille technique',
+                  'Une cyberattaque commence souvent par une erreur humaine, pas par une faille technique',
                   'Une PME suisse sur deux est victime d\'une cyberattaque chaque année (NCSC 2024)',
-                  'Le coût moyen d\'un incident de sécurité pour une PME est de CHF 200\'000',
+                  'Un incident de sécurité coûte cher à une PME : arrêt d\'activité, données perdues, atteinte à la réputation',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
@@ -337,59 +347,7 @@ export default function FormationCybersecuritePage() {
 
       <FormationTrainer accentColor='#FF8C00' />
 
-      {/* ── Témoignages ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Retours après la formation cybersécurité
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                quote: 'On a été victimes d\'un ransomware. Depuis la formation DKDP, notre équipe reconnaît les signaux d\'alerte. On a déjoué 2 tentatives de phishing depuis.',
-                name: 'Marc D., Directeur',
-                company: 'PME logistique, Genève',
-                stars: 5,
-              },
-              {
-                quote: 'La simulation de phishing a été révélatrice : 6 personnes sur 10 avaient cliqué sur le lien. Après la formation : 0 sur 10. La différence est nette.',
-                name: 'Nicolas R., Responsable IT',
-                company: 'Entreprise 80 personnes, Vaud',
-                stars: 5,
-              },
-              {
-                quote: 'On pensait que ça n\'arrivait qu\'aux grandes entreprises. La formation nous a montré que les PME sont les cibles préférées des hackers.',
-                name: 'Sandra M., Fondatrice',
-                company: 'Cabinet de conseil, Genève',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : témoignages anonymes retirés (Marc D., Nicolas R., Sandra M.), aucune source. Les vrais avis Google sont dans FormationTrainer. */}
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">

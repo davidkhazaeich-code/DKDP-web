@@ -20,6 +20,7 @@ import { TechStack } from '@/app/agence-digitale/creation-site-web/_components/T
 import { HeroVisual } from '@/app/agence-digitale/creation-site-web/_components/HeroVisual'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, DESIGN_WEB_LOGOS, IA_LOGOS } from '@/components/ui/AppLogos'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
@@ -28,7 +29,8 @@ const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBloc
 
 export const metadata: Metadata = {
   title: 'Web Design Geneva and Switzerland · Custom Websites · DKDP',
-  description: "Professional web design in Geneva. Showcase, e-commerce or custom websites. Fast, SEO-ready, delivered in 3 to 5 weeks. From CHF 2'500, free quote.",
+  // 25/09/2026 : prix lu dans src/data/pricing (PRIX.siteFrom), texte inchangé.
+  description: `Professional web design in Geneva. Showcase, e-commerce or custom websites. Fast, SEO-ready, delivered in 3 to 5 weeks. From ${chf(PRIX.siteFrom)}, free quote.`,
   alternates: {
     canonical: 'https://dkdp.ch/en/digital-agency/web-design',
     languages: {
@@ -47,8 +49,9 @@ export const metadata: Metadata = {
 const FAQ_EN = [
   {
     question: 'How much does a professional website cost in Geneva?',
+    // 25/09/2026 : prix de départ lu dans src/data/pricing (PRIX.siteFrom), plus en dur.
     answer:
-      "A professional showcase website starts at CHF 2'500. A website with member portal, blog or online shop sits between CHF 5'000 and CHF 12'000. DKDP delivers a fixed quote before kickoff, no surprises.",
+      `A professional showcase website starts at ${chf(PRIX.siteFrom)}. A website with member portal, blog or online shop sits between CHF 5'000 and CHF 12'000. DKDP delivers a fixed quote before kickoff, no surprises.`,
   },
   {
     question: 'How long until my website is delivered?',
@@ -72,8 +75,9 @@ const FAQ_EN = [
   },
   {
     question: 'Will my site be mobile-friendly?',
+    // 25/09/2026 : « More than 65% of web traffic comes from mobile » retiré, statistique sans source.
     answer:
-      'Always. DKDP designs mobile-first: the layout is first optimised for smartphone, then adapted for tablet and desktop. More than 65% of web traffic comes from mobile. Non-negotiable.',
+      'Always. DKDP designs mobile-first: the layout is first optimised for smartphone, then adapted for tablet and desktop, because a large share of your visitors arrive from a smartphone. It is non-negotiable.',
   },
   {
     question: 'What happens if I am not satisfied with the design?',
@@ -107,17 +111,18 @@ const CAS_SITES = liveForDomain('site-web', { limit: 2, withImage: true, slugs: 
   href: `/en/portfolio/${r.slug}`,
 }))
 
+// 25/09/2026 : « < 1.5s » de chargement et « Top 3 » Google retirés, promesses sans source.
 const BENEFITS = [
   {
     Icon: Zap,
     title: 'Fast and high-performing',
-    value: '< 1.5s',
+    value: 'Core Web Vitals',
     desc: 'Loading time optimised for green Core Web Vitals scores and a smooth user experience across every device.',
   },
   {
     Icon: Search,
     title: 'SEO-ready from day one',
-    value: 'Top 3',
+    value: 'Built in',
     desc: 'Semantic structure, tags, Schema.org, performance: SEO fundamentals are built into development, not added after.',
   },
   {
@@ -174,9 +179,10 @@ export default function EnWebDesignPage() {
       <SchemaOrg schema={buildServiceWithLocalBusiness({
         name: 'Web design Geneva',
         url: '/en/digital-agency/web-design',
-        description: 'Custom professional web design for SMBs in Geneva. Showcase sites, e-commerce, Next.js, Astro, WordPress. From CHF 2,500.',
+        // 25/09/2026 : prix lus dans src/data/pricing (PRIX.siteFrom), plus en dur.
+        description: `Custom professional web design for SMBs in Geneva. Showcase sites, e-commerce, Next.js, Astro, WordPress. From ${chf(PRIX.siteFrom)}.`,
         serviceType: 'Web design and development',
-        priceFrom: 2500,
+        priceFrom: PRIX.siteFrom,
         lang: 'en',
         extraAreas: ['Zurich', 'Basel', 'Bern'],
       })} />
@@ -203,8 +209,9 @@ export default function EnWebDesignPage() {
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   A website that <GradText as="span">brings in clients</GradText>, not compliments.
                 </p>
+                {/* 25/09/2026 : prix lu dans src/data/pricing (PRIX.siteFrom), plus en dur. */}
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
-                  DKDP builds professional websites for SMBs in Geneva and French-speaking Switzerland: showcase, e-commerce or fully custom. Every project is designed to be fast, visible on Google and easy to self-manage. Pricing starts at CHF 2&apos;500, with a fixed quote and no surprises.
+                  DKDP builds professional websites for SMBs in Geneva and French-speaking Switzerland: showcase, e-commerce or fully custom. Every project is designed to be fast, visible on Google and easy to self-manage. Pricing starts at {chf(PRIX.siteFrom)}, with a fixed quote and no surprises.
                 </p>
                 <HeroPills
                   items={[
@@ -235,12 +242,13 @@ export default function EnWebDesignPage() {
 
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
+          {/* 25/09/2026 : « 100+ websites delivered » et « < 1.5s average load time » retirés, aucune source. Remplacés par le prix (PRIX) et le devis sous 48h. */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '100+', l: 'Websites delivered', sub: 'In French-speaking Switzerland' },
+              { v: chf(PRIX.siteFrom), l: 'Showcase site', sub: 'Starting price, fixed quote' },
               { v: '10+ yrs', l: 'Of experience', sub: 'In Geneva digital' },
               { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
-              { v: '< 1.5s', l: 'Average load time', sub: 'PageSpeed score 90+' },
+              { v: '48h', l: 'Free quote', sub: 'Detailed, no commitment' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -279,8 +287,9 @@ export default function EnWebDesignPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 A website that works for your SMB.
               </h2>
+              {/* 25/09/2026 : « pays back from month one » retiré, promesse sans source. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                A beautiful but slow website, badly indexed or hard to update, brings in nothing. DKDP designs sites that combine polished design, technical performance and SEO fundamentals so your investment pays back from month one.
+                A beautiful but slow website, badly indexed or hard to update, brings in nothing. DKDP designs sites that combine polished design, technical performance and SEO fundamentals so your investment works for you from launch day.
               </p>
               <p className="text-text-secondary leading-relaxed">
                 Every project starts with a deep brief. We understand your market, your clients and your objectives before opening Figma. The result: a site built for your audience, not to impress other designers.
@@ -351,8 +360,9 @@ export default function EnWebDesignPage() {
                   Performance comparison
                 </p>
                 <PerformanceComparison lang="en" />
+                {/* 25/09/2026 : « Real Core Web Vitals metrics » retiré, le comparatif n'affiche plus de chiffres. */}
                 <p className="text-text-muted text-[11px] text-center mt-4">
-                  Real Core Web Vitals metrics. The PageSpeed score directly impacts Google ranking.
+                  Core Web Vitals are among the signals Google uses to rank pages.
                 </p>
               </div>
             </SectionReveal>
@@ -406,7 +416,8 @@ export default function EnWebDesignPage() {
               {[
                 {
                   label: 'Showcase site',
-                  price: "from CHF 2'500",
+                  // 25/09/2026 : prix lu dans src/data/pricing (PRIX.siteFrom), plus en dur.
+                  price: `from ${chf(PRIX.siteFrom)}`,
                   duration: '3 to 5 weeks',
                   features: [
                     'Custom design (Figma)',

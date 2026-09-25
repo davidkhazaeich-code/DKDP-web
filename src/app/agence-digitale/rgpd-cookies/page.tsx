@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import Image from 'next/image'
-import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, Zap, AlertTriangle, Lock, Star } from 'lucide-react'
+import { CheckCircle2, ChevronRight, ShieldCheck, BarChart2, Clock, Globe2, Zap, AlertTriangle, Lock } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -20,6 +19,7 @@ import { violet } from '@/lib/tokens'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
   title: 'RGPD et nLPD à Genève : bandeau cookies conforme | DKDP',
@@ -76,12 +76,14 @@ const FAQ = [
   },
 ]
 
+// 25/09/2026 : « 0 CHF, zéro amende » et « 100 %, conformité garantie » retirés, deux promesses
+// absolues sans fondement. Les plafonds d'amende cités restent ceux de la loi.
 const BENEFITS = [
   {
     Icon: ShieldCheck,
-    value: '0 CHF',
-    title: 'Zéro amende',
-    desc: 'Une fois conforme, vous éliminez le risque d\'amende allant jusqu\'à CHF 50\'000 (LPD suisse) ou 4% du CA mondial (RGPD européen) en cas de contrôle.',
+    value: 'LPD + RGPD',
+    title: 'Risque d\'amende réduit',
+    desc: 'Une fois conforme, vous réduisez le risque d\'amende en cas de contrôle. Or cette amende peut atteindre CHF 50\'000 sous la LPD suisse, ou 4% du chiffre d\'affaires mondial sous le RGPD européen.',
   },
   {
     Icon: Zap,
@@ -91,9 +93,9 @@ const BENEFITS = [
   },
   {
     Icon: Lock,
-    value: '100%',
-    title: 'Conformité garantie',
-    desc: 'Après implémentation, vous disposez d\'un certificat de conformité DKDP. Vous pouvez répondre à toute demande client ou d\'autorité.',
+    value: 'Certificat',
+    title: 'Conformité documentée',
+    desc: 'Après l\'implémentation, vous recevez un certificat de conformité DKDP et tous les documents produits. Vous répondez ainsi à une demande de client ou d\'autorité, pièces à l\'appui.',
   },
 ]
 
@@ -182,13 +184,14 @@ export default function RGPDCookiesPage() {
 
 
       {/* ── Stats ── */}
+      {/* 25/09/2026 : « 100 %, conformité garantie après notre intervention » retiré, promesse absolue. */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: 'CHF 50k', l: 'Amende max LPD', sub: 'Loi suisse revLPD 2023' },
               { v: '72h', l: 'Délai de notification', sub: 'En cas de violation de données' },
-              { v: '100%', l: 'Conformité garantie', sub: 'Après notre intervention' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
               { v: '5 jours', l: "Délai d'intervention", sub: 'Du rapport à la mise en place' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -478,134 +481,16 @@ export default function RGPDCookiesPage() {
       </section>
 
       {/* ── Témoignages ── */}
-      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Témoignages</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Ils sont conformes. Ils dorment mieux.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'On avait ignoré le RGPD pendant 3 ans. Un concurrent a porté plainte. DKDP nous a mis en conformité en une semaine. Travail impeccable et réactif.',
-                author: 'Directeur',
-                company: 'PME e-commerce, Genève',
-                stars: 5,
-              },
-              {
-                quote: 'Notre site collectait des données sans les bons formulaires. DKDP a tout mis en ordre en 48h. Notre avocat a validé le travail sans une seule correction.',
-                author: 'Fondatrice',
-                company: 'Cabinet RH, Lausanne',
-                stars: 5,
-              },
-              {
-                quote: 'En tant que praticienne de santé, la conformité est non-négociable. DKDP connaît les spécificités des données sensibles. Résultat irréprochable.',
-                author: 'Médecin indépendante',
-                company: 'Cabinet médical, Genève',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={t.author} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full p-7 rounded-[16px] border"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-0.5 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 mb-6">&ldquo;{t.quote}&rdquo;</p>
-                  <div>
-                    <p className="text-text font-semibold text-sm">{t.author}</p>
-                    <p className="text-text-muted text-xs mt-0.5">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026 : trois témoignages anonymes retirés (dont « Notre avocat a validé le travail sans
+          une seule correction »), inventés. Place aux avis nommés du composant partagé. */}
+      <Testimonials accentRgb="167,139,250" />
 
-      {/* ── Réalisations + Garanties ── */}
+      {/* ── Engagements ── */}
+      {/* 25/09/2026 : les trois réalisations anonymes (« 12 contrats DPA », « équipe de 5 personnes »,
+          « audit et implémentation en 5 jours ») sont retirées : aucun client nommable, chiffres sans
+          source. Les réalisations publiées (src/lib/realisations) ne portent pas sur la conformité. */}
       <section className="py-24">
         <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Réalisations</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Des mises en conformité concrètes.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                client: 'PME e-commerce B2C',
-                type: 'Conformité complète',
-                image: '/images/services/dkdp-agence-rgpd.webp',
-                results: ['Audit + implémentation en 5 jours', 'Banner Axeptio conforme RGPD', 'Politique vie privée + DPA livrés'],
-                tech: 'Axeptio · RGPD · DPA · LPD',
-              },
-              {
-                client: 'Cabinet médical',
-                type: 'Données de santé (sensibles)',
-                image: '/images/services/dkdp-agence-consulting.webp',
-                results: ['Registre des traitements complet', 'Formulaires patients conformes', 'Formation équipe 5 personnes'],
-                tech: 'LPD · Santé · Registre · DPA',
-              },
-              {
-                client: 'Startup SaaS B2B',
-                type: 'RGPD + Sous-traitants',
-                image: '/images/services/dkdp-agence-creation-web.webp',
-                results: ['12 contrats DPA sous-traitants', 'Politique vie privée EN + FR', 'Mention cookies conforme CNIL'],
-                tech: 'RGPD · DPA · Cookiebot · Multi-langue',
-              },
-            ].map((r, i) => (
-              <SectionReveal key={r.client} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border overflow-hidden"
-                  style={{ borderColor: border }}
-                >
-                  <div className="relative h-44 overflow-hidden flex-shrink-0">
-                    <Image
-                      src={r.image}
-                      alt={r.client}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
-                    <span
-                      className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full"
-                      style={{ background: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(6px)', color, border: `1px solid ${border}` }}
-                    >
-                      {r.type}
-                    </span>
-                  </div>
-                  <div className="p-6 flex flex-col flex-1" style={{ background: bg }}>
-                    <p className="text-text font-bold mb-4">{r.client}</p>
-                    <div className="space-y-2 flex-1">
-                      {r.results.map((res) => (
-                        <div key={res} className="flex items-center gap-2">
-                          <Star size={11} style={{ color }} className="flex-shrink-0" />
-                          <span className="text-text text-sm font-semibold">{res}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-text-muted text-[11px] mt-4 font-mono">{r.tech}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-
           {/* Garanties */}
           <SectionReveal>
             <div className="rounded-[20px] border p-8 md:p-10" style={{ background: bg, borderColor: border }}>

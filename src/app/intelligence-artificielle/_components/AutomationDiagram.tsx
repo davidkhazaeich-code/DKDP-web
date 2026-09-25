@@ -7,7 +7,9 @@ export function AutomationDiagram({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
     : ['Déclencheur auto', 'Agent IA analyse', 'CRM mis à jour', 'Validation auto', 'Rapport instantané']
   const beforeLabel = lang === 'en' ? 'Before' : 'Avant'
   const afterLabel = lang === 'en' ? 'After AI' : 'Après IA'
-  const perTask = lang === 'en' ? '/ task' : '/ tâche'
+  // 25/09/2026 : « 3h / tâche » contre « 4 min / tâche » retirés, aucune source.
+  const beforeNote = lang === 'en' ? 'Re-keyed at every step' : 'Ressaisie à chaque étape'
+  const afterNote = lang === 'en' ? 'No re-keying' : 'Sans ressaisie'
   return (
     <div className="grid grid-cols-2 gap-4 w-full">
       <div>
@@ -19,7 +21,7 @@ export function AutomationDiagram({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
               <span className="text-text-muted text-[11px]">{s}</span>
             </div>
           ))}
-          <p className="text-[10px] text-center mt-2 font-semibold" style={{ color: 'var(--red-text)' }}>3h {perTask}</p>
+          <p className="text-[10px] text-center mt-2 font-semibold" style={{ color: 'var(--red-text)' }}>{beforeNote}</p>
         </div>
       </div>
       <div>
@@ -31,7 +33,7 @@ export function AutomationDiagram({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
               <span className="text-text-secondary text-[11px]">{s}</span>
             </div>
           ))}
-          <p className="text-[10px] text-center mt-2 font-semibold" style={{ color: 'var(--green-text)' }}>4 min {perTask}</p>
+          <p className="text-[10px] text-center mt-2 font-semibold" style={{ color: 'var(--green-text)' }}>{afterNote}</p>
         </div>
       </div>
     </div>

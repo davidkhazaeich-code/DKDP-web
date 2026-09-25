@@ -1,5 +1,8 @@
 import type { Article } from './types'
+import { PRIX, chf } from '@/data/pricing'
 
+// 25/09/2026 : les montants du chatbot (paragraphe de prix et FAQ) viennent de
+// PRIX ; texte rendu identique.
 const article: Article = {
   slug: 'chatbot-ia-pme-guide-2026',
   category: 'ia',
@@ -106,7 +109,7 @@ Un chatbot IA grounded répond à des questions et qualifie une demande. Un agen
 
 Le montant dépend de trois facteurs : le nombre de pages et de documents à indexer, la nécessité ou non de connecter le chatbot à un CRM pour capter des leads qualifiés, et le nombre de langues à couvrir (chaque langue supplémentaire ajoute sa propre base de connaissances).
 
-Deux repères concrets. Un chatbot Essentiel, qui répond aux questions fréquentes à partir du contenu du site, démarre à CHF 2'900 et se déploie en 2 semaines. Les formules connectées à vos outils métier (CRM type HubSpot ou Pipedrive, agenda, ERP type Bexio) se situent entre CHF 5'500 et CHF 12'000, avec 4 à 5 semaines de déploiement, le temps de brancher et de tester chaque intégration. La maintenance mensuelle démarre à CHF 250. Le détail par formule est sur notre page [chatbot IA](/intelligence-artificielle/chatbot-ia#offres).
+Deux repères concrets. Un chatbot Essentiel, qui répond aux questions fréquentes à partir du contenu du site, démarre à ${chf(PRIX.chatbotEssentiel)} et se déploie en 2 semaines. Les formules connectées à vos outils métier (CRM type HubSpot ou Pipedrive, agenda, ERP type Bexio) se situent entre ${chf(PRIX.chatbotPro)} et ${chf(PRIX.chatbotConnecteTo)}, avec 4 à 5 semaines de déploiement, le temps de brancher et de tester chaque intégration. La maintenance mensuelle démarre à ${chf(PRIX.chatbotMaintenanceMonthly)}. Le détail par formule est sur notre page [chatbot IA](/intelligence-artificielle/chatbot-ia#offres).
 
 Un point mérite d'être clarifié d'emblée : le tarif mensuel ne couvre pas un coût brut d'intelligence artificielle qui resterait à la charge du client au-delà d'un certain volume. Une limite de débit est posée dès le départ pour éviter toute facture surprise. Le montant mensuel couvre la maintenance, le monitoring des conversations et les ajustements de périmètre, pas la consommation du modèle.
 
@@ -132,7 +135,7 @@ Un chatbot IA devient rentable quand le catalogue de produits ou services est co
 Rarement. En dessous d'une dizaine de pages, une FAQ statique bien rédigée répond à la majorité des questions sans coût récurrent ni maintenance de base de connaissances. Un chatbot IA devient pertinent quand le contenu est trop volumineux ou trop ramifié pour qu'un visiteur le parcoure seul, pas pour remplacer une page qui tient déjà l'information en un coup d'œil.
 
 **Combien coûte un chatbot IA pour une PME à Genève ?**
-Le montant dépend du nombre de pages à indexer, du périmètre de réponses et du besoin ou non de connecter le chatbot à vos outils métier. Un chatbot Essentiel, qui répond aux questions fréquentes à partir du contenu du site, démarre à CHF 2'900 et se déploie en 2 semaines. Les formules connectées à un CRM, un agenda ou un ERP se situent entre CHF 5'500 et CHF 12'000, pour 4 à 5 semaines de déploiement. La maintenance mensuelle démarre à CHF 250 et couvre le monitoring des conversations et les ajustements de périmètre.`,
+Le montant dépend du nombre de pages à indexer, du périmètre de réponses et du besoin ou non de connecter le chatbot à vos outils métier. Un chatbot Essentiel, qui répond aux questions fréquentes à partir du contenu du site, démarre à ${chf(PRIX.chatbotEssentiel)} et se déploie en 2 semaines. Les formules connectées à un CRM, un agenda ou un ERP se situent entre ${chf(PRIX.chatbotPro)} et ${chf(PRIX.chatbotConnecteTo)}, pour 4 à 5 semaines de déploiement. La maintenance mensuelle démarre à ${chf(PRIX.chatbotMaintenanceMonthly)} et couvre le monitoring des conversations et les ajustements de périmètre.`,
   faq: [
     {
       question: 'Qu\'est-ce qu\'un chatbot IA "grounded" ?',
@@ -152,7 +155,7 @@ Le montant dépend du nombre de pages à indexer, du périmètre de réponses et
     {
       question: 'Combien coûte un chatbot IA pour une PME à Genève ?',
       answer:
-        "Le montant dépend du nombre de pages à indexer, du périmètre de réponses et du besoin ou non de connecter le chatbot à vos outils métier. Un chatbot Essentiel, qui répond aux questions fréquentes à partir du contenu du site, démarre à CHF 2'900 et se déploie en 2 semaines. Les formules connectées à un CRM, un agenda ou un ERP se situent entre CHF 5'500 et CHF 12'000, pour 4 à 5 semaines de déploiement. La maintenance mensuelle démarre à CHF 250 et couvre le monitoring des conversations et les ajustements de périmètre.",
+        `Le montant dépend du nombre de pages à indexer, du périmètre de réponses et du besoin ou non de connecter le chatbot à vos outils métier. Un chatbot Essentiel, qui répond aux questions fréquentes à partir du contenu du site, démarre à ${chf(PRIX.chatbotEssentiel)} et se déploie en 2 semaines. Les formules connectées à un CRM, un agenda ou un ERP se situent entre ${chf(PRIX.chatbotPro)} et ${chf(PRIX.chatbotConnecteTo)}, pour 4 à 5 semaines de déploiement. La maintenance mensuelle démarre à ${chf(PRIX.chatbotMaintenanceMonthly)} et couvre le monitoring des conversations et les ajustements de périmètre.`,
     },
   ],
 }

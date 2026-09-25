@@ -4,7 +4,8 @@ export const FAQ_AGENCE = [
   {
     question: "Combien coûte la création d'un site web à Genève ?",
     answer:
-      "Un site vitrine professionnel démarre entre CHF 2'500 et CHF 5'000. Un site e-commerce ou un projet avec fonctionnalités avancées se situe entre CHF 5'000 et CHF 15'000. DKDP fournit un devis fixe et détaillé avant tout démarrage, sans mauvaise surprise.",
+      // 25/09/2026 : prix de départ lu dans PRIX.siteFrom, plus en dur.
+      `Un site vitrine professionnel démarre entre ${chf(PRIX.siteFrom)} et CHF 5'000. Un site e-commerce ou un projet avec fonctionnalités avancées se situe entre CHF 5'000 et CHF 15'000. DKDP fournit un devis fixe et détaillé avant tout démarrage, sans mauvaise surprise.`,
   },
   {
     question: "Combien de temps faut-il pour créer un site web professionnel ?",
@@ -39,7 +40,8 @@ export const FAQ_AGENCE = [
   {
     question: "Travaillez-vous avec des PME ou seulement des grandes entreprises ?",
     answer:
-      "DKDP travaille principalement avec des PME, indépendants et startups en Suisse romande. Plus de 150 projets livrés pour des entreprises de 1 à 80 personnes. La plupart de nos clients sont des PME genevoises qui souhaitent une présence digitale professionnelle sans les tarifs d'une grande agence.",
+      // 25/09/2026 : « Plus de 150 projets livrés » retiré, aucun comptage derrière.
+      "DKDP travaille principalement avec des PME, indépendants et startups en Suisse romande. La plupart de nos clients sont des PME genevoises qui souhaitent une présence digitale professionnelle sans les tarifs d'une grande agence.",
   },
   {
     question: "Proposez-vous une maintenance après la livraison du site ?",

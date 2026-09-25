@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ChevronRight, Clock, Users, Award, Star, Smartphone, BarChart2, Layers, Zap, Video } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Clock, Users, Award, Smartphone, BarChart2, Layers, Zap, Video } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { HeroBg } from '@/components/ui/HeroBg'
@@ -20,6 +20,7 @@ const FormationPricing = dynamic(() => import('@/components/sections/FormationPr
 const FormationTrainer = dynamic(() => import('@/components/sections/FormationTrainer').then(m => ({ default: m.FormationTrainer })))
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import { VideoToolCards } from './_components/VideoToolCards'
 
 export const metadata: Metadata = {
@@ -65,10 +66,11 @@ const FAQ = [
     answer:
       'La formation couvre les sources de musique libre de droits : CapCut Sound Library, Epidemic Sound, YouTube Audio Library et Pixabay. Vous apprenez à éviter les blocages de copyright lors de la publication.',
   },
+  // 25/09/2026 : « Plus de 80 % des vidéos » retiré, aucune source.
   {
     question: 'La formation inclut-elle les sous-titres automatiques ?',
     answer:
-      'Oui. Les sous-titres automatiques sont un module à part entière. Plus de 80% des vidéos sur les réseaux sont regardées sans son. CapCut et d\'autres outils génèrent des sous-titres automatiquement que vous corrigez en quelques minutes.',
+      'Oui. Les sous-titres automatiques sont un module à part entière, car une grande partie des vidéos se regarde sans le son sur les réseaux. CapCut et d\'autres outils génèrent des sous-titres automatiquement que vous corrigez en quelques minutes.',
   },
 ]
 
@@ -172,9 +174,11 @@ export default function FormationMontageVideoPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '10+', l: 'Outils maîtrisés', sub: 'CapCut, DaVinci, Premiere...' },
-              { v: '2.7×', l: 'Engagement vidéo', sub: 'vs contenu statique' },
-              { v: '4h/sem', l: 'Économisées', sub: 'En post-production' },
+              // 25/09/2026 : « 10+ outils », « 2.7× d'engagement » et « 4h/sem économisées »
+              // retirés, aucune source. Faits de l'offre, de la grille et de la fiche Google.
+              { v: '1 à 10', l: 'Personnes par session', sub: 'Groupe sur devis dès 3' },
+              { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
+              { v: chf(PRIX.formationHourly1), l: 'De l\'heure, pour une personne', sub: `${chfHeure(PRIX.formationHourly2)} pour deux, groupes sur devis` },
               { v: '1 journée', l: 'Pour produire seul', sub: 'Votre première vidéo pro' },
             ].map((s) => (
               <SectionReveal key={s.l}>
@@ -222,17 +226,19 @@ export default function FormationMontageVideoPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Pourquoi votre entreprise a besoin d&apos;une formation montage vidéo
               </h2>
+              {/* 25/09/2026 : « CHF 300 à 800 par contenu », « 5 à 10 jours » et « 45 minutes » retirés, aucune source. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                Les entreprises qui externalisent leur production vidéo dépensent en moyenne CHF 300 à 800 par contenu, pour des délais de 5 à 10 jours. Avec les bons outils et une formation d&apos;une journée, vos équipes produisent le même résultat en 45 minutes, en interne.
+                Externaliser la production vidéo se paie à chaque contenu, et chaque livraison dépend ensuite du planning du prestataire. Avec les bons outils et une formation d&apos;une journée, vos équipes produisent ces contenus elles-mêmes, en interne.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
                 DKDP ne forme pas à la théorie. On ouvre CapCut, DaVinci ou Premiere et on produit de vraies vidéos pendant la session. Vous repartez avec vos templates, votre workflow et votre première vidéo publiée.
               </p>
               <div className="space-y-3">
                 {[
-                  'Les Reels génèrent 2.7× plus d\'engagement que les images sur Instagram',
-                  'La vidéo courte est le format numéro 1 de découverte de marque en 2026',
-                  'Produire en interne réduit les coûts de production de 70 à 85%',
+                  // 25/09/2026 : « 2.7× », « format numéro 1 » et « 70 à 85 % » retirés, aucune source.
+                  'Sur Instagram, les Reels suscitent en général plus d\'engagement que les images fixes',
+                  'La vidéo courte occupe désormais une place centrale dans la découverte des marques',
+                  'Produire en interne évite de payer un prestataire pour chaque vidéo',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0" style={{ color }} />
@@ -349,59 +355,8 @@ export default function FormationMontageVideoPage() {
 
       <FormationTrainer accentColor='#FF8C00' />
 
-      {/* ── Témoignages ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Ce qu&apos;ils en disent</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Retours après la formation montage vidéo
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'Avant la formation, on externalisait nos vidéos Instagram à CHF 300 la pièce. Maintenant on les fait en interne en 45 minutes. ROI immédiat.',
-                name: 'Camille R., Responsable marketing',
-                company: 'Marque lifestyle, Genève',
-                stars: 5,
-              },
-              {
-                quote: 'En une journée, j\'ai appris à monter, étalonner et exporter mes vidéos YouTube. DKDP m\'a donné les bases et la méthode pour être autonome.',
-                name: 'Alexandre M., Fondateur',
-                company: 'Coach sportif, Lausanne',
-                stars: 5,
-              },
-              {
-                quote: 'Notre équipe RH crée maintenant ses propres vidéos pour les offres d\'emploi. L\'engagement de nos posts est 4× supérieur depuis qu\'on utilise la vidéo.',
-                name: 'Sandrine W., DRH',
-                company: 'PME tech, Genève',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <Star key={j} size={12} style={{ color }} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : témoignages anonymes (Camille R., Alexandre M., Sandrine W.) retirés,
+          inventés. Les avis Google de FormationTrainer, juste au-dessus, font la preuve. */}
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">
@@ -413,8 +368,9 @@ export default function FormationMontageVideoPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
                 Tarifs de la formation montage vidéo
               </h2>
+              {/* 25/09/2026 : « 4h » et « 8h » alignés sur l'offre et sur la grille ci-dessous. */}
               <p className="text-text-secondary mt-4 max-w-xl mx-auto text-sm">
-                Le prix dépend du nombre de participants. Demi-journée (4h) ou journée entière (8h).
+                Le prix dépend du nombre de participants et du format : demi-journée (3 h de formation et 1 h de préparation) ou journée entière (6 h et 2 h).
               </p>
             </div>
           </SectionReveal>

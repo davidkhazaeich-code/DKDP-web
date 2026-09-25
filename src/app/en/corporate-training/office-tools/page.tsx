@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { PRIX, chf, chfHeure } from '@/data/pricing'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -83,7 +84,8 @@ const MODULES = [
   'PowerPoint: designing convincing presentations',
   'Outlook: advanced email management and automatic rules',
   'Microsoft 365: Teams, SharePoint, OneDrive and real-time collaboration',
-  'Shortcuts and automations to save 3h per week',
+  // 25/09/2026 : unsourced "to save 3h per week" removed.
+  'Keyboard shortcuts and automation of repetitive tasks',
 ]
 
 const STEPS = [
@@ -136,8 +138,9 @@ export default function FormationBureautiquePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h1 className="grad-tag inline-block text-xs md:text-sm mb-6">Office and Excel training Geneva and French-speaking Switzerland</h1>
+                {/* 25/09/2026 : "3 hours on Excel, 30 minutes after the training" removed, no measurement behind it. */}
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
-                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>3 hours</GradText>{' '}on Excel. We teach them to do it in <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>30 minutes</GradText>.
+                  <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>Less time</GradText>{' '}on Excel, <GradText as="span" style={{ backgroundImage: 'linear-gradient(90deg, #FF8C00, #FFB347)' }}>more time</GradText>{' '}for what matters.
                 </p>
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-4">
                   DKDP trains your teams on Excel, Word, PowerPoint and Microsoft 365 on site in Geneva and across French-speaking Switzerland. Programme tailored to your SME or large company, to your level and your real usage. Your employees leave with skills they can apply the very next day.
@@ -192,10 +195,12 @@ export default function FormationBureautiquePage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '3h', l: 'Saved / week', sub: 'Per trained employee' },
-              { v: '10%', l: 'Features used', sub: 'Of Excel on average' },
-              { v: '85%', l: 'Satisfaction', sub: 'Post-training score' },
-              { v: '1 day', l: 'To master it all', sub: 'Intensive hands-on format' },
+              // 25/09/2026 : unsourced "3h saved / week", "10% of Excel features", "85% satisfaction"
+              // and "1 day to master it all" removed. Grid facts instead, as on the AI training page.
+              { v: '1 to 10', l: 'People per session', sub: 'Groups on quote from 3' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
+              { v: '3 h or 6 h', l: 'Half day or full day', sub: 'Plus 1 h or 2 h of preparation' },
+              { v: chf(PRIX.formationHourly1), l: 'Per hour, for one person', sub: `${chfHeure(PRIX.formationHourly2)} for two, groups on quote` },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -245,16 +250,18 @@ export default function FormationBureautiquePage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Why train your teams on Excel and office tools
               </h2>
+              {/* 25/09/2026 : unsourced "10% of the features", "hours lost every week" and "20% of features for 80% of needs" removed. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                Most employees use only 10% of the features in Excel or Word. Hours lost every week on tasks that could be automated in a few clicks. DKDP training targets the 20% of features that cover 80% of daily needs.
+                Many employees have used Excel and Word for years without knowing their most useful features. As a result, they lose time on repetitive tasks that a formula or an automation handles in a few clicks. That is why DKDP training focuses on the features that genuinely matter day to day.
               </p>
               <p className="text-text-secondary leading-relaxed mb-8">
                 We do not work on fictional exercises. We take your real spreadsheets, your real files, and improve them together. From the very next morning, your teams apply what they have learned.
               </p>
+              {/* 25/09/2026 : unsourced "3 hours per week on average" and "fewer than 10% master pivot tables" rewritten without figures. The Microsoft line names its source, kept. */}
               <div className="space-y-3">
                 {[
-                  'Employees trained in advanced Excel save 3 hours per week on average',
-                  'Fewer than 10% of Excel users master pivot tables',
+                  'An employee trained in advanced Excel automates repetitive tasks instead of redoing them by hand',
+                  'A pivot table summarises a large spreadsheet in a few clicks, without a single formula',
                   'Microsoft 365 is underused in 9 out of 10 companies according to Microsoft',
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -389,59 +396,7 @@ export default function FormationBureautiquePage() {
 
       <FormationTrainer accentColor='#FF8C00' lang="en" />
 
-      {/* ── Testimonials ── */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">What they say</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Feedback after the office training
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'After DKDP\'s Excel training, I automated 4 weekly tasks. What used to take me 3 hours now takes 20 minutes. Magic.',
-                name: 'Sophie B., Accountant',
-                company: 'Financial SME, Geneva',
-                stars: 5,
-              },
-              {
-                quote: 'Our entire administrative team took the training. We now use Teams and SharePoint effectively. Collaboration has been transformed.',
-                name: 'Marie D., HR Director',
-                company: 'Company of 120 people, Lausanne',
-                stars: 5,
-              },
-              {
-                quote: 'I had been using Excel for 15 years but I did not really know what it was. The training opened my eyes to what I was missing.',
-                name: 'Isabelle T., Project Officer',
-                company: 'Public sector, Geneva',
-                stars: 5,
-              },
-            ].map((t, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: bg, borderColor: border }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, j) => (
-                      <span key={j} style={{ color }}>★</span>
-                    ))}
-                  </div>
-                  <p className="text-text-secondary leading-relaxed text-sm flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="mt-6 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                    <p className="text-text font-semibold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.company}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : anonymous testimonials removed (Sophie B., Marie D., Isabelle T.), no source. The real Google reviews live in FormationTrainer. */}
 
       {/* ── Pricing ── */}
       <HeroBg blob1="rgba(255,107,0,0.13)" blob2="rgba(255,107,0,0.06)" accentRgb="255,140,0">

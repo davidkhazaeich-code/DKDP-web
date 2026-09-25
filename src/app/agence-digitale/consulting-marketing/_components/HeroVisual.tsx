@@ -3,21 +3,26 @@ import { violet } from '@/lib/tokens'
 const V = violet.color
 const VD = violet.border
 
+/**
+ * 25/09/2026 : la maquette annonçait « Avant DKDP / Après 6 mois », « +232 % », « 3 mois,
+ * premiers résultats » et « ROI à 6 mois », sans aucune mesure derrière. Elle devient un
+ * exemple de rapport d'audit : situation actuelle contre objectif, valeurs illustratives.
+ */
 export function HeroVisual() {
   return (
     <div className="relative flex flex-col gap-4">
-      {/* Audit Radar + Before/After */}
+      {/* Audit Radar : exemple, aujourd'hui contre objectif */}
       <div
         className="rounded-[14px] overflow-hidden"
         style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${VD}`, boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}
       >
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/5">
-          <span className="text-[10px] text-zinc-400 font-mono">Audit Marketing 360 · Resultat</span>
+          <span className="text-[10px] text-zinc-400 font-mono">Audit Marketing 360 · Exemple</span>
           <div className="flex items-center gap-1.5">
             <div className="w-2 h-2 rounded-full bg-amber-400" />
-            <span className="text-[9px] text-amber-400 font-bold">Avant DKDP</span>
+            <span className="text-[9px] text-amber-400 font-bold">Aujourd&apos;hui</span>
             <div className="w-2 h-2 rounded-full bg-green-400 ml-2" />
-            <span className="text-[9px] text-green-400 font-bold">Apres 6 mois</span>
+            <span className="text-[9px] text-green-400 font-bold">Objectif</span>
           </div>
         </div>
 
@@ -66,22 +71,10 @@ export function HeroVisual() {
               </div>
             </div>
             <div className="text-right">
-              <p className="text-[9px] text-zinc-500 uppercase">Amelioration</p>
-              <p className="text-xl font-bold" style={{ color: V }}>+232%</p>
+              <p className="text-[9px] text-zinc-500 uppercase">Plan d&apos;actions</p>
+              <p className="text-xl font-bold" style={{ color: V }}>Priorisé</p>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Floating ROI card */}
-      <div className="absolute -right-2 top-8 rotate-1 hidden lg:block">
-        <div
-          className="rounded-lg p-3"
-          style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
-        >
-          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-1">ROI a 6 mois</p>
-          <p className="text-xl font-bold text-green-400">Objectif</p>
-          <p className="text-[8px] text-zinc-500">sur le budget marketing</p>
         </div>
       </div>
 
@@ -101,12 +94,12 @@ export function HeroVisual() {
         </div>
       </div>
 
-      {/* Mini stats */}
+      {/* Mini stats : faits de l'offre (appel gratuit, audit 360°, feuille de route de l'audit) */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { v: '+232%', l: 'Score marketing', c: '#4ade80' },
+          { v: 'Gratuit', l: 'Appel découverte', c: '#4ade80' },
           { v: '360°', l: 'Audit complet', c: V },
-          { v: '3 mois', l: 'Premiers résultats', c: '#FF8C00' },
+          { v: '12 mois', l: 'Feuille de route', c: '#FF8C00' },
         ].map((s) => (
           <div
             key={s.l}

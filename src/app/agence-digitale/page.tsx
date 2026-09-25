@@ -23,6 +23,7 @@ import { CITIES } from '@/lib/cities'
 import { FunnelDiagram } from './_components/FunnelDiagram'
 import { HeroVisual } from './_components/HeroVisual'
 import { violet } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, IA_LOGOS, DESIGN_WEB_LOGOS, PRODUCTIVITE_LOGOS, SOCIAL_LOGOS } from '@/components/ui/AppLogos'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
@@ -33,7 +34,9 @@ const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBloc
 
 export const metadata: Metadata = {
   title: 'Agence Digitale Genève & Suisse romande · Web, SEO, Ads · DKDP',
-  description: 'Agence digitale à Genève. Création de site web, SEO, Google Ads et réseaux sociaux pour PME en Suisse romande. 100+ sites livrés, devis gratuit sous 48h.',
+  // 25/09/2026 : « 100+ sites livrés » retiré, aucune source. Remplacé par la fondation en 2019.
+  // 25/09/2026 : description ramenée sous 920 px (910 px, tools/check-serp-width.mjs).
+  description: 'Agence digitale à Genève : site web, SEO, Google Ads et réseaux sociaux pour PME en Suisse romande. Fondée en 2019, devis gratuit sous 48h.',
   alternates: {
     canonical: 'https://dkdp.ch/agence-digitale',
     languages: {
@@ -114,8 +117,10 @@ const SERVICES = [
   },
 ]
 
+// 25/09/2026 : « 100+ sites livrés » retiré, aucune source. Remplacé par le
+// prix d'entrée du site (PRIX).
 const STATS = [
-  { value: '100+', label: 'Sites livrés' },
+  { value: `dès ${chf(PRIX.siteFrom)}`, label: 'Création de site web' },
   { value: '2019', label: 'Fondée à Genève' },
   { value: '5,0/5', label: 'Note Google, 22 avis' },
 ]
@@ -229,25 +234,23 @@ export default function AgenceDigitalePage() {
               </h2>
             </div>
           </SectionReveal>
+          {/* 25/09/2026 : « 72 % », « 3 sec » et « 40 % » retirés, statistiques de marché sans source. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 Icon: EyeOff,
-                stat: '72%',
                 title: 'Invisible sur Google',
-                desc: 'Des recherches locales aboutissent sur la première page. Si vous n\'y êtes pas, vos clients potentiels vont directement chez un concurrent.',
+                desc: 'Vos clients cherchent un prestataire sur Google et choisissent parmi les premiers résultats. Si vous n\'y êtes pas, ils vont directement chez un concurrent.',
               },
               {
                 Icon: AlertTriangle,
-                stat: '3 sec',
                 title: 'Site qui ne convertit pas',
-                desc: 'C\'est le temps qu\'un visiteur prend pour quitter un site lent ou mal conçu. Une mauvaise expérience coûte des leads chaque jour.',
+                desc: 'Un visiteur quitte vite un site lent ou mal conçu, souvent avant d\'avoir lu votre offre. Une mauvaise expérience coûte ainsi des leads chaque jour.',
               },
               {
                 Icon: TrendingDown,
-                stat: '40%',
                 title: 'Budget publicitaire gaspillé',
-                desc: 'Des dépenses publicitaires partent sans ciblage précis ni suivi des conversions. La donnée change tout quand on sait l\'utiliser.',
+                desc: 'Sans ciblage précis ni suivi des conversions, une partie du budget publicitaire part sans rien rapporter. La donnée change tout quand on sait l\'utiliser.',
               },
             ].map((item, i) => (
               <SectionReveal key={item.title} delay={i * 0.1}>
@@ -261,7 +264,6 @@ export default function AgenceDigitalePage() {
                   >
                     <item.Icon size={22} style={{ color }} />
                   </div>
-                  <p className="text-[2.2rem] font-bold leading-none" style={{ color }}>{item.stat}</p>
                   <h3 className="text-text font-bold text-lg">{item.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed flex-1">{item.desc}</p>
                 </div>
@@ -549,12 +551,13 @@ export default function AgenceDigitalePage() {
                   Entonnoir de conversion
                 </p>
                 <FunnelDiagram />
+                {/* 25/09/2026 : « +240 % », « x3.5 » et « < 4 mois » retirés, aucune source. Remplacés par les engagements de la méthode ci-contre. */}
                 <div className="mt-8 pt-6 border-t" style={{ borderColor: border }}>
                   <div className="grid grid-cols-3 gap-4 text-center">
                     {[
-                      { v: '+240%', l: 'Trafic moyen' },
-                      { v: 'x3.5', l: 'Leads entrants' },
-                      { v: '< 4 mois', l: 'Premiers résultats' },
+                      { v: '48h', l: 'Devis fixe' },
+                      { v: 'J+1', l: 'Leads suivis' },
+                      { v: 'Mensuel', l: 'Rapport clair' },
                     ].map((kpi) => (
                       <div key={kpi.l}>
                         <p className="text-xl font-bold" style={{ color }}>{kpi.v}</p>
@@ -707,7 +710,8 @@ export default function AgenceDigitalePage() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1 text-[#D4D4D8]">Intelligence Artificielle</p>
                   <p className="text-text font-semibold">Automatisez vos processus avec l&apos;IA</p>
-                  <p className="text-text-muted text-xs mt-1">Agents IA, automatisation et conseil. 10h économisées par semaine en moyenne.</p>
+                  {/* 25/09/2026 : « 10h économisées par semaine en moyenne » retiré, aucune source. */}
+                  <p className="text-text-muted text-xs mt-1">Agents IA, automatisation et conseil : on libère vos équipes des tâches répétitives.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 text-[#D4D4D8] transition-transform group-hover:translate-x-1" />
               </Link>
@@ -721,7 +725,8 @@ export default function AgenceDigitalePage() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#FF8C00' }}>Formation Entreprise</p>
                   <p className="text-text font-semibold">Formez vos équipes au digital et à l&apos;IA</p>
-                  <p className="text-text-muted text-xs mt-1">Sessions sur mesure, en présentiel ou à distance. 200+ personnes formées.</p>
+                  {/* 25/09/2026 : « 200+ personnes formées » retiré, aucune source. */}
+                  <p className="text-text-muted text-xs mt-1">Sessions sur mesure, en présentiel ou à distance : on forme de 1 à 10 personnes par session.</p>
                 </div>
                 <ChevronRight size={18} className="flex-shrink-0 transition-transform group-hover:translate-x-1" style={{ color: '#FF8C00' }} />
               </Link>

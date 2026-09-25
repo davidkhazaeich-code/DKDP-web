@@ -2,49 +2,52 @@ import { orange } from '@/lib/tokens'
 
 const color = orange.color
 
+// 25/09/2026 : pourcentages « % des PME concernées » (92, 88, 82, 78, 55) retirés, aucune
+// source. La jauge montre désormais le niveau de menace sur trois crans, pas une proportion.
+const LEVELS = {
+  critique: { label: 'CRITIQUE', filled: 3, badge: 'rgba(239,68,68,0.15)', text: '#f87171', bar: '#ef4444' },
+  eleve: { label: 'ÉLEVÉ', filled: 2, badge: 'rgba(251,146,60,0.15)', text: '#fb923c', bar: '#fb923c' },
+  moyen: { label: 'MOYEN', filled: 1, badge: 'rgba(234,179,8,0.15)', text: '#fbbf24', bar: '#fbbf24' },
+} as const
+
 export function ThreatLevelChart() {
-  const threats = [
-    { name: 'Phishing / hameçonnage', pct: 92, level: 'CRITIQUE' },
-    { name: 'Ingénierie sociale', pct: 88, level: 'CRITIQUE' },
-    { name: 'Mots de passe faibles', pct: 82, level: 'ÉLEVÉ' },
-    { name: 'Ransomware', pct: 78, level: 'ÉLEVÉ' },
-    { name: 'Logiciels non à jour', pct: 55, level: 'MOYEN' },
+  const threats: { name: string; level: keyof typeof LEVELS }[] = [
+    { name: 'Phishing / hameçonnage', level: 'critique' },
+    { name: 'Ingénierie sociale', level: 'critique' },
+    { name: 'Mots de passe faibles', level: 'eleve' },
+    { name: 'Ransomware', level: 'eleve' },
+    { name: 'Logiciels non à jour', level: 'moyen' },
   ]
   return (
     <div className="space-y-4 w-full">
       <p className="text-[11px] font-bold uppercase tracking-widest mb-5 text-center" style={{ color }}>
         Menaces actuelles : PME suisses
       </p>
-      {threats.map((t) => (
-        <div key={t.name} className="space-y-1.5">
-          <div className="flex justify-between items-center">
-            <span className="text-text text-sm font-medium">{t.name}</span>
-            <span
-              className="text-[10px] font-bold px-2 py-0.5 rounded-full"
-              style={{
-                background: t.pct >= 85 ? 'rgba(239,68,68,0.15)' : t.pct >= 70 ? 'rgba(251,146,60,0.15)' : 'rgba(234,179,8,0.15)',
-                color: t.pct >= 85 ? '#f87171' : t.pct >= 70 ? '#fb923c' : '#fbbf24',
-              }}
-            >
-              {t.level}
-            </span>
+      {threats.map((t) => {
+        const lv = LEVELS[t.level]
+        return (
+          <div key={t.name} className="space-y-1.5">
+            <div className="flex justify-between items-center">
+              <span className="text-text text-sm font-medium">{t.name}</span>
+              <span
+                className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                style={{ background: lv.badge, color: lv.text }}
+              >
+                {lv.label}
+              </span>
+            </div>
+            <div className="grid grid-cols-3 gap-1" aria-hidden="true">
+              {[1, 2, 3].map((n) => (
+                <div
+                  key={n}
+                  className="h-2 rounded-full"
+                  style={{ background: n <= lv.filled ? lv.bar : 'rgba(255,107,0,0.10)' }}
+                />
+              ))}
+            </div>
           </div>
-          <div className="h-2 rounded-full" style={{ background: 'rgba(255,107,0,0.10)' }}>
-            <div
-              className="h-full rounded-full"
-              style={{
-                width: `${t.pct}%`,
-                background: t.pct >= 85
-                  ? 'linear-gradient(90deg, rgba(239,68,68,0.60), #ef4444)'
-                  : t.pct >= 70
-                  ? 'linear-gradient(90deg, rgba(251,146,60,0.60), #fb923c)'
-                  : 'linear-gradient(90deg, rgba(234,179,8,0.60), #fbbf24)',
-              }}
-            />
-          </div>
-          <p className="text-text-muted text-[10px]">{t.pct}% des PME concernées</p>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }

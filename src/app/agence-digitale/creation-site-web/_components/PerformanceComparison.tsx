@@ -1,15 +1,22 @@
 import { green } from '@/lib/tokens'
 
+// 25/09/2026 : « LCP 6.2s → < 1.2s », « score mobile 34 → 97/100 » et « taux de
+// rebond 78 % → < 35 % » présentés comme des métriques réelles retirés, aucune
+// source. Le comparatif garde les trois indicateurs avec des libellés qualitatifs.
 export function PerformanceComparison({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
   const t = lang === 'en'
     ? {
         badSite: 'Unoptimised site', dkdpSite: 'DKDP site',
         lcp: 'LCP (load)', mobile: 'Mobile score', bounce: 'Bounce rate',
+        bad: { lcp: 'Slow', mobile: 'Red', bounce: 'High' },
+        good: { lcp: 'Fast', mobile: 'Green', bounce: 'Controlled' },
         badFooter: 'Clients lost every day', goodFooter: 'Visitors converted',
       }
     : {
         badSite: 'Site non optimisé', dkdpSite: 'Site DKDP',
         lcp: 'LCP (chargement)', mobile: 'Score mobile', bounce: 'Taux de rebond',
+        bad: { lcp: 'Lent', mobile: 'Rouge', bounce: 'Élevé' },
+        good: { lcp: 'Rapide', mobile: 'Vert', bounce: 'Maîtrisé' },
         badFooter: 'Clients perdus chaque jour', goodFooter: 'Visiteurs convertis',
       }
   return (
@@ -18,9 +25,9 @@ export function PerformanceComparison({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
         <p className="text-red-400 text-[10px] font-bold uppercase tracking-widest mb-4 text-center">{t.badSite}</p>
         <div className="space-y-2">
           {[
-            { label: t.lcp, val: '6.2s' },
-            { label: t.mobile, val: '34/100' },
-            { label: t.bounce, val: '78%' },
+            { label: t.lcp, val: t.bad.lcp },
+            { label: t.mobile, val: t.bad.mobile },
+            { label: t.bounce, val: t.bad.bounce },
           ].map((m) => (
             <div key={m.label} className="flex justify-between items-center">
               <span className="text-text-muted text-[11px]">{m.label}</span>
@@ -35,9 +42,9 @@ export function PerformanceComparison({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
         <p className="text-[10px] font-bold uppercase tracking-widest mb-4 text-center" style={{ color: green.color }}>{t.dkdpSite}</p>
         <div className="space-y-2">
           {[
-            { label: t.lcp, val: '< 1.2s' },
-            { label: t.mobile, val: '97/100' },
-            { label: t.bounce, val: '< 35%' },
+            { label: t.lcp, val: t.good.lcp },
+            { label: t.mobile, val: t.good.mobile },
+            { label: t.bounce, val: t.good.bounce },
           ].map((m) => (
             <div key={m.label} className="flex justify-between items-center">
               <span className="text-text-muted text-[11px]">{m.label}</span>

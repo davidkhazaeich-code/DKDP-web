@@ -34,6 +34,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, DESIGN_WEB_LOGOS, IA_LOGOS } from '@/components/ui/AppLogos'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => ({ default: m.CTAFinal })))
@@ -44,8 +45,10 @@ const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBloc
 
 export const metadata: Metadata = {
   title: 'Refonte site web Genève & Suisse romande | Sans perte SEO | DKDP',
+  // 25/09/2026 : « +240 % trafic en 6 mois en moyenne » retiré, aucune source. Remplacé par le prix (PRIX).
   description:
-    "Refonte de sites web obsolètes à Genève : design moderne, UX repensée, migration WordPress ou Next.js sans perte SEO. +240 % trafic en 6 mois en moyenne. Audit gratuit, devis 48 h.",
+    // 25/09/2026 : ramenée sous 920 px (909 px, tools/check-serp-width.mjs).
+    `Refonte de site web à Genève : design moderne, UX repensée, migration WordPress ou Next.js sans perte SEO. Dès ${chf(PRIX.refonteFrom)}, devis sous 48 h.`,
   alternates: {
     canonical: 'https://dkdp.ch/agence-digitale/refonte-site-web',
     languages: {
@@ -85,7 +88,8 @@ const VD = 'rgba(167,139,250,0.22)'
 /* ── Data ──────────────────────────────────────────────────────────────────── */
 const SYMPTOMS = [
   { Icon: Clock, title: 'Design obsolète', desc: "Votre site a plus de 4 ans sans refonte. Il renvoie une image datée, surtout face à vos concurrents récents." },
-  { Icon: Smartphone, title: 'Pas mobile-friendly', desc: "Core Web Vitals rouges sur mobile. 65 à 78 % du trafic Suisse romand vient du mobile. Vous perdez la moitié de vos prospects." },
+  // 25/09/2026 : « 65 à 78 % du trafic » et « la moitié de vos prospects » retirés, aucune source.
+  { Icon: Smartphone, title: 'Pas mobile-friendly', desc: "Vos Core Web Vitals sont rouges sur mobile, alors qu'une grande partie de vos visiteurs arrive depuis un smartphone. Vous perdez donc des prospects à chaque visite." },
   { Icon: Activity, title: 'Zéro conversion', desc: "Du trafic mais pas de leads. CTA introuvables, formulaire à 12 champs, parcours cassé." },
   { Icon: Layers, title: 'Non responsive tablette', desc: "Le site casse sur iPad portrait (768 px). Les directeurs et clients B2B lisent depuis leur tablette." },
   { Icon: Lock, title: "Pas d'accès au back-office", desc: "L'ancien dev a disparu ou vous refuse l'accès. Impossible de modifier, de mettre à jour, de corriger une typo." },
@@ -139,59 +143,32 @@ const TECH_STACK = [
   { name: 'Shopify', cat: 'E-commerce', desc: 'Boutiques performantes, Hydrogen sur mesure, intégration Twint et PostFinance.' },
   { name: 'Sanity', cat: 'Headless CMS', desc: 'Back-office sur mesure, édition en temps réel, API GraphQL/GROQ.' },
   { name: 'Contentful', cat: 'Headless CMS', desc: 'Pour les équipes marketing internationales, workflows de validation.' },
-  { name: 'Astro', cat: 'Sites statiques performants', desc: 'Build SSG ultra-rapide, LCP < 1 s. Idéal pour les sites vitrine SEO-critical.' },
+  // 25/09/2026 : « LCP < 1 s » retiré, promesse de chargement sans source.
+  { name: 'Astro', cat: 'Sites statiques performants', desc: 'Build SSG ultra-rapide. Idéal pour les sites vitrine SEO-critical.' },
   { name: 'Vercel', cat: 'Hébergement', desc: 'CDN global, preview deployments, intégration Next.js native. 99,99 % uptime.' },
   { name: 'Cloudflare', cat: 'CDN et sécurité', desc: 'Protection DDoS, WAF, cache edge. Pour les sites à trafic élevé ou sensibles.' },
 ]
 
-const CASE_STUDIES = [
-  {
-    sector: 'Fiduciaire Genève',
-    pain: "Site WordPress 2019, PageSpeed 32 mobile, pas de blog.",
-    result: 'Refonte Next.js, blog SEO, Core Web Vitals verts.',
-    kpis: [
-      { label: 'Trafic organique', v: '+240 %', sub: '12 mois' },
-      { label: 'Bounce rate', v: '-60 %', sub: 'mobile' },
-      { label: 'Leads qualifiés', v: 'x3,2', sub: 'par mois' },
-    ],
-  },
-  {
-    sector: 'E-commerce romand',
-    pain: 'Boutique Prestashop lente, tunnel d\'achat à 5 étapes.',
-    result: 'Migration Shopify Hydrogen, checkout 2 étapes, Twint.',
-    kpis: [
-      { label: 'Taux de conversion', v: 'Mesuré', sub: 'Avant et après, GA4' },
-      { label: 'LCP mobile', v: '1,8 s', sub: 'vert' },
-      { label: 'Panier moyen', v: '+22 %', sub: 'Twint inclus' },
-    ],
-  },
-  {
-    sector: 'PME industrielle',
-    pain: "Site vitrine statique, monolingue, pas de back-office.",
-    result: 'Refonte Astro + Sanity multilingue FR/DE/EN/IT.',
-    kpis: [
-      { label: 'Marchés ouverts', v: '5 pays', sub: 'FR, DE, EN, IT' },
-      { label: 'Temps de mise à jour', v: '-85 %', sub: 'édition Sanity' },
-      { label: 'Trafic organique', v: '+115 %', sub: 'global' },
-    ],
-  },
-]
-
+// 25/09/2026 : les trois « cas anonymisés » (fiduciaire, e-commerce, PME
+// industrielle) et leurs KPI (+240 %, -60 %, x3,2, +22 %, -85 %, +115 %) sont
+// retirés, aucune source. La section « Résultats » est supprimée avec eux.
+// Prix lus dans src/data/pricing (PRIX) : la refonte à « CHF 3 900 » contredisait
+// PRIX.refonteFrom.
 const FAQ_ITEMS = [
   {
     question: 'Combien coûte une refonte de site web à Genève ?',
     answer:
-      "Une refonte de site vitrine (jusqu'à 10 pages) démarre à CHF 3 900. Un site corporate (10 à 30 pages, multilingue) se situe entre CHF 7 500 et CHF 18 000. Une refonte e-commerce complète ou une migration technique sur mesure est chiffrée sur devis. Tous les projets incluent l'audit SEO pré-refonte, le plan de redirections 301, la formation back-office et 3 mois de support post-lancement. Devis fixe fourni avant démarrage, pas de surprises.",
+      `Une refonte de site vitrine (jusqu'à 10 pages) démarre à ${chf(PRIX.refonteFrom)}. Un site corporate (10 à 30 pages, multilingue) se situe entre CHF 7'500 et CHF 18'000. Une refonte e-commerce complète ou une migration technique sur mesure est chiffrée sur devis. Tous les projets incluent l'audit SEO pré-refonte, le plan de redirections 301, la formation back-office et 3 mois de support post-lancement. Devis fixe fourni avant démarrage, pas de surprises.`,
   },
   {
     question: 'Combien de temps pour une refonte complète ?',
     answer:
-      "Une refonte de site vitrine est livrée en 5 à 8 semaines. Un site corporate multilingue prend 10 à 14 semaines. Une migration e-commerce complexe (Prestashop vers Shopify avec catalogue > 500 produits) se chiffre sur 12 à 16 semaines. Un planning avec jalons de validation écrite est partagé dès le brief. On tient les délais sur 95 % des projets DKDP 2024-2026.",
+      "Une refonte de site vitrine est livrée en 5 à 8 semaines. Un site corporate multilingue prend 10 à 14 semaines. Une migration e-commerce complexe (Prestashop vers Shopify avec catalogue > 500 produits) se chiffre sur 12 à 16 semaines. Un planning avec jalons de validation écrite est partagé dès le brief.",
   },
   {
     question: 'Vais-je perdre mon référencement Google après la refonte ?',
     answer:
-      "Non, si la refonte est faite correctement. DKDP commence par un audit SEO complet du site existant : pages qui rankent, backlinks, mots-clés actifs, Core Web Vitals. Chaque ancienne URL est cartographiée et redirigée en 301 vers sa nouvelle équivalente. Les structures H1/H2 qui performent sont préservées. Résultat sur nos 14 refontes 2024-2026 : aucune perte de trafic organique au lancement, +240 % de trafic moyen à 12 mois.",
+      "Non, si la refonte est faite correctement. DKDP commence par un audit SEO complet du site existant : pages qui rankent, backlinks, mots-clés actifs, Core Web Vitals. Chaque ancienne URL est cartographiée et redirigée en 301 vers sa nouvelle équivalente. Les structures H1/H2 qui performent sont préservées, puis le référencement est suivi pendant 30 jours après la mise en ligne.",
   },
   {
     question: 'Faut-il tout refaire ou peut-on migrer l\'existant ?',
@@ -201,7 +178,7 @@ const FAQ_ITEMS = [
   {
     question: 'Quelle différence entre refonte et création ?',
     answer:
-      "Une création de site web part de zéro : nouveau domaine, aucun historique SEO, aucun contenu à préserver. Une refonte concerne un site existant avec un historique (backlinks, pages indexées, contenus rankés) qu'il faut préserver et améliorer. Les budgets diffèrent : une création démarre à CHF 2 500, une refonte à CHF 3 900 car elle inclut l'audit SEO et le plan de redirections. Pour un comparatif détaillé, lisez notre article refonte site web : quand et pourquoi.",
+      `Une création de site web part de zéro : nouveau domaine, aucun historique SEO, aucun contenu à préserver. Une refonte concerne un site existant avec un historique (backlinks, pages indexées, contenus rankés) qu'il faut préserver et améliorer. Les budgets diffèrent : une création démarre à ${chf(PRIX.siteFrom)}, une refonte à ${chf(PRIX.refonteFrom)} car elle inclut l'audit SEO et le plan de redirections. Pour un comparatif détaillé, lisez notre article refonte site web : quand et pourquoi.`,
   },
   {
     question: 'Peut-on garder notre nom de domaine et nos contenus ?',
@@ -218,10 +195,11 @@ const FAQ_ITEMS = [
     answer:
       "La nouvelle version est développée sur un environnement de staging protégé par mot de passe. Quand tout est validé, on bascule en production pendant une fenêtre de maintenance courte (15 à 30 min, généralement un samedi 23 h-01 h). Les visiteurs ne voient jamais de page d'erreur. Un plan de rollback est prêt en cas de problème. On monitore les 24 h suivantes.",
   },
+  // 25/09/2026 : « LCP < 1 s » retiré, promesse de chargement sans source.
   {
     question: 'Refonte WordPress ou passage à Next.js ?',
     answer:
-      "Dépend de vos besoins. WordPress reste pertinent si votre équipe est formée, si vous avez beaucoup de contributeurs, et si la performance extrême n'est pas critique. Next.js est supérieur pour : performance mobile (LCP < 1 s), SEO technique, applications avec logique métier (dashboards, calculateurs, espaces clients), intégrations IA/agents. On ne force jamais une techno : on recommande celle qui sert vos objectifs.",
+      "Dépend de vos besoins. WordPress reste pertinent si votre équipe est formée, si vous avez beaucoup de contributeurs, et si la performance extrême n'est pas critique. Next.js est supérieur pour : performance mobile, SEO technique, applications avec logique métier (dashboards, calculateurs, espaces clients), intégrations IA/agents. On ne force jamais une techno : on recommande celle qui sert vos objectifs.",
   },
   {
     question: 'La refonte est-elle conforme RGPD et nLPD Suisse ?',
@@ -241,8 +219,9 @@ export default function RefonteSiteWebPage() {
           description:
             "Refonte de sites web obsolètes à Genève et en Suisse romande : design moderne, UX repensée, migration WordPress, Next.js, Shopify ou Astro sans perte de référencement SEO. Audit SEO pré-refonte, plan de redirections 301, Core Web Vitals garantis au vert. Conforme nLPD 2023 et RGPD.",
           serviceType: 'Refonte de site web',
-          priceFrom: 3900,
-          priceSpecDescription: 'À partir de CHF 3 900 pour une refonte de site vitrine (10 pages), audit SEO inclus',
+          // 25/09/2026 : 3900 en dur remplacé par PRIX.refonteFrom.
+          priceFrom: PRIX.refonteFrom,
+          priceSpecDescription: `À partir de ${chf(PRIX.refonteFrom)} pour une refonte de site vitrine (10 pages), audit SEO inclus`,
         })}
       />
       <SchemaOrg schema={buildFAQPage(FAQ_ITEMS)} />
@@ -276,8 +255,9 @@ export default function RefonteSiteWebPage() {
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Votre site vous <GradText as="span">coûte des clients</GradText>. On le refait avec de vrais résultats.
                 </p>
+                {/* 25/09/2026 : « +240 % de trafic organique en 12 mois en moyenne sur les 14 refontes » retiré, aucune source. */}
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  Refonte complète, migration sans perte SEO, design 2026, Core Web Vitals garantis au vert. Pour PME romandes qui veulent un site qui convertit vraiment. <strong className="text-text">+240 % de trafic organique en 12 mois</strong> en moyenne sur les 14 refontes DKDP 2024-2026.
+                  Refonte complète, migration sans perte SEO, design 2026, Core Web Vitals garantis au vert. Pour PME romandes qui veulent un site qui convertit vraiment.
                 </p>
                 <HeroPills
                   items={[
@@ -297,8 +277,9 @@ export default function RefonteSiteWebPage() {
                     Symptômes d&apos;un site à refaire <ArrowRight size={13} />
                   </Link>
                 </div>
+                {/* 25/09/2026 : « CHF 3 900 » en dur contredisait PRIX.refonteFrom. */}
                 <p className="text-text-muted text-xs mt-6">
-                  Tarif fixe dès CHF 3 900. Audit SEO inclus. Devis en 48 h.
+                  Tarif fixe dès {chf(PRIX.refonteFrom)}. Audit SEO inclus. Devis en 48 h.
                 </p>
               </div>
 
@@ -337,10 +318,11 @@ export default function RefonteSiteWebPage() {
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
+          {/* 25/09/2026 : « +240 % » et « 0 % de perte SEO sur 14 refontes » retirés, aucune source. Remplacés par le prix (PRIX) et le délai de l'audit. */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '+240 %', l: 'Trafic organique', sub: 'Moyenne à 12 mois' },
-              { v: '0 %', l: 'Perte de SEO', sub: '14 refontes 2024-2026' },
+              { v: chf(PRIX.refonteFrom), l: 'Refonte vitrine', sub: 'Prix de départ, audit SEO inclus' },
+              { v: '48h', l: 'Audit SEO', sub: 'Rapport avant la refonte' },
               { v: '5-8 sem.', l: 'Délai vitrine', sub: 'Planning respecté' },
               { v: '≥ 90', l: 'Score Lighthouse', sub: 'Mobile et desktop' },
             ].map((s) => (
@@ -403,7 +385,6 @@ export default function RefonteSiteWebPage() {
           { label: 'Notre approche', href: '#approche' },
           { label: 'Refonte vs création', href: '#vs-creation' },
           { label: 'Stack technique', href: '#stack' },
-          { label: 'Résultats', href: '#cas-clients' },
           { label: 'Tarifs', href: '#tarifs' },
           { label: 'Processus', href: '#processus' },
           { label: 'FAQ', href: '#faq' },
@@ -423,8 +404,9 @@ export default function RefonteSiteWebPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
                 Votre site actuel a l&apos;un de ces symptômes ?
               </h2>
+              {/* 25/09/2026 : « rentable dans les 12 mois » retiré, promesse sans source. */}
               <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
-                Si vous cochez plus de 3 cases, une refonte est probablement rentable dans les 12 mois.
+                Si vous cochez plus de 3 cases, une refonte mérite d&apos;être étudiée sérieusement.
               </p>
             </div>
           </SectionReveal>
@@ -459,8 +441,9 @@ export default function RefonteSiteWebPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
                 Une refonte qui préserve votre SEO et améliore tout le reste.
               </h2>
+              {/* 25/09/2026 : « dans les 30 premiers jours » retiré, aucune source. */}
               <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
-                La différence entre une refonte réussie et une catastrophe SEO se joue dans les 30 premiers jours du projet.
+                La différence entre une refonte réussie et une catastrophe SEO se joue dès le début du projet, bien avant la mise en ligne.
               </p>
             </div>
           </SectionReveal>
@@ -501,6 +484,7 @@ export default function RefonteSiteWebPage() {
             </div>
           </SectionReveal>
 
+          {/* 25/09/2026 : budgets lus dans src/data/pricing (PRIX.siteFrom, PRIX.refonteFrom), plus en dur. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               {
@@ -509,7 +493,7 @@ export default function RefonteSiteWebPage() {
                 desc: 'Vous partez de zéro : nouveau domaine, aucun historique SEO, aucun contenu à préserver.',
                 points: [
                   'Aucune contrainte historique',
-                  'Budget : dès CHF 2 500',
+                  `Budget : dès ${chf(PRIX.siteFrom)}`,
                   'Délai : 3 à 5 semaines (vitrine)',
                   'SEO à construire de A à Z',
                 ],
@@ -525,7 +509,7 @@ export default function RefonteSiteWebPage() {
                 desc: 'Votre site existe, il rank sur certains mots-clés, il a des backlinks. On préserve et on améliore.',
                 points: [
                   'Audit SEO pré-refonte obligatoire',
-                  'Budget : dès CHF 3 900 (vitrine)',
+                  `Budget : dès ${chf(PRIX.refonteFrom)} (vitrine)`,
                   'Délai : 5 à 8 semaines (vitrine)',
                   'Plan de redirections 301 systématique',
                 ],
@@ -587,8 +571,9 @@ export default function RefonteSiteWebPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
                 Notre stack technique pour vos refontes.
               </h2>
+              {/* 25/09/2026 : « Toutes testées sur 50+ projets » retiré, aucune source. */}
               <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
-                On choisit la techno selon vos besoins, pas selon nos préférences. Toutes testées sur 50+ projets.
+                On choisit la techno selon vos besoins, pas selon nos préférences.
               </p>
             </div>
           </SectionReveal>
@@ -614,56 +599,7 @@ export default function RefonteSiteWebPage() {
         </div>
       </section>
 
-      {/* ── Cas clients ── */}
-      <section id="cas-clients" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Résultats</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
-                Résultats réels après refonte DKDP.
-              </h2>
-              <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
-                3 cas anonymisés, PME romandes, entre 2024 et 2026. Chiffres issus de Google Analytics 4 et Search Console.
-              </p>
-            </div>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {CASE_STUDIES.map((c, i) => (
-              <SectionReveal key={c.sector} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: VB, borderColor: VD }}
-                >
-                  <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: V }}>
-                    {c.sector}
-                  </p>
-                  <div className="mb-4">
-                    <p className="text-text-muted text-[10px] uppercase tracking-wider mb-1">Avant</p>
-                    <p className="text-text-secondary text-sm leading-relaxed">{c.pain}</p>
-                  </div>
-                  <div className="mb-6">
-                    <p className="text-text-muted text-[10px] uppercase tracking-wider mb-1">Après</p>
-                    <p className="text-text text-sm leading-relaxed font-medium">{c.result}</p>
-                  </div>
-                  <div className="flex flex-col gap-3 mt-auto pt-4 border-t" style={{ borderColor: VD }}>
-                    {c.kpis.map((k) => (
-                      <div key={k.label} className="flex items-baseline justify-between gap-3">
-                        <p className="text-text-muted text-xs leading-tight">{k.label}</p>
-                        <div className="text-right">
-                          <p className="text-text text-lg font-bold leading-none">{k.v}</p>
-                          <p className="text-text-muted text-[10px] mt-0.5">{k.sub}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : section « Résultats » (3 cas anonymisés, KPI sans source) supprimée. */}
 
       {/* ── Tarifs ── */}
       <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
@@ -685,7 +621,8 @@ export default function RefonteSiteWebPage() {
               {[
                 {
                   tier: 'Vitrine',
-                  price: "CHF 3'900",
+                  // 25/09/2026 : « CHF 3'900 » en dur remplacé par PRIX.refonteFrom.
+                  price: chf(PRIX.refonteFrom),
                   volume: "jusqu'à 10 pages",
                   features: [
                     'Audit SEO pré-refonte',

@@ -87,9 +87,10 @@ const schemas = [
       question: "Mon site doit-il être basé en Suisse pour bénéficier de l'audit ?",
       answer: "Non. On audite des sites suisses, français et belges. Notre spécialité reste le contexte SEO local de Suisse romande : concurrence sur les requêtes genevoises, stratégie multilingue (FR/DE/IT), comportements de recherche locaux et visibilité Google Maps pour les commerces et prestataires de service.",
     },
+    // 25/09/2026 : « +240% de trafic organique à 6 mois en moyenne » retiré, aucune source.
     {
       question: "Que se passe-t-il après l'audit SEO ?",
-      answer: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. Nos clients SEO observent en moyenne +240% de trafic organique à 6 mois. Mais la décision et le timing restent entièrement les vôtres.",
+      answer: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. La décision et le timing restent toutefois entièrement les vôtres.",
     },
   ]),
 ]
@@ -196,9 +197,12 @@ const STEPS = [
   },
 ]
 
+// 25/09/2026 : « 300+ sites audités » et « 87 % des sites ont un problème
+// technique bloquant » retirés, aucune source. Remplacés par le contenu du
+// rapport et la note de la fiche Google.
 const STATS = [
-  { value: '300+', label: 'sites audités en Suisse romande' },
-  { value: '87%', label: 'des sites ont un problème technique bloquant' },
+  { value: '6', label: 'dimensions analysées dans le rapport' },
+  { value: '5,0/5', label: 'note Google, 22 avis' },
   { value: '48h', label: 'délai de livraison maximum garanti' },
 ]
 
@@ -231,9 +235,10 @@ const FAQ_ITEMS = [
     q: "Mon site doit-il être basé en Suisse pour bénéficier de l'audit ?",
     a: "Non. On audite des sites suisses, français et belges. Notre spécialité reste le contexte SEO local de Suisse romande : concurrence sur les requêtes genevoises, stratégie multilingue (FR/DE/IT), comportements de recherche locaux et visibilité Google Maps pour les commerces et prestataires de service.",
   },
+  // 25/09/2026 : « +240% de trafic organique à 6 mois en moyenne » retiré, aucune source.
   {
     q: "Que se passe-t-il après l'audit SEO ?",
-    a: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. Nos clients SEO observent en moyenne +240% de trafic organique à 6 mois. Mais la décision et le timing restent entièrement les vôtres.",
+    a: "Rien, si vous ne souhaitez pas continuer. Vous recevez votre rapport, il vous appartient entièrement. Si vous voulez qu'on travaille sur votre SEO, on vous envoie un plan d'action chiffré et priorisé. La décision et le timing restent toutefois entièrement les vôtres.",
   },
 ]
 
@@ -438,12 +443,12 @@ export default function AuditSEOPage() {
         </div>
       </section>
 
-      {/* Section 5 : Stats + Temoignage */}
-      <section aria-label="Chiffres et témoignage" className="py-20 px-6">
+      {/* Section 5 : Stats (25/09/2026 : témoignage anonyme « 8 mots-clés, première page sur 6 en 4 mois » supprimé, aucune source) */}
+      <section aria-label="L'audit en chiffres" className="py-20 px-6">
         <div className="max-w-[1100px] mx-auto">
           {/* Stats */}
           <SectionReveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {STATS.map((stat) => (
                 <div
                   key={stat.value}
@@ -462,32 +467,6 @@ export default function AuditSEOPage() {
                 </div>
               ))}
             </div>
-          </SectionReveal>
-
-          {/* Temoignage */}
-          <SectionReveal delay={0.1}>
-            <figure
-              className="rounded-[20px] border p-8 md:p-10 max-w-2xl mx-auto text-center"
-              style={{
-                background: chromeBg,
-                borderColor: chromeBd,
-              }}
-            >
-              {/* Quote mark */}
-              <span
-                className="block text-5xl font-serif leading-none mb-4 select-none"
-                style={{ color: violet, opacity: 0.5 }}
-                aria-hidden="true"
-              >
-                &ldquo;
-              </span>
-              <blockquote className="text-text text-base md:text-lg leading-relaxed font-medium mb-6">
-                L&apos;audit SEO DKDP a révélé qu&apos;on était absent sur nos 8 mots-clés principaux. 4 mois plus tard, on est en première page sur 6.
-              </blockquote>
-              <figcaption className="text-text-muted text-sm">
-                Directeur commercial, PME genevoise
-              </figcaption>
-            </figure>
           </SectionReveal>
         </div>
       </section>

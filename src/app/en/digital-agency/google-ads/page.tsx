@@ -54,16 +54,19 @@ export const metadata: Metadata = {
 }
 
 
+// 25/09/2026 : budget minimum et frais de gestion lus dans src/data/pricing
+// (PRIX.adsBudgetMin, PRIX.adsManagementFrom). La gestion « from CHF 350/month »
+// contredisait PRIX.adsManagementFrom et la barre de stats de la page.
 const FAQ = [
   {
     question: 'What Google Ads budget should an SME in Geneva plan for?',
     answer:
-      'The recommended minimum budget is CHF 500/month in ad spend. For a competitive market (lawyer, real estate, dentist), CHF 1\'000 to CHF 3\'000/month is more realistic. DKDP takes no commission on your budget: you only pay for the strategic management.',
+      `The recommended minimum budget is ${chf(PRIX.adsBudgetMin)}/month in ad spend. For a competitive market (lawyer, real estate, dentist), CHF 1'000 to CHF 3'000/month is more realistic. DKDP takes no commission on your budget: you only pay for the strategic management.`,
   },
   {
     question: 'How much does Google Ads campaign management cost at DKDP?',
     answer:
-      'Management fees start at CHF 350/month for a simple campaign. A multi-campaign account (Search + Display + Remarketing) is billed between CHF 600 and CHF 1\'200/month depending on complexity. First month with audit and setup included.',
+      `Management fees start at ${chf(PRIX.adsManagementFrom)}/month for a simple campaign. A multi-campaign account (Search + Display + Remarketing) is billed between CHF 600 and CHF 1'200/month depending on complexity. First month with audit and setup included.`,
   },
   {
     question: 'When will I see results with Google Ads?',
@@ -178,6 +181,9 @@ const color = violet.color
 const bg = violet.bg
 const border = violet.border
 
+// 25/09/2026 : « CPC 4.80 → 2.10 CHF », « CTR 1.2% → 4.8% » et « cost per lead
+// 185 → 62 CHF » présentés comme des métriques réelles retirés, aucune source.
+// Le comparatif montre les leviers corrigés, sans chiffres (miroir du FR).
 function AdComparison() {
   return (
     <div className="grid grid-cols-2 gap-3 w-full">
@@ -185,9 +191,9 @@ function AdComparison() {
         <p className="text-red-400 text-[10px] font-bold uppercase tracking-widest mb-4 text-center">Unoptimised account</p>
         <div className="space-y-2">
           {[
-            { label: 'Average CPC', val: '4.80 CHF' },
-            { label: 'Ad CTR', val: '1.2%' },
-            { label: 'Cost per lead', val: '185 CHF' },
+            { label: 'Keywords', val: 'Too broad' },
+            { label: 'Conversions', val: 'Not tracked' },
+            { label: 'Ads', val: 'Not tested' },
           ].map((m) => (
             <div key={m.label} className="flex justify-between items-center">
               <span className="text-text-muted text-[11px]">{m.label}</span>
@@ -205,9 +211,9 @@ function AdComparison() {
         <p className="text-[10px] font-bold uppercase tracking-widest mb-4 text-center" style={{ color: green.color }}>DKDP account</p>
         <div className="space-y-2">
           {[
-            { label: 'Average CPC', val: '2.10 CHF' },
-            { label: 'Ad CTR', val: '4.8%' },
-            { label: 'Cost per lead', val: '62 CHF' },
+            { label: 'Keywords', val: 'Targeted' },
+            { label: 'Conversions', val: 'Tracked' },
+            { label: 'Ads', val: 'A/B tested' },
           ].map((m) => (
             <div key={m.label} className="flex justify-between items-center">
               <span className="text-text-muted text-[11px]">{m.label}</span>
@@ -225,12 +231,16 @@ function AdComparison() {
   )
 }
 
+// 25/09/2026 : tableau de bord fictif retiré (budget « CHF 2,400 », revenu
+// « CHF 19,680 », « ROAS 8.2x », clics, CPC et coût par conversion du jour,
+// entonnoir chiffré, scores Lighthouse 99/98/100, « -22% » de CPC), aucune
+// source. Miroir du HeroVisual FR : faits de l'offre (PRIX) et contrôles hebdomadaires.
 function HeroVisual() {
   const V = violet.color
   const VD = violet.border
   return (
     <div className="relative flex flex-col gap-4">
-      {/* Google Ads Live Campaign */}
+      {/* Client's Google Ads account */}
       <div
         className="rounded-[14px] overflow-hidden"
         style={{ background: 'rgba(0,0,0,0.6)', border: `1px solid ${VD}`, boxShadow: '0 0 60px rgba(124,58,237,0.15)' }}
@@ -238,99 +248,78 @@ function HeroVisual() {
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/5">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-[10px] text-zinc-400 font-mono">Active campaign</span>
+            <span className="text-[10px] text-zinc-400 font-mono">Your Google Ads account</span>
           </div>
-          <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-green-400/10 text-green-400">LIVE</span>
+          <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-green-400/10 text-green-400">FULL ACCESS</span>
         </div>
 
         <div className="p-5 space-y-5">
-          {/* Budget dial */}
+          {/* Budget and fees */}
           <div className="flex items-start gap-5">
             <div className="flex-1">
-              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Monthly budget</p>
+              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Media budget</p>
               <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold text-white">CHF 2,400</span>
+                <span className="text-2xl font-bold text-white">from {chf(PRIX.adsBudgetMin)}</span>
                 <span className="text-[10px] text-zinc-500">/ month</span>
               </div>
               <div className="mt-2 h-2 rounded-full bg-white/5 overflow-hidden">
-                <div className="h-full rounded-full w-[68%]" style={{ background: 'linear-gradient(90deg, #7C3AED, #A78BFA)' }} />
+                <div className="h-full rounded-full w-full" style={{ background: 'linear-gradient(90deg, #7C3AED, #A78BFA)' }} />
               </div>
-              <p className="text-[9px] text-zinc-500 mt-1">68% spent · 12 days left</p>
+              <p className="text-[9px] text-zinc-500 mt-1">Paid to Google, no commission</p>
             </div>
             <div className="text-right">
-              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Revenue generated</p>
-              <p className="text-2xl font-bold text-green-400">CHF 19,680</p>
-              <p className="text-[9px] text-green-400 font-bold">ROAS 8.2x</p>
+              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">DKDP management</p>
+              <p className="text-2xl font-bold text-green-400">from {chf(PRIX.adsManagementFrom)}</p>
+              <p className="text-[9px] text-green-400 font-bold">per month</p>
             </div>
           </div>
 
           <div className="h-px bg-white/5" />
 
-          {/* Live metrics ticker */}
+          {/* Weekly checks */}
           <div className="grid grid-cols-4 gap-3">
             {[
-              { label: 'Clicks today', value: '47', trend: '+12' },
-              { label: 'Average CPC', value: '1.18', trend: '-0.22' },
-              { label: 'Conv. today', value: '6', trend: '+3' },
-              { label: 'Cost/conv.', value: '18.40', trend: '-4.60' },
+              { label: 'Search terms', value: 'Reviewed', note: 'every week' },
+              { label: 'Bids', value: 'Adjusted', note: 'every week' },
+              { label: 'Ads', value: 'Tested', note: 'A/B' },
+              { label: 'Conversions', value: 'Tracked', note: 'from day one' },
             ].map((m) => (
               <div key={m.label}>
                 <p className="text-[8px] text-zinc-600 uppercase">{m.label}</p>
-                <p className="text-sm font-bold text-white">{m.label.includes('CPC') || m.label.includes('Cost') ? `CHF ${m.value}` : m.value}</p>
-                <p className="text-[9px] font-bold" style={{ color: m.trend.startsWith('-') ? '#4ade80' : '#4ade80' }}>{m.trend}</p>
+                <p className="text-sm font-bold text-white">{m.value}</p>
+                <p className="text-[9px] font-bold text-green-400">{m.note}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Floating conversion funnel */}
+      {/* Floating conversion funnel (tracked stages, no figures) */}
       <div className="absolute -right-2 top-8 rotate-1 hidden lg:block">
         <div
           className="rounded-lg p-3"
           style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
         >
-          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-2">Funnel today</p>
+          <p className="text-[8px] font-bold text-zinc-500 uppercase mb-2">Tracked funnel</p>
           {[
-            { step: 'Impressions', val: '1,842', w: '100%' },
-            { step: 'Clicks', val: '47', w: '60%' },
-            { step: 'Conversions', val: '6', w: '25%' },
+            { step: 'Visibility', w: '100%' },
+            { step: 'Qualified clicks', w: '60%' },
+            { step: 'Leads', w: '25%' },
           ].map((f) => (
             <div key={f.step} className="flex items-center gap-2 mb-1">
               <div className="h-3 rounded-sm" style={{ width: f.w, minWidth: '20px', background: 'linear-gradient(90deg, rgba(124,58,237,0.4), rgba(124,58,237,0.15))' }} />
-              <span className="text-[8px] text-zinc-400 whitespace-nowrap">{f.val}</span>
+              <span className="text-[8px] text-zinc-400 whitespace-nowrap">{f.step}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Floating Lighthouse */}
-      <div className="absolute -left-3 bottom-16 -rotate-2 hidden lg:block">
-        <div
-          className="rounded-lg p-2.5 grid grid-cols-3 gap-2"
-          style={{ background: 'rgba(0,0,0,0.9)', border: '1px solid rgba(74,222,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
-        >
-          {[
-            { label: 'Perf', score: 99 },
-            { label: 'SEO', score: 98 },
-            { label: 'A11y', score: 100 },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="w-8 h-8 mx-auto rounded-full border-2 border-green-400/60 flex items-center justify-center">
-                <span className="text-[9px] font-bold text-green-400">{s.score}</span>
-              </div>
-              <span className="text-[7px] text-zinc-500 mt-0.5 block">{s.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Mini stats */}
+      {/* Mini stats: offer commitments */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { v: '8.2x', l: 'Average ROAS', c: '#4ade80' },
-          { v: '-22%', l: 'Cost per click', c: V },
-          { v: 'CHF 0', l: 'Hidden fees', c: '#FF8C00' },
+          { v: '48h', l: 'Campaigns live', c: '#4ade80' },
+          { v: 'CHF 0', l: 'Hidden fees', c: V },
+          { v: 'Weekly', l: 'Optimisation', c: '#FF8C00' },
         ].map((s) => (
           <div
             key={s.l}
@@ -486,8 +475,9 @@ export default function PubliciteSEAPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-6">
                 Badly managed Google advertising: your budget goes in the bin
               </h2>
+              {/* 25/09/2026 : « between 40% and 60% of its budget » retiré, statistique sans source. */}
               <p className="text-text-secondary leading-relaxed mb-6">
-                A poorly configured Google Ads account loses between 40% and 60% of its budget on unqualified clicks, overly broad keywords and landing pages that do not convert. This is not visible in your default dashboard.
+                A poorly configured Google Ads account loses a significant share of its budget on unqualified clicks, overly broad keywords and landing pages that do not convert. This is not visible in your default dashboard.
               </p>
               <div className="space-y-4">
                 {[
@@ -521,8 +511,9 @@ export default function PubliciteSEAPage() {
                   Before / After DKDP optimisation
                 </p>
                 <AdComparison />
+                {/* 25/09/2026 : « Real metrics on a client account, results achieved in 90 days » retiré, aucune source. */}
                 <p className="text-text-muted text-[11px] text-center mt-4">
-                  Real metrics on a client account managed by DKDP. Results achieved in 90 days.
+                  The three levers DKDP fixes first on an existing account.
                 </p>
               </div>
             </SectionReveal>
@@ -578,7 +569,8 @@ export default function PubliciteSEAPage() {
             {[
               {
                 label: 'Starter Campaign',
-                price: 'CHF 350/month',
+                // 25/09/2026 : « CHF 350/month » contredisait PRIX.adsManagementFrom.
+                price: `${chf(PRIX.adsManagementFrom)}/month`,
                 duration: 'Monthly management',
                 highlight: false,
                 features: [

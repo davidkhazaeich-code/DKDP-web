@@ -52,9 +52,11 @@ const CONTENT: Record<
         body: 'Son profil, son parcours et des exemples de son travail vous parviennent au moment de fixer les dates. Rien ne se décide à l’aveugle.',
       },
     ],
-    ratingPre: 'Satisfaction moyenne sur',
-    ratingCount: '22 avis Google',
-    ratingPost: 'formés depuis 2015',
+    // 25/09/2026 : la phrase lisait « Satisfaction moyenne sur 22 avis Google
+    // formés depuis 2015 ». Même libellé que la fiche Google et FormationTrainer.
+    ratingPre: 'Note Google 5,0/5,',
+    ratingCount: '22 avis',
+    ratingPost: 'sur la fiche DKDP',
   },
   en: {
     tag: 'Your trainer',
@@ -79,9 +81,9 @@ const CONTENT: Record<
         body: 'Their profile, background and sample work reach you when the dates are set. Nothing is decided sight unseen.',
       },
     ],
-    ratingPre: 'Average satisfaction across',
-    ratingCount: '22 avis Google',
-    ratingPost: 'trained since 2015',
+    ratingPre: 'Google rating 5.0/5,',
+    ratingCount: '22 reviews',
+    ratingPost: 'on the DKDP listing',
   },
 }
 

@@ -1,5 +1,8 @@
 import { green } from '@/lib/tokens'
 
+// 25/09/2026 : « CPC 4.80 → 2.10 CHF », « CTR 1.2 % → 4.8 % » et « coût par
+// lead 185 → 62 CHF » présentés comme des métriques réelles retirés, aucune
+// source. Le comparatif montre les leviers corrigés, sans chiffres.
 export function AdComparison() {
   return (
     <div className="grid grid-cols-2 gap-3 w-full">
@@ -7,9 +10,9 @@ export function AdComparison() {
         <p className="text-red-400 text-[10px] font-bold uppercase tracking-widest mb-4 text-center">Compte non optimisé</p>
         <div className="space-y-2">
           {[
-            { label: 'CPC moyen', val: '4.80 CHF' },
-            { label: 'CTR annonces', val: '1.2%' },
-            { label: 'Coût par lead', val: '185 CHF' },
+            { label: 'Mots-clés', val: 'Trop larges' },
+            { label: 'Conversions', val: 'Non suivies' },
+            { label: 'Annonces', val: 'Non testées' },
           ].map((m) => (
             <div key={m.label} className="flex justify-between items-center">
               <span className="text-text-muted text-[11px]">{m.label}</span>
@@ -27,9 +30,9 @@ export function AdComparison() {
         <p className="text-[10px] font-bold uppercase tracking-widest mb-4 text-center" style={{ color: green.color }}>Compte DKDP</p>
         <div className="space-y-2">
           {[
-            { label: 'CPC moyen', val: '2.10 CHF' },
-            { label: 'CTR annonces', val: '4.8%' },
-            { label: 'Coût par lead', val: '62 CHF' },
+            { label: 'Mots-clés', val: 'Ciblés' },
+            { label: 'Conversions', val: 'Suivies' },
+            { label: 'Annonces', val: 'Testées A/B' },
           ].map((m) => (
             <div key={m.label} className="flex justify-between items-center">
               <span className="text-text-muted text-[11px]">{m.label}</span>

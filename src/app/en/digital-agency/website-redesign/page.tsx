@@ -30,6 +30,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { violet } from '@/lib/tokens'
+import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, DESIGN_WEB_LOGOS, IA_LOGOS } from '@/components/ui/AppLogos'
 import { localizedPath } from '@/i18n/slugs'
 
@@ -41,8 +42,10 @@ const SiteAuditBlock = dynamic(() => import('@/components/sections/SiteAuditBloc
 
 export const metadata: Metadata = {
   title: 'Website redesign Geneva & Switzerland | No SEO loss | DKDP',
+  // 25/09/2026 : « +240% traffic in 6 months on average » retiré, aucune source. Remplacé par le prix (PRIX).
   description:
-    'Redesign of outdated websites in Geneva: modern design, rethought UX, WordPress or Next.js migration with no SEO loss. +240% traffic in 6 months on average. Free audit, 48-hour quote.',
+    // 25/09/2026 : brought under 920 px (909 px, tools/check-serp-width.mjs).
+    `Website redesign in Geneva: modern design, rethought UX, WordPress or Next.js migration with no SEO loss. From ${chf(PRIX.refonteFrom)}, quote in 48 hours.`,
   alternates: {
     canonical: 'https://dkdp.ch/en/digital-agency/website-redesign',
     languages: {
@@ -84,7 +87,8 @@ const VD = 'rgba(167,139,250,0.22)'
 /* ── Data ──────────────────────────────────────────────────────────────────── */
 const SYMPTOMS = [
   { Icon: Clock, title: 'Outdated design', desc: 'Your site is more than 4 years old without a redesign. It signals a dated brand, especially against your newer competitors.' },
-  { Icon: Smartphone, title: 'Not mobile-friendly', desc: 'Core Web Vitals red on mobile. 65 to 78% of French-speaking Swiss traffic comes from mobile. You lose half your prospects.' },
+  // 25/09/2026 : « 65 to 78% of traffic » et « half your prospects » retirés, aucune source.
+  { Icon: Smartphone, title: 'Not mobile-friendly', desc: 'Your Core Web Vitals are red on mobile, while a large share of your visitors arrive from a smartphone. You therefore lose prospects with every visit.' },
   { Icon: Activity, title: 'Zero conversion', desc: 'Traffic but no leads. CTAs nowhere to be found, a 12-field form, a broken journey.' },
   { Icon: Layers, title: 'Not responsive on tablet', desc: 'The site breaks on iPad portrait (768px). Directors and B2B clients read from their tablet.' },
   { Icon: Lock, title: 'No access to the back-office', desc: 'The previous developer has disappeared or refuses you access. Impossible to edit, update or fix a typo.' },
@@ -138,59 +142,31 @@ const TECH_STACK = [
   { name: 'Shopify', cat: 'E-commerce', desc: 'High-performance stores, custom Hydrogen, Twint and PostFinance integration.' },
   { name: 'Sanity', cat: 'Headless CMS', desc: 'Custom back-office, real-time editing, GraphQL/GROQ API.' },
   { name: 'Contentful', cat: 'Headless CMS', desc: 'For international marketing teams, validation workflows.' },
-  { name: 'Astro', cat: 'High-performance static sites', desc: 'Ultra-fast SSG build, LCP < 1s. Ideal for SEO-critical showcase sites.' },
+  // 25/09/2026 : « LCP < 1s » retiré, promesse de chargement sans source.
+  { name: 'Astro', cat: 'High-performance static sites', desc: 'Ultra-fast SSG build. Ideal for SEO-critical showcase sites.' },
   { name: 'Vercel', cat: 'Hosting', desc: 'Global CDN, preview deployments, native Next.js integration. 99.99% uptime.' },
   { name: 'Cloudflare', cat: 'CDN and security', desc: 'DDoS protection, WAF, edge cache. For high-traffic or sensitive sites.' },
 ]
 
-const CASE_STUDIES = [
-  {
-    sector: 'Geneva fiduciary',
-    pain: 'WordPress site from 2019, PageSpeed 32 on mobile, no blog.',
-    result: 'Next.js redesign, SEO blog, Core Web Vitals green.',
-    kpis: [
-      { label: 'Organic traffic', v: '+240%', sub: '12 months' },
-      { label: 'Bounce rate', v: '-60%', sub: 'mobile' },
-      { label: 'Qualified leads', v: 'x3.2', sub: 'per month' },
-    ],
-  },
-  {
-    sector: 'French-speaking Swiss e-commerce',
-    pain: 'Slow Prestashop store, 5-step checkout funnel.',
-    result: 'Shopify Hydrogen migration, 2-step checkout, Twint.',
-    kpis: [
-      { label: 'Conversion rate', v: 'Measured', sub: 'Before and after, GA4' },
-      { label: 'Mobile LCP', v: '1.8s', sub: 'green' },
-      { label: 'Average cart', v: '+22%', sub: 'Twint included' },
-    ],
-  },
-  {
-    sector: 'Industrial SMB',
-    pain: 'Static showcase site, monolingual, no back-office.',
-    result: 'Astro + Sanity redesign, multilingual FR/DE/EN/IT.',
-    kpis: [
-      { label: 'Markets opened', v: '5 countries', sub: 'FR, DE, EN, IT' },
-      { label: 'Update time', v: '-85%', sub: 'Sanity editing' },
-      { label: 'Organic traffic', v: '+115%', sub: 'global' },
-    ],
-  },
-]
-
+// 25/09/2026 : les trois « cas anonymisés » (fiduciary, e-commerce, industrial
+// SMB) et leurs KPI (+240%, -60%, x3.2, +22%, -85%, +115%) sont retirés, aucune
+// source. La section « Results » est supprimée avec eux. Prix lus dans
+// src/data/pricing (PRIX) : la refonte à « CHF 3'900 » contredisait PRIX.refonteFrom.
 const FAQ_ITEMS = [
   {
     question: 'How much does a website redesign cost in Geneva?',
     answer:
-      "A showcase site redesign (up to 10 pages) starts at CHF 3'900. A corporate site (10 to 30 pages, multilingual) sits between CHF 7'500 and CHF 18'000. A full e-commerce redesign or a custom technical migration is quoted on request. Every project includes the pre-redesign SEO audit, the 301 redirect plan, back-office training and 3 months of post-launch support. Fixed quote provided before we start, no surprises.",
+      `A showcase site redesign (up to 10 pages) starts at ${chf(PRIX.refonteFrom)}. A corporate site (10 to 30 pages, multilingual) sits between CHF 7'500 and CHF 18'000. A full e-commerce redesign or a custom technical migration is quoted on request. Every project includes the pre-redesign SEO audit, the 301 redirect plan, back-office training and 3 months of post-launch support. Fixed quote provided before we start, no surprises.`,
   },
   {
     question: 'How long does a full redesign take?',
     answer:
-      'A showcase site redesign is delivered in 5 to 8 weeks. A multilingual corporate site takes 10 to 14 weeks. A complex e-commerce migration (Prestashop to Shopify with a catalogue over 500 products) runs 12 to 16 weeks. A schedule with written validation milestones is shared from the brief. We meet the timeline on 95% of DKDP projects 2024-2026.',
+      'A showcase site redesign is delivered in 5 to 8 weeks. A multilingual corporate site takes 10 to 14 weeks. A complex e-commerce migration (Prestashop to Shopify with a catalogue over 500 products) runs 12 to 16 weeks. A schedule with written validation milestones is shared from the brief.',
   },
   {
     question: 'Will I lose my Google ranking after the redesign?',
     answer:
-      'No, if the redesign is done correctly. DKDP starts with a full SEO audit of the existing site: pages that rank, backlinks, active keywords, Core Web Vitals. Every old URL is mapped and 301-redirected to its new equivalent. The H1/H2 structures that perform are preserved. Result across our 14 redesigns 2024-2026: no organic traffic loss at launch, +240% average traffic at 12 months.',
+      'No, if the redesign is done correctly. DKDP starts with a full SEO audit of the existing site: pages that rank, backlinks, active keywords, Core Web Vitals. Every old URL is mapped and 301-redirected to its new equivalent. The H1/H2 structures that perform are preserved, and rankings are then monitored for 30 days after go-live.',
   },
   {
     question: 'Do we have to rebuild everything or can we migrate what exists?',
@@ -200,7 +176,7 @@ const FAQ_ITEMS = [
   {
     question: 'What is the difference between a redesign and a new build?',
     answer:
-      "A new website starts from scratch: new domain, no SEO history, no content to preserve. A redesign concerns an existing site with history (backlinks, indexed pages, ranking content) that must be preserved and improved. The budgets differ: a new build starts at CHF 2'500, a redesign at CHF 3'900 because it includes the SEO audit and the redirect plan. For a detailed comparison, read our article on website redesign: when and why.",
+      `A new website starts from scratch: new domain, no SEO history, no content to preserve. A redesign concerns an existing site with history (backlinks, indexed pages, ranking content) that must be preserved and improved. The budgets differ: a new build starts at ${chf(PRIX.siteFrom)}, a redesign at ${chf(PRIX.refonteFrom)} because it includes the SEO audit and the redirect plan. For a detailed comparison, read our article on website redesign: when and why.`,
   },
   {
     question: 'Can we keep our domain name and our content?',
@@ -217,10 +193,11 @@ const FAQ_ITEMS = [
     answer:
       'The new version is developed on a password-protected staging environment. Once everything is approved, we switch to production during a short maintenance window (15 to 30 minutes, usually a Saturday 11pm to 1am). Visitors never see an error page. A rollback plan is ready in case of an issue. We monitor the following 24 hours.',
   },
+  // 25/09/2026 : « LCP < 1s » retiré, promesse de chargement sans source.
   {
     question: 'WordPress redesign or move to Next.js?',
     answer:
-      'It depends on your needs. WordPress stays relevant if your team is trained, if you have many contributors, and if extreme performance is not critical. Next.js is superior for: mobile performance (LCP < 1s), technical SEO, applications with business logic (dashboards, calculators, client portals), AI/agent integrations. We never force a tech: we recommend the one that serves your objectives.',
+      'It depends on your needs. WordPress stays relevant if your team is trained, if you have many contributors, and if extreme performance is not critical. Next.js is superior for: mobile performance, technical SEO, applications with business logic (dashboards, calculators, client portals), AI/agent integrations. We never force a tech: we recommend the one that serves your objectives.',
   },
   {
     question: 'Is the redesign GDPR and Swiss FADP compliant?',
@@ -240,8 +217,9 @@ export default function RefonteSiteWebPage() {
           description:
             'Redesign of outdated websites in Geneva and French-speaking Switzerland: modern design, rethought UX, WordPress, Next.js, Shopify or Astro migration with no SEO loss. Pre-redesign SEO audit, 301 redirect plan, Core Web Vitals green by guarantee. FADP 2023 and GDPR compliant.',
           serviceType: 'Website redesign',
-          priceFrom: 3900,
-          priceSpecDescription: "From CHF 3'900 for a showcase site redesign (10 pages), SEO audit included",
+          // 25/09/2026 : 3900 en dur remplacé par PRIX.refonteFrom.
+          priceFrom: PRIX.refonteFrom,
+          priceSpecDescription: `From ${chf(PRIX.refonteFrom)} for a showcase site redesign (10 pages), SEO audit included`,
           lang: 'en',
         })}
       />
@@ -276,8 +254,9 @@ export default function RefonteSiteWebPage() {
                 <p className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] text-text mb-6">
                   Your site is <GradText as="span">costing you clients</GradText>. We rebuild it with real results.
                 </p>
+                {/* 25/09/2026 : « +240% organic traffic in 12 months on average across the 14 redesigns » retiré, aucune source. */}
                 <p className="text-text-secondary text-lg md:text-xl leading-relaxed mb-10">
-                  Full redesign, migration with no SEO loss, 2026 design, Core Web Vitals green by guarantee. For French-speaking Swiss SMBs who want a site that truly converts. <strong className="text-text">+240% organic traffic in 12 months</strong> on average across the 14 DKDP redesigns 2024-2026.
+                  Full redesign, migration with no SEO loss, 2026 design, Core Web Vitals green by guarantee. For French-speaking Swiss SMBs who want a site that truly converts.
                 </p>
                 <HeroPills
                   items={[
@@ -297,8 +276,9 @@ export default function RefonteSiteWebPage() {
                     Symptoms of a site to rebuild <ArrowRight size={13} />
                   </Link>
                 </div>
+                {/* 25/09/2026 : « CHF 3'900 » en dur contredisait PRIX.refonteFrom. */}
                 <p className="text-text-muted text-xs mt-6">
-                  Fixed price from CHF 3'900. SEO audit included. Quote in 48 hours.
+                  Fixed price from {chf(PRIX.refonteFrom)}. SEO audit included. Quote in 48 hours.
                 </p>
               </div>
 
@@ -337,10 +317,11 @@ export default function RefonteSiteWebPage() {
       {/* ── Stats ── */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
+          {/* 25/09/2026 : « +240% » et « 0% SEO loss across 14 redesigns » retirés, aucune source. Remplacés par le prix (PRIX) et le délai de l'audit. */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { v: '+240%', l: 'Organic traffic', sub: 'Average at 12 months' },
-              { v: '0%', l: 'SEO loss', sub: '14 redesigns 2024-2026' },
+              { v: chf(PRIX.refonteFrom), l: 'Showcase redesign', sub: 'Starting price, SEO audit included' },
+              { v: '48h', l: 'SEO audit', sub: 'Report before the redesign' },
               { v: '5-8 wks', l: 'Showcase timeline', sub: 'Schedule met' },
               { v: '90+', l: 'Lighthouse score', sub: 'Mobile and desktop' },
             ].map((s) => (
@@ -403,7 +384,6 @@ export default function RefonteSiteWebPage() {
           { label: 'Our approach', href: '#approche' },
           { label: 'Redesign vs new build', href: '#vs-creation' },
           { label: 'Tech stack', href: '#stack' },
-          { label: 'Results', href: '#cas-clients' },
           { label: 'Pricing', href: '#tarifs' },
           { label: 'Process', href: '#processus' },
           { label: 'FAQ', href: '#faq' },
@@ -423,8 +403,9 @@ export default function RefonteSiteWebPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
                 Does your current site show any of these symptoms?
               </h2>
+              {/* 25/09/2026 : « profitable within 12 months » retiré, promesse sans source. */}
               <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
-                If you tick more than 3 boxes, a redesign is probably profitable within 12 months.
+                If you tick more than 3 boxes, a redesign deserves serious consideration.
               </p>
             </div>
           </SectionReveal>
@@ -459,8 +440,9 @@ export default function RefonteSiteWebPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
                 A redesign that preserves your SEO and improves everything else.
               </h2>
+              {/* 25/09/2026 : « in the first 30 days » retiré, aucune source. */}
               <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
-                The difference between a successful redesign and an SEO disaster is decided in the first 30 days of the project.
+                The difference between a successful redesign and an SEO disaster is decided from the very start of the project, well before go-live.
               </p>
             </div>
           </SectionReveal>
@@ -501,6 +483,7 @@ export default function RefonteSiteWebPage() {
             </div>
           </SectionReveal>
 
+          {/* 25/09/2026 : budgets lus dans src/data/pricing (PRIX.siteFrom, PRIX.refonteFrom), plus en dur. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               {
@@ -509,7 +492,7 @@ export default function RefonteSiteWebPage() {
                 desc: 'You start from scratch: new domain, no SEO history, no content to preserve.',
                 points: [
                   'No historical constraints',
-                  "Budget: from CHF 2'500",
+                  `Budget: from ${chf(PRIX.siteFrom)}`,
                   'Timeline: 3 to 5 weeks (showcase)',
                   'SEO to build from A to Z',
                 ],
@@ -525,7 +508,7 @@ export default function RefonteSiteWebPage() {
                 desc: 'Your site exists, it ranks on certain keywords, it has backlinks. We preserve and improve.',
                 points: [
                   'Mandatory pre-redesign SEO audit',
-                  "Budget: from CHF 3'900 (showcase)",
+                  `Budget: from ${chf(PRIX.refonteFrom)} (showcase)`,
                   'Timeline: 5 to 8 weeks (showcase)',
                   'Systematic 301 redirect plan',
                 ],
@@ -587,8 +570,9 @@ export default function RefonteSiteWebPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
                 Our tech stack for your redesigns.
               </h2>
+              {/* 25/09/2026 : « All tested on 50+ projects » retiré, aucune source. */}
               <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
-                We choose the tech based on your needs, not on our preferences. All tested on 50+ projects.
+                We choose the tech based on your needs, not on our preferences.
               </p>
             </div>
           </SectionReveal>
@@ -614,56 +598,7 @@ export default function RefonteSiteWebPage() {
         </div>
       </section>
 
-      {/* ── Case studies ── */}
-      <section id="cas-clients" className="py-24 scroll-mt-[124px]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Results</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] max-w-3xl mx-auto">
-                Real results after a DKDP redesign.
-              </h2>
-              <p className="text-text-secondary mt-4 max-w-2xl mx-auto text-sm">
-                3 anonymised cases, French-speaking Swiss SMBs, between 2024 and 2026. Figures from Google Analytics 4 and Search Console.
-              </p>
-            </div>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {CASE_STUDIES.map((c, i) => (
-              <SectionReveal key={c.sector} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border p-7"
-                  style={{ background: VB, borderColor: VD }}
-                >
-                  <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: V }}>
-                    {c.sector}
-                  </p>
-                  <div className="mb-4">
-                    <p className="text-text-muted text-[10px] uppercase tracking-wider mb-1">Before</p>
-                    <p className="text-text-secondary text-sm leading-relaxed">{c.pain}</p>
-                  </div>
-                  <div className="mb-6">
-                    <p className="text-text-muted text-[10px] uppercase tracking-wider mb-1">After</p>
-                    <p className="text-text text-sm leading-relaxed font-medium">{c.result}</p>
-                  </div>
-                  <div className="flex flex-col gap-3 mt-auto pt-4 border-t" style={{ borderColor: VD }}>
-                    {c.kpis.map((k) => (
-                      <div key={k.label} className="flex items-baseline justify-between gap-3">
-                        <p className="text-text-muted text-xs leading-tight">{k.label}</p>
-                        <div className="text-right">
-                          <p className="text-text text-lg font-bold leading-none">{k.v}</p>
-                          <p className="text-text-muted text-[10px] mt-0.5">{k.sub}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 25/09/2026 : section « Results » (3 cas anonymisés, KPI sans source) supprimée. */}
 
       {/* ── Pricing ── */}
       <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
@@ -685,7 +620,8 @@ export default function RefonteSiteWebPage() {
               {[
                 {
                   tier: 'Showcase',
-                  price: "CHF 3'900",
+                  // 25/09/2026 : « CHF 3'900 » en dur remplacé par PRIX.refonteFrom.
+                  price: chf(PRIX.refonteFrom),
                   volume: 'up to 10 pages',
                   features: [
                     'Pre-redesign SEO audit',

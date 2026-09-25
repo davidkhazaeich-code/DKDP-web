@@ -18,6 +18,7 @@ import { localizedPath } from '@/i18n/slugs'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })))
 
 export const metadata: Metadata = {
   title: 'Corporate Video Production Geneva & Switzerland · DKDP',
@@ -68,10 +69,11 @@ const FAQ = [
     answer:
       'Yes. Each video is deliverable in several formats depending on the platforms: square format (Instagram), vertical 9:16 (Reels, TikTok, Stories) and horizontal 16:9 (YouTube, website). We adapt the edit to each format.',
   },
+  // 25/09/2026 : unsourced "more than 80% of videos watched without sound" removed.
   {
     question: 'Do you offer subtitles and animated text?',
     answer:
-      'Yes. Corrected automatic subtitles, text animations, title cards and basic motion design are included depending on the package. More than 80% of videos on social media are watched without sound: subtitles are not optional.',
+      'Yes. Corrected automatic subtitles, text animations, title cards and basic motion design are included depending on the package. On social media, many videos are watched without sound, so subtitles are not optional.',
   },
   {
     question: 'How many revision cycles are included?',
@@ -80,18 +82,20 @@ const FAQ = [
   },
 ]
 
+// 25/09/2026 : unsourced "2.7× more engagement" and "+80% conversion" removed. "4K" stays:
+// it is the filming equipment. Mirror of the FR page.
 const BENEFITS = [
   {
     Icon: Zap,
-    value: '2.7×',
+    value: 'Attention',
     title: 'Higher engagement',
-    desc: 'Video generates on average 2.7× more engagement than static images on social media and 80% more conversions on landing pages.',
+    desc: 'On social media, a video holds attention longer than a static image. It therefore draws more reactions, shares and comments.',
   },
   {
     Icon: BarChart2,
-    value: '+80%',
+    value: 'Trust',
     title: 'On-site conversion',
-    desc: 'A presentation video on your service page increases the conversion rate by 80% by holding visitors\' attention.',
+    desc: 'A presentation video on your service page holds visitors\' attention and introduces your company face to face. It therefore helps turn a visit into an enquiry.',
   },
   {
     Icon: Star,
@@ -274,14 +278,15 @@ export default function VideoProductionPage() {
 
 
       {/* ── Stats ── */}
+      {/* 25/09/2026 : "2.7× engagement" (unsourced) and "50+ videos produced" (unsourced count) removed. */}
       <section className="py-12 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { v: '4K', l: 'Production quality', sub: 'All formats delivered' },
-              { v: '2.7×', l: 'Video engagement', sub: 'vs static content' },
+              { v: '5.0/5', l: 'Google rating', sub: '22 reviews on the DKDP listing' },
               { v: '5 days', l: 'Delivery time', sub: 'Social clips' },
-              { v: '50+', l: 'Videos produced', sub: 'In French-speaking Switzerland' },
+              { v: '2019', l: 'Agency founded', sub: 'In Geneva, Eaux-Vives' },
             ].map((s) => (
               <SectionReveal key={s.l}>
                 <div className="text-center">
@@ -304,7 +309,8 @@ export default function VideoProductionPage() {
           { label: 'Results', href: '#résultats' },
           { label: 'Pricing', href: '#tarifs' },
           { label: 'Process', href: '#process' },
-          { label: 'Work', href: '#realisations' },
+          // 25/09/2026 : the "Work" section (anonymous cases) became "Commitments".
+          { label: 'Commitments', href: '#engagements' },
           { label: 'FAQ', href: '#faq' },
         ]}
         cta={{ label: 'Get in touch', href: '/en/contact' }}
@@ -567,130 +573,16 @@ export default function VideoProductionPage() {
       </section>
 
       {/* ── Testimonials ── */}
-      <HeroBg blob1="rgba(124,58,237,0.14)" blob2="rgba(124,58,237,0.07)">
-        <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Testimonials</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                What our clients say.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: 'DKDP filmed our client testimonials in half a day. The result is a quality we never imagined for this budget. Our prospects watch them before signing.',
-                author: 'CEO, consulting firm',
-                location: 'Geneva',
-              },
-              {
-                quote: 'We wanted a brand video for our website. DKDP delivered something that surprised us. Our bounce rate has dropped by 65% since it went live.',
-                author: 'Founder, luxury boutique',
-                location: 'Geneva',
-              },
-              {
-                quote: 'The Reels DKDP produces for us get 10× more views than what we did with our smartphone. The difference is immediate.',
-                author: 'Marketing Manager, 80-person SMB',
-                location: 'French-speaking Switzerland',
-              },
-            ].map((t, i) => (
-              <SectionReveal key={t.author} delay={i * 0.1}>
-                <div className="flex flex-col gap-4 p-7 bg-bg-card border border-border rounded-[16px] h-full">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} size={14} fill={color} style={{ color }} />
-                    ))}
-                  </div>
-                  <p className="text-text-secondary text-sm leading-relaxed flex-1">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div>
-                    <p className="text-text text-sm font-semibold">{t.author}</p>
-                    <p className="text-text-muted text-xs">{t.location}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      </HeroBg>
+      {/* 25/09/2026 : three anonymous testimonials removed ("bounce rate -65%", "10× more views"),
+          invented. The shared, named reviews replace them. */}
+      <Testimonials accentRgb="167,139,250" lang="en" />
 
-      {/* ── Work + Guarantees ── */}
-      <section id="realisations" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
+      {/* ── Commitments ── */}
+      {/* 25/09/2026 : the three anonymous case studies ("conversion rate +35%", "average reach 28'000 /
+          Reel", "inbound leads +60%") removed: no nameable client, unsourced figures. The published
+          case studies (src/lib/realisations) are not video projects. The commitments stay. */}
+      <section id="engagements" className="py-24 bg-bg-card border-y border-border scroll-mt-[124px]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <GradTag className="mb-4">Work</GradTag>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]">
-                Results, not promises.
-              </h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                client: 'B2B consulting firm',
-                type: 'Client testimonials',
-                image: '/images/services/dkdp-agence-creation-video.webp',
-                results: ['6 testimonials filmed in 1 day', 'Used on website + LinkedIn', 'Conversion rate +35%'],
-                tech: 'Interview · 4K · Motion Graphics',
-              },
-              {
-                client: 'Geneva lifestyle brand',
-                type: 'Instagram Reels series',
-                image: '/images/services/dkdp-agence-reseaux-sociaux.webp',
-                results: ['12 Reels produced / quarter', "Average reach 28'000 / Reel", 'Editorial line and formats set'],
-                tech: 'Reels · 9:16 · CapCut Pro',
-              },
-              {
-                client: 'Industrial SMB',
-                type: 'Corporate Brand Film',
-                image: '/images/services/dkdp-agence-consulting.webp',
-                results: ['3-min film + 4 variations', 'Used at a trade show', 'Inbound leads +60% B2B show'],
-                tech: 'Brand Film · Drone · 4K · DaVinci',
-              },
-            ].map((r, i) => (
-              <SectionReveal key={r.client} delay={i * 0.1}>
-                <div
-                  className="flex flex-col h-full rounded-[16px] border overflow-hidden"
-                  style={{ borderColor: border }}
-                >
-                  <div className="relative h-44 overflow-hidden flex-shrink-0">
-                    <Image
-                      src={r.image}
-                      alt={r.client}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
-                    <span
-                      className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full"
-                      style={{ background: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(6px)', color, border: `1px solid ${border}` }}
-                    >
-                      {r.type}
-                    </span>
-                  </div>
-                  <div className="p-6 flex flex-col flex-1" style={{ background: bg }}>
-                    <p className="text-text font-bold mb-4">{r.client}</p>
-                    <div className="space-y-2 flex-1">
-                      {r.results.map((res) => (
-                        <div key={res} className="flex items-center gap-2">
-                          <Star size={11} style={{ color }} className="flex-shrink-0" />
-                          <span className="text-text text-sm font-semibold">{res}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-text-muted text-[11px] mt-4 font-mono">{r.tech}</p>
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-
           {/* Guarantees */}
           <SectionReveal>
             <div className="rounded-[20px] border p-8 md:p-10" style={{ background: bg, borderColor: border }}>

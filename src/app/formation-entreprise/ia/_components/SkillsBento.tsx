@@ -17,9 +17,10 @@ const SKILLS = [
           <span style={{ color: 'var(--orange-text)' }}>{'>'}</span>
           <span className="text-text-secondary">Agis comme un expert RH senior. Analyse ce CV...</span>
         </div>
+        {/* 25/09/2026 : « en 30 s au lieu de 15 min » retiré, aucune mesure derrière. */}
         <div className="flex items-center gap-2">
           <span style={{ color: 'var(--green-text)' }}>{'✓'}</span>
-          <span className="text-text">Synthèse structurée en 30 s au lieu de 15 min</span>
+          <span className="text-text">Synthèse structurée au lieu d&apos;une lecture ligne à ligne</span>
         </div>
       </div>
     ),
@@ -74,14 +75,16 @@ const SKILLS = [
   {
     Icon: Zap,
     title: 'Automatisations quotidiennes',
-    desc: 'Emails, comptes-rendus, synthèses, traductions, réponses clients. Les tâches répétitives passent de 15 minutes à 30 secondes.',
+    // 25/09/2026 : « de 15 minutes à 30 secondes » et les durées avant/après retirés,
+    // aucune mesure derrière. Avant/après qualitatif à la place.
+    desc: 'Emails, comptes-rendus, synthèses, traductions, réponses clients. L\'IA prépare un premier jet, puis vous le relisez et l\'ajustez.',
     span: '',
     visual: (
       <div className="mt-4 flex flex-col gap-1.5">
         {[
-          { task: 'Email client complexe', before: '15 min', after: '45s' },
-          { task: 'Compte-rendu réunion', before: '25 min', after: '2 min' },
-          { task: 'Synthese de rapport', before: '45 min', after: '1 min' },
+          { task: 'Email client complexe', before: 'De zéro', after: 'Premier jet' },
+          { task: 'Compte-rendu réunion', before: 'Notes brutes', after: 'Texte structuré' },
+          { task: 'Synthèse de rapport', before: 'Tout relire', after: 'Points clés' },
         ].map((r) => (
           <div key={r.task} className="flex items-center justify-between text-[10px]">
             <span className="text-text-secondary">{r.task}</span>

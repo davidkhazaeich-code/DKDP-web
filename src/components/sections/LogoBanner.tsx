@@ -5,7 +5,7 @@ const LOGOS = [
   { name: 'SwissLife',               file: 'swisslife.webp',                width: 120, height: 40, small: true },
   { name: 'Fondation Hans Wilsdorf', file: 'fondation-hans-wilsdorf.webp',  width: 130, height: 40 },
   { name: 'Howden',                  file: 'howden.avif',                   width: 100, height: 40 },
-  { name: 'BURRI',                   file: 'burri.svg',                     width: 130, height: 40, small: true, shrink: 0.48 },
+  { name: 'BURRI',                   file: 'burri.svg',                     width: 130, height: 40, small: true, shrink: 0.336 }, // 26.09.2026 : -30 % (0.48 x 0.7), demande David
   { name: 'OCAS',                    file: 'ocas.avif',                     width: 80,  height: 40 },
   { name: 'Swiss Mutual Trust',      file: 'swiss-mutual-trust.avif',       width: 130, height: 40 },
   { name: 'WellWays',                file: 'wellways.avif',                 width: 100, height: 40 },

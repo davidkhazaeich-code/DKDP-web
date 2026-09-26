@@ -39,7 +39,7 @@ const LOGO_GRID = [
   { name: 'Fondation Hans Wilsdorf', file: 'fondation-hans-wilsdorf.webp', width: 130 },
   { name: 'Howden', file: 'howden.avif', width: 100 },
   { name: 'OCAS', file: 'ocas.avif', width: 80 },
-  { name: 'BURRI', file: 'burri.svg', width: 145, small: true, shrink: 0.8 },
+  { name: 'BURRI', file: 'burri.svg', width: 145, small: true, shrink: 0.56 }, // 26.09.2026 : -30 % (0.8 x 0.7), demande David
   { name: 'WellWays', file: 'wellways.avif', width: 100 },
   { name: 'Strike', file: 'strike.avif', width: 80 },
   { name: 'Intown', file: 'intown.avif', width: 90 },

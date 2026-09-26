@@ -5,6 +5,7 @@ import { GradTag } from '@/components/ui/GradTag'
 import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { CTAFinal } from '@/components/sections/CTAFinal'
+import { LogoBanner } from '@/components/sections/LogoBanner'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildBreadcrumbList } from '@/lib/schema'
 import { buildRealisationsCollection } from '@/lib/realisations/jsonld'
@@ -23,8 +24,9 @@ import type { Locale } from '@/i18n/config'
  * les etudes a la une d'abord, et la regle de preuve : ce que chaque etude
  * garantit, et seulement ce qui est vrai aujourd'hui pour toutes.
  *
- * Pas de bandeau de logos clients ici : des etudes anonymes voisineraient
- * avec les logos de leurs clients, et l'anonymat ne tiendrait plus.
+ * Bandeau de logos clients en bas de page : a ne jamais afficher a cote d'une
+ * etude anonyme de l'un de ces clients (l'anonymat ne tiendrait plus). Depuis
+ * le 26.09.2026, les etudes de formation sont nommees et le bandeau est revenu.
  */
 const MAX_SLIDES = 6
 
@@ -175,6 +177,7 @@ export function RealisationsHub({ items, lang = 'fr' }: { items: Realisation[]; 
         </div>
       </section>
 
+      <LogoBanner lang={lang} />
       <CTAFinal lang={lang} />
     </>
   )

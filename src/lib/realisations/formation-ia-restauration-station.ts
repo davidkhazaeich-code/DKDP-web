@@ -1,8 +1,17 @@
 import type { Realisation } from './types'
 
 /**
- * Journée de formation IA pour un restaurant et un club d'une station
- * valaisanne, deux établissements du même groupe (étude anonyme).
+ * Journée de formation IA de Le Rouge, restaurant et bar après-ski à Verbier,
+ * avec trois participants de Le Dahu, un autre restaurant de la station
+ * (établissement distinct, facturé à part : jamais « le même groupe »).
+ *
+ * Nommée le 2026-09-26. La proposition DKDP-2026-LRV-01 du 04.05.2026,
+ * acceptée, porte la clause « DKDP se réserve le droit de mentionner Le Rouge
+ * comme client formé, sauf demande contraire écrite » ; Le Dahu est nommé sur
+ * décision de David. La même proposition engage DKDP à la confidentialité
+ * totale sur les données partagées : rien sur l'organisation interne, les
+ * effectifs ou les prestataires du client. Toujours « Le Rouge », jamais « du
+ * Rouge » (memory feedback_le_rouge_naming).
  *
  * Sources : dossier de formation sur le Drive (brief, déroulé validé, deck de
  * 47 slides en version finale, pack participants), proposition signée et
@@ -12,25 +21,24 @@ import type { Realisation } from './types'
  * participants n'a pas été reconfirmé après le 3 juin : « une dizaine », comme
  * le dossier. Aucune évaluation de la formation n'a été recueillie.
  *
- * Anonymat : ni nom des établissements ni de la station, ni altitude, ni
- * adresse, ni nom de participant ou de dirigeant, ni lien vers le quiz.
- * Les deux captures du support ont été relues : ni nom ni logo.
+ * Jamais publiés : adresse, noms des participants et des dirigeants, prix,
+ * lien vers le quiz. Les deux captures du support ont été relues : ni nom ni logo.
  */
 const realisation: Realisation = {
   slug: 'formation-ia-restauration-station',
   client: {
-    name: 'Restaurant et club de station',
-    sector: 'Restauration saisonnière',
-    location: 'Valais',
-    anonymized: true,
+    name: 'Le Rouge',
+    logo: '/images/clients/le-rouge-verbier.webp',
+    sector: 'Restaurant et bar après-ski',
+    location: 'Verbier',
   },
   meta: {
-    title: 'Formation IA pour un restaurant et un club de station, en Valais',
-    seoTitle: 'Formation IA pour la restauration en station | DKDP',
+    title: 'Formation IA pour un restaurant et bar après-ski à Verbier',
+    seoTitle: 'Formation IA pour la restauration à Verbier | DKDP',
     seoDescription:
-      "Un restaurant et un club en Valais se forment à l'IA en une journée sur place : méthode ARCT, Claude au quotidien et quatre ateliers par métier.",
+      "Le Rouge, restaurant et bar après-ski à Verbier, a formé ses équipes à l'IA en une journée sur place : méthode ARCT, Claude et quatre ateliers.",
     excerpt:
-      "Un restaurant et un club d'une station valaisanne, qui appartiennent au même groupe, voulaient tenir la haute saison sans alourdir leurs équipes. Pendant une journée sur place, direction, marketing, administration, cuisine et gérance ont appris une méthode de prompt, réglé leur assistant, puis travaillé leurs propres cas en quatre ateliers.",
+      "Le Rouge, restaurant et bar après-ski à Verbier, voulait tenir la haute saison sans alourdir ses équipes. Pendant une journée sur place, avec trois participants de Le Dahu, direction, marketing, administration et cuisine ont appris une méthode de prompt, réglé leur assistant, puis travaillé leurs propres cas en quatre ateliers.",
     dateISO: '2026-06-18',
     publishedISO: '2026-09-25',
     dateModifiedISO: '2026-09-25',
@@ -39,14 +47,20 @@ const realisation: Realisation = {
   domains: ['formation-ia'],
   sector: 'hotellerie-restauration',
   consent: {
-    level: 'anonyme',
-    note: 'Aucun accord écrit pour une étude nommée : ni nom, ni logo, ni lien, ni station, ni nom de participant.',
+    level: 'nomme',
+    evidence: {
+      kind: 'clause-contrat',
+      date: '2026-05-04',
+      reference:
+        "Proposition DKDP-2026-LRV-01 du 04.05.2026, acceptée (formation du 18.06.2026) : « DKDP se réserve le droit de mentionner Le Rouge comme client formé, sauf demande contraire écrite ». Le Dahu nommé sur décision de David du 26.09.2026.",
+    },
+    note: 'Confidentialité totale sur les données partagées (même proposition) : aucune donnée interne du client publiée.',
   },
   tags: ['Formation IA', 'Restauration', 'Méthode ARCT', 'Claude', 'Ateliers métier'],
   answer:
-    "Un restaurant et un club d'une station valaisanne ont formé leurs équipes à l'IA pendant une journée sur place, en juin 2026. Le matin portait sur la méthode ARCT et sur Claude au quotidien, l'après-midi sur quatre ateliers métier. Le lendemain, DKDP a remis un pack de huit documents, dont une bibliothèque de 90 prompts rangés par poste.",
+    "Le Rouge, restaurant et bar après-ski à Verbier, a formé ses équipes à l'IA pendant une journée sur place, en juin 2026, avec trois participants de Le Dahu. Le matin portait sur la méthode ARCT et Claude au quotidien, l'après-midi sur quatre ateliers métier. Le lendemain, DKDP a remis un pack de huit documents, dont 90 prompts rangés par poste.",
   facts: [
-    { label: 'Pour qui', value: 'Un restaurant et un club du même groupe, en Valais' },
+    { label: 'Pour qui', value: 'Le Rouge, Verbier, avec trois participants de Le Dahu' },
     { label: 'Format', value: 'Une journée sur place, de 9 h 30 à 15 h 30' },
     { label: 'Participants', value: 'Une dizaine, dont une personne à distance' },
     { label: 'Animation', value: 'Romane, formatrice IA de DKDP' },
@@ -59,16 +73,16 @@ const realisation: Realisation = {
   },
   problem: {
     title: 'Tenir la haute saison sans alourdir les équipes',
-    body: "Dans une station, l'activité se concentre sur quelques mois. Pendant cette période, chaque poste encaisse la charge : le marketing et l'événementiel reposent sur très peu de personnes, les réservations des habitués se traitent au cas par cas, et la comptabilité passe par une fiduciaire externe, que l'on ne sollicite pas pour chaque point de situation.\n\nLe groupe voulait donc que sa direction et ses managers s'approprient l'IA avant l'hiver. Les niveaux étaient très inégaux : une partie de la direction utilisait déjà un assistant, alors qu'une grande partie de l'équipe partait de zéro. Il fallait une journée qui embarque les débutants sans lasser les autres, et dont chacun reparte avec des usages qui fonctionnent sur ses propres tâches.",
+    body: "Dans une station, l'activité se concentre sur quelques mois, et chaque poste encaisse la charge pendant la saison : communication et événements, réservations, administration, cuisine.\n\nLe Rouge voulait donc que sa direction et ses managers s'approprient l'IA avant l'hiver, avec des niveaux très différents d'une personne à l'autre. Il fallait une journée qui embarque les débutants sans lasser les autres, et dont chacun reparte avec des usages qui fonctionnent sur ses propres tâches.",
     facts: [
-      { label: 'Métier', value: 'Restauration, bar et club, activité saisonnière' },
-      { label: 'Public', value: 'Direction, marketing, administration, cuisine, gérance' },
-      { label: 'Départ', value: 'Niveaux très inégaux, beaucoup de débutants' },
+      { label: 'Métier', value: 'Restaurant et bar après-ski, activité saisonnière' },
+      { label: 'Public', value: 'Direction, marketing, administration, cuisine' },
+      { label: 'Départ', value: "Niveaux très différents d'une personne à l'autre" },
     ],
   },
   approach: {
     title: "Une méthode le matin, les vrais cas l'après-midi",
-    body: "La journée s'est déroulée sur place, dans la salle du restaurant, fermé pour l'occasion. Le matin, aucune séquence de théorie ne dépasse vingt-cinq minutes sans passage à la pratique : un vrai ou faux démonte d'abord les idées reçues, la méthode ARCT montre ensuite comment bien demander, puis chacun apprend à régler Claude comme un assistant qui connaît son poste. Un quiz en équipes clôt la matinée.\n\nL'après-midi, quatre groupes travaillent en même temps sur leurs propres cas : le marketing, la direction et les demandes VIP, la gérance du second établissement, la cuisine et les livraisons. Chaque groupe construit un livrable utilisable, puis le présente aux autres, pendant que l'animation passe d'un groupe à l'autre pour débloquer chaque atelier.",
+    body: "La journée s'est déroulée sur place, dans la salle du restaurant, fermé pour l'occasion. Le matin, aucune séquence de théorie ne dépasse vingt-cinq minutes sans passage à la pratique : un vrai ou faux démonte d'abord les idées reçues, la méthode ARCT montre ensuite comment bien demander, puis chacun apprend à régler Claude comme un assistant qui connaît son poste. Un quiz en équipes clôt la matinée.\n\nL'après-midi, quatre groupes travaillent en même temps sur leurs propres cas : le marketing, la direction et les demandes VIP, l'équipe de Le Dahu, la cuisine et les livraisons. Chaque groupe construit un livrable utilisable, puis le présente aux autres, pendant que l'animation passe d'un groupe à l'autre pour débloquer chaque atelier.",
     bullets: [
       "Un vrai ou faux sur cinq idées reçues pour expliquer comment fonctionne un modèle de langage",
       'La méthode ARCT : action, rôle, contexte, ton et format, avec des rôles du métier',
@@ -81,7 +95,7 @@ const realisation: Realisation = {
   },
   training: {
     format: 'Une journée sur place, de 9 h 30 à 15 h 30, avec une personne à distance',
-    audience: "Direction, marketing, administration, cuisine et gérance des deux établissements, du débutant à l'utilisateur régulier",
+    audience: "Direction, marketing, administration et cuisine de Le Rouge, et trois personnes de Le Dahu, du débutant à l'utilisateur régulier",
     sessions: [
       {
         title: "Comprendre l'IA",
@@ -142,7 +156,7 @@ const realisation: Realisation = {
   lessons: [
     "Préparer le pack avant la journée, pas après. Le devis promettait une banque de prompts et des modèles par poste, et c'est la direction qui les a demandés le lendemain, pour les transmettre à toute l'équipe. Le pack est parti le jour même de sa demande, mais nous le préparerions pour qu'il soit remis en fin de formation.",
     "Relire le Markdown comme un livrable. Le mémo destiné à être déposé dans l'assistant contenait sept listes collées à un paragraphe sans ligne vide : elles s'affichaient avec des tirets bruts, et le rendu se dégradait aussi dans un Project. Depuis, la mise en forme du Markdown se vérifie avant chaque livraison de pack.",
-    "Pas de simples observateurs. Trois personnes du second établissement devaient d'abord assister sans participer ; elles ont finalement pris part à toute la journée, avec leur propre atelier. Un observateur sans cas à traiter repart sans usage, et les échanges du groupe n'y gagnent rien.",
+    "Pas de simples observateurs. Trois personnes de Le Dahu devaient d'abord assister sans participer ; elles ont finalement pris part à toute la journée, avec leur propre atelier. Un observateur sans cas à traiter repart sans usage, et les échanges du groupe n'y gagnent rien.",
   ],
   faq: [
     {

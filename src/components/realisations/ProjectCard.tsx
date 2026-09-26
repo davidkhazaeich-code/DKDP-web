@@ -64,7 +64,7 @@ export function ProjectCard({ realisation: r, lang = 'fr', size = 'default' }: P
       <div className={clsx('flex min-w-0 flex-1 flex-col gap-3 p-5 md:p-6', wide && 'lg:justify-center lg:p-8')}>
         <div className="flex min-w-0 items-center gap-3">
           {r.client.logo && !r.client.anonymized ? (
-            <img src={r.client.logo} alt={r.client.name} className="h-6 w-auto opacity-80" />
+            <img src={r.client.logo} alt="" className="client-logo-tile h-6 w-auto max-w-[72px] shrink-0 object-contain" />
           ) : (
             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--violet-bg)] text-xs font-bold text-[var(--violet-text)]">
               {initial}

@@ -13,6 +13,7 @@ import { TrustLine } from '@/components/ui/TrustLine'
 import { HeroPills } from '@/components/ui/HeroPills'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
+import { RealisationsForDomain } from '@/components/realisations/RealisationsForDomain'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
@@ -508,6 +509,13 @@ export default function FormationIAPage() {
           <FormationPricing />
         </div>
       </section>
+
+      {/* ── Études de cas ── */}
+      <RealisationsForDomain
+        domain="formation-ia"
+        title="Des formations IA racontées de près"
+        intro="Le programme, le format, les supports remis et ce que nous referions autrement, chez 1875 Finance, dans l'équipe pharmacovigilance de Lilly en Suisse et chez Le Rouge à Verbier."
+      />
 
       {/* ── FAQ ── */}
       <div id="faq" className="scroll-mt-[124px]">

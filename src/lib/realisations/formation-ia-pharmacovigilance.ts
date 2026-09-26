@@ -1,9 +1,14 @@
 import type { Realisation } from './types'
 
 /**
- * Formation IA d'une équipe pharmacovigilance, qualité et affaires
- * réglementaires d'un laboratoire pharmaceutique international, en Suisse
- * (étude anonyme).
+ * Formation IA de l'équipe pharmacovigilance, qualité et affaires
+ * réglementaires de Lilly en Suisse.
+ *
+ * Nommée le 2026-09-26 sur décision de David. Aucune proposition DKDP avec
+ * clause portfolio n'a été retrouvée pour cette formation : accord écrit à
+ * obtenir avant le 31.10.2026, sinon le test de preuve échoue. Rien de ce que
+ * l'équipe a partagé (outils internes, niveau des participants, organisation)
+ * n'est publié.
  *
  * Sources : dossier de formation sur le Drive (brief, plan des slides, support
  * remis de 47 slides, récapitulatif, bibliothèque de 19 prompts comptés dans le
@@ -11,26 +16,25 @@ import type { Realisation } from './types'
  * 9 h à 13 h. Aucune évaluation de la formation n'a été recueillie : aucun gain
  * ni aucune satisfaction ne sont publiés.
  *
- * Anonymat : ni nom du laboratoire, ni site, ni lieu de la séance, ni nom ou
- * fonction des participants, ni nom des outils internes, ni produit fictif des
- * exercices. Les deux captures du support ont été prises avec le bandeau du
- * logo client masqué, et relues avant d'être gardées.
+ * Jamais publiés : site, lieu de la séance, noms et fonctions des participants,
+ * outils internes, produit fictif des exercices. Les deux captures du support ont
+ * été prises avec le bandeau du logo client masqué.
  */
 const realisation: Realisation = {
   slug: 'formation-ia-pharmacovigilance',
   client: {
-    name: 'Laboratoire pharmaceutique international',
+    name: 'Eli Lilly',
+    logo: '/images/clients/lilly.svg',
     sector: 'Pharmacovigilance et qualité',
     location: 'Suisse',
-    anonymized: true,
   },
   meta: {
     title: 'Formation IA pour une équipe de pharmacovigilance en Suisse',
     seoTitle: 'Formation IA pour une équipe pharma en Suisse | DKDP',
     seoDescription:
-      "Une équipe de pharmacovigilance et qualité s'est formée à l'IA en une demi-journée : la confidentialité d'abord, puis la méthode et des cas fictifs.",
+      "L'équipe pharmacovigilance de Lilly en Suisse s'est formée à l'IA en une demi-journée : la confidentialité d'abord, puis la méthode et des cas fictifs.",
     excerpt:
-      "L'équipe pharmacovigilance, qualité et affaires réglementaires d'un laboratoire pharmaceutique international, en Suisse, débutait avec l'IA générative. En une demi-journée, elle a posé les règles de confidentialité avant le premier prompt, appris une méthode en quatre piliers, puis pratiqué sur trois dossiers fictifs de son métier.",
+      "L'équipe pharmacovigilance, qualité et affaires réglementaires de Lilly en Suisse voulait adopter l'IA générative sans risque pour la conformité. En une demi-journée, elle a posé les règles de confidentialité avant le premier prompt, appris une méthode en quatre piliers, puis pratiqué sur trois dossiers fictifs de son métier.",
     dateISO: '2026-04-30',
     publishedISO: '2026-09-25',
     dateModifiedISO: '2026-09-25',
@@ -39,17 +43,24 @@ const realisation: Realisation = {
   domains: ['formation-ia'],
   sector: 'sante',
   consent: {
-    level: 'anonyme',
-    note: "Aucun accord écrit pour une étude nommée : ni nom, ni logo, ni lien, ni nom de participant ou d'outil interne.",
+    level: 'nomme',
+    evidence: {
+      kind: 'a-confirmer',
+      date: '2026-09-26',
+      reference:
+        "Nommé sur décision de David du 26.09.2026. Formation du 30.04.2026 sans proposition DKDP à clause portfolio retrouvée : accord écrit à demander à l'équipe.",
+      deadline: '2026-10-31',
+    },
+    note: "Ni nom de participant, ni outil interne, ni organisation de l'équipe publiés.",
   },
   tags: ['Formation IA', 'Pharmacovigilance', 'Confidentialité', 'Prompting', 'Données de santé'],
   answer:
-    "L'équipe pharmacovigilance, qualité et affaires réglementaires d'un laboratoire pharmaceutique international, en Suisse, a suivi une demi-journée de formation IA en avril 2026. La confidentialité passait avant le prompting, et les exercices portaient sur trois dossiers fictifs du métier. Chacun est reparti avec le support bilingue de 47 slides, un récapitulatif et 19 prompts.",
+    "L'équipe pharmacovigilance, qualité et affaires réglementaires de Lilly en Suisse a suivi une demi-journée de formation IA en avril 2026. La confidentialité passait avant le prompting, et les exercices portaient sur trois dossiers fictifs du métier. Chacun est reparti avec le support bilingue de 47 slides, un récapitulatif et 19 prompts.",
   facts: [
-    { label: 'Pour qui', value: 'Laboratoire pharmaceutique international, en Suisse' },
+    { label: 'Pour qui', value: 'Eli Lilly, en Suisse' },
     { label: 'Équipe', value: 'Pharmacovigilance, qualité, affaires réglementaires' },
     { label: 'Format', value: 'Une demi-journée de 4 heures, en présentiel, avril 2026' },
-    { label: 'Participants', value: '6, débutants en IA générative' },
+    { label: 'Participants', value: "6 membres de l'équipe" },
     { label: 'Animation', value: 'Romane, formatrice IA de DKDP' },
   ],
   cover: {
@@ -58,8 +69,8 @@ const realisation: Realisation = {
     lead: true,
   },
   problem: {
-    title: "Des experts de la réglementation qui débutaient avec l'IA",
-    body: "L'équipe traite les effets indésirables, les plaintes qualité et les échanges avec les autorités de santé. Ses membres connaissent leur réglementation dans le détail, mais ils débutaient avec l'IA générative, alors que des assistants étaient déjà disponibles dans leur environnement de travail.\n\nLeur première inquiétude portait sur les données. Dans un métier où chaque document peut être audité, et où un narratif de cas touche à la santé d'un patient, une erreur de manipulation devient vite un incident de conformité. La formation devait donc répondre à cette question avant de montrer quoi que ce soit, puis faire pratiquer l'équipe sans exposer une seule donnée réelle.",
+    title: "Des experts de la réglementation face à l'IA générative",
+    body: "L'équipe traite les effets indésirables, les plaintes qualité et les échanges avec les autorités de santé. Ses membres connaissent leur réglementation dans le détail, et ils voulaient adopter l'IA générative sans prendre de risque pour la conformité.\n\nLa première question portait donc sur les données. Dans un métier où chaque document peut être audité, et où un narratif de cas touche à la santé d'un patient, une erreur de manipulation devient vite un incident de conformité. La formation devait donc répondre à cette question avant de montrer quoi que ce soit, puis faire pratiquer l'équipe sans exposer une seule donnée réelle.",
     facts: [
       { label: 'Métier', value: 'Pharmacovigilance, plaintes qualité, affaires réglementaires' },
       { label: 'Contrainte', value: 'Aucune donnée réelle pendant la séance' },
@@ -68,7 +79,7 @@ const realisation: Realisation = {
   },
   approach: {
     title: "La confidentialité d'abord, puis une méthode, puis la pratique",
-    body: "Nous avons repris notre support de base en retirant tous ses exemples génériques. Chaque cas est devenu un cas du métier : un narratif d'effet indésirable, une plainte produit, un fichier de suivi Excel, une procédure qualité, une réunion avec l'autorité. La confidentialité passe avant le prompting, parce que c'était le premier frein de l'équipe, et le support se lit en français comme en anglais.\n\nPour la pratique, DKDP a rédigé trois dossiers entièrement fictifs : une guideline réglementaire, un fichier de plaintes et un signalement arrivé en vrac. Chaque exercice existe en deux niveaux, pour que les plus à l'aise aillent plus loin sans laisser les autres derrière. La matinée se termine ensuite par un engagement individuel : un outil, une tâche, dès la semaine suivante. Romane, formatrice IA de DKDP, anime la séance.",
+    body: "Nous avons repris notre support de base en retirant tous ses exemples génériques. Chaque cas est devenu un cas du métier : un narratif d'effet indésirable, une plainte produit, un fichier de suivi Excel, une procédure qualité, une réunion avec l'autorité. La confidentialité passe avant le prompting, parce que c'est la première question dans un métier réglementé, et le support se lit en français comme en anglais.\n\nPour la pratique, DKDP a rédigé trois dossiers entièrement fictifs : une guideline réglementaire, un fichier de plaintes et un signalement arrivé en vrac. Chaque exercice existe en deux niveaux, pour que les plus à l'aise aillent plus loin sans laisser les autres derrière. La matinée se termine ensuite par un engagement individuel : un outil, une tâche, dès la semaine suivante. Romane, formatrice IA de DKDP, anime la séance.",
     bullets: [
       "Outils internes et outils publics : ce qui peut aller où, avec l'image du consultant tenu au secret face à l'inconnu rencontré au café",
       'Trois règles : aucune donnée identifiante, aucun copier-coller depuis les bases internes, toujours anonymiser',
@@ -81,7 +92,7 @@ const realisation: Realisation = {
   },
   training: {
     format: 'Une demi-journée de 4 heures en présentiel, pause comprise, en avril 2026',
-    audience: "6 membres d'une équipe pharmacovigilance, qualité et affaires réglementaires, débutants en IA",
+    audience: "6 membres de l'équipe pharmacovigilance, qualité et affaires réglementaires",
     sessions: [
       {
         title: "Comprendre l'IA",
@@ -158,7 +169,7 @@ const realisation: Realisation = {
     {
       question: 'Une demi-journée suffit-elle pour démarrer ?',
       answer:
-        "Elle suffit pour poser les règles et la méthode, mais les réflexes s'installent ensuite, par la pratique. C'est pourquoi l'équipe repart avec un récapitulatif à déposer dans son assistant interne, une bibliothèque de prompts par métier et un engagement pour la semaine suivante. Un atelier de suivi de deux heures était aussi proposé quelques semaines plus tard.",
+        "Elle suffit pour poser les règles et la méthode, mais les réflexes s'installent ensuite, par la pratique. C'est pourquoi l'équipe repart avec un récapitulatif à déposer dans son assistant, une bibliothèque de prompts par métier et un engagement pour la semaine suivante.",
     },
   ],
   gallery: [

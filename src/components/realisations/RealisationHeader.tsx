@@ -64,6 +64,14 @@ export function RealisationHeader({ r, lang = 'fr' }: { r: Realisation; lang?: L
 
         <div className="mx-auto max-w-[1200px] px-6 pb-16 md:pb-20">
           <SectionReveal className="flex flex-col items-start">
+            {r.client.logo && !r.client.anonymized && (
+              // Logos blancs du bandeau : le filtre du theme les passe en noir en mode clair.
+              <img
+                src={r.client.logo}
+                alt=""
+                className="client-logo-tile mb-6 h-10 w-auto max-w-[140px] object-contain md:h-12"
+              />
+            )}
             <div className="flex flex-wrap items-center gap-3">
               <GradTag className="self-start">{domainLabel(r.domains[0], lang)}</GradTag>
               <span className="text-xs uppercase tracking-[0.12em] text-text-muted">

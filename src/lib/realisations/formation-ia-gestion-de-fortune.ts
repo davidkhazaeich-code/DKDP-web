@@ -1,7 +1,14 @@
 import type { Realisation } from './types'
 
 /**
- * Formation IA d'un gérant de fortune indépendant à Genève (étude anonyme).
+ * Formation IA de 1875 Finance, gérant de fortune indépendant à Genève.
+ *
+ * Nommée le 2026-09-26 sur décision de David. La proposition DKDP-2026-1875-01
+ * (signée le 16.07.2026) n'a pas de clause portfolio : accord écrit à obtenir
+ * avant le 31.10.2026, sinon le test de preuve échoue. Elle porte en revanche un
+ * engagement de confidentialité complet sur les documents et données internes :
+ * rien de ce que le client a partagé (organisation, niveau des participants,
+ * cas d'usage) n'est publié, seulement le programme et ce que DKDP a livré.
  *
  * Sources : dossier client (README, programme signé le 16 juillet 2026, emails
  * de confirmation), agenda des séances (quatre séances de 1 h 30 du 25 août au
@@ -10,24 +17,24 @@ import type { Realisation } from './types'
  * rangé dans le dossier. Aucune évaluation de la formation n'a été recueillie,
  * donc aucun gain ni aucune satisfaction ne sont publiés.
  *
- * Anonymat : ni nom, ni régulateur cité, ni effectif, ni actifs sous gestion,
- * ni adresse, ni nom ou intitulé exact des participants.
+ * Jamais publiés : régulateurs, effectif, actifs sous gestion, prix, noms et
+ * fonctions des participants.
  */
 const realisation: Realisation = {
   slug: 'formation-ia-gestion-de-fortune',
   client: {
-    name: 'Gérant de fortune indépendant',
-    sector: 'Gestion de fortune',
+    name: '1875 Finance',
+    logo: '/images/clients/1875-finance.webp',
+    sector: 'Gestion de fortune indépendante',
     location: 'Genève',
-    anonymized: true,
   },
   meta: {
     title: 'Formation IA pour une gestion de fortune à Genève',
     seoTitle: 'Formation IA pour un gérant de fortune à Genève | DKDP',
     seoDescription:
-      "Un gérant de fortune à Genève fait former deux référents à Claude en quatre séances, la gouvernance des données d'abord. Programme et leçons.",
+      "1875 Finance, gérant de fortune à Genève, a fait former deux référents à Claude en quatre séances, la gouvernance des données d'abord.",
     excerpt:
-      "Un gérant de fortune indépendant, à Genève, voulait diffuser l'IA dans ses équipes sans exposer de données clients. Deux référents internes ont d'abord suivi quatre séances de 1 h 30 dans leurs locaux : le cadre de gouvernance en premier, puis le prompting, les cas métier et l'automatisation.",
+      "1875 Finance, gérant de fortune indépendant à Genève, voulait diffuser l'IA dans ses équipes sans exposer de données clients. Deux référents internes ont d'abord suivi quatre séances de 1 h 30 dans ses locaux : le cadre de gouvernance en premier, puis le prompting, les cas métier et l'automatisation.",
     dateISO: '2026-09-02',
     publishedISO: '2026-09-25',
     dateModifiedISO: '2026-09-25',
@@ -36,16 +43,23 @@ const realisation: Realisation = {
   domains: ['formation-ia'],
   sector: 'finance',
   consent: {
-    level: 'anonyme',
-    note: 'Aucun accord écrit pour une étude nommée : ni nom, ni logo, ni lien, ni nom de participant.',
+    level: 'nomme',
+    evidence: {
+      kind: 'a-confirmer',
+      date: '2026-09-26',
+      reference:
+        "Nommé sur décision de David du 26.09.2026. Pas de clause portfolio dans la proposition DKDP-2026-1875-01 (signée le 16.07.2026) : accord écrit à demander à la direction.",
+      deadline: '2026-10-31',
+    },
+    note: 'Engagement de confidentialité de la proposition : aucun document ni aucune donnée interne du client publiés.',
   },
   tags: ['Formation Claude', 'Gouvernance des données', 'Gestion de fortune', 'Référent IA', 'Prompting'],
   answer:
-    "Un gérant de fortune indépendant, à Genève, a fait former deux référents internes avant d'ouvrir l'IA à ses équipes. Les quatre séances de 1 h 30, fin août et début septembre 2026, ont commencé par le cadre de gouvernance des données, puis couvert le prompting avec Claude, les cas métier et les premières automatisations.",
+    "1875 Finance, gérant de fortune indépendant à Genève, a fait former deux référents internes avant d'ouvrir l'IA à ses équipes. Les quatre séances de 1 h 30, fin août et début septembre 2026, ont commencé par le cadre de gouvernance des données, puis couvert le prompting avec Claude, les cas métier et les premières automatisations.",
   facts: [
-    { label: 'Pour qui', value: 'Gérant de fortune indépendant et régulé, Genève' },
+    { label: 'Pour qui', value: '1875 Finance, gestion de fortune, Genève' },
     { label: 'Format', value: '4 séances de 1 h 30, dans les locaux du client' },
-    { label: 'Participants', value: 'Deux référents internes, profils informatique et risques' },
+    { label: 'Participants', value: 'Deux référents internes' },
     { label: 'Animation', value: 'Romane, formatrice IA de DKDP' },
     { label: 'Dates', value: 'Fin août et début septembre 2026' },
   ],
@@ -55,16 +69,16 @@ const realisation: Realisation = {
   },
   problem: {
     title: "Ouvrir l'IA aux équipes sans exposer un seul dossier client",
-    body: "Chez un gérant de fortune, la première question que soulève l'IA n'est pas technique. Elle porte sur les données : quelles informations peut-on confier à un assistant, avec quel paramétrage, et qui fixe la règle ? Tant que cette règle n'est pas écrite, un assistant IA reste un risque plutôt qu'un outil.\n\nLa direction voulait donc un relais interne avant tout déploiement. Le responsable informatique devait maîtriser Claude sans être développeur, puis diffuser les bons usages dans les départements, de la gestion à la conformité. Aucun cas d'usage précis n'était encore arrêté, si bien que l'automatisation restait un horizon plutôt qu'un cahier des charges.",
+    body: "Chez un gérant de fortune, la première question que soulève l'IA n'est pas technique. Elle porte sur les données : quelles informations peut-on confier à un assistant, avec quel paramétrage, et qui fixe la règle ? Tant que cette règle n'est pas écrite, un assistant IA reste un risque plutôt qu'un outil.\n\nLa direction de 1875 Finance voulait donc former un relais interne avant tout déploiement : des personnes de la maison, capables de maîtriser Claude puis de diffuser les bons usages dans les départements, de la gestion à la conformité.",
     facts: [
-      { label: 'Métier', value: 'Gestion de fortune indépendante, gérant régulé' },
+      { label: 'Métier', value: 'Gestion de fortune indépendante' },
       { label: 'Demande', value: 'Former un relais interne, puis diffuser' },
-      { label: 'Départ', value: "Profil non développeur, aucun cas d'usage arrêté" },
+      { label: 'Contrainte', value: 'Aucune donnée client exposée' },
     ],
   },
   approach: {
     title: "Former les référents d'abord, en commençant par la gouvernance",
-    body: "Plutôt qu'une session collective, nous avons proposé un programme de référent : quatre séances de 1 h 30 en présentiel, dans les locaux du client, du niveau débutant au niveau intermédiaire. Un second participant, au profil risques, a rejoint le responsable informatique, ce qui tourne la séance sur les cas métier vers la conformité et la gestion des risques.\n\nLa première séance ne commence pas par les prompts. Elle fixe d'abord le cadre : ce qui peut être confié à Claude, ce qui ne l'est jamais, et quel paramétrage retenir selon l'offre utilisée. Ensuite, le programme demande aux participants d'apporter deux ou trois tâches qui leur prennent du temps, avec un document pour chacune, afin que les séances partent de leur travail réel. La dernière séance prépare enfin leur rôle de relais, avec une feuille de route département par département. Romane, formatrice IA de DKDP, anime les quatre séances.",
+    body: "Plutôt qu'une session collective, nous avons proposé un programme de référent : quatre séances de 1 h 30 en présentiel, dans les locaux du client, du niveau débutant au niveau intermédiaire. Un second participant a rejoint le programme, ce qui a tourné la séance sur les cas métier vers la conformité et la gestion des risques.\n\nLa première séance ne commence pas par les prompts. Elle fixe d'abord le cadre : ce qui peut être confié à Claude, ce qui ne l'est jamais, et quel paramétrage retenir selon l'offre utilisée. Ensuite, le programme demande aux participants d'apporter deux ou trois tâches qui leur prennent du temps, avec un document pour chacune, afin que les séances partent de leur travail réel. La dernière séance prépare enfin leur rôle de relais, avec une feuille de route département par département. Romane, formatrice IA de DKDP, anime les quatre séances.",
     bullets: [
       "Le cadre de gouvernance en première séance : ce qui peut être confié à l'IA, et ce qui ne l'est jamais",
       "Le paramétrage de Claude selon l'offre retenue, individuelle, équipe ou entreprise",
@@ -77,7 +91,7 @@ const realisation: Realisation = {
   },
   training: {
     format: '4 séances de 1 h 30 en présentiel, soit 6 heures, fin août et début septembre 2026',
-    audience: 'Deux référents internes, profils informatique et risques, du niveau débutant au niveau intermédiaire',
+    audience: 'Deux référents internes, du niveau débutant au niveau intermédiaire',
     sessions: [
       {
         title: 'Cadre de confiance',
@@ -121,7 +135,7 @@ const realisation: Realisation = {
     {
       metric: 'Référents formés',
       value: '2',
-      label: 'profils informatique et risques, formés avant toute diffusion aux équipes',
+      label: 'formés avant toute diffusion aux équipes',
       source: 'Dossier de formation DKDP',
       sourceKind: 'dkdp',
       capturedAt: '2026-09-25',
@@ -129,7 +143,7 @@ const realisation: Realisation = {
   ],
   lessons: [
     "Fixer l'intervalle entre les séances dès le devis. Le programme prévoyait une séance par semaine, pour laisser le temps de pratiquer entre deux rendez-vous. Les agendas ont finalement resserré les quatre séances sur neuf jours, avec deux à quatre jours seulement entre deux séances : pour un prochain programme de référent, nous fixerions cet intervalle avant de choisir les dates.",
-    "Mettre le suivi dans le programme, pas en option. La séance de suivi à un mois était proposée à part. Sans elle, nous n'avons pas encore de retour structuré sur les usages qui se sont installés après la dernière séance, et c'est pourtant ce retour qui dit si les référents diffusent. Nous l'intégrerions au programme de base.",
+    "Mettre le suivi dans le programme, pas en option. Un programme de référent se juge à ce que les référents diffusent ensuite, et seule une séance de suivi, quelques semaines après la dernière, permet de le mesurer. Nous l'intégrerions au programme de base.",
   ],
   faq: [
     {

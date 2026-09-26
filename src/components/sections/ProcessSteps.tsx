@@ -101,10 +101,10 @@ const CONTENT = {
     subtitle: '5 étapes claires, le même processus pour chaque projet depuis 2019.',
     steps: [
       { title: 'Premier échange', description: '15 minutes gratuites pour comprendre votre situation. On vous dit honnêtement si on peut vous aider et comment.' },
-      { title: 'Diagnostic', description: "Nous analysons vos usages, vos outils et vos objectifs, qu'il s'agisse de former une équipe, d'automatiser un processus ou de refaire un site. Le diagnostic reste franc, sans langue de bois." },
+      { title: 'Diagnostic', description: 'Analyse de votre présence digitale, de vos concurrents, de vos objectifs. Un diagnostic complet, sans langue de bois.' },
       { title: 'Proposition', description: "Un plan d'action concret avec les livrables, les délais et les prix. Tout est fixé à l'avance, par écrit." },
       { title: 'Réalisation', description: "On exécute. Points hebdomadaires, accès en temps réel à l'avancement. Vous restez maître du projet." },
-      { title: 'Résultats et suivi', description: "Nous livrons, nous formons vos équipes à l'outil et nous suivons les résultats. Nous restons disponibles après la livraison." },
+      { title: 'Résultats & Suivi', description: "Livraison, formation à l'outil si nécessaire, et suivi des performances. On reste là même après." },
     ],
   },
   en: {
@@ -113,10 +113,10 @@ const CONTENT = {
     subtitle: '5 clear steps, the same process for every project since 2019.',
     steps: [
       { title: 'First conversation', description: '15 free minutes to understand your situation. We tell you honestly whether we can help, and how.' },
-      { title: 'Diagnosis', description: 'We analyse your practices, your tools and your goals, whether the aim is to train a team, automate a process or rebuild a website. The diagnosis stays frank, no fluff.' },
+      { title: 'Diagnosis', description: 'Analysis of your digital presence, your competitors and your goals. A complete diagnosis, no fluff.' },
       { title: 'Proposal', description: 'A concrete action plan with deliverables, timelines and prices. Everything fixed upfront, in writing.' },
       { title: 'Delivery', description: 'We execute. Weekly check-ins, real-time access to progress. You stay in control of the project.' },
-      { title: 'Results and follow-up', description: 'We deliver, train your teams on the tool and track the results. We stay available after delivery.' },
+      { title: 'Results & follow-up', description: 'Delivery, tool training if needed, and performance tracking. We stay around even afterwards.' },
     ],
   },
 } as const

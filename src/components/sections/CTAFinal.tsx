@@ -11,7 +11,7 @@ const CONTENT = {
   fr: {
     heading: 'Parlons de',
     headingAccent: 'votre projet',
-    subtitle: "15 minutes, c'est gratuit, et on vous dit honnêtement si on peut vous aider, et comment.",
+    subtitle: "15 minutes, c'est gratuit, et on vous dit honnêtement si on peut vous aider - et comment.",
     cta: 'Réservez votre appel gratuit',
     note: 'Sans engagement · Réponse sous 24h · Eaux-Vives, Genève ou en visio',
     writeUs: 'Écrivez-nous',

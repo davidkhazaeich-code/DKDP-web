@@ -376,16 +376,6 @@ export function AllServices({ lang = 'fr' }: { lang?: Locale } = {}) {
             aria-label={activePillar ? t.servicesPanel(pillarLabel(activePillar, lang)) : t.selectPrompt}
           >
             <AnimatePresence mode="wait">
-              {!activePillar && (
-                <m.div
-                  key="index"
-                  initial={false}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  <ServiceIndex lang={lang} onPick={(key) => { setHasInteracted(true); setActive(key) }} />
-                </m.div>
-              )}
               {activePillar ? (
                 <m.div
                   key={active}
@@ -462,58 +452,6 @@ export function AllServices({ lang = 'fr' }: { lang?: Locale } = {}) {
         </div>
       </section>
     </HeroBg>
-  )
-}
-
-// ─── Index statique (avant tout choix) ───────────────────────────────────────
-
-/**
- * Liste des 3 piliers et de leurs services, rendue tant qu'aucun pilier n'est
- * choisi. Avant le 21/09/2026 (plan SEO, action D20) ce panneau etait vide au
- * chargement : l'accueil ne liait aucune page service hors du pied de page,
- * les grilles n'apparaissant qu'au clic sur un pilier. Ces liens sont du HTML
- * serveur, visibles et cliquables ; choisir un pilier les remplace par la
- * grille animee, comme avant.
- */
-function ServiceIndex({ lang, onPick }: { lang: Locale; onPick: (key: PillarKey) => void }) {
-  const t = CONTENT[lang]
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-      {PILLARS.map((pillar) => (
-        <div key={pillar.key} className="rounded-[16px] p-5 sm:p-6" style={{ background: 'var(--bg-card)', border: `1px solid ${pillar.color}25` }}>
-          <div className="flex items-center gap-2.5 mb-4">
-            <pillar.Icon size={16} style={{ color: pillar.color }} />
-            <Link
-              href={localizedPath(pillar.hubHref, lang)}
-              className="text-sm sm:text-base font-semibold hover:underline underline-offset-4"
-              style={{ color: pillar.color }}
-            >
-              {pillarLabel(pillar, lang)}
-            </Link>
-          </div>
-          <ul className="space-y-2">
-            {pillar.items.map((service) => (
-              <li key={service.href}>
-                <Link
-                  href={localizedPath(service.href, lang)}
-                  className="group inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-text transition-colors"
-                >
-                  <ChevronRight size={12} className="opacity-50 group-hover:opacity-100 transition-opacity" style={{ color: pillar.color }} />
-                  {lang === 'en' ? SERVICE_EN[service.href]?.title ?? service.title : service.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <button
-            type="button"
-            onClick={() => onPick(pillar.key)}
-            className="mt-4 text-xs font-medium text-text-muted hover:text-text transition-colors"
-          >
-            {t.seePillar(pillarLabel(pillar, lang))}
-          </button>
-        </div>
-      ))}
-    </div>
   )
 }
 

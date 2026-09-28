@@ -63,14 +63,14 @@ export const ROUTES: Route[] = [
   // Passe du 2026-08-23 : section « Veille technologique » ajoutée à l'accueil.
   { url: '/',                          priority: 1.00, changeFrequency: 'weekly', lastModified: '2026-08-23' },
   { url: '/agence-digitale',           priority: 0.90, changeFrequency: 'monthly' },
-  { url: '/intelligence-artificielle', priority: 0.90, changeFrequency: 'monthly', lastModified: '2026-09-10' },
+  { url: '/intelligence-artificielle', priority: 0.90, changeFrequency: 'monthly', lastModified: '2026-09-28' },
   { url: '/formation-entreprise',      priority: 0.90, changeFrequency: 'monthly', lastModified: '2026-09-10' },
 
   // ─── Agence Digitale — Services ───────────────────────────────────────────
   { url: '/agence-digitale/creation-site-web',              priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/refonte-site-web',               priority: 0.85, changeFrequency: 'monthly' },
   { url: '/agence-digitale/developpement-application',      priority: 0.85, changeFrequency: 'monthly' },
-  { url: '/agence-digitale/seo',                  priority: 0.85, changeFrequency: 'monthly' },
+  { url: '/agence-digitale/seo',                  priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-28' },
   { url: '/agence-digitale/publicite-sea',        priority: 0.80, changeFrequency: 'monthly' },
   // Page créée le 2026-09-10 : publicité dans ChatGPT (canal ouvert aux entreprises suisses le 31.08.2026).
   { url: '/agence-digitale/chatgpt-ads',          priority: 0.85, changeFrequency: 'weekly', lastModified: '2026-09-10' },
@@ -102,10 +102,10 @@ export const ROUTES: Route[] = [
 
   // ─── Formation Entreprise ─────────────────────────────────────────────────
   // Passe du 2026-08-23 : section « Veille et actualité » (ArticleCarousel).
-  { url: '/formation-entreprise/claude-ai',       priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
+  { url: '/formation-entreprise/claude-ai',       priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-28' },
   // Page creee le 2026-09-10 : formation dediee ChatGPT Astra (GPT-6), miroir EN declare dans i18n/slugs.ts.
   { url: '/formation-entreprise/chatgpt',         priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
-  { url: '/formation-entreprise/ia',              priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
+  { url: '/formation-entreprise/ia',              priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-28' },
   { url: '/formation-entreprise/bureautique',     priority: 0.80, changeFrequency: 'monthly', lastModified: '2026-09-10' },
   { url: '/formation-entreprise/canva',           priority: 0.80, changeFrequency: 'monthly' },
   // Passe du 2026-08-31 : la page « web design » devient la page pilier Figma

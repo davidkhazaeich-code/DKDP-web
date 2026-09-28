@@ -27,6 +27,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { getArticlesByTopic, countArticlesByTopic, CLAUDE_TOPIC } from '@/lib/blog/topics'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
+import { PRIX, chfHeure } from '@/data/pricing'
 import { violet, orange, chrome } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 import { ClaudeProductCard } from './_components/ClaudeProductCard'
@@ -69,10 +70,28 @@ const VEILLE_MAX_CARTES = 12
    FAQ
 ───────────────────────────────────────────── */
 const FAQ = [
+  // 28/09/2026 (recherche mots-clés SEO, SEA, GEO) : les trois premières
+  // questions reprennent les « Autres questions posées » de la requête
+  // « formation claude » (page à la 10e place en moyenne sur cette requête).
+  {
+    question: 'Où suivre une formation Claude pour son entreprise en Suisse romande ?',
+    answer:
+      'DKDP donne la formation Claude IA à Genève et dans toute la Suisse romande, dans les locaux de l\'entreprise ou en visioconférence. Le programme couvre Claude.ai, les Projects partagés et l\'analyse de documents longs, et un module Claude Code s\'ajoute pour les profils techniques. Le format, une demi-journée ou une journée, se fixe avec vous sur devis.',
+  },
+  {
+    question: 'Quelle est la différence entre ChatGPT et Claude ?',
+    answer:
+      'ChatGPT, d\'OpenAI, et Claude, d\'Anthropic, sont deux assistants capables de rédiger, d\'analyser et de résumer. Claude se distingue sur l\'analyse en profondeur et les documents longs, tandis que ChatGPT Astra va plus loin pour automatiser un poste de travail et produire des images. En entreprise, le choix dépend donc de vos usages et de vos licences, et la formation vous aide à trancher.',
+  },
+  {
+    question: 'Existe-t-il une certification Claude ?',
+    answer:
+      'La formation DKDP ne délivre pas de certification : chaque participant reçoit une attestation de formation individuelle. Anthropic publie de son côté des cours en ligne, regroupés dans Claude Academy. Notre formation se déroule en français, sur les documents de votre entreprise, et elle comprend un suivi par email pendant 30 jours.',
+  },
   {
     question: 'Faut-il déjà connaître Claude pour suivre cette formation ?',
     answer:
-      'Non. La formation est conçue pour tous les niveaux, du débutant complet au professionnel qui utilise déjà Claude de façon basique. Le programme s\'adapté au niveau du groupe lors du briefing préalable.',
+      'Non. La formation est conçue pour tous les niveaux, du débutant complet au professionnel qui utilise déjà Claude de façon basique. Le programme s\'adapte au niveau du groupe lors du briefing préalable.',
   },
   {
     question: 'Quelle est la différence entre la formation Claude et la formation IA générale ?',
@@ -101,8 +120,9 @@ const FAQ = [
   },
   {
     question: 'Quels sont les tarifs de la formation Claude IA ?',
+    // 28/09/2026 : prix lus dans PRIX (src/data/pricing), plus en dur ; texte identique.
     answer:
-      'La formation Claude IA est facturée à l\'heure selon la taille du groupe : CHF 200/h pour 1 personne, CHF 300/h pour 2 personnes. Pour les groupes de 3 à 10 personnes ainsi que les formules demi-journée et journée entière, le tarif est établi sur devis. Contactez-nous pour un chiffrage personnalisé.',
+      `La formation Claude IA est facturée à l'heure selon la taille du groupe : ${chfHeure(PRIX.formationHourly1)} pour 1 personne, ${chfHeure(PRIX.formationHourly2)} pour 2 personnes. Pour les groupes de 3 à 10 personnes ainsi que les formules demi-journée et journée entière, le tarif est établi sur devis. Contactez-nous pour un chiffrage personnalisé.`,
   },
   {
     question: 'Est-ce que Claude.ai est disponible en français ?',

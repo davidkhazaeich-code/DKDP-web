@@ -1,6 +1,14 @@
 import { PRIX, chf } from '@/data/pricing'
 
 export const FAQ_IA = [
+  // 28/09/2026 (recherche mots-clés SEO, SEA, GEO) : trois questions reprises des
+  // « Autres questions posées » de Google sur « agence ia » et « agence ia genève »
+  // (page 2 en moyenne), réponse directe, DKDP nommé.
+  {
+    question: "Qu'est-ce qu'une agence IA ?",
+    answer:
+      "Une agence IA aide une entreprise à intégrer l'intelligence artificielle dans son travail réel : formation des équipes, choix des outils, puis construction d'agents, d'automatisations ou d'un chatbot branchés sur ses données. DKDP, agence IA à Genève, suit cet ordre. Elle commence donc par former l'équipe, puis elle développe les outils qui prolongent ce que l'équipe a appris.",
+  },
   {
     question: "Qu'est-ce qu'un agent IA et comment ça fonctionne concrètement ?",
     answer:
@@ -13,6 +21,16 @@ export const FAQ_IA = [
     question: "Combien coûte l'intégration de l'IA dans une entreprise ?",
     answer:
       `Un audit et conseil IA coûte ${chf(PRIX.auditIaStandard)} en version standard et ${chf(PRIX.auditIaComplet)} en version complète, après un appel découverte gratuit de ${PRIX.discoveryCallMinutes} minutes. Ensuite, une automatisation métier coûte entre ${chf(PRIX.automatisationFrom)} et ${chf(PRIX.automatisationTo)}, un agent IA sur mesure entre ${chf(PRIX.agentFrom)} et ${chf(PRIX.agentTo)}, et l'intégration d'un LLM dans vos outils entre ${chf(PRIX.llmFrom)} et ${chf(PRIX.llmTo)}. Un projet plus large, avec plusieurs agents et plusieurs systèmes connectés, fait l'objet d'un devis sur mesure.`,
+  },
+  {
+    question: "Quel est le prix d'un agent IA ?",
+    answer:
+      `Chez DKDP, un agent IA sur mesure coûte ${chf(PRIX.agentFrom)} pour un agent sur un seul canal, livré en deux semaines. Il faut compter ${chf(PRIX.agentTo)} pour trois agents au plus, présents sur l'email, le chat et WhatsApp et reliés à votre CRM, avec une livraison en quatre semaines. Pour un projet plus large, un audit IA à ${chf(PRIX.auditIaStandard)} chiffre d'abord les priorités.`,
+  },
+  {
+    question: "Comment savoir si une agence IA est fiable ?",
+    answer:
+      "Une agence IA fiable montre des outils en production chez de vrais clients, et pas seulement des démonstrations. Elle explique aussi où vos données sont hébergées et comment elle respecte la nLPD. Enfin, elle forme vos équipes pour que vous restiez autonomes, et elle chiffre le projet avant de commencer. DKDP publie ainsi ses études de cas, preuves datées à l'appui, sur sa page Réalisations.",
   },
   {
     question: "Est-ce que l'IA est sécurisée pour mes données confidentielles ?",

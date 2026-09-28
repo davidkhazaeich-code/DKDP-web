@@ -58,6 +58,20 @@ export const metadata: Metadata = {
 }
 
 const FAQ = [
+  // 28/09/2026 (recherche mots-clés SEO, SEA, GEO) : questions reprises des
+  // « Autres questions posées » de Google et des invites testées dans le Mode IA,
+  // où DKDP n'était cité sur aucune question de formation. Réponse directe, DKDP
+  // nommé dans la première phrase (workflows/recherche-mots-cles-seo-sea-geo.md).
+  {
+    question: 'Qui peut former mes employés à l\'intelligence artificielle à Genève ?',
+    answer:
+      'DKDP forme les équipes des PME genevoises à l\'intelligence artificielle, dans leurs locaux ou en visioconférence. Nos formateurs travaillent sur ChatGPT, Claude et Copilot à partir des documents réels de l\'entreprise, et chaque participant repart avec ses propres prompts. Le même programme se déroule aussi à Lausanne, Fribourg, Neuchâtel ou Sion.',
+  },
+  {
+    question: 'Quelle est la meilleure formation IA pour une entreprise ?',
+    answer:
+      'La meilleure formation IA pour une entreprise part de ses propres cas : ses documents, ses emails et ses outils. C\'est pourquoi DKDP envoie un questionnaire avant la session, puis consacre une demi-journée ou une journée à la pratique sur les tâches réelles de l\'équipe. Les formations diplômantes, comme un CAS, visent plutôt les personnes qui veulent faire de l\'IA leur métier.',
+  },
   {
     question: 'Faut-il des compétences techniques pour suivre la formation IA ?',
     answer:
@@ -94,7 +108,8 @@ const FAQ = [
       'Cela dépend du compte, pas de l\'outil. Sur un compte gratuit ou personnel, les échanges peuvent servir à entraîner les modèles par défaut : on n\'y colle ni données de clients identifiés, ni dossiers RH, ni chiffres non publics, la nLPD (loi fédérale sur la protection des données, en vigueur depuis le 1er septembre 2023) vous en rend responsable. Sur un compte Team ou Enterprise, les données ne servent pas à l\'entraînement et un contrat de traitement encadre le fournisseur. La formation consacre un module à ces règles et à la configuration des espaces d\'équipe ; notre guide détaillé : dkdp.ch/blog/protection-donnees-ia-nlpd-pme-suisse.',
   },
   {
-    question: 'Combien coûte une journée de formation IA pour mon équipe ?',
+    // 28/09/2026 : question reformulée comme la cherchent les gens (« Quel est le prix d'une formation en IA ? »), réponse inchangée.
+    question: 'Quel est le prix d\'une formation IA pour une équipe ?',
     // 25/09/2026 : prix de la grille via PRIX, plus de montant en dur (texte identique).
     answer:
       `La formation IA est facturée à l'heure selon la taille du groupe : ${chfHeure(PRIX.formationHourly1)} pour 1 personne, ${chfHeure(PRIX.formationHourly2)} pour 2 personnes. Pour les groupes de 3 à 10 personnes ainsi que les formules demi-journée et journée entière, le tarif est établi sur devis. Contactez-nous pour un chiffrage personnalisé.`,

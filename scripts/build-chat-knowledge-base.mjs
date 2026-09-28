@@ -55,6 +55,14 @@ const EXCLUDED_PREFIXES = [
   // Leur arrivée dans le sitemap le 2026-06-05 avait fait passer le prompt
   // de 113k à 222k tokens, au-delà de la limite du modèle. Ne pas réintroduire.
   '/en/',
+  // 28/09/2026, décision David : build bloqué depuis le 26/09 (163k tokens
+  // estimés pour 160k). Les 7 études de cas individuelles pèsent 70k
+  // caractères sur 523k, plus que toute la hausse depuis la dernière KB saine
+  // (+56k). Le hub /realisations reste : il résume chaque étude (client,
+  // secteur, livrable, chiffre clé), assez pour que le bot les cite et renvoie
+  // vers /realisations. Pour rendre le détail au bot sans couper ailleurs, il
+  // faut un modèle à plus grande fenêtre (Sonnet 5 : 1M tokens).
+  '/realisations/',
 ]
 
 // ─── Budget de tokens ───────────────────────────────────────────────────────

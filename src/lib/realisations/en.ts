@@ -22,9 +22,9 @@ type DataStoryEN = {
   annotations?: string[]
 }
 
-type RealisationEN = Partial<Pick<Realisation, 'tags' | 'answer' | 'facts' | 'lessons' | 'faq'>> & {
+type RealisationEN = Partial<Pick<Realisation, 'tags' | 'lead' | 'answer' | 'facts' | 'lessons' | 'faq'>> & {
   client?: Partial<Realisation['client']>
-  meta?: Partial<Pick<Realisation['meta'], 'title' | 'excerpt' | 'seoTitle' | 'seoDescription'>>
+  meta?: Partial<Pick<Realisation['meta'], 'title' | 'titleAccent' | 'excerpt' | 'seoTitle' | 'seoDescription'>>
   problem?: Realisation['problem']
   approach?: Realisation['approach']
   flow?: Realisation['flow']
@@ -51,12 +51,14 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
     },
     meta: {
       title: 'Local service website and job-management CRM for a Geneva building-services company',
+      titleAccent: 'job-management CRM',
       seoTitle: 'Website and CRM for a Geneva building-services firm | DKDP',
       seoDescription:
         'Next.js website and custom job-management CRM for a Geneva building-services firm: request funnel, local SEO and sourced figures.',
       excerpt:
         'Next.js 15 website for a Geneva lift-pump specialist: a four-step request funnel feeds a custom intervention CRM, with local SEO and answers written to be quoted by generative engines.',
     },
+    lead: 'The website launched with the business: every request goes through a four-step funnel, then lands directly in a custom-built job-management CRM.',
     answer:
       'SOS Relevage, a Geneva lift-pump specialist, launched its business on 24 August 2026 with a website we built: a four-step request funnel feeds a custom intervention CRM. In a manual check on 20 September 2026, the site ranked first in the local pack for “pompe de relevage genève”.',
     facts: [
@@ -237,12 +239,14 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
     client: { sector: 'Gold and precious-metal buying', location: 'Geneva' },
     meta: {
       title: 'Rebuilding a Geneva gold-buying website, with real-time prices',
+      titleAccent: 'real-time prices',
       seoTitle: 'Geneva gold-buying website, real-time prices | DKDP',
       seoDescription:
         'Astro rebuild for a Geneva gold buyer: prices refreshed every 10 seconds, API with a backup source, live 12 days after the first commit.',
       excerpt:
         'Astro rebuild for a Geneva gold buyer: the buy-back estimator and prices refresh every 10 seconds, from an API that keeps a backup source. Live 12 days after the first commit.',
     },
+    lead: 'The new site shows a buy-back estimator and prices refreshed every 10 seconds. It went live 12 days after the first commit.',
     answer:
       'Golden Cash, a gold buyer in Geneva, asked us to rebuild its website in April 2026. The new Astro site shows a buy-back estimator and prices refreshed every 10 seconds, from an API that keeps a backup source. It went live 12 days after the first commit.',
     facts: [
@@ -316,12 +320,14 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
     },
     meta: {
       title: 'Brand, bilingual website and application platform for a wrestling and MMA camp',
+      titleAccent: 'application platform',
       seoTitle: 'Brand and bilingual website for a sports camp | DKDP',
       seoDescription:
         'Logo, brand guidelines, Next.js site in French and English, online application and custom back office for a wrestling and MMA camp in the Caucasus.',
       excerpt:
         'For MKR Caucasian Camp, which runs wrestling camps in Dagestan and MMA camps in Chechnya, we created the brand, the Next.js website in French and English, the online application, the back office that follows every file until departure, the emails, the presentation film and the Google Ads campaigns.',
     },
+    lead: 'We built everything, from the brand to the film: the bilingual website, the online application, the back office, the emails and the Google ads.',
     answer:
       'MKR Caucasian Camp runs wrestling camps in Dagestan and MMA camps in Chechnya. Since April 2026 we have built everything: the brand, the bilingual website, the application, the back office, the emails, the film and the Google ads. In a manual check on 29 September 2026, the site ranked first for “camp lutte daghestan”.',
     facts: [
@@ -747,6 +753,7 @@ export function localizeRealisation(r: Realisation, lang: Locale): Realisation {
     tags: e.tags ?? r.tags,
     client: { ...r.client, ...e.client },
     meta: { ...r.meta, ...e.meta },
+    lead: e.lead ?? r.lead,
     answer: e.answer ?? r.answer,
     facts: e.facts ?? r.facts,
     problem: e.problem ?? r.problem,

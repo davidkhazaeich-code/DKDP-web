@@ -23,6 +23,7 @@ const realisation: Realisation = {
   },
   meta: {
     title: "Site de service local et CRM d'interventions pour une PME du bâtiment à Genève",
+    titleAccent: "CRM d'interventions",
     seoTitle: 'Site et CRM pour une PME du bâtiment à Genève | DKDP',
     seoDescription:
       "Site Next.js et CRM d'interventions sur mesure pour une PME genevoise du bâtiment : tunnel de demande, SEO local et chiffres sourcés.",
@@ -40,6 +41,8 @@ const realisation: Realisation = {
     note: 'Société de David Khazaei et de son associé : présentation neutre, sans nom de personne.',
   },
   tags: ['Site vitrine', 'Next.js', 'SEO local', 'CRM sur mesure', 'GEO'],
+  lead:
+    "Le site est né avec l'entreprise : chaque demande passe par un tunnel en quatre étapes, puis arrive directement dans un CRM d'interventions construit sur mesure.",
   answer:
     "SOS Relevage, spécialiste genevois des pompes de relevage, a lancé son activité le 24 août 2026 avec un site que nous avons réalisé : un tunnel de demande en quatre étapes alimente un CRM d'interventions sur mesure. Au relevé du 20 septembre 2026, le site sortait 1er du pack local sur « pompe de relevage genève ».",
   facts: [

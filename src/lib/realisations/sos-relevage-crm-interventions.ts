@@ -31,6 +31,7 @@ const realisation: Realisation = {
   },
   meta: {
     title: "Un CRM terrain sur mesure, de la demande du site au rapport d'intervention",
+    titleAccent: 'CRM terrain sur mesure',
     seoTitle: 'CRM terrain sur mesure pour une PME de maintenance | DKDP',
     seoDescription:
       "Application d'interventions sur mesure pour une PME genevoise : demandes du site, planning, checklist de 12 points, photos et rapport.",
@@ -48,6 +49,8 @@ const realisation: Realisation = {
     note: 'Société de David Khazaei et de son associé : présentation neutre, sans nom de personne ni capture de fiche réelle.',
   },
   tags: ['CRM sur mesure', 'Application métier', 'PWA', 'Supabase', 'bexio', 'Google Agenda'],
+  lead:
+    'Sur le téléphone du technicien, chaque demande du site devient une intervention planifiée, contrôlée selon 12 points publiés, puis rendue en rapport sans ressaisie.',
   answer:
     "Pour SOS Relevage, spécialiste genevois des pompes de relevage, nous avons développé une application d'interventions sur mesure. Chaque demande du site devient une intervention planifiée, contrôlée sur place selon les 12 points publiés sur le site, documentée en photos et rendue en rapport. Un test empêche le site de promettre un point que le rapport ne couvre pas.",
   facts: [
@@ -60,8 +63,8 @@ const realisation: Realisation = {
   cover: {
     src: '/images/realisations/sos-relevage-crm-interventions/rapport-mockup.webp',
     alt: "Deux pages d'un rapport d'intervention SOS Relevage remplies avec des données fictives : problème signalé, conclusion, points contrôlés, recommandations par priorité",
-    lead: true,
   },
+  heroStack: 'pages',
   problem: {
     title: 'Le rapport promis sur le site devait exister sur le terrain',
     body: "Le site de SOS Relevage promet une visite en douze points de contrôle et un rapport photo remis sous 48 heures. Sans outil, cette promesse repose sur un carnet, des photos perdues dans la galerie du téléphone et un rapport réécrit le soir au bureau.\n\nIl fallait un outil qui reçoive les demandes du site sans ressaisie, planifie les interventions, guide le technicien point par point, range chaque photo au bon endroit et produise un rapport qui rende compte exactement de ce que le site annonce.",

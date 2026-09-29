@@ -32,6 +32,7 @@ const realisation: Realisation = {
   },
   meta: {
     title: "Marque, site bilingue et plateforme d'inscription pour un camp de lutte et de MMA",
+    titleAccent: "plateforme d'inscription",
     seoTitle: 'Marque et site bilingue sur mesure pour un camp sportif | DKDP',
     seoDescription:
       "Logo, charte, site Next.js en français et en anglais, candidature en ligne et back-office sur mesure pour un camp de lutte et de MMA au Caucase.",
@@ -54,6 +55,8 @@ const realisation: Realisation = {
     note: 'Confidentialité réciproque sur les données clients, les chiffres et les orientations stratégiques (même proposition) : aucun chiffre privé de MKR publié, back-office montré sur des données fictives.',
   },
   tags: ['Identité visuelle', 'Next.js', 'Site bilingue', 'Candidature en ligne', 'Back-office sur mesure', 'Google Ads'],
+  lead:
+    'Nous avons tout construit, de la marque au film : le site en deux langues, la candidature en ligne, le back-office, les emails et la publicité Google.',
   answer:
     "MKR Caucasian Camp organise des camps de lutte au Daghestan et de MMA en Tchétchénie. Depuis avril 2026, nous avons tout construit : la marque, le site bilingue, l'inscription, le back-office, les emails, le film et la publicité Google. Au relevé du 29 septembre 2026, le site sortait 1er sur « camp lutte daghestan ».",
   facts: [

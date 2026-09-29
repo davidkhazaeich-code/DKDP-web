@@ -34,6 +34,7 @@ const realisation: Realisation = {
   },
   meta: {
     title: 'Formation IA pour un restaurant et bar après-ski à Verbier',
+    titleAccent: 'restaurant et bar après-ski',
     seoTitle: 'Formation IA pour la restauration à Verbier | DKDP',
     seoDescription:
       "Le Rouge, restaurant et bar après-ski à Verbier, a formé ses équipes à l'IA en une journée sur place : méthode ARCT, Claude et quatre ateliers.",
@@ -57,6 +58,8 @@ const realisation: Realisation = {
     note: 'Confidentialité totale sur les données partagées (même proposition) : aucune donnée interne du client publiée.',
   },
   tags: ['Formation IA', 'Restauration', 'Méthode ARCT', 'Claude', 'Ateliers métier'],
+  lead:
+    'Pendant une journée sur place, les équipes ont appris une méthode de prompt, réglé leur assistant, puis travaillé leurs propres cas en quatre ateliers.',
   answer:
     "Le Rouge, restaurant et bar après-ski à Verbier, a formé ses équipes à l'IA pendant une journée sur place, en juin 2026, avec trois participants de Le Dahu. Le matin portait sur la méthode ARCT et Claude au quotidien, l'après-midi sur quatre ateliers métier. Le lendemain, DKDP a remis un pack de huit documents, dont 90 prompts rangés par poste.",
   facts: [
@@ -69,8 +72,8 @@ const realisation: Realisation = {
   cover: {
     src: '/images/realisations/formation-ia-restauration-station/supports-mockup.webp',
     alt: "Deux slides du support de formation posées l'une sur l'autre : les instructions générales à rédiger avec Claude, puis les quatre réflexes d'un bon prompt",
-    lead: true,
   },
+  heroStack: 'slides',
   problem: {
     title: 'Tenir la haute saison sans alourdir les équipes',
     body: "Dans une station, l'activité se concentre sur quelques mois, et chaque poste encaisse la charge pendant la saison : communication et événements, réservations, administration, cuisine.\n\nLe Rouge voulait donc que sa direction et ses managers s'approprient l'IA avant l'hiver, avec des niveaux très différents d'une personne à l'autre. Il fallait une journée qui embarque les débutants sans lasser les autres, et dont chacun reparte avec des usages qui fonctionnent sur ses propres tâches.",

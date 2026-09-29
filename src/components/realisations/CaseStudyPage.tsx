@@ -1,6 +1,6 @@
-import { DeviceStage } from './DeviceStage'
-import { CoverStage } from './CoverStage'
-import { RealisationHeader } from './RealisationHeader'
+import { CaseStudyHero } from './CaseStudyHero'
+import { CaseStudySummary } from './CaseStudySummary'
+import { SiteStage } from './SiteStage'
 import { ProblemBlock } from './ProblemBlock'
 import { ApproachBlock } from './ApproachBlock'
 import { FlowDiagram } from './FlowDiagram'
@@ -30,18 +30,15 @@ import type { Realisation } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
 
 /**
- * Page d'une etude de cas, commune au francais et a l'anglais (v2).
+ * Page d'une etude de cas, commune au francais et a l'anglais (v2, hero du
+ * 2026-09-29).
  *
- * L'ordre suit la lecture d'un prospect : ce qui a ete fait et pour qui
- * (en-tete, reponse directe, fiche), le visuel principal, le contexte,
- * l'approche, puis les preuves (sections, medias, chiffres dates), les
- * lecons, les questions et les liens vers la prestation. Chaque bloc est
- * optionnel et ne s'affiche que si l'etude le renseigne.
- *
- * Visuel principal : la scene d'appareils (page entiere qui defile, telephone
- * devant) pour un projet web ; pour un projet sans site, la couverture quand
- * c'est un livrable mis en scene (`cover.lead`), sinon le schema de flux, sinon
- * la frise des seances d'une formation.
+ * L'ordre suit la lecture d'un prospect : le hero (le client, ce qui a ete
+ * fait, le travail livre en image), la reponse directe et la fiche projet, le
+ * contexte, l'approche, la page entiere du site, puis les preuves (sections,
+ * medias, chiffres dates), les lecons, les questions et les liens vers la
+ * prestation. Chaque bloc est optionnel et ne s'affiche que si l'etude le
+ * renseigne. Le choix du visuel du hero vit dans `lib/realisations/hero.ts`.
  */
 export function CaseStudyPage({
   r,
@@ -54,10 +51,6 @@ export function CaseStudyPage({
 }) {
   const en = lang === 'en'
   const url = realisationUrl(r.slug, lang)
-  const leadCover = !r.hero && r.cover?.lead ? r.cover : null
-  const flowAsHero = !r.hero && !leadCover && Boolean(r.flow)
-  // Formation sans visuel de tete : la frise des seances monte sous l'en-tete.
-  const trainingAsHero = !r.hero && !leadCover && !r.flow && Boolean(r.training)
   const images = [
     `${ENTITY.url}/images/realisations/${r.slug}/og.png`,
     ...(r.mockup ? [`${ENTITY.url}${r.mockup.src}`] : []),
@@ -78,33 +71,15 @@ export function CaseStudyPage({
       <SchemaOrg schema={buildRealisationArticle({ realisation: r, lang, images })} />
       {r.faq && r.faq.length > 0 && <SchemaOrg schema={buildFAQPage(r.faq)} />}
 
-      <RealisationHeader r={r} lang={lang} />
-
-      {r.hero && (
-        <DeviceStage
-          desktop={r.hero.desktopFull}
-          browserUrl={r.hero.browserUrl}
-          alt={`${r.client.name} : ${r.meta.title}`}
-          phone={
-            r.hero.mobileView
-              ? {
-                  src: r.hero.mobileView,
-                  alt: en ? `${r.client.name} on a phone: first screen` : `${r.client.name} sur téléphone : premier écran`,
-                }
-              : undefined
-          }
-        />
-      )}
-      {leadCover && <CoverStage cover={leadCover} />}
-      {flowAsHero && r.flow && <FlowDiagram flow={r.flow} lang={lang} />}
-      {trainingAsHero && r.training && <TrainingBlock training={r.training} lang={lang} />}
-
+      <CaseStudyHero r={r} lang={lang} />
       <CaseStudyNav r={r} lang={lang} />
+      <CaseStudySummary r={r} lang={lang} />
 
       <ProblemBlock problem={r.problem} lang={lang} />
       <ApproachBlock approach={r.approach} lang={lang} />
-      {!flowAsHero && r.flow && <FlowDiagram flow={r.flow} lang={lang} />}
-      {!trainingAsHero && r.training && <TrainingBlock training={r.training} lang={lang} />}
+      {r.hero && <SiteStage hero={r.hero} clientName={r.client.name} lang={lang} />}
+      {r.flow && <FlowDiagram flow={r.flow} lang={lang} />}
+      {r.training && <TrainingBlock training={r.training} lang={lang} />}
       {r.highlights && r.highlights.length > 0 && (
         <HighlightsShowcase items={r.highlights} host={r.hero?.browserUrl ?? ''} showcase={r.showcase} lang={lang} />
       )}

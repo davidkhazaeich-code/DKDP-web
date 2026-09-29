@@ -25,6 +25,9 @@ export interface ProofIssue {
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/
 const EM_DASH = '\u2014'
 const ANSWER_MAX_WORDS = 60
+const LEAD_MAX_WORDS = 30
+/** Part maximale du titre composee en degrade : quelques mots, jamais le titre. */
+const ACCENT_MAX_SHARE = 0.5
 
 /** Date du jour au format YYYY-MM-DD, en heure de Geneve. */
 export function todayISO(now: Date = new Date()): string {
@@ -122,6 +125,21 @@ export function proofIssues(r: Realisation, today: string = todayISO()): ProofIs
   if (r.answer) {
     const words = r.answer.trim().split(/\s+/).length
     if (words > ANSWER_MAX_WORDS) add('answer-length', `Réponse directe de ${words} mots, ${ANSWER_MAX_WORDS} au plus.`)
+  }
+  if (r.lead) {
+    const words = r.lead.trim().split(/\s+/).length
+    if (words > LEAD_MAX_WORDS) add('lead-length', `Accroche du hero de ${words} mots, ${LEAD_MAX_WORDS} au plus.`)
+  }
+  if (r.meta.titleAccent !== undefined) {
+    const accent = r.meta.titleAccent.trim()
+    if (!accent || !r.meta.title.includes(r.meta.titleAccent)) {
+      add('title-accent', `Mots en dégradé absents du titre : « ${r.meta.titleAccent} ».`)
+    } else if (accent.length > r.meta.title.length * ACCENT_MAX_SHARE) {
+      add('title-accent', 'Le dégradé ne couvre que quelques mots du titre, jamais sa moitié ou plus.')
+    }
+  }
+  if (r.heroStack && (r.gallery ?? []).filter((g) => g.document).length < 2) {
+    add('hero-stack', 'Le visuel du hero pose deux pages du livrable : la galerie doit en contenir deux (`document: true`).')
   }
   if (r.meta.seoDescription && r.meta.seoDescription.length > 160) {
     add('seo-description', `Description SEO de ${r.meta.seoDescription.length} caractères, 160 au plus (Google coupe vers 920 px).`)

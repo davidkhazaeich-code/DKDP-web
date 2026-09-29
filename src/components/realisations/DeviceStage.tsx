@@ -6,9 +6,11 @@ import { BrowserFrame } from './BrowserFrame'
 import { PhoneFrame } from './PhoneFrame'
 
 /**
- * Scene d'appareils en tete d'une etude de site : la page entiere dans un
- * cadre de navigateur (elle defile au survol, ou d'elle-meme au doigt quand
- * elle est visible) et le premier ecran mobile dans un telephone pose devant.
+ * Scene d'appareils d'une etude de site : la page entiere dans un cadre de
+ * navigateur (elle defile au survol, ou d'elle-meme au doigt quand elle est
+ * visible) et le premier ecran mobile dans un telephone pose devant. Sous
+ * l'approche depuis le 2026-09-29 (`SiteStage`) : images chargees a l'approche
+ * de l'ecran, sauf `priority`.
  *
  * Au defilement, le telephone remonte un peu plus vite que la page : une
  * profondeur legere, pilotee par Motion (pas d'ecouteur de scroll). Avec
@@ -19,11 +21,13 @@ export function DeviceStage({
   browserUrl,
   alt,
   phone,
+  priority = false,
 }: {
   desktop: string
   browserUrl: string
   alt: string
   phone?: { src: string; alt: string }
+  priority?: boolean
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const reduce = useReducedMotion()
@@ -45,7 +49,7 @@ export function DeviceStage({
           browserUrl={browserUrl}
           variant="stage"
           trigger="visible"
-          priority
+          priority={priority}
           className="shadow-[0_40px_120px_-60px_rgba(0,0,0,0.9)]"
         />
         {phone && (
@@ -53,7 +57,7 @@ export function DeviceStage({
             style={reduce ? undefined : { y: phoneY }}
             className="absolute bottom-0 right-0 w-[27%] max-w-[260px] sm:w-[25%]"
           >
-            <PhoneFrame src={phone.src} alt={phone.alt} eager />
+            <PhoneFrame src={phone.src} alt={phone.alt} eager={priority} />
           </motion.div>
         )}
       </div>

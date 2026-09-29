@@ -30,6 +30,7 @@ const realisation: Realisation = {
   },
   meta: {
     title: 'Formation IA pour une gestion de fortune à Genève',
+    titleAccent: 'gestion de fortune',
     seoTitle: 'Formation IA pour un gérant de fortune à Genève | DKDP',
     seoDescription:
       "1875 Finance, gérant de fortune à Genève, a fait former deux référents à Claude en quatre séances, la gouvernance des données d'abord.",
@@ -54,6 +55,8 @@ const realisation: Realisation = {
     note: 'Engagement de confidentialité de la proposition : aucun document ni aucune donnée interne du client publiés.',
   },
   tags: ['Formation Claude', 'Gouvernance des données', 'Gestion de fortune', 'Référent IA', 'Prompting'],
+  lead:
+    "1875 Finance a fait former deux référents internes avant d'ouvrir l'IA à ses équipes : la gouvernance des données d'abord, puis le prompting et les cas métier.",
   answer:
     "1875 Finance, gérant de fortune indépendant à Genève, a fait former deux référents internes avant d'ouvrir l'IA à ses équipes. Les quatre séances de 1 h 30, fin août et début septembre 2026, ont commencé par le cadre de gouvernance des données, puis couvert le prompting avec Claude, les cas métier et les premières automatisations.",
   facts: [

@@ -13,7 +13,7 @@ import type { Locale } from '@/i18n/config'
  * parcourt chaque liaison dans le sens du flux. Avec `prefers-reduced-motion`,
  * tout est affiche d'emblee et l'impulsion disparait (globals.css).
  */
-const KIND_LABEL: Record<Locale, Record<FlowStepKind, string>> = {
+export const KIND_LABEL: Record<Locale, Record<FlowStepKind, string>> = {
   fr: { source: 'Entrée', ia: 'IA', outil: 'Outil', controle: 'Règle', sortie: 'Sortie' },
   en: { source: 'Input', ia: 'AI', outil: 'Tool', controle: 'Rule', sortie: 'Output' },
 }

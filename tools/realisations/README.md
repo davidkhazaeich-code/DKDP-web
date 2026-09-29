@@ -113,13 +113,13 @@ pas le droit de lire des fichiers `file://`, et le mockup sortait vide.
 
 Nouveaux champs du modèle : `hero.desktopView` et `hero.mobileView` (premiers écrans à la
 taille de l'écran, pour la scène d'appareils), `mockup` (composition pour le hub et les
-cartes), `cover.lead` (la couverture devient le visuel de tête), `showcase` (titre et intro
+cartes), `cover.lead` (remplacé le 29.09.2026 par `heroStack`, voir plus bas), `showcase` (titre et intro
 des sections phares), `highlights[].image.host`, `gallery[].document` (pages de livrable
 posées comme des feuilles). `studyVisual()` (`src/lib/realisations/visual.ts`) choisit le
 visuel d'une étude hors de sa page : mockup, sinon couverture, sinon premier écran.
 
 Composants : `DeviceStage` (page entière qui défile dans le navigateur, téléphone devant,
-parallaxe Motion), `CoverStage`, `HubHeroVisual` (mises en scène en fondu, pause au survol),
+parallaxe Motion), `CoverStage` (retiré le 29.09.2026), `HubHeroVisual` (mises en scène en fondu, pause au survol),
 `CardMedia` (vidéo au survol à la souris), `CountUp` (chiffres qui défilent, valeur finale
 au rendu serveur), grille bento `bentoLayout()` (rangées toujours pleines, testée),
 `SectionReveal variant="wipe"` (courbe et frise qui se tracent). Tout s'arrête avec
@@ -147,3 +147,30 @@ du worktree s'il est périmé.
 Nouveaux champs du modèle : `touchpoints` (bloc « La marque, hors du site », `BrandTouchpoints` : affiche, réseaux, couvertures vidéo, email, outil, en mosaïque sur 12 colonnes, `ratio` pour aligner une rangée, `device: "phone"` pour un email), `direction.theme` (couleurs de la tuile du logo), `direction.logoLight` (logo pour fond clair), `direction.ratio` (part de chaque couleur dans un écran type), `direction.type[].uppercase`, et `seo.serpNote` / `seo.schemasNote` (commentaires propres au site). Polices du spécimen MKR : Teko, Barlow et Barlow Condensed en sous-ensembles OFL dans `src/components/realisations/fonts/`.
 
 Back-office d'un client : jamais de vraie fiche. Pour MKR, capture sur le faux backend du repo (`npm run admin:dev` dans un worktree, connexion par `POST /api/admin/login` avec le jeton de test du README du mock, `nextjs-portal{display:none!important}` pour masquer le badge de développement de Next). Email transactionnel : rendu par la fonction du repo (`buildVisioEmail`, lancée avec `node --experimental-strip-types --import ./scripts/_alias-hook.mjs`) avec un candidat fictif, puis capturé.
+
+## Hero des études de cas (2026-09-29)
+
+Retour de David : « beaucoup de texte, pas d'image, ça ne donne pas envie de voir la suite »,
+et un titre entièrement en dégradé. Le premier écran d'une étude montre désormais le travail
+livré, et le dégradé ne couvre plus que quelques mots.
+
+| Élément | Où | Règle |
+|---|---|---|
+| Hero | `CaseStudyHero` | Client (logo ou nom, lieu), H1 en couleur du texte, accroche, trois prestations au plus, deux actions. Texte vers 57 %, visuel vers 43 % ; sur mobile, une image passe avant le texte, un schéma après |
+| Mots en dégradé | `meta.titleAccent` + `.rz-accent` (`realisations-hero.css`) | Sous-chaîne exacte du titre, moins de la moitié de sa longueur (`proof.ts`). Teintes plus denses en mode clair. Le titre du hub suit la même règle |
+| Accroche | `lead` | 30 mots au plus, rien qui ne figure déjà dans l'étude. La réponse directe (`answer`) et la fiche projet passent sous le hero (`CaseStudySummary`) |
+| Visuel | `CaseStudyHeroVisual`, choix dans `src/lib/realisations/hero.ts` | Site : premier écran (`hero.desktopView`) dans un navigateur fixe et téléphone devant ; livrable : deux pages de la galerie (`heroStack: 'pages'` en A4, `'slides'` en 16:9), la première devant ; sinon le flux, le programme de formation, puis la couverture |
+| Pastille de preuve | `heroProof()` | Premier résultat de l'étude, avec « au <date> ». Sur les images seulement, dès la tablette |
+| Page entière du site | `SiteStage` (`#site`) | La scène d'appareils qui défile vient après l'approche, images chargées à l'approche de l'écran |
+
+Mouvement : kit dg-* en mode `hero`. Le grand visuel (candidat LCP) est peint tout de suite ;
+seuls le téléphone, la première page et la pastille entrent. Mesuré le 29.09.2026 sur le build
+local : LCP = l'image du hero, CLS 0, hydratation propre.
+
+⚠️ Une traduction anglaise porte aussi `lead` et `meta.titleAccent` : le test
+`proof.test.ts` échoue sinon (un mot en dégradé absent du titre anglais serait ignoré, une
+accroche française resterait sur la page anglaise).
+
+⚠️ Serveur de dev de Next 16 : une étude déjà rendue peut revenir du cache de pré-rendu
+(`x-nextjs-cache: HIT`) après une modification de composant serveur. Arrêter le serveur,
+supprimer `.next`, relancer.

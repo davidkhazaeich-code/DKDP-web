@@ -22,6 +22,7 @@ const realisation: Realisation = {
   },
   meta: {
     title: "Automatiser la saisie des dépenses dans Bexio avec n8n et l'IA",
+    titleAccent: 'saisie des dépenses',
     seoTitle: 'Automatiser les dépenses Bexio avec n8n et l’IA | DKDP',
     seoDescription:
       'Comment DKDP automatise la saisie de ses dépenses Bexio avec n8n et Claude : flux de 26 étapes, 31 catégories comptables et leçons tirées.',
@@ -36,6 +37,8 @@ const realisation: Realisation = {
   sector: 'agence-digitale',
   consent: { level: 'interne', note: 'Comptabilité de DKDP : aucun montant publié.' },
   tags: ['n8n', 'Bexio', 'Claude', 'Comptabilité', 'Google Drive'],
+  lead:
+    'Chaque justificatif déposé dans Google Drive devient une dépense Bexio classée, archivée et validée. Le flux tourne toutes les cinq minutes depuis avril 2026.',
   answer:
     "Chez DKDP, chaque justificatif déposé dans un dossier Google Drive devient une dépense Bexio classée, nommée, archivée et validée, sans ressaisie. Le flux n8n tourne toutes les cinq minutes depuis avril 2026. En septembre, une relecture de 727 dépenses a montré qu'un seul compte en portait 26 % : le classement compte désormais 31 catégories.",
   facts: [

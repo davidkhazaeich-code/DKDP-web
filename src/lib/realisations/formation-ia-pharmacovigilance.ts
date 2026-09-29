@@ -30,6 +30,7 @@ const realisation: Realisation = {
   },
   meta: {
     title: 'Formation IA pour une équipe de pharmacovigilance en Suisse',
+    titleAccent: 'équipe de pharmacovigilance',
     seoTitle: 'Formation IA pour une équipe pharma en Suisse | DKDP',
     seoDescription:
       "L'équipe pharmacovigilance de Lilly en Suisse s'est formée à l'IA en une demi-journée : la confidentialité d'abord, puis la méthode et des cas fictifs.",
@@ -54,6 +55,8 @@ const realisation: Realisation = {
     note: "Ni nom de participant, ni outil interne, ni organisation de l'équipe publiés.",
   },
   tags: ['Formation IA', 'Pharmacovigilance', 'Confidentialité', 'Prompting', 'Données de santé'],
+  lead:
+    "En une demi-journée, l'équipe a posé les règles de confidentialité avant le premier prompt, puis s'est exercée sur trois dossiers fictifs de son métier.",
   answer:
     "L'équipe pharmacovigilance, qualité et affaires réglementaires de Lilly en Suisse a suivi une demi-journée de formation IA en avril 2026. La confidentialité passait avant le prompting, et les exercices portaient sur trois dossiers fictifs du métier. Chacun est reparti avec le support bilingue de 47 slides, un récapitulatif et 19 prompts.",
   facts: [
@@ -66,8 +69,8 @@ const realisation: Realisation = {
   cover: {
     src: '/images/realisations/formation-ia-pharmacovigilance/supports-mockup.webp',
     alt: "Deux slides du support de formation posées l'une sur l'autre : les trois règles de confidentialité, puis un prompt de pharmacovigilance décomposé élément par élément",
-    lead: true,
   },
+  heroStack: 'slides',
   problem: {
     title: "Des experts de la réglementation face à l'IA générative",
     body: "L'équipe traite les effets indésirables, les plaintes qualité et les échanges avec les autorités de santé. Ses membres connaissent leur réglementation dans le détail, et ils voulaient adopter l'IA générative sans prendre de risque pour la conformité.\n\nLa première question portait donc sur les données. Dans un métier où chaque document peut être audité, et où un narratif de cas touche à la santé d'un patient, une erreur de manipulation devient vite un incident de conformité. La formation devait donc répondre à cette question avant de montrer quoi que ce soit, puis faire pratiquer l'équipe sans exposer une seule donnée réelle.",

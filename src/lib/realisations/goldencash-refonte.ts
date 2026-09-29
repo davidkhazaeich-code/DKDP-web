@@ -23,6 +23,7 @@ const realisation: Realisation = {
   },
   meta: {
     title: "Refonte d'un site de rachat d'or à Genève, avec les cours en temps réel",
+    titleAccent: 'cours en temps réel',
     seoTitle: "Site de rachat d'or à Genève, cours en temps réel | DKDP",
     seoDescription:
       "Refonte Astro d'un acheteur d'or genevois : cours des métaux mis à jour toutes les 10 secondes, API avec secours, en ligne en 12 jours.",
@@ -45,6 +46,8 @@ const realisation: Realisation = {
     },
   },
   tags: ['Refonte', 'Astro', 'API temps réel', 'Tableau de bord', 'SEO local'],
+  lead:
+    'Le nouveau site affiche un estimateur de rachat et des cours actualisés toutes les 10 secondes. Il est passé en production 12 jours après le premier commit.',
   answer:
     "Golden Cash, acheteur d'or à Genève, nous a confié la refonte de son site en avril 2026. Le nouveau site Astro affiche un estimateur de rachat et des cours mis à jour toutes les 10 secondes, depuis une API qui garde une source de secours. Il est passé en production 12 jours après le premier commit.",
   facts: [

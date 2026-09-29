@@ -101,6 +101,11 @@ export interface RealisationClient {
 export interface RealisationMeta {
   /** Titre par intention de recherche, sert de H1. */
   title: string
+  /** Les quelques mots du H1 composes en degrade (hero, 2026-09-29) : une
+   *  sous-chaine exacte de `title`, ce qui distingue l'etude (le livrable, ou le
+   *  public d'une formation). Jamais le titre entier : le reste garde la couleur
+   *  du texte. Controle par `proof.ts`. */
+  titleAccent?: string
   excerpt: string
   /** Date de livraison ou de mise en service du projet. */
   dateISO: string
@@ -133,14 +138,12 @@ export interface RealisationMockup {
   alt: string
 }
 
-/** Visuel de carte et d'apercu social pour un projet sans site a capturer. */
+/** Visuel de carte et d'apercu social pour un projet sans site a capturer.
+ *  Le hero de la page le montre seulement faute de mieux (voir `hero.ts`) :
+ *  pages du livrable (`heroStack`), flux ou programme passent avant lui. */
 export interface RealisationCover {
   src: string
   alt: string
-  /** Vrai : la couverture est aussi le visuel principal de la page (mockup,
-   *  document), et le schema de flux passe apres l'approche. Faux ou absent :
-   *  la couverture ne sert qu'aux cartes et a l'apercu social. */
-  lead?: boolean
 }
 
 export interface RealisationProblem {
@@ -377,11 +380,19 @@ export interface Realisation {
   /** Auteur de l'etude, affiche en signature et dans le JSON-LD. Defaut : david. */
   author?: 'david' | 'romane'
   tags: string[]
+  /** Accroche du hero, sous le H1 : une ou deux phrases, 30 mots au plus, sans
+   *  chiffre qui ne figure pas deja dans l'etude. La reponse directe (`answer`)
+   *  reste sous le hero, dans le bloc « L'essentiel ». */
+  lead?: string
   /** Reponse directe en tete de page, 60 mots au plus : qui, quoi, quel resultat. */
   answer?: string
   /** Fiche projet affichee sous la reponse directe. */
   facts?: { label: string; value: string }[]
   hero?: RealisationHero
+  /** Etude sans site : le visuel du hero pose les deux premieres pages du
+   *  livrable (`gallery`, `document: true`) l'une sur l'autre. `pages` pour un
+   *  document en portrait (rapport A4), `slides` pour un support en paysage. */
+  heroStack?: 'pages' | 'slides'
   mockup?: RealisationMockup
   cover?: RealisationCover
   problem: RealisationProblem

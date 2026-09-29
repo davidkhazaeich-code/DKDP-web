@@ -4,7 +4,7 @@ import type { Realisation } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
 
 /**
- * Navigation collante d'une etude de cas, sous le visuel du hero. Les
+ * Navigation collante d'une etude de cas, juste sous le hero. Les
  * entrees suivent les blocs reellement presents dans la realisation : une
  * etude sans bloc SEO n'affiche pas d'onglet SEO. Meme composant que les
  * pages blog et glossaire, accent violet du pilier agence.

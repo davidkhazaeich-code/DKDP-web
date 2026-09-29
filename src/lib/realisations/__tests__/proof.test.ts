@@ -172,6 +172,35 @@ describe('forme', () => {
     expect(ids(r)).toContain('answer-length')
   })
 
+  it("l'accroche du hero tient en 30 mots", () => {
+    const r = base()
+    r.lead = Array.from({ length: 30 }, () => 'mot').join(' ')
+    expect(ids(r)).toEqual([])
+    r.lead = Array.from({ length: 31 }, () => 'mot').join(' ')
+    expect(ids(r)).toContain('lead-length')
+  })
+
+  it('les mots en degrade viennent du titre et n en couvrent jamais la moitie', () => {
+    const r = base()
+    r.meta = { ...r.meta, title: 'Site et CRM pour une PME du bâtiment à Genève', titleAccent: 'CRM' }
+    expect(ids(r)).toEqual([])
+    r.meta = { ...r.meta, titleAccent: 'Application' }
+    expect(ids(r)).toContain('title-accent')
+    r.meta = { ...r.meta, titleAccent: 'Site et CRM pour une PME du bâtiment' }
+    expect(ids(r)).toContain('title-accent')
+    r.meta = { ...r.meta, titleAccent: ' ' }
+    expect(ids(r)).toContain('title-accent')
+  })
+
+  it('une pile de pages en hero exige deux pages dans la galerie', () => {
+    const r = base()
+    r.heroStack = 'slides'
+    r.gallery = [{ src: '/images/a.webp', alt: 'a', document: true }]
+    expect(ids(r)).toContain('hero-stack')
+    r.gallery.push({ src: '/images/b.webp', alt: 'b', document: true })
+    expect(ids(r)).toEqual([])
+  })
+
   it('la description SEO tient en 160 caracteres', () => {
     const r = base()
     r.meta = { ...r.meta, seoDescription: 'x'.repeat(161) }
@@ -244,6 +273,17 @@ describe('les realisations du site respectent les regles de preuve', () => {
       .map((r) => `https://dkdp.ch/realisations/${r.slug}`)
       .filter((url) => !llms.includes(url))
     expect(absent).toEqual([])
+  })
+
+  it("une etude traduite traduit aussi l'accroche et les mots en degrade du hero", () => {
+    const untranslated = REALISATIONS.filter((r) => hasEnglish(r.slug)).flatMap((r) => {
+      const e = EN_CONTENT[r.slug]
+      return [
+        ...(r.lead && !e.lead ? [`${r.slug} : lead`] : []),
+        ...(r.meta.titleAccent && !e.meta?.titleAccent ? [`${r.slug} : meta.titleAccent`] : []),
+      ]
+    })
+    expect(untranslated).toEqual([])
   })
 
   it('les traductions anglaises visent une etude existante', () => {

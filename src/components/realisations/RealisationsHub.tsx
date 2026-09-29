@@ -1,8 +1,8 @@
+import './realisations-hero.css'
 import { Suspense } from 'react'
 import { RealisationsGrid } from './RealisationsGrid'
 import { HubHeroVisual, type HubSlide } from './HubHeroVisual'
 import { GradTag } from '@/components/ui/GradTag'
-import { GradText } from '@/components/ui/GradText'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { CTAFinal } from '@/components/sections/CTAFinal'
 import { LogoBanner } from '@/components/sections/LogoBanner'
@@ -92,10 +92,10 @@ export function RealisationsHub({ items, lang = 'fr' }: { items: Realisation[]; 
         <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-12 px-6 py-16 md:py-24 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-6">
             <GradTag>{en ? 'Portfolio' : 'Réalisations'}</GradTag>
-            <h1 className="mt-6 max-w-[18ch] text-4xl leading-[1.08] tracking-[-0.02em] text-text md:text-5xl lg:text-[56px]">
-              <GradText as="span">
-                {en ? 'Case studies: websites, AI and automation' : 'Études de cas : sites web, IA et automatisation'}
-              </GradText>
+            {/* 29.09.2026 : le degrade ne couvre plus que « Études de cas », le reste garde la couleur du texte (David). */}
+            <h1 className="mt-6 max-w-[18ch] text-4xl font-bold leading-[1.08] tracking-[-0.02em] text-text md:text-5xl lg:text-[56px]">
+              <span className="rz-accent">{en ? 'Case studies' : 'Études de cas'}</span>
+              {en ? ': websites, AI and automation' : ' : sites web, IA et automatisation'}
             </h1>
             <div className="mt-6 space-y-4 text-lg leading-[1.7] text-text-secondary">
               {en ? (

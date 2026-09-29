@@ -1,0 +1,12 @@
+[
+  {"name": "hero-desktop", "url": "/", "css": ".cookie-consent{display:none!important}", "wait": 4500},
+  {"name": "hero-mobile", "url": "/", "mobile": true, "css": ".cookie-consent{display:none!important}", "wait": 4500},
+  {"name": "film-desktop", "url": "/", "css": ".cookie-consent{display:none!important}", "scrollTo": "#video-section", "click": ".video-start-btn", "eval": "setTimeout(() => { const v = document.querySelector('#video-section video'); if (v) { v.muted = true; v.currentTime = 53.8 } }, 1200)", "wait": 4200},
+  {"name": "film-mobile", "url": "/", "mobile": true, "css": ".cookie-consent{display:none!important}", "scrollTo": "#video-section", "click": ".video-start-btn", "eval": "setTimeout(() => { const v = document.querySelector('#video-section video'); if (v) { v.muted = true; v.currentTime = 53.8 } }, 1200)", "wait": 4200},
+  {"name": "whatsapp-desktop", "url": "/", "css": ".cookie-consent{display:none!important}", "wait": 3500, "click": ".wa-float"},
+  {"name": "whatsapp-mobile", "url": "/", "mobile": true, "css": ".cookie-consent{display:none!important}", "wait": 3500, "click": ".wa-float"},
+  {"name": "inscription-choix-desktop", "url": "/inscription", "css": ".cookie-consent{display:none!important}", "wait": 1500},
+  {"name": "inscription-camp-desktop", "url": "/inscription?type=session", "css": ".cookie-consent{display:none!important}", "wait": 1500},
+  {"name": "inscription-choix-mobile", "url": "/inscription", "mobile": true, "css": ".cookie-consent{display:none!important}", "wait": 1500},
+  {"name": "daghestan-desktop", "url": "/destinations/dagestan", "css": ".cookie-consent{display:none!important}", "wait": 2500}
+]

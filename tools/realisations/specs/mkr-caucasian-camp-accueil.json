@@ -1,0 +1,80 @@
+{
+  "slug": "mkr-caucasian-camp",
+  "name": "accueil-defilement",
+  "base": "https://mkrcamp.com",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "locale": "fr-CH",
+  "channel": "chrome",
+  "trimStart": 3.4,
+  "posterAt": 1.5,
+  "block": [
+    "**/api/inscription**",
+    "**/api/contact**",
+    "**/api/guide-caucase**"
+  ],
+  "actions": [
+    {
+      "do": "goto",
+      "url": "/"
+    },
+    {
+      "do": "css",
+      "content": ".cookie-consent{display:none!important}"
+    },
+    {
+      "do": "wait",
+      "ms": 5200
+    },
+    {
+      "do": "scroll",
+      "y": 820
+    },
+    {
+      "do": "wait",
+      "ms": 1500
+    },
+    {
+      "do": "scroll",
+      "y": 1250
+    },
+    {
+      "do": "wait",
+      "ms": 1600
+    },
+    {
+      "do": "scroll",
+      "y": 700
+    },
+    {
+      "do": "wait",
+      "ms": 1500
+    },
+    {
+      "do": "scroll",
+      "y": 820
+    },
+    {
+      "do": "wait",
+      "ms": 1500
+    },
+    {
+      "do": "scroll",
+      "y": 820
+    },
+    {
+      "do": "wait",
+      "ms": 1500
+    },
+    {
+      "do": "scroll",
+      "y": 820
+    },
+    {
+      "do": "wait",
+      "ms": 1800
+    }
+  ]
+}

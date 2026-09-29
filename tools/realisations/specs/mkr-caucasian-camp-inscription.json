@@ -1,0 +1,126 @@
+{
+  "slug": "mkr-caucasian-camp",
+  "name": "tunnel-inscription",
+  "base": "https://mkrcamp.com",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "locale": "fr-CH",
+  "trimStart": 2.4,
+  "posterAt": 9.5,
+  "block": [
+    "**/api/inscription**",
+    "**/api/contact**",
+    "**/api/guide-caucase**"
+  ],
+  "actions": [
+    {
+      "do": "goto",
+      "url": "/inscription"
+    },
+    {
+      "do": "css",
+      "content": ".cookie-consent{display:none!important}"
+    },
+    {
+      "do": "wait",
+      "ms": 2400
+    },
+    {
+      "do": "click",
+      "text": "Voir les 4 sessions"
+    },
+    {
+      "do": "wait",
+      "ms": 1600
+    },
+    {
+      "do": "click",
+      "text": "Hiver 2027"
+    },
+    {
+      "do": "wait",
+      "ms": 900
+    },
+    {
+      "do": "eval",
+      "js": "window.scrollBy({ top: 430, behavior: 'smooth' })"
+    },
+    {
+      "do": "wait",
+      "ms": 1000
+    },
+    {
+      "do": "click",
+      "text": "Daghestan · Makhachkala"
+    },
+    {
+      "do": "wait",
+      "ms": 800
+    },
+    {
+      "do": "eval",
+      "js": "window.scrollBy({ top: 420, behavior: 'smooth' })"
+    },
+    {
+      "do": "wait",
+      "ms": 1000
+    },
+    {
+      "do": "click",
+      "text": "Vraie progression"
+    },
+    {
+      "do": "wait",
+      "ms": 1000
+    },
+    {
+      "do": "click",
+      "role": "button",
+      "name": "Étape suivante"
+    },
+    {
+      "do": "wait",
+      "ms": 1700
+    },
+    {
+      "do": "click",
+      "selector": "input[placeholder='Ton prénom']"
+    },
+    {
+      "do": "type",
+      "selector": "input[placeholder='Ton prénom']",
+      "text": "Alex",
+      "delay": 90
+    },
+    {
+      "do": "click",
+      "selector": "input[placeholder='Ton nom']"
+    },
+    {
+      "do": "type",
+      "selector": "input[placeholder='Ton nom']",
+      "text": "Martin",
+      "delay": 90
+    },
+    {
+      "do": "wait",
+      "ms": 500
+    },
+    {
+      "do": "click",
+      "selector": "input[placeholder='ton@email.com']"
+    },
+    {
+      "do": "type",
+      "selector": "input[placeholder='ton@email.com']",
+      "text": "alex.martin@example.com",
+      "delay": 55
+    },
+    {
+      "do": "wait",
+      "ms": 1800
+    }
+  ]
+}

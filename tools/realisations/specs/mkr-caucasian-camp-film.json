@@ -1,0 +1,20 @@
+{
+  "slug": "mkr-caucasian-camp",
+  "name": "film-salle-de-cinema",
+  "base": "https://mkrcamp.com",
+  "viewport": { "width": 1280, "height": 800 },
+  "locale": "fr-CH",
+  "channel": "chrome",
+  "trimStart": 3.2,
+  "posterAt": 6.5,
+  "block": ["**/api/inscription**", "**/api/contact**", "**/api/guide-caucase**"],
+  "actions": [
+    { "do": "goto", "url": "/" },
+    { "do": "css", "content": ".cookie-consent{display:none!important}" },
+    { "do": "wait", "ms": 4200 },
+    { "do": "eval", "js": "const v = document.querySelector('#video-section video'); if (v) v.currentTime = 41.6" },
+    { "do": "wait", "ms": 700 },
+    { "do": "click", "selector": ".hero-video-btn" },
+    { "do": "wait", "ms": 9500 }
+  ]
+}

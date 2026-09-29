@@ -133,3 +133,17 @@ le voit pas entrer et la courbe restait invisible.
 peut rester l'ancien, même après un redémarrage. Vérifier le CSS servi
 (`curl -s localhost:<port>/_next/static/chunks/...css | grep <classe>`) et supprimer `.next`
 du worktree s'il est périmé.
+
+## Étude MKR Caucasian Camp (2026-09-29) : correctifs et options
+
+| Outil | Ajout |
+|---|---|
+| `capture.mjs` | `--wait domcontentloaded --settle 5000` : un site qui diffuse une vidéo en fond n'atteint jamais `networkidle` (mkrcamp.com). Au-delà de 12 000 px de haut, la page entière se capture par tranches assemblées : d'un seul tenant, Chrome dépasse sa limite de texture (16 384 px) et laisse une bande vide à droite |
+| `capture-sections.mjs` | Champs `hover`, `eval` (script dans la page, ex. placer une vidéo à une seconde précise) et `wait` ; options `--locale fr-CH` (langue et indicatif du navigateur), `--channel chrome` (Google Chrome installé : le Chromium de Playwright ne lit pas le H.264, une vidéo MP4 resterait sur son affiche) et `--only nom1,nom2` |
+| `record-video.mjs` | Champs `locale` et `channel`, actions `hover`, `select` et `eval`. Avec `channel: "chrome"`, la fenêtre reçoit `--window-size` (sans lui, bande grise d'environ 90 px en bas de la vidéo). ⚠️ Filmer un formulaire avec le Chromium de Playwright : dans Chrome, la saisie peut se bloquer sur les suggestions de saisie automatique |
+
+⚠️ Corrigé le 29.09.2026 : l'action `type` visait l'élément qui contient déjà `text` (le texte à taper) au lieu du champ `selector`, et attendait 30 secondes avant d'échouer. `type` et `retype` visent maintenant `selector`.
+
+Nouveaux champs du modèle : `touchpoints` (bloc « La marque, hors du site », `BrandTouchpoints` : affiche, réseaux, couvertures vidéo, email, outil, en mosaïque sur 12 colonnes, `ratio` pour aligner une rangée, `device: "phone"` pour un email), `direction.theme` (couleurs de la tuile du logo), `direction.logoLight` (logo pour fond clair), `direction.ratio` (part de chaque couleur dans un écran type), `direction.type[].uppercase`, et `seo.serpNote` / `seo.schemasNote` (commentaires propres au site). Polices du spécimen MKR : Teko, Barlow et Barlow Condensed en sous-ensembles OFL dans `src/components/realisations/fonts/`.
+
+Back-office d'un client : jamais de vraie fiche. Pour MKR, capture sur le faux backend du repo (`npm run admin:dev` dans un worktree, connexion par `POST /api/admin/login` avec le jeton de test du README du mock, `nextjs-portal{display:none!important}` pour masquer le badge de développement de Next). Email transactionnel : rendu par la fonction du repo (`buildVisioEmail`, lancée avec `node --experimental-strip-types --import ./scripts/_alias-hook.mjs`) avec un candidat fictif, puis capturé.

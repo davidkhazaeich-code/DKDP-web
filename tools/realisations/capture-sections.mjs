@@ -18,6 +18,14 @@
  *   { "name": "tunnel", "url": "/", "click": "button:has-text(\"Faire une demande\")", "waitFor": ".lead-modal__box" }
  *   { "name": "refs", "url": "/qui-appeler", "scrollTo": "#references-officielles", "offset": -120 }
  *   { "name": "hero-desktop", "url": "/", "css": ".ti-widget{display:none!important}" }   // masque un widget tiers
+ *   { "name": "menu", "url": "/", "hover": "[data-mega=camp]", "wait": 800 }            // survole un element avant la capture
+ *   { "name": "film", "url": "/", "scrollTo": "#video-section", "click": ".vs-play",
+ *     "eval": "document.querySelector('video').currentTime = 20", "wait": 1500 }      // script dans la page, puis pause
+ *
+ * Options globales : `--locale fr-FR` (langue et indicatif telephonique du navigateur,
+ * en-US par defaut) ; `--channel chrome` (Google Chrome installe plutot que le Chromium
+ * de Playwright, qui ne lit pas le H.264 : une video MP4 reste sur son affiche) ;
+ * `--only nom1,nom2` (refait ces captures seulement).
  *
  * Le defilement est toujours lent (250 px toutes les 90 ms) : les sections
  * qui se revelent a l'intersection restent grises sur une capture prise
@@ -36,6 +44,8 @@ const args = Object.fromEntries(
   }, []),
 )
 const { base, slug, spec } = args
+const locale = args.locale
+const only = args.only ? new Set(args.only.split(',')) : null
 if (!base || !slug || !spec) {
   console.error('Usage: --base <url> --slug <slug> --spec <shots.json>')
   process.exit(1)
@@ -44,7 +54,7 @@ const shots = JSON.parse(readFileSync(spec, 'utf8'))
 const outDir = join(process.cwd(), 'public/images/realisations', slug)
 mkdirSync(outDir, { recursive: true })
 
-const browser = await chromium.launch()
+const browser = await chromium.launch(args.channel ? { channel: args.channel } : {})
 
 async function slowScroll(page, to) {
   await page.evaluate(async (to) => {
@@ -58,12 +68,14 @@ async function slowScroll(page, to) {
 }
 
 for (const s of shots) {
+  if (only && !only.has(s.name)) continue
   const mobile = Boolean(s.mobile)
   const page = await browser.newPage({
     viewport: mobile ? { width: 390, height: 844 } : { width: 1440, height: 900 },
     deviceScaleFactor: mobile ? 2 : 1.25,
     isMobile: mobile,
     hasTouch: mobile,
+    ...(locale ? { locale } : {}),
   })
   await blockTracking(page)
   try {
@@ -82,11 +94,17 @@ for (const s of shots) {
       await page.locator(s.scrollTo).first().scrollIntoViewIfNeeded()
       if (s.offset) await page.evaluate((o) => window.scrollBy(0, o), s.offset)
     }
+    if (s.hover) {
+      await page.locator(s.hover).first().hover()
+      await page.waitForTimeout(500)
+    }
     if (s.click) {
       await page.locator(s.click).first().click()
       if (s.waitFor) await page.waitForSelector(s.waitFor, { timeout: 8000 })
       await page.waitForTimeout(900)
     }
+    if (s.eval) await page.evaluate(s.eval)
+    if (s.wait) await page.waitForTimeout(s.wait)
     await page.waitForTimeout(600)
     const png = await page.screenshot({ type: 'png' })
     const buf = await sharp(png).resize({ width: mobile ? 780 : 1440 }).webp({ quality: 82 }).toBuffer()

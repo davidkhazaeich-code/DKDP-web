@@ -4,12 +4,12 @@ import type { Realisation } from './types'
  * MKR Caucasian Camp : marque, site bilingue, candidature et back-office pour
  * des camps de lutte au Daghestan et de MMA en Tchetchenie.
  *
- * Client nomme. La proposition de partenariat DKDP-2026-MKR-05 du 12.06.2026
+ * Client nomme. DKDP et MKR sont partenaires (confirme par David le
+ * 29.09.2026) : la proposition de partenariat DKDP-2026-MKR-05 du 12.06.2026
  * porte la clause « DKDP se reserve le droit de mentionner le projet dans son
- * portfolio, sauf demande contraire ecrite » ; sa signature n'est pas
- * retrouvee, d'ou l'accord `a-confirmer`. La meme proposition engage les deux
- * parties a la confidentialite sur les donnees clients, les chiffres et les
- * orientations strategiques : aucun chiffre prive de MKR n'est publie ici
+ * portfolio, sauf demande contraire ecrite ». La meme proposition engage les
+ * deux parties a la confidentialite sur les donnees clients, les chiffres et
+ * les orientations strategiques : aucun chiffre prive de MKR n'est publie ici
  * (Search Console, GA4, Google Ads, candidatures). Les resultats sont des
  * releves publics, dates, de la page de resultats Google et du plan du site.
  *
@@ -46,11 +46,10 @@ const realisation: Realisation = {
   consent: {
     level: 'nomme',
     evidence: {
-      kind: 'a-confirmer',
-      date: '2026-09-29',
+      kind: 'clause-contrat',
+      date: '2026-06-12',
       reference:
-        "Proposition de partenariat DKDP-2026-MKR-05 du 12.06.2026 : « DKDP se réserve le droit de mentionner le projet dans son portfolio, sauf demande contraire écrite ». Signature non retrouvée : accord écrit à demander à Ruslan Mukhtarov.",
-      deadline: '2026-10-31',
+        "Proposition de partenariat DKDP-2026-MKR-05 du 12.06.2026, partenariat en vigueur (confirmé par David le 29.09.2026) : « DKDP se réserve le droit de mentionner le projet dans son portfolio, sauf demande contraire écrite ».",
     },
     note: 'Confidentialité réciproque sur les données clients, les chiffres et les orientations stratégiques (même proposition) : aucun chiffre privé de MKR publié, back-office montré sur des données fictives.',
   },

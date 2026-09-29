@@ -9,6 +9,7 @@ import { HighlightsShowcase } from './HighlightsShowcase'
 import { CaseStudyMedia } from './CaseStudyMedia'
 import { ChatReplay } from './ChatReplay'
 import { VisualDirection } from './VisualDirection'
+import { BrandTouchpoints } from './BrandTouchpoints'
 import { SeoDirection } from './SeoDirection'
 import { StackChips } from './StackChips'
 import { DataStories } from './DataStory'
@@ -62,6 +63,7 @@ export function CaseStudyPage({
     ...(r.mockup ? [`${ENTITY.url}${r.mockup.src}`] : []),
     ...(r.cover ? [`${ENTITY.url}${r.cover.src}`] : []),
     ...(r.highlights ?? []).map((h) => `${ENTITY.url}${h.image.src}`),
+    ...(r.touchpoints?.items ?? []).map((it) => `${ENTITY.url}${it.src}`),
   ]
 
   return (
@@ -109,6 +111,7 @@ export function CaseStudyPage({
       <CaseStudyMedia videos={r.videos} beforeAfter={r.beforeAfter} host={r.hero?.browserUrl} lang={lang} />
       {r.conversation && <ChatReplay conversation={r.conversation} lang={lang} />}
       {r.direction && <VisualDirection d={r.direction} clientName={r.client.name} lang={lang} />}
+      {r.touchpoints && r.touchpoints.items.length > 0 && <BrandTouchpoints t={r.touchpoints} lang={lang} />}
       {r.seo && <SeoDirection seo={r.seo} lang={lang} />}
       {r.stack && <StackChips chips={r.stack} />}
       {r.dataStories && r.dataStories.length > 0 && <DataStories stories={r.dataStories} lang={lang} />}

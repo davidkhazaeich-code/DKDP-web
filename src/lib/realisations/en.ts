@@ -37,6 +37,7 @@ type RealisationEN = Partial<Pick<Realisation, 'tags' | 'answer' | 'facts' | 'le
   showcase?: Realisation['showcase']
   mockup?: Realisation['mockup']
   direction?: Realisation['direction']
+  touchpoints?: Realisation['touchpoints']
   seo?: Realisation['seo']
 }
 
@@ -306,6 +307,429 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
       { question: 'Where is the site hosted?', answer: 'With Infomaniak, in Switzerland, with automatic deployment through GitHub Actions on every change.' },
     ],
   },
+  'mkr-caucasian-camp': {
+    tags: ['Visual identity', 'Next.js', 'Bilingual website', 'Online application', 'Custom back office', 'Google Ads'],
+    client: { sector: 'Wrestling and MMA camps', location: 'Dagestan and Chechnya' },
+    mockup: {
+      src: '/images/realisations/mkr-caucasian-camp/mockup-hero.webp',
+      alt: 'The MKR Caucasian Camp website on a laptop and a phone: first screen of the French version, next-session card and apply button',
+    },
+    meta: {
+      title: 'Brand, bilingual website and application platform for a wrestling and MMA camp',
+      seoTitle: 'Brand and bilingual website for a sports camp | DKDP',
+      seoDescription:
+        'Logo, brand guidelines, Next.js site in French and English, online application and custom back office for a wrestling and MMA camp in the Caucasus.',
+      excerpt:
+        'For MKR Caucasian Camp, which runs wrestling camps in Dagestan and MMA camps in Chechnya, we created the brand, the Next.js website in French and English, the online application, the back office that follows every file until departure, the emails, the presentation film and the Google Ads campaigns.',
+    },
+    answer:
+      'MKR Caucasian Camp runs wrestling camps in Dagestan and MMA camps in Chechnya. Since April 2026 we have built everything: the brand, the bilingual website, the application, the back office, the emails, the film and the Google ads. In a manual check on 29 September 2026, the site ranked first for “camp lutte daghestan”.',
+    facts: [
+      { label: 'Sector', value: 'Sport, wrestling and MMA camps' },
+      { label: 'Destinations', value: 'Dagestan and Chechnya' },
+      { label: 'Live', value: 'May 2026, first commit on 4 April' },
+      { label: 'Delivered', value: 'Brand, website, applications, back office, emails, video, advertising' },
+      { label: 'Technologies', value: 'Next.js 16, Supabase, Resend, Vercel' },
+    ],
+    problem: {
+      title: 'Selling a camp at the far end of the world to athletes who have never been there',
+      body: 'MKR Caucasian Camp takes wrestlers and MMA fighters to train in the gyms of the Caucasus, in Dagestan and Chechnya. Its founder, Ruslan Mukhtarov, is Chechen, born in Dagestan, and a former member of the French Olympic wrestling team who trained at INSEP from 2012 to 2016: he opens doors that few foreigners get through.\n\nAt the start, the project had no brand, no website and no way to apply. We had to reassure people about a destination that worries them, explain the visa and transfer logistics, speak to French and English speakers alike, then turn curiosity into applications, without ever promising more than the camp delivers.',
+      facts: [
+        { label: 'Audience', value: 'Adult fighters, families, clubs' },
+        { label: 'Languages', value: 'French and English' },
+        { label: 'Starting point', value: 'No brand, no website, no tool' },
+      ],
+    },
+    approach: {
+      title: 'A brand, a website and an application tool, designed as one piece',
+      body: 'Everything starts with the brand. The M of MKR draws a ridge of peaks, and the guidelines, named “Mineral Brutalism”, set the black of rock, the orange of sunlight on a summit and a red kept for actions. The Next.js 16 website follows from it, in French and English, with one page per discipline, per destination and per camp format, sessions that are calculated and renew themselves, and an application that adapts its questions to the chosen format.\n\nBehind it, a custom back office follows every file from the selection video call to departure: next step, PDF contract, payment, reminders and the applicant’s WhatsApp within reach. Emails go out from the camp’s own domain, Google Ads tracking follows each lead all the way to the application, and the presentation film, whose script and editor brief we wrote, opens the home page.',
+      bullets: [
+        'Logo, “Mineral Brutalism” guidelines, Teko and Barlow typefaces, light and dark versions',
+        'Next.js 16 website in French and English: 36 pages per language, static, hreflang tags',
+        'Calculated sessions: each one leaves the application form on its start date, and the same season of the following year takes its place',
+        'Five-step application for four formats (session, custom, family, club), price calculated live, selection video call booked online',
+        'Installable back office: today’s to-do list, filterable files, next step, PDF contracts, payments, sessions, partners',
+        'Applicant emails in two languages with the founder’s direct WhatsApp, and an acknowledgement for the contact form',
+        'Presentation film in French and English, landscape and vertical: script, editor brief, integration into the site',
+        'Google Ads: four conversions, Consent Mode v2, every application linked to its campaign',
+        'SEO and GEO: structured data, llms.txt in two languages, eight blog articles, a downloadable Caucasus guide',
+        'A3 poster for partner gyms, Instagram launch kit, covers for the documentary teaser',
+      ],
+    },
+    flow: {
+      title: 'From the first visit to the camp departure',
+      intro: 'What happens to someone who discovers the camp, all the way to their departure.',
+      steps: [
+        { label: 'Ad or Google search', detail: 'the campaign stays recorded on the application', kind: 'source' },
+        { label: 'Website in French or English', detail: 'disciplines, destinations, sessions and prices', kind: 'outil' },
+        { label: 'Five-step application', detail: 'questions adapted to the chosen format', kind: 'outil' },
+        { label: 'Selection video call', detail: 'slot booked online with the founder', kind: 'controle' },
+        { label: 'Contract and bank transfer', detail: 'PDF contract generated from the back office', kind: 'controle' },
+        { label: 'Departure to the Caucasus', detail: 'reminders, pre-departure email, WhatsApp', kind: 'sortie' },
+      ],
+      note: 'Payment is made by bank transfer: it is recorded in the back office, which then moves the file to “Paid”.',
+    },
+    results: [
+      {
+        metric: 'Google, “camp mma tchétchénie”',
+        value: '1st',
+        label: 'and also 2nd, 3rd and 5th: four of the first five results are pages of the site',
+        source: 'Manual check of the google.ch results page, from Geneva',
+        period: 'single check',
+      },
+      {
+        metric: 'Google, “camp lutte daghestan”',
+        value: '1st',
+        label: 'with the destination page, and 3rd with the home page',
+        source: 'Manual check of the google.ch results page, from Geneva',
+        period: 'single check',
+      },
+      {
+        metric: 'Google in English, “dagestan wrestling camp”',
+        value: '2nd',
+        label: 'with the English version of the site',
+        source: 'Manual check of the google.ch results page in English, from Geneva',
+        period: 'single check',
+      },
+      {
+        metric: 'Pages published',
+        value: '72',
+        label: '36 pages in French and their 36 English versions, listed in the sitemap',
+        source: 'mkrcamp.com sitemap (sitemap.xml)',
+        period: 'single check',
+      },
+    ],
+    videos: [
+      {
+        title: 'The application, on the live site',
+        description: 'From choosing a format to the Identity step, in 14 seconds, unedited. Submission is blocked: no application was sent.',
+        transcript:
+          'On the application page, the visitor picks the official sessions, then the winter 2027 session, wrestling in Dagestan and two weeks. The summary immediately shows the camp, the session, the duration and the estimated total. At the Identity step, the dialling code of the browser’s country is already suggested, here Switzerland, and the visitor types a fictitious first name, last name and email address. The video stops before submission.',
+      },
+      {
+        title: 'The film, started from the home page',
+        description: '“Voir la vidéo de présentation” scrolls the page down to the film, then the room goes dark around the screen.',
+        transcript:
+          'From the first screen, a click on “Voir la vidéo de présentation” (watch the presentation video) scrolls the page to the film section, which starts at once while everything around the screen dims. For this silent recording, the film picks up at the founder’s introduction: the logo over a village in Dagestan, then Ruslan Mukhtarov introducing himself, Chechen, born in Dagestan and a former member of the French wrestling team.',
+      },
+      {
+        title: 'The home page, scrolling',
+        description: 'From the first screen to the choice of format, with mountain ridges between the sections.',
+        transcript:
+          'The first screen cycles through the next sessions and their remaining places, over a background video. Scrolling down, you pass the film section, the six services included on site, then the five-step path from application to immersion, up to the choice of format. A drawn mountain range makes the transition from one section to the next.',
+      },
+    ],
+    lessons: [
+      'Rebuilding the site every hour, just to switch four sessions a year, rewrote every page continuously and became the largest item on the hosting bill. Since 23 September 2026 the site has been static, and a scheduled task only rebuilds it on the day a session changes.',
+      'A single word can hold a campaign back: the first ads promised to take care of the visa, and Google restricted them under its policy on official documents. We rewrote them without that word, and we now review every ad with that policy in mind.',
+      'The server functions were running in Washington by default, while the database is in Frankfurt. By moving them closer on 31 July 2026, we brought a back-office page down from 205 to 118 milliseconds.',
+      'In our tests, a transactional email illustrated with a large photo landed in spam at Infomaniak, while the lighter version reached the Gmail inbox. The camp’s emails therefore stay plain, with a single green WhatsApp button.',
+    ],
+    faq: [
+      {
+        question: 'Why a bilingual website for a camp in the Caucasus?',
+        answer:
+          'Because participants come from France, Switzerland and Belgium as much as from the United Kingdom or North America. Every page exists in both languages with its own address, and the application, the emails and the back office follow the applicant’s language.',
+      },
+      {
+        question: 'How do the sessions update without anyone stepping in?',
+        answer:
+          'Four season templates calculate the dates. A session leaves the application form on its start date, the same season of the following year replaces it, and a scheduled task rebuilds the site that day, with no manual entry and no redeployment.',
+      },
+      {
+        question: 'What happens when someone applies?',
+        answer:
+          'The applicant receives an email inviting them to book their selection video call, with the founder’s WhatsApp. On his side, the founder receives the application with the chosen session in the subject line, then the back office files it in the right queue: call to hold, file to decide, contract to send or payment expected.',
+      },
+      {
+        question: 'Can you build the same set-up for another activity?',
+        answer:
+          'Yes. The brand, the website, the application and the tracking tool can be designed together for a club, a training course, a trip or a sports event: we start from your real application process, then build what is missing.',
+      },
+    ],
+    showcase: {
+      title: 'The screens that carry the camp',
+      intro:
+        'Seven screens from the French version of the site, each with its English twin, in the order an athlete meets them: arriving, watching the film, choosing a format, applying, talking to the founder, understanding where they are going. The last one belongs to the founder, who follows every file from his back office.',
+    },
+    highlights: [
+      {
+        eyebrow: 'Arriving',
+        tag: 'UI',
+        title: 'A first screen that sets the scene',
+        body: 'The first screen states the promise in three lines, “Train among champions”, over a background video. On the right, a card cycles through the next sessions with their remaining places and starting price. Only two buttons compete for attention: apply, or watch the film.',
+        image: {
+          src: '/images/realisations/mkr-caucasian-camp/hero-desktop.webp',
+          alt: 'MKR Caucasian Camp home page, French version: headline “Entraîne-toi au milieu des champions”, apply and presentation-video buttons, card for the February 2027 session with remaining places',
+          path: '/',
+        },
+        phone: {
+          src: '/images/realisations/mkr-caucasian-camp/hero-mobile.webp',
+          alt: 'MKR Caucasian Camp on mobile: the same headline, both buttons stacked and the WhatsApp bubble',
+        },
+        points: [
+          'Each session shows its remaining places per discipline, read live',
+          'Red is only used for the apply button, orange underlines the word that matters',
+          'The founder’s WhatsApp bubble is on every page of the site',
+        ],
+      },
+      {
+        eyebrow: 'Seeing before going',
+        tag: 'UX',
+        title: 'A cinema inside the page',
+        body: 'The presentation film takes the second section of the home page. Started from the first screen, it scrolls the page down to itself, then the room goes dark around the screen during playback. On a phone, a vertical version takes over with its own subtitles, a sound button and a full-screen button.',
+        image: {
+          src: '/images/realisations/mkr-caucasian-camp/film-desktop.webp',
+          alt: 'MKR Caucasian Camp, presentation film playing in the page: founder Ruslan Mukhtarov with a coach, French subtitle about a real immersion',
+          path: '/',
+        },
+        phone: {
+          src: '/images/realisations/mkr-caucasian-camp/film-mobile.webp',
+          alt: 'MKR Caucasian Camp on mobile: the vertical version of the film, with the sound and full-screen buttons',
+        },
+        points: [
+          'Nothing downloads before the click: the film does not slow the page down',
+          'Playback pauses when you leave the section',
+          'Two languages and two formats: French and English, landscape and vertical',
+        ],
+      },
+      {
+        eyebrow: 'Choosing how to come',
+        tag: 'UX',
+        title: 'Four formats, one way in',
+        body: 'Before asking anything, the application page asks for a format: the official sessions, a custom camp, the family camp or a club. Each card says who it is for, which dates and from how many people, then the form that follows adapts to the chosen format.',
+        image: {
+          src: '/images/realisations/mkr-caucasian-camp/inscription-choix-desktop.webp',
+          alt: 'MKR Caucasian Camp, “Choose your application” page: four cards, official sessions, custom, family, club and group, with dates, duration and group size',
+          path: '/inscription',
+        },
+        phone: {
+          src: '/images/realisations/mkr-caucasian-camp/inscription-choix-mobile.webp',
+          alt: 'MKR Caucasian Camp on mobile: the choice of application format, cards stacked',
+        },
+      },
+      {
+        eyebrow: 'Applying',
+        tag: 'UX',
+        title: 'A five-step application, with the price shown live',
+        body: 'The application moves through five steps: the camp, identity, experience, health, then confirmation. From the first choice, a summary shows the discipline, the session, the duration and the estimated total, recalculated on every click. Once the application is sent, the confirmation email goes out at once: it invites the applicant to book the selection call and gives the founder’s WhatsApp.',
+        image: {
+          src: '/images/realisations/mkr-caucasian-camp/inscription-camp-desktop.webp',
+          alt: 'MKR Caucasian Camp, step 1 of the application “Which session, which discipline?”: four sessions from autumn 2026 to summer 2027, then the choice between wrestling and MMA',
+          path: '/inscription',
+        },
+        phone: {
+          src: '/images/realisations/mkr-caucasian-camp/email-confirmation-mobile.webp',
+          alt: 'The confirmation email received on a phone by a fictitious applicant: “Book your call with Ruslan”, camp summary and booking button',
+        },
+        steps: ['The camp', 'Identity', 'Experience', 'Health', 'Confirmation'],
+        points: [
+          'The level required for MMA in Chechnya is checked in the form',
+          'A hidden field and a minimum delay keep bots out, without a captcha',
+          'Each application keeps track of the campaign that brought it in',
+        ],
+      },
+      {
+        eyebrow: 'Talking to the founder',
+        tag: 'UX',
+        title: 'The founder one tap away, on every page',
+        body: 'A camp in the Caucasus raises questions a form cannot settle. The WhatsApp bubble therefore opens a panel with Ruslan Mukhtarov’s photo and a welcome message; on a computer, a QR code lets the visitor carry on the conversation on their phone. The same WhatsApp button comes back in the emails sent to applicants.',
+        image: {
+          src: '/images/realisations/mkr-caucasian-camp/whatsapp-desktop.webp',
+          alt: 'MKR Caucasian Camp, WhatsApp panel open on the home page: photo and name of Ruslan Mukhtarov, welcome message, QR code and “Open WhatsApp” button',
+          path: '/',
+        },
+        phone: {
+          src: '/images/realisations/mkr-caucasian-camp/whatsapp-mobile.webp',
+          alt: 'MKR Caucasian Camp on mobile: the WhatsApp panel open, without a QR code, with the green button',
+        },
+        points: [
+          'One number, set in a single place in the code, for the site and the emails alike',
+          'The QR code only appears on computers, where WhatsApp is not always installed',
+          'The bubble steps aside during the application, so as not to distract the applicant',
+        ],
+      },
+      {
+        eyebrow: 'Knowing where you are going',
+        tag: 'Content',
+        title: 'Pages that answer the worry',
+        body: 'Going to Dagestan or Chechnya worries people, and the answer does not fit in a slogan. Each destination therefore has its own page, with facts, partner gyms and access via Istanbul, while a logistics page details the visa, the transfers and the total budget. The blog adds guides, including one on safety, updated for 2026.',
+        image: {
+          src: '/images/realisations/mkr-caucasian-camp/daghestan-desktop.webp',
+          alt: 'MKR Caucasian Camp, Dagestan destination page, French version: “The land that forges champions”, facts about the region and the wrestling camp',
+          path: '/destinations/dagestan',
+        },
+        points: [
+          'One page per destination, with verifiable facts and its own FAQ',
+          'The trip budget broken down line by line on the logistics page',
+          'A Caucasus guide to download in exchange for an email address',
+        ],
+      },
+      {
+        eyebrow: 'Behind the scenes',
+        tag: 'Tool',
+        title: 'A back office that says what to do today',
+        body: 'The founder does not have to look for his files: the back-office home sorts them by action, whether a call to decide on, a payment expected or a contract to send, with today’s calls and the next departure alongside. Each file then shows the next step and its buttons, keyboard shortcuts and the applicant’s WhatsApp. The screenshots come from the fictitious data set used to test the tool.',
+        image: {
+          src: '/images/realisations/mkr-caucasian-camp/admin-a-faire-desktop.webp',
+          alt: 'MKR back office in dark mode, fictitious data: “To do” page with calls to decide, payments expected and contracts to send, next departure and today’s calls on the right',
+          path: '/admin',
+        },
+        phone: {
+          src: '/images/realisations/mkr-caucasian-camp/admin-fiche-mobile.webp',
+          alt: 'MKR back office on a phone, fictitious data: an applicant’s file with the next step and its buttons',
+        },
+        points: [
+          'PDF contract generated and sent from the file, in the applicant’s language',
+          'A view per session, with the places taken per discipline',
+          'Installable on a phone, in light or dark mode',
+        ],
+      },
+    ],
+    direction: {
+      intro:
+        'An identity created from scratch and named “Mineral Brutalism”: the black of rock dominates, the orange of sunlight hitting a summit signs the brand, and red is only used for action. The M of MKR draws a ridge of peaks, from red to orange, that comes back everywhere, from the website to the back office.',
+      logo: {
+        src: '/images/realisations/mkr-caucasian-camp/logo-white.webp',
+        alt: 'MKR Caucasian Camp logo for dark backgrounds: the M drawn as red and orange peaks, the letters KR and CAUCASIAN CAMP in white',
+      },
+      logoLight: {
+        src: '/images/realisations/mkr-caucasian-camp/logo-dark.webp',
+        alt: 'MKR Caucasian Camp logo for light backgrounds: the same red and orange peaks, the letters in charcoal grey',
+      },
+      tagline: '“Forged in the Caucasus.”',
+      theme: { tile: '#131313', accent: '#C84B31', lightTile: '#F2F0EC', taglineUppercase: true },
+      palette: [
+        { name: 'Rock', hex: '#131313', role: 'page background' },
+        { name: 'Chasm', hex: '#0E0E0E', role: 'recessed areas' },
+        { name: 'Stratum', hex: '#1A1A18', role: 'cards, surfaces' },
+        { name: 'Ridge', hex: '#2A2A2A', role: 'active elements' },
+        { name: 'Mountain Glow', hex: '#C84B31', role: 'signature, labels, glows' },
+        { name: 'Crimson', hex: '#C41E3A', role: 'decisive actions' },
+        { name: 'Snow', hex: '#F8F8F8', role: 'text' },
+      ],
+      ratio: [
+        { label: 'dark surfaces', hex: '#131313', share: 70 },
+        { label: 'light text', hex: '#F8F8F8', share: 15 },
+        { label: 'Mountain Glow', hex: '#C84B31', share: 10 },
+        { label: 'Crimson', hex: '#C41E3A', share: 5 },
+      ],
+      type: [
+        { role: 'headings, always in capitals', family: 'Teko', sample: 'Train where champions are born', uppercase: true },
+        { role: 'body text', family: 'Barlow', sample: 'Wrestling camps in Dagestan and MMA camps in Chechnya, from one to three weeks.' },
+        { role: 'labels and metadata', family: 'Barlow Condensed', sample: 'Session · Winter 2027 · 15 places', uppercase: true },
+      ],
+      principles: [
+        { title: 'Sharp corners', body: 'On the site, buttons, cards, fields and panels keep square corners: every component should look machined from steel.' },
+        { title: 'Orange signs, red cuts', body: 'Orange carries the identity: labels, glows, key figures. Red is only used for decisive actions, such as applying, because if everything is red, nothing is urgent any more.' },
+        { title: 'Tones, not lines', body: 'Sections stand apart through shifts of black, like layers of rock, rather than drawn borders.' },
+        { title: 'A ridge between two sections', body: 'A drawn mountain range makes the transition from one section to the next: scrolling down the page feels like crossing mountain passes.' },
+        { title: 'Headings that hit', body: 'Teko, condensed and angular, is always set in capitals, with a single word in orange when it needs weight: “among CHAMPIONS”.' },
+        { title: 'One world, from the site to the tools', body: 'The emails, the partner-gym poster, the video covers and the back office share the black, the orange and the same hierarchy.' },
+      ],
+    },
+    touchpoints: {
+      title: 'The brand beyond the website',
+      intro:
+        'An identity does not live on a website alone. Here are the pieces delivered around it: print for partner gyms, the Instagram launch, the covers of the documentary teaser, the email every applicant receives and the founder’s tool.',
+      items: [
+        {
+          src: '/images/realisations/mkr-caucasian-camp/affiche-a3-salles.webp',
+          alt: 'MKR Caucasian Camp A3 poster for partner gyms: headline “Forgé dans le Caucase” (forged in the Caucasus), 15 wrestling places and 15 MMA places, mkrcamp.com and a QR code',
+          label: 'A3 poster for partner gyms',
+          kind: 'imprime',
+          caption: 'One headline, two disciplines and a QR code that leads to the application.',
+          cols: 4,
+          ratio: '3/4',
+        },
+        {
+          src: '/images/realisations/mkr-caucasian-camp/teaser-couverture-reel.webp',
+          alt: 'Vertical cover of the “Immersion au Daghestan” teaser: a fighter punching focus mitts, headline in capitals and MKR logo',
+          label: 'Cover of the documentary teaser',
+          kind: 'video',
+          caption: 'We replaced the end logo, produced the vertical versions and designed the covers.',
+          credit: 'Skudy (@skud.y), who shot and directed the teaser',
+          cols: 4,
+          ratio: '3/4',
+        },
+        {
+          src: '/images/realisations/mkr-caucasian-camp/email-confirmation-mobile.webp',
+          alt: 'MKR application confirmation email on a phone, fictitious applicant: founder’s photo, “Book your call with Ruslan”, summary and booking button',
+          label: 'The email received after applying',
+          kind: 'email',
+          caption: 'Rendered here with a fictitious applicant.',
+          cols: 4,
+          ratio: '3/4',
+          device: 'phone',
+        },
+        {
+          src: '/images/realisations/mkr-caucasian-camp/instagram-lancement.webp',
+          alt: 'Four slides of the Instagram launch carousel, in French: “The site is live”, “Before, you needed a DM”, “Choose your format” with a screenshot of the site, and the list of what is online',
+          label: 'Instagram launch carousel',
+          kind: 'reseaux',
+          caption: 'Nine slides announced the launch, with real screenshots of the site; the launch kit counts around thirty posts.',
+          cols: 12,
+        },
+        {
+          src: '/images/realisations/mkr-caucasian-camp/teaser-miniature-youtube.webp',
+          alt: 'YouTube thumbnail of the “Immersion au Daghestan” teaser: two fighters training, headline in white capitals',
+          label: 'YouTube thumbnail of the teaser',
+          kind: 'video',
+          credit: 'Skudy (@skud.y)',
+          cols: 6,
+        },
+        {
+          src: '/images/realisations/mkr-caucasian-camp/admin-a-faire-clair-desktop.webp',
+          alt: 'MKR back office in light mode, fictitious data: “To do” page with calls to decide, payments expected and contracts to send',
+          label: 'The back office, in light mode',
+          kind: 'outil',
+          caption: 'The founder picks the light or dark theme. Fictitious test data.',
+          cols: 6,
+        },
+      ],
+    },
+    seo: {
+      intro:
+        'Two languages, one architecture: every page exists in French and English, with its own address, hreflang tags and structured data. Generative engines also get an llms.txt file in each of the two languages.',
+      serp: {
+        siteName: 'MKR Caucasian Camp',
+        url: 'https://mkrcamp.com',
+        title: 'MMA Camp Chechnya and Wrestling Camp Dagestan | MKR Caucasian',
+        description:
+          'Train where champions are born. Wrestling in Dagestan, MMA in Chechnya. 1 to 3 weeks in the Caucasus, 4 sessions per year, visa and housing included.',
+        favicon: '/images/realisations/mkr-caucasian-camp/favicon.webp',
+      },
+      serpNote:
+        'The query first, the brand at the end of the title, and the core of the offer in the snippet: both disciplines, the duration, the session rhythm and what is included.',
+      schemasNote:
+        'Generated from the same data as the pages: sessions, prices and contact details live in a single place in the code.',
+      intents: [
+        { label: 'Wrestling in Dagestan', path: '/en/program/wrestling' },
+        { label: 'MMA in Chechnya', path: '/en/program/mma' },
+        { label: 'Sessions and prices', path: '/en/sessions' },
+        { label: 'Family camp', path: '/en/family' },
+        { label: 'Clubs and groups', path: '/en/clubs-groups' },
+        { label: 'Dagestan destination', path: '/en/destinations/dagestan' },
+        { label: 'Logistics and budget', path: '/en/logistics' },
+        { label: 'French version', path: '/' },
+      ],
+      schemas: ['SportsOrganization', 'SportsActivityLocation', 'Event', 'AggregateOffer', 'Person', 'FAQPage', 'BlogPosting', 'TouristDestination', 'DigitalDocument', 'BreadcrumbList', 'WebSite'],
+      geo: [
+        {
+          title: 'One llms.txt per language',
+          body: 'llms.txt and llms-en.txt describe the camp, its two destinations, the entry rule, the sessions and the price list. They change on the day the offer changes, just like the site and the ads.',
+        },
+        {
+          title: 'Facts rather than superlatives',
+          body: 'The destination pages line up verifiable facts, Olympic medals from the region, partner gyms, access via Istanbul, rather than promises: a generative engine picks up a fact, rarely an adjective.',
+        },
+        {
+          title: 'The founder, described the same way everywhere',
+          body: 'Chechen, born in Dagestan, a former member of the French Olympic wrestling team: the same description comes back in the Person JSON-LD, the About page, the FAQ and the llms.txt, so that engines connect the founder to the camp.',
+        },
+      ],
+    },
+  },
 }
 
 /** True when the case study has an English translation, hence an /en/portfolio page. */
@@ -349,6 +773,7 @@ export function localizeRealisation(r: Realisation, lang: Locale): Realisation {
     showcase: e.showcase ?? r.showcase,
     mockup: r.mockup && e.mockup ? { ...r.mockup, ...e.mockup } : r.mockup,
     direction: e.direction ?? r.direction,
+    touchpoints: e.touchpoints ?? r.touchpoints,
     seo: e.seo ?? r.seo,
   }
 }

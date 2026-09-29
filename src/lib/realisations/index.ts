@@ -6,6 +6,7 @@ import sosRelevageCrm from './sos-relevage-crm-interventions'
 import formationGestionFortune from './formation-ia-gestion-de-fortune'
 import formationPharmacovigilance from './formation-ia-pharmacovigilance'
 import formationRestaurationStation from './formation-ia-restauration-station'
+import mkrCaucasianCamp from './mkr-caucasian-camp'
 
 const ALL_REALISATIONS: Realisation[] = [
   goldencash,
@@ -15,6 +16,7 @@ const ALL_REALISATIONS: Realisation[] = [
   formationGestionFortune,
   formationPharmacovigilance,
   formationRestaurationStation,
+  mkrCaucasianCamp,
 ]
 
 export const REALISATIONS: Realisation[] = ALL_REALISATIONS.sort(
@@ -22,7 +24,7 @@ export const REALISATIONS: Realisation[] = ALL_REALISATIONS.sort(
 )
 
 /** Etudes mises en tete du hub (visuel tournant et premieres cellules de la grille), dans cet ordre. */
-export const FEATURED_SLUGS: string[] = ['sos-relevage', 'goldencash-refonte', 'sos-relevage-crm-interventions']
+export const FEATURED_SLUGS: string[] = ['sos-relevage', 'mkr-caucasian-camp', 'goldencash-refonte', 'sos-relevage-crm-interventions']
 
 /**
  * Ordre du hub : les etudes a la une d'abord, dans l'ordre de FEATURED_SLUGS,

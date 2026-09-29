@@ -16,13 +16,17 @@ export function SeoDirection({ seo, lang = 'fr' }: { seo: RealisationSeo; lang?:
   const t = {
     h2: en ? 'SEO and generative search' : 'SEO et moteurs génératifs',
     serp: en ? 'The result as declared to Google' : 'Le résultat tel qu\'il est déclaré à Google',
-    serpNote: en
-      ? 'Brand name first, the query in plain words, and no delay in the snippet: a promise you cannot keep in 600 pixels is a lost click.'
-      : 'Le nom de marque en tête, la requête en mots simples, et aucun délai dans l\'extrait : une promesse qu\'on ne peut pas tenir en 600 pixels est un clic perdu.',
+    serpNote:
+      seo.serpNote ??
+      (en
+        ? 'Brand name first, the query in plain words, and no delay in the snippet: a promise you cannot keep in 600 pixels is a lost click.'
+        : 'Le nom de marque en tête, la requête en mots simples, et aucun délai dans l\'extrait : une promesse qu\'on ne peut pas tenir en 600 pixels est un clic perdu.'),
     schemas: en ? 'Structured data emitted' : 'Données structurées émises',
-    schemasNote: en
-      ? 'Generated from the same content the visitor reads. Nothing is declared in the markup that is not visible on the page.'
-      : 'Générées depuis le contenu que le visiteur lit. Rien n\'est déclaré dans le balisage qui ne soit visible sur la page.',
+    schemasNote:
+      seo.schemasNote ??
+      (en
+        ? 'Generated from the same content the visitor reads. Nothing is declared in the markup that is not visible on the page.'
+        : 'Générées depuis le contenu que le visiteur lit. Rien n\'est déclaré dans le balisage qui ne soit visible sur la page.'),
     intents: en ? 'One page per search intent' : 'Une page par intention de recherche',
     geo: en ? 'Written to be quoted' : 'Écrit pour être cité',
   }

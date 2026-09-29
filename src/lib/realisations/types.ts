@@ -91,6 +91,10 @@ export interface RealisationClient {
   /** Libelle affiche du metier, plus precis que le secteur normalise. */
   sector: string
   location?: string
+  /** Pays du client, code ISO a deux lettres (defaut CH) ; `null` quand `location`
+   *  designe les lieux ou il opere et non son adresse (MKR : camps au Daghestan et en
+   *  Tchetchenie) : le JSON-LD porte alors `areaServed` au lieu d'une adresse. */
+  country?: string | null
   anonymized?: boolean
 }
 
@@ -224,10 +228,57 @@ export interface RealisationShowcase {
 export interface RealisationDirection {
   intro?: string
   logo?: { src: string; alt: string }
+  /** Seconde version du logo, posee sur une tuile claire (version pour fond clair). */
+  logoLight?: { src: string; alt: string }
   tagline?: string
+  /** Couleurs de la tuile du logo, prises dans la charte du client. Defaut : bleu nuit SOS. */
+  theme?: {
+    tile: string
+    accent: string
+    /** Fond de la tuile claire de `logoLight`. */
+    lightTile?: string
+    /** Slogan compose en capitales, dans la police des titres (sinon italique). */
+    taglineUppercase?: boolean
+  }
   palette: { name: string; hex: string; role: string }[]
-  type: { role: string; family: string; sample: string; mono?: boolean }[]
+  /** Part de chaque famille de couleurs dans un ecran type, en pourcentage (total 100). */
+  ratio?: { label: string; hex: string; share: number }[]
+  type: {
+    role: string
+    family: string
+    sample: string
+    mono?: boolean
+    /** Specimen en capitales (titres Teko, etiquettes condensees). */
+    uppercase?: boolean
+  }[]
   principles: { title: string; body: string }[]
+}
+
+/** La marque en usage : supports imprimes, reseaux, video, emails, outils, en mosaique. */
+export interface RealisationTouchpoint {
+  src: string
+  alt: string
+  /** Le support, en clair : « Affiche A3 », « Couverture de Reel »... */
+  label: string
+  /** Famille du support, affichee en etiquette. */
+  kind: 'imprime' | 'reseaux' | 'video' | 'email' | 'outil' | 'web'
+  caption?: string
+  /** Auteur des images quand elles viennent d'un tiers (videaste, photographe). */
+  credit?: string
+  /** Largeur sur 12 colonnes a partir de la tablette (defaut 6). */
+  cols?: 3 | 4 | 5 | 6 | 7 | 8 | 12
+  /** Cadre a ratio fixe (ex. « 4/5 ») : le support y tient en entier, centre. Sans lui,
+   *  l'image garde son propre ratio. Utile pour aligner une affiche, une couverture
+   *  verticale et un email sur une meme rangee. */
+  ratio?: string
+  /** Capture d'ecran de telephone (email, application) : posee dans un cadre de telephone. */
+  device?: 'phone'
+}
+
+export interface RealisationTouchpoints {
+  title: string
+  intro?: string
+  items: RealisationTouchpoint[]
 }
 
 /** Direction SEO et GEO : apercu de resultat Google, pages par intention,
@@ -235,6 +286,10 @@ export interface RealisationDirection {
 export interface RealisationSeo {
   intro?: string
   serp: { siteName: string; url: string; title: string; description: string; favicon?: string }
+  /** Commentaire sous l'apercu Google, propre au site (defaut : celui de SOS Relevage). */
+  serpNote?: string
+  /** Commentaire sous les donnees structurees (defaut : generees depuis le contenu visible). */
+  schemasNote?: string
   intents: { label: string; path: string }[]
   schemas: string[]
   geo: { title: string; body: string }[]
@@ -347,6 +402,7 @@ export interface Realisation {
   highlights?: RealisationHighlight[]
   showcase?: RealisationShowcase
   direction?: RealisationDirection
+  touchpoints?: RealisationTouchpoints
   seo?: RealisationSeo
   /** Slugs d'articles du blog tires du projet ou utiles au meme lecteur. */
   relatedArticles?: string[]

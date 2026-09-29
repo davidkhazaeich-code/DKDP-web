@@ -87,7 +87,15 @@ export function buildRealisationArticle(input: {
               name: r.client.name,
               ...(r.liveUrl ? { url: r.liveUrl } : {}),
               ...(r.client.location
-                ? { address: { '@type': 'PostalAddress', addressLocality: r.client.location, addressCountry: 'CH' } }
+                ? r.client.country === null
+                  ? { areaServed: r.client.location }
+                  : {
+                      address: {
+                        '@type': 'PostalAddress',
+                        addressLocality: r.client.location,
+                        addressCountry: r.client.country ?? 'CH',
+                      },
+                    }
                 : {}),
             },
           ]

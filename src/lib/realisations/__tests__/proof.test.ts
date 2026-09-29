@@ -218,6 +218,12 @@ describe('les realisations du site respectent les regles de preuve', () => {
         ...(r.beforeAfter ?? []).flatMap((b) => [b.before.src, b.after.src]),
         ...(r.gallery ?? []).map((g) => g.src),
         r.direction?.logo?.src,
+        r.direction?.logoLight?.src,
+        r.hero?.desktopView,
+        r.hero?.mobileView,
+        r.mockup?.src,
+        r.seo?.serp.favicon,
+        ...(r.touchpoints?.items ?? []).map((it) => it.src),
       ].filter((p): p is string => Boolean(p))
       for (const p of paths) {
         if (!existsSync(join(process.cwd(), 'public', p))) missing.push(`${r.slug} : ${p}`)

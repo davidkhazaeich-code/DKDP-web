@@ -20,6 +20,7 @@ export function CaseStudyNav({ r, lang = 'fr' }: { r: Realisation; lang?: Locale
     ...(r.videos?.length || r.beforeAfter?.length ? [{ label: en ? 'In action' : 'En mouvement', href: '#en-mouvement' }] : []),
     ...(r.conversation ? [{ label: en ? 'Conversation' : 'Conversation', href: '#conversation' }] : []),
     ...(r.direction ? [{ label: en ? 'Visual direction' : 'Direction visuelle', href: '#direction' }] : []),
+    ...(r.touchpoints?.items.length ? [{ label: en ? 'Brand in use' : 'Supports', href: '#supports' }] : []),
     ...(r.seo ? [{ label: 'SEO', href: '#seo' }] : []),
     ...(r.dataStories?.length
       ? [{ label: en ? 'Numbers' : 'Chiffres', href: '#courbes' }]

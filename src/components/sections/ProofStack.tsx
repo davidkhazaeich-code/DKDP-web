@@ -6,31 +6,18 @@ import { GradTag } from '@/components/ui/GradTag'
 import type { Locale } from '@/i18n/config'
 
 /**
- * Chiffres de preuve, rendus tels quels cote serveur (21/09/2026, plan SEO,
- * D16). Avant : 10+ ans, 700+ clients, 500+ formes, 4,9/5 animes de 0 par un
- * compteur, sans source. Ceux-ci sont verifiables : fiche Google (5,0 sur 22),
- * page A propos (fondation 2019), /realisations (2 etudes de cas).
+ * Titre puis logos clients, sans rangee de chiffres : les 4 chiffres (2019,
+ * 5,0/5, 2 realisations, 48 h) poses le 21/09/2026 (plan SEO, D16) ont ete
+ * retires de l'accueil le 29/09/2026, a la demande de David.
  */
 const CONTENT = {
   fr: {
     tag: 'Ils nous ont fait confiance',
     heading: 'Des PME de toute la Suisse romande nous font confiance.',
-    stats: [
-      { value: '2019', label: 'agence fondée à Genève', description: 'Aux Eaux-Vives, rue du 31-Décembre' },
-      { value: '5,0/5', label: 'note Google', description: '22 avis sur la fiche DKDP' },
-      { value: '2', label: 'réalisations publiées', description: 'Golden Cash, SOS Relevage' },
-      { value: '48 h', label: 'pour un devis', description: 'Après un premier appel gratuit' },
-    ],
   },
   en: {
     tag: 'They trusted us',
     heading: 'SMBs across French-speaking Switzerland trust us.',
-    stats: [
-      { value: '2019', label: 'founded in Geneva', description: 'Eaux-Vives, rue du 31-Décembre' },
-      { value: '5.0/5', label: 'Google rating', description: '22 reviews on the DKDP listing' },
-      { value: '2', label: 'published case studies', description: 'Golden Cash, SOS Relevage' },
-      { value: '48 h', label: 'to get a quote', description: 'After a free first call' },
-    ],
   },
 } as const
 
@@ -64,18 +51,6 @@ export function ProofStack({ lang = 'fr' }: { lang?: Locale } = {}) {
             </h2>
           </div>
         </SectionReveal>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          {t.stats.map((stat) => (
-            <SectionReveal key={stat.label}>
-              <div className="text-center">
-                <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-text">{stat.value}</span>
-                <p className="text-text font-semibold mt-2 text-sm">{stat.label}</p>
-                <p className="text-text-muted text-xs mt-1">{stat.description}</p>
-              </div>
-            </SectionReveal>
-          ))}
-        </div>
 
         <SectionReveal>
           <div className="flex flex-wrap justify-center gap-8 md:gap-12 items-center">

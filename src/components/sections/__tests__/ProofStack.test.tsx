@@ -5,30 +5,28 @@ import { ProofStack } from '../ProofStack'
 describe('ProofStack', () => {
   it('renders section heading', () => {
     render(<ProofStack />)
-    expect(screen.getByText(/des résultats, pas des promesses/i)).toBeInTheDocument()
+    expect(screen.getByText(/des pme de toute la suisse romande/i)).toBeInTheDocument()
   })
 
-  it('renders 4 stat labels', () => {
-    render(<ProofStack />)
-    expect(screen.getByText(/ans d'expérience/i)).toBeInTheDocument()
-    expect(screen.getByText(/entreprises/i)).toBeInTheDocument()
-    expect(screen.getByText(/élèves formés/i)).toBeInTheDocument()
-    expect(screen.getByText(/note google/i)).toBeInTheDocument()
+  it('renders the English heading', () => {
+    render(<ProofStack lang="en" />)
+    expect(screen.getByText(/smbs across french-speaking switzerland/i)).toBeInTheDocument()
   })
 
-  it('renders stat descriptions', () => {
-    render(<ProofStack />)
-    expect(screen.getByText(/dans le digital suisse romand/i)).toBeInTheDocument()
-    expect(screen.getByText(/accompagnées avec succès/i)).toBeInTheDocument()
+  // Rangee de chiffres retiree de l'accueil le 29/09/2026 (demande de David).
+  it('renders no stats row before the logos', () => {
+    const { unmount } = render(<ProofStack />)
+    expect(screen.queryByText('2019')).not.toBeInTheDocument()
+    expect(screen.queryByText(/note google/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/pour un devis/i)).not.toBeInTheDocument()
+    unmount()
+    render(<ProofStack lang="en" />)
+    expect(screen.queryByText(/google rating/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/to get a quote/i)).not.toBeInTheDocument()
   })
 
   it('renders SwissLife logo', () => {
     render(<ProofStack />)
     expect(screen.getByAltText('SwissLife')).toBeInTheDocument()
-  })
-
-  it('renders all 8 logos', () => {
-    render(<ProofStack />)
-    expect(screen.getAllByRole('img')).toHaveLength(8)
   })
 })

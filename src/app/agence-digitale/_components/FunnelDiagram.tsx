@@ -1,3 +1,8 @@
+import { DiagramMotion } from '@/components/motion/DiagramMotion'
+import { dg } from '@/components/motion/dg'
+
+// 29/09/2026 : l'entonnoir se resserre étape par étape, chaque barre se dévoile de gauche à droite
+// avec son numéro (kit dg-*, docs/claude/22-diagrammes-animes.md). Au repos, rendu identique.
 export function FunnelDiagram({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
   const steps = lang === 'en'
     ? [
@@ -13,21 +18,22 @@ export function FunnelDiagram({ lang = 'fr' }: { lang?: 'fr' | 'en' }) {
         { label: 'Clients signés', sub: 'Pipeline commercial alimenté', w: '34%', color: '#7C3AED' },
       ]
   return (
-    <div className="flex flex-col gap-2 w-full max-w-sm mx-auto">
+    <DiagramMotion className="flex flex-col gap-2 w-full max-w-sm mx-auto" style={{ '--dg-step': '150ms' } as React.CSSProperties}>
       {steps.map((s, i) => (
         <div key={i} className="flex flex-col gap-1">
-          <div className="flex justify-between items-center mb-0.5">
+          <div className="dg-fade flex justify-between items-center mb-0.5" style={dg(i, 150)}>
             <span className="text-text text-xs font-semibold">{s.label}</span>
             <span className="text-text-muted text-[10px]">{s.sub}</span>
           </div>
-          <div className="h-9 rounded-[6px] flex items-center px-3" style={{ width: s.w, background: `${s.color}22`, border: `1px solid ${s.color}55` }}>
+          {/* Balayage et non étirement : le numéro reste net pendant que la barre se dévoile. */}
+          <div className="dg-wipe h-9 rounded-[6px] flex items-center px-3" style={{ ...dg(i, 220, { '--dg-dur': '900ms' }), width: s.w, background: `${s.color}22`, border: `1px solid ${s.color}55` }}>
             <span className="text-[11px] font-bold" style={{ color: s.color }}>
               {['01', '02', '03', '04'][i]}
             </span>
           </div>
         </div>
       ))}
-      <p className="text-text-muted text-[11px] text-center mt-3">{lang === 'en' ? 'DKDP digital conversion funnel' : 'Entonnoir de conversion digital DKDP'}</p>
-    </div>
+      <p className="dg-fade text-text-muted text-[11px] text-center mt-3" style={dg(0, 1000)}>{lang === 'en' ? 'DKDP digital conversion funnel' : 'Entonnoir de conversion digital DKDP'}</p>
+    </DiagramMotion>
   )
 }

@@ -1,0 +1,416 @@
+/* ═══ Diagrammes animés : kit dg-* (2026-09-29) ═══
+ *
+ * Racine : [data-dg], posée par <DiagramMotion> (ou initDiagramMotion pour du HTML brut).
+ *   data-dg="view"  rien ne bouge avant que le JavaScript arme la racine : le HTML servi est
+ *                   l'état final (Google, lecteur d'écran, sans JS, impression).
+ *   data-dg="hero"  visuel de hero. Dès 1024 px (colonne de droite, visible sans défiler) il joue
+ *                   au premier affichage, sans attendre le JS. En dessous, il est empilé sous le
+ *                   texte : même règle que "view", il joue quand on arrive dessus.
+ *   data-dg-armed   posé par le JS sur une racine hors écran : animations créées en pause.
+ *   data-dg-play    la racine est entrée à l'écran : les entrées jouent, une seule fois.
+ *   data-dg-live    la racine est à l'écran : les boucles tournent, retiré dès qu'elle en sort.
+ *
+ * Élément animé = une classe d'effet + sa place dans la séquence :
+ *   style={{ '--dg-i': 2 }}          2e pas de la séquence (un pas = --dg-step, 90 ms)
+ *   style={{ '--dg-at': '400ms' }}   décalage absolu, hérité : peut se poser sur un groupe
+ * Une seule classe d'entrée par élément (rise, fade, pop, slide, grow-x, grow-y, wipe, type,
+ * draw, strike, count) : elles posent toutes `animation`. Pour combiner, imbriquer deux éléments.
+ * dg-light (::after), dg-beat (::before) et dg-ping (::after) vivent sur des calques et se
+ * cumulent avec une entrée ; l'élément porte alors la classe relative.
+ * Seuls transform, opacity et clip-path bougent (GPU). Compteur, trait SVG et valeur barrée
+ * repeignent quelques pixels. Aucune animation ne touche à la mise en page : zéro CLS.
+ * Helpers TSX : src/components/motion/dg.tsx. Doc : docs/claude/22-diagrammes-animes.md.
+ */
+
+@property --dg-n {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+/* Réglages propres à un élément : jamais hérités par ses enfants (une carte qui s'ouvre depuis
+   son coin haut droit ne doit pas faire pousser ses barres depuis la droite). --dg-at, --dg-i,
+   --dg-step et --dg-dur restent hérités : un groupe peut porter le décalage et le tempo. */
+@property --dg-origin { syntax: '*'; inherits: false; }
+@property --dg-x { syntax: '*'; inherits: false; }
+@property --dg-y { syntax: '*'; inherits: false; }
+
+/* Les entrées lisent leur nom d'animation sur la racine : none tant qu'elle n'est pas prête,
+   donc aucun état de départ (masqué) n'existe sans JS. */
+[data-dg] {
+  --dg-step: 90ms;
+  /* Même courbe que .flow-pulse (globals.css) pour ce qui se déplace à l'écran. */
+  --dg-ease-move: cubic-bezier(0.45, 0, 0.55, 1);
+  --dg-a-rise: none;
+  --dg-a-fade: none;
+  --dg-a-pop: none;
+  --dg-a-slide: none;
+  --dg-a-grow-x: none;
+  --dg-a-grow-y: none;
+  --dg-a-wipe: none;
+  --dg-a-draw: none;
+  --dg-a-light: none;
+  --dg-a-strike: none;
+  --dg-a-count: none;
+  --dg-a-count-host: none;
+  --dg-a-count-show: none;
+}
+[data-dg][data-dg-armed] {
+  --dg-a-rise: dg-rise;
+  --dg-a-fade: dg-fade;
+  --dg-a-pop: dg-pop;
+  --dg-a-slide: dg-slide;
+  --dg-a-grow-x: dg-grow-x;
+  --dg-a-grow-y: dg-grow-y;
+  --dg-a-wipe: dg-wipe;
+  --dg-a-draw: dg-draw;
+  --dg-a-light: dg-light;
+  --dg-a-strike: dg-strike;
+  --dg-a-count: dg-count;
+  --dg-a-count-host: dg-count-host;
+  --dg-a-count-show: dg-count-show;
+}
+@media (min-width: 1024px) {
+  [data-dg='hero'] {
+    --dg-a-rise: dg-rise;
+    --dg-a-fade: dg-fade;
+    --dg-a-pop: dg-pop;
+    --dg-a-slide: dg-slide;
+    --dg-a-grow-x: dg-grow-x;
+    --dg-a-grow-y: dg-grow-y;
+    --dg-a-wipe: dg-wipe;
+    --dg-a-draw: dg-draw;
+    --dg-a-light: dg-light;
+    --dg-a-strike: dg-strike;
+    --dg-a-count: dg-count;
+    --dg-a-count-host: dg-count-host;
+    --dg-a-count-show: dg-count-show;
+  }
+}
+
+[data-dg] :is(.dg-rise, .dg-fade, .dg-pop, .dg-slide, .dg-grow-x, .dg-grow-y, .dg-wipe, .dg-type, .dg-draw, .dg-light, .dg-strike, .dg-count) {
+  --dg-delay: calc(var(--dg-at, 0ms) + var(--dg-i, 0) * var(--dg-step, 90ms));
+}
+
+/* ── Entrées (une fois) ── */
+
+.dg-rise {
+  animation: var(--dg-a-rise, none) var(--dg-dur, 600ms) var(--ease-entry) var(--dg-delay, 0ms) backwards;
+}
+.dg-fade {
+  animation: var(--dg-a-fade, none) var(--dg-dur, 500ms) var(--ease-entry) var(--dg-delay, 0ms) backwards;
+}
+.dg-pop {
+  transform-origin: var(--dg-origin, center);
+  animation: var(--dg-a-pop, none) var(--dg-dur, 420ms) var(--ease-entry) var(--dg-delay, 0ms) backwards;
+}
+.dg-slide {
+  animation: var(--dg-a-slide, none) var(--dg-dur, 560ms) var(--ease-entry) var(--dg-delay, 0ms) backwards;
+}
+.dg-grow-x {
+  transform-origin: var(--dg-origin, left center);
+  animation: var(--dg-a-grow-x, none) var(--dg-dur, 900ms) var(--ease-entry) var(--dg-delay, 0ms) backwards;
+}
+.dg-grow-y {
+  transform-origin: var(--dg-origin, center bottom);
+  animation: var(--dg-a-grow-y, none) var(--dg-dur, 800ms) var(--ease-entry) var(--dg-delay, 0ms) backwards;
+}
+/* Balayage de gauche à droite : le contenu se révèle en place (trait en dégradé, ligne de texte). */
+.dg-wipe {
+  animation: var(--dg-a-wipe, none) var(--dg-dur, 900ms) var(--ease-entry) var(--dg-delay, 0ms) backwards;
+}
+/* Frappe au clavier : --dg-steps = nombre de caractères de la ligne. */
+.dg-type {
+  animation: var(--dg-a-wipe, none) var(--dg-dur, 700ms) steps(var(--dg-steps, 16), end) var(--dg-delay, 0ms) backwards;
+}
+/* Trait SVG qui se dessine : l'élément porte pathLength="1". Trou de 2 et départ à 1,05 :
+   ni bout de tiret ni capuchon rond ne pointent au départ du trait avant qu'il se dessine. */
+.dg-draw {
+  stroke-dasharray: 1 2;
+  animation: var(--dg-a-draw, none) var(--dg-dur, 1000ms) var(--ease-entry) var(--dg-delay, 0ms) backwards;
+}
+/* Éclat au passage du flux : un calque (::after) s'allume puis s'éteint, l'élément garde sa
+   propre entrée. L'élément porte la classe relative ; --dg-light-at décale l'éclat. */
+.dg-light::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid var(--dg-accent, currentcolor);
+  box-shadow: 0 0 18px -4px var(--dg-accent, currentcolor);
+  opacity: 0;
+  pointer-events: none;
+  animation: var(--dg-a-light, none) var(--dg-light-dur, 1100ms) ease-out calc(var(--dg-delay, 0ms) + var(--dg-light-at, 0ms)) backwards;
+}
+/* Valeur barrée : le trait se tire de gauche à droite, puis le line-through réel reprend. */
+.dg-strike {
+  animation: var(--dg-a-strike, none) var(--dg-dur, 380ms) var(--ease-entry) var(--dg-delay, 0ms) backwards;
+}
+/* Compteur : le texte du DOM garde la vraie valeur (Google, lecteur d'écran, largeur) ;
+   pendant l'animation il devient transparent et le pseudo-élément compte par-dessus. */
+.dg-count {
+  position: relative;
+  display: inline-block;
+  animation: var(--dg-a-count-host, none) var(--dg-dur, 1300ms) linear var(--dg-delay, 0ms) backwards;
+}
+.dg-count::after {
+  content: counter(dg-n);
+  content: counter(dg-n) / '';
+  counter-reset: dg-n calc(var(--dg-n));
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  white-space: nowrap;
+  /* Le chiffre qui défile colle à son unité : à droite devant « % », à gauche après « # ». */
+  text-align: var(--dg-count-align, end);
+  -webkit-text-fill-color: currentcolor;
+  animation:
+    var(--dg-a-count, none) var(--dg-dur, 1300ms) var(--ease-entry) var(--dg-delay, 0ms) backwards,
+    var(--dg-a-count-show, none) var(--dg-dur, 1300ms) linear var(--dg-delay, 0ms) backwards;
+}
+
+/* Racine armée mais pas encore à l'écran : tout attend, figé sur l'état de départ. */
+[data-dg][data-dg-armed]:not([data-dg-play]) :is(.dg-rise, .dg-fade, .dg-pop, .dg-slide, .dg-grow-x, .dg-grow-y, .dg-wipe, .dg-type, .dg-draw, .dg-strike, .dg-count),
+[data-dg][data-dg-armed]:not([data-dg-play]) :is(.dg-count, .dg-light)::after {
+  animation-play-state: paused;
+}
+
+@keyframes dg-rise { from { opacity: 0; transform: translateY(var(--dg-y, 10px)); } }
+@keyframes dg-fade { from { opacity: 0; } }
+@keyframes dg-pop { from { opacity: 0; transform: scale(0.9); } }
+@keyframes dg-slide { from { opacity: 0; transform: translateX(var(--dg-x, -10px)); } }
+/* Barres : le fondu d'entrée évite qu'un trait de 2 % reste visible pendant l'attente ; pas de
+   palier à 1, une barre posée à opacity 0.7 ne doit pas briller avant de retomber. */
+@keyframes dg-grow-x { from { transform: scaleX(0.02); opacity: 0; } }
+@keyframes dg-grow-y { from { transform: scaleY(0.02); opacity: 0; } }
+/* Les deux bornes en inset() : de inset() vers none, clip-path ne s'interpole pas (saut à mi-course). */
+@keyframes dg-wipe {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes dg-draw { from { stroke-dashoffset: 1.05; } }
+@keyframes dg-light {
+  0%, 100% { opacity: 0; }
+  30% { opacity: 1; }
+}
+@keyframes dg-strike {
+  from, to {
+    text-decoration-color: transparent;
+    background-image: linear-gradient(currentcolor, currentcolor);
+    background-repeat: no-repeat;
+    background-position: 0 55%;
+  }
+  from { background-size: 0% 1px; }
+  to { background-size: 100% 1px; }
+}
+@keyframes dg-count {
+  from { --dg-n: var(--dg-from, 0); }
+  to { --dg-n: var(--dg-to, 0); }
+}
+@keyframes dg-count-host { from, to { -webkit-text-fill-color: transparent; } }
+@keyframes dg-count-show { from, to { visibility: visible; } }
+
+/* ── Boucles : seulement à l'écran (data-dg-live), jamais sans JS ──
+ * Délai d'une boucle = --dg-loop-start (hérité, posé sur la racine : attendre la fin des
+ * entrées) + --dg-loop-at (propre à l'élément : déphasage, instant de passage du flux). */
+
+[data-dg] :is(.dg-float, .dg-travel-x, .dg-travel-y, .dg-beat, .dg-ping) {
+  --dg-loop-delay: calc(var(--dg-loop-start, 0ms) + var(--dg-loop-at, 0ms));
+}
+
+/* Carte flottante qui respire. */
+[data-dg][data-dg-live] .dg-float {
+  animation: dg-float var(--dg-loop, 6s) ease-in-out var(--dg-loop-delay) infinite;
+}
+@keyframes dg-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Impulsion qui parcourt un trait. Le rail couvre le trait (position absolue, inset) et
+   l'impulsion vit à son bout ; le rail glisse de -100 % à 0 : transform seul.
+   L'impulsion voyage pendant les 45 premiers % du cycle, puis se repose.
+   --dg-dot : diamètre du point ; --dg-trail : longueur d'une traînée (derrière la tête). */
+.dg-travel-x,
+.dg-travel-y {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+.dg-travel-x::after,
+.dg-travel-y::after {
+  content: '';
+  position: absolute;
+  border-radius: 9999px;
+  box-shadow: 0 0 12px 3px var(--dg-glow, rgba(124, 58, 237, 0.45));
+}
+.dg-travel-x::after {
+  right: 0;
+  top: 50%;
+  width: var(--dg-trail, var(--dg-dot, 7px));
+  height: var(--dg-dot, 7px);
+  margin-top: calc(var(--dg-dot, 7px) / -2);
+  background: linear-gradient(to right, transparent, var(--dg-accent, var(--violet-text)) var(--dg-trail-head, 0%));
+}
+.dg-travel-y::after {
+  bottom: 0;
+  left: 50%;
+  width: var(--dg-dot, 7px);
+  height: var(--dg-trail, var(--dg-dot, 7px));
+  margin-left: calc(var(--dg-dot, 7px) / -2);
+  background: linear-gradient(to bottom, transparent, var(--dg-accent, var(--violet-text)) var(--dg-trail-head, 0%));
+}
+/* Traînée : le halo suit la transparence du dégradé (un box-shadow ferait une barre uniforme). */
+.dg-trail::after {
+  box-shadow: none;
+  filter: drop-shadow(0 0 3px var(--dg-glow, rgba(124, 58, 237, 0.45))) drop-shadow(0 0 8px var(--dg-glow, rgba(124, 58, 237, 0.45)));
+}
+[data-dg][data-dg-live] .dg-travel-x {
+  animation: dg-travel-x var(--dg-loop, 4s) var(--dg-travel-ease, var(--dg-ease-move)) var(--dg-loop-delay) infinite;
+}
+[data-dg][data-dg-live] .dg-travel-y {
+  animation: dg-travel-y var(--dg-loop, 4s) var(--dg-travel-ease, var(--dg-ease-move)) var(--dg-loop-delay) infinite;
+}
+@keyframes dg-travel-x {
+  0% { opacity: 0; transform: translateX(-100%); }
+  5%, 40% { opacity: 1; }
+  45% { opacity: 0; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(0); }
+}
+@keyframes dg-travel-y {
+  0% { opacity: 0; transform: translateY(-100%); }
+  5%, 40% { opacity: 1; }
+  45% { opacity: 0; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(0); }
+}
+
+/* Couleurs d'impulsion par pilier (point et halo), lisibles en sombre comme en clair. */
+.dg-tone-violet { --dg-accent: var(--violet-text); --dg-glow: rgba(124, 58, 237, 0.45); }
+.dg-tone-orange { --dg-accent: #FF8C00; --dg-glow: rgba(255, 140, 0, 0.45); }
+.dg-tone-green { --dg-accent: var(--green-text); --dg-glow: rgba(74, 222, 128, 0.4); }
+.dg-tone-chrome { --dg-accent: #E4E4E7; --dg-glow: rgba(212, 212, 216, 0.5); }
+[data-theme='light'] .dg-tone-chrome { --dg-accent: #71717A; --dg-glow: rgba(113, 113, 122, 0.3); }
+
+/* Éclat en boucle au passage de l'impulsion : même --dg-loop que le rail, --dg-loop-at =
+   instant du passage moins 6 % du cycle (le pic). L'élément porte la classe relative. */
+.dg-beat::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid var(--dg-accent, currentcolor);
+  box-shadow: 0 0 16px -4px var(--dg-accent, currentcolor);
+  opacity: 0;
+  pointer-events: none;
+}
+[data-dg][data-dg-live] .dg-beat::before {
+  animation: dg-beat var(--dg-loop, 4s) ease-out var(--dg-loop-delay) infinite;
+}
+@keyframes dg-beat {
+  0%, 22%, 100% { opacity: 0; }
+  6% { opacity: 1; }
+}
+
+/* Onde autour d'un point « en direct » (l'élément porte la classe relative). */
+.dg-ping::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  opacity: 0;
+  pointer-events: none;
+}
+[data-dg][data-dg-live] .dg-ping::after {
+  animation: dg-ping var(--dg-loop, 2.4s) cubic-bezier(0, 0, 0.2, 1) var(--dg-loop-delay) infinite;
+}
+@keyframes dg-ping {
+  0% { opacity: 0.55; transform: scale(1); }
+  70%, 100% { opacity: 0; transform: scale(2.6); }
+}
+
+/* ── Infobulles : survol à la souris, focus au clavier, toucher (data-open posé par le JS) ── */
+
+.dg-tip-host {
+  position: relative;
+}
+.dg-tip-host:focus-visible {
+  outline: 2px solid var(--violet-text);
+  outline-offset: 2px;
+}
+.dg-tip {
+  /* Centrage en transform seul : le compilateur CSS du projet (Lightning CSS) supprime la
+     propriété translate quand transform est déclaré dans la même règle. */
+  --dg-tip-x: -50%;
+  --dg-tip-y: 4px;
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  z-index: 30;
+  width: max-content;
+  max-width: min(240px, 70vw);
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card-md);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(var(--dg-tip-x)) translateY(var(--dg-tip-y)) scale(0.97);
+  transform-origin: 50% 100%;
+  transition:
+    opacity var(--duration-fast, 150ms) var(--ease-entry),
+    transform var(--duration-fast, 150ms) var(--ease-entry);
+}
+.dg-tip[data-side='bottom'] {
+  --dg-tip-y: -4px;
+  top: calc(100% + 8px);
+  bottom: auto;
+  transform-origin: 50% 0;
+}
+.dg-tip[data-align='start'] {
+  --dg-tip-x: 0px;
+  left: 0;
+  transform-origin: 0 100%;
+}
+.dg-tip[data-side='bottom'][data-align='start'] {
+  transform-origin: 0 0;
+}
+.dg-tip-host:focus-visible > .dg-tip,
+.dg-tip-host[data-open] > .dg-tip {
+  opacity: 1;
+  transform: translateX(var(--dg-tip-x));
+}
+@media (hover: hover) and (pointer: fine) {
+  .dg-tip-host:hover > .dg-tip {
+    opacity: 1;
+    transform: translateX(var(--dg-tip-x));
+    transition-delay: 80ms;
+  }
+}
+
+/* ── Mouvement réduit et impression : l'état final, tout de suite ── */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-dg] *,
+  [data-dg] *::before,
+  [data-dg] *::after {
+    animation: none !important;
+  }
+}
+@media print {
+  [data-dg] *,
+  [data-dg] *::before,
+  [data-dg] *::after {
+    animation: none !important;
+  }
+}

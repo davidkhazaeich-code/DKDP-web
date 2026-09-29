@@ -23,6 +23,7 @@ import { buildService, buildBreadcrumbList, buildFAQPage } from '@/lib/schema'
 import { FAQ_IA } from '@/data/faq-ia'
 import { chrome } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
+import { StepConnector } from '@/components/motion/StepConnector'
 
 export const metadata: Metadata = {
   // 21/09/2026 (plan SEO, D03) : la page /intelligence-artificielle/geneve est
@@ -439,13 +440,7 @@ export default function IntelligenceArtificiellePage() {
           </SectionReveal>
           <div className="relative">
             {/* Ligne directrice horizontale - chrome métal */}
-            <div
-              aria-hidden="true"
-              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] z-0 pointer-events-none"
-              style={{
-                background: 'linear-gradient(to right, transparent, rgba(212,212,216,0.20) 5%, #c0c0c0 25%, #D4D4D8 50%, #c0c0c0 75%, rgba(212,212,216,0.20) 95%, transparent)',
-              }}
-            />
+            <StepConnector tone="chrome" background="linear-gradient(to right, transparent, rgba(212,212,216,0.20) 5%, #c0c0c0 25%, #D4D4D8 50%, #c0c0c0 75%, rgba(212,212,216,0.20) 95%, transparent)" />
           <div className="relative z-[1] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {

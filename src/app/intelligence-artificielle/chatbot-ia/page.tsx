@@ -35,6 +35,8 @@ import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList, build
 import { chrome, violet } from '@/lib/tokens'
 import { PRIX, chf, chfMois } from '@/data/pricing'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
+import { DiagramMotion } from '@/components/motion/DiagramMotion'
+import { DgCount, dg } from '@/components/motion/dg'
 const CTAFinal = dynamic(() =>
   import('@/components/sections/CTAFinal').then((m) => ({ default: m.CTAFinal }))
 )
@@ -966,8 +968,11 @@ export default function ChatbotIAPage() {
           </div>
 
           {/* Mockup dashboard */}
+          {/* 29/09/2026 : le tableau de bord se remplit comme à l'ouverture : indicateurs qui défilent,
+              intentions qui se chargent, leads qui arrivent un par un (kit dg-*,
+              docs/claude/22-diagrammes-animes.md). Au repos, rendu identique. */}
           <SectionReveal delay={0.2}>
-            <div
+            <DiagramMotion
               className="rounded-2xl p-6 md:p-8"
               style={{
                 background: 'rgba(212,212,216,0.03)',
@@ -977,7 +982,7 @@ export default function ChatbotIAPage() {
             >
               {/* Dashboard header */}
               {/* 25/09/2026 : libellé « Exemple » ajouté, chiffres et leads de la maquette fictifs. */}
-              <div className="flex items-center justify-between mb-6 pb-4" style={{ borderBottom: `1px solid ${bd}` }}>
+              <div className="dg-fade flex items-center justify-between mb-6 pb-4" style={{ ...dg(0, 150), borderBottom: `1px solid ${bd}` }}>
                 <div className="flex items-center gap-3">
                   <div
                     className="w-9 h-9 rounded-lg flex items-center justify-center"
@@ -1004,20 +1009,22 @@ export default function ChatbotIAPage() {
                 </div>
               </div>
 
-              {/* KPIs */}
+              {/* KPIs : n = valeur qui défile (entiers seulement), unit = ce qui la suit. Même texte que v. */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 {[
-                  { v: '247', l: 'Conversations', sub: '+18% vs sem. -1' },
-                  { v: '82%', l: 'Résolution auto', sub: 'sans intervention humaine' },
-                  { v: '31', l: 'Leads qualifiés', sub: '12 transmis CRM' },
+                  { v: '247', n: 247, l: 'Conversations', sub: '+18% vs sem. -1' },
+                  { v: '82%', n: 82, unit: '%', l: 'Résolution auto', sub: 'sans intervention humaine' },
+                  { v: '31', n: 31, l: 'Leads qualifiés', sub: '12 transmis CRM' },
                   { v: '1m 24s', l: 'Durée moyenne', sub: 'par session' },
-                ].map((k) => (
+                ].map((k, i) => (
                   <div
                     key={k.l}
-                    className="rounded-lg p-4"
-                    style={{ background: 'rgba(212,212,216,0.04)', border: `1px solid ${bd}` }}
+                    className="dg-rise rounded-lg p-4"
+                    style={{ ...dg(i, 250), background: 'rgba(212,212,216,0.04)', border: `1px solid ${bd}` }}
                   >
-                    <p className="text-2xl font-bold text-text mb-1">{k.v}</p>
+                    <p className="text-2xl font-bold text-text mb-1">
+                      {k.n !== undefined ? <><DgCount to={k.n} i={i} at={300} dur={1300} />{k.unit}</> : k.v}
+                    </p>
                     <p className="text-text-secondary text-xs font-semibold">{k.l}</p>
                     <p className="text-text-muted text-[11px] mt-0.5">{k.sub}</p>
                   </div>
@@ -1041,16 +1048,16 @@ export default function ChatbotIAPage() {
                       { label: 'Question tarif', pct: 18 },
                       { label: 'Support produit', pct: 12 },
                       { label: 'Autres', pct: 5 },
-                    ].map((row) => (
-                      <div key={row.label}>
+                    ].map((row, i) => (
+                      <div key={row.label} className="dg-rise" style={dg(i, 600)}>
                         <div className="flex items-center justify-between mb-1">
                           <span className="text-text-secondary text-xs">{row.label}</span>
-                          <span className="text-text-muted text-xs">{row.pct}%</span>
+                          <span className="text-text-muted text-xs">{row.pct >= 10 ? <DgCount to={row.pct} i={i} at={650} dur={900} /> : row.pct}%</span>
                         </div>
                         <div className="h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
                           <div
-                            className="h-full rounded-full"
-                            style={{ width: `${row.pct}%`, background: chrome.color, opacity: 0.7 }}
+                            className="dg-grow-x h-full rounded-full"
+                            style={{ ...dg(i, 650, { '--dg-dur': '900ms' }), width: `${row.pct}%`, background: chrome.color, opacity: 0.7 }}
                           />
                         </div>
                       </div>
@@ -1072,11 +1079,11 @@ export default function ChatbotIAPage() {
                       { name: 'Marc D.', intent: 'RDV consultation IA', via: Phone, meta: '+41 79 …' },
                       { name: 'Laura M.', intent: 'Tarif chatbot Pro', via: Mail, meta: 'laura.m@…' },
                       { name: 'Jean P.', intent: 'Audit SEO', via: Mail, meta: 'jean.p@…' },
-                    ].map((lead) => (
+                    ].map((lead, i) => (
                       <div
                         key={lead.name}
-                        className="flex items-center gap-3 pb-3"
-                        style={{ borderBottom: `1px solid rgba(212,212,216,0.06)` }}
+                        className="dg-slide flex items-center gap-3 pb-3"
+                        style={{ ...dg(i, 700, { '--dg-step': '160ms' }), borderBottom: `1px solid rgba(212,212,216,0.06)` }}
                       >
                         <div
                           className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
@@ -1102,7 +1109,7 @@ export default function ChatbotIAPage() {
                 ou Suisse, conforme nLPD 2023 et RGPD. Conservation des conversations paramétrable
                 (30, 60 ou 90 jours par défaut).
               </p>
-            </div>
+            </DiagramMotion>
           </SectionReveal>
         </div>
       </section>

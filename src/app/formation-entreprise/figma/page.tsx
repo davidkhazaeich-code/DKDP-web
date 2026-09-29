@@ -22,6 +22,7 @@ import { FigmaTrainer } from '@/components/formation/figma/FigmaTrainer'
 import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { orange } from '@/lib/tokens'
 import { PRIX, chf } from '@/data/pricing'
+import { StepConnector } from '@/components/motion/StepConnector'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
@@ -502,14 +503,7 @@ export default function FormationFigmaPage() {
             </div>
           </SectionReveal>
           <div className="relative">
-            <div
-              aria-hidden="true"
-              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] z-0 pointer-events-none"
-              style={{
-                background:
-                  'linear-gradient(to right, transparent, rgba(255,140,0,0.20) 5%, rgba(255,140,0,0.70) 25%, #FF8C00 50%, rgba(255,140,0,0.70) 75%, rgba(255,140,0,0.20) 95%, transparent)',
-              }}
-            />
+            <StepConnector tone="orange" background="linear-gradient(to right, transparent, rgba(255,140,0,0.20) 5%, rgba(255,140,0,0.70) 25%, #FF8C00 50%, rgba(255,140,0,0.70) 75%, rgba(255,140,0,0.20) 95%, transparent)" />
             <div className="relative z-[1] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {steps.map((s, i) => (
                 <SectionReveal key={s.title} delay={i * 0.08}>

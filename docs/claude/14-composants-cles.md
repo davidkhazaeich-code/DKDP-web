@@ -11,6 +11,8 @@
 | `GradTag` | `components/ui/GradTag.tsx` | Badge de section violet gradient |
 | `GradText` | `components/ui/GradText.tsx` | Texte gradient violet, prop `as` |
 | `SectionReveal` | `components/ui/SectionReveal.tsx` | Animation apparition scroll. **Desactivee sur la homepage** via `RevealDisabledProvider`. ⚠️ `delay` en **secondes** (`delay={0.08}`), le composant multiplie par 1000 : un `delay={80}` cache l'element pendant 80 s sans aucune erreur |
+| `DiagramMotion` | `components/motion/DiagramMotion.tsx` | Racine d'un diagramme animé (kit dg-*, CSS pur + 1 IntersectionObserver). `mode="view"` (au défilement) ou `"hero"` (dès l'affichage sur ordinateur). Helpers serveur `dg()`, `<DgCount>`, `<DgTip>` dans `motion/dg.tsx`. Doc : `docs/claude/22-diagrammes-animes.md` |
+| `StepConnector` | `components/motion/StepConnector.tsx` | Ligne directrice des rangées d'étapes (30 pages FR et EN) : se trace puis une traînée la parcourt. Props `background` (dégradé de la page) et `tone` (violet, orange, chrome) |
 | `CTAFinal` | `components/sections/CTAFinal.tsx` | Section CTA de fin de page, reutilisable |
 | `FAQSection` | `components/sections/FAQSection.tsx` | Accordeon FAQ, prop `items` |
 | `SchemaOrg` | `components/seo/SchemaOrg.tsx` | Injection JSON-LD. Builders dans `lib/schema.ts` |

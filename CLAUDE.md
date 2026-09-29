@@ -220,3 +220,4 @@ Le sitemap (`app/sitemap.ts`) et les redirections (`next.config.mjs`) se mettent
 | Composants cles | `docs/claude/14-composants-cles.md` |  |
 | Fichiers importants | `docs/claude/17-fichiers-importants.md` |  |
 | Analytics et conversions (GA4 + Google Ads + ChatGPT Ads) | `docs/claude/21-analytics-et-conversions.md` | Source de verite : src/lib/analytics.ts. Doc complete : docs/analytics-conversions.md. |
+| Diagrammes animés : kit dg-* (2026-09-29) | `docs/claude/22-diagrammes-animes.md` | Avant d'animer un visuel dessiné en code (hero, entonnoir, pile, flux, barres, infographie de blog). QA : `tools/qa-diagrammes-animes.mjs` |

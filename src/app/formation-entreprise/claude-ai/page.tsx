@@ -30,6 +30,8 @@ import { buildCourse, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { PRIX, chfHeure } from '@/data/pricing'
 import { violet, orange, chrome } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
+import { DiagramMotion } from '@/components/motion/DiagramMotion'
+import { dg } from '@/components/motion/dg'
 import { ClaudeProductCard } from './_components/ClaudeProductCard'
 import { AgendaRow } from './_components/AgendaRow'
 import { CapabilityCard } from './_components/CapabilityCard'
@@ -432,10 +434,14 @@ export default function FormationClaudeAIPage() {
             >
               <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: OR }}>Comparatif rapide</p>
               <p className="text-text-muted text-xs mb-6">Évaluation DKDP basée sur les versions de septembre 2026 (Claude Fable 5.1, GPT-6 Astra, Microsoft Copilot)</p>
-              <div className="overflow-x-auto">
+              {/* 29/09/2026 : les lignes apparaissent l'une après l'autre, puis chaque note se trace de
+                  gauche à droite, colonne après colonne (kit dg-*, docs/claude/22-diagrammes-animes.md).
+                  Au repos, rendu identique. Fondu et non montée : une ligne décalée vers le bas ferait
+                  déborder le conteneur overflow-x-auto (barre de défilement verticale sous Windows). */}
+              <DiagramMotion className="overflow-x-auto" style={{ '--dg-step': '70ms' } as React.CSSProperties}>
                 <table className="w-full text-sm border-collapse">
                   <thead>
-                    <tr className="border-b border-border-strong">
+                    <tr className="dg-fade border-b border-border-strong" style={dg(0, 100)}>
                       <th className="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-text-muted w-[40%]">Critère</th>
                       <th className="text-center py-3 px-4 text-xs font-bold" style={{ color: V }}>
                         <div className="inline-flex items-center gap-1.5">
@@ -516,8 +522,9 @@ export default function FormationClaudeAIPage() {
                         cop:    { n: 4, color: '#3b82f6' },
                       },
                     ].map((row, i) => {
-                      const Stars = ({ n, color }: { n: number; color: string }) => (
-                        <span className="inline-flex items-center gap-0.5">
+                      // col : rang de la colonne, la note se trace après celle de gauche.
+                      const Stars = ({ n, color, col }: { n: number; color: string; col: number }) => (
+                        <span className="dg-wipe inline-flex items-center gap-0.5" style={dg(i, 300 + col * 80, { '--dg-dur': '600ms' })}>
                           {Array.from({ length: 5 }).map((_, idx) => (
                             <span
                               key={idx}
@@ -536,20 +543,20 @@ export default function FormationClaudeAIPage() {
                         </span>
                       )
                       return (
-                        <tr key={row.crit} className={`border-b border-border ${i % 2 === 0 ? 'bg-[var(--surface-subtle)]' : ''}`}>
+                        <tr key={row.crit} className={`dg-fade border-b border-border ${i % 2 === 0 ? 'bg-[var(--surface-subtle)]' : ''}`} style={dg(i, 150)}>
                           <td className="py-3 px-4">
                             <p className="text-text font-medium text-[13px] leading-snug">{row.crit}</p>
                             <p className="text-text-muted text-[10px] mt-0.5 leading-snug">{row.sub}</p>
                           </td>
-                          <td className="py-3 px-4 text-center"><Stars n={row.claude.n} color={row.claude.color} /></td>
-                          <td className="py-3 px-4 text-center"><Stars n={row.gpt.n} color={row.gpt.color} /></td>
-                          <td className="py-3 px-4 text-center"><Stars n={row.cop.n} color={row.cop.color} /></td>
+                          <td className="py-3 px-4 text-center"><Stars n={row.claude.n} color={row.claude.color} col={0} /></td>
+                          <td className="py-3 px-4 text-center"><Stars n={row.gpt.n} color={row.gpt.color} col={1} /></td>
+                          <td className="py-3 px-4 text-center"><Stars n={row.cop.n} color={row.cop.color} col={2} /></td>
                         </tr>
                       )
                     })}
                   </tbody>
                 </table>
-              </div>
+              </DiagramMotion>
               <p className="text-text-muted text-[11px] mt-5 text-right">
                 Recommandation DKDP : Claude pour l&apos;analyse et la profondeur · ChatGPT Astra pour automatiser un poste de travail et les images · Copilot si Microsoft 365 est votre stack
               </p>

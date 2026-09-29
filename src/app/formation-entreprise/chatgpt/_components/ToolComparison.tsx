@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { violet, orange } from '@/lib/tokens'
 import type { Locale } from '@/i18n/config'
+import { DiagramMotion } from '@/components/motion/DiagramMotion'
+import { dg } from '@/components/motion/dg'
 
 /**
  * Comparatif rapide Claude / ChatGPT / Copilot, au meme format que celui de la
@@ -55,9 +57,10 @@ const COPY = {
   },
 } as const
 
-function Stars({ n, color }: { n: number; color: string }) {
+/** `i` : rang de la ligne, `col` : rang de la colonne (la note se trace après celle de gauche). */
+function Stars({ n, color, i, col }: { n: number; color: string; i: number; col: number }) {
   return (
-    <span className="inline-flex items-center gap-0.5">
+    <span className="dg-wipe inline-flex items-center gap-0.5" style={dg(i, 300 + col * 80, { '--dg-dur': '600ms' })}>
       {Array.from({ length: 5 }).map((_, idx) => (
         <span
           key={idx}
@@ -88,10 +91,14 @@ export function ToolComparison({ lang = 'fr' }: { lang?: Locale }) {
     >
       <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: orange.color }}>{t.tag}</p>
       <p className="text-text-muted text-xs mb-6">{t.basis}</p>
-      <div className="overflow-x-auto">
+      {/* 29/09/2026 : les lignes apparaissent l'une après l'autre, puis chaque note se trace de gauche
+          à droite, colonne après colonne (kit dg-*, docs/claude/22-diagrammes-animes.md). Au repos,
+          rendu identique. Fondu et non montée : une ligne décalée vers le bas ferait déborder le
+          conteneur overflow-x-auto (barre de défilement verticale sous Windows). */}
+      <DiagramMotion className="overflow-x-auto" style={{ '--dg-step': '70ms' } as React.CSSProperties}>
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="border-b border-border-strong">
+            <tr className="dg-fade border-b border-border-strong" style={dg(0, 100)}>
               <th className="text-left py-3 px-4 text-xs font-bold uppercase tracking-wider text-text-muted w-[40%]">{t.crit}</th>
               <th className="text-center py-3 px-4 text-xs font-bold" style={{ color: V }}>
                 <div className="inline-flex items-center gap-1.5">
@@ -115,19 +122,19 @@ export function ToolComparison({ lang = 'fr' }: { lang?: Locale }) {
           </thead>
           <tbody>
             {rows.map((row, i) => (
-              <tr key={row.crit} className={`border-b border-border ${i % 2 === 0 ? 'bg-[var(--surface-subtle)]' : ''}`}>
+              <tr key={row.crit} className={`dg-fade border-b border-border ${i % 2 === 0 ? 'bg-[var(--surface-subtle)]' : ''}`} style={dg(i, 150)}>
                 <td className="py-3 px-4">
                   <p className="text-text font-medium text-[13px] leading-snug">{row.crit}</p>
                   <p className="text-text-muted text-[10px] mt-0.5 leading-snug">{row.sub}</p>
                 </td>
-                <td className="py-3 px-4 text-center"><Stars n={row.claude} color={V} /></td>
-                <td className="py-3 px-4 text-center"><Stars n={row.gpt} color={GPT_COLOR} /></td>
-                <td className="py-3 px-4 text-center"><Stars n={row.cop} color={COPILOT_COLOR} /></td>
+                <td className="py-3 px-4 text-center"><Stars n={row.claude} color={V} i={i} col={0} /></td>
+                <td className="py-3 px-4 text-center"><Stars n={row.gpt} color={GPT_COLOR} i={i} col={1} /></td>
+                <td className="py-3 px-4 text-center"><Stars n={row.cop} color={COPILOT_COLOR} i={i} col={2} /></td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
+      </DiagramMotion>
       <p className="text-text-muted text-[11px] mt-5 text-right">{t.reco}</p>
     </div>
   )

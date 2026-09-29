@@ -22,6 +22,7 @@ import { intrinsicSize } from '@/lib/image-size'
 import { InlineCTA } from './_components/InlineCTA'
 import { ServiceGrid } from './_components/ServiceGrid'
 import { SummarizeWithAI } from './_components/SummarizeWithAI'
+import { BlogDiagramMotion } from '@/components/motion/BlogDiagramMotion'
 import type { ServiceLink } from './_components/InlineCTA'
 
 /* ─────────────────────────────────────────────
@@ -551,6 +552,9 @@ export default async function ArticlePage(
           {/* Colonne prose */}
           <article data-theme="dark" data-blog-article className="min-w-0">
             {contentParts}
+            {/* 29/09/2026 : les infographies HTML de l'article s'animent en arrivant à l'écran
+                (kit dg-*, docs/claude/22-diagrammes-animes.md). Le HTML servi ne change pas. */}
+            <BlogDiagramMotion />
 
             {/* First CTA (main service) inline */}
             {services[0] && (

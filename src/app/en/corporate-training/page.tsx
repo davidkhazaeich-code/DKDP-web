@@ -27,6 +27,7 @@ import { buildCourse, buildBreadcrumbList, buildFAQPage, buildOrganization } fro
 import { orange } from '@/lib/tokens'
 import { HeroVisual } from '@/app/formation-entreprise/_components/HeroVisual'
 import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from '@/components/ui/AppLogos'
+import { StepConnector } from '@/components/motion/StepConnector'
 
 export const metadata: Metadata = {
   title: 'Corporate training Geneva & Switzerland · DKDP',
@@ -541,13 +542,7 @@ export default function EnCorporateTrainingPage() {
               </div>
             </SectionReveal>
             <div className="relative">
-              <div
-                aria-hidden="true"
-                className="hidden lg:block absolute left-0 right-0 h-px top-[52px] z-0 pointer-events-none"
-                style={{
-                  background: 'linear-gradient(to right, transparent, rgba(255,140,0,0.20) 5%, rgba(255,140,0,0.70) 25%, #FF8C00 50%, rgba(255,140,0,0.70) 75%, rgba(255,140,0,0.20) 95%, transparent)',
-                }}
-              />
+              <StepConnector tone="orange" background="linear-gradient(to right, transparent, rgba(255,140,0,0.20) 5%, rgba(255,140,0,0.70) 25%, #FF8C00 50%, rgba(255,140,0,0.70) 75%, rgba(255,140,0,0.20) 95%, transparent)" />
               <div className="relative z-[1] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   {

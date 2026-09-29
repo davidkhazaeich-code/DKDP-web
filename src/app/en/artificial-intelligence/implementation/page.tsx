@@ -35,6 +35,7 @@ import { chrome, violet as violetToken, green as greenToken } from '@/lib/tokens
 import { PRIX, chf } from '@/data/pricing'
 import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 import { localizedPath } from '@/i18n/slugs'
+import { StepConnector } from '@/components/motion/StepConnector'
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
@@ -592,14 +593,7 @@ export default function ImplementationPage() {
 
           <div className="relative">
             {/* Connector line chrome metal */}
-            <div
-              aria-hidden="true"
-              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] z-0 pointer-events-none"
-              style={{
-                background:
-                  'linear-gradient(to right, transparent, rgba(212,212,216,0.20) 5%, #c0c0c0 25%, #D4D4D8 50%, #c0c0c0 75%, rgba(212,212,216,0.20) 95%, transparent)',
-              }}
-            />
+            <StepConnector tone="chrome" background="linear-gradient(to right, transparent, rgba(212,212,216,0.20) 5%, #c0c0c0 25%, #D4D4D8 50%, #c0c0c0 75%, rgba(212,212,216,0.20) 95%, transparent)" />
             <div className="relative z-[1] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {

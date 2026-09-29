@@ -30,6 +30,7 @@ import { FAQ_FORMATION } from '@/data/faq-formation'
 import { orange } from '@/lib/tokens'
 import { HeroVisual } from './_components/HeroVisual'
 import { AppLogoMarquee, IA_LOGOS, BUREAUTIQUE_LOGOS, PRODUCTIVITE_LOGOS } from '@/components/ui/AppLogos'
+import { StepConnector } from '@/components/motion/StepConnector'
 
 export const metadata: Metadata = {
   title: 'Formation entreprise Genève & Suisse romande · DKDP',
@@ -510,13 +511,7 @@ export default function FormationEntreprisePage() {
           </SectionReveal>
           <div className="relative">
             {/* Ligne directrice horizontale - orange */}
-            <div
-              aria-hidden="true"
-              className="hidden lg:block absolute left-0 right-0 h-px top-[52px] z-0 pointer-events-none"
-              style={{
-                background: 'linear-gradient(to right, transparent, rgba(255,140,0,0.20) 5%, rgba(255,140,0,0.70) 25%, #FF8C00 50%, rgba(255,140,0,0.70) 75%, rgba(255,140,0,0.20) 95%, transparent)',
-              }}
-            />
+            <StepConnector tone="orange" background="linear-gradient(to right, transparent, rgba(255,140,0,0.20) 5%, rgba(255,140,0,0.70) 25%, #FF8C00 50%, rgba(255,140,0,0.70) 75%, rgba(255,140,0,0.20) 95%, transparent)" />
           <div className="relative z-[1] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {

@@ -18,6 +18,7 @@ import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { violet } from '@/lib/tokens'
 import { AppLogoMarquee, IA_LOGOS, DESIGN_WEB_LOGOS, SOCIAL_LOGOS } from '@/components/ui/AppLogos'
 import { PRIX, chfHeure } from '@/data/pricing'
+import { StepConnector } from '@/components/motion/StepConnector'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => m.FAQSection))
@@ -513,8 +514,7 @@ export default function ConsultingMarketingPage() {
                 Nos engagements
               </p>
               <div className="relative">
-                <div aria-hidden="true" className="hidden lg:block absolute left-0 right-0 h-px top-[52px] z-0 pointer-events-none"
-                  style={{ background: 'linear-gradient(to right, transparent, rgba(124,58,237,0.20) 5%, #A78BFA 50%, rgba(124,58,237,0.20) 95%, transparent)' }} />
+                <StepConnector tone="violet" background="linear-gradient(to right, transparent, rgba(124,58,237,0.20) 5%, #A78BFA 50%, rgba(124,58,237,0.20) 95%, transparent)" />
                 <div className="relative z-[1] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {[
                     { Icon: ShieldCheck, title: 'Stratégie documentée', desc: 'Vous recevez un document de stratégie complet après chaque phase. Tout est écrit, pas verbal : vous gardez la connaissance.' },

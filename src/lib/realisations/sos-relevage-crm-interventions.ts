@@ -60,6 +60,11 @@ const realisation: Realisation = {
     { label: 'Reliée à', value: 'Site, Google Agenda, bexio, registre fédéral des bâtiments' },
     { label: 'Technologies', value: 'Next.js 15, Supabase à Zurich, Vercel' },
   ],
+  mockup: {
+    src: '/images/realisations/sos-relevage-crm-interventions/presentation.webp',
+    alt: "Rapport d'intervention SOS Relevage rempli de données fictives sur une tablette et checklist des 12 points publiés sur un téléphone, mis en scène sur l'établi d'un technicien",
+    focus: '81% 50%',
+  },
   cover: {
     src: '/images/realisations/sos-relevage-crm-interventions/rapport-mockup.webp',
     alt: "Deux pages d'un rapport d'intervention SOS Relevage remplies avec des données fictives : problème signalé, conclusion, points contrôlés, recommandations par priorité",

@@ -131,11 +131,17 @@ export interface RealisationHero {
   mobileView?: string
 }
 
-/** Composition ordinateur et telephone rendue a partir des vraies captures
- *  (tools/realisations/render-mockup.mjs) : visuel du hub et des cartes. */
+/** Image de presentation du hub, des cartes et du partage social (depuis le
+ *  2026-09-30) : decor genere dans l'univers de la marque du client, ecrans qui
+ *  montrent de vraies captures ou de vrais livrables incrustes en perspective,
+ *  vrai logo pose a l'export. Procedure : workflows/image-presentation-realisation.md
+ *  du DEV SPACE. L'alt dit « mis en scene » : le decor n'est pas un lieu reel. */
 export interface RealisationMockup {
   src: string
   alt: string
+  /** Cadrage (CSS `object-position`) quand la cellule large du hub rogne la photo :
+   *  les ecrans restent dans le champ. Sans lui, la cellule montre l'image entiere. */
+  focus?: string
 }
 
 /** Visuel de carte et d'apercu social pour un projet sans site a capturer.

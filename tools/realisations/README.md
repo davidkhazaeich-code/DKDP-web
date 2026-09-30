@@ -174,3 +174,28 @@ accroche française resterait sur la page anglaise).
 ⚠️ Serveur de dev de Next 16 : une étude déjà rendue peut revenir du cache de pré-rendu
 (`x-nextjs-cache: HIT`) après une modification de composant serveur. Arrêter le serveur,
 supprimer `.next`, relancer.
+
+## Images de présentation (2026-09-30)
+
+Demande de David : une image de présentation par projet, dans l'univers de la marque, avec
+ordinateur et smartphone modernes (références concurrentes : scènes de produit avec le logo du
+client). Chaque étude a `public/images/realisations/<slug>/presentation.webp` (1600x1000, WebP q84)
+et un `og.png` (1200x630) tiré de la même scène, référencés par `mockup` : hub, cartes, études
+liées et JSON-LD.
+
+| Étape | Outil |
+|---|---|
+| Écrans en haute définition, PNG sans perte (ordinateur 1512x950 en 2x, téléphone 393x798 en 3x) | `capture-hd.mjs --spec shots.json --out <dossier>` |
+| Scène générée, écrans en aplat de couleur d'incrustation (vert, magenta si le décor a du vert) | Gemini 3 Pro Image, MCP `nanobanana`, `model_tier: pro`, 4K, 16:9, deux variantes |
+| Incrustation en perspective, barre d'état, reflets, retouches, vrai logo, exports | `tools/scene_presentation.py` du DEV SPACE |
+
+Règle de preuve : le décor est une mise en scène générée, jamais un lieu réel du client ; les
+écrans montrent de vraies captures ou de vrais livrables (jamais une interface inventée) ; le
+logo est le vrai fichier, posé à l'export, jamais dessiné par le modèle. L'alt le dit (« vraies
+captures mises en scène »). `mockup.focus` (CSS `object-position`) cadre la photo sur les
+écrans dans la cellule large du hub, qui la rogne ; sans `focus`, la cellule garde l'ancien
+rendu entier et fondu, fait pour les compositions sur fond sombre.
+
+Procédure, gabarit de prompt, contrôle qualité et pièges : `workflows/image-presentation-realisation.md`
+du DEV SPACE. Scènes 4K, captures, logos, polices et specs des huit premières images :
+`clients Claude/DKDP/assets/presentations-realisations/` (recomposer sans régénérer).

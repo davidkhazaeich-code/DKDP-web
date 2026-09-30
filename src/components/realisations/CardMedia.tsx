@@ -16,7 +16,8 @@ import type { Locale } from '@/i18n/config'
  * sur la carte entiere (`[data-card]`), pas seulement sur l'image.
  */
 type Props = {
-  still: { src: string; alt: string }
+  /** `focus` : cadrage d'une photo de presentation, qui remplit alors la cellule large. */
+  still: { src: string; alt: string; focus?: string }
   video?: { src: string; webm?: string; durationSec: number }
   className?: string
   /** Cellule large du hub en grand ecran : l'image entiere, ses bords fondus dans le fond sombre. */
@@ -83,9 +84,11 @@ export function CardMedia({ still, video, className, containOnLarge = false, eag
         alt={still.alt}
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
+        style={still.focus ? { objectPosition: still.focus } : undefined}
         className={clsx(
           'absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]',
           containOnLarge &&
+            !still.focus &&
             'lg:object-contain lg:[mask-image:linear-gradient(to_bottom,transparent,black_16%,black_84%,transparent)]',
         )}
       />

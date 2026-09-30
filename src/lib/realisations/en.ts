@@ -46,8 +46,8 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
     tags: ['Showcase site', 'Next.js', 'Local SEO', 'Custom CRM', 'GEO'],
     client: { sector: 'Lift pumps', location: 'Geneva' },
     mockup: {
-      src: '/images/realisations/sos-relevage/mockup-hero.webp',
-      alt: 'The SOS Relevage website on a laptop and a phone: home page with the before-and-after slider on a plant room',
+      src: '/images/realisations/sos-relevage/presentation.webp',
+      alt: 'The SOS Relevage website on a laptop and a phone: home page and first step of the request form, real screenshots staged between clear water, a steel pipe and a brass valve',
     },
     meta: {
       title: 'Local service website and job-management CRM for a Geneva building-services company',
@@ -294,8 +294,8 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
       source: 'Google review, translated from French',
     },
     mockup: {
-      src: '/images/realisations/goldencash-refonte/mockup-hero.webp',
-      alt: 'The Golden Cash website on a laptop and a phone: home page “Vendez votre or au meilleur prix” and the price ticker',
+      src: '/images/realisations/goldencash-refonte/presentation.webp',
+      alt: 'The Golden Cash website on a laptop and a phone: home page “Vendez votre or au meilleur prix” and the online estimator for 50 g of 22-carat gold, real screenshots staged on navy marble with gold jewellery',
     },
     videos: [
       {
@@ -315,8 +315,8 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
     tags: ['Visual identity', 'Next.js', 'Bilingual website', 'Online application', 'Custom back office', 'Google Ads'],
     client: { sector: 'Wrestling and MMA camps', location: 'Dagestan and Chechnya' },
     mockup: {
-      src: '/images/realisations/mkr-caucasian-camp/mockup-hero.webp',
-      alt: 'The MKR Caucasian Camp website on a laptop and a phone: first screen of the French version, next-session card and apply button',
+      src: '/images/realisations/mkr-caucasian-camp/presentation.webp',
+      alt: 'The MKR Caucasian Camp website on a laptop and a phone: first screen of the French version and the application choice, real screenshots staged in a wrestling gym',
     },
     meta: {
       title: 'Brand, bilingual website and application platform for a wrestling and MMA camp',

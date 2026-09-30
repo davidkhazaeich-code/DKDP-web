@@ -74,8 +74,9 @@ const realisation: Realisation = {
     mobileView: '/images/realisations/mkr-caucasian-camp/hero-mobile.webp',
   },
   mockup: {
-    src: '/images/realisations/mkr-caucasian-camp/mockup-hero.webp',
-    alt: "Le site MKR Caucasian Camp sur un ordinateur portable et sur un téléphone : premier écran « Entraîne-toi au milieu des champions », carte de la prochaine session et bouton pour postuler",
+    src: '/images/realisations/mkr-caucasian-camp/presentation.webp',
+    alt: "Site MKR Caucasian Camp sur ordinateur et téléphone : premier écran « Entraîne-toi au milieu des champions » et choix de l'inscription, vraies captures mises en scène dans une salle de lutte",
+    focus: '74% 50%',
   },
   problem: {
     title: "Vendre un camp au bout du monde à des athlètes qui n'y sont jamais allés",

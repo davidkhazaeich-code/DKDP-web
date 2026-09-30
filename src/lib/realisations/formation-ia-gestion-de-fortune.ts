@@ -66,6 +66,11 @@ const realisation: Realisation = {
     { label: 'Animation', value: 'Romane, formatrice IA de DKDP' },
     { label: 'Dates', value: 'Fin août et début septembre 2026' },
   ],
+  mockup: {
+    src: '/images/realisations/formation-ia-gestion-de-fortune/presentation.webp',
+    alt: "Programme de la formation Claude de 1875 Finance sur un ordinateur portable, du cadre de confiance au relais interne, mis en scène sur un bureau de gestion de fortune",
+    focus: '49% 50%',
+  },
   cover: {
     src: '/images/realisations/formation-ia-gestion-de-fortune/cover.webp',
     alt: 'Schéma du programme en quatre séances : cadre de confiance, prompting, cas métier, puis automatisation et rôle de relais interne',

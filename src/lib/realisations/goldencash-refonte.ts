@@ -65,8 +65,9 @@ const realisation: Realisation = {
     mobileView: '/images/realisations/goldencash-refonte/hero-mobile.webp',
   },
   mockup: {
-    src: '/images/realisations/goldencash-refonte/mockup-hero.webp',
-    alt: "Le site Golden Cash sur un ordinateur portable et sur un téléphone : page d'accueil « Vendez votre or au meilleur prix » et bandeau des cours",
+    src: '/images/realisations/goldencash-refonte/presentation.webp',
+    alt: "Site Golden Cash sur ordinateur et téléphone : accueil « Vendez votre or au meilleur prix » et estimateur en ligne pour 50 g d'or 22 carats, vraies captures mises en scène sur un marbre bleu nuit avec des bijoux en or",
+    focus: '86% 50%',
   },
   videos: [
     {

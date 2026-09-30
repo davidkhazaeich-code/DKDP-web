@@ -48,6 +48,11 @@ const realisation: Realisation = {
     { label: 'Fréquence', value: 'Toutes les 5 minutes' },
     { label: 'Montants', value: 'Aucun publié sur cette page' },
   ],
+  mockup: {
+    src: '/images/realisations/automatisation-depenses-bexio-n8n/presentation.webp',
+    alt: "Schéma du flux qui saisit les dépenses dans Bexio avec n8n et Claude, sur un ordinateur portable mis en scène sur un bureau avec des justificatifs",
+    focus: '76% 50%',
+  },
   cover: {
     src: '/images/realisations/automatisation-depenses-bexio-n8n/cover.webp',
     alt: "Schéma du flux : justificatif déposé dans Google Drive, lecture par Claude, compte comptable, dépense créée dans Bexio, archive rangée par mois",

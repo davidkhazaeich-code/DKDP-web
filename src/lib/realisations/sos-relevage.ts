@@ -60,8 +60,9 @@ const realisation: Realisation = {
     mobileView: '/images/realisations/sos-relevage/hero-mobile.webp',
   },
   mockup: {
-    src: '/images/realisations/sos-relevage/mockup-hero.webp',
-    alt: "Le site SOS Relevage sur un ordinateur portable et sur un téléphone : page d'accueil avec le curseur avant et après sur un local technique",
+    src: '/images/realisations/sos-relevage/presentation.webp',
+    alt: "Site SOS Relevage sur ordinateur et téléphone : page d'accueil et première étape du formulaire de demande, vraies captures mises en scène entre eau claire, tuyau inox et vanne en laiton",
+    focus: '72% 50%',
   },
   problem: {
     title: "Un métier qu'on ne cherche que le jour où la cave prend l'eau",

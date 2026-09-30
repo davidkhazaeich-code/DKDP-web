@@ -66,6 +66,11 @@ const realisation: Realisation = {
     { label: 'Participants', value: "6 membres de l'équipe" },
     { label: 'Animation', value: 'Romane, formatrice IA de DKDP' },
   ],
+  mockup: {
+    src: '/images/realisations/formation-ia-pharmacovigilance/presentation.webp',
+    alt: "Support de la formation IA de l'équipe de pharmacovigilance de Lilly sur ordinateur et tablette : trois règles de confidentialité et un prompt décomposé, mis en scène dans un espace clinique",
+    focus: '90% 50%',
+  },
   cover: {
     src: '/images/realisations/formation-ia-pharmacovigilance/supports-mockup.webp',
     alt: "Deux slides du support de formation posées l'une sur l'autre : les trois règles de confidentialité, puis un prompt de pharmacovigilance décomposé élément par élément",

@@ -69,6 +69,11 @@ const realisation: Realisation = {
     { label: 'Animation', value: 'Romane, formatrice IA de DKDP' },
     { label: 'Date', value: "Juin 2026, avant la saison d'hiver" },
   ],
+  mockup: {
+    src: '/images/realisations/formation-ia-restauration-station/presentation.webp',
+    alt: "Support de la formation IA de Le Rouge, à Verbier, sur ordinateur et tablette : quatre réflexes pour bien prompter et instructions générales à rédiger avec Claude, mis en scène sur un comptoir de bar",
+    focus: '83% 50%',
+  },
   cover: {
     src: '/images/realisations/formation-ia-restauration-station/supports-mockup.webp',
     alt: "Deux slides du support de formation posées l'une sur l'autre : les instructions générales à rédiger avec Claude, puis les quatre réflexes d'un bon prompt",

@@ -49,3 +49,22 @@ describe('VideoObject.uploadDate', () => {
     expect(uploadDates(withDate('2026-12-01'), 'fr')).toEqual(['2026-12-01T12:00:00+01:00'])
   })
 })
+
+/**
+ * Meme defaut sur l'Article, releve par le Rich Results Test du 30.09.2026 :
+ * « Valeur de date et heure incorrecte » et « Il manque le fuseau horaire »
+ * pour datePublished et dateModified (facultatif, mais signale).
+ */
+describe('Article.datePublished et dateModified', () => {
+  it.each<Locale>(['fr', 'en'])('sont des dates-heures ISO 8601 avec fuseau, aux jours de la fiche (%s)', (lang) => {
+    for (const r of REALISATIONS) {
+      const article = buildRealisationArticle({ realisation: localizeRealisation(r, lang), lang })
+      const published = r.meta.publishedISO ?? r.meta.dateISO
+      const modified = r.meta.dateModifiedISO ?? published
+      expect(article.datePublished, `${r.slug}, datePublished`).toMatch(ISO_DATETIME_WITH_OFFSET)
+      expect(article.dateModified, `${r.slug}, dateModified`).toMatch(ISO_DATETIME_WITH_OFFSET)
+      expect(String(article.datePublished).slice(0, 10)).toBe(published)
+      expect(String(article.dateModified).slice(0, 10)).toBe(modified)
+    }
+  })
+})

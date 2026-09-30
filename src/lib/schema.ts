@@ -1,5 +1,6 @@
 import { ENTITY } from '@/lib/entity'
 import { PRIX } from '@/data/pricing'
+import { isoDateTimeZurich } from '@/lib/format'
 
 const BASE_URL = ENTITY.url
 
@@ -412,6 +413,8 @@ export function buildArticle(data: {
   headline: string
   description: string
   url: string
+  // Jours YYYY-MM-DD de l'article, rendus en date-heure de Geneve : Google
+  // signale la date seule (Rich Results Test du 30.09.2026).
   datePublished: string
   dateModified: string
   authorName?: string
@@ -426,8 +429,8 @@ export function buildArticle(data: {
     headline: data.headline,
     description: data.description,
     url: `${BASE_URL}${data.url}`,
-    datePublished: data.datePublished,
-    dateModified: data.dateModified,
+    datePublished: isoDateTimeZurich(data.datePublished),
+    dateModified: isoDateTimeZurich(data.dateModified),
     inLanguage: IN_LANGUAGE[lang],
     author: {
       '@type': 'Person',

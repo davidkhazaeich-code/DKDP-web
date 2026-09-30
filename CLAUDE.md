@@ -179,6 +179,7 @@ Couleurs par pilier dans `PILLAR_ACCENT` (aussi dans `src/lib/tokens.ts` sous `P
 
 - `metadata` export en haut de chaque page (`title`, `description`, `alternates.canonical`).
 - Schema JSON-LD via `<SchemaOrg schema={...} />` avec les builders de `lib/schema.ts`.
+- **Dates JSON-LD** : tout `DateTime` (`datePublished`, `dateModified`, `uploadDate`) passe par `isoDateTimeZurich` (`src/lib/format.ts`) au rendu, jamais une date seule ni `getTimezoneOffset` (Vercel tourne en UTC). Les données restent en `YYYY-MM-DD`. Sinon Google signale « Valeur de date et heure incorrecte » et « Il manque le fuseau horaire ». Fait dans `buildArticle` et `lib/realisations/jsonld.ts` ; un champ de type `Date` (`foundingDate`) garde la date seule.
 - Breadcrumb : toujours inclure `buildBreadcrumbList` sur les pages profondes.
 - Pas de `<h1>` genere automatiquement, toujours explicite dans le JSX.
 

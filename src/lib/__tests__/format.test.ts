@@ -53,3 +53,37 @@ describe('dates sans Intl', () => {
     expect(formatDateShort('2026-09-05')).toBe('05.09.2026')
   })
 })
+
+describe('isoDateTimeZurich', () => {
+  it('rend la date a midi avec le decalage de Geneve, ete comme hiver', async () => {
+    const { isoDateTimeZurich } = await import('../format')
+    expect(isoDateTimeZurich('2026-09-29')).toBe('2026-09-29T12:00:00+02:00')
+    expect(isoDateTimeZurich('2026-12-01')).toBe('2026-12-01T12:00:00+01:00')
+    expect(isoDateTimeZurich('2026-01-15')).toBe('2026-01-15T12:00:00+01:00')
+  })
+
+  it("bascule le dernier dimanche de mars et le dernier dimanche d'octobre", async () => {
+    const { isoDateTimeZurich } = await import('../format')
+    // 2026 : 29 mars et 25 octobre. 2027 : 28 mars et 31 octobre.
+    expect(isoDateTimeZurich('2026-03-28')).toBe('2026-03-28T12:00:00+01:00')
+    expect(isoDateTimeZurich('2026-03-29')).toBe('2026-03-29T12:00:00+02:00')
+    expect(isoDateTimeZurich('2026-10-24')).toBe('2026-10-24T12:00:00+02:00')
+    expect(isoDateTimeZurich('2026-10-25')).toBe('2026-10-25T12:00:00+01:00')
+    expect(isoDateTimeZurich('2027-03-27')).toBe('2027-03-27T12:00:00+01:00')
+    expect(isoDateTimeZurich('2027-03-28')).toBe('2027-03-28T12:00:00+02:00')
+    expect(isoDateTimeZurich('2027-10-30')).toBe('2027-10-30T12:00:00+02:00')
+    expect(isoDateTimeZurich('2027-10-31')).toBe('2027-10-31T12:00:00+01:00')
+  })
+
+  it('ne depend pas du fuseau du serveur : le build Vercel tourne en UTC', async () => {
+    const { isoDateTimeZurich } = await import('../format')
+    const previous = process.env.TZ
+    process.env.TZ = 'UTC'
+    try {
+      expect(isoDateTimeZurich('2026-09-29')).toBe('2026-09-29T12:00:00+02:00')
+    } finally {
+      if (previous === undefined) delete process.env.TZ
+      else process.env.TZ = previous
+    }
+  })
+})

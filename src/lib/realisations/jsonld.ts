@@ -1,4 +1,5 @@
 import { ENTITY } from '@/lib/entity'
+import { isoDateTimeZurich } from '@/lib/format'
 import { AUTHORS, aboutPath } from './authors'
 import { domainLabel } from './taxonomy'
 import type { Realisation } from './types'
@@ -110,7 +111,7 @@ export function buildRealisationArticle(input: {
             description: v.description,
             thumbnailUrl: `${BASE_URL}${v.poster}`,
             contentUrl: `${BASE_URL}${v.src}`,
-            uploadDate: v.uploadDate,
+            uploadDate: isoDateTimeZurich(v.uploadDate),
             duration: isoDuration(v.durationSec),
             width: v.width,
             height: v.height,

@@ -83,3 +83,30 @@ export function formatDateShort(iso: string): string {
   const { y, m, d } = parseIsoDate(iso)
   return `${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.${y}`
 }
+
+/** Jour du dernier dimanche d'un mois (1 a 12), calcule en UTC pour ignorer le fuseau du serveur. */
+function lastSunday(y: number, m: number): number {
+  const last = new Date(Date.UTC(y, m, 0))
+  return last.getUTCDate() - last.getUTCDay()
+}
+
+/**
+ * Date-heure ISO 8601 complete, a midi heure de Geneve, sans Intl :
+ *
+ *   isoDateTimeZurich('2026-09-29')  -> "2026-09-29T12:00:00+02:00"
+ *   isoDateTimeZurich('2026-12-01')  -> "2026-12-01T12:00:00+01:00"
+ *
+ * Pour les `DateTime` des donnees structurees : Google refuse la date seule
+ * dans `VideoObject.uploadDate` (Search Console du 30.09.2026, « Valeur de date
+ * et heure incorrecte » puis « Il manque le fuseau horaire »). Le decalage suit
+ * la regle europeenne que la Suisse applique, heure d'ete du dernier dimanche
+ * de mars au dernier dimanche d'octobre. Midi tombe loin des bascules de 2 h
+ * et 3 h, et le calcul ne lit jamais le fuseau du serveur (UTC sur Vercel).
+ */
+export function isoDateTimeZurich(iso: string): string {
+  const { y, m, d } = parseIsoDate(iso)
+  const monthDay = m * 100 + d
+  const summer = monthDay >= 300 + lastSunday(y, 3) && monthDay < 1000 + lastSunday(y, 10)
+  const date = `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`
+  return `${date}T12:00:00${summer ? '+02:00' : '+01:00'}`
+}

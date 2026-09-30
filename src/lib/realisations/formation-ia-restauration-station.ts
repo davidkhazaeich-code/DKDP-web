@@ -60,6 +60,11 @@ const realisation: Realisation = {
   tags: ['Formation IA', 'Restauration', 'Méthode ARCT', 'Claude', 'Ateliers métier'],
   lead:
     'Pendant une journée sur place, les équipes ont appris une méthode de prompt, réglé leur assistant, puis travaillé leurs propres cas en quatre ateliers.',
+  teaser: [
+    'Une journée de formation sur place, à Verbier',
+    'Méthode ARCT et assistant Claude réglé',
+    "Quatre ateliers sur les cas de l'équipe",
+  ],
   answer:
     "Le Rouge, restaurant et bar après-ski à Verbier, a formé ses équipes à l'IA pendant une journée sur place, en juin 2026, avec trois participants de Le Dahu. Le matin portait sur la méthode ARCT et Claude au quotidien, l'après-midi sur quatre ateliers métier. Le lendemain, DKDP a remis un pack de huit documents, dont 90 prompts rangés par poste.",
   facts: [

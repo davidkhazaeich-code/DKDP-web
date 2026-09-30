@@ -390,6 +390,10 @@ export interface Realisation {
    *  chiffre qui ne figure pas deja dans l'etude. La reponse directe (`answer`)
    *  reste sous le hero, dans le bloc « L'essentiel ». */
   lead?: string
+  /** Survol du visuel tournant du hub (depuis le 2026-09-30) : deux ou trois points
+   *  de ce qui a ete mis en place, 60 caracteres au plus chacun, sans chiffre qui ne
+   *  figure pas deja dans l'etude. Au toucher, les memes points s'affichent sous l'image. */
+  teaser?: string[]
   /** Reponse directe en tete de page, 60 mots au plus : qui, quoi, quel resultat. */
   answer?: string
   /** Fiche projet affichee sous la reponse directe. */

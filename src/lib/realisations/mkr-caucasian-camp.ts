@@ -57,6 +57,11 @@ const realisation: Realisation = {
   tags: ['Identité visuelle', 'Next.js', 'Site bilingue', 'Candidature en ligne', 'Back-office sur mesure', 'Google Ads'],
   lead:
     'Nous avons tout construit, de la marque au film : le site en deux langues, la candidature en ligne, le back-office, les emails et la publicité Google.',
+  teaser: [
+    'Marque, site bilingue et film de présentation',
+    'Inscriptions en ligne et back-office sur mesure',
+    'Emails automatiques et suivi Google Ads',
+  ],
   answer:
     "MKR Caucasian Camp organise des camps de lutte au Daghestan et de MMA en Tchétchénie. Depuis avril 2026, nous avons tout construit : la marque, le site bilingue, l'inscription, le back-office, les emails, le film et la publicité Google. Au relevé du 29 septembre 2026, le site sortait 1er sur « camp lutte daghestan ».",
   facts: [

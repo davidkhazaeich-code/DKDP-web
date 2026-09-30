@@ -51,6 +51,11 @@ const realisation: Realisation = {
   tags: ['CRM sur mesure', 'Application métier', 'PWA', 'Supabase', 'bexio', 'Google Agenda'],
   lead:
     'Sur le téléphone du technicien, chaque demande du site devient une intervention planifiée, contrôlée selon 12 points publiés, puis rendue en rapport sans ressaisie.',
+  teaser: [
+    'Application installable pour le technicien',
+    'Checklist des 12 points, une photo par point',
+    'Reliée au site, à Google Agenda et à bexio',
+  ],
   answer:
     "Pour SOS Relevage, spécialiste genevois des pompes de relevage, nous avons développé une application d'interventions sur mesure. Chaque demande du site devient une intervention planifiée, contrôlée sur place selon les 12 points publiés sur le site, documentée en photos et rendue en rapport. Un test empêche le site de promettre un point que le rapport ne couvre pas.",
   facts: [

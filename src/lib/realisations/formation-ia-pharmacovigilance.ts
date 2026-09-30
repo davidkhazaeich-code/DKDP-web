@@ -57,6 +57,11 @@ const realisation: Realisation = {
   tags: ['Formation IA', 'Pharmacovigilance', 'Confidentialité', 'Prompting', 'Données de santé'],
   lead:
     "En une demi-journée, l'équipe a posé les règles de confidentialité avant le premier prompt, puis s'est exercée sur trois dossiers fictifs de son métier.",
+  teaser: [
+    'Une demi-journée de 4 heures, en présentiel',
+    'Confidentialité avant le premier prompt',
+    'Support bilingue de 47 slides',
+  ],
   answer:
     "L'équipe pharmacovigilance, qualité et affaires réglementaires de Lilly en Suisse a suivi une demi-journée de formation IA en avril 2026. La confidentialité passait avant le prompting, et les exercices portaient sur trois dossiers fictifs du métier. Chacun est reparti avec le support bilingue de 47 slides, un récapitulatif et 19 prompts.",
   facts: [

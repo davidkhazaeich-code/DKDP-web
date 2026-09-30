@@ -43,6 +43,11 @@ const realisation: Realisation = {
   tags: ['Site vitrine', 'Next.js', 'SEO local', 'CRM sur mesure', 'GEO'],
   lead:
     "Le site est né avec l'entreprise : chaque demande passe par un tunnel en quatre étapes, puis arrive directement dans un CRM d'interventions construit sur mesure.",
+  teaser: [
+    'Formulaire de demande en quatre étapes',
+    'Demandes reçues dans un CRM sur mesure',
+    'Identité visuelle et référencement local',
+  ],
   answer:
     "SOS Relevage, spécialiste genevois des pompes de relevage, a lancé son activité le 24 août 2026 avec un site que nous avons réalisé : un tunnel de demande en quatre étapes alimente un CRM d'interventions sur mesure. Au relevé du 20 septembre 2026, le site sortait 1er du pack local sur « pompe de relevage genève ».",
   facts: [

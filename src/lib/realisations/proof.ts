@@ -28,6 +28,10 @@ const ANSWER_MAX_WORDS = 60
 const LEAD_MAX_WORDS = 30
 /** Part maximale du titre composee en degrade : quelques mots, jamais le titre. */
 const ACCENT_MAX_SHARE = 0.5
+/** Survol du hub : deux ou trois points courts, lisibles d'un coup d'oeil. */
+const TEASER_MIN = 2
+const TEASER_MAX = 3
+const TEASER_POINT_MAX_CHARS = 60
 
 /** Date du jour au format YYYY-MM-DD, en heure de Geneve. */
 export function todayISO(now: Date = new Date()): string {
@@ -121,6 +125,21 @@ export function proofIssues(r: Realisation, today: string = todayISO()): ProofIs
   // Forme
   if (r.meta.status === 'live' && !r.hero && !r.cover) {
     add('visual', 'Une étude en ligne a un visuel : capture du site (`hero`) ou couverture (`cover`).')
+  }
+  // Depuis le 2026-09-30, chaque etude en ligne a son image de presentation et le survol du hub.
+  if (r.meta.status === 'live' && !r.mockup) {
+    add('presentation', "Une étude en ligne a son image de présentation (`mockup`) : décor dans l'univers du client, vraies captures dans les écrans.")
+  }
+  if (r.meta.status === 'live' || r.teaser) {
+    const points = r.teaser ?? []
+    if (points.length < TEASER_MIN || points.length > TEASER_MAX) {
+      add('teaser', `Le survol du hub montre ${TEASER_MIN} ou ${TEASER_MAX} points de ce qui a été mis en place (\`teaser\`), ${points.length} trouvé(s).`)
+    }
+    for (const p of points) {
+      if (!p.trim() || p.length > TEASER_POINT_MAX_CHARS) {
+        add('teaser-length', `Point de survol vide ou trop long (${p.length} caractères, ${TEASER_POINT_MAX_CHARS} au plus) : « ${p} ».`)
+      }
+    }
   }
   if (r.answer) {
     const words = r.answer.trim().split(/\s+/).length

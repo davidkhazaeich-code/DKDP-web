@@ -18,6 +18,8 @@ function base(): Realisation {
     consent: { level: 'nomme', evidence: { kind: 'accord-ecrit', date: '2026-09-01', reference: 'email du 01.09' } },
     tags: ['Test'],
     cover: { src: '/images/x.webp', alt: 'x' },
+    mockup: { src: '/images/x.webp', alt: 'x' },
+    teaser: ['Premier point mis en place', 'Deuxième point mis en place'],
     problem: { title: 'Problème', body: 'Contexte.' },
     approach: { title: 'Approche', body: 'Récit.' },
   }
@@ -180,6 +182,28 @@ describe('forme', () => {
     expect(ids(r)).toContain('lead-length')
   })
 
+  it('une etude en ligne a son image de presentation', () => {
+    const r = base()
+    delete r.mockup
+    expect(ids(r)).toContain('presentation')
+    r.meta = { ...r.meta, status: 'private' }
+    expect(ids(r)).not.toContain('presentation')
+  })
+
+  it('le survol du hub montre deux ou trois points courts', () => {
+    const r = base()
+    r.teaser = ['Un seul point']
+    expect(ids(r)).toContain('teaser')
+    r.teaser = ['Un', 'Deux', 'Trois', 'Quatre']
+    expect(ids(r)).toContain('teaser')
+    r.teaser = ['Un point', 'x'.repeat(60)]
+    expect(ids(r)).toEqual([])
+    r.teaser = ['Un point', 'x'.repeat(61)]
+    expect(ids(r)).toContain('teaser-length')
+    delete r.teaser
+    expect(ids(r)).toContain('teaser')
+  })
+
   it('les mots en degrade viennent du titre et n en couvrent jamais la moitie', () => {
     const r = base()
     r.meta = { ...r.meta, title: 'Site et CRM pour une PME du bâtiment à Genève', titleAccent: 'CRM' }
@@ -280,6 +304,7 @@ describe('les realisations du site respectent les regles de preuve', () => {
       const e = EN_CONTENT[r.slug]
       return [
         ...(r.lead && !e.lead ? [`${r.slug} : lead`] : []),
+        ...(r.teaser && !e.teaser ? [`${r.slug} : teaser`] : []),
         ...(r.meta.titleAccent && !e.meta?.titleAccent ? [`${r.slug} : meta.titleAccent`] : []),
       ]
     })

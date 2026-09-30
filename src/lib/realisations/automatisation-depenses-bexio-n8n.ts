@@ -39,6 +39,11 @@ const realisation: Realisation = {
   tags: ['n8n', 'Bexio', 'Claude', 'Comptabilité', 'Google Drive'],
   lead:
     'Chaque justificatif déposé dans Google Drive devient une dépense Bexio classée, archivée et validée. Le flux tourne toutes les cinq minutes depuis avril 2026.',
+  teaser: [
+    'Chaque justificatif lu par Claude',
+    'Dépense créée dans Bexio, au bon compte',
+    'Relève toutes les 5 minutes, archive par mois',
+  ],
   answer:
     "Chez DKDP, chaque justificatif déposé dans un dossier Google Drive devient une dépense Bexio classée, nommée, archivée et validée, sans ressaisie. Le flux n8n tourne toutes les cinq minutes depuis avril 2026. En septembre, une relecture de 727 dépenses a montré qu'un seul compte en portait 26 % : le classement compte désormais 31 catégories.",
   facts: [

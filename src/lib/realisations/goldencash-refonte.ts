@@ -48,6 +48,11 @@ const realisation: Realisation = {
   tags: ['Refonte', 'Astro', 'API temps réel', 'Tableau de bord', 'SEO local'],
   lead:
     'Le nouveau site affiche un estimateur de rachat et des cours actualisés toutes les 10 secondes. Il est passé en production 12 jours après le premier commit.',
+  teaser: [
+    'Estimateur de rachat branché sur les cours',
+    "Cours de l'or mis à jour toutes les 10 secondes",
+    'Site refait sous Astro, référencement compris',
+  ],
   answer:
     "Golden Cash, acheteur d'or à Genève, nous a confié la refonte de son site en avril 2026. Le nouveau site Astro affiche un estimateur de rachat et des cours mis à jour toutes les 10 secondes, depuis une API qui garde une source de secours. Il est passé en production 12 jours après le premier commit.",
   facts: [

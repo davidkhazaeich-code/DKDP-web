@@ -199,3 +199,20 @@ rendu entier et fondu, fait pour les compositions sur fond sombre.
 Procédure, gabarit de prompt, contrôle qualité et pièges : `workflows/image-presentation-realisation.md`
 du DEV SPACE. Scènes 4K, captures, logos, polices et specs des huit premières images :
 `clients Claude/DKDP/assets/presentations-realisations/` (recomposer sans régénérer).
+
+## Survol du visuel tournant du hub (2026-09-30)
+
+Demande de David : au survol des images qui défilent en tête de `/realisations`, quelques
+informations qui donnent envie d'en savoir plus sur la mise en place, plutôt qu'un simple
+« Lire ». Chaque étude porte `teaser` : deux ou trois points de ce qui a été mis en place,
+60 caractères au plus chacun, sans chiffre qui ne figure pas déjà dans l'étude.
+
+| Contexte | Rendu (`HubHeroVisual`) |
+|---|---|
+| Souris ou pavé tactile (`hover: hover`) | Panneau qui monte du bas de l'image au survol et au focus clavier : « Mis en place », les points, le premier résultat daté (`heroProof`), « Lire l'étude ». Rotation en pause |
+| Écran tactile (`hover: none`) | Mêmes points et même résultat sous l'image, rotation ralentie à 7,5 s pour laisser lire |
+| Lecteur d'écran | Le panneau sur l'image est masqué (`aria-hidden`) ; le lien est décrit par le bloc sous l'image (`aria-describedby`), qui porte le même texte |
+
+`proof.ts` exige désormais, pour toute étude en ligne, l'image de présentation (`mockup`,
+règle `presentation`) et le survol (`teaser`, règles `teaser` et `teaser-length`) ; une étude
+traduite porte aussi son `teaser` anglais dans `en.ts` (test « traductions anglaises »).

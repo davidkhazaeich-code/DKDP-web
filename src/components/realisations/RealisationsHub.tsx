@@ -12,6 +12,8 @@ import { buildRealisationsCollection } from '@/lib/realisations/jsonld'
 import { hubOrder } from '@/lib/realisations'
 import { domainLabel, sectorLabel } from '@/lib/realisations/taxonomy'
 import { studyVisual } from '@/lib/realisations/visual'
+import { heroProof } from '@/lib/realisations/hero'
+import { formatDateShort } from '@/lib/format'
 import type { Realisation } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
 
@@ -40,7 +42,7 @@ export function RealisationsHub({ items, lang = 'fr' }: { items: Realisation[]; 
   const base = en ? '/en/portfolio' : '/realisations'
 
   const slides: HubSlide[] = ordered
-    .map((r) => {
+    .map((r): HubSlide | null => {
       const visual = studyVisual(r)
       if (!visual) return null
       return {
@@ -49,6 +51,11 @@ export function RealisationsHub({ items, lang = 'fr' }: { items: Realisation[]; 
         href: `${base}/${r.slug}`,
         client: r.client.name,
         label: `${domainLabel(r.domains[0], lang)} · ${sectorLabel(r.sector, lang)}`,
+        points: r.teaser ?? [],
+        result: (() => {
+          const proof = heroProof(r)
+          return proof ? { value: proof.value, metric: proof.metric, date: formatDateShort(proof.capturedAt) } : undefined
+        })(),
       }
     })
     .filter((s): s is HubSlide => s !== null)

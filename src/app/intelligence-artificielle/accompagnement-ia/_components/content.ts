@@ -6,31 +6,15 @@
  * livrables datés. Étude de mots-clés, SERP et Mode IA qui justifient la page :
  * `DEV SPACE/clients Claude/DKDP/seo-plan-2026-09/accompagnement-ia-2026-10-01/`.
  *
- * Règles : aucun prix en dur (tout vient de `PRIX` et `prixAccompagnementIa`),
- * aucun résultat chiffré sans source (test `chiffres-non-sources`), jamais
+ * Règles : aucun prix sur cette page, l'accompagnement est sur demande
+ * (décision de David du 01/10/2026), aucun résultat chiffré sans source (test `chiffres-non-sources`), jamais
  * d'adresse email (test `aucun-email-public`). Les réponses de FAQ font 40 à
  * 60 mots et nomment DKDP dans leur première phrase quand la question commence
  * par « qui » ou « quelles agences » (GEO, workflow recherche-mots-cles).
  */
-import { PRIX, chf, prixAccompagnementIa, ACCOMPAGNEMENT_IA_FORMULES } from '@/data/pricing'
 import type { Locale } from '@/i18n/config'
 
-const essentiel = chf(prixAccompagnementIa('essentiel'))
-const complet = chf(prixAccompagnementIa('complet'))
-const jour = chf(PRIX.accompagnementIaJour)
-const jourEngage = chf(PRIX.accompagnementIaJourEngage)
-const mois = PRIX.accompagnementIaMoisDemarrage
-const J = ACCOMPAGNEMENT_IA_FORMULES
-
 export const FR_PATH = '/intelligence-artificielle/accompagnement-ia'
-
-export type FormuleCard = {
-  key: 'essentiel' | 'standard' | 'complet'
-  name: string
-  pitch: string
-  includes: string[]
-  recommended?: boolean
-}
 
 export const CONTENT = {
   fr: {
@@ -42,10 +26,10 @@ export const CONTENT = {
       'DKDP accompagne les PME de Suisse romande dans leur transformation IA. Nous formons d’abord la direction, puis nous choisissons et paramétrons avec vous l’outil qui convient (ChatGPT, Claude ou Copilot) avant de le déployer équipe par équipe. Chaque mois, un compte rendu écrit liste ce qui a été livré, et la direction valide l’étape suivante.',
     pills: ['Livrables datés chaque mois', 'Formations des équipes comprises', 'La direction valide chaque étape'],
     cta: 'Planifier un appel',
-    ctaSecondary: 'Voir les formules',
+    ctaSecondary: 'Voir la méthode',
     stats: [
-      { v: essentiel, l: 'Dès, par mois', sub: `${J.essentiel} jours d’accompagnement` },
-      { v: jourEngage, l: 'La journée-intervenant', sub: `avec ${mois} mois de démarrage` },
+      { v: 'Pilote', l: 'Une équipe d’abord', sub: 'puis toutes les autres' },
+      { v: 'Mensuel', l: 'Compte rendu écrit', sub: 'validé par la direction' },
       { v: '5,0/5', l: 'Note Google', sub: '22 avis sur la fiche DKDP' },
       { v: '2019', l: 'Agence fondée à Genève', sub: 'aux Eaux-Vives' },
     ],
@@ -54,7 +38,6 @@ export const CONTENT = {
       { label: 'Méthode', href: '#methode' },
       { label: 'Livrables', href: '#livrables' },
       { label: 'Cas d’usage', href: '#cas-usage' },
-      { label: 'Formules', href: '#formules' },
       { label: 'FAQ', href: '#faq' },
     ],
     navCta: 'Prendre contact',
@@ -151,45 +134,6 @@ export const CONTENT = {
     outilsData:
       'Avec une offre professionnelle, l’éditeur s’engage à ne pas entraîner ses modèles sur vos données. Nous ajoutons une charte qui dit ce que chacun peut confier à l’outil.',
 
-    formulesTag: 'Formules',
-    formulesTitle: 'Trois formules, au mois.',
-    formulesIntro: `Le prix dépend du nombre de jours d’intervention par mois. Avec ${mois} mois de démarrage, la journée passe de ${jour} à ${jourEngage} hors TVA ; ensuite, l’accompagnement continue au mois.`,
-    perMonth: 'par mois, hors TVA',
-    insteadOf: 'au lieu de',
-    daysPerMonth: (n: number) => `${n} jours-intervenant par mois`,
-    recommended: 'Recommandé',
-    included: 'Ce qui est compris',
-    formules: [
-      {
-        key: 'essentiel',
-        name: 'Essentiel',
-        pitch: 'Pour équiper la direction et prouver le gain sur une équipe.',
-        includes: ['La direction outillée : outil choisi, paramétré, avec garde-fous', 'Un premier usage sur une équipe pilote', 'Un compte rendu écrit chaque mois'],
-      },
-      {
-        key: 'standard',
-        name: 'Standard',
-        pitch: 'Pour que toutes les équipes s’y mettent dès le premier trimestre.',
-        includes: ['Tout Essentiel', 'L’usage étendu à toutes les équipes', 'Les équipes formées, formations comprises', 'La dictée et les documents en plus des emails', 'Un point mensuel avec la direction'],
-        recommended: true,
-      },
-      {
-        key: 'complet',
-        name: 'Complet',
-        pitch: 'Pour aller jusqu’aux outils sur mesure, branchés sur vos logiciels.',
-        includes: ['Tout Standard', 'Des agents IA reliés à votre logiciel métier, selon ce qu’il permet', 'Documents et argumentaires produits dans vos formats', 'Un point toutes les deux semaines'],
-      },
-    ] as FormuleCard[],
-    ctaCardPrimary: 'Planifier un appel',
-    ctaCardSecondary: 'Demander un devis',
-    conditions: [
-      `${mois} mois de démarrage, puis au mois.`,
-      'Tarif par intervenant : une journée à deux compte pour deux jours.',
-      'Les formations de vos équipes se prennent sur les jours du mois.',
-      'Les licences de l’outil IA restent à votre charge, selon le nombre de postes.',
-      'La formation de la direction ouvre l’accompagnement ; nous la chiffrons selon le nombre de participants.',
-      `Sans engagement, la journée est facturée ${jour} hors TVA.`,
-    ],
 
     equipeTag: 'Qui intervient',
     equipeTitle: 'Deux interlocuteurs, qui connaissent votre dossier.',
@@ -204,9 +148,9 @@ export const CONTENT = {
 
     bridgeTitle: 'Pas encore prêt pour un accompagnement ?',
     bridges: [
-      { tag: 'Audit IA', title: 'Commencer par un diagnostic', desc: `Un plan d’action chiffré, dès ${chf(PRIX.auditIaStandard)}.`, href: '/intelligence-artificielle/audit-conseil' },
+      { tag: 'Audit IA', title: 'Commencer par un diagnostic', desc: 'Un plan d’action priorisé, avant d’engager quoi que ce soit.', href: '/intelligence-artificielle/audit-conseil' },
       { tag: 'Formation IA', title: 'Former une équipe en une journée', desc: 'ChatGPT, Claude et Copilot sur vos cas réels.', href: '/formation-entreprise/ia' },
-      { tag: 'Agents IA', title: 'Construire un outil sur mesure', desc: `Un agent relié à vos logiciels, dès ${chf(PRIX.agentFrom)}.`, href: '/intelligence-artificielle/agents-ia' },
+      { tag: 'Agents IA', title: 'Construire un outil sur mesure', desc: 'Un agent relié à vos logiciels, livré en projet.', href: '/intelligence-artificielle/agents-ia' },
     ],
 
     faqTitle: 'Vos questions sur l’accompagnement IA.',
@@ -214,7 +158,6 @@ export const CONTENT = {
     schemaDesc:
       'Accompagnement mensuel de la transformation IA des PME : formation de la direction, paramétrage de ChatGPT, Claude ou Copilot, test sur une équipe pilote, formation des équipes et livrables datés.',
     schemaType: 'Accompagnement IA en entreprise',
-    schemaPrice: `À partir de ${essentiel} par mois hors TVA (${J.essentiel} jours-intervenant), ${mois} mois de démarrage`,
     breadcrumbHome: 'Accueil',
 
     visual: {
@@ -229,8 +172,8 @@ export const CONTENT = {
       report: 'Compte rendu du mois',
       reportSub: 'Envoyé à la direction',
       mini: [
-        { v: `${J.essentiel}, ${J.standard} ou ${J.complet}`, l: 'Jours par mois' },
-        { v: `${mois} mois`, l: 'Puis au mois' },
+        { v: 'Pilote', l: 'Une équipe d’abord' },
+        { v: 'Mensuel', l: 'Compte rendu' },
         { v: 'Compris', l: 'Formations' },
       ],
     },
@@ -245,10 +188,10 @@ export const CONTENT = {
       'DKDP helps SMEs in French-speaking Switzerland adopt AI. We first train the leadership team, then we choose and configure the right tool with you (ChatGPT, Claude or Copilot) before rolling it out team by team. Every month, a written report lists what was delivered, and leadership approves the next step.',
     pills: ['Dated deliverables every month', 'Team training included', 'Leadership approves each step'],
     cta: 'Book a call',
-    ctaSecondary: 'See the plans',
+    ctaSecondary: 'See the method',
     stats: [
-      { v: essentiel, l: 'From, per month', sub: `${J.essentiel} days of support` },
-      { v: jourEngage, l: 'Per consultant day', sub: `with a ${mois}-month start` },
+      { v: 'Pilot', l: 'One team first', sub: 'then all the others' },
+      { v: 'Monthly', l: 'Written report', sub: 'approved by leadership' },
       { v: '5.0/5', l: 'Google rating', sub: '22 reviews on DKDP’s profile' },
       { v: '2019', l: 'Agency founded in Geneva', sub: 'in Eaux-Vives' },
     ],
@@ -257,7 +200,6 @@ export const CONTENT = {
       { label: 'Method', href: '#methode' },
       { label: 'Deliverables', href: '#livrables' },
       { label: 'Use cases', href: '#cas-usage' },
-      { label: 'Plans', href: '#formules' },
       { label: 'FAQ', href: '#faq' },
     ],
     navCta: 'Contact us',
@@ -326,29 +268,6 @@ export const CONTENT = {
     ],
     outilsData: 'On a business plan, the vendor commits not to train its models on your data. We add a policy stating what everyone may entrust to the tool.',
 
-    formulesTag: 'Plans',
-    formulesTitle: 'Three plans, billed monthly.',
-    formulesIntro: `The price depends on the number of days on site per month. With a ${mois}-month start, the day rate drops from ${jour} to ${jourEngage} excl. VAT; after that, the support continues monthly.`,
-    perMonth: 'per month, excl. VAT',
-    insteadOf: 'instead of',
-    daysPerMonth: (n: number) => `${n} consultant days per month`,
-    recommended: 'Recommended',
-    included: 'What’s included',
-    formules: [
-      { key: 'essentiel', name: 'Essential', pitch: 'To equip leadership and prove the gain with one team.', includes: ['Leadership equipped: tool chosen, configured, with safeguards', 'A first use case with a pilot team', 'A written report every month'] },
-      { key: 'standard', name: 'Standard', pitch: 'So that every team gets going in the first quarter.', includes: ['Everything in Essential', 'The use case extended to all teams', 'Teams trained, training included', 'Dictation and documents on top of emails', 'A monthly meeting with leadership'], recommended: true },
-      { key: 'complet', name: 'Complete', pitch: 'To go as far as custom tools connected to your software.', includes: ['Everything in Standard', 'AI agents connected to your business software, as far as it allows', 'Documents and sales arguments in your formats', 'A meeting every two weeks'] },
-    ] as FormuleCard[],
-    ctaCardPrimary: 'Book a call',
-    ctaCardSecondary: 'Request a quote',
-    conditions: [
-      `${mois}-month start, then month by month.`,
-      'Rate per consultant: a day with two consultants counts as two days.',
-      'Training for your teams is taken from the month’s days.',
-      'AI tool licences remain at your expense, depending on the number of seats.',
-      'Leadership training opens the engagement; we quote it based on the number of participants.',
-      `Without commitment, a day is billed ${jour} excl. VAT.`,
-    ],
 
     equipeTag: 'Who you work with',
     equipeTitle: 'Two people who know your file.',
@@ -363,9 +282,9 @@ export const CONTENT = {
 
     bridgeTitle: 'Not ready for ongoing support yet?',
     bridges: [
-      { tag: 'AI audit', title: 'Start with a diagnosis', desc: `A costed action plan, from ${chf(PRIX.auditIaStandard)}.`, href: '/intelligence-artificielle/audit-conseil' },
+      { tag: 'AI audit', title: 'Start with a diagnosis', desc: 'A prioritised action plan, before committing to anything.', href: '/intelligence-artificielle/audit-conseil' },
       { tag: 'AI training', title: 'Train a team in one day', desc: 'ChatGPT, Claude and Copilot on your real cases.', href: '/formation-entreprise/ia' },
-      { tag: 'AI agents', title: 'Build a custom tool', desc: `An agent connected to your software, from ${chf(PRIX.agentFrom)}.`, href: '/intelligence-artificielle/agents-ia' },
+      { tag: 'AI agents', title: 'Build a custom tool', desc: 'An agent connected to your software, delivered as a project.', href: '/intelligence-artificielle/agents-ia' },
     ],
 
     faqTitle: 'Your questions about AI adoption support.',
@@ -373,7 +292,6 @@ export const CONTENT = {
     schemaDesc:
       'Monthly support for SMEs adopting AI: leadership training, ChatGPT, Claude or Copilot configuration, pilot team testing, team training and dated deliverables.',
     schemaType: 'AI adoption consulting',
-    schemaPrice: `From ${essentiel} per month excl. VAT (${J.essentiel} consultant days), ${mois}-month start`,
     breadcrumbHome: 'Home',
 
     visual: {
@@ -388,8 +306,8 @@ export const CONTENT = {
       report: 'Monthly report',
       reportSub: 'Sent to leadership',
       mini: [
-        { v: `${J.essentiel}, ${J.standard} or ${J.complet}`, l: 'Days per month' },
-        { v: `${mois} months`, l: 'Then monthly' },
+        { v: 'Pilot', l: 'One team first' },
+        { v: 'Monthly', l: 'Report' },
         { v: 'Included', l: 'Training' },
       ],
     },
@@ -408,11 +326,13 @@ export const FAQ: Record<Locale, { question: string; answer: string }[]> = {
     },
     {
       question: 'Qui peut former la direction puis accompagner les équipes chaque mois ?',
-      answer: `DKDP propose exactement ce format. Romane, formatrice IA, forme d’abord la direction sur ses cas réels pendant une demi-journée. Ensuite, DKDP revient ${J.essentiel}, ${J.standard} ou ${J.complet} jours par mois pour mettre en place les usages, former les équipes et rendre compte à la direction, qui valide chaque étape avant la suivante.`,
+      answer:
+        'DKDP propose exactement ce format. Romane, formatrice IA, forme d’abord la direction sur ses cas réels pendant une demi-journée. Ensuite, DKDP revient chaque mois, selon un volume de jours fixé avec la direction, pour mettre en place les usages, former les équipes et rendre compte, la direction validant chaque étape.',
     },
     {
       question: 'Combien coûte un accompagnement IA pour une entreprise en Suisse ?',
-      answer: `Chez DKDP, la journée d’accompagnement IA coûte ${jour} hors TVA, ou ${jourEngage} avec un engagement de ${mois} mois. Les formules vont de ${essentiel} par mois (${J.essentiel} jours) à ${complet} par mois (${J.complet} jours), formations des équipes comprises. Les licences des outils IA restent à la charge de l’entreprise.`,
+      answer:
+        'Le prix dépend du périmètre : nombre de jours par mois, équipes à former et outils à construire. DKDP le chiffre sur demande, après un premier échange avec la direction, sous forme d’étapes datées et de livrables. Les licences des outils IA restent à la charge de l’entreprise.',
     },
     {
       question: 'Comment intégrer l’IA dans une entreprise ?',
@@ -448,11 +368,13 @@ export const FAQ: Record<Locale, { question: string; answer: string }[]> = {
     },
     {
       question: 'Who can train leadership and then support teams every month?',
-      answer: `DKDP offers exactly this format. Romane, AI trainer, first trains the leadership team on its real cases for half a day. DKDP then comes back ${J.essentiel}, ${J.standard} or ${J.complet} days a month to set up use cases, train the teams and report to leadership, which approves each step before the next one.`,
+      answer:
+        'DKDP offers exactly this format. Romane, AI trainer, first trains the leadership team on its real cases for half a day. DKDP then comes back every month, for a number of days agreed with leadership, to set up use cases, train the teams and report, with leadership approving each step.',
     },
     {
       question: 'How much does AI adoption support cost for a company in Switzerland?',
-      answer: `At DKDP, a day of AI adoption support costs ${jour} excl. VAT, or ${jourEngage} with a ${mois}-month commitment. Plans range from ${essentiel} per month (${J.essentiel} days) to ${complet} per month (${J.complet} days), team training included. AI tool licences remain at the company’s expense.`,
+      answer:
+        'The price depends on the scope: days per month, teams to train and tools to build. DKDP quotes it on request, after a first conversation with leadership, as dated steps and deliverables. AI tool licences remain at the company’s expense.',
     },
     {
       question: 'How do you bring AI into a company?',

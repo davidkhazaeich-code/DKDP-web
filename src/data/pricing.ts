@@ -49,17 +49,6 @@ export const PRIX = {
   llmFrom: 3500,
   llmTo: 6500,
   /**
-   * Accompagnement IA mensuel (01/10/2026, page /intelligence-artificielle/accompagnement-ia).
-   * Tarif IA de DKDP a la journee-intervenant (decision de David du 30/09/2026,
-   * offre PGN), puis 1'400 contre un engagement de trois mois de demarrage. Une
-   * journee a deux intervenants compte pour deux jours. Les formules mensuelles
-   * se calculent : jours par mois x tarif engage (voir `ACCOMPAGNEMENT_IA_FORMULES`).
-   */
-  accompagnementIaJour: 1600,
-  accompagnementIaJourEngage: 1400,
-  /** Mois de demarrage auxquels le tarif engage est lie, puis au mois. */
-  accompagnementIaMoisDemarrage: 3,
-  /**
    * Chatbot IA (25/09/2026, grille confirmee par David) : formules Essentiel et
    * Pro, sur mesure « a partir de », puis maintenance mensuelle une fois le
    * suivi inclus termine. FR et EN affichaient deja ces montants, mais en dur.
@@ -86,24 +75,6 @@ export const PRIX = {
   particuliersProHourly: 150,
   particuliersIaHourly: 200,
 } as const
-
-/**
- * Les trois formules de l'accompagnement IA : jours-intervenant par mois.
- * Le prix mensuel n'est jamais ecrit en dur, il se deduit de `PRIX`.
- */
-export const ACCOMPAGNEMENT_IA_FORMULES = {
-  essentiel: 2,
-  standard: 4,
-  complet: 6,
-} as const
-
-export type FormuleAccompagnementIa = keyof typeof ACCOMPAGNEMENT_IA_FORMULES
-
-/** Prix mensuel d'une formule, au tarif engage ou sans engagement. */
-export function prixAccompagnementIa(formule: FormuleAccompagnementIa, engage = true): number {
-  const jour = engage ? PRIX.accompagnementIaJourEngage : PRIX.accompagnementIaJour
-  return ACCOMPAGNEMENT_IA_FORMULES[formule] * jour
-}
 
 /** « CHF 2'500 », apostrophe suisse, pour un texte visible. */
 export function chf(n: number): string {

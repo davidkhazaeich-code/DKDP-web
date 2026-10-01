@@ -18,13 +18,11 @@ import { StepConnector } from '@/components/motion/StepConnector'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
 import { chrome, violet, green } from '@/lib/tokens'
-import { prixAccompagnementIa } from '@/data/pricing'
 import { localizedPath } from '@/i18n/slugs'
 import type { Locale } from '@/i18n/config'
 import { CONTENT, FAQ, FR_PATH } from './content'
 import { HeroVisual } from './HeroVisual'
 import { Livrables } from './Livrables'
-import { Formules } from './Formules'
 
 const CTAFinal = dynamic(() => import('@/components/sections/CTAFinal').then(m => m.CTAFinal))
 const LogoBanner = dynamic(() => import('@/components/sections/LogoBanner').then(m => m.LogoBanner))
@@ -59,8 +57,6 @@ export function AccompagnementIaPage({ lang = 'fr' }: { lang?: Locale }) {
           url: pagePath,
           description: t.schemaDesc,
           serviceType: t.schemaType,
-          priceFrom: prixAccompagnementIa('essentiel'),
-          priceSpecDescription: t.schemaPrice,
           lang,
         })}
       />
@@ -97,7 +93,7 @@ export function AccompagnementIaPage({ lang = 'fr' }: { lang?: Locale }) {
                   <LiquidMetalButton calLink="david-khazaei/planifier-un-appel" size="lg">
                     <span className="inline-flex items-center gap-2"><CalendarCheck size={16} aria-hidden="true" />{t.cta}</span>
                   </LiquidMetalButton>
-                  <Link href="#formules" className="text-sm text-text-muted hover:text-text transition-colors">
+                  <Link href="#methode" className="text-sm text-text-muted hover:text-text transition-colors">
                     {t.ctaSecondary} <span aria-hidden="true">↓</span>
                   </Link>
                 </div>
@@ -272,9 +268,6 @@ export function AccompagnementIaPage({ lang = 'fr' }: { lang?: Locale }) {
           </SectionReveal>
         </div>
       </section>
-
-      {/* ── Formules ── */}
-      <Formules lang={lang} />
 
       {/* ── Qui intervient : vraie photo de session ── */}
       <section className="py-24">

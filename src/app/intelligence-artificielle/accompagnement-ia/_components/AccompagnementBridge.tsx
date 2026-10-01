@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { CalendarCheck, ChevronRight } from 'lucide-react'
 import { SectionReveal } from '@/components/ui/SectionReveal'
-import { chf, prixAccompagnementIa } from '@/data/pricing'
 import { localizedPath } from '@/i18n/slugs'
 import type { Locale } from '@/i18n/config'
 import { FR_PATH } from './content'
@@ -10,13 +9,13 @@ const TEXT = {
   fr: {
     tag: 'Accompagnement IA',
     title: 'Vous préférez être accompagné chaque mois ?',
-    desc: `Direction formée, outil paramétré, équipes formées, livrables datés. Dès ${chf(prixAccompagnementIa('essentiel'))} par mois.`,
+    desc: 'Direction formée, outils mis en place, équipes formées, livrables datés. Sur demande.',
     more: 'Voir l’accompagnement',
   },
   en: {
     tag: 'AI adoption support',
     title: 'Would you rather be supported every month?',
-    desc: `Leadership trained, tool configured, teams trained, dated deliverables. From ${chf(prixAccompagnementIa('essentiel'))} per month.`,
+    desc: 'Leadership trained, tools set up, teams trained, dated deliverables. On request.',
     more: 'See the support',
   },
 }

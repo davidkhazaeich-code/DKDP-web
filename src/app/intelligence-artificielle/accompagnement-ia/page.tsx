@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { chf, prixAccompagnementIa } from '@/data/pricing'
 import { AccompagnementIaPage } from './_components/AccompagnementIaPage'
 
 /**
@@ -11,7 +10,7 @@ import { AccompagnementIaPage } from './_components/AccompagnementIaPage'
  */
 export const metadata: Metadata = {
   title: 'Accompagnement IA entreprise Genève | Transformation IA | DKDP',
-  description: `Accompagnement IA mensuel des PME romandes : direction formée, outil paramétré, équipes formées, livrables datés. Dès ${chf(prixAccompagnementIa('essentiel'))}/mois.`,
+  description: 'Accompagnement IA mensuel des PME romandes : direction formée, outils IA mis en place, équipes formées, livrables datés. Sur demande, à Genève.',
   alternates: {
     canonical: 'https://dkdp.ch/intelligence-artificielle/accompagnement-ia',
     languages: {

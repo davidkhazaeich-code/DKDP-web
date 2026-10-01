@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { chf, prixAccompagnementIa } from '@/data/pricing'
 /* Composant bilingue partagé avec la page FR (prop `lang`), comme la formation ChatGPT. */
 import { AccompagnementIaPage } from '@/app/intelligence-artificielle/accompagnement-ia/_components/AccompagnementIaPage'
 
@@ -10,7 +9,7 @@ import { AccompagnementIaPage } from '@/app/intelligence-artificielle/accompagne
  */
 export const metadata: Metadata = {
   title: 'AI Adoption Consulting Geneva | Monthly AI Support | DKDP',
-  description: `Monthly AI adoption support for Swiss SMEs: leadership trained, tool configured, teams trained, dated deliverables. From ${chf(prixAccompagnementIa('essentiel'))}/month.`,
+  description: 'Monthly AI adoption support for Swiss SMEs: leadership trained, AI tools set up, teams trained, dated deliverables. On request, in Geneva.',
   alternates: {
     canonical: 'https://dkdp.ch/en/artificial-intelligence/ai-adoption',
     languages: {

@@ -136,7 +136,8 @@ const TRIGGER_STYLE: Record<'agence' | 'ia' | 'formation' | 'apropos', React.CSS
 // ─── Carte Réalisations (méga menu À propos, 2026-10-01) ─────────────────────
 
 /**
- * Entrée « Réalisations » du pilier À propos : trois images de présentation
+ * Entrée « Réalisations » du pilier À propos, sous les liens (demande de David,
+ * 01.10.2026) : trois images de présentation
  * des études à la une, le nombre d'études, puis la dernière étude publiée,
  * chacune avec son propre lien. Les images restent décoratives (alt vide) :
  * le texte du lien dit où il mène. Sur ordinateur, chaque lien passe par
@@ -255,11 +256,6 @@ function MegaPanel({
             ))}
           </span>
         </div>
-        {feature && (
-          <div className="mb-2">
-            <RealisationsNavCard data={feature} lang={lang} />
-          </div>
-        )}
         <ul className="grid grid-cols-2 gap-1.5">
           {main.map((item) => (
             <li key={item.href}>
@@ -290,6 +286,11 @@ function MegaPanel({
             </li>
           ))}
         </ul>
+        {feature && (
+          <div className="mt-2">
+            <RealisationsNavCard data={feature} lang={lang} />
+          </div>
+        )}
         <div className="mt-3 pt-2.5 border-t border-border">
           <NavigationMenuLink asChild>
             <Link
@@ -519,12 +520,6 @@ function MobileNav({ open, onClose, lang, realisations }: { open: boolean; onClo
                   ))}
                 </div>
 
-                {tab.key === 'apropos' && realisations && (
-                  <div className="mb-2">
-                    <RealisationsNavCard data={realisations} lang={lang} mobile onNavigate={() => { haptic(); onClose() }} />
-                  </div>
-                )}
-
                 <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-2">
                   {tab.items.map((item, i) => (
                     <m.div
@@ -556,6 +551,12 @@ function MobileNav({ open, onClose, lang, realisations }: { open: boolean; onClo
                     </m.div>
                   ))}
                 </div>
+
+                {tab.key === 'apropos' && realisations && (
+                  <div className="mt-2">
+                    <RealisationsNavCard data={realisations} lang={lang} mobile onNavigate={() => { haptic(); onClose() }} />
+                  </div>
+                )}
 
                 {tab.hubHref && (
                   <div className="mt-3.5">

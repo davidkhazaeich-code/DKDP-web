@@ -9,13 +9,13 @@ const TEXT = {
   fr: {
     tag: 'Accompagnement IA',
     title: 'Vous préférez être accompagné chaque mois ?',
-    desc: 'Direction formée, outils mis en place, équipes formées, livrables datés. Sur demande.',
+    desc: 'Des outils IA branchés sur vos logiciels, testés avec une équipe pilote, puis déployés et formés. Sur demande.',
     more: 'Voir l’accompagnement',
   },
   en: {
     tag: 'AI adoption support',
     title: 'Would you rather be supported every month?',
-    desc: 'Leadership trained, tools set up, teams trained, dated deliverables. On request.',
+    desc: 'AI tools connected to your software, tested with a pilot team, then rolled out and trained. On request.',
     more: 'See the support',
   },
 }

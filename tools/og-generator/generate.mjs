@@ -40,7 +40,7 @@ const PAGES = [
 
   // Service pages
   // 01/10/2026 : accompagnement IA mensuel, partagé par la page FR et son miroir EN.
-  { file: 'accompagnement-ia.png',      pillar: 'ia',        label: 'Accompagnement IA · Genève',      title: 'L’IA dans toute l’entreprise',    subtitle: 'Direction formée · Équipes formées · Livrables chaque mois', size: 'smaller' },
+  { file: 'accompagnement-ia.png',      pillar: 'ia',        label: 'Accompagnement IA · Genève',      title: 'L’IA dans vos processus',    subtitle: 'Outils branchés sur vos logiciels · Équipe pilote · Formation', size: 'smaller' },
   { file: 'chatgpt-ads.png',            pillar: 'agence',    label: 'ChatGPT Ads · Genève',            title: 'Publicité dans ChatGPT',          subtitle: 'Cartes sponsorisées · Pilote 30 jours · Suisse romande', size: 'smaller' },
 ]
 

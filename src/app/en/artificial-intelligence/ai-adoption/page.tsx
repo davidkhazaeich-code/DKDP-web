@@ -9,7 +9,7 @@ import { AccompagnementIaPage } from '@/app/intelligence-artificielle/accompagne
  */
 export const metadata: Metadata = {
   title: 'AI Adoption Consulting Geneva | Monthly AI Support | DKDP',
-  description: 'Monthly AI adoption support for Swiss SMEs: leadership trained, AI tools set up, teams trained, dated deliverables. On request, in Geneva.',
+  description: 'AI adoption support for Swiss SMEs: we learn your business, build AI tools connected to your software and train your teams. On request.',
   alternates: {
     canonical: 'https://dkdp.ch/en/artificial-intelligence/ai-adoption',
     languages: {

@@ -2,8 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import {
-  ChevronRight, CheckCircle2, CalendarCheck, GraduationCap, ShieldCheck,
-  Presentation, SlidersHorizontal, FlaskConical, Users,
+  ChevronRight, CheckCircle2, CalendarCheck, ScanSearch, Plug, MousePointerClick,
+  Presentation, Users,
   MailOpen, FileText, Mic, PenLine, BookOpen, BarChart2, Lock,
 } from 'lucide-react'
 import { GradTag } from '@/components/ui/GradTag'
@@ -13,7 +13,6 @@ import { HeroBg } from '@/components/ui/HeroBg'
 import { HeroPills } from '@/components/ui/HeroPills'
 import { ScrollSpyNav } from '@/components/ui/ScrollSpyNav'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
-import { AppLogoMarquee, IA_LOGOS } from '@/components/ui/AppLogos'
 import { StepConnector } from '@/components/motion/StepConnector'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildServiceWithLocalBusiness, buildFAQPage, buildBreadcrumbList } from '@/lib/schema'
@@ -34,9 +33,9 @@ const G = green.color
 const bg = 'rgba(212,212,216,0.06)'
 const border = 'rgba(212,212,216,0.15)'
 
-const STEP_ICONS = [Presentation, SlidersHorizontal, FlaskConical, Users]
+const STEP_ICONS = [ScanSearch, Presentation, Plug, Users]
 const CAS_ICONS = [MailOpen, FileText, Mic, PenLine, BookOpen, BarChart2]
-const PILL_ICONS = [CalendarCheck, GraduationCap, ShieldCheck]
+const PILL_ICONS = [ScanSearch, Plug, MousePointerClick]
 
 /**
  * Page Accompagnement IA, partagée entre le FR (/intelligence-artificielle/accompagnement-ia)
@@ -71,7 +70,7 @@ export function AccompagnementIaPage({ lang = 'fr' }: { lang?: Locale }) {
 
       {/* ── Hero : texte vers 57 %, visuel à droite ── */}
       <HeroBg blob1="rgba(212,212,216,0.09)" blob2="rgba(124,58,237,0.10)" accentRgb="212,212,216">
-        <section className="pt-28 pb-16">
+        <section className="pt-28 pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-center gap-2 mb-6">
               <Link href={L('/intelligence-artificielle')} className="text-text-muted text-sm hover:text-text transition-colors">
@@ -102,9 +101,6 @@ export function AccompagnementIaPage({ lang = 'fr' }: { lang?: Locale }) {
             </div>
           </div>
         </section>
-        <div className="pb-12" aria-label={lang === 'en' ? 'AI tools we deploy' : 'Outils IA que nous déployons'}>
-          <AppLogoMarquee logos={IA_LOGOS} durationSeconds={126} size="md" />
-        </div>
       </HeroBg>
 
       {/* ── Faits de l'offre ── */}
@@ -232,8 +228,8 @@ export function AccompagnementIaPage({ lang = 'fr' }: { lang?: Locale }) {
               {t.casMore}{' '}
               <Link href={L('/intelligence-artificielle/agents-ia')} className="text-text-secondary underline underline-offset-4 hover:text-text">{t.casMoreAgents}</Link>{' '}
               {t.casMoreAnd}{' '}
-              <Link href={L('/intelligence-artificielle/automatisation')} className="text-text-secondary underline underline-offset-4 hover:text-text">{t.casMoreAuto}</Link>{' '}
-              {t.casMoreEnd}
+              <Link href={L('/intelligence-artificielle/automatisation')} className="text-text-secondary underline underline-offset-4 hover:text-text">{t.casMoreAuto}</Link>
+              {/^[,.;]/.test(t.casMoreEnd) ? '' : ' '}{t.casMoreEnd}
             </p>
           </SectionReveal>
         </div>

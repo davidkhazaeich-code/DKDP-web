@@ -65,6 +65,7 @@ function getPillars(lang: Locale, dict: FooterDict) {
       Icon: Sparkles,
       links: [
         { label: t.iaLinks[0], href: lp('/intelligence-artificielle') },
+        { label: t.iaLinks[7], href: lp('/intelligence-artificielle/accompagnement-ia') },
         { label: t.iaLinks[1], href: lp('/intelligence-artificielle/agents-ia') },
         { label: t.iaLinks[2], href: lp('/intelligence-artificielle/chatbot-ia') },
         { label: t.iaLinks[3], href: lp('/intelligence-artificielle/automatisation') },

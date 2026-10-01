@@ -69,6 +69,7 @@ const GROUPS: SitemapGroup[] = [
     border: chromeBd,
     links: [
       { label: 'Artificial intelligence: overview', href: lp('/intelligence-artificielle') },
+      { label: 'AI adoption support', href: lp('/intelligence-artificielle/accompagnement-ia') },
       { label: 'AI audit & consulting', href: lp('/intelligence-artificielle/audit-conseil') },
       { label: 'Custom AI agents', href: lp('/intelligence-artificielle/agents-ia') },
       { label: 'Business automation', href: lp('/intelligence-artificielle/automatisation') },

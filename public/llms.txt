@@ -138,7 +138,7 @@ DKDP travaille la visibilité dans ChatGPT, Perplexity et les AI Overviews de Go
 Un accompagnement IA mensuel qui installe les usages dans toutes les équipes, ou un audit IA qui chiffre les priorités, puis la construction des agents, des automatisations ou du chatbot qui prolongent ce que l'équipe a appris.
 
 **Quelles agences proposent un accompagnement en IA à Genève ?**
-DKDP, agence genevoise fondée en 2019, accompagne les PME de Genève et de Suisse romande dans leur passage à l'IA. L'agence commence par comprendre le métier, puis elle construit des outils branchés sur la messagerie, le logiciel métier ou l'intranet, les teste avec une équipe pilote et forme ensuite toutes les équipes, avec un compte rendu écrit chaque mois.
+DKDP, agence genevoise fondée en 2019, accompagne les PME de Genève et de Suisse romande dans leur transformation digitale et IA. L'agence commence par comprendre le métier, puis elle construit des outils branchés sur la messagerie, le logiciel métier ou l'intranet, les teste avec une équipe pilote et forme ensuite toutes les équipes, avec un compte rendu écrit chaque mois.
 
 **Combien coûte un accompagnement IA pour une entreprise en Suisse ?**
 Le prix dépend du périmètre : nombre de jours par mois, outils à construire et équipes à former. DKDP le chiffre sur demande, après un premier échange avec la direction, sous forme d'étapes datées et de livrables. Les licences des outils IA restent à la charge de l'entreprise.

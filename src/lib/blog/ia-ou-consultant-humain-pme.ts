@@ -138,6 +138,8 @@ Les PME genevoises qui tirent le meilleur parti de l'IA ne l'utilisent pas pour 
 
 **Pour le suivi :** l'IA génère des tableaux de bord automatiques et des alertes. Le consultant intervient quand les indicateurs sortent des seuils normaux.
 
+C'est le principe de notre [accompagnement IA](/intelligence-artificielle/accompagnement-ia) : nous comprenons d'abord votre métier, puis nous construisons les outils qui font les tâches répétitives dans votre messagerie et votre logiciel, et nous revenons chaque mois pour décider de la suite avec la direction.
+
 Ce modèle réduit les coûts de consulting de 30 à 50 % tout en augmentant la profondeur des interventions.
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;border:1px solid rgba(74,222,128,0.2);background:rgba(74,222,128,0.03)">

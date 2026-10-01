@@ -10,7 +10,7 @@ import {
   Bot, Workflow, BrainCircuit, BookOpen, Users2, Presentation,
   Phone, FileText, ChevronRight, X, Menu,
   Film, Shield, Share2, Palette, LayoutGrid, Wand2,
-  CalendarCheck, MessageCircle, Smartphone, Sparkles, Monitor, MessageSquare,
+  CalendarCheck, Handshake, MessageCircle, Smartphone, Sparkles, Monitor, MessageSquare,
 } from 'lucide-react'
 import {
   NavigationMenu, NavigationMenuContent, NavigationMenuItem,
@@ -61,6 +61,8 @@ function buildNavData(lang: Locale) {
   ]
 
   const IA_MAIN: MegaItem[] = [
+    // 01.10.2026 : l'accompagnement IA (offre PGN) en tête de l'onglet, son libellé est le dernier de t.iaMain.
+    { title: t.iaMain[6].title, description: t.iaMain[6].description, href: lp('/intelligence-artificielle/accompagnement-ia'), icon: Handshake },
     { title: t.iaMain[0].title, description: t.iaMain[0].description, href: lp('/intelligence-artificielle/agents-ia'), icon: Bot },
     { title: t.iaMain[1].title, description: t.iaMain[1].description, href: lp('/intelligence-artificielle/automatisation'), icon: Workflow },
     { title: t.iaMain[2].title, description: t.iaMain[2].description, href: lp('/intelligence-artificielle/audit-conseil'), icon: BrainCircuit },

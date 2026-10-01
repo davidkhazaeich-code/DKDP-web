@@ -57,7 +57,8 @@
       { "title": "AI audit and consulting", "description": "Diagnose your automation potential." },
       { "title": "AI implementation", "description": "Deploy AI inside your existing stack." },
       { "title": "AI chatbot", "description": "A 24/7 assistant designed for your business." },
-      { "title": "ChatGPT Ads", "description": "Your ads inside ChatGPT answers, a channel now open in Switzerland." }
+      { "title": "ChatGPT Ads", "description": "Your ads inside ChatGPT answers, a channel now open in Switzerland." },
+      { "title": "AI adoption support", "description": "AI tools connected to your processes, month after month." }
     ],
     "iaSecondary": [
       { "title": "AI agency in Geneva" },
@@ -115,7 +116,7 @@
     ],
     "iaLinks": [
       "AI agency in Geneva", "Custom AI agents", "AI chatbot",
-      "Business automation", "AI audit and consulting", "AI implementation", "ChatGPT Ads"
+      "Business automation", "AI audit and consulting", "AI implementation", "ChatGPT Ads", "AI adoption support"
     ],
     "aproposLinks": ["About the agency", "Pricing", "Blog", "Glossary", "Case studies"],
     "legalLinks": [

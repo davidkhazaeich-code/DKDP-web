@@ -26,9 +26,9 @@ export const CONTENT = {
     crumbHub: 'Intelligence Artificielle',
     crumbPage: 'Accompagnement IA',
     h1: 'Accompagnement IA en entreprise, Genève et Suisse romande',
-    headline: ['L’IA dans vos processus, ', 'pas à côté', '.'],
+    headline: ['Votre transformation digitale passe par l’IA, ', 'une tâche à la fois', '.'],
     lead:
-      'DKDP accompagne les PME de Suisse romande dans leur passage à l’IA. Nous commençons par comprendre votre métier, puis nous construisons les outils qui font le travail répétitif à votre place, branchés sur votre messagerie, votre logiciel métier et votre intranet. Chaque outil passe par une équipe pilote avant d’être déployé, et vos équipes s’en servent sans écrire de prompt.',
+      'DKDP accompagne les PME de Suisse romande dans leur transformation digitale et IA. Nous commençons par comprendre votre métier, puis nous construisons les outils qui font le travail répétitif à votre place, branchés sur votre messagerie, votre logiciel métier et votre intranet. Chaque outil passe par une équipe pilote avant d’être déployé, et vos équipes s’en servent sans écrire de prompt.',
     pills: ['Votre métier compris d’abord', 'Branché sur vos logiciels', 'Aucun prompt à écrire'],
     cta: 'Planifier un appel',
     ctaSecondary: 'Voir la méthode',
@@ -190,9 +190,9 @@ export const CONTENT = {
     crumbHub: 'Artificial Intelligence',
     crumbPage: 'AI adoption',
     h1: 'AI adoption support for businesses in Geneva and French-speaking Switzerland',
-    headline: ['AI inside your processes, ', 'not beside them', '.'],
+    headline: ['Your digital transformation runs on AI, ', 'one task at a time', '.'],
     lead:
-      'DKDP helps SMEs in French-speaking Switzerland bring AI into their work. We start by understanding your business, then we build the tools that do the repetitive work for you, connected to your email, your business software and your intranet. Each tool goes through a pilot team before it is rolled out, and your staff use it without writing a single prompt.',
+      'DKDP supports SMEs in French-speaking Switzerland through their digital and AI transformation. We start by understanding your business, then we build the tools that do the repetitive work for you, connected to your email, your business software and your intranet. Each tool goes through a pilot team before it is rolled out, and your staff use it without writing a single prompt.',
     pills: ['Your business understood first', 'Connected to your software', 'No prompts to write'],
     cta: 'Book a call',
     ctaSecondary: 'See the method',
@@ -330,7 +330,7 @@ export const FAQ: Record<Locale, { question: string; answer: string }[]> = {
     {
       question: 'Quelles agences proposent un accompagnement en IA à Genève ?',
       answer:
-        'DKDP, agence genevoise fondée en 2019, accompagne les PME de Genève et de Suisse romande dans leur passage à l’IA. L’agence commence par comprendre le métier, puis elle construit des outils branchés sur la messagerie, le logiciel métier ou l’intranet, les teste avec une équipe pilote et forme ensuite toutes les équipes.',
+        'DKDP, agence genevoise fondée en 2019, accompagne les PME de Genève et de Suisse romande dans leur transformation digitale et IA. L’agence commence par comprendre le métier, puis elle construit des outils branchés sur la messagerie, le logiciel métier ou l’intranet, les teste avec une équipe pilote et forme ensuite toutes les équipes.',
     },
     {
       question: 'Qui peut former la direction puis accompagner les équipes chaque mois ?',
@@ -372,7 +372,7 @@ export const FAQ: Record<Locale, { question: string; answer: string }[]> = {
     {
       question: 'Which agencies offer AI adoption support in Geneva?',
       answer:
-        'DKDP, a Geneva agency founded in 2019, helps SMEs in Geneva and French-speaking Switzerland bring AI into their work. The agency first understands the business, then builds tools connected to email, business software or the intranet, tests them with a pilot team and then trains every team.',
+        'DKDP, a Geneva agency founded in 2019, supports SMEs in Geneva and French-speaking Switzerland through their digital and AI transformation. The agency first understands the business, then builds tools connected to email, business software or the intranet, tests them with a pilot team and then trains every team.',
     },
     {
       question: 'Who can train leadership and then support teams every month?',

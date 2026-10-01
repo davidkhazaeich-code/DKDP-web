@@ -63,11 +63,12 @@ const realisation: Realisation = {
     'Support bilingue de 47 slides',
   ],
   answer:
-    "L'équipe pharmacovigilance, qualité et affaires réglementaires de Lilly en Suisse a suivi une demi-journée de formation IA en avril 2026. La confidentialité passait avant le prompting, et les exercices portaient sur trois dossiers fictifs du métier. Chacun est reparti avec le support bilingue de 47 slides, un récapitulatif et 19 prompts.",
+    "L'équipe pharmacovigilance, qualité et affaires réglementaires de Lilly en Suisse a suivi une demi-journée de formation IA le 30 avril 2026. La confidentialité passait avant le prompting, et les exercices portaient sur trois dossiers fictifs du métier. Chacun est reparti avec le support bilingue de 47 slides, un récapitulatif et 19 prompts.",
   facts: [
     { label: 'Pour qui', value: 'Eli Lilly, en Suisse' },
     { label: 'Équipe', value: 'Pharmacovigilance, qualité, affaires réglementaires' },
-    { label: 'Format', value: 'Une demi-journée de 4 heures, en présentiel, avril 2026' },
+    { label: 'Format', value: 'Une demi-journée de 4 heures, en présentiel' },
+    { label: 'Date', value: '30 avril 2026, de 9 h à 13 h' },
     { label: 'Participants', value: "6 membres de l'équipe" },
     { label: 'Animation', value: 'Romane, formatrice IA de DKDP' },
   ],
@@ -104,7 +105,7 @@ const realisation: Realisation = {
     ],
   },
   training: {
-    format: 'Une demi-journée de 4 heures en présentiel, pause comprise, en avril 2026',
+    format: 'Une demi-journée de 4 heures en présentiel, pause comprise, le 30 avril 2026',
     audience: "6 membres de l'équipe pharmacovigilance, qualité et affaires réglementaires",
     sessions: [
       {
@@ -160,7 +161,7 @@ const realisation: Realisation = {
       source: 'Programme de la formation, dossier de formation DKDP',
       sourceKind: 'dkdp',
       capturedAt: '2026-09-25',
-      period: 'avril 2026',
+      period: 'le 30 avril 2026',
     },
   ],
   lessons: [

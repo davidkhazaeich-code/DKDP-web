@@ -59,6 +59,7 @@ const realisation: Realisation = {
   facts: [
     { label: 'Secteur', value: "Cours d'informatique pour particuliers" },
     { label: 'Lieu', value: 'Genève, Eaux-Vives' },
+    { label: 'Début du projet', value: '28 mars 2026' },
     { label: 'Mise en ligne', value: '1er septembre 2026' },
     { label: 'Livré', value: 'Refonte, migration, référencement, version anglaise' },
     { label: 'Technologies', value: 'Astro 6, Infomaniak, GitHub Actions' },

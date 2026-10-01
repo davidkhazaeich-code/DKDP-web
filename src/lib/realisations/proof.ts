@@ -57,6 +57,18 @@ function clientDataAllowed(r: Realisation): boolean {
   return r.consent.level === 'nomme-chiffres' && r.consent.evidence?.kind === 'accord-ecrit'
 }
 
+/** Libellés de la fiche projet qui portent la date de livraison (`meta.dateISO`). */
+const DELIVERY_FACTS = ['Mise en ligne', 'En service', "Lancement de l'activité", 'Date']
+const MONTHS_FR = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+
+/** Première date écrite en toutes lettres (« 25 avril 2026 », « 1er septembre 2026 »), en YYYY-MM-DD. */
+export function firstFrenchDate(text: string): string | null {
+  const m = text.match(/(\d{1,2})(?:er)?\s+(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\s+(\d{4})/i)
+  if (!m) return null
+  const month = MONTHS_FR.indexOf(m[2].toLowerCase()) + 1
+  return `${m[3]}-${String(month).padStart(2, '0')}-${m[1].padStart(2, '0')}`
+}
+
 export function proofIssues(r: Realisation, today: string = todayISO()): ProofIssue[] {
   const issues: ProofIssue[] = []
   const add = (rule: string, message: string) => issues.push({ slug: r.slug, rule, message })
@@ -167,6 +179,13 @@ export function proofIssues(r: Realisation, today: string = todayISO()): ProofIs
     add('domains', 'Au moins un domaine, sans doublon.')
   }
   if (!isIsoDate(r.meta.dateISO)) add('date', `Date de publication invalide : ${r.meta.dateISO}`)
+  // La date affichée dans la fiche projet et la date de livraison des données ne divergent
+  // jamais (2026-10-01 : Golden Cash affichait « Mise en ligne 25 avril » avec un dateISO au 15).
+  const deliveryFact = (r.facts ?? []).find((f) => DELIVERY_FACTS.includes(f.label))
+  const shown = deliveryFact ? firstFrenchDate(deliveryFact.value) : null
+  if (deliveryFact && shown && shown !== r.meta.dateISO) {
+    add('date-fact', `« ${deliveryFact.label} : ${deliveryFact.value} » ne correspond pas à meta.dateISO (${r.meta.dateISO}).`)
+  }
   if (r.meta.dateModifiedISO && (!isIsoDate(r.meta.dateModifiedISO) || r.meta.dateModifiedISO < r.meta.dateISO)) {
     add('date-modified', 'La date de révision suit la date de publication.')
   }

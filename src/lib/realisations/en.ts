@@ -65,7 +65,9 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
     facts: [
       { label: 'Sector', value: 'Building services, lift pumps' },
       { label: 'Location', value: 'Canton of Geneva' },
-      { label: 'Launch', value: '24 August 2026' },
+      { label: 'Project start', value: '8 May 2026' },
+      { label: 'Open to Google', value: '25 July 2026' },
+      { label: 'Business launch', value: '24 August 2026' },
       { label: 'Delivered', value: 'Website, CRM, SEO, visual identity' },
       { label: 'Technology', value: 'Next.js 15, Supabase, Vercel' },
     ],
@@ -250,10 +252,11 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
     lead: 'The new site shows a buy-back estimator and prices refreshed every 10 seconds. It went live 12 days after the first commit.',
     teaser: ['Buy-back estimator tied to live gold prices', 'Gold prices refreshed every 10 seconds', 'Rebuilt in Astro, SEO included'],
     answer:
-      'Golden Cash, a gold buyer in Geneva, asked us to rebuild its website in April 2026. The new Astro site shows a buy-back estimator and prices refreshed every 10 seconds, from an API that keeps a backup source. It went live 12 days after the first commit.',
+      'Golden Cash, a gold buyer in Geneva, put its new website live on 25 April 2026. The Astro site shows a buy-back estimator and prices refreshed every 10 seconds, from an API that keeps a backup source. The first commit was on 13 April, 12 days earlier.',
     facts: [
       { label: 'Sector', value: 'Gold and precious-metal buying' },
       { label: 'Location', value: 'Geneva, Eaux-Vives' },
+      { label: 'Project start', value: '13 April 2026' },
       { label: 'Live', value: '25 April 2026' },
       { label: 'Delivered', value: 'Website rebuild, price API, SEO' },
       { label: 'Technology', value: 'Astro 5, PHP API, Infomaniak' },
@@ -332,6 +335,7 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
     facts: [
       { label: 'Sector', value: 'Computer lessons for individuals' },
       { label: 'Location', value: 'Geneva, Eaux-Vives' },
+      { label: 'Project start', value: '28 March 2026' },
       { label: 'Live', value: '1 September 2026' },
       { label: 'Delivered', value: 'Rebuild, migration, SEO, English version' },
       { label: 'Technology', value: 'Astro 6, Infomaniak, GitHub Actions' },
@@ -560,7 +564,8 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
     facts: [
       { label: 'Sector', value: 'Sport, wrestling and MMA camps' },
       { label: 'Destinations', value: 'Dagestan and Chechnya' },
-      { label: 'Live', value: 'May 2026, first commit on 4 April' },
+      { label: 'Project start', value: '4 April 2026' },
+      { label: 'Live', value: '27 May 2026' },
       { label: 'Delivered', value: 'Brand, website, applications, back office, emails, video, advertising' },
       { label: 'Technologies', value: 'Next.js 16, Supabase, Resend, Vercel' },
     ],

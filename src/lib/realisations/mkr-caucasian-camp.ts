@@ -67,7 +67,8 @@ const realisation: Realisation = {
   facts: [
     { label: 'Secteur', value: 'Sport, camps de lutte et de MMA' },
     { label: 'Destinations', value: 'Daghestan et Tchétchénie' },
-    { label: 'En ligne', value: 'Mai 2026, premier commit le 4 avril' },
+    { label: 'Début du projet', value: '4 avril 2026' },
+    { label: 'Mise en ligne', value: '27 mai 2026' },
     { label: 'Livré', value: 'Marque, site, inscriptions, back-office, emails, vidéo, publicité' },
     { label: 'Technologies', value: 'Next.js 16, Supabase, Resend, Vercel' },
   ],

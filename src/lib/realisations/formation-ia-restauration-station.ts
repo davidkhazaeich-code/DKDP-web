@@ -66,13 +66,13 @@ const realisation: Realisation = {
     "Quatre ateliers sur les cas de l'équipe",
   ],
   answer:
-    "Le Rouge, restaurant et bar après-ski à Verbier, a formé ses équipes à l'IA pendant une journée sur place, en juin 2026, avec trois participants de Le Dahu. Le matin portait sur la méthode ARCT et Claude au quotidien, l'après-midi sur quatre ateliers métier. Le lendemain, DKDP a remis un pack de huit documents, dont 90 prompts rangés par poste.",
+    "Le Rouge, restaurant et bar après-ski à Verbier, a formé ses équipes à l'IA le 18 juin 2026, une journée sur place avec trois participants de Le Dahu. Le matin portait sur la méthode ARCT et Claude au quotidien, l'après-midi sur quatre ateliers métier. Le lendemain, DKDP a remis un pack de huit documents, dont 90 prompts rangés par poste.",
   facts: [
     { label: 'Pour qui', value: 'Le Rouge, Verbier, avec trois participants de Le Dahu' },
     { label: 'Format', value: 'Une journée sur place, de 9 h 30 à 15 h 30' },
     { label: 'Participants', value: 'Une dizaine, dont une personne à distance' },
     { label: 'Animation', value: 'Romane, formatrice IA de DKDP' },
-    { label: 'Date', value: "Juin 2026, avant la saison d'hiver" },
+    { label: 'Date', value: "18 juin 2026, avant la saison d'hiver" },
   ],
   mockup: {
     src: '/images/realisations/formation-ia-restauration-station/presentation.webp',
@@ -163,7 +163,7 @@ const realisation: Realisation = {
       source: 'Déroulé de la journée, dossier de formation DKDP',
       sourceKind: 'dkdp',
       capturedAt: '2026-09-25',
-      period: 'juin 2026',
+      period: 'le 18 juin 2026',
     },
   ],
   lessons: [

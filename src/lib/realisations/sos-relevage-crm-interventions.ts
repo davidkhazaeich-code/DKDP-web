@@ -61,6 +61,7 @@ const realisation: Realisation = {
   facts: [
     { label: 'Pour', value: 'SOS Relevage, pompes de relevage, Genève' },
     { label: 'Utilisée par', value: 'Le technicien sur le terrain et le bureau' },
+    { label: 'Début du projet', value: '30 juillet 2026' },
     { label: 'En service', value: 'Depuis le 31 juillet 2026' },
     { label: 'Reliée à', value: 'Site, Google Agenda, bexio, registre fédéral des bâtiments' },
     { label: 'Technologies', value: 'Next.js 15, Supabase à Zurich, Vercel' },

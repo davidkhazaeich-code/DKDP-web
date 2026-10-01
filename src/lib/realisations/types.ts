@@ -107,7 +107,11 @@ export interface RealisationMeta {
    *  du texte. Controle par `proof.ts`. */
   titleAccent?: string
   excerpt: string
-  /** Date de livraison ou de mise en service du projet. */
+  /** Date réelle de livraison : mise en ligne d'un site, mise en service d'un outil, jour
+   *  (ou dernier jour) d'une formation. Vérifiée à la source (historique git, agenda,
+   *  email de confirmation), et identique à la date affichée dans `facts` (« Mise en
+   *  ligne », « En service », « Date ») : `proof.ts` refuse un écart. Le début du projet
+   *  s'écrit à part, dans `facts` (« Début du projet »). */
   dateISO: string
   status: RealisationStatus
   /** Date de publication de l'etude sur dkdp.ch (defaut : dateISO). */

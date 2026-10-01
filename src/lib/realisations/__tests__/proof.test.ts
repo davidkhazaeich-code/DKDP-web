@@ -237,6 +237,18 @@ describe('forme', () => {
     expect(ids(r)).toContain('em-dash')
   })
 
+  it('la date de la fiche projet est celle des donnees (mise en ligne, en service, date)', () => {
+    const r = base()
+    r.facts = [{ label: 'Début du projet', value: '13 avril 2026' }, { label: 'Mise en ligne', value: '25 avril 2026' }]
+    r.meta = { ...r.meta, dateISO: '2026-04-15' }
+    expect(ids(r)).toContain('date-fact')
+    r.meta = { ...r.meta, dateISO: '2026-04-25' }
+    expect(ids(r)).not.toContain('date-fact')
+    r.facts = [{ label: 'En service', value: 'Depuis le 1er septembre 2026' }]
+    r.meta = { ...r.meta, dateISO: '2026-09-01' }
+    expect(ids(r)).not.toContain('date-fact')
+  })
+
   it('au moins un domaine, sans doublon', () => {
     const r = base()
     r.domains = []

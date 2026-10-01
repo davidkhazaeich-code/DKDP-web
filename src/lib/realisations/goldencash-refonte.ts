@@ -29,7 +29,7 @@ const realisation: Realisation = {
       "Refonte Astro d'un acheteur d'or genevois : cours des métaux mis à jour toutes les 10 secondes, API avec secours, en ligne en 12 jours.",
     excerpt:
       "Refonte Astro d'un acheteur d'or genevois : l'estimateur de rachat et les cours se mettent à jour toutes les 10 secondes, depuis une API qui garde une source de secours. Mise en production 12 jours après le premier commit.",
-    dateISO: '2026-04-15',
+    dateISO: '2026-04-25',
     publishedISO: '2026-04-26',
     dateModifiedISO: '2026-09-25',
     status: 'live',
@@ -54,10 +54,11 @@ const realisation: Realisation = {
     'Site refait sous Astro, référencement compris',
   ],
   answer:
-    "Golden Cash, acheteur d'or à Genève, nous a confié la refonte de son site en avril 2026. Le nouveau site Astro affiche un estimateur de rachat et des cours mis à jour toutes les 10 secondes, depuis une API qui garde une source de secours. Il est passé en production 12 jours après le premier commit.",
+    "Golden Cash, acheteur d'or à Genève, a mis en ligne son nouveau site le 25 avril 2026. Le site Astro affiche un estimateur de rachat et des cours mis à jour toutes les 10 secondes, depuis une API qui garde une source de secours. Le premier commit datait du 13 avril, 12 jours plus tôt.",
   facts: [
     { label: 'Secteur', value: "Rachat d'or et de métaux précieux" },
     { label: 'Lieu', value: 'Genève, Eaux-Vives' },
+    { label: 'Début du projet', value: '13 avril 2026' },
     { label: 'Mise en ligne', value: '25 avril 2026' },
     { label: 'Livré', value: 'Refonte du site, API des cours, référencement' },
     { label: 'Technologies', value: 'Astro 5, API PHP, Infomaniak' },

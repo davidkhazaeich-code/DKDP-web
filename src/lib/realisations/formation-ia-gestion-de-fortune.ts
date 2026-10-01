@@ -63,13 +63,13 @@ const realisation: Realisation = {
     'Deux référents formés, relais des équipes',
   ],
   answer:
-    "1875 Finance, gérant de fortune indépendant à Genève, a fait former deux référents internes avant d'ouvrir l'IA à ses équipes. Les quatre séances de 1 h 30, fin août et début septembre 2026, ont commencé par le cadre de gouvernance des données, puis couvert le prompting avec Claude, les cas métier et les premières automatisations.",
+    "1875 Finance, gérant de fortune indépendant à Genève, a fait former deux référents internes avant d'ouvrir l'IA à ses équipes. Les quatre séances de 1 h 30, du 25 août au 2 septembre 2026, ont commencé par le cadre de gouvernance des données, puis couvert le prompting avec Claude, les cas métier et les premières automatisations.",
   facts: [
     { label: 'Pour qui', value: '1875 Finance, gestion de fortune, Genève' },
     { label: 'Format', value: '4 séances de 1 h 30, dans les locaux du client' },
     { label: 'Participants', value: 'Deux référents internes' },
     { label: 'Animation', value: 'Romane, formatrice IA de DKDP' },
-    { label: 'Dates', value: 'Fin août et début septembre 2026' },
+    { label: 'Dates', value: '25, 27 et 31 août, 2 septembre 2026' },
   ],
   mockup: {
     src: '/images/realisations/formation-ia-gestion-de-fortune/presentation.webp',
@@ -103,7 +103,7 @@ const realisation: Realisation = {
     ],
   },
   training: {
-    format: '4 séances de 1 h 30 en présentiel, soit 6 heures, fin août et début septembre 2026',
+    format: '4 séances de 1 h 30 en présentiel, soit 6 heures, du 25 août au 2 septembre 2026',
     audience: 'Deux référents internes, du niveau débutant au niveau intermédiaire',
     sessions: [
       {
@@ -143,7 +143,7 @@ const realisation: Realisation = {
       source: 'Programme signé et agenda des séances, dossier de formation DKDP',
       sourceKind: 'dkdp',
       capturedAt: '2026-09-25',
-      period: 'fin août et début septembre 2026',
+      period: 'du 25 août au 2 septembre 2026',
     },
     {
       metric: 'Référents formés',

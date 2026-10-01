@@ -53,7 +53,9 @@ const realisation: Realisation = {
   facts: [
     { label: 'Secteur', value: 'Bâtiment, pompes de relevage' },
     { label: 'Lieu', value: 'Canton de Genève' },
-    { label: 'Lancement', value: '24 août 2026' },
+    { label: 'Début du projet', value: '8 mai 2026' },
+    { label: 'Ouvert à Google', value: '25 juillet 2026' },
+    { label: "Lancement de l'activité", value: '24 août 2026' },
     { label: 'Livré', value: 'Site, CRM, référencement, identité visuelle' },
     { label: 'Technologies', value: 'Next.js 15, Supabase, Vercel' },
   ],

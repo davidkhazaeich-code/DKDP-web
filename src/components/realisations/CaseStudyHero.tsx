@@ -20,6 +20,7 @@ import { HeroBg } from '@/components/ui/HeroBg'
 import { HeroPills } from '@/components/ui/HeroPills'
 import { LiquidMetalButton } from '@/components/canvas/LiquidMetalButton'
 import { CaseStudyHeroVisual } from './CaseStudyHeroVisual'
+import { studyLiveUrl } from '@/lib/realisations/links'
 import { domainLabel, domainServicePath } from '@/lib/realisations/taxonomy'
 import { heroProof, heroVisual, splitTitle } from '@/lib/realisations/hero'
 import type { Realisation, RealisationDomain } from '@/lib/realisations/types'
@@ -59,7 +60,7 @@ export function CaseStudyHero({ r, lang = 'fr' }: { r: Realisation; lang?: Local
   const visual = heroVisual(r)
   const imageFirst = visual !== null && visual.kind !== 'flow' && visual.kind !== 'training'
   const title = splitTitle(r.meta.title, r.meta.titleAccent)
-  const liveUrl = r.liveUrl && !r.client.anonymized ? r.liveUrl : null
+  const liveUrl = studyLiveUrl(r)
   const service = domainServicePath(r.domains[0], lang)
   const t = {
     home: en ? 'Home' : 'Accueil',
@@ -133,9 +134,10 @@ export function CaseStudyHero({ r, lang = 'fr' }: { r: Realisation; lang?: Local
 
               <div className="flex flex-wrap items-center gap-x-7 gap-y-4">
                 {liveUrl ? (
-                  <LiquidMetalButton href={liveUrl} size="lg" target="_blank" rel="noopener noreferrer">
+                  <LiquidMetalButton href={liveUrl} size="lg" target="_blank" rel="noopener">
                     {t.visit}
                     <ArrowUpRight aria-hidden="true" className="ml-1.5 inline h-4 w-4 align-[-2px]" />
+                    <span className="sr-only">{en ? ' (opens in a new tab)' : ' (nouvel onglet)'}</span>
                   </LiquidMetalButton>
                 ) : (
                   <LiquidMetalButton href={contact} size="lg">
@@ -164,7 +166,7 @@ export function CaseStudyHero({ r, lang = 'fr' }: { r: Realisation; lang?: Local
 
             {visual && (
               <div className={imageFirst ? 'order-1 lg:order-2' : undefined}>
-                <CaseStudyHeroVisual visual={visual} clientName={r.client.name} proof={heroProof(r)} lang={lang} />
+                <CaseStudyHeroVisual visual={visual} clientName={r.client.name} proof={heroProof(r)} liveUrl={liveUrl} lang={lang} />
               </div>
             )}
           </div>

@@ -1,4 +1,6 @@
 import { DeviceStage } from './DeviceStage'
+import { SiteLink } from './SiteLink'
+import { siteHost } from '@/lib/realisations/links'
 import type { RealisationHero } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
 
@@ -11,10 +13,13 @@ import type { Locale } from '@/i18n/config'
 export function SiteStage({
   hero,
   clientName,
+  liveUrl,
   lang = 'fr',
 }: {
   hero: RealisationHero
   clientName: string
+  /** Site livre, ouvert dans un nouvel onglet sous l'intro (2026-10-01). */
+  liveUrl?: string | null
   lang?: Locale
 }) {
   const en = lang === 'en'
@@ -36,6 +41,14 @@ export function SiteStage({
               : "Toute la page d'accueil, telle qu'elle s'affiche sur un ordinateur : elle défile d'elle-même une fois à l'écran."}
           </span>
         </p>
+        {liveUrl && (
+          <SiteLink href={liveUrl} lang={lang} className="mt-4 text-[15px] font-medium">
+            {en ? 'Browse the live site' : 'Parcourir le site en ligne'}
+            <span className="ml-1 font-mono text-[13px] font-normal text-text-muted transition-colors group-hover/site:text-text-secondary">
+              {siteHost(liveUrl)}
+            </span>
+          </SiteLink>
+        )}
       </div>
       <DeviceStage
         desktop={hero.desktopFull}

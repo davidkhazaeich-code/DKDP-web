@@ -216,3 +216,21 @@ informations qui donnent envie d'en savoir plus sur la mise en place, plutôt qu
 `proof.ts` exige désormais, pour toute étude en ligne, l'image de présentation (`mockup`,
 règle `presentation`) et le survol (`teaser`, règles `teaser` et `teaser-length`) ; une étude
 traduite porte aussi son `teaser` anglais dans `en.ts` (test « traductions anglaises »).
+
+## Liens vers le site livré (2026-10-01)
+
+Demande de David : sur les pages de réalisation, des liens vers les sites réalisés, dans un
+nouvel onglet, aux endroits utiles. Tout part de `liveUrl` (et de `image.path` des sections
+phares), rien à écrire étude par étude :
+
+| Endroit | Rendu |
+|---|---|
+| Hero | Bouton « Visiter le site » (existait) et fenêtre de navigateur cliquable, « Ouvrir le site » au survol |
+| Fiche projet | Ligne « Site en ligne » avec le domaine |
+| Le site, de haut en bas | « Parcourir le site en ligne » sous l'intro |
+| Sections phares | « Voir la page en ligne » (ou « Voir sur la page d'accueil ») vers la page exacte de la capture ; l'adresse s'affiche dès la tablette |
+
+`SiteLink` : `target="_blank"`, `rel="noopener"` sans `noreferrer` (le client voit les visites
+venues de dkdp.ch dans ses statistiques), « nouvel onglet » pour les lecteurs d'écran.
+`src/lib/realisations/links.ts` : jamais de lien pour une étude anonyme, ni vers un espace privé
+(`/admin`, `/pro`, `/app`, connexion), même quand sa capture illustre l'étude (back-office MKR).

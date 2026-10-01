@@ -2,6 +2,8 @@ import { clsx } from 'clsx'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { ScreenFrame } from './ScreenFrame'
 import { PhoneFrame } from './PhoneFrame'
+import { SiteLink } from './SiteLink'
+import { publicPageUrl, siteHost } from '@/lib/realisations/links'
 import type { RealisationHighlight, RealisationShowcase } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
 
@@ -47,10 +49,13 @@ export function HighlightsShowcase({
   items,
   host,
   showcase,
+  linkable = false,
   lang = 'fr',
 }: {
   items: RealisationHighlight[]
   host?: string
+  /** Lier chaque section a sa page en ligne (jamais pour une etude anonyme). */
+  linkable?: boolean
   /** Titre et intro propres a l'etude ; a defaut, le parcours d'un visiteur sur un site. */
   showcase?: RealisationShowcase
   lang?: Locale
@@ -131,6 +136,23 @@ export function HighlightsShowcase({
                           ))}
                         </ul>
                       )}
+                      {(() => {
+                        const pageHost = h.image.host ?? host
+                        const url = linkable ? publicPageUrl(pageHost, h.image.path) : null
+                        if (!url) return null
+                        const home = !h.image.path || h.image.path === '/'
+                        const label = lang === 'en'
+                          ? home ? 'See it on the home page' : 'See this page live'
+                          : home ? "Voir sur la page d'accueil" : 'Voir la page en ligne'
+                        return (
+                          <SiteLink href={url} lang={lang} className="mt-7 text-sm font-medium">
+                            {label}
+                            <span className="ml-1 hidden min-w-0 max-w-[30ch] truncate font-mono text-[12px] sm:inline-block font-normal text-text-muted transition-colors group-hover/site:text-text-secondary">
+                              {siteHost(url)}
+                            </span>
+                          </SiteLink>
+                        )
+                      })()}
                     </div>
                   </div>
                 </SectionReveal>

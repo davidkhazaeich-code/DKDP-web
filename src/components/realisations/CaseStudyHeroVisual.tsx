@@ -1,4 +1,4 @@
-import { Archive, Database, Inbox, ListChecks, Lock, Sparkles, Workflow, GraduationCap, type LucideIcon } from 'lucide-react'
+import { Archive, ArrowUpRight, Database, Inbox, ListChecks, Lock, Sparkles, Workflow, GraduationCap, type LucideIcon } from 'lucide-react'
 import { DiagramMotion } from '@/components/motion/DiagramMotion'
 import { dg } from '@/components/motion/dg'
 import { PhoneFrame } from './PhoneFrame'
@@ -25,17 +25,20 @@ export function CaseStudyHeroVisual({
   visual,
   clientName,
   proof,
+  liveUrl,
   lang = 'fr',
 }: {
   visual: HeroVisual
   clientName: string
   /** Premier resultat de l'etude, pose sur une image (site, pages) ; pas sur un schema. */
   proof?: Proof | null
+  /** Site livre : la fenetre de navigateur l'ouvre dans un nouvel onglet (2026-10-01). */
+  liveUrl?: string | null
   lang?: Locale
 }) {
   switch (visual.kind) {
     case 'devices':
-      return <Devices visual={visual} clientName={clientName} proof={proof} lang={lang} />
+      return <Devices visual={visual} clientName={clientName} proof={proof} liveUrl={liveUrl} lang={lang} />
     case 'stack':
       return <Stack visual={visual} proof={proof} lang={lang} />
     case 'flow':
@@ -121,9 +124,18 @@ function ProofChip({ proof, lang, className }: { proof: Proof; lang: Locale; cla
 }
 
 /** Premier ecran du site dans une fenetre de navigateur, sans defilement : image fixe et legere. */
-function BrowserStill({ src, alt, host }: { src: string; alt: string; host: string }) {
+function BrowserStill({ src, alt, host, open }: { src: string; alt: string; host: string; open?: string }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-white/10 bg-[#0E0E10] shadow-[0_40px_100px_-50px_rgba(0,0,0,0.85)]">
+    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-[#0E0E10] shadow-[0_40px_100px_-50px_rgba(0,0,0,0.85)]">
+      {open && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute right-3 top-11 z-10 inline-flex translate-y-1 items-center gap-1 rounded-md bg-black/70 px-2.5 py-1 text-[11px] font-medium text-white opacity-0 backdrop-blur-sm transition-[opacity,transform] duration-300 group-hover/browser:translate-y-0 group-hover/browser:opacity-100 group-focus-visible/browser:translate-y-0 group-focus-visible/browser:opacity-100"
+        >
+          {open}
+          <ArrowUpRight className="h-3 w-3" />
+        </span>
+      )}
       <div className="flex h-8 items-center gap-2 border-b border-white/10 bg-[#1B1B1F] px-3">
         <div aria-hidden="true" className="flex gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
@@ -153,24 +165,42 @@ function Devices({
   visual,
   clientName,
   proof,
+  liveUrl,
   lang,
 }: {
   visual: Extract<HeroVisual, { kind: 'devices' }>
   clientName: string
   proof?: Proof | null
+  liveUrl?: string | null
   lang: Locale
 }) {
   const en = lang === 'en'
+  const browser = (
+    <BrowserStill
+      src={visual.desktop}
+      host={visual.browserUrl}
+      open={liveUrl ? (en ? 'Open the site' : 'Ouvrir le site') : undefined}
+      alt={en ? `${clientName}: first screen of the website on a computer` : `${clientName} : premier écran du site sur ordinateur`}
+    />
+  )
   return (
     <DiagramMotion as="figure" mode="hero" className="relative mx-auto w-full max-w-[480px] lg:max-w-[560px]">
       <div aria-hidden="true" className="rz-halo" />
       <div className={visual.phone ? 'relative aspect-[25/24]' : 'relative'}>
         <div className={visual.phone ? 'absolute left-0 top-[2%] w-[88%]' : ''}>
-          <BrowserStill
-            src={visual.desktop}
-            host={visual.browserUrl}
-            alt={en ? `${clientName}: first screen of the website on a computer` : `${clientName} : premier écran du site sur ordinateur`}
-          />
+          {liveUrl ? (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener"
+              aria-label={en ? `Open ${visual.browserUrl} (opens in a new tab)` : `Ouvrir ${visual.browserUrl} (nouvel onglet)`}
+              className="group/browser block rounded-xl transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+            >
+              {browser}
+            </a>
+          ) : (
+            browser
+          )}
         </div>
         {visual.phone && (
           <div className="absolute bottom-0 right-0 w-[31%]">

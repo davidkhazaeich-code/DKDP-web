@@ -25,6 +25,7 @@ import { CaseStudyNav } from './CaseStudyNav'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildBreadcrumbList, buildFAQPage } from '@/lib/schema'
 import { buildRealisationArticle, realisationUrl } from '@/lib/realisations/jsonld'
+import { studyLiveUrl } from '@/lib/realisations/links'
 import { ENTITY } from '@/lib/entity'
 import type { Realisation } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
@@ -77,11 +78,17 @@ export function CaseStudyPage({
 
       <ProblemBlock problem={r.problem} lang={lang} />
       <ApproachBlock approach={r.approach} lang={lang} />
-      {r.hero && <SiteStage hero={r.hero} clientName={r.client.name} lang={lang} />}
+      {r.hero && <SiteStage hero={r.hero} clientName={r.client.name} liveUrl={studyLiveUrl(r)} lang={lang} />}
       {r.flow && <FlowDiagram flow={r.flow} lang={lang} />}
       {r.training && <TrainingBlock training={r.training} lang={lang} />}
       {r.highlights && r.highlights.length > 0 && (
-        <HighlightsShowcase items={r.highlights} host={r.hero?.browserUrl ?? ''} showcase={r.showcase} lang={lang} />
+        <HighlightsShowcase
+          items={r.highlights}
+          host={r.hero?.browserUrl ?? ''}
+          showcase={r.showcase}
+          linkable={!r.client.anonymized}
+          lang={lang}
+        />
       )}
       <CaseStudyMedia videos={r.videos} beforeAfter={r.beforeAfter} host={r.hero?.browserUrl} lang={lang} />
       {r.conversation && <ChatReplay conversation={r.conversation} lang={lang} />}

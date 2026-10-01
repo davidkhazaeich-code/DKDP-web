@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { AUTHORS, aboutPath } from '@/lib/realisations/authors'
 import { formatDateLong } from '@/lib/format'
+import { siteHost, studyLiveUrl } from '@/lib/realisations/links'
+import { SiteLink } from './SiteLink'
 import type { Realisation } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
 
@@ -18,12 +20,14 @@ export function CaseStudySummary({ r, lang = 'fr' }: { r: Realisation; lang?: Lo
   const published = r.meta.publishedISO ?? r.meta.dateISO
   const modified = r.meta.dateModifiedISO && r.meta.dateModifiedISO !== published ? r.meta.dateModifiedISO : null
   const facts = r.facts ?? []
+  const liveUrl = studyLiveUrl(r)
   const t = {
     answer: en ? 'In short' : "L'essentiel",
     facts: en ? 'Project sheet' : 'Fiche projet',
     by: en ? 'Case study by' : 'Étude rédigée par',
     published: en ? 'Published on' : 'Publiée le',
     updated: en ? 'updated on' : 'mise à jour le',
+    site: en ? 'Live site' : 'Site en ligne',
   }
 
   return (
@@ -69,6 +73,16 @@ export function CaseStudySummary({ r, lang = 'fr' }: { r: Realisation; lang?: Lo
                   <dd className="text-[15px] leading-[1.45] text-text">{f.value}</dd>
                 </div>
               ))}
+              {liveUrl && (
+                <div className="grid grid-cols-[minmax(0,8.5rem)_minmax(0,1fr)] gap-4 border-b border-border py-3.5">
+                  <dt className="text-[13px] leading-[1.5] text-text-muted">{t.site}</dt>
+                  <dd className="text-[15px] leading-[1.45]">
+                    <SiteLink href={liveUrl} lang={lang} className="underline decoration-[var(--border-strong)] underline-offset-4">
+                      {siteHost(liveUrl)}
+                    </SiteLink>
+                  </dd>
+                </div>
+              )}
             </dl>
           </SectionReveal>
         )}

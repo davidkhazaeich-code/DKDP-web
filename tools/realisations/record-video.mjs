@@ -142,14 +142,17 @@ const trim = String(spec.trimStart ?? 1)
 const ff = (argv) => execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...argv])
 ff(['-ss', trim, '-i', rawPath, '-an', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '27', '-preset', 'slow', '-movflags', '+faststart', mp4])
 ff(['-ss', trim, '-i', rawPath, '-an', '-c:v', 'libvpx-vp9', '-crf', '40', '-b:v', '0', '-row-mt', '1', webm])
-const posterPng = path.join(rawDir, 'poster.png')
-ff(['-ss', String(spec.posterAt ?? 2), '-i', mp4, '-frames:v', '1', posterPng])
-const poster = path.join(imageDir, `${spec.name}-poster.webp`)
-await sharp(posterPng).webp({ quality: 82 }).toFile(poster)
-
 const duration = Number(
   execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp4]).toString().trim(),
 )
+// Une affiche demandee apres la fin de la video (posterAt compte apres trimStart) ne
+// produisait aucune image et faisait planter sharp : on la ramene juste avant la fin.
+const posterAt = Math.min(spec.posterAt ?? 2, Math.max(0, duration - 0.4))
+if (posterAt !== (spec.posterAt ?? 2)) console.warn(`posterAt ramene a ${posterAt.toFixed(1)} s (video de ${duration.toFixed(1)} s)`)
+const posterPng = path.join(rawDir, 'poster.png')
+ff(['-ss', String(posterAt), '-i', mp4, '-frames:v', '1', posterPng])
+const poster = path.join(imageDir, `${spec.name}-poster.webp`)
+await sharp(posterPng).webp({ quality: 82 }).toFile(poster)
 await rm(rawDir, { recursive: true, force: true })
 const size = (f) => Math.round(Number(execFileSync('stat', ['-f', '%z', f]).toString()) / 1024)
 console.log(`OK ${path.relative(process.cwd(), mp4)} (${size(mp4)} Ko), .webm (${size(webm)} Ko), affiche ${path.relative(process.cwd(), poster)}`)

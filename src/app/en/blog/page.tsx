@@ -13,6 +13,7 @@ import {
   FEATURED_SLUG,
 } from '@/lib/blog'
 import { violet, orange, chrome, green } from '@/lib/tokens'
+import { BlogRealisations } from '@/components/realisations/BlogRealisations'
 import { ArticleCard } from '@/app/blog/_components/ArticleCard'
 import dynamic from 'next/dynamic'
 
@@ -135,6 +136,10 @@ export default function BlogPageEN() {
               style={{ background: 'rgba(74,222,128,0.08)', color: greenColor, border: '1px solid rgba(74,222,128,0.18)' }}>
               Tools &amp; Productivity
             </a>
+            <a href="#realisations" className="flex-shrink-0 px-4 py-1.5 rounded-full text-[12px] font-semibold transition-colors"
+              style={{ background: violetBg, color: violetColor, border: `1px solid ${violetBd}` }}>
+              Case studies
+            </a>
           </nav>
         </div>
       </div>
@@ -205,6 +210,9 @@ export default function BlogPageEN() {
           </SectionReveal>
         </div>
       </section>
+
+      {/* ══ 3 bis. Réalisations (01.10.2026) ══ */}
+      <BlogRealisations lang="en" />
 
       {/* ══ 4. Article grid by category ══ */}
       <section className="pb-24 scroll-mt-[120px]" id="cat-ia">

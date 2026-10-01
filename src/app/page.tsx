@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { RevealDisabledProvider } from '@/components/ui/SectionReveal'
 import { HomeHero } from '@/components/sections/HomeHero'
+import { HomeRealisations } from '@/components/sections/HomeRealisations'
 import { FAQ_ITEMS } from '@/data/faq'
 import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildLocalBusiness, buildFAQPage, buildWebSite, buildOrganization, buildWebPageWithSpeakable } from '@/lib/schema'
@@ -62,6 +63,7 @@ export default function HomePage() {
         <ProcessSteps />
         <TechWatch />
         <ProofStack />
+        <HomeRealisations />
         <Testimonials />
         <TeamSection />
         <FAQSection />

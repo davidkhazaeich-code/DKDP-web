@@ -1,5 +1,5 @@
 import localFont from 'next/font/local'
-import { JetBrains_Mono } from 'next/font/google'
+import { JetBrains_Mono, Roboto, Caveat } from 'next/font/google'
 import { clsx } from 'clsx'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import type { RealisationDirection } from '@/lib/realisations/types'
@@ -12,7 +12,8 @@ import type { Locale } from '@/i18n/config'
  * Les polices du specimen sont chargees ici et nulle part ailleurs, en
  * sous-ensembles latins sous licence SIL OFL (`fonts/LICENSE-*.txt`) :
  * Hubot Sans (SOS Relevage), Teko, Barlow et Barlow Condensed (MKR Caucasian
- * Camp), plus JetBrains Mono via next/font. `preload: false` : un navigateur
+ * Camp), plus JetBrains Mono, Roboto et Caveat (cours-informatique.ch) via
+ * next/font. `preload: false` : un navigateur
  * ne telecharge que les fichiers dont la page affiche vraiment le texte.
  * Une famille absente de `FAMILY_TO_VAR` retombe sur la police du site, le
  * specimen reste lisible.
@@ -63,12 +64,31 @@ const jet = JetBrains_Mono({
   variable: '--font-sos-mono',
 })
 
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '800'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  preload: false,
+  variable: '--font-ci-body',
+})
+
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['500'],
+  display: 'swap',
+  preload: false,
+  variable: '--font-ci-hand',
+})
+
 const FAMILY_TO_VAR: Record<string, string> = {
   'Hubot Sans': 'var(--font-sos-display), system-ui, sans-serif',
   'JetBrains Mono': 'var(--font-sos-mono), ui-monospace, Menlo, monospace',
   Teko: 'var(--font-mkr-display), Impact, sans-serif',
   Barlow: 'var(--font-mkr-body), system-ui, sans-serif',
   'Barlow Condensed': 'var(--font-mkr-label), system-ui, sans-serif',
+  Roboto: 'var(--font-ci-body), system-ui, sans-serif',
+  Caveat: 'var(--font-ci-hand), cursive',
 }
 
 /** Graisse du fichier charge pour chaque famille : le specimen ne simule jamais un gras. */
@@ -78,6 +98,8 @@ const FAMILY_WEIGHT: Record<string, { display: number; text: number }> = {
   Teko: { display: 700, text: 700 },
   Barlow: { display: 500, text: 500 },
   'Barlow Condensed': { display: 600, text: 600 },
+  Roboto: { display: 800, text: 400 },
+  Caveat: { display: 500, text: 500 },
 }
 
 /** Arete d'un echantillon, lisible sur les deux themes : `--text` est blanc en sombre,
@@ -131,6 +153,8 @@ export function VisualDirection({
         barlow.variable,
         barlowCondensed.variable,
         jet.variable,
+        roboto.variable,
+        caveat.variable,
       )}
     >
       <div className="mx-auto max-w-[1200px] px-6">
@@ -157,7 +181,8 @@ export function VisualDirection({
                   alt={d.logo.alt}
                   loading="lazy"
                   decoding="async"
-                  className="my-6 w-[180px] max-w-[60%] select-none"
+                  className="my-6 max-w-[60%] select-none"
+                  style={{ width: theme.logoWidth ?? 180, maxWidth: theme.logoWidth ? '90%' : undefined }}
                 />
               )}
               {d.tagline && (
@@ -213,7 +238,8 @@ export function VisualDirection({
                   alt={d.logoLight.alt}
                   loading="lazy"
                   decoding="async"
-                  className="mt-6 w-[180px] max-w-[60%] select-none"
+                  className="mt-6 max-w-[60%] select-none"
+                  style={{ width: theme.logoWidth ?? 180, maxWidth: theme.logoWidth ? '90%' : undefined }}
                 />
               </div>
             </SectionReveal>

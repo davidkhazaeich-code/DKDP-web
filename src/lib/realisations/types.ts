@@ -248,6 +248,9 @@ export interface RealisationDirection {
     lightTile?: string
     /** Slogan compose en capitales, dans la police des titres (sinon italique). */
     taglineUppercase?: boolean
+    /** Largeur du logo en pixels sur les tuiles (defaut 180) : un logo en longueur,
+     *  mascotte et nom cote a cote, demande plus de place qu'un symbole. */
+    logoWidth?: number
   }
   palette: { name: string; hex: string; role: string }[]
   /** Part de chaque famille de couleurs dans un ecran type, en pourcentage (total 100). */

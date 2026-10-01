@@ -313,6 +313,230 @@ export const EN_CONTENT: Record<string, RealisationEN> = {
       { question: 'Where is the site hosted?', answer: 'With Infomaniak, in Switzerland, with automatic deployment through GitHub Actions on every change.' },
     ],
   },
+  'cours-informatique-refonte': {
+    tags: ['Rebuild', 'Astro', 'WordPress migration', 'UX for seniors', 'Local SEO', 'GEO'],
+    client: { sector: 'Computer lessons for individuals', location: 'Geneva' },
+    meta: {
+      title: 'WordPress to Astro rebuild for a Geneva computer school for seniors',
+      titleAccent: 'WordPress to Astro',
+      seoTitle: 'WordPress to Astro rebuild, Geneva school | DKDP',
+      seoDescription:
+        'Astro rebuild for a Geneva computer school: a journey for seniors, a price estimator, 88 redirects, first on Google in a manual check.',
+      excerpt:
+        'A complete rebuild of cours-informatique.ch, from WordPress to Astro: a journey designed for seniors and beginners, a four-question price estimator, 88 redirects and one page per neighbourhood. First on Google for “cours informatique genève” in a manual check on 28 September 2026.',
+    },
+    lead: 'A site written for someone who is afraid to touch their computer: one button to call, a four-question price estimator, one page per neighbourhood.',
+    teaser: ['A journey designed for seniors and beginners', 'A four-question price estimator', '88 redirects and one page per neighbourhood'],
+    answer:
+      'Cours-informatique.ch, the computer school founded by David Khazaei in Geneva, moved from WordPress to Astro on 1 September 2026. The new site speaks first to seniors and beginners: one button to call, a price estimator, one page per neighbourhood. In a manual check on 28 September 2026, it ranked first for “cours informatique genève”.',
+    facts: [
+      { label: 'Sector', value: 'Computer lessons for individuals' },
+      { label: 'Location', value: 'Geneva, Eaux-Vives' },
+      { label: 'Live', value: '1 September 2026' },
+      { label: 'Delivered', value: 'Rebuild, migration, SEO, English version' },
+      { label: 'Technology', value: 'Astro 6, Infomaniak, GitHub Actions' },
+    ],
+    mockup: {
+      src: '/images/realisations/cours-informatique-refonte/presentation.webp',
+      alt: 'The cours-informatique.ch website on a laptop and a phone: home page “Cours d’informatique à Genève pour débutant et senior” and the estimator result, 6 to 12 hours for CHF 840 to 1,680, real screenshots staged on a dining table with reading glasses and a cup of tea',
+    },
+    problem: {
+      title: 'An audience wary of computers, a site that had become hard to evolve',
+      body: 'Cours-informatique.ch has taught one-to-one computer lessons in Geneva since 2014, at home or in its Eaux-Vives office. Its audience is first of all people who hesitate: seniors, beginners, people who no longer dare ask their family for help. For them, a website has to say in one sentence who it is for, and offer one obvious way to call.\n\nThe previous WordPress site, built with Elementor, had grown page by page and was too heavy for this audience. It was fragile too: on 23 August 2026, a WordPress update took it offline. The rebuild had to pass twelve years of search rankings on to the new site, on a simpler base to evolve.',
+      facts: [
+        { label: 'Audience', value: 'Seniors, beginners, professionals' },
+        { label: 'Area', value: 'Canton of Geneva, at home' },
+        { label: 'Start', value: 'WordPress and Elementor site' },
+      ],
+    },
+    approach: {
+      title: 'A static site, one button per screen, every old address redirected',
+      body: 'The site is rebuilt on Astro 6 as a static site, with no CMS and no CSS framework: light HTML pages, served by Infomaniak in Switzerland and published by GitHub Actions on every change. The journey is written for a beginner: a headline that names the audience, a blue button that shows the phone number, blue kept for what can be clicked, a full-screen menu with no accordion on mobile, a four-question price estimator and a catalogue filtered by profile.\n\nOn the search side, every address of the old site keeps its place: 88 301 redirects, a 410 code for archive and test pages, one page per Geneva neighbourhood linked to its three closest neighbours, an English version, structured data for the school, the courses and the FAQs, and an llms.txt file for generative engines.',
+      bullets: [
+        'Astro 6 static site, custom CSS, content versioned in the code',
+        'Hosted by Infomaniak in Switzerland, published by GitHub Actions in about a minute and a half',
+        'One blue button per screen, the phone number written out, WhatsApp second',
+        'Full-screen menu below 1024 pixels, with no accordion or hidden sub-menu',
+        'Four-question estimator: recommended course, hours and budget',
+        'Catalogue filtered by profile, search that tolerates missing accents and typos',
+        '88 301 redirects from the WordPress addresses, archive and test pages in 410',
+        '14 neighbourhood pages, each linked to its three closest neighbours',
+        'English version of 37 pages, JSON-LD LocalBusiness, Course, FAQPage and VideoObject, llms.txt',
+        'Requests measured by the site itself: form, call, WhatsApp',
+      ],
+    },
+    videos: [
+      {
+        title: 'The price estimator, on the live site',
+        description: 'Four answers, then the recommended course, the duration and the budget, in 10 seconds, unedited.',
+        transcript:
+          'On the home page, the visitor opens the free price estimate and answers four questions: senior or complete beginner, mastering my computer, starting from scratch, 6 to 12 hours. The result recommends the Mac and PC computer course, suggests cybersecurity to go further, and estimates 6 to 12 hours, or CHF 840 to 1,680. Two buttons follow: book by phone or write on WhatsApp.',
+      },
+    ],
+    results: [
+      { metric: 'Google', value: '1st', label: 'in organic results for “cours informatique genève” and “cours informatique à domicile”', source: 'Manual check of the results page, from Geneva', period: 'single check' },
+      { metric: 'Google AI Mode', value: '5 of 6', label: 'answers that cite the site, with the exact prices', source: 'Manual check of six questions in Google AI Mode', period: 'single check' },
+      { metric: 'Mobile performance', value: '99', label: 'out of 100 in Lighthouse, largest contentful paint in 2.1 s, no layout shift', source: 'Lighthouse 12, mobile, median of three runs', period: 'home page' },
+      { metric: 'Live pages', value: '88', label: 'in French and English, including 16 course pages and 14 neighbourhood pages in French', source: 'Live sitemap' },
+    ],
+    lessons: [
+      'At the switchover, request tracking stopped silently: the tag manager was still listening to the buttons of the old WordPress theme. For three weeks, no call or form was counted. Since 21 September 2026, the site sends its own events, and we test tracking on the day of the switchover.',
+      'The artificial-intelligence page lost clicks when its address changed, despite a clean 301 redirect: the old URL ranked 8 to 9, the new one 9 to 10. On the next migration, we will keep the address of pages that already bring clicks.',
+      'The 353 KB tracking script loaded at the same time as the main image: on mobile, the largest contentful paint took 4.8 seconds. Loaded after the page, it came down to 2.78 seconds on 11 September 2026. We now measure every third-party script before going live.',
+    ],
+    faq: [
+      { question: 'Why move a lesson website from WordPress to Astro?', answer: 'Because the site does not need a back office: it presents courses, prices and neighbourhoods that rarely change. Astro generates static HTML pages, light and with no database to maintain. In a check on 1 October 2026, Lighthouse scores it 99 out of 100 on mobile, with a largest contentful paint of 2.1 seconds.' },
+      { question: 'How do you keep your search rankings during a rebuild?', answer: 'By redirecting every old address to the page that answers the same question: 88 301 redirects for cours-informatique.ch, and a 410 code for archive and test pages. On the day of the switchover, you also have to check request tracking: that is what we missed here.' },
+      { question: 'Can a website really be designed for seniors?', answer: 'Yes, through simple choices: one action button per screen, the phone number written out, short texts, no menu hidden behind an accordion, and an estimator that gives the price without asking for an email address.' },
+      { question: 'Where is the site hosted?', answer: 'With Infomaniak, in Switzerland. Every change is published by GitHub Actions in about a minute and a half.' },
+    ],
+    showcase: {
+      title: 'The screens that carry the site',
+      intro: 'Five screens, in the order a beginner meets them. Each answers one precise question: who is this site for, which course to pick, how much it costs, where to click, will they come to my home.',
+    },
+    highlights: [
+      {
+        eyebrow: 'Arrive',
+        tag: 'UI',
+        title: 'A headline that names the audience, a button that shows the number',
+        body: 'The first screen speaks to one person: the beginner. The headline names the audience in orange, the sentence says what will happen, the trainer sits down next to you, and the only blue button shows the phone number in full. On mobile, the photo moves above the headline and the call button spans the full width.',
+        image: {
+          src: '/images/realisations/cours-informatique-refonte/hero-desktop.webp',
+          alt: 'cours-informatique.ch home page: headline “Cours d’informatique à Genève pour débutant et senior”, Google rating 4.9 out of 5, blue button “Prendre rendez-vous au 078 238 20 71” and three lesson photos',
+          path: '/',
+        },
+        phone: {
+          src: '/images/realisations/cours-informatique-refonte/hero-mobile.webp',
+          alt: 'cours-informatique.ch on mobile: lesson photo on top, headline, Google rating and a full-width call button',
+        },
+        points: ['Blue is only for what can be clicked, never for decoration', 'The Google rating and review count before the button', 'WhatsApp always within reach, as a floating button'],
+      },
+      {
+        eyebrow: 'Choose',
+        tag: 'UX',
+        title: 'A catalogue filtered by profile, not by software',
+        body: 'A beginner does not look for “Microsoft 365”, they want to sort their photos. The catalogue filters first by profile, beginner and senior, professional, AI and tech, creative, then through a search that understands missing accents, typos and everyday words. The most frequent searches are one click away.',
+        image: {
+          src: '/images/realisations/cours-informatique-refonte/catalogue-desktop.webp',
+          alt: 'cours-informatique.ch catalogue “Choisissez votre cours”: profile filters with the number of courses, search field, frequent searches Excel, ChatGPT, iPhone, Photos, Canva and the first course cards',
+          path: '/cours/',
+        },
+        phone: {
+          src: '/images/realisations/cours-informatique-refonte/catalogue-mobile.webp',
+          alt: 'cours-informatique.ch on mobile: catalogue filters, search and sorting, then the first course card',
+        },
+        points: ['Four profiles, the number of courses shown on each filter', 'Search reworked on 2 September 2026, tested on 41 realistic queries', 'Excel, ChatGPT, iPhone, Photos: frequent searches as shortcuts'],
+      },
+      {
+        eyebrow: 'Estimate',
+        tag: 'UX',
+        title: 'The budget in four questions, before even calling',
+        body: 'The question a beginner does not dare ask on the phone is the price. The estimator asks it for them: situation, goal, level, desired duration. It answers with a recommended course, a second one to go further, a range of hours and a budget calculated on the real prices, then offers to call or write on WhatsApp.',
+        image: {
+          src: '/images/realisations/cours-informatique-refonte/estimateur-desktop.webp',
+          alt: 'cours-informatique.ch estimator result: Mac and PC computer course recommended, cybersecurity to go further, estimate of 6 to 12 hours for CHF 840 to 1,680, phone and WhatsApp buttons',
+          path: '/',
+        },
+        phone: {
+          src: '/images/realisations/cours-informatique-refonte/estimateur-mobile.webp',
+          alt: 'cours-informatique.ch on mobile: the same estimator result, recommended courses, duration and budget',
+        },
+        steps: ['Situation', 'Goal', 'Level', 'Duration'],
+        points: ['Budget calculated on the public price list: CHF 140, 150 or 200 per hour', 'No email address asked to see the result', 'Booking by phone or WhatsApp, straight from the result'],
+      },
+      {
+        eyebrow: 'Navigate',
+        tag: 'UX',
+        title: 'A full-screen menu, with no accordion to unfold',
+        body: 'On a computer, the course menu opens in four columns by profile, each course with the logos of the tools it teaches. Below 1024 pixels, it becomes a full screen: opening hours at the top, shortcuts as tiles, every course visible by scrolling, and the call and WhatsApp buttons fixed at the bottom. No hidden sub-menu to guess.',
+        image: {
+          src: '/images/realisations/cours-informatique-refonte/mega-desktop.webp',
+          alt: 'cours-informatique.ch “Nos cours individuels” menu open: four columns, beginners and seniors, professionals, AI and tech, creative and social, with tool logos',
+          path: '/',
+        },
+        phone: {
+          src: '/images/realisations/cours-informatique-refonte/menu-mobile.webp',
+          alt: 'cours-informatique.ch on mobile: full-screen menu with opening hours, four shortcut tiles, the course list and the call and WhatsApp buttons at the bottom',
+        },
+        points: ['No accordion: everything shows by scrolling', 'Opening hours before the links', 'Call and WhatsApp stay at the bottom of the screen'],
+      },
+      {
+        eyebrow: 'Be found',
+        tag: 'SEO',
+        title: 'One page per neighbourhood, linked to its neighbours',
+        body: 'The trainer travels across the canton, but people look for a lesson near home. Each neighbourhood has its page: travel time from the office, tram and bus lines, local landmarks on a swisstopo aerial view and the travel fee. At the bottom, the three closest neighbourhoods, calculated from coordinates, link the pages together.',
+        image: {
+          src: '/images/realisations/cours-informatique-refonte/quartier-voisins-desktop.webp',
+          alt: 'cours-informatique.ch Eaux-Vives page: swisstopo aerial view with the office marker, travel time, tram and bus lines, local landmarks, then the neighbouring areas Champel, Pâquis and Plainpalais',
+          path: '/cours-informatique-eaux-vives/',
+        },
+        phone: {
+          src: '/images/realisations/cours-informatique-refonte/quartier-mobile.webp',
+          alt: 'cours-informatique.ch on mobile: the Eaux-Vives page, lesson photo, headline and call button',
+        },
+        points: ['14 neighbourhoods in French, as many in English', 'A swisstopo aerial view rather than a Google map', 'Three “neighbouring areas” links per page, calculated by distance'],
+      },
+    ],
+    direction: {
+      intro:
+        'The brand guidelines, tightened for the rebuild and measured in the site code: a warm orange that carries the headings, peach backgrounds that let the page breathe, a blue kept for action. Headings are set in RuckSack Bold, a round and heavy typeface, inside orange pills.',
+      logo: { src: '/images/realisations/cours-informatique-refonte/logo-blanc.webp', alt: 'cours-informatique.ch logo on orange: the mascot, a laptop wearing glasses and waving, and the site name in white' },
+      logoLight: { src: '/images/realisations/cours-informatique-refonte/logo.webp', alt: 'cours-informatique.ch logo on a light background: the mascot and the site name, with “.ch” in orange' },
+      tagline: '“Computing made simple”',
+      theme: { tile: '#E56001', accent: '#FFE8D4', lightTile: '#FFF3E8', logoWidth: 300 },
+      palette: [
+        { name: 'Orange', hex: '#E56001', role: 'heading pills, accents, section backgrounds' },
+        { name: 'Peach', hex: '#FFF3E8', role: 'backgrounds that breathe' },
+        { name: 'Deep peach', hex: '#FFE8D4', role: 'cards, inserts, speech bubbles' },
+        { name: 'Action blue', hex: '#1A70E0', role: 'buttons and links, nothing else' },
+        { name: 'Sage green', hex: '#6B9E7D', role: 'ticks and badges, as a signal' },
+        { name: 'Charcoal', hex: '#1E1E1E', role: 'headings and text' },
+        { name: 'Mascot blue', hex: '#5BA8D9', role: 'the mascot’s screen' },
+      ],
+      type: [
+        { role: 'body text, buttons, forms', family: 'Roboto', sample: 'Your trainer sits down next to you and explains every step.' },
+        { role: 'handwritten notes, mascot speech bubbles', family: 'Caveat', sample: 'We always start with a coffee and a smile.' },
+      ],
+      principles: [
+        { title: 'Blue means clickable', body: 'Blue is kept for buttons and links. A senior who sees blue knows they can press it, and never looks for the action in a decoration.' },
+        { title: 'Backgrounds that breathe', body: 'Between white and orange, peach backgrounds and notebook grids soften the reading of long pages.' },
+        { title: 'Sage green as a signal only', body: 'Ticks, badges, small icons, never a section background: the signal stays readable because it stays rare.' },
+        { title: 'Headings in pills', body: 'Each section opens on a white heading inside an orange pill: the eye finds the start of a block effortlessly.' },
+        { title: 'A mascot that guides', body: 'The laptop with glasses waves, points, thinks: it announces a step or a question, it never fills a gap.' },
+        { title: 'The number written out', body: 'The phone remains the first channel for this audience: the number is written on the button, never hidden behind a “Contact us”.' },
+      ],
+    },
+    seo: {
+      intro:
+        'The search history of cours-informatique.ch went back twelve years. The rebuild had to pass it on to the new site, then widen it: one page per intent, one page per neighbourhood, and answers written to be quoted by generative engines.',
+      serp: {
+        siteName: 'Cours-Informatique.ch',
+        url: 'https://cours-informatique.ch',
+        title: "Cours d'informatique à Genève pour débutant et senior",
+        description:
+          "Cours d'informatique individuels à Genève, chez vous ou aux Eaux-Vives. Dès 140 CHF/h, sans engagement. 4,9/5 sur 86 avis. 078 238 20 71.",
+        favicon: '/images/realisations/cours-informatique-refonte/mascotte.webp',
+      },
+      serpNote:
+        'The title names the audience, the description gives the price, the rating and the number: everything a beginner wants to know before clicking. Both are measured in pixels, as Google displays them.',
+      intents: [
+        { label: 'One-to-one courses', path: '/cours/' },
+        { label: 'Seniors', path: '/cours-informatique-seniors-geneve/' },
+        { label: 'Artificial intelligence', path: '/cours/intelligence-artificielle/' },
+        { label: 'Excel', path: '/cours/excel/' },
+        { label: 'Neighbourhoods', path: '/cours-informatique-eaux-vives/' },
+        { label: 'Group courses', path: '/cours-en-groupe/' },
+        { label: 'Companies', path: '/cours-entreprise/' },
+        { label: 'IT repair', path: '/depannage-informatique-domicile-geneve/' },
+      ],
+      schemas: ['LocalBusiness', 'Course', 'CourseInstance', 'FAQPage', 'VideoObject', 'BreadcrumbList', 'BlogPosting', 'WebSite'],
+      geo: [
+        { title: 'Prices written out', body: 'CHF 140, 150 and 200 per hour, written on the pages, in the FAQs and in the llms.txt. In a manual check on 28 September 2026, Google AI Mode cited the site in five answers out of six, exact prices included.' },
+        { title: 'A real answer, even when it does not sell', body: '“Are there free computer lessons in Geneva?” gets an answer on the home page: the City’s free digital help desks first, then what a one-to-one lesson adds.' },
+        { title: 'No figure without a source', body: 'Customer counters and unsourced “certified” badges were removed on 21 September 2026, from the site and from the llms.txt: an engine that cross-checks its sources quotes what it can verify.' },
+      ],
+    },
+  },
   'mkr-caucasian-camp': {
     tags: ['Visual identity', 'Next.js', 'Bilingual website', 'Online application', 'Custom back office', 'Google Ads'],
     client: { sector: 'Wrestling and MMA camps', location: 'Dagestan and Chechnya' },

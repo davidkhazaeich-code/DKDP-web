@@ -7,6 +7,7 @@ import formationGestionFortune from './formation-ia-gestion-de-fortune'
 import formationPharmacovigilance from './formation-ia-pharmacovigilance'
 import formationRestaurationStation from './formation-ia-restauration-station'
 import mkrCaucasianCamp from './mkr-caucasian-camp'
+import coursInformatique from './cours-informatique-refonte'
 
 const ALL_REALISATIONS: Realisation[] = [
   goldencash,
@@ -17,6 +18,7 @@ const ALL_REALISATIONS: Realisation[] = [
   formationPharmacovigilance,
   formationRestaurationStation,
   mkrCaucasianCamp,
+  coursInformatique,
 ]
 
 export const REALISATIONS: Realisation[] = ALL_REALISATIONS.sort(
@@ -24,7 +26,7 @@ export const REALISATIONS: Realisation[] = ALL_REALISATIONS.sort(
 )
 
 /** Etudes mises en tete du hub (visuel tournant et premieres cellules de la grille), dans cet ordre. */
-export const FEATURED_SLUGS: string[] = ['sos-relevage', 'mkr-caucasian-camp', 'goldencash-refonte', 'sos-relevage-crm-interventions']
+export const FEATURED_SLUGS: string[] = ['cours-informatique-refonte', 'sos-relevage', 'mkr-caucasian-camp', 'goldencash-refonte', 'sos-relevage-crm-interventions']
 
 /**
  * Ordre du hub : les etudes a la une d'abord, dans l'ordre de FEATURED_SLUGS,
@@ -120,6 +122,17 @@ export function getRelated(slug: string, limit = 3): Realisation[] {
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
     .map(({ r }) => r)
+}
+
+/**
+ * Etudes en ligne qui citent cet article du blog dans `relatedArticles`, la
+ * plus recemment publiee d'abord : le lien de l'article vers le projet reel.
+ */
+export function realisationsForArticle(slug: string, limit = 2): Realisation[] {
+  return REALISATIONS
+    .filter(r => r.meta.status === 'live' && (r.relatedArticles ?? []).includes(slug))
+    .sort((a, b) => (b.meta.publishedISO ?? b.meta.dateISO).localeCompare(a.meta.publishedISO ?? a.meta.dateISO))
+    .slice(0, limit)
 }
 
 export type { Realisation, RealisationDomain, RealisationSector } from './types'

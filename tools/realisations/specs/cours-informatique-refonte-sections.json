@@ -1,0 +1,77 @@
+[
+  {
+    "name": "hero-desktop",
+    "url": "/",
+    "css": ".ti-widget{display:none!important}",
+    "wait": 3000
+  },
+  {
+    "name": "hero-mobile",
+    "url": "/",
+    "mobile": true,
+    "css": ".ti-widget{display:none!important}",
+    "wait": 3000
+  },
+  {
+    "name": "catalogue-desktop",
+    "url": "/cours/",
+    "css": ".ti-widget{display:none!important}",
+    "scrollTo": "#catalogue-title",
+    "offset": 190,
+    "wait": 1500
+  },
+  {
+    "name": "catalogue-mobile",
+    "url": "/cours/",
+    "mobile": true,
+    "css": ".ti-widget{display:none!important}",
+    "scrollTo": "#catalogue-title",
+    "offset": 330,
+    "wait": 1500
+  },
+  {
+    "name": "estimateur-desktop",
+    "url": "/",
+    "css": ".ti-widget{display:none!important}",
+    "eval": "document.querySelector('[data-quiz-open]').click(); setTimeout(()=>document.querySelector('[data-q1=senior]').click(),700); setTimeout(()=>document.querySelector('[data-q2=ordinateur]').click(),1400); setTimeout(()=>document.querySelector('[data-q3=debutant]').click(),2100); setTimeout(()=>document.querySelector('[data-q4=moyen]').click(),2800)",
+    "wait": 4200
+  },
+  {
+    "name": "estimateur-mobile",
+    "url": "/",
+    "mobile": true,
+    "css": ".ti-widget{display:none!important}",
+    "eval": "document.querySelector('[data-quiz-open]').click(); setTimeout(()=>document.querySelector('[data-q1=senior]').click(),700); setTimeout(()=>document.querySelector('[data-q2=ordinateur]').click(),1400); setTimeout(()=>document.querySelector('[data-q3=debutant]').click(),2100); setTimeout(()=>document.querySelector('[data-q4=moyen]').click(),2800)",
+    "wait": 4200
+  },
+  {
+    "name": "menu-mobile",
+    "url": "/",
+    "mobile": true,
+    "css": ".ti-widget{display:none!important}",
+    "click": "#burger-btn",
+    "wait": 1000
+  },
+  {
+    "name": "mega-desktop",
+    "url": "/",
+    "css": ".ti-widget{display:none!important}",
+    "click": "[aria-controls=mega-courses]",
+    "wait": 900
+  },
+  {
+    "name": "quartier-voisins-desktop",
+    "url": "/cours-informatique-eaux-vives/",
+    "css": ".ti-widget{display:none!important}",
+    "scrollTo": ".qtr-zone",
+    "offset": 140,
+    "wait": 1500
+  },
+  {
+    "name": "quartier-mobile",
+    "url": "/cours-informatique-eaux-vives/",
+    "mobile": true,
+    "css": ".ti-widget{display:none!important}",
+    "wait": 2500
+  }
+]

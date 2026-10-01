@@ -1,0 +1,27 @@
+{
+  "slug": "cours-informatique-refonte",
+  "name": "estimateur",
+  "base": "https://cours-informatique.ch",
+  "viewport": { "width": 1280, "height": 800 },
+  "locale": "fr-CH",
+  "trimStart": 2.2,
+  "posterAt": 9.4,
+  "block": ["**/api/**"],
+  "actions": [
+    { "do": "goto", "url": "/" },
+    { "do": "css", "content": ".ti-widget { display: none !important; }" },
+    { "do": "wait", "ms": 1500 },
+    { "do": "scrollTo", "selector": "#quiz", "offset": -180, "ms": 1400 },
+    { "do": "wait", "ms": 700 },
+    { "do": "click", "selector": "#quiz [data-quiz-open]" },
+    { "do": "wait", "ms": 1300 },
+    { "do": "click", "selector": "[data-q1=senior]" },
+    { "do": "wait", "ms": 1300 },
+    { "do": "click", "selector": "[data-q2=ordinateur]" },
+    { "do": "wait", "ms": 1300 },
+    { "do": "click", "selector": "[data-q3=debutant]" },
+    { "do": "wait", "ms": 1300 },
+    { "do": "click", "selector": "[data-q4=moyen]" },
+    { "do": "wait", "ms": 3200 }
+  ]
+}

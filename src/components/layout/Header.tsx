@@ -25,6 +25,7 @@ import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 import { type Locale, detectLocaleFromPath } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { localizedPath } from '@/i18n/slugs'
+import type { NavRealisations, NavRealisationsLocale } from '@/lib/realisations/nav'
 
 // ─── Mega-menu data builders ──────────────────────────────────────────────────
 
@@ -130,10 +131,85 @@ const TRIGGER_STYLE: Record<'agence' | 'ia' | 'formation' | 'apropos', React.CSS
   apropos:   { '--trigger-hover-bg': 'var(--gray-bg)',   '--trigger-active-bg': 'var(--gray-bg)',   '--trigger-active-color': 'var(--text)' } as React.CSSProperties,
 }
 
+// ─── Carte Réalisations (méga menu À propos, 2026-10-01) ─────────────────────
+
+/**
+ * Entrée « Réalisations » du pilier À propos : trois images de présentation
+ * des études à la une, le nombre d'études, puis la dernière étude publiée,
+ * chacune avec son propre lien. Les images restent décoratives (alt vide) :
+ * le texte du lien dit où il mène. Sur ordinateur, chaque lien passe par
+ * NavigationMenuLink pour que le menu se ferme au clic.
+ */
+function RealisationsNavCard({
+  data, lang, mobile = false, onNavigate,
+}: {
+  data: NavRealisationsLocale
+  lang: Locale
+  mobile?: boolean
+  onNavigate?: () => void
+}) {
+  const { color, bg, border } = PILLAR_ACCENT.apropos
+  const en = lang === 'en'
+  const wrap = (node: React.ReactElement) => (mobile ? node : <NavigationMenuLink asChild>{node}</NavigationMenuLink>)
+  const h = mobile ? 64 : 56
+  const w = Math.round(h * 1.6)
+  return (
+    <div className="overflow-hidden rounded-[10px] border" style={{ borderColor: border, background: bg }}>
+      {wrap(
+        <Link href={data.hubHref} prefetch onClick={onNavigate} className="group flex items-center gap-4 p-3 pr-4">
+          <span className="relative block shrink-0" style={{ height: h, width: w + (data.thumbs.length - 1) * 20 }} aria-hidden="true">
+            {data.thumbs.map((t, i) => (
+              <img
+                key={t.src}
+                src={t.src}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="absolute top-0 rounded-[6px] border border-border object-cover shadow-[0_8px_18px_-10px_rgba(0,0,0,0.7)] transition-transform duration-300 ease-out group-hover:translate-x-[var(--fan)]"
+                style={{ height: h, width: w, left: i * 20, zIndex: data.thumbs.length - i, ['--fan' as string]: `${i * 6}px` }}
+              />
+            ))}
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-[13px] font-semibold leading-snug text-text-secondary transition-colors group-hover:text-text">
+              {en ? 'Our work' : 'Réalisations'}
+            </span>
+            <span className="mt-0.5 block text-[11px] leading-snug text-text-muted">
+              {en ? `${data.count} sourced case studies: websites, AI, training` : `${data.count} études de cas sourcées : sites, IA, formations`}
+            </span>
+          </span>
+          <ChevronRight size={14} className="shrink-0 opacity-50 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100" style={{ color }} />
+        </Link>,
+      )}
+      {data.latest && wrap(
+        <Link
+          href={data.latest.href}
+          prefetch
+          onClick={onNavigate}
+          className="group flex items-center gap-2 border-t px-3 py-2 text-[11.5px]"
+          style={{ borderColor: border }}
+        >
+          <span
+            className="shrink-0 rounded-full px-1.5 py-px text-[9.5px] font-bold uppercase tracking-wider"
+            style={{ color, background: 'var(--bg-card)', border: `1px solid ${border}` }}
+          >
+            {en ? 'New' : 'Nouveau'}
+          </span>
+          <span className="min-w-0 truncate text-text-muted transition-colors group-hover:text-text">
+            <span className="font-semibold text-text-secondary transition-colors group-hover:text-text">{data.latest.client}</span>
+            {' · '}
+            {data.latest.title}
+          </span>
+        </Link>,
+      )}
+    </div>
+  )
+}
+
 // ─── MegaPanel ────────────────────────────────────────────────────────────────
 
 function MegaPanel({
-  pillar, label, labelHref, tags, main, secondary, hubHref, hubLabel, lang,
+  pillar, label, labelHref, tags, main, secondary, hubHref, hubLabel, lang, feature,
 }: {
   pillar: PillarKey
   label: string
@@ -144,6 +220,8 @@ function MegaPanel({
   hubHref: string
   hubLabel: string
   lang: Locale
+  /** Carte Réalisations, au-dessus des liens (pilier À propos seulement). */
+  feature?: NavRealisationsLocale
 }) {
   const { color, bg, border } = PILLAR_ACCENT[pillar]
   const dict = getDictionary(lang)
@@ -175,6 +253,11 @@ function MegaPanel({
             ))}
           </span>
         </div>
+        {feature && (
+          <div className="mb-2">
+            <RealisationsNavCard data={feature} lang={lang} />
+          </div>
+        )}
         <ul className="grid grid-cols-2 gap-1.5">
           {main.map((item) => (
             <li key={item.href}>
@@ -269,7 +352,7 @@ const slideVariants = {
   exit: (dir: number) => ({ x: dir * -28, opacity: 0 }),
 }
 
-function MobileNav({ open, onClose, lang }: { open: boolean; onClose: () => void; lang: Locale }) {
+function MobileNav({ open, onClose, lang, realisations }: { open: boolean; onClose: () => void; lang: Locale; realisations?: NavRealisationsLocale }) {
   const [activeTab, setActiveTab] = React.useState<TabKey>('agence')
   const [direction, setDirection] = React.useState(0)
   const [mounted, setMounted] = React.useState(false)
@@ -434,6 +517,12 @@ function MobileNav({ open, onClose, lang }: { open: boolean; onClose: () => void
                   ))}
                 </div>
 
+                {tab.key === 'apropos' && realisations && (
+                  <div className="mb-2">
+                    <RealisationsNavCard data={realisations} lang={lang} mobile onNavigate={() => { haptic(); onClose() }} />
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-2">
                   {tab.items.map((item, i) => (
                     <m.div
@@ -559,7 +648,7 @@ function getPillarGradient(pathname: string): string {
 
 // ─── Main Header ─────────────────────────────────────────────────────────────
 
-export function Header() {
+export function Header({ realisations }: { realisations?: NavRealisations } = {}) {
   const [mobileOpen, setMobileOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
   const pathname = usePathname() ?? '/'
@@ -628,6 +717,7 @@ export function Header() {
     hubLabel: string,
     pillarLabel: string,
     tags: TagLink[],
+    feature?: NavRealisationsLocale,
   ) => (
     <MegaPanel
       pillar={pillar}
@@ -639,6 +729,7 @@ export function Header() {
       hubHref={fallbackHub}
       hubLabel={hubLabel}
       lang={lang}
+      feature={feature}
     />
   )
 
@@ -737,7 +828,8 @@ export function Header() {
                         { text: dict.common.ourPricing, href: lp('/tarifs') },
                         { text: 'Blog', href: '/blog' },
                         { text: lang === 'en' ? 'Glossary' : 'Ressources', href: '/glossaire' },
-                      ]
+                      ],
+                      realisations?.[lang],
                     )}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -824,7 +916,8 @@ export function Header() {
                         { text: dict.common.ourPricing, href: lp('/tarifs') },
                         { text: 'Blog', href: '/blog' },
                         { text: lang === 'en' ? 'Glossary' : 'Ressources', href: '/glossaire' },
-                      ]
+                      ],
+                      realisations?.[lang],
                     )}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -870,7 +963,7 @@ export function Header() {
         </div>
       </header>
 
-      <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} lang={lang} />
+      <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} lang={lang} realisations={realisations?.[lang]} />
     </>
   )
 }

@@ -10,6 +10,7 @@ import { WebVitals } from '@/components/providers/WebVitals'
 import { MotionProvider } from '@/components/providers/MotionProvider'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { Header } from '@/components/layout/Header'
+import { navRealisations } from '@/lib/realisations/nav'
 import { FooterWrapper } from '@/components/layout/FooterWrapper'
 import { LazyChatWidget } from '@/components/ui/LazyChatWidget'
 import { OPENAI_PIXEL_ID } from '@/lib/openai-ads'
@@ -145,7 +146,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <ConversionTracker />
               <OpenAiPageView />
               <WebVitals />
-              <Header />
+              <Header realisations={navRealisations()} />
               {children}
               <FooterWrapper />
               <LazyChatWidget />

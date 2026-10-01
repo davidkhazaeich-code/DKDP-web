@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useId, useState } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { m, useReducedMotion } from 'framer-motion'
 import { clsx } from 'clsx'
 import { ArrowRight, Check } from 'lucide-react'
 import type { Locale } from '@/i18n/config'
@@ -38,8 +38,12 @@ const INTERVAL_TOUCH_MS = 7500
  * masque ; avec `prefers-reduced-motion`, elle ne demarre pas et les pastilles
  * restent le seul moyen de changer d'image. Seules l'image affichee et la
  * suivante sont chargees : le reste attend son tour.
+ *
+ * `eager` (defaut) charge la premiere image en priorite : le hub l'a au-dessus
+ * de la ligne de flottaison. L'accueil la place plus bas et passe `eager={false}`,
+ * pour ne pas disputer la bande passante a l'image principale de la page.
  */
-export function HubHeroVisual({ slides, lang = 'fr' }: { slides: HubSlide[]; lang?: Locale }) {
+export function HubHeroVisual({ slides, lang = 'fr', eager = true }: { slides: HubSlide[]; lang?: Locale; eager?: boolean }) {
   const en = lang === 'en'
   const detailsId = useId()
   const reduceMotion = useReducedMotion()
@@ -116,8 +120,8 @@ export function HubHeroVisual({ slides, lang = 'fr' }: { slides: HubSlide[]; lan
               src={s.src}
               alt={i === index ? s.alt : ''}
               aria-hidden={i === index ? undefined : true}
-              loading={i === 0 ? 'eager' : 'lazy'}
-              fetchPriority={i === 0 ? 'high' : undefined}
+              loading={eager && i === 0 ? 'eager' : 'lazy'}
+              fetchPriority={eager && i === 0 ? 'high' : undefined}
               decoding="async"
               className={clsx(
                 'absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
@@ -208,7 +212,7 @@ export function HubHeroVisual({ slides, lang = 'fr' }: { slides: HubSlide[]; lan
       {/* Au toucher : les memes informations sous l'image. Sur ordinateur, ce bloc reste
           masque mais decrit le lien pour les lecteurs d'ecran (aria-describedby). */}
       <div id={detailsId} className="mt-3 hidden min-h-[7.25rem] [@media(hover:none)]:block">
-        <motion.div
+        <m.div
           key={current.href}
           initial={reduceMotion ? false : { opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
@@ -229,7 +233,7 @@ export function HubHeroVisual({ slides, lang = 'fr' }: { slides: HubSlide[]; lan
               {current.result.metric}, {t.asOf} {current.result.date}
             </p>
           )}
-        </motion.div>
+        </m.div>
       </div>
     </div>
   )

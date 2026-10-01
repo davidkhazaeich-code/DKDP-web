@@ -1,7 +1,7 @@
 import './realisations-hero.css'
 import { Suspense } from 'react'
 import { RealisationsGrid } from './RealisationsGrid'
-import { HubHeroVisual, type HubSlide } from './HubHeroVisual'
+import { HubHeroVisual } from './HubHeroVisual'
 import { GradTag } from '@/components/ui/GradTag'
 import { SectionReveal } from '@/components/ui/SectionReveal'
 import { CTAFinal } from '@/components/sections/CTAFinal'
@@ -10,10 +10,7 @@ import { SchemaOrg } from '@/components/seo/SchemaOrg'
 import { buildBreadcrumbList } from '@/lib/schema'
 import { buildRealisationsCollection } from '@/lib/realisations/jsonld'
 import { hubOrder } from '@/lib/realisations'
-import { domainLabel, sectorLabel } from '@/lib/realisations/taxonomy'
-import { studyVisual } from '@/lib/realisations/visual'
-import { heroProof } from '@/lib/realisations/hero'
-import { formatDateShort } from '@/lib/format'
+import { realisationSlides } from '@/lib/realisations/slides'
 import type { Realisation } from '@/lib/realisations/types'
 import type { Locale } from '@/i18n/config'
 
@@ -39,27 +36,8 @@ export function RealisationsHub({ items, lang = 'fr' }: { items: Realisation[]; 
   const sectors = new Set(items.map((r) => r.sector)).size
   const home = en ? 'https://dkdp.ch/en' : 'https://dkdp.ch/'
   const hub = en ? 'https://dkdp.ch/en/portfolio' : 'https://dkdp.ch/realisations'
-  const base = en ? '/en/portfolio' : '/realisations'
 
-  const slides: HubSlide[] = ordered
-    .map((r): HubSlide | null => {
-      const visual = studyVisual(r)
-      if (!visual) return null
-      return {
-        src: visual.src,
-        alt: visual.alt,
-        href: `${base}/${r.slug}`,
-        client: r.client.name,
-        label: `${domainLabel(r.domains[0], lang)} · ${sectorLabel(r.sector, lang)}`,
-        points: r.teaser ?? [],
-        result: (() => {
-          const proof = heroProof(r)
-          return proof ? { value: proof.value, metric: proof.metric, date: formatDateShort(proof.capturedAt) } : undefined
-        })(),
-      }
-    })
-    .filter((s): s is HubSlide => s !== null)
-    .slice(0, MAX_SLIDES)
+  const slides = realisationSlides(ordered, lang, MAX_SLIDES)
 
   const stats = [
     { label: en ? 'Case studies' : 'Études', value: items.length },

@@ -21,6 +21,8 @@ import { violet, orange, chrome } from '@/lib/tokens'
 import { intrinsicSize } from '@/lib/image-size'
 import { InlineCTA } from './_components/InlineCTA'
 import { ServiceGrid } from './_components/ServiceGrid'
+import { RelatedCaseStudies } from './_components/RelatedCaseStudies'
+import { realisationsForArticle } from '@/lib/realisations'
 import { SummarizeWithAI } from './_components/SummarizeWithAI'
 import { BlogDiagramMotion } from '@/components/motion/BlogDiagramMotion'
 import type { ServiceLink } from './_components/InlineCTA'
@@ -560,6 +562,9 @@ export default async function ArticlePage(
             {services[0] && (
               <InlineCTA service={services[0]} />
             )}
+
+            {/* Études de cas qui citent l'article (01.10.2026) */}
+            <RelatedCaseStudies items={realisationsForArticle(article.slug)} />
 
             {/* Service grid at end of article */}
             <ServiceGrid services={services} />

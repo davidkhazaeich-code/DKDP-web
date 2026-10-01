@@ -99,6 +99,8 @@ export const ROUTES: Route[] = [
   { url: '/intelligence-artificielle/audit-conseil', priority: 0.80, changeFrequency: 'monthly', lastModified: '2026-09-10' },
   { url: '/intelligence-artificielle/mise-en-place', priority: 0.80, changeFrequency: 'monthly', lastModified: '2026-09-10' },
   { url: '/intelligence-artificielle/chatbot-ia',   priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-09-10' },
+  // Page créée le 2026-10-01 : accompagnement IA mensuel (offre PGN), miroir EN /artificial-intelligence/ai-adoption dans i18n/slugs.ts.
+  { url: '/intelligence-artificielle/accompagnement-ia', priority: 0.85, changeFrequency: 'monthly', lastModified: '2026-10-01' },
 
   // ─── Formation Entreprise ─────────────────────────────────────────────────
   // Passe du 2026-08-23 : section « Veille et actualité » (ArticleCarousel).

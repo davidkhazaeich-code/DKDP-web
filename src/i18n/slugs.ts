@@ -48,6 +48,7 @@ export const FR_TO_EN: Record<string, string> = {
   '/intelligence-artificielle/audit-conseil': '/artificial-intelligence/audit-consulting',
   '/intelligence-artificielle/mise-en-place': '/artificial-intelligence/implementation',
   '/intelligence-artificielle/chatbot-ia': '/artificial-intelligence/ai-chatbot',
+  '/intelligence-artificielle/accompagnement-ia': '/artificial-intelligence/ai-adoption',
 
   // Formation entreprise
   '/formation-entreprise/claude-ai': '/corporate-training/claude-ai',

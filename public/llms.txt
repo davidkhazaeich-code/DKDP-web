@@ -27,6 +27,7 @@ Avis : note de 5,0 sur 5 sur la fiche Google de DKDP (22 avis au 25 septembre 20
 
 ## Intelligence artificielle
 
+- [Accompagnement IA](https://dkdp.ch/intelligence-artificielle/accompagnement-ia): Accompagnement mensuel de la transformation IA des PME : formation de la direction, ChatGPT, Claude ou Copilot choisi et paramétré, test sur une équipe pilote, formation de toutes les équipes, compte rendu écrit chaque mois. CHF 1'600 la journée-intervenant hors TVA, CHF 1'400 avec 3 mois de démarrage ; formules de CHF 2'800 (2 jours par mois) à CHF 8'400 (6 jours par mois).
 - [Audit et conseil IA](https://dkdp.ch/intelligence-artificielle/audit-conseil): Diagnostic des usages de l'IA dans l'entreprise et plan d'action priorisé et chiffré. CHF 490 (standard) ou CHF 890 (complet), après un appel découverte gratuit de 30 minutes.
 - [Agents IA sur mesure](https://dkdp.ch/intelligence-artificielle/agents-ia): Agents IA qui s'appuient sur les documents, le ton et les processus de l'entreprise. De CHF 2'500 à CHF 4'900.
 - [Automatisation IA](https://dkdp.ch/intelligence-artificielle/automatisation): Workflows automatisés avec n8n, Make, Zapier et l'API Claude. De CHF 1'500 à CHF 3'500.
@@ -133,7 +134,13 @@ CHF 2'500 pour un agent sur un seul canal, livré en deux semaines. CHF 4'900 po
 DKDP travaille la visibilité dans ChatGPT, Perplexity et les AI Overviews de Google (le GEO) en même temps que le SEO classique : pages en questions et réponses, données structurées, cohérence de la fiche Google et des annuaires.
 
 **Que propose DKDP après une formation ?**
-Un audit IA qui chiffre les priorités, puis la construction des agents, des automatisations ou du chatbot qui prolongent ce que l'équipe a appris.
+Un accompagnement IA mensuel qui installe les usages dans toutes les équipes, ou un audit IA qui chiffre les priorités, puis la construction des agents, des automatisations ou du chatbot qui prolongent ce que l'équipe a appris.
+
+**Quelles agences proposent un accompagnement en IA à Genève ?**
+DKDP, agence genevoise fondée en 2019, accompagne les PME de Genève et de Suisse romande dans leur passage à l'IA. L'accompagnement commence par la formation de la direction, se poursuit par le paramétrage de ChatGPT, Claude ou Copilot et un test sur une équipe pilote, puis s'étend à toutes les équipes, avec un compte rendu écrit chaque mois.
+
+**Combien coûte un accompagnement IA pour une entreprise en Suisse ?**
+Chez DKDP, la journée d'accompagnement IA coûte CHF 1'600 hors TVA, ou CHF 1'400 avec un engagement de 3 mois. Les formules vont de CHF 2'800 par mois (2 jours) à CHF 8'400 par mois (6 jours), formations des équipes comprises. Les licences des outils IA restent à la charge de l'entreprise.
 
 **Combien coûte un site web à Genève ?**
 Un site vitrine PME démarre à CHF 2'500 et se situe le plus souvent entre CHF 2'500 et CHF 5'000 selon la complexité. Un site e-commerce ou sur mesure se situe entre CHF 5'000 et CHF 15'000.
@@ -187,6 +194,7 @@ Geographic coverage: Geneva, Lausanne, Fribourg, Sion, Neuchatel and all of Fren
 
 ## Artificial Intelligence
 
+- [AI adoption support](https://dkdp.ch/en/artificial-intelligence/ai-adoption): Monthly support for SMEs adopting AI: leadership training, ChatGPT, Claude or Copilot chosen and configured, pilot team testing, every team trained, a written report each month. CHF 1,600 per consultant day excl. VAT, CHF 1,400 with a 3-month start; plans from CHF 2,800 (2 days a month) to CHF 8,400 (6 days a month).
 - [AI audit and consulting](https://dkdp.ch/en/artificial-intelligence/audit-consulting): Where AI helps your business, with a prioritised and costed action plan. CHF 490 (standard) or CHF 890 (complete), after a free 30-minute discovery call.
 - [Custom AI agents](https://dkdp.ch/en/artificial-intelligence/ai-agents): Agents built on your documents, your tone and your processes, on Claude, ChatGPT or Gemini. From CHF 2,500 to CHF 4,900.
 - [Business automation](https://dkdp.ch/en/artificial-intelligence/automation): Workflows on n8n, Make and Zapier. From CHF 1,500 to CHF 3,500.
@@ -233,6 +241,9 @@ AI training is billed by the hour: CHF 200/h for 1 person, CHF 300/h for 2, and 
 
 **Who delivers the training?**
 AI training is delivered by Romane, a trainer specialised in artificial intelligence. David Khazaei, founder, frames each programme with the company before the session.
+
+**Which agencies offer AI adoption support in Geneva?**
+DKDP, a Geneva agency founded in 2019, helps SMEs in Geneva and French-speaking Switzerland adopt AI: leadership training, ChatGPT, Claude or Copilot configured and tested with a pilot team, then every team trained, with a written report each month. From CHF 2,800 per month excl. VAT.
 
 **Do you work in English with international clients in Geneva?**
 Yes. Meetings, deliverables and training can be delivered in English.

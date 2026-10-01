@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { AccompagnementBridge } from '@/app/intelligence-artificielle/accompagnement-ia/_components/AccompagnementBridge'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -81,7 +82,7 @@ const FAQ_ITEMS = [
   {
     question: "Que se passe-t-il après l'audit ?",
     answer:
-      "Vous recevez un rapport PDF complet avec 3 actions priorisées et leur ROI estimé. Si vous souhaitez aller plus loin, nous pouvons déployer les automatisations identifiées via nos services Agents IA, Automatisation métier ou Mise en place IA. Aucune obligation, vous choisissez votre rythme.",
+      "Vous recevez un rapport PDF complet avec 3 actions priorisées et leur ROI estimé. Si vous souhaitez aller plus loin, nous pouvons déployer les automatisations identifiées via nos services Agents IA, Automatisation métier ou Mise en place IA, ou vous accompagner chaque mois pour installer l'IA dans toutes vos équipes. Aucune obligation, vous choisissez votre rythme.",
   },
   {
     question: "Peut-on mettre en oeuvre les recommandations nous-memes ?",
@@ -645,6 +646,7 @@ export default function AuditConseilPage() {
               </SectionReveal>
             ))}
           </div>
+          <AccompagnementBridge />
         </div>
       </section>
 

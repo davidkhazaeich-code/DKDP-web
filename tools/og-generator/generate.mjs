@@ -39,6 +39,8 @@ const PAGES = [
   { file: 'formation-chatgpt.png',      pillar: 'formation', label: 'Formation ChatGPT',               title: 'ChatGPT Astra en entreprise',     subtitle: 'GPT-6 Astra · ChatGPT Work · Genève et Suisse romande', size: 'smaller' },
 
   // Service pages
+  // 01/10/2026 : accompagnement IA mensuel, partagé par la page FR et son miroir EN.
+  { file: 'accompagnement-ia.png',      pillar: 'ia',        label: 'Accompagnement IA · Genève',      title: 'L’IA dans toute l’entreprise',    subtitle: 'Direction formée · Équipes formées · Livrables chaque mois', size: 'smaller' },
   { file: 'chatgpt-ads.png',            pillar: 'agence',    label: 'ChatGPT Ads · Genève',            title: 'Publicité dans ChatGPT',          subtitle: 'Cartes sponsorisées · Pilote 30 jours · Suisse romande', size: 'smaller' },
 ]
 

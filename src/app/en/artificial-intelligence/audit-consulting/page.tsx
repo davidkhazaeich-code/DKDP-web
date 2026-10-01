@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { AccompagnementBridge } from '@/app/intelligence-artificielle/accompagnement-ia/_components/AccompagnementBridge'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -727,6 +728,7 @@ export default function AuditConsultingPage() {
               </SectionReveal>
             ))}
           </div>
+          <AccompagnementBridge lang="en" />
         </div>
       </section>
 

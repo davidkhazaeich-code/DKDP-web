@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { AccompagnementBridge } from '@/app/intelligence-artificielle/accompagnement-ia/_components/AccompagnementBridge'
 import { PRIX, chf, chfHeure } from '@/data/pricing'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
@@ -572,6 +573,7 @@ export default function FormationIAPage() {
               </span>
             </Link>
           </SectionReveal>
+          <AccompagnementBridge />
         </div>
       </section>
 

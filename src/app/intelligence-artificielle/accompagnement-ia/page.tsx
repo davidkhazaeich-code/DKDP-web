@@ -1,0 +1,30 @@
+import type { Metadata } from 'next'
+import { chf, prixAccompagnementIa } from '@/data/pricing'
+import { AccompagnementIaPage } from './_components/AccompagnementIaPage'
+
+/**
+ * 01/10/2026 : page créée pour promouvoir l'accompagnement IA mensuel (offre PGN).
+ * Aucune page ne portait l'intention : /audit-conseil est un diagnostic ponctuel,
+ * /mise-en-place une intégration technique de LLM, /formation-entreprise/ia une
+ * formation. Mots-clés, SERP et Mode IA : DEV SPACE/clients Claude/DKDP/
+ * seo-plan-2026-09/accompagnement-ia-2026-10-01/.
+ */
+export const metadata: Metadata = {
+  title: 'Accompagnement IA entreprise Genève | Transformation IA | DKDP',
+  description: `Accompagnement IA mensuel des PME romandes : direction formée, outil paramétré, équipes formées, livrables datés. Dès ${chf(prixAccompagnementIa('essentiel'))}/mois.`,
+  alternates: {
+    canonical: 'https://dkdp.ch/intelligence-artificielle/accompagnement-ia',
+    languages: {
+      'fr-CH': 'https://dkdp.ch/intelligence-artificielle/accompagnement-ia',
+      en: 'https://dkdp.ch/en/artificial-intelligence/ai-adoption',
+      'x-default': 'https://dkdp.ch/intelligence-artificielle/accompagnement-ia',
+    },
+  },
+  openGraph: {
+    images: [{ url: '/images/og/accompagnement-ia.png', width: 1376, height: 768, alt: 'Accompagnement IA des entreprises à Genève, DKDP' }],
+  },
+}
+
+export default function Page() {
+  return <AccompagnementIaPage lang="fr" />
+}

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { AccompagnementBridge } from '@/app/intelligence-artificielle/accompagnement-ia/_components/AccompagnementBridge'
 import Link from 'next/link'
 import { PRIX, chf } from '@/data/pricing'
 import Image from 'next/image'
@@ -333,6 +334,8 @@ export default function IntelligenceArtificiellePage() {
               </SectionReveal>
             ))}
           </div>
+
+          <AccompagnementBridge />
 
           {/* ── Bridge Formation IA ── */}
           <SectionReveal delay={0.35}>

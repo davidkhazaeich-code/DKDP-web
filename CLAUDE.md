@@ -208,6 +208,10 @@ Le sitemap (`app/sitemap.ts`) et les redirections (`next.config.mjs`) se mettent
 - Ne jamais force-push sur `main` sans confirmation explicite
 - Apres push, le site est live sur `https://dkdp.ch` en ~60s
 
+## Images des signatures email : adresses figees
+
+`public/images/email/signature-*` = images de la signature email de David (dk@dkdp.ch), appelees depuis chaque email envoye. Ne jamais renommer, deplacer, supprimer ni modifier un de ces fichiers : `/images/` part en cache un an et les emails deja envoyes pointent dessus. Une nouvelle version = un nouveau nom, puis repointer la signature Mail. PNG ou JPEG seulement : SVG et WebP ne s'affichent pas partout (Outlook Windows, Gmail en partie), et une image en base64 (`data:`) jamais dans Gmail.
+
 ## Documentation de référence (`docs/claude/`, lue à la demande)
 
 | Sujet | Fichier | Lire quand |
